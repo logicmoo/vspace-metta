@@ -1,17 +1,37 @@
-import readline
-import sys
 from hyperon.base import Atom
 from hyperon.atoms import OperationAtom, E
 from hyperon.ext import register_tokens
+from hyperon.ext import register_atoms
 from hyperon.atoms import G, AtomType
 from hyperon.runner import MeTTa
+
 import hyperonpy as hp
 
-class MeTTaVS(MeTTa):
+import atexit
+import os
+import readline
+import sys
+histfile = os.path.join(os.path.expanduser("~"), ".metta_history")
 
+try:
+    readline.set_history_length(10000)
+    readline.read_history_file(histfile)
+    h_len = readline.get_current_history_length()
+except FileNotFoundError:
+    open(histfile, 'wb').close()
+    h_len = 0
+
+def save(prev_h_len, histfile):
+    new_h_len = readline.get_current_history_length()
+    readline.set_history_length(10000)
+    readline.append_history_file(new_h_len - prev_h_len, histfile)
+atexit.register(save, h_len, histfile)
+
+
+
+class MeTTaVS(MeTTa):
     def copy(self):
         return self
-
 
 @register_atoms
 def my_imported_runner_atom():
@@ -32,16 +52,17 @@ def my_imported_runner_atom():
         something
 
         (= (call_func $f $arg) ($f $arg))
-    '''
-    runner = MeTTaVS()
+    '''    
     runner.run(content)
-    runnerAtom = G(runner, AtomType.ATOM)
+    
     return {
         'r': runnerAtom
     }
 
 @register_tokens(pass_metta=True)
 def my_resolver_atoms(metta):
+
+    print("my_resolver_atoms")
 
     def run_resolved_symbol_op(runner, atom, *args):
         expr = E(atom, *args)
@@ -78,19 +99,22 @@ def my_resolver_atoms(metta):
     }
 
 
+runner = MeTTaVS()
+runnerAtom = G(runner, AtomType.ATOM)
+
 class REPL:
     def __init__(self):
         self.history = []
 
     def main_loop(self):
-
-        runner = MeTTaVS()
-        runner.run(content)
-        runnerAtom = G(runner, AtomType.ATOM)
+        
+        mettaName = "MeTTa"
         while True:
             try:
                 # Use the input function to get user input
-                line = input(">>> ")
+                
+                prmpt = mettaName + " >>> ";
+                line = input(prmpt)
                 
                 # Check for history commands
                 if line == '.history':
@@ -101,13 +125,18 @@ class REPL:
                 # If the line isn't empty, evaluate it
                 if line:
                     self.history.append(line)
-                    result = eval(line)
+                    result = runner.run(line)
                     if result is not None:
                         print(result)
 
             except KeyboardInterrupt:
                 # Handle Ctrl+C to exit
-                print("\nExiting...")
+                print("\nCtrl-C Exiting...")
+                sys.exit(3)
+
+            except EOFError:
+                # Handle Ctrl+D to exit
+                print("\n Ctrl-D EOF...")
                 sys.exit(0)
                 
             except Exception as e:

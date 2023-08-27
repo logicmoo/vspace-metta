@@ -1,4 +1,4 @@
-!(extend-py! metta-FlySpace)
+!(extend-py! metta_vspace.FlySpace)
 
 ! FlySpace ; hyperon.runner.MeTTa object (`r` is registered 'manually' now)
 ;! resolve ; just a symbol, because `resolve` extension doesn't 'register itself', but it could be possible to automate this
