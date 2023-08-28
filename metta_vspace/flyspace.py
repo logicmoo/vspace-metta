@@ -1,21 +1,19 @@
-import os
-from collections import Counter
-from time import monotonic_ns, time
-from glob import glob
-
-from hyperon import MeTTa, interpret, S, SymbolAtom, VariableAtom, ExpressionAtom, GroundedAtom, OperationAtom, AtomType
-
 #import openai
 #openai.api_key = os.environ["OPENAI_API_KEY"]
+from collections import Counter
+from glob import glob
 from hyperon import *
+#from hyperon import MeTTa, interpret, S, SymbolAtom, VariableAtom, ExpressionAtom, GroundedAtom, OperationAtom, AtomType
 from hyperon.atoms import *
 #from hyperon.atoms import G, AtomType
 #from hyperon.atoms import OperationAtom, ValueAtom
+from hyperon.base import *
 #from hyperon.base import Atom
 from hyperon.ext import *
 #from hyperon.ext import register_atoms
 #from hyperon.ext import register_tokens
 from hyperon.runner import MeTTa
+from time import monotonic_ns, time
 import atexit
 import hyperonpy as hp
 import os
@@ -133,12 +131,14 @@ class InteractiveMeTTa(LazyMeTTa):
 
 
     # Add the string to the history
-    readline.add_history("@prolog")
+    readline.add_history("@swip")
     readline.add_history("@metta")
     readline.add_history("!(match &self $ $)")
+    readline.add_history("!(load-flyspace)")
+    readline.add_history("!(load-flybase)")
     readline.add_history('!(get-by-key &my-dict "A")')
-    readline.add_history("!(get-by-key &my-dict 6)")          
-    readline.add_history("!(extend-py! flyspace)")
+    # readline.add_history("!(get-by-key &my-dict 6)")          
+    # readline.add_history("!(extend-py! flyspace)")
         
     
     def repl_loop(self):
@@ -163,23 +163,24 @@ class InteractiveMeTTa(LazyMeTTa):
                     continue
 
                 # Switch to python mode
-                elif sline.startswith("@py"):
+                elif sline.startswith("@p"):
                     self.mode = "python"
                     print("Switched to Python mode.")
-                    readline.add_history("@prolog")
+                    readline.add_history("@swip")
                     readline.add_history("@metta")
                     continue
 
-                # Switch to prolog mode
-                elif sline.startswith("@p"):
-                    self.mode = "prolog"
-                    print("Switched to Prolog mode.")
-                    readline.add_history("prolog")
-                    readline.add_history("mine_overlaps")
-                    readline.add_history("listing(maybe_corisponds/2)")
-                    readline.add_history("try_overlaps")
+                # Switch to swip mode
+                elif sline.startswith("@s"):
+                    self.mode = "swip"
+                    print("Switched to PySwip mode.")
+                    readline.add_history("swip")
                     readline.add_history("synth_query(4,Query)")
-                    readline.add_history("ensure_loaded('metta_vspace/pyswip/swi_flybase'),call(load_flybase)")
+                    readline.add_history("try_overlaps")
+                    readline.add_history("listing(maybe_corisponds/2)")
+                    readline.add_history("mine_overlaps")
+                    readline.add_history("call(load_flybase)")
+                    readline.add_history("ensure_loaded('metta_vspace/pyswip/swi_flybase')")
                     continue
 
                 # Switch to metta mode
@@ -194,7 +195,7 @@ class InteractiveMeTTa(LazyMeTTa):
                     print("Help:")
                     print("@m       - Switch to MeTTa mode.")
                     print("@py      - Switch to Python mode.")
-                    print("@p       - Switch to Prolog mode.")
+                    print("@p       - Switch to PySwip mode.")
                     print("Ctrl-D   - Exit interpreter.")
                     print("@h       - Display this help message.")                   
                     print("+        - Add an atom.")
@@ -209,26 +210,30 @@ class InteractiveMeTTa(LazyMeTTa):
 
                 prefix = sline[0]
                     
-                if self.mode == "prolog":
+                if self.mode == "swip":
                     # comment
                     if prefix == "%":
                         print(line);
                         continue
-
-                    if sline.startswith("("):
+                    # MeTTa or Atomspace
+                    elif sline.startswith("("):
                        expr = self.parse_single(sline)
                        print(f"% S-Expr {line}")
                        print(f"% M-Expr {expr}")
-                       prolog_obj = atomspace_to_prolog(expr);
-                       print(f"% P-Expr {prolog_obj}")
+                       swip_obj = atomspace_to_swip(expr);
+                       print(f"% P-Expr {swip_obj}")
                        call_sexpr = Functor("call_sexpr", 2)
                        user = newModule("user")
                        X = Variable()
-                       q = Query(call_sexpr(prolog_obj, X), module=user)
+                       q = Query(call_sexpr(swip_obj, X), module=user)
                        while q.nextSolution():
                            print(X.value)
                        q.closeQuery()
                        continue
+                     # Plain
+                    result = list(swip.query(line))
+                    print(result)
+                    continue
 
                 elif self.mode == "python":
                     # comment
@@ -276,7 +281,7 @@ class InteractiveMeTTa(LazyMeTTa):
                         self.space().remove_atom(expr)
                         continue
                     else:
-                        result = runner.run(line)
+                        result = evalMetta(line)
                         if result is not None:
                             print(result)
                         continue
@@ -381,14 +386,15 @@ def flyspace_atoms():
     return {
         r"new-fly-space": newNSpaceAtom,
         r"new-intent-space": newISpaceAtom,        
-        #'&self': runner, '&prolog': G(swip),
+        #'&self': runner, '&swip': G(swip),
         '&my-dict': ValueAtom({'A': 5, 6: 'B'}),
         'get-by-key': OperationAtom('get-by-key', lambda d, k: d[k]),
-        'call-pyswip': OperationAtom('call-pyswip', lambda d, k: call_pyswip(d,k))
+        'load-flyspace': OperationAtom('load-flyspace', lambda: [load_flyspace()]),
+        'load-flybase': OperationAtom('load-flybase', lambda: [load_flybase()]),
+        'swip-exec': OperationAtom('swip-exec', lambda s: [swipexec(s)]),
+        'py-eval': OperationAtom('py-eval', lambda s: [eval(s)])
+        
     }
-
-def call_pyswip(d,k):
-    return k
 
 @register_tokens(pass_metta=True)
 def flyspace_tokens(metta):
@@ -417,7 +423,7 @@ def flyspace_tokens(metta):
         #        or something else...
         # TODO: assert
         runner = metta.run('! ' + runner_name)[0][0].get_object()
-        atom = runner.run('! ' + atom_name)[0][0]
+        atom = evalMetta('! ' + atom_name)[0][0]
         # A hack to make runner::&self work
         # TODO? the problem is that we need to return an operation to make this
         # work in parent expressions, thus, it is unclear how to return pure
@@ -432,16 +438,19 @@ def flyspace_tokens(metta):
         r"[^\s]+::[^\s]+": lambda token: resolve_atom(metta, token)
     }
 
+def evalMetta(src):
+   return runner.run(src)
+
 runner = FlySpace()
-runner.run("!(extend-py! pyswip)")
-runner.run("!(extend-py! pyswip.easy)")
-runner.run("!(extend-py! pyswip.prolog)")
-runner.run("!(extend-py! flyspace)")
+evalMetta("!(extend-py! pyswip)")
+evalMetta("!(extend-py! pyswip.easy)")
+evalMetta("!(extend-py! pyswip.prolog)")
+evalMetta("!(extend-py! flyspace)")
 runnerAtom = G(runner, AtomType.ATOM)
 
-#from pyswip.prolog import Prolog
 from pyswip.easy import *
-from pyswip import registerForeign, PL_foreign_context, PL_foreign_control, PL_FIRST_CALL, PL_REDO, PL_PRUNED, PL_retry, PL_FA_NONDETERMINISTIC, Variable, Prolog
+from pyswip import                                                                                                                                         Prolog as PySwip
+from pyswip import registerForeign, PL_foreign_context, PL_foreign_control, PL_FIRST_CALL, PL_REDO, PL_PRUNED, PL_retry, PL_FA_NONDETERMINISTIC, Variable
 
 def test_nondeterministic_foreign():
 
@@ -524,23 +533,23 @@ def test_nondeterministic_foreign():
     print()
     print()
 
-def prolog_to_atomspace(prolog_obj):
+def swip_to_atomspace(swip_obj):
 
-    if isinstance(prolog_obj, str):
-        return S(prolog_obj)
+    if isinstance(swip_obj, str):
+        return S(swip_obj)
 
-    if isinstance(prolog_obj, Atom):
-        return S(prolog_obj.get_value())
+    if isinstance(swip_obj, Atom):
+        return S(swip_obj.get_value())
 
-    if isinstance(prolog_obj, Variable):
-        return V(prolog_obj.chars if prolog_obj.chars else "Var")
+    if isinstance(swip_obj, Variable):
+        return V(swip_obj.chars if swip_obj.chars else "Var")
 
-    if isinstance(prolog_obj, Functor):
+    if isinstance(swip_obj, Functor):
         # Convert the functor to an expression in Atomspace
-        if isinstance(prolog_obj.name, Atom):
-            sfn = prolog_obj.name.value
+        if isinstance(swip_obj.name, Atom):
+            sfn = swip_obj.name.value
         else:
-            sfn = prolog_obj.name
+            sfn = swip_obj.name
 
         if sfn=="[|]":
             sfn = "::";
@@ -548,7 +557,7 @@ def prolog_to_atomspace(prolog_obj):
         fn = S(sfn)
 
         # Create an array of arguments first
-        argz = [prolog_to_atomspace(arg) for arg in prolog_obj.args]
+        argz = [swip_to_atomspace(arg) for arg in swip_obj.args]
 
         args_len = len(argz)
     
@@ -576,20 +585,20 @@ def prolog_to_atomspace(prolog_obj):
         return main_expr
 
     # Handle numbers and convert them to ValueAtom objects in Atomspace
-    if isinstance(prolog_obj, (int, float)):
-        return ValueAtom(prolog_obj)
+    if isinstance(swip_obj, (int, float)):
+        return ValueAtom(swip_obj)
 
-    # Handle Prolog lists
-    if isinstance(prolog_obj, list):
+    # Handle PySwip lists
+    if isinstance(swip_obj, list):
         list_expr = E("::")
-        for item in prolog_obj:
-            list_expr.add_sub_expression(prolog_to_atomspace(item))
+        for item in swip_obj:
+            list_expr.add_sub_expression(swip_to_atomspace(item))
         return list_expr
 
-    raise ValueError(f"Unknown Prolog object type: {type(prolog_obj)}")
+    raise ValueError(f"Unknown PySwip object type: {type(swip_obj)}")
 
 @staticmethod
-def atomspace_to_prolog(atomspace_obj):
+def atomspace_to_swip(atomspace_obj):
 
     if isinstance(atomspace_obj, ValueAtom):
         return atomspace_obj.get_value()
@@ -599,11 +608,11 @@ def atomspace_to_prolog(atomspace_obj):
 
 
     if isinstance(atomspace_obj, E):
-        # Convert the main expression and its sub-expressions to a Functor in Prolog
-        if atomspace_obj.get_value() == "::":  # Convert Atomspace list to Prolog list
-            return [atomspace_to_prolog(sub_expr) for sub_expr in atomspace_obj.sub_expressions]
+        # Convert the main expression and its sub-expressions to a Functor in PySwip
+        if atomspace_obj.get_value() == "::":  # Convert Atomspace list to PySwip list
+            return [atomspace_to_swip(sub_expr) for sub_expr in atomspace_obj.sub_expressions]
         else:
-            args = [atomspace_to_prolog(sub_expr) for sub_expr in atomspace_obj.sub_expressions]
+            args = [atomspace_to_swip(sub_expr) for sub_expr in atomspace_obj.sub_expressions]
             return Functor(Atom(atomspace_obj.get_value()), len(args), args)
 
     if isinstance(atomspace_obj, V):
@@ -614,67 +623,77 @@ def atomspace_to_prolog(atomspace_obj):
 
 
 @staticmethod
-def prolog_to_atomspace_wrapper(prolog_obj, atomspace_obj):
-    result = prolog_to_atomspace(prolog_obj)
-    atomspace_obj.unify(atomspace_to_prolog(result))
+def swip_to_atomspace_wrapper(swip_obj, atomspace_obj):
+    result = swip_to_atomspace(swip_obj)
+    atomspace_obj.unify(atomspace_to_swip(result))
     return True
 
 @staticmethod
-def atomspace_to_prolog_wrapper(atomspace_obj, prolog_obj):
-    result = atomspace_to_prolog(atomspace_obj)
-    prolog_obj.unify(result)
+def atomspace_to_swip_wrapper(atomspace_obj, swip_obj):
+    result = atomspace_to_swip(atomspace_obj)
+    swip_obj.unify(result)
     return True
 
 @staticmethod
-def atomspace_to_prolog_tests1():
+def atomspace_to_swip_tests1():
     # Register the methods as foreign predicates
-    registerForeign(prolog_to_atomspace_wrapper, arity=2)
-    registerForeign(atomspace_to_prolog_wrapper, arity=2)
+    registerForeign(swip_to_atomspace_wrapper, arity=2)
+    registerForeign(atomspace_to_swip_wrapper, arity=2)
 
     # Usage:
-    prolog_functor = Functor(Atom("example"), 2, [Atom("sub1"), 3.14])
-    print(f"prolog_functor={prolog_functor}"),
-    atomspace_expr = prolog_to_atomspace(prolog_functor)
+    swip_functor = Functor(Atom("example"), 2, [Atom("sub1"), 3.14])
+    print(f"swip_functor={swip_functor}"),
+    atomspace_expr = swip_to_atomspace(swip_functor)
     print(f"atomspace_expr={atomspace_expr}"),
-    converted_back_to_prolog = atomspace_to_prolog(atomspace_expr)
-    print(f"converted_back_to_prolog={converted_back_to_prolog}"),
+    converted_back_to_swip = atomspace_to_swip(atomspace_expr)
+    print(f"converted_back_to_swip={converted_back_to_swip}"),
 
 
-    # Now you can use the methods in Prolog queries
-    print(list(swip.query("prolog_to_atomspace_wrapper('example', X).")))
-    print(list(swip.query("atomspace_to_prolog_wrapper(X, 'example').")))
+    # Now you can use the methods in PySwip queries
+    print(list(swip.query("swip_to_atomspace_wrapper('example', X).")))
+    print(list(swip.query("atomspace_to_swip_wrapper(X, 'example').")))
 
 @staticmethod
-def atomspace_to_prolog_tests2():
+def atomspace_to_swip_tests2():
     # Register the methods as foreign predicates
-    registerForeign(prolog_to_atomspace_wrapper, arity=2)
-    registerForeign(atomspace_to_prolog_wrapper, arity=2)
+    registerForeign(swip_to_atomspace_wrapper, arity=2)
+    registerForeign(atomspace_to_swip_wrapper, arity=2)
 
-    # Now you can use the methods in Prolog queries
-    list(swip.query("prolog_to_atomspace_wrapper('example', X)."))
-    list(swip.query("atomspace_to_prolog_wrapper(X, 'example')."))
+    # Now you can use the methods in PySwip queries
+    list(swip.query("swip_to_atomspace_wrapper('example', X)."))
+    list(swip.query("atomspace_to_swip_wrapper(X, 'example')."))
 
     # Usage:
-    prolog_list = ["a", "b", 3]
-    atomspace_expr = prolog_to_atomspace(prolog_list)
-    converted_back_to_prolog = atomspace_to_prolog(atomspace_expr)
-    prolog_functor = Functor(Atom("example"), 2, [Atom("sub1"), 3.14])
-    atomspace_expr = prolog_to_atomspace(prolog_functor)
-    converted_back_to_prolog = atomspace_to_prolog(atomspace_expr)
+    swip_list = ["a", "b", 3]
+    atomspace_expr = swip_to_atomspace(swip_list)
+    converted_back_to_swip = atomspace_to_swip(atomspace_expr)
+    swip_functor = Functor(Atom("example"), 2, [Atom("sub1"), 3.14])
+    atomspace_expr = swip_to_atomspace(swip_functor)
+    converted_back_to_swip = atomspace_to_swip(atomspace_expr)
 
+def swipexec(qry):
+   for r in swip.query(qry):
+       print(r)
 
+def load_flyspace():
+   swipexec("ensure_loaded('metta_vspace/pyswip/swi_flybase')")
 
-swip = Prolog()
+def load_flybase():
+   load_flyspace()
+   swipexec("load_flybase")
+
+swip = PySwip()
 
 if __name__ == "__main__":
     os.system('clear')
     print(underline("Fly-Space\n"))
 
     test_nondeterministic_foreign()
-    # @TODO fix this atomspace_to_prolog_tests1()
+    # @TODO fix this atomspace_to_swip_tests1()
     runner.cwd = ["."]
     t0 = monotonic_ns()
-    runner.lazy_import_file("autoexec.metta")    
+    runner.lazy_import_file("autoexec.metta")
+    load_flyspace()
     print(f"\nloading took {(monotonic_ns() - t0)/1e9:.5} seconds, repl:")
     runner.repl()
 
