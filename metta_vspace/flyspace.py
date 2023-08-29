@@ -129,14 +129,15 @@ class LazyMeTTa(ExtendedMeTTa):
 
 class InteractiveMeTTa(LazyMeTTa):
 
-
     # Add the string to the history
-    readline.add_history("@prolog")
+    readline.add_history("@swip")
     readline.add_history("@metta")
     readline.add_history("!(match &self $ $)")
+    readline.add_history("!(load-flyspace)")
+    readline.add_history("!(load-flybase)")
     readline.add_history('!(get-by-key &my-dict "A")')
-    readline.add_history("!(get-by-key &my-dict 6)")          
-    readline.add_history("!(extend-py! flyspace)")
+    # readline.add_history("!(get-by-key &my-dict 6)")          
+    #readline.add_history("!(extend-py! flyspace)")
         
     
     def repl_loop(self):
@@ -191,8 +192,8 @@ class InteractiveMeTTa(LazyMeTTa):
                 elif sline.startswith("@h"):
                     print("Help:")
                     print("@m       - Switch to MeTTa mode.")
-                    print("@py      - Switch to Python mode.")
-                    print("@p       - Switch to Prolog mode.")
+		            print("@p       - Switch to Python mode.")
+		            print("@s       - Switch to Swip mode.")
                     print("Ctrl-D   - Exit interpreter.")
                     print("@h       - Display this help message.")                   
                     print("+        - Add an atom.")
@@ -701,7 +702,7 @@ def flyspace_init():
     #print ("Site Packages: ",site.getsitepackages())
     test_nondeterministic_foreign()
     if os.path.isfile(f"{runner.cwd}autoexec.metta"):
-    runner.lazy_import_file("autoexec.metta")    
+        runner.lazy_import_file("autoexec.metta")    
     # @TODO fix this atomspace_to_swip_tests1()
     load_flyspace()
     print(f"\nInit took {(monotonic_ns() - t0)/1e9:.5} seconds")
