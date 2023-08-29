@@ -1,10 +1,11 @@
-!(extend-py! metta_vspace)
 !(extend-py! metta_learner)
 
-! metta_vspace ; hyperon.runner.MeTTa object (`metta_vspace` is registered 'manually' now)
-! metta_learner ; just a symbol, because `metta_learner` extension doesn't 'register itself', but it could be possible to automate this
+#! metta_vspace ; hyperon.runner.MeTTa object (`metta_vspace` is registered 'manually' now)
+#! metta_learner ; just a symbol, because `metta_learner` extension doesn't 'register itself', but it could be possible to automate this
 
 !(metta_learner::fact 5) ; 120
+
+!(metta_learner::vspace-main)
 
 !(metta_learner::self-from-self) ; content
 
@@ -33,17 +34,24 @@
 !(np.vector 1 "S")
 ; !(np.array (1 (1 2))) ; exception because of bad shape
 
+!(print "HALF WAY")
+
 ; wrapping into a function should work
 ; also works automatically with python numbers
 ; (no need to turn 1 into np.array)
 (= (np-add-1 $x) (np.add $x 1))
 
+!(print "1 HALF WAY")
+
 !(np-add-1 (np-add-1 &x)) ; [3 4 5] ; not a pattern
 
+!(print "2 HALF WAY")
 ; could work with untyped np objects,
 ; although with some problems (the resulting type would be Number),
 ; but doesn't work, because + expects Number
-!(+ &x &y)
+;!(+ &x &y)
+
+!(print "3 HALF WAY")
 
 !(== (np.add &y &x) (np.add &x &y)) ; True
 !(== &x &y) ; False
@@ -66,3 +74,9 @@
         (&x "X")
     )
   )
+
+
+!(get-by-key &my-dict "A")
+
+
+
