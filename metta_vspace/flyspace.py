@@ -162,18 +162,18 @@ class InteractiveMeTTa(LazyMeTTa):
                     continue
 
                 # Switch to python mode
-                elif sline.startswith("@py"):
+                elif sline.startswith("@p"):
                     self.mode = "python"
                     print("Switched to Python mode.")
-                    readline.add_history("@prolog")
+                    readline.add_history("@swip")
                     readline.add_history("@metta")
                     continue
 
-                # Switch to prolog mode
-                elif sline.startswith("@p"):
-                    self.mode = "prolog"
-                    print("Switched to Prolog mode.")
-                    readline.add_history("prolog")
+                # Switch to swip mode
+                elif sline.startswith("@s"):
+                    self.mode = "swip"
+                    print("Switched to Swip mode.")
+                    readline.add_history("swip")
                     readline.add_history("mine_overlaps")
                     readline.add_history("listing(maybe_corisponds/2)")
                     readline.add_history("try_overlaps")
@@ -208,7 +208,7 @@ class InteractiveMeTTa(LazyMeTTa):
 
                 prefix = sline[0]
                     
-                if self.mode == "prolog":
+                if self.mode == "swip":
                     # comment
                     if prefix == "%":
                         print(line);
@@ -218,12 +218,12 @@ class InteractiveMeTTa(LazyMeTTa):
                        expr = self.parse_single(sline)
                        print(f"% S-Expr {line}")
                        print(f"% M-Expr {expr}")
-                       prolog_obj = atomspace_to_prolog(expr);
-                       print(f"% P-Expr {prolog_obj}")
+                       swip_obj = atomspace_to_swip(expr);
+                       print(f"% P-Expr {swip_obj}")
                        call_sexpr = Functor("call_sexpr", 2)
                        user = newModule("user")
                        X = Variable()
-                       q = Query(call_sexpr(prolog_obj, X), module=user)
+                       q = Query(call_sexpr(swip_obj, X), module=user)
                        while q.nextSolution():
                            print(X.value)
                        q.closeQuery()
