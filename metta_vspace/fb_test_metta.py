@@ -102,7 +102,9 @@ def numme_atoms():
         r"np\.sub": nmSubAtom,
         r"np\.mul": nmMulAtom,
         r"np\.matmul": nmMMulAtom,
-        r"np\.div": nmDivAtom
+        r"np\.div": nmDivAtom,
+        '&my-dict': ValueAtom({'A': 5, 6: 'B'}),
+        'get-by-key': OperationAtom('get-by-key', lambda d, k: d[k])
     }
 
 
@@ -110,12 +112,6 @@ def numme_atoms():
 from hyperon.atoms import OperationAtom, ValueAtom
 from hyperon.ext import *
 
-@register_atoms
-def my_dict_atoms():
-    return {
-        '&my-dict': ValueAtom({'A': 5, 6: 'B'}),
-        'get-by-key': OperationAtom('get-by-key', lambda d, k: d[k])
-        }
 
 @register_tokens(pass_metta=True)
 def my_get_runner(metta):

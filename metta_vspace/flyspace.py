@@ -1,28 +1,28 @@
 #import openai
 #openai.api_key = os.environ["OPENAI_API_KEY"]
-from collections import Counter
-from glob import glob
-from hyperon import *
-#from hyperon import MeTTa, interpret, S, SymbolAtom, VariableAtom, ExpressionAtom, GroundedAtom, OperationAtom, AtomType
-from hyperon.atoms import *
-#from hyperon.atoms import G, AtomType
-#from hyperon.atoms import OperationAtom, ValueAtom
-from hyperon.base import *
-#from hyperon.base import Atom
-from hyperon.ext import *
-#from hyperon.ext import register_atoms
-#from hyperon.ext import register_tokens
-from hyperon.runner import MeTTa
 from time import monotonic_ns, time
 import atexit
-import hyperonpy as hp
 import os
 import re
 import readline
 import sys
+from collections import Counter
+from glob import glob
+import hyperonpy as hp
+from hyperon.atoms import V, S, E, ValueAtom, GroundedAtom, ExpressionAtom, G, AtomType
+from hyperon.runner import MeTTa
+from hyperon.ext import register_atoms, register_tokens
+from pyswip import registerForeign, PL_foreign_context, PL_foreign_control, PL_FIRST_CALL, PL_REDO, PL_PRUNED, PL_retry, PL_FA_NONDETERMINISTIC, Variable, Prolog as PySwip, Atom as PySwipAtom
+
+from hyperon.atoms import *
+from hyperon.base import *
+from hyperon.ext import *
+from hyperon import *
 
 
 histfile = os.path.join(os.path.expanduser("~"), ".metta_history")
+is_init = True
+debugLevel = 1
 
 try:
     readline.set_history_length(10000)
@@ -131,14 +131,12 @@ class InteractiveMeTTa(LazyMeTTa):
 
 
     # Add the string to the history
-    readline.add_history("@swip")
+    readline.add_history("@prolog")
     readline.add_history("@metta")
     readline.add_history("!(match &self $ $)")
-    readline.add_history("!(load-flyspace)")
-    readline.add_history("!(load-flybase)")
     readline.add_history('!(get-by-key &my-dict "A")')
-    # readline.add_history("!(get-by-key &my-dict 6)")          
-    # readline.add_history("!(extend-py! flyspace)")
+    readline.add_history("!(get-by-key &my-dict 6)")          
+    readline.add_history("!(extend-py! flyspace)")
         
     
     def repl_loop(self):
@@ -163,24 +161,23 @@ class InteractiveMeTTa(LazyMeTTa):
                     continue
 
                 # Switch to python mode
-                elif sline.startswith("@p"):
+                elif sline.startswith("@py"):
                     self.mode = "python"
                     print("Switched to Python mode.")
-                    readline.add_history("@swip")
+                    readline.add_history("@prolog")
                     readline.add_history("@metta")
                     continue
 
-                # Switch to swip mode
-                elif sline.startswith("@s"):
-                    self.mode = "swip"
-                    print("Switched to PySwip mode.")
-                    readline.add_history("swip")
-                    readline.add_history("synth_query(4,Query)")
-                    readline.add_history("try_overlaps")
-                    readline.add_history("listing(maybe_corisponds/2)")
+                # Switch to prolog mode
+                elif sline.startswith("@p"):
+                    self.mode = "prolog"
+                    print("Switched to Prolog mode.")
+                    readline.add_history("prolog")
                     readline.add_history("mine_overlaps")
-                    readline.add_history("call(load_flybase)")
-                    readline.add_history("ensure_loaded('metta_vspace/pyswip/swi_flybase')")
+                    readline.add_history("listing(maybe_corisponds/2)")
+                    readline.add_history("try_overlaps")
+                    readline.add_history("synth_query(4,Query)")
+                    readline.add_history("ensure_loaded('metta_vspace/pyswip/swi_flybase'),call(load_flybase)")
                     continue
 
                 # Switch to metta mode
@@ -195,7 +192,7 @@ class InteractiveMeTTa(LazyMeTTa):
                     print("Help:")
                     print("@m       - Switch to MeTTa mode.")
                     print("@py      - Switch to Python mode.")
-                    print("@p       - Switch to PySwip mode.")
+                    print("@p       - Switch to Prolog mode.")
                     print("Ctrl-D   - Exit interpreter.")
                     print("@h       - Display this help message.")                   
                     print("+        - Add an atom.")
@@ -210,30 +207,26 @@ class InteractiveMeTTa(LazyMeTTa):
 
                 prefix = sline[0]
                     
-                if self.mode == "swip":
+                if self.mode == "prolog":
                     # comment
                     if prefix == "%":
                         print(line);
                         continue
-                    # MeTTa or Atomspace
-                    elif sline.startswith("("):
+
+                    if sline.startswith("("):
                        expr = self.parse_single(sline)
                        print(f"% S-Expr {line}")
                        print(f"% M-Expr {expr}")
-                       swip_obj = atomspace_to_swip(expr);
-                       print(f"% P-Expr {swip_obj}")
+                       prolog_obj = atomspace_to_prolog(expr);
+                       print(f"% P-Expr {prolog_obj}")
                        call_sexpr = Functor("call_sexpr", 2)
                        user = newModule("user")
                        X = Variable()
-                       q = Query(call_sexpr(swip_obj, X), module=user)
+                       q = Query(call_sexpr(prolog_obj, X), module=user)
                        while q.nextSolution():
                            print(X.value)
                        q.closeQuery()
                        continue
-                     # Plain
-                    result = list(swip.query(line))
-                    print(result)
-                    continue
 
                 elif self.mode == "python":
                     # comment
@@ -281,7 +274,7 @@ class InteractiveMeTTa(LazyMeTTa):
                         self.space().remove_atom(expr)
                         continue
                     else:
-                        result = evalMetta(line)
+                        result = runner.run(line)
                         if result is not None:
                             print(result)
                         continue
@@ -362,10 +355,10 @@ class FlySpace(MeTTaFly):
 
 
 
-@register_atoms
-def flyspace_atoms():
+@register_atoms(pass_metta=True)
+def register_flyspace_atoms(metta):
     counter = 0
-    print("flyspace_atoms called")
+    if debugLevel>0: print(f"register_flyspace_atoms metta={metta} runner={runner}")
 
     def new_value_atom_func():
         nonlocal counter
@@ -374,6 +367,7 @@ def flyspace_atoms():
 
     newNSpaceAtom = OperationAtom('new-fly-space', lambda: [G(SpaceRef(FlySpace()))], unwrap=False)
     newISpaceAtom = OperationAtom('new-value-atom', new_value_atom_func, unwrap=False)
+    testNDFFI = OperationAtom('test-nondeterministic-foreign', lambda: test_nondeterministic_foreign, unwrap=False)
     # (new-intent-space)
     # this was stored in the space.. 
     # !(match &self $ $)
@@ -391,39 +385,47 @@ def flyspace_atoms():
         'get-by-key': OperationAtom('get-by-key', lambda d, k: d[k]),
         'load-flyspace': OperationAtom('load-flyspace', lambda: [load_flyspace()]),
         'load-flybase': OperationAtom('load-flybase', lambda: [load_flybase()]),
+        r"fb.test-nondeterministic-foreign": testNDFFI,
+        
+        'flyspace-main': OperationAtom('flyspace-main', lambda: [flyspace-main()]),
         'swip-exec': OperationAtom('swip-exec', lambda s: [swipexec(s)]),
         'py-eval': OperationAtom('py-eval', lambda s: [eval(s)])
-        
+
     }
 
 @register_tokens(pass_metta=True)
-def flyspace_tokens(metta):
+def register_flyspace_tokens(metta):
 
-    print("flyspace_tokens called")
+    if debugLevel>0: print(f"register_flyspace_tokens  runner={runner}")
 
     def run_resolved_symbol_op(runner, atom, *args):
-        # Print the arguments passed
-        print(f"run_resolved_symbol_op: runner={runner}, atom={atom}, args={args}")
-    
         expr = E(atom, *args)
+        if debugLevel>0: print(f"run_resolved_symbol_op: runner={runner}, atom={atom}, args={args}, expr={expr}")
         result1 = hp.metta_evaluate_atom(runner.cmetta, expr.catom)
         result = [Atom._from_catom(catom) for catom in result1]
-        print(f"run_resolved_symbol_op: result1={result1}, result={result}")
+        if debugLevel>0: print(f"run_resolved_symbol_op: result1={result1}, result={result}")
         return result
 
     def resolve_atom(metta, token):
-        print(f"resolve_atom: token={token}")
         # TODO: nested modules...
         runner_name, atom_name = token.split('::')
-        # FIXME: using `run` for this is an overkill,
-        #        but there is no good Python API for this;
-        #        we may have an interface function for
-        #        `tokenizer` to resolve individual symbols -
-        #        metta.tokenizer().find_token ...
-        #        or something else...
-        # TODO: assert
-        runner = metta.run('! ' + runner_name)[0][0].get_object()
-        atom = evalMetta('! ' + atom_name)[0][0]
+        # FIXME: using `run` for this is an overkill
+        ran = metta.run('! ' + runner_name)[0][0];
+        if debugLevel>0: print(f"resolve_atom: token={token} ran={type(ran)} metta={metta}")
+        try:
+            this_runner = ran.get_object()
+        except Exception as e:
+            this_runner = runner
+            # If there's an error, print it
+            print(f"Error ran.get_object: {e}")
+                
+        #if !isinstance(this_runner, MeTTa): 
+
+        #if !isinstance(this_runner, MeTTa): this_runner = metta
+
+        atom = this_runner.run('! ' + atom_name)[0][0]
+        if atom_name=="flyspace-main":
+            flyspace_main()
         # A hack to make runner::&self work
         # TODO? the problem is that we need to return an operation to make this
         # work in parent expressions, thus, it is unclear how to return pure
@@ -434,7 +436,8 @@ def flyspace_tokens(metta):
         return OperationAtom( token, lambda *args: run_resolved_symbol_op(runner, atom, *args), unwrap=False)
 
     return {
-        '&runner': lambda _: ValueAtom(metta),
+        '&flyspace': lambda _: ValueAtom(runner),
+        '&runner': lambda _: ValueAtom(runner),
         r"[^\s]+::[^\s]+": lambda token: resolve_atom(metta, token)
     }
 
@@ -442,18 +445,17 @@ def evalMetta(src):
    return runner.run(src)
 
 runner = FlySpace()
+runner.cwd = [os.path.dirname(os.path.dirname(__file__))]
 evalMetta("!(extend-py! pyswip)")
-evalMetta("!(extend-py! pyswip.easy)")
-evalMetta("!(extend-py! pyswip.prolog)")
 evalMetta("!(extend-py! flyspace)")
+evalMetta("!(extend-py! FlySpace)")
 runnerAtom = G(runner, AtomType.ATOM)
 
-from pyswip.easy import *
-from pyswip import                                                                                                                                         Prolog as PySwip
 from pyswip import registerForeign, PL_foreign_context, PL_foreign_control, PL_FIRST_CALL, PL_REDO, PL_PRUNED, PL_retry, PL_FA_NONDETERMINISTIC, Variable
 
 def test_nondeterministic_foreign():
-
+    from metta_vspace import gswip
+    swip= gswip;
     def nondet(a, context):
         control = PL_foreign_control(context)
         context = PL_foreign_context(context)
@@ -671,29 +673,54 @@ def atomspace_to_swip_tests2():
     atomspace_expr = swip_to_atomspace(swip_functor)
     converted_back_to_swip = atomspace_to_swip(atomspace_expr)
 
-def swipexec(qry):
-   for r in swip.query(qry):
-       print(r)
 
-def load_flyspace():
-   swipexec("ensure_loaded('metta_vspace/pyswip/swi_flybase')")
+
+def swipexec(qry):
+    from metta_vspace import gswip
+    #if is_init==True:
+    #    print("Not running Query: ",qry)
+    #    return
+    for r in gswip.query(qry):
+        print(r)
+
+def load_flyspace():   
+   swipexec(f"ensure_loaded('{os.path.dirname(__file__)}/pyswip/swi_flybase')")
 
 def load_flybase():
    load_flyspace()
    swipexec("load_flybase")
 
-swip = PySwip()
 
-if __name__ == "__main__":
-    os.system('clear')
-    print(underline("Fly-Space\n"))
 
-    test_nondeterministic_foreign()
-    # @TODO fix this atomspace_to_swip_tests1()
-    runner.cwd = ["."]
+
+def flyspace_init():
     t0 = monotonic_ns()
-    runner.lazy_import_file("autoexec.metta")
+    #os.system('clear')
+    print(underline(f"Fly-Space Init: {__file__}\n"))
+    #import site
+    #print ("Site Packages: ",site.getsitepackages())
+    test_nondeterministic_foreign()
+    if os.path.isfile(f"{runner.cwd}autoexec.metta"):
+    runner.lazy_import_file("autoexec.metta")    
+    # @TODO fix this atomspace_to_swip_tests1()
     load_flyspace()
-    print(f"\nloading took {(monotonic_ns() - t0)/1e9:.5} seconds, repl:")
+    print(f"\nInit took {(monotonic_ns() - t0)/1e9:.5} seconds")
+
+
+def flyspace_main():
+    is_init=False
+    #os.system('clear')
+    t0 = monotonic_ns()
+    print(underline("Fly-Space Main\n"))
+    #if is_init==False: load_flyspace()
+    #if is_init==False: load_flybase()
+    #if is_init==False: 
     runner.repl()
+    print(f"\nmain took {(monotonic_ns() - t0)/1e9:.5} seconds")
+    
+
+flyspace_init()
+if __name__ == "__main__":    
+    flyspace_main()
+
 
