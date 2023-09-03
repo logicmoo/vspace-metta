@@ -8,13 +8,13 @@ fb_scheme="public"
 tables=$(psql -h $fb_remote_host -U $fb_user -d $fb_database -t -c "SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_catalog = '$fb_database' AND table_schema = '$fb_scheme';")
 
 # Create a directory to store the TSV files
-mkdir -p "ftp.flybase.net/tsv_exports/$fb_scheme/"
+mkdir -p "./data/tsv_exports/$fb_scheme/"
 
 # Iterate over each table
 for table in $tables; do
     # Print the table name
     echo "Exporting table: $fb_scheme.$table"
-    FILE="ftp.flybase.net/tsv_exports/$fb_scheme/$fb_scheme.${table}"
+    FILE="./data/tsv_exports/$fb_scheme/$fb_scheme.${table}"
 
     if [ -f "${FILE}.tsv" ]; then
         echo "${FILE}.tsv exists."
