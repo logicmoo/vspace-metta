@@ -1410,7 +1410,8 @@
  (=  (with-wild-path  $O $P) (:: (must-det-ll-r  (call  $O $P))))
 
 
- (=  load-fb-cache (sequential  (load-fb-mask  precomputed-files/*/*pl) (load-fb-mask  (StringValue "flybase-data/public.*.pl")) (load-fb-mask  flybase-data/*fb-2023-01.pl)))
+ (=  load-fb-cache (sequential  (load-fb-mask  "precomputed-files/*/*pl") (load-fb-mask
+   (StringValue "flybase-data/public.*.pl")) (load-fb-mask  "flybase-data/*fb-2023-01.pl")))
 
 
  (=  (est-size  (ValueAtom 248392754) feature-relationship) True)
@@ -1855,7 +1856,7 @@
  (=  (process-rest-line  $O $P id $Q $A10) (sequential  (get-some-items  (:: (item  $P)) $Q ()) no-more (assert-OBO  id-type $P $O) no-more))
  (=  (process-rest-line  $A10 $O $P $B10 $Q) (sequential  (member  $P (:: name comment)) (assert-OBO  $P $O $Q) no-more))
  (=  (process-rest-line  $O $P relationship $Q $A10) (sequential  no-more (must-det-ll  (key-like-string  $R $Q $S)) (must-det-ll  (atom-chars  $T $R)) (must-det-ll  (into-rest  $S $U $V)) (must-det-ll  (process-rest-line  $O $P $T $U $V))))
- (=  (process-rest-line  $A10 $O $P $Q $B10) (sequential  (missing  (and  (member  $R $Q) (member  $R (:: no-more [ ")))) (if-then-else  (missing  (member    $Q)) (atom-chars  $S $Q) (string-chars  $S $Q)) (assert-OBO  $P $O $S) no-more))
+ (=  (process-rest-line  $A10 $O $P $Q $B10) (sequential  (missing  (and  (member  $R $Q) (member  $R (:: no-more "[ ")))) (if-then-else  (missing  (member    $Q)) (atom-chars  $S $Q) (string-chars  $S $Q)) (assert-OBO  $P $O $S) no-more))
  (=  (process-rest-line  $A10 $O is-a $P $Q) (sequential  (member  no-more $P) (atomic-list-concat  (:: $R $S) no-more $Q) (normalize-space  (atom  $T) $R) (normalize-space  (string  $U) $S) (assert-OBO  is-a $O $T) (assert-OBO  name $T $U) no-more))
  (=  (process-rest-line  $A10 $O $P $Q $B10) (sequential  (get-some-items  $R $Q ()) (--aux-maplist/3-arg+1  $R $S (ValueAtom 1)) (equals-ListMappingFn  $T ([|]  $P ([|]  $O $S))) (assert-OBO  $T) no-more))
  (=  (process-rest-line  $O $P $Q $R $S) (sequential  (pp-fb  (process-rest-line  $O $P $Q $R $S)) no-more))
