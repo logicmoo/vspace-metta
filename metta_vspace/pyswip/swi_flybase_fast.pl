@@ -28,13 +28,12 @@ term_number(T,N):- sub_term(N,T),number(N).
 :- ensure_loaded(swi_support).
 
 
-
 % Safely executes the given Goal and prints any exception raised.
 % Usage: safe(+Goal, +Info).
 safe(Goal, Info) :-
     % Try to call Goal. If an exception is raised, unify Exception with the exception.
-    catch(Goal, Exception, 
-        % If an exception is raised, portray the clause (Info :- Goal) 
+    catch(Goal, Exception,
+        % If an exception is raised, portray the clause (Info :- Goal)
         % along with the exception, then rethrow the exception.
         (catch_ignore(portray_clause(exception:Exception:(Info:- Goal))), throw(Exception))
     ).
@@ -52,7 +51,7 @@ extreme_debug(_).
 fbug(N=V) :- nonvar(N), !, fbdebug1(N:-V).
 fbug(V) :- compound(V),functor(V,F,_A),!,fbdebug1(F:-V).
 fbug(V) :- fbdebug1(debug:-V).
-fbdebug1(Message) :- 
+fbdebug1(Message) :-
   % ISO Standard: flush_output/1
   flush_output(user_output),
   flush_output(user_error),
@@ -74,7 +73,7 @@ is_scryer:- \+  current_prolog_flag(libswipl,_).
 option_value(N,V):- nb_current(N,VV),!,V=VV.
 option_value(N,V):- current_prolog_flag(N,VV),!,V=VV.
 option_value(_N,V):- !,V=[].
-with_option_value(N,V,G):-  option_value(N,W), 
+with_option_value(N,V,G):-  option_value(N,W),
   setup_call_cleanup(nb_setval(N,V),
      setup_call_cleanup(set_prolog_flag(N,V),G,
         set_prolog_flag(N,W)),
@@ -99,7 +98,7 @@ with_option_value(N,V,G):-  option_value(N,W),
 load_flybase:- is_scryer,!,load_flybase_files.
 load_flybase:- !,flag(total_atoms,_,0),load_flybase_files,fb_stats.
 load_flybase:- load_flybase_dirs.
-load_flybase_dirs:- 
+load_flybase_dirs:-
   load_flybase('das_precomputed'),
   load_flybase('precomputed_files/*'),
   load_flybase('./*sv'),!.
@@ -155,7 +154,7 @@ load_flybase_files:-  % 47 tables
   load_flybase('precomputed_files/genes/gene_groups_HGNC_fb_*.tsv'),
   load_flybase('precomputed_files/genes/gene_rpkm_matrix_fb_*.tsv'),
   load_flybase('precomputed_files/genes/gene_rpkm_report_fb_*.tsv'),
-  load_flybase('precomputed_files/genes/gene_snapshots_fb_*.tsv'),  
+  load_flybase('precomputed_files/genes/gene_snapshots_fb_*.tsv'),
   load_flybase('precomputed_files/genes/pathway_group_data_fb_*.tsv'),
   %load_flybase('precomputed_files/genes/scRNA-Seq_gene_expression_fb_*.tsv'),
   %load_flybase('precomputed_files/insertions/construct_maps.zip'),
@@ -172,8 +171,8 @@ load_flybase_files:-  % 47 tables
   load_flybase('precomputed_files/synonyms/fb_synonym_fb_*.tsv'),
   %load_flybase('precomputed_files/transposons/transposon_sequence_set.fa'),
   load_flybase('precomputed_files/transposons/transposon_sequence_set.gff',tsv),
-  
-  
+
+
   load_flybase('precomputed_files/ontologies/chebi_fb_*.obo'),
   load_flybase('precomputed_files/ontologies/doid.obo'),
   load_flybase('precomputed_files/ontologies/fly_anatomy.obo'),
@@ -192,7 +191,7 @@ load_flybase_files:-  % 47 tables
 
 
 % Load flybase data in Prolog format.
-load_fb_cache:-   
+load_fb_cache:-
   load_fb_mask('precomputed_files/*/*pl'),
   load_fb_mask('flybase_data/public.*.pl'),
   load_fb_mask('flybase_data/*fb_2023_01.pl').
@@ -204,8 +203,8 @@ with_wild_path(Predicate, Dir) :-  is_scryer, atom(Dir), !, must_det_ll((atom_ch
 with_wild_path(Predicate, Chars) :-  \+ is_scryer, \+ atom(Chars), !, must_det_ll((name(Atom,Chars), with_wild_path(Predicate, Atom))).
 with_wild_path(Predicate, File) :- exists_file(File), !, must_det_ll(( call(Predicate, File))).
 with_wild_path(Predicate, File) :- with_wild_path_swi(Predicate, File).
-with_wild_path(Predicate, Dir) :-  exists_directory(Dir), !, 
-  must_det_ll((directory_files(Dir, Files), 
+with_wild_path(Predicate, Dir) :-  exists_directory(Dir), !,
+  must_det_ll((directory_files(Dir, Files),
   maplist(directory_file_path(Dir,Files),Paths),
   maplist(atom_chars,Paths,CharPaths),
   maplist(with_wild_path(Predicate), CharPaths))), !.
@@ -213,24 +212,24 @@ with_wild_path(Predicate, File) :- is_list(File), !,  must_det_ll((maplist(with_
 with_wild_path(Predicate, File) :- must_det_ll((call(Predicate, File))).
 
 
-with_wild_path_swi(Predicate, File) :- 
-  compound(File), 
+with_wild_path_swi(Predicate, File) :-
+  compound(File),
   absolute_file_name(File, Dir, [access(read), file_errors(fail), file_type(directory)]),
-  '\\=@='(Dir, File), !, 
+  '\\=@='(Dir, File), !,
   with_wild_path(Predicate, Dir).
-with_wild_path_swi(Predicate, File) :- 
-  compound(File), !, 
+with_wild_path_swi(Predicate, File) :-
+  compound(File), !,
   absolute_file_name(File, Dir, [access(read), file_errors(fail), file_type(['csv', 'tsv', ''])]),
-  '\\=@='(Dir, File), !, 
+  '\\=@='(Dir, File), !,
   with_wild_path(Predicate, Dir).
-with_wild_path_swi(Predicate, File) :- 
-  atom_contains(File, '*'), 
-  expand_file_name(File, List), !, 
+with_wild_path_swi(Predicate, File) :-
+  atom_contains(File, '*'),
+  expand_file_name(File, List), !,
   maplist(with_wild_path(Predicate), List).
-with_wild_path_swi(Predicate, File) :- 
+with_wild_path_swi(Predicate, File) :-
   exists_directory(File),
-  directory_file_path(File, '*.*sv', Wildcard), 
-  expand_file_name(Wildcard, List), !, 
+  directory_file_path(File, '*.*sv', Wildcard),
+  expand_file_name(Wildcard, List), !,
   maplist(Predicate, List).
 
 
@@ -269,12 +268,12 @@ load_fb_cache(File,_OutputFile,_Table):- load_files([File],[qcompile(large)]).
 load_flybase(File,_).
 load_flybase(File):- with_wild_path(load_flybase0,File),!.
 
-load_flybase0(File):- file_name_extension(Name,Ext,File), 
+load_flybase0(File):- file_name_extension(Name,Ext,File),
   load_flybase0(Ext,Name,File).
 
 load_flybase0(Ext,_Name,_File):-  Ext=='pl',!.
 
-load_flybase0(Ext,Name,File):-  
+load_flybase0(Ext,Name,File):-
   atomic_list_concat([Name,'pl'],'.',OutputFile),
   data_pred(Name,Table), load_flybase(Ext,File,OutputFile,Table).
 
@@ -282,7 +281,7 @@ load_flybase0(Ext,Name,File):-
 %load_flybase(_Ext,_File,OutputFile,_Table):- exists_file(OutputFile),size_file(OutputFile,N),N>100,!.
 load_flybase(Ext,File,OutputFile,Table):-  Ext==obo,!,load_fb_obo(Ext,File,OutputFile,Table).
 load_flybase(Ext,File,OutputFile,Table):-  Ext==json,!,load_fb_json(Ext,File,OutputFile,Table).
-load_flybase(Ext,File,OutputFile,Table):-  
+load_flybase(Ext,File,OutputFile,Table):-
   extreme_debug(fbug(load_flybase(Ext,File,OutputFile,Table))),
   setup_call_cleanup(open(File,read,Stream),
        setup_call_cleanup(open(OutputFile,write,OutputStream,[encoding(utf8)]),
@@ -293,7 +292,7 @@ load_flybase(Ext,File,OutputFile,Table):-
 
 load_fb_json(Ext,File,OutputFile,Table):- fbug(load_fb_json(Ext,File,OutputFile,Table)).
 load_fb_obo(Ext,File,OutputFile,Table):- extreme_debug(fbug(load_fb_obo(Ext,File,OutputFile,Table))).
-  
+
 
 data_pred(X,Y):- atomic_list_concat(List,'/',X),List\==[],List\=[_],!,last(List,L),data_pred(L,Y).
 data_pred(X,Y):- atomic_list_concat(List,'_',X),once(not_trimmed_path(List,NewList)),
@@ -316,7 +315,7 @@ file_to_sep(File,'\t'):- file_name_extension(_,tsv,File),!.
 
 
 
-load_flybase(_Ext,File,Stream,OutputStream,Table):- 
+load_flybase(_Ext,File,Stream,OutputStream,Table):-
  must_det_ll((
   ignore(swi_only(format(OutputStream,":- ~q.\n",[encoding(utf8)]))),
   atomic_list_concat([header,Table],'_',HeaderPred),
@@ -324,7 +323,7 @@ load_flybase(_Ext,File,Stream,OutputStream,Table):-
   data_pred(DataPred0,DataPred),
   file_to_sep(File,Sep),
   load_flybase_sv(File,Stream,HeaderPred,DataPred,Sep,OutputStream,Table))).
-  
+
 is_swipl:- \+ is_scryer.
 
 :- if(is_scryer).
@@ -337,7 +336,7 @@ read_line_to_chars(S,L):- read_line_to_string(S,Str),string_chars(Str,L).
 % Usage: fb_assert(+Term).
 fb_assert(Term) :-
     % Check if Term is a rule (Head :- Body) or a fact (just Head).
-    ( Term = (Head :- Body) 
+    ( Term = (Head :- Body)
     -> copy_term(Body, CopiedBody)
     ; (Head = Term, CopiedBody = true)
     ),
@@ -354,10 +353,10 @@ fb_assert(Term) :-
 
 load_flybase_sv(File,Stream,HeaderPred,DataPred,Sep,OutputStream,Table):- at_end_of_stream(Stream),!,
   once(load_fb_data(File,Stream,HeaderPred,DataPred,Sep,end_of_file,OutputStream,Table)).
-load_flybase_sv(File,Stream,HeaderPred,DataPred,Sep,OutputStream,Table):- 
+load_flybase_sv(File,Stream,HeaderPred,DataPred,Sep,OutputStream,Table):-
   flag(max_load,_,0),
   time((repeat,
-  read_line_to_chars(Stream, Chars),  
+  read_line_to_chars(Stream, Chars),
   once(load_flybase_chars(File,Stream,HeaderPred,DataPred,Sep,Chars,OutputStream,Table)),
   once(done_reading(File);at_end_of_stream(Stream)),!,
   once(load_fb_data(File,Stream,HeaderPred,DataPred,Sep,end_of_file,OutputStream,Table)))),
@@ -371,7 +370,7 @@ load_flybase_sv(File,Stream,HeaderPred,DataPred,Sep,OutputStream,Table):-
 
 is_really_header_row([H|_],_Names):- atom_concat('#',_,H),!.
 
-load_flybase_chars(File,_Stream,_HeaderPred,_DataPred,Sep,Chars,_OutputStream,_Table):- 
+load_flybase_chars(File,_Stream,_HeaderPred,_DataPred,Sep,Chars,_OutputStream,_Table):-
   \+ member(Sep,Chars),
   %writeln(comment(Sep)=Chars),!,
   extreme_debug(format("~n ; ~s",[Chars])),
@@ -393,16 +392,16 @@ load_flybase_chars(File,Stream,_HeaderPred,DataPred,Sep,Chars,OutputStream,Table
 
   load_fb_data(File,Stream,Names,DataPred,Sep,is_swipl,OutputStream,Table).
 
-load_fb_data(File,_Stream,_Header,_DataPred,_Sep,Data,_OutputStream,_Table):-  
+load_fb_data(File,_Stream,_Header,_DataPred,_Sep,Data,_OutputStream,_Table):-
   (Data == end_of_file;done_reading(File)),!.
-load_fb_data(File,Stream,Header,DataPred,Sep, is_swipl,OutputStream,Table):- 
+load_fb_data(File,Stream,Header,DataPred,Sep, is_swipl,OutputStream,Table):-
    name(Sep,[SepCode]),
   csv_options(CompiledOptions,[functor(DataPred),separator(SepCode)]),
    (current_prolog_flag(table_max,Max)->true;Max=inf),
-   repeat, 
+   repeat,
      once((csv_read_row(Stream, RData, CompiledOptions))),
-     flag(max_load,X,X), 
-      (((RData== end_of_file);(number(Max),X>Max)) -> assert(done_reading(File)) ; 
+     flag(max_load,X,X),
+      (((RData== end_of_file);(number(Max),X>Max)) -> assert(done_reading(File)) ;
        (RData =..[_|Data], write_flybase_data(Header,Table,OutputStream,DataPred,Data),fail)),!.
 
 write_flybase_data(_Header,_Table,_OutputStream,_DataPred,[]):-!.
@@ -449,21 +448,21 @@ fb_stats:- gc_now,
    PM is Mem + StackMem,
    RM is Mem-AS,
    PA is RM//(SL+1),
-   APS is 60*floor(SL/(TotalSeconds+1)),   
-   ACS is AS//(Concepts+1),     
-   
+   APS is 60*floor(SL/(TotalSeconds+1)),
+   ACS is AS//(Concepts+1),
+
    pl_stats('ConceptNodes',Concepts),
    nop((
    pl_stats('Bytes Per Atom (Average)',PA),
    pl_stats('Bytes Per ConceptNode (Average)',ACS))),
    pl_stats('Relational Memory',RM),
-   pl_stats('ConceptNode Memory',AS), 
+   pl_stats('ConceptNode Memory',AS),
    %pl_stats('Queryspace Memory',StackMem),
    %CPU is CPUTime-57600,
-   format_time(TotalSeconds, Formatted),
    nop((pl_stats('Atoms per minute',APS))),
    pl_stats('Total Physical Memory Used',PM),
-   pl_stats('Runtime (days:hh:mm:ss)',Formatted), 
+   format_time(TotalSeconds, Formatted),
+   pl_stats('Runtime (days:hh:mm:ss)',Formatted),
    nl,nl.
 fb_stats(F):- forall(fb_pred(F,A),fb_stats(F,A)).
 fb_stats(F,A):- fb_stats(F,A,NC), pl_stats(F/A,NC).
@@ -504,7 +503,7 @@ print_formatted_time(TotalSeconds) :-
 
 
 
-fix_list_args(Header,Args,NewArgs):- 
+fix_list_args(Header,Args,NewArgs):-
   fix_elist_args(Header,Args,NewArgs),
   extreme_debug(ignore(((Args \== NewArgs,fbug(NewArgs))))).
 
@@ -560,15 +559,15 @@ atom_prefix('UBERON', obo, 'Uber-anatomy ontology').
 atom_prefix('CHEBI', obo, 'Chemical Entities of Biological Interest').
 
 
-% FBcv_0000743 % "FBtp0000743 %CL:0000743 % WBPhenotype_0000743 
+% FBcv_0000743 % "FBtp0000743 %CL:0000743 % WBPhenotype_0000743
 reprefix(['GO_','GO:','GO--','FBgn','BiologicalProcess:GO:'],'GO:').
 %./KBs/SUMO-OBO/gene-merged-SUMO.kif
 %#
 %FBbt_00051628
 
-:- discontiguous column_description/4. 
-:- discontiguous primary_column/2. 
-:- discontiguous column_names/2. 
+:- discontiguous column_description/4.
+:- discontiguous primary_column/2.
+:- discontiguous column_names/2.
 :- discontiguous file_location/2.
 
 column_description('Bin_value', "The expression bin classification of this gene in this RNA-Seq experiment, based on RPKM value.", numeric, 'Expression Bin').
@@ -683,7 +682,7 @@ fix_header_names(_,_,Name,Name).
 pmt :-flybase_tables(FBT),forall(member(T,FBT), ( '\\+'(flybase_cols(T,_)) -> format('~N~q.~n',[get_fbt(T)]);true)).
 use_flybase_cols(Table,Columns):-
  must_det_ll((
-  maplist(fix_header_names(Columns,Table),Columns,Names),  
+  maplist(fix_header_names(Columns,Table),Columns,Names),
   assert(flybase_col_names(Table,Columns,Names)),
   do_arity_2_names(Table,Names))).
 
@@ -711,11 +710,11 @@ do_arity_2_names_dc1(Table,DataCall,N,Nth):-
   Arity2Call=..[Arity2,Arg1,Arg2],
   fbug((Arity2Call:-DataCall)),
   fb_assert((Arity2Call:-DataCall)))).
-  
+
 make_arity_2_name(Table,Nth,Arity2):-
   clip_id(Nth,NthNoID),
   (atom_concat(Table,_,Nth)
-    -> Arity2 = Nth 
+    -> Arity2 = Nth
     ; atomic_list_concat([Table,NthNoID],'_',Arity2)).
 
 
@@ -1191,7 +1190,7 @@ fbc(physical_interactions_mitab,[ listOf('ID_Interactor_A'), listOf('ID_Interact
                                   listOf('Alias_Interactor_B'),
                                   listOf('Interaction_Detection_Method'),
                                   listOf('Publication_1st_Author'), listOf('Publication'),
-                                  'Taxid_Interactor_A','Taxid_Interactor_B', 
+                                  'Taxid_Interactor_A','Taxid_Interactor_B',
                                   listOf('Interaction_Type'),listOf('Source_Database'),
                                   listOf('Interaction_Identifier'),listOf('Confidence_Value'),
                                   listOf('Expansion_Method'),
@@ -1218,32 +1217,32 @@ fbc(allele_phenotypic,[allele_symbol,'allele_FBal',phenotype,'FBrf']).
 fbc(fbrf_pmid_pmcid_doi,[ 'FBrf', 'PMID','PMCID','DOI',pub_type,miniref, pmid_added]).
 
 flybase_tables([
-analysis, analysisfeature, analysisgrp, analysisgrpmember, analysisprop, audit_chado, cell_line, cell_line_loaderm, cell_line_loadermprop, 
-cell_line_dbxref, cell_line_feature, cell_line_library, cell_line_libraryprop, cell_line_pub, cell_line_relationship, cell_line_strain, 
-cell_line_strainprop, cell_line_synonym, cell_lineprop, cell_lineprop_pub, contact, cv, loaderm, loaderm_dbxref, loaderm_relationship, 
-loadermpath, loadermprop, loadermsynonym, db, dbxref, dbxrefprop, eimage, environment, environment_loaderm, expression, expression_loaderm, 
-expression_loadermprop, expression_image, expression_pub, expressionprop, feature, feature_loaderm, feature_loaderm_dbxref, 
-feature_loadermprop, feature_dbxref, feature_expression, feature_expressionprop, feature_genotype, feature_grpmember, 
-feature_grpmember_pub, feature_humanhealth_dbxref, feature_interaction, feature_interaction_pub, feature_interactionprop, 
-feature_phenotype, feature_pub, feature_pubprop, feature_relationship, feature_relationship_pub, feature_relationshipprop, 
-feature_relationshipprop_pub, feature_synonym, featureloc, featureloc_pub, featuremap, featuremap_pub, featurepos, featureprop, 
-featureprop_pub, featurerange, genotype, genotype_loaderm, genotype_loadermprop, genotype_dbxref, genotype_pub, genotype_synonym, 
-genotypeprop, genotypeprop_pub, grp, grp_loaderm, grp_dbxref, grp_pub, grp_pubprop, grp_relationship, grp_relationship_pub, 
-grp_relationshipprop, grp_synonym, grpmember, grpmember_loaderm, grpmember_pub, grpmemberprop, grpmemberprop_pub, grpprop, 
-grpprop_pub, humanhealth, humanhealth_loaderm, humanhealth_loadermprop, humanhealth_dbxref, humanhealth_dbxrefprop, 
-humanhealth_dbxrefprop_pub, humanhealth_feature, humanhealth_featureprop, humanhealth_phenotype, humanhealth_phenotypeprop, 
-humanhealth_pub, humanhealth_pubprop, humanhealth_relationship, humanhealth_relationship_pub, humanhealth_synonym, humanhealthprop, 
-humanhealthprop_pub, interaction, interaction_cell_line, interaction_loaderm, interaction_loadermprop, interaction_expression, 
-interaction_expressionprop, interaction_group, interaction_group_feature_interaction, interaction_pub, interactionprop, 
-interactionprop_pub, library, library_loaderm, library_loadermprop, library_dbxref, library_dbxrefprop, library_expression, 
-library_expressionprop, library_feature, library_featureprop, library_grpmember, library_humanhealth, library_humanhealthprop, 
+analysis, analysisfeature, analysisgrp, analysisgrpmember, analysisprop, audit_chado, cell_line, cell_line_loaderm, cell_line_loadermprop,
+cell_line_dbxref, cell_line_feature, cell_line_library, cell_line_libraryprop, cell_line_pub, cell_line_relationship, cell_line_strain,
+cell_line_strainprop, cell_line_synonym, cell_lineprop, cell_lineprop_pub, contact, cv, loaderm, loaderm_dbxref, loaderm_relationship,
+loadermpath, loadermprop, loadermsynonym, db, dbxref, dbxrefprop, eimage, environment, environment_loaderm, expression, expression_loaderm,
+expression_loadermprop, expression_image, expression_pub, expressionprop, feature, feature_loaderm, feature_loaderm_dbxref,
+feature_loadermprop, feature_dbxref, feature_expression, feature_expressionprop, feature_genotype, feature_grpmember,
+feature_grpmember_pub, feature_humanhealth_dbxref, feature_interaction, feature_interaction_pub, feature_interactionprop,
+feature_phenotype, feature_pub, feature_pubprop, feature_relationship, feature_relationship_pub, feature_relationshipprop,
+feature_relationshipprop_pub, feature_synonym, featureloc, featureloc_pub, featuremap, featuremap_pub, featurepos, featureprop,
+featureprop_pub, featurerange, genotype, genotype_loaderm, genotype_loadermprop, genotype_dbxref, genotype_pub, genotype_synonym,
+genotypeprop, genotypeprop_pub, grp, grp_loaderm, grp_dbxref, grp_pub, grp_pubprop, grp_relationship, grp_relationship_pub,
+grp_relationshipprop, grp_synonym, grpmember, grpmember_loaderm, grpmember_pub, grpmemberprop, grpmemberprop_pub, grpprop,
+grpprop_pub, humanhealth, humanhealth_loaderm, humanhealth_loadermprop, humanhealth_dbxref, humanhealth_dbxrefprop,
+humanhealth_dbxrefprop_pub, humanhealth_feature, humanhealth_featureprop, humanhealth_phenotype, humanhealth_phenotypeprop,
+humanhealth_pub, humanhealth_pubprop, humanhealth_relationship, humanhealth_relationship_pub, humanhealth_synonym, humanhealthprop,
+humanhealthprop_pub, interaction, interaction_cell_line, interaction_loaderm, interaction_loadermprop, interaction_expression,
+interaction_expressionprop, interaction_group, interaction_group_feature_interaction, interaction_pub, interactionprop,
+interactionprop_pub, library, library_loaderm, library_loadermprop, library_dbxref, library_dbxrefprop, library_expression,
+library_expressionprop, library_feature, library_featureprop, library_grpmember, library_humanhealth, library_humanhealthprop,
 library_interaction, library_pub, library_relationship, library_relationship_pub, library_strain, library_strainprop, library_synonym,
- libraryprop, libraryprop_pub, lock, organism, organism_loaderm, organism_loadermprop, organism_dbxref, organism_grpmember, 
+ libraryprop, libraryprop_pub, lock, organism, organism_loaderm, organism_loadermprop, organism_dbxref, organism_grpmember,
  organism_library, organism_pub, organismprop, organismprop_pub, phendesc, phenotype, phenotype_comparison, phenotype_comparison_loaderm,
-  phenotype_loaderm, phenstatement, project, pub, pub_dbxref, pub_relationship, pubauthor, pubprop, sql_features, sql_implementation_info, 
-  sql_parts, sql_sizing, stock, stock_loaderm, stock_dbxref, stock_genotype, stock_pub, stock_relationship, stock_relationship_pub, 
-  stockcollection, stockcollection_stock, stockcollectionprop, stockprop, stockprop_pub, strain, strain_loaderm, strain_loadermprop, 
-  strain_dbxref, strain_feature, strain_featureprop, strain_phenotype, strain_phenotypeprop, 
+  phenotype_loaderm, phenstatement, project, pub, pub_dbxref, pub_relationship, pubauthor, pubprop, sql_features, sql_implementation_info,
+  sql_parts, sql_sizing, stock, stock_loaderm, stock_dbxref, stock_genotype, stock_pub, stock_relationship, stock_relationship_pub,
+  stockcollection, stockcollection_stock, stockcollectionprop, stockprop, stockprop_pub, strain, strain_loaderm, strain_loadermprop,
+  strain_dbxref, strain_feature, strain_featureprop, strain_phenotype, strain_phenotypeprop,
 strain_pub, strain_relationship, strain_relationship_pub, strain_synonym, strainprop, strainprop_pub, synonym, tableinfo, update_track]).
 
 :- ensure_loaded(swi_support).
