@@ -1,3 +1,4 @@
+
 (Recipe Morning-shot (With-ingredient Ginger))
 (Recipe Morning-shot (With-ingredient Orange))
 
@@ -42,8 +43,8 @@
  (=  list-column-names (:: (missing  (and  (column-names  $O $P) (and  (->  (and  (length  $P $Q) (and  (>=  $Q (ValueAtom 2)) (fb-pred  $O $Q))) True) (missing  (and  (print  (column-names  $O $P)) nl)))))))
 
 
- (=  (ncRNA-genes-fb-scheme  (StringValue "
-{
+ (=  (ncRNA-genes-fb-scheme  (StringValue
+ "{
         "$schema": "http://json-schema.org/draft-04/schema#",
         "title": "RNAcentral ncRNA object",
         "description": "A sequence to import to RNAcentral. These entries must not be pseudogenes or coding RNA transcripts.",
@@ -1801,21 +1802,20 @@
  (=  (whs  $O $P) (:: (=  $O $P)))
 
 
- (=  (named-like-string  ([|]  $O $P) ([|]  $O $Q) $R) (sequential  (missing  (member  $O (::
-))) (=  $S $Q) (named-like-string  $P $S $R)))
+ (=  (named-like-string  ([|]  $O $P) ([|]  $O $Q) $R) (sequential  (missing  (member  $O (:: '\n'))) (=  $S $Q) (named-like-string  $P $S $R)))
  (=  (named-like-string  () $O $P) (:: (=  $O $P)))
 
 
- (=  (string-until-end-quote  () ([|]  " $O) $P) (sequential  no-more (=  $P $O)))
+ (=  (string-until-end-quote  () ([|]  '"' $O) $P) (sequential  no-more (=  $P $O)))
  (=  (string-until-end-quote  ([|]  $O $P) $Q $R) (sequential  (or  (=  $Q ([|]  \ ([|]  $O $S))) (=  $Q ([|]  $O $S))) no-more (=  $T $S) (string-until-end-quote  $P $T $R)))
 
 
- (=  (symbol-or-url  ([|]  $O $P) ([|]  $O $Q) $R) (sequential  (missing  (member  $O (:: and [ ] "  ))) (=  $S $Q) (symbol-or-url  $P $S $R)))
+ (=  (symbol-or-url  ([|]  $O $P) ([|]  $O $Q) $R) (sequential  (missing  (member  $O (:: and [ ] '"'  ))) (=  $S $Q) (symbol-or-url  $P $S $R)))
  (=  (symbol-or-url  () $O $P) (:: (=  $O $P)))
 
 
  (=  (id-like-string  ([|]  $O $P) ([|]  $O $Q) $R) (sequential  (missing  (member  $O (:: no-more
- and [ ] { } "))) (=  $S $Q) (id-like-string  $P $S $R)))
+ and [ ] { } '"'))) (=  $S $Q) (id-like-string  $P $S $R)))
  (=  (id-like-string  () $O $P) (:: (=  $O $P)))
 
 
@@ -1835,7 +1835,7 @@
  (=  (get-one-item  (quoted  $O) ([|]  x ([|]  s ([|]  d ([|]  : $P)))) $Q) (sequential  (symbol-or-url  $R $P $S) (atom-chars  $O ([|]  x ([|]  s ([|]  d ([|]  : $R))))) (=  $Q $S)))
  (=  (get-one-item  (quoted  $O) ([|]  h ([|]  t ([|]  t ([|]  p $P)))) $Q) (sequential  (symbol-or-url  $R $P $S) (string-chars  $O ([|]  h ([|]  t ([|]  t ([|]  p $R))))) (=  $Q $S)))
  (=  (get-one-item  (quoted  $O) ([|]  f ([|]  t ([|]  p $P))) $Q) (sequential  (symbol-or-url  $R $P $S) (string-chars  $O ([|]  f ([|]  t ([|]  p $R)))) (=  $Q $S)))
- (=  (get-one-item  (quoted  $O) ([|]  " $P) $Q) (sequential  (string-until-end-quote  $R $P $S) (string-chars  $O $R) (=  $Q $S)))
+ (=  (get-one-item  (quoted  $O) ([|]  '"' $P) $Q) (sequential  (string-until-end-quote  $R $P $S) (string-chars  $O $R) (=  $Q $S)))
  (=  (get-one-item  (named  $O) ([|]  no-more $P) $Q) (sequential  (whs  $P $R) (named-like-string  $S $R $T) (atom-chars  $O $S) (=  $Q $T)))
  (=  (get-one-item  (bracketed  $O) ([|]  [ $P) $Q) (sequential  (whs  $P $R) (items  $O $R $S) (whs  $S $T) (=  $T ([|]  ] $Q))))
  (=  (get-one-item  (bracketed  $O) ([|]  { $P) $Q) (sequential  (whs  $P $R) (items  $O $R $S) (whs  $S $T) (=  $T ([|]  } $Q))))
@@ -1930,7 +1930,7 @@
 
 
  (=  (match  (:: $O)) (sequential  no-more (call  $O)))
- (=  (match  ([|]  $O $P)) (sequential  no-more (call  $O) (match  $P)))
+ (=  (match  (::  $O $P)) (sequential  no-more (call  $O) (match  $P)))
  (=  (match  $O) (:: (call  $O)))
 
 
@@ -2008,11 +2008,13 @@
  (=  (table-column-type  $O $P $Q) (sequential  (table-n-type  $O $P $R $S) (if-then-else  (nonvar  $S) (=  $Q $S) (=  $Q $R))))
 
 
- (=  (fb-two-preds  $O $P $Q $R $S $T) (sequential  (fb-pred-g  $O $Q) (fb-pred-g  $R $T) (@>=  $O $R) (between  (ValueAtom 1) $Q $P) (between  (ValueAtom 1) $T $S) (if-then-else  (==  $O $R) (>  $P $S) True)))
+ (=  (fb-two-preds  $O $P $Q $R $S $T) (sequential  (fb-pred-g  $O $Q) (fb-pred-g  $R $T) (@>=  $O $R)
+      (between  (ValueAtom 1) $Q $P) (between  (ValueAtom 1) $T $S) (if-then-else  (==  $O $R) (>  $P $S) True)))
  (=  (fb-two-preds  $O $P $Q $R $S $T) (sequential  (fb-pred-g  $O $Q) (fb-pred-g  $R $T) (@>  $O $R) (mine-typelevel-overlaps  $A10 (ConceptMapFn  $B10 $P $O) (ConceptMapFn  $C10 $S $R))))
 
 
- (=  mine-atomspace-overlaps (sequential  (fb-two-preds  $O $P $Q $R $S $T) (->  (and  (functor  $U $O $Q) (and  (functor  $V $R $T) (and  (call  $U) (and  (arg  $P $U $W) (and  (good-concept  $W) (and  (arg  $S $V $W) (call  $V))))))) True) (->  (and  (table-column-type  $O $P $X) (and  (nonvar  $X) (and  (table-column-type  $R $S $Y) (nonvar  $X)))) True) (assert-progress  $W (maybe-corisponds  (ConceptMapFn  $X $P $O) (ConceptMapFn  $Y $S $R)))))
+ (=  mine-atomspace-overlaps (sequential  (fb-two-preds  $O $P $Q $R $S $T)
+     (->  (and  (functor  $U $O $Q) (and  (functor  $V $R $T) (and  (call  $U) (and  (arg  $P $U $W) (and  (good-concept  $W) (and  (arg  $S $V $W) (call  $V))))))) True) (->  (and  (table-column-type  $O $P $X) (and  (nonvar  $X) (and  (table-column-type  $R $S $Y) (nonvar  $X)))) True) (assert-progress  $W (maybe-corisponds  (ConceptMapFn  $X $P $O) (ConceptMapFn  $Y $S $R)))))
 
 
  (=  (mine-typelevel-overlaps  $O (ConceptMapFn  $P $Q $R) (ConceptMapFn  $S $T $U)) (sequential  (=  $P $O) (=  $S $O) (table-columns  $R $V) (table-columns  $U $W) (fb-pred-g  $R $X) (fb-pred-g  $U $Y) (@>  $R $U) (nth1  $Q $V $O) (good-concept  $O) (->  (and  (nth1  $T $W $O) (and  (length  $V $X) (length  $W $Y))) True)))
@@ -2027,7 +2029,8 @@
  (=  mine-overlaps1 (:: (missing  (and  (mine-corisponds  $O $P) (missing  (assert-progress  (mine-overlaps1  $O) $P))))))
 
 
- (=  mine-overlaps (sequential  (retractall  (maybe-corisponds  $A10 $B10)) (time  (->  mine-overlaps1 True)) (skip  mine-overlaps2)))
+ (=  mine-overlaps (sequential  (retractall  (maybe-corisponds  $A10 $B10)) (time
+    (->  mine-overlaps1 True)) (skip  mine-overlaps2)))
 
 
  (=  (mine-corisponds  $O $P) (sequential  (fb-arg-table-n  $O $Q $R) (is-good-atom-name  $O) (fb-arg-table-n  $O $S $T) (@>  (+  $Q $R) (+  $S $T)) (->  (and  (table-column-type  $Q $R $U) (and  (nonvar  $U) (and  (table-column-type  $S $T $V) (nonvar  $V)))) True) (=  $P (maybe-corisponds  (ConceptMapFn  $U $R $Q) (ConceptMapFn  $V $T $S)))))

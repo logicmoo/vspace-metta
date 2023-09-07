@@ -1234,8 +1234,12 @@ print_formatted_time(TotalSeconds) :-
 load_fb_cache(_File,OutputFile,_Table):- exists_file(OutputFile),!,ensure_loaded(OutputFile),!.
 load_fb_cache(File,_OutputFile,_Table):- load_files([File],[qcompile(large)]).
 
-load_flybase(File,_).
+
+load_flybase(N):- (number(N)->true;N==inf),!, set_option_value(max_per_file,N),!,load_flybase.
 load_flybase(File):- with_wild_path(load_flybase0,File),!.
+load_flybase(File,_).
+
+
 
 load_flybase0(File):- file_name_extension(Name,Ext,File),
   load_flybase0(Ext,Name,File).
@@ -1422,6 +1426,9 @@ reprefix(['GO_','GO:','GO--','FBgn','BiologicalProcess:GO:'],'GO:').
 % Descriptions for genotype_phenotype_data columns
 % For the file allele_genetic_interactions_*.tsv
 %Forthefilegenotype_phenotype_data_*.tsv
+
+
+
 column_description(allele_FBal, "Current FlyBase identifier (FBal) of allele.", identifier, 'Allele Identifier').
 column_description(allele_symbol, "Current FlyBase allele symbol.", symbol, 'Allele Symbol').
 column_description('Bin_value', "The expression bin classification of this gene in this RNA-Seq experiment, based on RPKM value.", numeric, 'Expression Bin').
@@ -1509,6 +1516,8 @@ primary_column(genotype_phenotype_data, genotype_FBids).
 primary_column(pmid_fbgn_uniprot, 'FBgn_id').
 
 
+% For the file genotype_phenotype_data_*.tsv
+file_location('genotype_phenotype_data', "path_to_file/genotype_phenotype_data_*.tsv").
 % For the file allele_genetic_interactions_*.tsv
 file_location('allele_genetic_interactions', "path_to_file/allele_genetic_interactions_*.tsv").
 column_names('allele_genetic_interactions', ['allele_symbol', 'allele_FBal#', 'interaction', 'FBrf#']).
@@ -1520,8 +1529,6 @@ column_description('allele_FBal#', "Current FlyBase identifier (FBal#) of allele
 column_description('interaction', "Interaction information associated with allele.", text, 'Interaction Info').
 column_description('FBrf#', "Current FlyBase identifer (FBrf#) of publication from which data came.", identifier, 'Publication Identifier').
 
-% For the file genotype_phenotype_data_*.tsv
-file_location('genotype_phenotype_data', "path_to_file/genotype_phenotype_data_*.tsv").
 column_names('genotype_phenotype_data', [listOf('genotype_symbols', ['/', ' ']), listOf('genotype_FBids', ['/', ' ']), 'phenotype_name', 'phenotype_id', listOf('qualifier_names', ['|']), listOf('qualifier_ids', ['|']), 'reference']).
 primary_column('genotype_phenotype_data', 'genotype_FBids').
 
