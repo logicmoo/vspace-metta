@@ -8,19 +8,19 @@
 kaggle_arc:- setup_call_cleanup(
      working_directory(X, '/opt/logicmoo_workspace/packs_sys/logicmoo_agi/prolog/kaggle_arc/'),
      ensure_loaded(kaggle_arc),
-     working_directory(_,X)). 
+     working_directory(_,X)).
 
 
 must_det_ll(G):- call(G)->true;throw(failed(G)).
 
 
-cvt_flybase:- 
+cvt_flybase:-
   cvt_flybase('das_precomputed'),
   cvt_flybase('precomputed_files/*'),
   cvt_flybase('./*sv'),!.
 
 
-load_flybase:- 
+load_flybase:-
   load_fb_mask('das_precomputed/*.pl'),
   load_fb_mask('precomputed_files/*/*pl'),
   load_fb_mask('flybase_data/public.*.pl'),
@@ -35,7 +35,7 @@ with_wild_path(P1,File):- compound(File),
 with_wild_path(P1,File):- compound(File),!,absolute_file_name(File,Dir,[access(read), file_errors(fail),file_type(['csv','tsv',''])]),
   '\\=@='(Dir,File),!, with_wild_path(P1,Dir).
 with_wild_path(P1,File):- atom_contains(File,'*'),expand_file_name(File,List),!,maplist(with_wild_path(P1),List).
-with_wild_path(P1,File):- exists_directory(File), 
+with_wild_path(P1,File):- exists_directory(File),
   directory_file_path(File,'*.*sv',Wildcard),expand_file_name(Wildcard,List),!,maplist(P1,List).
 with_wild_path(P1,File):- call(P1,File).
 
@@ -64,7 +64,7 @@ encoding_trial(wchar_t).
 
 try_encoding:- 'data_das_precomputed/allele_genetic_interactions_fb_2022_06'('14-3-3epsilon[18A2]',X,Y,Z),
   encoding_trial(ET),set_stream(current_output,encoding(ET)),catch(write(ET=[X,Y,Z]),_,fail),fail.
-  
+
 
 
 load_fb_mask(Filename):- expand_file_name(Filename,Files1),maplist(load_flybase,Files1).
@@ -105,7 +105,7 @@ data_pred(X,Y):- atomic_list_concat([L|_],'_fb_',X).
   atomic_list_concat([M|More],'/',L).
 */
 
-cvt_flybase(File,Stream,OutputStream,Table):- 
+cvt_flybase(File,Stream,OutputStream,Table):-
  must_det_ll((
   format(OutputStream,':- ~q.\n',[encoding(utf8)]),
   atomic_list_concat([header,Table],'_',HeaderPred),
@@ -127,10 +127,10 @@ save_conversion(File,Header,Table,DataPred,Stream,OutputStream):-
   flag(max_cvt,_,0),
   file_to_sep(File,Sep),
   csv_options(CompiledOptions,[functor(DataPred),separator(Sep)]))),
-  repeat, 
+  repeat,
     ((csv_read_row(Stream, Data, CompiledOptions))),
     %display(Data),nl,
-    (((Data== end_of_file); (flag(max_cvt,X,X),X>5_000_000)) -> ! ; 
+    (((Data== end_of_file); (flag(max_cvt,X,X),X>5_000_000)) -> ! ;
       (((write_flybase_data(Header,Table,OutputStream,Data))),fail)).
 
 write_flybase_data(_Header,_Table,OutputStream,Data):-
@@ -353,38 +353,38 @@ flybase_cols(tableinfo,[ tableinfo_id,name,primary_key_column,is_view,view_on_ta
 flybase_cols(update_track,[ update_track_id,release,fbid,time_update,author,statement,comment,annotation_id]).
 
 flybase_tables([
-analysis, analysisfeature, analysisgrp, analysisgrpmember, analysisprop, audit_chado, cell_line, cell_line_cvterm, cell_line_cvtermprop, 
-cell_line_dbxref, cell_line_feature, cell_line_library, cell_line_libraryprop, cell_line_pub, cell_line_relationship, cell_line_strain, 
-cell_line_strainprop, cell_line_synonym, cell_lineprop, cell_lineprop_pub, contact, cv, cvterm, cvterm_dbxref, cvterm_relationship, 
-cvtermpath, cvtermprop, cvtermsynonym, db, dbxref, dbxrefprop, eimage, environment, environment_cvterm, expression, expression_cvterm, 
-expression_cvtermprop, expression_image, expression_pub, expressionprop, feature, feature_cvterm, feature_cvterm_dbxref, 
-feature_cvtermprop, feature_dbxref, feature_expression, feature_expressionprop, feature_genotype, feature_grpmember, 
-feature_grpmember_pub, feature_humanhealth_dbxref, feature_interaction, feature_interaction_pub, feature_interactionprop, 
-feature_phenotype, feature_pub, feature_pubprop, feature_relationship, feature_relationship_pub, feature_relationshipprop, 
-feature_relationshipprop_pub, feature_synonym, featureloc, featureloc_pub, featuremap, featuremap_pub, featurepos, featureprop, 
-featureprop_pub, featurerange, genotype, genotype_cvterm, genotype_cvtermprop, genotype_dbxref, genotype_pub, genotype_synonym, 
-genotypeprop, genotypeprop_pub, grp, grp_cvterm, grp_dbxref, grp_pub, grp_pubprop, grp_relationship, grp_relationship_pub, 
-grp_relationshipprop, grp_synonym, grpmember, grpmember_cvterm, grpmember_pub, grpmemberprop, grpmemberprop_pub, grpprop, 
-grpprop_pub, humanhealth, humanhealth_cvterm, humanhealth_cvtermprop, humanhealth_dbxref, humanhealth_dbxrefprop, 
-humanhealth_dbxrefprop_pub, humanhealth_feature, humanhealth_featureprop, humanhealth_phenotype, humanhealth_phenotypeprop, 
-humanhealth_pub, humanhealth_pubprop, humanhealth_relationship, humanhealth_relationship_pub, humanhealth_synonym, humanhealthprop, 
-humanhealthprop_pub, interaction, interaction_cell_line, interaction_cvterm, interaction_cvtermprop, interaction_expression, 
-interaction_expressionprop, interaction_group, interaction_group_feature_interaction, interaction_pub, interactionprop, 
-interactionprop_pub, library, library_cvterm, library_cvtermprop, library_dbxref, library_dbxrefprop, library_expression, 
-library_expressionprop, library_feature, library_featureprop, library_grpmember, library_humanhealth, library_humanhealthprop, 
+analysis, analysisfeature, analysisgrp, analysisgrpmember, analysisprop, audit_chado, cell_line, cell_line_cvterm, cell_line_cvtermprop,
+cell_line_dbxref, cell_line_feature, cell_line_library, cell_line_libraryprop, cell_line_pub, cell_line_relationship, cell_line_strain,
+cell_line_strainprop, cell_line_synonym, cell_lineprop, cell_lineprop_pub, contact, cv, cvterm, cvterm_dbxref, cvterm_relationship,
+cvtermpath, cvtermprop, cvtermsynonym, db, dbxref, dbxrefprop, eimage, environment, environment_cvterm, expression, expression_cvterm,
+expression_cvtermprop, expression_image, expression_pub, expressionprop, feature, feature_cvterm, feature_cvterm_dbxref,
+feature_cvtermprop, feature_dbxref, feature_expression, feature_expressionprop, feature_genotype, feature_grpmember,
+feature_grpmember_pub, feature_humanhealth_dbxref, feature_interaction, feature_interaction_pub, feature_interactionprop,
+feature_phenotype, feature_pub, feature_pubprop, feature_relationship, feature_relationship_pub, feature_relationshipprop,
+feature_relationshipprop_pub, feature_synonym, featureloc, featureloc_pub, featuremap, featuremap_pub, featurepos, featureprop,
+featureprop_pub, featurerange, genotype, genotype_cvterm, genotype_cvtermprop, genotype_dbxref, genotype_pub, genotype_synonym,
+genotypeprop, genotypeprop_pub, grp, grp_cvterm, grp_dbxref, grp_pub, grp_pubprop, grp_relationship, grp_relationship_pub,
+grp_relationshipprop, grp_synonym, grpmember, grpmember_cvterm, grpmember_pub, grpmemberprop, grpmemberprop_pub, grpprop,
+grpprop_pub, humanhealth, humanhealth_cvterm, humanhealth_cvtermprop, humanhealth_dbxref, humanhealth_dbxrefprop,
+humanhealth_dbxrefprop_pub, humanhealth_feature, humanhealth_featureprop, humanhealth_phenotype, humanhealth_phenotypeprop,
+humanhealth_pub, humanhealth_pubprop, humanhealth_relationship, humanhealth_relationship_pub, humanhealth_synonym, humanhealthprop,
+humanhealthprop_pub, interaction, interaction_cell_line, interaction_cvterm, interaction_cvtermprop, interaction_expression,
+interaction_expressionprop, interaction_group, interaction_group_feature_interaction, interaction_pub, interactionprop,
+interactionprop_pub, library, library_cvterm, library_cvtermprop, library_dbxref, library_dbxrefprop, library_expression,
+library_expressionprop, library_feature, library_featureprop, library_grpmember, library_humanhealth, library_humanhealthprop,
 library_interaction, library_pub, library_relationship, library_relationship_pub, library_strain, library_strainprop, library_synonym,
- libraryprop, libraryprop_pub, lock, organism, organism_cvterm, organism_cvtermprop, organism_dbxref, organism_grpmember, 
+ libraryprop, libraryprop_pub, lock, organism, organism_cvterm, organism_cvtermprop, organism_dbxref, organism_grpmember,
  organism_library, organism_pub, organismprop, organismprop_pub, phendesc, phenotype, phenotype_comparison, phenotype_comparison_cvterm,
-  phenotype_cvterm, phenstatement, project, pub, pub_dbxref, pub_relationship, pubauthor, pubprop, sql_features, sql_implementation_info, 
-  sql_parts, sql_sizing, stock, stock_cvterm, stock_dbxref, stock_genotype, stock_pub, stock_relationship, stock_relationship_pub, 
-  stockcollection, stockcollection_stock, stockcollectionprop, stockprop, stockprop_pub, strain, strain_cvterm, strain_cvtermprop, 
-  strain_dbxref, strain_feature, strain_featureprop, strain_phenotype, strain_phenotypeprop, 
+  phenotype_cvterm, phenstatement, project, pub, pub_dbxref, pub_relationship, pubauthor, pubprop, sql_features, sql_implementation_info,
+  sql_parts, sql_sizing, stock, stock_cvterm, stock_dbxref, stock_genotype, stock_pub, stock_relationship, stock_relationship_pub,
+  stockcollection, stockcollection_stock, stockcollectionprop, stockprop, stockprop_pub, strain, strain_cvterm, strain_cvtermprop,
+  strain_dbxref, strain_feature, strain_featureprop, strain_phenotype, strain_phenotypeprop,
 strain_pub, strain_relationship, strain_relationship_pub, strain_synonym, strainprop, strainprop_pub, synonym, tableinfo, update_track]).
 
 pmt :-flybase_tables(FBT),forall(member(T,FBT), ( '\\+'(flybase_cols(T,_)) -> format('~N~q.~n',[get_fbt(T)]);true)).
 use_flybase_cols(Table,Columns):-
  must_det_ll((
-  maplist(fix_header_names(Columns,Table),Columns,Names),  
+  maplist(fix_header_names(Columns,Table),Columns,Names),
   assert(flybase_col_names(Table,Columns,Names)),
   do_arity_2_names(Table,Names))).
 
@@ -412,11 +412,11 @@ do_arity_2_names_dc1(Table,DataCall,N,Nth):-
   Arity2Call=..[Arity2,Arg1,Arg2],
   fmt((Arity2Call:-DataCall)),
   assert_if_new((Arity2Call:-DataCall)))).
-  
+
 make_arity_2_name(Table,Nth,Arity2):-
   clip_id(Nth,NthNoID),
   (atom_concat(Table,_,Nth)
-    -> Arity2 = Nth 
+    -> Arity2 = Nth
     ; atomic_list_concat([Table,NthNoID],'_',Arity2)).
 
 
