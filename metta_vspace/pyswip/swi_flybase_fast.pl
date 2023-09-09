@@ -1507,7 +1507,7 @@ load_flybase_chars(Sep,File,_Stream,Chars,_OutputStream,_Fn):-
   \+ member(Sep,Chars),
   %writeln(comment(Sep)=Chars),!,
   extreme_debug(format("~n ; ~s",[Chars])),
-  ignore((flag(loaded_from_file_count,X,X),X>10000,!,assert(done_reading(File)))).
+  ignore((flag(loaded_from_file_count,X,X),X>1000,!,assert(done_reading(File)))).
 
 load_flybase_chars(Sep,File,Stream,Chars,OutputStream,Fn):-
   name(Sep,[SepCode]),
