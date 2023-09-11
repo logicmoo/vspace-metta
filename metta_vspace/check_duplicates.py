@@ -3,36 +3,35 @@ import sys
 
 def check_for_duplicates(filename):
     try:
-        # Read the TSV file into a Pandas DataFrame
-        df = pd.read_csv(filename, delimiter='\t', comment="#" )
-        
+        # Read the TSV file into a Pandas DataFrame, skipping lines starting with '#'
+        df = pd.read_csv(filename, delimiter='\t', comment="#", dtype=str )
+
         # Initialize an empty list to store columns with no duplicates
         columns_with_no_duplicates = []
-        
-        # Check each column for duplicate rows
-        for column in df.columns:
+
+        # Check each column for duplicate rows and collect column numbers
+        for idx, column in enumerate(df.columns):
             if not df[column].duplicated().any():
-                columns_with_no_duplicates.append(column)
-        
+                columns_with_no_duplicates.append(f'({idx+1} "{column}")')
+
         # Print the result
         if columns_with_no_duplicates:
-            print(f"The following columns in {filename} have no duplicates:")
-            print(", ".join(columns_with_no_duplicates))
+            print(f'(unique-columns "{filename}" {" ".join(columns_with_no_duplicates)})')
         else:
-            print(f"All columns in {filename} have duplicates.")
-    
+            print(f'(unique-columns "{filename}" ())')
+
     except FileNotFoundError:
-        print(f"The file {filename} was not found.")
+        print(f'(unique-columns "{filename}" ())  ; File was not found.')
     except pd.errors.EmptyDataError:
-        print(f"The file {filename} is empty.")
+        print(f'(unique-columns "{filename}" ())  ; File is empty.')
     except pd.errors.ParserError as e:
-        print(f"Could not parse {filename}. Make sure it's a valid TSV file. {e}")
+        print(f'(unique-columns "{filename}" ())  ; Could not parse file: {e}')
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        print(f'(unique-columns "{filename}" ())  ; An unexpected error occurred: {e}')
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python check_duplicates.py <filename>")
+        print('Usage: python check_duplicates.py <filename>')
     else:
         filename = sys.argv[1]
         check_for_duplicates(filename)
