@@ -319,8 +319,6 @@ find ./data/ \( -name "*.tsv" -or -name "*.txt" -or -name "*.fb" \) -exec python
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/dmel_unique_protein_isoforms_fb_2023_04.tsv" (3 "a-PA"))
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_annotation_ID.tsv" (1 "7SLRNA:CR32864") (3 "FBgn0000003") (5 "CR32864"))
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_annotation_ID_fb_2023_04.tsv" (1 "7SLRNA:CR32864") (3 "FBgn0000003") (5 "CR32864"))
-(unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_exons2affy1_overlaps.tsv" ())  ; Could not parse file.
-(unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_exons2affy2_overlaps.tsv" ())  ; Could not parse file.
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_fbtr_fbpp_expanded_fb_2023_04.tsv" (8 "FBtr0081624") (9 "7SLRNA:CR32864-RA"))
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_fbtr_fbpp_fb_2023_04.tsv" (2 "FBtr0081624"))
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_gleanr_fb_2023_04.tsv" ())
@@ -339,7 +337,6 @@ find ./data/ \( -name "*.tsv" -or -name "*.txt" -or -name "*.fb" \) -exec python
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/human_disease/disease_model_annotations_fb_2023_04.tsv" ())
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/insertions/insertion_mapping_fb_2023_04.tsv" ())
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/map_conversion/cyto-genetic-seq.tsv" (1 "1A"))
-(unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/map_conversion/cytotable.txt" (1 "flybase/maps/cytotable.txt                                        July 26 1994"))
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/map_conversion/genome-cyto-seq.txt" (1 "21B2") (2 "98620") (3 "134010"))
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/metadata/dataset_metadata_fb_2023_04.tsv" ())
 (unique-columns "./data/ftp.flybase.net/releases/current/precomputed_files/orthologs/dmel_human_orthologs_disease_fb_2023_04.tsv" ())
