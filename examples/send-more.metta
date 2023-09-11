@@ -1,4 +1,4 @@
-
+!(extend-py! metta_learner)
 
 !(use_module (library clpfd))
 
@@ -19,4 +19,4 @@
 	(format "MONEY = M(~d)*10000 + O(~d)*1000 + N(~d)*100 + E(~d)*10 + Y(~d)" $M $O $N $E $Y)
 	(format "~d + ~d = ~d~%" $send $more $money))
 
-
+!(metta_learner::vspace-main)

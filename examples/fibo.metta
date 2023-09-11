@@ -1,5 +1,6 @@
+!(extend-py! metta_learner)
 
-!(memoize fibonacci)
+;!(memoize fibonacci)
 
 (= (fibonacci  0 0) True)
 (= (fibonacci  1 1) True)
@@ -12,4 +13,8 @@
 	(fibonacci  $N3 $N6)
 	(is  $N4 (+  $N5 $N6))))
 
-!(fibonacci 10 $What)
+;!(print (fibonacci 1 $What))
+
+
+!(metta_learner::vspace-main)
+
