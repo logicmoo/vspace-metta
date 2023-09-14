@@ -1,3 +1,5 @@
+!(extend-py! metta_learner)
+
 ;; stdlib extension
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
@@ -21,12 +23,9 @@
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 10)
+!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
-
-!(get-atoms &self)
-
 ;; Truth functions
 (= (Truth_c2w $c) (/ $c (- 1 $c)))
 (= (Truth_w2c $w) (/ $w (+ $w 1)))
@@ -56,11 +55,6 @@
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
 (= (Truth_Expectation ($f $c)) (+ (* $c (- $f 0.5)) 0.5))
-
-!(get-atoms &self)
-
-
-
 ;;NAL-1
 ;;!Syllogistic rules for Inheritance:
 (= (|- (($a --> $b) $T1) (($b --> $c) $T2)) (($a --> $c) (Truth_Deduction $T1 $T2)))
@@ -214,11 +208,10 @@
 (= (BeliefEventsMax) 10)
 (= (GoalEventsMax) 10)
 
+
 ;spaces
 !(bind! &belief_events (new-space))
 !(bind! &goal_events (new-space))
-
-!(get-atoms &self)
 
 ;states
 !(bind! &currentTime (new-state 1))
@@ -499,7 +492,48 @@
 
 
 
+!(print "NARS test!!!!!!!!!!!!!!!!!!")
+
+!(metta_learner::vspace-main)
+
+!(AddBeliefEvent ((({ garfield }) --> cat) (1.0 0.9)))
+!(AddBeliefEvent (((cat * sky) --> like) (1.0 0.9)))
+!(AddBeliefEvent ((sky --> ([ blue ])) (1.0 0.9)))
 
 
+;The following question needs both a deduction and abduction step:
+!(EternalQuestion ((({ garfield }) * ([ blue ])) --> like))
+;expected: [(Event (((({ garfield }) * ([ blue ])) --> like) (1.0 0.2965825874694874)) (eternal (Cons 2 (Cons 1 (Cons 3 Nil))) 0.643288027761712))]
 
-!(get-atoms &self)
+;Lets stress the control mechanism as these type of events with common extension or intension causes dozens of derivations:
+!(AddBeliefEvent ((A --> cat) (1.0 0.9)))
+!(AddBeliefEvent ((B --> cat) (1.0 0.9)))
+!(AddBeliefEvent ((C --> cat) (1.0 0.9)))
+
+!(EternalQuestion ((A & B) --> cat))
+;expected: [(Event (((A & B) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 4 (Cons 5 Nil)) (5 0.4525)))]
+
+!(EternalQuestion ((B & C) --> cat))
+;expected: [(Event (((B & C) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 5 (Cons 6 Nil)) (6 0.4525)))]
+
+!(EternalQuestion (((A & B) & C) --> cat))
+;expected: [(Event ((((A & B) & C) --> cat) (1.0 0.42163100057836905)) (eternal (Cons 5 (Cons 4 (Cons 6 Nil))) (6 0.195593125)))
+
+!(AddBeliefEvent (((({ garfield }) * ([ blue ])) --> like) (1.0 0.9)))
+
+!(EternalQuestion ((({ garfield }) * ([ blue ])) --> like))
+;expected: [(Event (((({ garfield }) * ([ blue ])) --> like) (1.0 0.5692683291397822)) (eternal (Cons 7 (Cons 2 (Cons 1 (Cons 3 Nil)))) 0.0))]
+;Please notice that it has revised it with the prior derived result, as you can also see in the evidence trail 1,2,3 being included
+
+!(metta_learner::vspace-main)
+
+;debug:
+!(CollapseCardinality (get-atoms &belief_events))
+;[8]
+!(CollapseCardinality (get-atoms &attentional_focus))
+;[8]
+!(CollapseCardinality (get-atoms &concepts))
+;[100]
+
+!(metta_learner::vspace-main)
+

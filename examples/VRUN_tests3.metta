@@ -1,3 +1,4 @@
+!(extend-py! metta_learner)
 ;; stdlib extension
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
@@ -21,12 +22,9 @@
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 10)
+!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
-
-!(get-atoms &self)
-
 ;; Truth functions
 (= (Truth_c2w $c) (/ $c (- 1 $c)))
 (= (Truth_w2c $w) (/ $w (+ $w 1)))
@@ -56,11 +54,6 @@
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
 (= (Truth_Expectation ($f $c)) (+ (* $c (- $f 0.5)) 0.5))
-
-!(get-atoms &self)
-
-
-
 ;;NAL-1
 ;;!Syllogistic rules for Inheritance:
 (= (|- (($a --> $b) $T1) (($b --> $c) $T2)) (($a --> $c) (Truth_Deduction $T1 $T2)))
@@ -217,8 +210,6 @@
 ;spaces
 !(bind! &belief_events (new-space))
 !(bind! &goal_events (new-space))
-
-!(get-atoms &self)
 
 ;states
 !(bind! &currentTime (new-state 1))
@@ -498,8 +489,24 @@
                       (GoalCycle $t)))))
 
 
+!(metta_learner::vspace-main)
 
+!(AddBeliefEvent (((corridorIn &/ (^ forward)) =/> doorAt) (1.0 0.9)))
+!(AddBeliefEvent (((windowAt &/ (^ open)) =/> Outside) (1.0 0.9)))
+!(AddBeliefEvent (((doorAt &/ (^ open)) =/> Outside) (1.0 0.9)))
 
+!(AddBeliefEvent (corridorIn (1.0 0.9)))
+!(AddGoalEvent (Outside (1.0 0.9)))
+;expected: [None]
 
+;needs one more goal cycle for planning 2 steps
+!(GoalCycle (get-state &currentTime))
+!(GoalCycle (get-state &currentTime))
+;expected: [(^ forward)]
 
-!(get-atoms &self)
+!(AddBeliefEvent (doorAt (1.0 0.9)))
+!(AddGoalEvent (Outside (1.0 0.9)))
+;expected: [(^ open)]
+
+!(metta_learner::vspace-main)
+

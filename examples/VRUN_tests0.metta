@@ -1,3 +1,5 @@
+!(extend-py! metta_learner)
+
 ;; stdlib extension
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
@@ -21,12 +23,9 @@
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 10)
+!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
-
-!(get-atoms &self)
-
 ;; Truth functions
 (= (Truth_c2w $c) (/ $c (- 1 $c)))
 (= (Truth_w2c $w) (/ $w (+ $w 1)))
@@ -56,11 +55,6 @@
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
 (= (Truth_Expectation ($f $c)) (+ (* $c (- $f 0.5)) 0.5))
-
-!(get-atoms &self)
-
-
-
 ;;NAL-1
 ;;!Syllogistic rules for Inheritance:
 (= (|- (($a --> $b) $T1) (($b --> $c) $T2)) (($a --> $c) (Truth_Deduction $T1 $T2)))
@@ -217,8 +211,6 @@
 ;spaces
 !(bind! &belief_events (new-space))
 !(bind! &goal_events (new-space))
-
-!(get-atoms &self)
 
 ;states
 !(bind! &currentTime (new-state 1))
@@ -441,8 +433,10 @@
 
 ;;Input procedure
 (= (AddBeliefEvent $Sentence)
-   (let* ((($t $evidentialBase) (GetReasonerState))
-          ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
+   (let* (
+          (($t $evidentialBase) (GetReasonerState))
+          ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0))))
+	  )
          (do (sequential ((EventToFIFO $InputEvent)
                           (let $InducedHypothesis (TemporalImplicationInduction (get-state &FIFO))
                                (UpdateConcept $InducedHypothesis $t))
@@ -496,10 +490,31 @@
           ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
          (sequential ((do (add-atom &goal_events $InputEvent))
                       (GoalCycle $t)))))
+;;NAL tests
+!(metta_learner::vspace-main)
 
 
+!(|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))
+;expected: [((animal --> Garfield) (1.0 0.44751381215469616)), ((Garfield --> animal) (1.0 0.81))]
+
+!(|- ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))
+;expected: [((Garfield --> cat) (1.0 0.44751381215469616))]
+
+!(|- ((({ a b }) --> mwawa) (1.0 0.9)))
+;expected: [((({ a }) --> mwawa) (1.0 0.81)), ((({ b }) --> mwawa) (1.0 0.81))]
+
+!(|- (((a * b) --> R) (1.0 0.9)))
+;expected: [((a --> (R /1 b)) (1.0 0.81)), ((b --> (R /2 a)) (1.0 0.81))]
+
+!(|- ((R --> (a * b)) (1.0 0.9)))
+;expected: [(((R \1 b) --> a) (1.0 0.81)), (((R \2 a) --> b) (1.0 0.81))]
+
+!(|- ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9)))
+;expected: [((B --> A) (1.0 0.44751381215469616)), (((A ~ B) --> cat) (0.0 0.81)), (((A | B) --> cat) (1.0 0.81)), ((B <-> A) (1.0 0.44751381215469616)), (((A & B) --> cat) (1.0 0.81))]
+
+!(|- (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9)))
+;expected: [((animal --> (Garfield | being)) (1.0 0.40276243093922653)), ((animal --> (Garfield & being)) (1.0 0.40276243093922653)), ((animal --> (Garfield - being)) (0.0 0.40276243093922653)), ((being <-> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.42163100057836905)), ((Garfield --> being) (1.0 0.7290000000000001))]
 
 
+!(metta_learner::vspace-main)
 
-
-!(get-atoms &self)
