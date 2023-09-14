@@ -14,7 +14,7 @@
 (= (do $1) (case $1 ()))
 (= (TupleCount ()) 0)
 (= (TupleCount (1)) 1)
-(= (BuildTupleCounts $TOld $C $N)
+(= (BuildTupleCounts $TOld $C $N) 
    (let $T (collapse (superpose (1 (superpose $TOld))))
         (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
                     (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
@@ -48,7 +48,7 @@
 (= (Truth_DecomposePPP $v1 $v2) (Truth_DecomposeNPP (Truth_Negation $v1) $v2))
 (= (Truth_DecomposeNNN ($f1 $c1) ($f2 $c2)) (let $fn (* (- 1 $f1) (- 1 $f2)) ((- 1 $fn) (* $fn (* $c1 $c2)))))
 (= (Truth_Eternalize ($f $c)) ($f (Truth_w2c $c)))
-(= (Truth_Revision ($f1 $c1) ($f2 $c2))
+(= (Truth_Revision ($f1 $c1) ($f2 $c2)) 
    (let* (($w1 (Truth_c2w $c1)) ($w2 (Truth_c2w $c2)) ($w  (+ $w1 $w2))
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
@@ -274,7 +274,7 @@
                                     (($w (change-state! &tempstate True))
                                      (%void% (add-atom &tempset $z))))))
                      (get-state &tempstate)))))
-
+               
 ;revise if there is no evidential overlap, else use higher-confident candidate
 (= (RevisionAndChoice (Event ($Term1 ($f1 $c1)) (eternal $ev1 $EPrio1)) (Event ($Term2 ($f2 $c2)) (eternal $ev2 $EPrio2)))
    (let $ConclusionStamp (TupleConcat $ev1 $ev2)
@@ -337,7 +337,7 @@
                                                         $ConcTV))))))))
 
 ;find a belief for the task to generate conclusions with
-(= (ReasonWithTask (Event $S1 ($time1 $ev1 $prio1)) $t)
+(= (ReasonWithTask (Event $S1 ($time1 $ev1 $prio1)) $t) 
    (let ($Belief $CPrio) (case (get-atoms &attentional_focus)
                                (((Concept $Term (Event $SE2 ($timeE2 $evE2 $prioE2)) (Event $S2 ($time2 $ev2 $prio2)) $CPrio)
                                  (If (and (not (== $time1 eternal)) (> (abs (- $time1 $time2)) 20))
@@ -355,7 +355,7 @@
                                      (BoundAttention 0.0 0.1 (AttentionalFocusConceptsMax) $t)))))
 ;;Temporal inference (sequence and implication formation based on FIFO)
 
-;use the event evidence to induce a time-independent belief which can be used in the future
+;use the event's evidence to induce a time-independent belief which can be used in the future
 (= (Eternalize $Ev) (let (Event ($Term $TV) ($Time $Evidence $EPrio)) $Ev
                          (If (== $Time eternal) $Ev
                          (Event ($Term (Truth_Eternalize $TV)) (eternal $Evidence (0 0.0))))))
@@ -364,7 +364,7 @@
 (= (Projection (Event ($Term ($f $c)) ($Time $Evidence $EPrio)) $TargetTime)
    (Event ($Term ($f (* $c (min 1 (/ 1 (abs (- $Time $TargetTime))))))) ($TargetTime $Evidence $EPrio)))
 
-;make the belief occurrence time compatible with the task''s
+;make the belief occurrence time compatible with the task's
 (= (TemporallyAlignedBelief $TaskTime $Belief) (If (== $TaskTime eternal)
                                                    (Eternalize $Belief)
                                                    (Projection $Belief $TaskTime)))
@@ -392,7 +392,7 @@
    (let (Event ($Term1 $Truth1) ($Time1 $Evidence1 $EPrio1)) (Projection $Ev1 $Time2)
         (Event (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)) ($Time2 (TupleConcat $Evidence1 $Evidence2) (0 0.0)))))
 
-;Whether an event''s term is an operation
+;Whether an event's term is an operation
 (= (IsOp (Event ($Term $Truth) $Metadata))
    (case $Term (((^ $Opname) True)
                 ($Otherwise False))))
@@ -414,7 +414,7 @@
         (If (not (== $ObservedCons $PredictedCons))
             (UpdateConcept (Event (($PrecTerm =/> $PredictedCons) (0.0 0.1)) ($t () (0 0.0))) $t))))
 
-;Check if the implication''s preconditions are met to anticipate the by the implication predicted outcome
+;Check if the implication's preconditions are met to anticipate the by the implication predicted outcome
 (= (Anticipate (Cons $Pos Nil) $t))
 (= (Anticipate (Cons $Pos (Cons $Pre Nil)) $t)
    (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)
@@ -486,26 +486,8 @@
           ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
          (sequential ((do (add-atom &goal_events $InputEvent))
                       (GoalCycle $t)))))
-;;NAL tests
 
-!(|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))
-;expected: [((animal --> Garfield) (1.0 0.44751381215469616)), ((Garfield --> animal) (1.0 0.81))]
 
-!(|- ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))
-;expected: [((Garfield --> cat) (1.0 0.44751381215469616))]
+!(get-atoms &self)
 
-!(|- ((({ a b }) --> mwawa) (1.0 0.9)))
-;expected: [((({ a }) --> mwawa) (1.0 0.81)), ((({ b }) --> mwawa) (1.0 0.81))]
-
-!(|- (((a * b) --> R) (1.0 0.9)))
-;expected: [((a --> (R /1 b)) (1.0 0.81)), ((b --> (R /2 a)) (1.0 0.81))]
-
-!(|- ((R --> (a * b)) (1.0 0.9)))
-;expected: [(((R \1 b) --> a) (1.0 0.81)), (((R \2 a) --> b) (1.0 0.81))]
-
-!(|- ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9)))
-;expected: [((B --> A) (1.0 0.44751381215469616)), (((A ~ B) --> cat) (0.0 0.81)), (((A | B) --> cat) (1.0 0.81)), ((B <-> A) (1.0 0.44751381215469616)), (((A & B) --> cat) (1.0 0.81))]
-
-!(|- (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9)))
-;expected: [((animal --> (Garfield | being)) (1.0 0.40276243093922653)), ((animal --> (Garfield & being)) (1.0 0.40276243093922653)), ((animal --> (Garfield - being)) (0.0 0.40276243093922653)), ((being <-> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.42163100057836905)), ((Garfield --> being) (1.0 0.7290000000000001))]
 
