@@ -217,7 +217,8 @@
 !(bind! &evidentialBase (new-state 1))
 (= (increment $atom) (change-state! $atom (+ 1 (get-state $atom))))
 (= (UpdateReasonerState) ((increment &currentTime) (increment &evidentialBase)))
-(= (GetReasonerState) ((get-state &currentTime) ((get-state &evidentialBase))))
+(= (GetReasonerState)
+  ((get-state &currentTime) ((get-state &evidentialBase))))
 
 ;priority of events
 (= (EventPriorityNow ($T $P) $t) (* $P (/ 1 (+ 1 (- $t $T)))))
@@ -315,13 +316,19 @@
 
 ;get eternal belief of concept
 (: EternalQuestion (-> Expression $t))
-(= (EternalQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $Belief)
-                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
+(= (EternalQuestion $Term)
+      (case
+         (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $Belief)
+         (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
 
 ;get event belief of concept
 (: EventQuestion (-> Expression $t))
-(= (EventQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $BeliefEvent)
-                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (0 Nil 0.0))))))
+(= (EventQuestion $Term)
+    (case
+          (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $BeliefEvent)
+          (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (0 Nil 0.0))))))
+
+
 ;;Declarative inference (deriving events and knowledge from observed events)
 
 ;Derived belief event priority
@@ -396,7 +403,8 @@
 
 ;Whether an event''s term is an operation
 (= (IsOp (Event ($Term $Truth) $Metadata))
-   (case $Term (((^ $Opname) True)
+   (case $Term (
+                ((^ $Opname) True)
                 ($Otherwise False))))
 
 ;Find implications in the event FIFO:
