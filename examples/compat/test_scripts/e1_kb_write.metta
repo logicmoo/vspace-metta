@@ -3,6 +3,13 @@
 ; MeTTa allows to use a separate knowledge base (Space) &kb
 ; to accumulate inferred knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+!(assertEqualToResult
+   (let $x (+ 2 3)
+	(* $x $x)) (25))
+
+
 ; Bind &kb to a new empty Space
 !(bind! &kb (new-space))
 
