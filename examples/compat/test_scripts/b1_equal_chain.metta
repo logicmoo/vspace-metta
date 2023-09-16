@@ -57,7 +57,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Note that the same variable can be used multiple times on the left
-; side of expressions, and that the "function" doesn't need to
+; side of expressions, and that the "function" doesn''t need to
 ; cover all possible inputs (i.e. it can be "non-total")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (= (eq $x $x) T)

@@ -14,7 +14,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(assertEqual
   (match &self (= (color) $x) $x)
-  (superpose (red yellow green)))
+  (superpose (green yellow red)))
+
+
+
+
+
+;!(assertEqual (match &self (= (color) $x) $x) (color))
+
+
+;!(assertEqual (collapse (color)) (red yellow green))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -22,10 +31,8 @@
 ; We don''t use it above, because the order of non-deterministic results
 ; is not guaranteed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (collapse
-    (match &self (= (shape) $x) $x))
-  ())
+
+!(assertEqual (collapse (match &self (= (shape) $x) $x)) ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -35,6 +42,7 @@
 !(assertEqual
   (color)
   (superpose (red yellow green)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
