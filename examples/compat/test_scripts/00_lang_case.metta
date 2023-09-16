@@ -67,7 +67,7 @@
   (case
    (match &self ($rel A $x) ($rel $x))
     (((Rel-P $y) (P $y))
-     ((Rel-Q $y) (Q $y))))
+     ((Rel-Q $y) (Q $y)))))
 
 
 ; %void% can be used to capture empty results
