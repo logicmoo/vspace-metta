@@ -25,31 +25,33 @@
 
 
 ; we can use variables as cases
-!(assertEqual 7
-(case (+ 1 5)
-  (($x (+ 1 $x)))))
+!(assertEqual
+ (case (+ 1 5)
+   (($x (+ 1 $x))))
+ 7)
 
 
 ; cases are not necessarily exhaustive,
 ; and the result can be empty
 !(assertEqual
-(superpose ())
-(case 5
-  ((6 OK))))
+    (case 5
+	((6 OK)))
+  (superpose ()))
 
 
 ; it is non-deterministic: each value is matched against all cases
-!(assertEqual (superpose (OK-3 OK-4))
-(case (+ 1 (superpose (1 2 3)))
+!(assertEqual
+ (case (+ 1 (superpose (1 2 3)))
   ((3 OK-3)
-   (4 OK-4))))
-
+   (4 OK-4)))
+ (superpose (OK-3 OK-4)))
 
 
 ; one case can produce multiple results
-!(assertEqual (superpose (3 4 5))
-(case (+ 1 (superpose (1 2 3)))
-  (($x (+ 1 $x)))))
+!(assertEqual
+  (case (+ 1 (superpose (1 2 3)))
+     (($x (+ 1 $x))))
+  (superpose (3 4 5)))
 
 
 (Rel-P A B)
@@ -78,14 +80,15 @@
      )))
      no-match )
 
+
 ; a functional example
 (= (maybe-inc $x)
     (case $x
-    (((Just $v) (Just (+ 1 $v)))
+     (((Just $v) (Just (+ 1 $v)))
 	(Nothing Nothing))))
 
 !(assertEqual (maybe-inc Nothing) Nothing)
-!(assertEqual (maybe-inc (Just 2))  (Just 3))
+!(assertEqual (maybe-inc (Just 2)) (Just 3))
 
 
 ; Curried plus
