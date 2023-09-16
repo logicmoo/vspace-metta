@@ -63,7 +63,7 @@
 
 ; cases can be used for deconstruction
 !(assertEqual
-  (superpose ((Q C) (P B)))
+  (superpose ((P B) (Q C)))
   (case
    (match &self ($rel A $x) ($rel $x))
     (((Rel-P $y) (P $y))

@@ -31,7 +31,7 @@
    )
 )
 
-; Definition of TV for $x when it's the consequent of an implication
+; Definition of TV for $x when it''s the consequent of an implication
 (= (TV $x)
    (match &self
      (.tv (Implication $y $x)

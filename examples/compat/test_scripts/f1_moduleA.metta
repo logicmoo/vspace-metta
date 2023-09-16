@@ -6,7 +6,7 @@
 
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
-; (like `if`) don't work.
+; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
 !(assertEqual (+ 1 2) 3)
 ; !(assertEqual (if True "S" "F") "S")
