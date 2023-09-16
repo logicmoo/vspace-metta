@@ -1,3 +1,20 @@
+
+; cases are processed sequentially
+!(assertEqual
+   (+ 1 (superpose (1 2 3)))
+   (+ 1 (superpose (1 2 3))))
+
+
+!(assertEqual
+   (+ 1 (superpose (1 2 3)))
+   (+ 1 (superpose (1 (superpose (2 3))))))
+
+!(assertEqual
+   ((superpose (1 2 3)))
+   ((superpose (1 (superpose ((+ 1 1) 3))))))
+
+
+
 ; cases are processed sequentially
 !(assertEqual
 (case (+ 1 5)
@@ -6,21 +23,12 @@
    (6 Error)))
  OK)
 
+
 ; we can use variables as cases
 !(assertEqual 7
 (case (+ 1 5)
   (($x (+ 1 $x)))))
 
-; it is non-deterministic: each value is matched against all cases
-!(assertEqual (superpose (OK-3 OK-4))
-(case (+ 1 (superpose (1 2 3)))
-  ((3 OK-3)
-   (4 OK-4))))
-
-; one case can produce multiple results
-!(assertEqual (superpose (3 4 5))
-(case (+ 1 (superpose (1 2 3)))
-  (($x (+ 1 $x)))))
 
 ; cases are not necessarily exhaustive,
 ; and the result can be empty
@@ -30,14 +38,37 @@
   ((6 OK))))
 
 
+; it is non-deterministic: each value is matched against all cases
+!(assertEqual (superpose (OK-3 OK-4))
+(case (+ 1 (superpose (1 2 3)))
+  ((3 OK-3)
+   (4 OK-4))))
+
+
+
+; one case can produce multiple results
+!(assertEqual (superpose (3 4 5))
+(case (+ 1 (superpose (1 2 3)))
+  (($x (+ 1 $x)))))
+
+
 (Rel-P A B)
 (Rel-Q A C)
 
+; Basic Match
+!(assertEqual
+   (match &self ($rel A $x) ($rel $x))
+   (superpose ((Rel-P B) (Rel-Q C))))
+
+
 ; cases can be used for deconstruction
-!(assertEqual (case (match &self ($rel A $x) ($rel $x))
+!(assertEqual
+  (superpose ((Q C) (P B)))
+  (case
+   (match &self ($rel A $x) ($rel $x))
     (((Rel-P $y) (P $y))
-    ((Rel-Q $y) (Q $y))))
-    (superpose ((Q C) (P B))))
+     ((Rel-Q $y) (Q $y))))
+
 
 ; %void% can be used to capture empty results
 !(assertEqual (case (match &self ($rel B $x) ($rel $x))
