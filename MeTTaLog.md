@@ -1,28 +1,27 @@
-
 # MeTTaLog: An Implementation of MeTTa in Prolog
 
 ## Introduction
 
-MeTTa is a language designed to be a successor to OpenCog Classic Atomese. It forms part of the OpenCog Hyperon initiative, with clear semantics supporting meta-language features, different types of inference, and more.
+MeTTaLog serves as an implementation of MeTTa, a language designed to succeed OpenCog Classic Atomese. It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
 
 ## Prerequisites
 
 - SWI-Prolog
-- Python 3.x
 
-## Main Installation Steps
+## Installation Guide
 
-### Installing Optional SWI-Prolog Packages
+### Optional SWI-Prolog Packages
 
-[Janus (requires SWI-Prolog 9.1.12 or later)](https://www.swi-prolog.org/pldoc/man?section=janus-python-package)
- - This lets you call Python code you have been or will be writting for MeTTa
+- **Janus (requires SWI-Prolog 9.1.12 or later)**
+  [Learn More](https://www.swi-prolog.org/pldoc/man?section=janus-python-package)
+  - This lets you call Python code you have written for MeTTa to use.
 
-### Installing Required SWI-Prolog Packages
+### Required SWI-Prolog Packages
 
- Open your SWI-Prolog terminal and install logicmoo_utils and dictoo packs:
+1. Open your SWI-Prolog terminal.
+2. Install `logicmoo_utils` and `dictoo` packs:
 
 ```bash
-~# swipl
 Welcome to SWI-Prolog (threaded, 64 bits, version 9.1.15-49-g93d0c9ac6)
 SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
 Please run ?- license. for legal details.
@@ -34,80 +33,79 @@ For built-in help, use ?- help(Topic). or ?- apropos(Word).
 % Contacting server at https://www.swi-prolog.org/pack/query ... ok
 % Pack `logicmoo_utils' is installed @3.1.3
 
-% OOP thru Prolog Dicts
+% OO thru Prolog Dicts
 ?- pack_install(dictoo).
+% Contacting server at https://www.swi-prolog.org/pack/query ... ok
+% Pack `dictoo' is installed @3.1.3
 
+?- halt.
 ```
 
-
-### Clone the MeTTaLog repository
-
+### Clone the MeTTaLog Repository
+(nothing needs built)
 ```bash
 git clone https://github.com/logicmoo/metta-vspace.git
-
-# Navigate into the directory
 cd metta-vspace
-
-# You maybe start you first unit (LoonIt Test) test, run:
-./MeTTa examples/compat/test_scripts/00_lang_case.metta
-
-(Notice the `MeTTa` capitalization to distinquish it from `metta` written in Rust)
-
-# output will be saved to: examples/compat/test_scripts/00_lang_case.html
-
-# To run all tests:
-./MeTTa examples/compat/test_scripts/*.metta
-
-
-# to run the debugger/repl
-
-./MeTTa --repl
-
+./MeTTa examples/compat/test_scripts/00_lang_case.metta  # Run your first unit test (LoonIt Test)
+# The output will be saved as `examples/compat/test_scripts/00_lang_case.html`.
 ```
 
+Note: The `MeTTa` script is case-sensitive and different from `metta` written in Rust.
 
-## Get familiar with MeTTa
+**To run all tests:**
 
-you may:
+```bash
+./MeTTa examples/compat/test_scripts/*.metta
+```
 
-1. Read the [MeTTa specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
+**To run the debugger/REPL:**
 
-2. Learn the [Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
+```bash
+./MeTTa --repl
+```
 
-3. Fix bugs in MeTTaLog:
+## Familiarize Yourself with MeTTa
 
-- [00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_case.html)
-- [00_lang_ok_to_redefine.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_ok_to_redefine.html)
-- [01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/01_lang_inc.html)
-- [02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/02-curried-plus.html)
-- [03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/03-soring-via-insert.html)
-- [_e2_states_dia.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/_e2_states_dia.html)
-- [a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a1_symbols.html)
-- [a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a2_opencoggy.html)
-- [a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a3_twoside.html)
-- [b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b0_chaining_prelim.html)
-- [b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b1_equal_chain.html)
-- [b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b2_backchain.html)
-- [b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b3_direct.html)
-- [b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b4_nondeterm.html)
-- [b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b5_types_prelim.html)
-- [c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c1_grounded_basic.html)
-- [c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c2_spaces.html)
-- [c2_spaces_kb.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c2_spaces_kb.html)
-- [c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c3_pln_stv.html)
-- [d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d1_gadt.html)
-- [d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d2_higherfunc.html)
-- [d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d3_deptypes.html)
-- [d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d4_type_prop.html)
-- [d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d5_auto_types.html)
-- [e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/e1_kb_write.html)
-- [e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/e2_states.html)
-- [e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/e3_match_states.html)
-- [f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_imports.html)
-- [f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleA.html)
-- [f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleB.html)
+1. [Read the MeTTa specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
+2. [Learn the Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
 
+## Fix Bugs in MeTTaLog
 
+| Successes    | Failures     | File                                                                                       |
+|--------------|--------------|--------------------------------------------------------------------------------------------|
+| 11           | 0            | [00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_case.html)                          |
+| 0            | 0            | [00_lang_ok_to_redefine.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_ok_to_redefine.html)          |
+| 1            | 1            | [01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/01_lang_inc.html)                             |
+| 0            | 1            | [02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/02-curried-plus.html)                     |
+| 1            | 2            | [03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/03-soring-via-insert.html)             |
+| 5            | 2            | [a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a1_symbols.html)                             |
+| 1            | 0            | [a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a2_opencoggy.html)                         |
+| 4            | 0            | [a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a3_twoside.html)                             |
+| 3            | 2            | [b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b0_chaining_prelim.html)                 |
+| 2            | 4            | [b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b1_equal_chain.html)                       |
+| 0            | 5            | [b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b2_backchain.html)                         |
+| 1            | 2            | [b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b3_direct.html)                             |
+| 2            | 9            | [b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b4_nondeterm.html)                         |
+| 5            | 21           | [b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/b5_types_prelim.html)                   |
+| 0            | 0            | [c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c1_grounded_basic.html)                   |
+| 4            | 1            | [c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c2_spaces.html)                             |
+| 0            | 0            | [c2_spaces_kb.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c2_spaces_kb.html)                         |
+| 0            | 0            | [c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/c3_pln_stv.html)                           |
+| 4            | 10           | [d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d1_gadt.html)                                 |
+| 0            | 0            | [d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d2_higherfunc.html)                       |
+| 2            | 5            | [d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d3_deptypes.html)                           |
+| 6            | 12           | [d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d4_type_prop.html)                         |
+| 0            | 6            | [d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/d5_auto_types.html)                         |
+| 1            | 1            | [e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/e1_kb_write.html)                           |
+| 1            | 10           | [e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/e2_states.html)                             |
+| 0            | 4            | [e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/e3_match_states.html)                     |
+| 7            | 10           | [f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_imports.html)                             |
+| 1            | 0            | [f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleA.html)                           |
+| 0            | 0            | [f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleB.html)                           |
+| 0            | 0            | [f1_moduleC.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleC.html)                           |
+| 0            | 0            | [_e2_states_dia.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/_e2_states_dia.html)                     |
+|--------------|--------------|--------------------------------------------------------------------------------------------|
+| **Total Successes: 62** | **Total Failures: 108** | |
 
 ## Acknowledgments
 
