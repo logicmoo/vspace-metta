@@ -31,8 +31,7 @@ For built-in help, use ?- help(Topic). or ?- apropos(Word).
 % Pack `logicmoo_utils' is already installed @3.1.3
 % OOP thru Prolog Dicts
 ?- pack_install(dictoo).
-...
-```
+
 # Clone the repository
 git clone https://github.com/logicmoo/metta-vspace.git
 
