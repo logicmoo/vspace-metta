@@ -28,11 +28,13 @@ For built-in help, use ?- help(Topic). or ?- apropos(Word).
 
 ?- pack_install(logicmoo_utils).
 % Contacting server at https://www.swi-prolog.org/pack/query ... ok
-% Pack `logicmoo_utils' is already installed @3.1.3
+% Pack `logicmoo_utils' is installed @3.1.3
+
 % OOP thru Prolog Dicts
 ?- pack_install(dictoo).
 
-# Clone the repository
+
+# Clone the MeTTaLog repository
 git clone https://github.com/logicmoo/metta-vspace.git
 
 # Navigate into the directory
@@ -40,6 +42,8 @@ cd metta-vspace
 
 # To start the first unit test, run:
 ./Metta examples/compat/test_scripts/00_lang_case.metta
+
+(Note: The first letter of Metta is capitolized to distinquish it from metta written in Rust)
 
 # To run all:
 ./Metta examples/compat/test_scripts/*.metta
