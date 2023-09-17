@@ -1,4 +1,22 @@
-<html><head><title>./_e2_states_dia</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ; This example rewritten with `case` works (as per 19 Oct 22),
 ; but it might not be good as a unit test:
 ; - what's going on is not obvious
@@ -7,10 +25,10 @@
 ;   chaining them might not be idiomatic
 ; - it's relatively slow (why? FIXME?)
 
-!(bind! &memory (new-space))
+!(bind! &amp;memory (new-space))
 
 ; catching empty results
-(: do (-> Atom %Undefined%))
+(: do (-&gt; Atom %Undefined%))
 (= (do $expr)
    (case $expr
      (($x $x)
@@ -19,17 +37,17 @@
 ; `remove-state` will return an empty result if there is no
 ; corresponding state in the memory
 (= (remove-state $var)
-   (match &memory (state $var $y)
-         (call:remove_atom &memory (state $var $y))))
+   (match &amp;memory (state $var $y)
+         (call:remove_atom &amp;memory (state $var $y))))
 
 ; using `do` assures that the next clause will be executed
 ; even if the result of the previous clause is empty
 (= (change-state $var $value)
    (nop (do (remove-state $var))
-        (do (add-atom &memory (state $var $value)))))
+        (do (add-atom &amp;memory (state $var $value)))))
 
 (= (get-state $var)
-   (match &memory (state $var $value) $value))
+   (match &amp;memory (state $var $value) $value))
 
 ; Earlier, `(get-state (person name))` got cached, and it changes
 ; in one equality for `listen` didn't affect other equalities.
@@ -65,6 +83,198 @@
 ;!(listen (My name is Alexey))
 ;!(listen (My name is Ben))
 
-;!(call:get_atoms &memory)
+;!(call:get_atoms &amp;memory)
 
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/_e2_states_dia.metta -- -- --args examples/compat/test_scripts/_e2_states_dia.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/_e2_states_dia.metta")
+%;; This example rewritten with `case` works (as per 19 Oct 22),
+%;; but it might not be good as a unit test:
+%;; - what's going on is not obvious
+%;; - there might be a better way to implement what the code is doing
+%;; - processing commands with side effect and empty results and
+%;;   chaining them might not be idiomatic
+%;; - it's relatively slow (why? FIXME?)
+
+(:-  
+ (metta_eval  
+  (bind! &amp;memory 
+   (new-space))))<span class="ansi33">
+ % ['new-space']
+
+</span>%; catching empty results
+
+(metta_arity  &amp;self do 2)
+(metta_params  &amp;self do 
+ (Atom %Undefined%))
+(metta_last  &amp;self do %Undefined%)
+(metta_head  &amp;self do 
+ ($Expr))
+(metta_defn  &amp;self 
+ (do $Expr) 
+ (case $Expr 
+  (($X $X) 
+   (%void% None))))
+(metta_body  &amp;self case 
+ ($Expr 
+  (($X $X) 
+   (%void% None))))
+%; `remove-state` will return an empty result if there is no
+%; corresponding state in the memory
+
+(metta_head  &amp;self remove-state 
+ ($Var))
+(metta_defn  &amp;self 
+ (remove-state $Var) 
+ (match &amp;memory 
+  (state $Var $Y) 
+  (call:remove_atom &amp;memory 
+   (state $Var $Y))))
+(metta_body  &amp;self match 
+ (&amp;memory 
+  (state $Var $Y) 
+  (call:remove_atom &amp;memory 
+   (state $Var $Y))))
+%; using `do` assures that the next clause will be executed
+%; even if the result of the previous clause is empty
+
+(metta_head  &amp;self change-state 
+ ($Var $Value))
+(metta_defn  &amp;self 
+ (change-state $Var $Value) 
+ (nop 
+  (do 
+   (remove-state $Var)) 
+  (do 
+   (add-atom &amp;memory 
+    (state $Var $Value)))))
+(metta_body  &amp;self nop 
+ ((do 
+   (remove-state $Var)) 
+  (do 
+   (add-atom &amp;memory 
+    (state $Var $Value)))))
+(metta_head  &amp;self get-state 
+ ($Var))
+(metta_defn  &amp;self 
+ (get-state $Var) 
+ (match &amp;memory 
+  (state $Var $Value) $Value))
+(metta_body  &amp;self match 
+ (&amp;memory 
+  (state $Var $Value) $Value))
+%; Earlier, `(get-state (person name))` got cached, and it changes
+%; in one equality for `listen` didn't affect other equalities.
+%; `case` accepts an `Atom` and forcefully evaluates it.
+%; However, the idea of using equalities as sequentially processed
+%; rules with side effects is still questionable
+
+(metta_head  &amp;self listen 
+ ((My name is $X)))
+(metta_defn  &amp;self 
+ (listen 
+  (My name is $X)) 
+ (case 
+  (get-state 
+   (person name)) 
+  (($X 
+    ("Yes," I remember)) 
+   ($Y 
+    (I thought you are $Y)))))
+(metta_body  &amp;self case 
+ ((get-state 
+   (person name)) 
+  (($X 
+    ("Yes," I remember)) 
+   ($Y 
+    (I thought you are $Y)))))
+%; $y cannot be %void%
+
+(metta_head  &amp;self listen 
+ ((My name is $X)))
+(metta_defn  &amp;self 
+ (listen 
+  (My name is $X)) 
+ (change-state 
+  (person name) $X))
+(metta_body  &amp;self change-state 
+ ((person name) $X))
+(metta_head  &amp;self listen 
+ ($_))
+(metta_defn  &amp;self 
+ (listen $_) 
+ (case 
+  (get-state greeted) 
+  ((%void% 
+    (case 
+     (get-state 
+      (person name)) 
+     ((%void% 
+       (Hi. What is your name?)) 
+      ($P_name 
+       (Nice to meet you $P_name))))))))
+(metta_body  &amp;self case 
+ ((get-state greeted) 
+  ((%void% 
+    (case 
+     (get-state 
+      (person name)) 
+     ((%void% 
+       (Hi. What is your name?)) 
+      ($P_name 
+       (Nice to meet you $P_name))))))))
+(metta_head  &amp;self listen 
+ ($_))
+(metta_defn  &amp;self 
+ (listen $_) 
+ (nop 
+  (change-state greeted True)))
+(metta_body  &amp;self nop 
+ ((change-state greeted True)))<span class="ansi32">
+% 120,885 inferences, 0.057 CPU in 0.058 seconds (99% CPU, 2113260 Lips)
+</span> 
+(=  "examples/compat/test_scripts/_e2_states_dia.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 0
+</span>
+
+</pre>
+</body>
+
+</html>

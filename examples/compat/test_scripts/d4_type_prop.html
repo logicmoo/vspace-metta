@@ -1,4 +1,23 @@
-<html><head><title>./d4_type_prop</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Types as propositions can be used in MeTTa but with nuances
@@ -9,8 +28,8 @@
 (: Plato Entity)
 
 ; Predicates (functions) from `Entity` to `Type`
-(: Human (-> Entity Type))
-(: Mortal (-> Entity Type))
+(: Human (-&gt; Entity Type))
+(: Mortal (-&gt; Entity Type))
 
 ; `(Mortal Plato)` is an expression of `Type` type
 ; It represents the proposition "Plato is mortal"
@@ -22,7 +41,7 @@
 ; A function type as an implication
 ; `HumansAreMortal` represents the implication:
 ; "For all x, if Human(x) then Mortal(x)"
-(: HumansAreMortal (-> (Human $t) (Mortal $t)))
+(: HumansAreMortal (-&gt; (Human $t) (Mortal $t)))
 ; NOTE: MeTTa doesn't differentiate between type constructors and
 ;       other symbols (including functional) of the same type.
 ;       Thus, ATM, we cannot prove any proposition with universal
@@ -55,7 +74,7 @@
 ; Equality can be typed. If some equality is well-typed,
 ; it means that it can be true.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(: = (-> $t $t Type))
+(: = (-&gt; $t $t Type))
 !(assertEqual
   (get-type (= SocratesIsMortal (HumansAreMortal SocratesIsHuman)))
   Type)
@@ -82,10 +101,10 @@
 ; A standard type-theoretic way of saying that some equality is true
 ; is to present an instance of the corresponding equality type.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; (: Refl (-> (: $x $T) (= $x $x))).
+; (: Refl (-&gt; (: $x $T) (= $x $x))).
 ; As per https://github.com/trueagi-io/hyperon-experimental/issues/177 ,
 ; there is no way to match both argument and its type in type definition.
-; Such syntax `(: (Refl $x) (-> Type (= $x $x)))` also doesn't work now.
+; Such syntax `(: (Refl $x) (-&gt; Type (= $x $x)))` also doesn't work now.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -106,7 +125,7 @@
 
 ; One can also define an equality for directly inhabited types
 (= (= $type T)
-   (match &self (: $x $type) T))
+   (match &amp;self (: $x $type) T))
 !(assertEqual
   (= (Mortal Socrates) T)
   T)
@@ -118,7 +137,7 @@
 
 ; But we can add 'reasoning'
 (= (= $type T)
-   (match &self (: $impl (-> $cause $type))
+   (match &amp;self (: $impl (-&gt; $cause $type))
       (= $cause T)))
 !(assertEqual
   (= (Mortal Plato) T)
@@ -151,9 +170,456 @@
   T)
 
 ; We can even try backward chaining
-(: ift (-> Type $t $t))
+(: ift (-&gt; Type $t $t))
 (= (ift T $then) $then)
 !(assertEqualToResult
   (ift (Mortal $x) $x)
   (Socrates Plato))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/d4_type_prop.metta -- -- --args examples/compat/test_scripts/d4_type_prop.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/d4_type_prop.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Types as propositions can be used in MeTTa but with nuances
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Entities
+
+(metta_arity  &amp;self Entity 0)
+(metta_head  &amp;self : 
+ (Entity Type))
+(metta_atom  &amp;self 
+ (: Entity Type))
+(metta_arity  &amp;self Socrates 0)
+(metta_head  &amp;self : 
+ (Socrates Entity))
+(metta_atom  &amp;self 
+ (: Socrates Entity))
+(metta_arity  &amp;self Plato 0)
+(metta_head  &amp;self : 
+ (Plato Entity))
+(metta_atom  &amp;self 
+ (: Plato Entity))
+%; Predicates (functions) from `Entity` to `Type`
+
+(metta_arity  &amp;self Human 2)
+(metta_params  &amp;self Human 
+ (Entity Type))
+(metta_last  &amp;self Human Type)
+(metta_arity  &amp;self Mortal 2)
+(metta_params  &amp;self Mortal 
+ (Entity Type))
+(metta_last  &amp;self Mortal Type)
+%; `(Mortal Plato)` is an expression of `Type` type
+%; It represents the proposition "Plato is mortal"
+%; but doesn't mean this proposition is inhabited/proven
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (Mortal Plato)) Type)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Type)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; A function type as an implication
+%; `HumansAreMortal` represents the implication:
+%; "For all x, if Human(x) then Mortal(x)"
+
+(metta_arity  &amp;self HumansAreMortal 2)
+(metta_params  &amp;self HumansAreMortal 
+ ((Human $T) 
+  (Mortal $T)))
+(metta_last  &amp;self HumansAreMortal T)
+%; NOTE: MeTTa doesn't differentiate between type constructors and
+%;       other symbols (including functional) of the same type.
+%;       Thus, ATM, we cannot prove any proposition with universal
+%;       quantification (e.g., that all humans are mortal) by
+%;       providing a total function as an instance of a
+%;       corresponding type.
+%; These might be considered as assertions that Plato and
+%; Socrates are Humans:
+
+(metta_arity  &amp;self SocratesIsHuman 1)
+(metta_params  &amp;self SocratesIsHuman 
+ (Human Socrates))
+(metta_last  &amp;self SocratesIsHuman Socrates)
+(metta_arity  &amp;self PlatoIsHuman 1)
+(metta_params  &amp;self PlatoIsHuman 
+ (Human Plato))
+(metta_last  &amp;self PlatoIsHuman Plato)
+%; `(HumansAreMortal SocratesIsHuman)` might be considered
+%; as a proof that that `(Mortal Socrates)`.
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (HumansAreMortal SocratesIsHuman)) 
+   (Mortal Socrates))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((Mortal Socrates))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Bad typing
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (HumansAreMortal 
+     (Human Socrates))) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%; We can write this code, but it will make not too much
+%; difference for the assertion that "all humans are mortal"
+
+(metta_arity  &amp;self SocratesIsMortal 1)
+(metta_params  &amp;self SocratesIsMortal 
+ (Mortal Socrates))
+(metta_last  &amp;self SocratesIsMortal Socrates)
+(metta_head  &amp;self HumansAreMortal 
+ (SocratesIsHuman))
+(metta_defn  &amp;self 
+ (HumansAreMortal SocratesIsHuman) SocratesIsMortal)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (HumansAreMortal SocratesIsHuman) SocratesIsMortal))
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Equality can be typed. If some equality is well-typed,
+%; it means that it can be true.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self = 3)
+(metta_params  &amp;self = 
+ ($T $T Type))
+(metta_last  &amp;self = Type)
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (= SocratesIsMortal 
+     (HumansAreMortal SocratesIsHuman))) Type)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Type)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; This equality is well-typed, because both its arguments are of `Type`.
+%; It doesn't mean they are both inhabited (true propositions), and
+%; it doesn't mean that the equality itself is true (an inhabited type).
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (= 
+     (Mortal Socrates) 
+     (Mortal Plato))) Type)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Type)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Wrong proof
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (= SocratesIsMortal 
+     (HumansAreMortal PlatoIsHuman))) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%; Wrong equalities
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (= SocratesIsHuman PlatoIsHuman)) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (= SocratesIsHuman SocratesIsMortal)) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; A standard type-theoretic way of saying that some equality is true
+%; is to present an instance of the corresponding equality type.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; (: Refl (-&gt; (: $x $T) (= $x $x))).
+%; As per https://github.com/trueagi-io/hyperon-experimental/issues/177 ,
+%; there is no way to match both argument and its type in type definition.
+%; Such syntax `(: (Refl $x) (-&gt; Type (= $x $x)))` also doesn't work now.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Another (MeTTa) way is to have explicit reduction of types to True
+%; (equalities over equalities), although a more practical way would
+%; be just to use a dedicated comparison operator
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self True 0)
+(metta_head  &amp;self : 
+ (True Type))
+(metta_atom  &amp;self 
+ (: True Type))
+(unknown_do_metta  &amp;self load 
+ (= $X $X))
+%; These equalities will be true
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (= SocratesIsMortal 
+    (HumansAreMortal SocratesIsHuman)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (False) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (= 
+    (+ 1 1) 
+    (- 3 1)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (False) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; One can also define an equality for directly inhabited types
+
+(unknown_do_metta  &amp;self load 
+ (= $Type 
+  (: $X $Type)))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Mortal Socrates) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((Mortal Socrates)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; It will not immediately work for implications
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (Mortal Plato) ())))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((Mortal Plato)) ()))
+</span><span class="ansi33"> % 'False'
+
+</span>%; But we can add 'reasoning'
+
+(unknown_do_metta  &amp;self load 
+ (= $Type 
+  (match &amp;self 
+   (: $Impl 
+    (-&gt; $Cause $Type)) $Cause)))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Mortal Plato) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((Mortal Plato)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(metta_arity  &amp;self Sam 0)
+(metta_head  &amp;self : 
+ (Sam Entity))
+(metta_atom  &amp;self 
+ (: Sam Entity))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (Human Sam) ())))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((Human Sam)) ()))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Types by themselves will not be reduced
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (Mortal Plato) 
+   ((Mortal Plato)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Mortal Plato)) 
+  ((Mortal Plato))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; Refl rule itself equals to True
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (= $X $X) True)))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (True) 
+  (True)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; We can also add direct equalities
+%; (= (Human Socrates) T)
+
+(metta_head  &amp;self Human 
+ (Plato))
+(metta_atom  &amp;self 
+ (Human Plato))
+(metta_head  &amp;self Mortal 
+ (Socrates))
+(metta_atom  &amp;self 
+ (Mortal Socrates))
+(metta_head  &amp;self Mortal 
+ ($X))
+(metta_defn  &amp;self 
+ (Mortal $X) 
+ (Human $X))
+(metta_body  &amp;self Human 
+ ($X))
+%; Then, the type of type itself will be reduced
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Mortal Plato) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (Human Plato) 
+   (Mortal Plato)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; We can even try backward chaining
+
+(metta_arity  &amp;self ift 3)
+(metta_params  &amp;self ift 
+ (Type $T $T))
+(metta_last  &amp;self ift T)
+(metta_head  &amp;self ift 
+ (True $Then))
+(metta_defn  &amp;self 
+ (ift True $Then) $Then)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (ift True $Then) $Then))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (ift 
+    (Mortal $X) $X) 
+   (Socrates Plato))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((ift 
+    (Mortal $_197202) $_197202) 
+   (ift 
+    (Socrates) Socrates) 
+   (ift 
+    (Plato) Plato) 
+   (ift 
+    (Human $_197106) $_197106)) 
+  (Socrates Plato)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 420,980 inferences, 0.393 CPU in 0.393 seconds (100% CPU, 1072027 Lips)
+</span> 
+(=  "examples/compat/test_scripts/d4_type_prop.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 6
+</span><span class="ansi31">Failures: 12
+</span>
+
+</pre>
+</body>
+
+</html>

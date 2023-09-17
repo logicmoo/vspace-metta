@@ -1,7 +1,26 @@
-<html><head><title>./e1_kb_write</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; MeTTa allows to use a separate knowledge base (Space) &kb
+; MeTTa allows to use a separate knowledge base (Space) &amp;kb
 ; to accumulate inferred knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -11,8 +30,8 @@
 	(* $x $x)) (25))
 
 
-; Bind &kb to a new empty Space
-!(bind! &kb (new-space))
+; Bind &amp;kb to a new empty Space
+!(bind! &amp;kb (new-space))
 
 ; Some knowledge
 (= (frog $x)
@@ -26,15 +45,204 @@
    (frog $x))
 
 ; Define conditional
-(: ift (-> Bool Atom Atom))
+(: ift (-&gt; Bool Atom Atom))
 (= (ift True $then) $then)
 
-; For anything that is green, assert it is Green in &kb
+; For anything that is green, assert it is Green in &amp;kb
 !(ift (green $x)
-      (add-atom &kb (Green $x)))
+      (add-atom &amp;kb (Green $x)))
 
 ; Retrieve the inferred Green things: Fritz and Sam.
 !(assertEqualToResult
-  (match &kb (Green $x) $x)
+  (match &amp;kb (Green $x) $x)
   (Fritz Sam))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/e1_kb_write.metta -- -- --args examples/compat/test_scripts/e1_kb_write.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/e1_kb_write.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; MeTTa allows to use a separate knowledge base (Space) &amp;kb
+%;; to accumulate inferred knowledge
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (let $X 
+    (+ 2 3) 
+    (* $X $X)) 
+   (25))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (25) 
+  (25)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; Bind &amp;kb to a new empty Space
+
+(:-  
+ (metta_eval  
+  (bind! &amp;kb 
+   (new-space))))<span class="ansi33">
+ % ['new-space']
+
+</span>%; Some knowledge
+
+(metta_head  &amp;self frog 
+ ($X))
+(metta_defn  &amp;self 
+ (frog $X) 
+ (and 
+  (croaks $X) 
+  (eat_flies $X)))
+(metta_body  &amp;self and 
+ ((croaks $X) 
+  (eat_flies $X)))
+(metta_head  &amp;self croaks 
+ (Fritz))
+(metta_atom  &amp;self 
+ (croaks Fritz))
+(metta_head  &amp;self eat_flies 
+ (Fritz))
+(metta_atom  &amp;self 
+ (eat_flies Fritz))
+(metta_head  &amp;self croaks 
+ (Sam))
+(metta_atom  &amp;self 
+ (croaks Sam))
+(metta_head  &amp;self eat_flies 
+ (Sam))
+(metta_atom  &amp;self 
+ (eat_flies Sam))
+(metta_head  &amp;self green 
+ ($X))
+(metta_defn  &amp;self 
+ (green $X) 
+ (frog $X))
+(metta_body  &amp;self frog 
+ ($X))
+%; Define conditional
+
+(metta_arity  &amp;self ift 3)
+(metta_params  &amp;self ift 
+ (Bool Atom Atom))
+(metta_last  &amp;self ift Atom)
+(metta_head  &amp;self ift 
+ (True $Then))
+(metta_defn  &amp;self 
+ (ift True $Then) $Then)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (ift True $Then) $Then))
+%; For anything that is green, assert it is Green in &amp;kb
+
+(:-  
+ (metta_eval  
+  (ift 
+   (green $X) 
+   (add-atom &amp;kb 
+    (Green $X)))))<span class="ansi33">
+ % [ift,[green,_230748],['add-atom','&amp;kb',['Green',_230748]]]
+
+</span>
+(unknown_do_metta  &amp;kb load 
+ (Green $_230748))<span class="ansi33">
+ % [ift,[green,_230748],'True']
+
+</span><span class="ansi33"> % [ift,[frog,_230748],'True']
+
+</span>
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+(unknown_do_metta  &amp;kb load 
+ (Green $_1122))
+%; Retrieve the inferred Green things: Fritz and Sam.
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;kb 
+    (Green $X) $X) 
+   (Fritz Sam))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Fritz Sam)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 571,587 inferences, 0.071 CPU in 0.072 seconds (99% CPU, 8041472 Lips)
+</span> 
+(=  "examples/compat/test_scripts/e1_kb_write.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 1
+</span>
+
+</pre>
+</body>
+
+</html>

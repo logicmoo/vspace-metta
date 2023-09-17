@@ -1,4 +1,23 @@
-<html><head><title>./d1_gadt</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Basic types of grounded symbols
@@ -14,7 +33,7 @@
 ; It works for built-in symbols too
 !(assertEqual
   (get-type +)
-  (-> Number Number Number))
+  (-&gt; Number Number Number))
 
 ; If its argument is a badly typed expression,
 ; `get-type` returns the empty set
@@ -35,14 +54,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Arrow types of functions and constructors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(: Left (-> %Undefined% Either))
-(: Right (-> %Undefined% Either))
+(: Left (-&gt; %Undefined% Either))
+(: Right (-&gt; %Undefined% Either))
 
 !(assertEqual
   (get-type (Left 5))
   Either)
 
-(: isLeft (-> Either Bool))
+(: isLeft (-&gt; Either Bool))
 (= (isLeft (Left $x)) True)
 (= (isLeft (Right $x)) False)
 
@@ -59,16 +78,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(: EitherP (-> $t Type))
-(: LeftP (-> $t (EitherP $t)))
-(: RightP (-> $t (EitherP $t)))
+(: EitherP (-&gt; $t Type))
+(: LeftP (-&gt; $t (EitherP $t)))
+(: RightP (-&gt; $t (EitherP $t)))
 
 !(assertEqual
   (get-type (LeftP 5))
   (EitherP Number))
 
-(: Pair (-> $a $b Type))
-(: pair (-> $a $b (Pair $a $b)))
+(: Pair (-&gt; $a $b Type))
+(: pair (-&gt; $a $b (Pair $a $b)))
 
 !(assertEqual
   (get-type (pair (LeftP 5) "String"))
@@ -78,9 +97,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Recursively parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(: List (-> $a Type))
+(: List (-&gt; $a Type))
 (: Nil (List $a))
-(: Cons (-> $a (List $a) (List $a)))
+(: Cons (-&gt; $a (List $a) (List $a)))
 
 !(assertEqual
   (get-type (Cons 5 (Cons 6 Nil)))
@@ -97,4 +116,323 @@
   (let (List $t) (get-type (Cons 5 (Cons 6 Nil)))
        $t)
   Number)
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/d1_gadt.metta -- -- --args examples/compat/test_scripts/d1_gadt.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/d1_gadt.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Basic types of grounded symbols
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; `get-type` returns the type of its argument
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 5) Number)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Number)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (+ 5 7)) Number)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Number)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; It works for built-in symbols too
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type +) 
+   (-&gt; Number Number Number))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((-&gt; Number Number Number))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; If its argument is a badly typed expression,
+%; `get-type` returns the empty set
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (+ 5 
+     ($STRING  "4"))) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (+ -)) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%; Also works for custom types
+
+(metta_arity  &amp;self Either 0)
+(metta_head  &amp;self : 
+ (Either Type))
+(metta_atom  &amp;self 
+ (: Either Type))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type Either) Type)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Type)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Arrow types of functions and constructors
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self Left 2)
+(metta_params  &amp;self Left 
+ (%Undefined% Either))
+(metta_last  &amp;self Left Either)
+(metta_arity  &amp;self Right 2)
+(metta_params  &amp;self Right 
+ (%Undefined% Either))
+(metta_last  &amp;self Right Either)
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (Left 5)) Either)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Either)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(metta_arity  &amp;self isLeft 2)
+(metta_params  &amp;self isLeft 
+ (Either Bool))
+(metta_last  &amp;self isLeft Bool)
+(metta_head  &amp;self isLeft 
+ ((Left $X)))
+(metta_atom  &amp;self 
+ (isLeft 
+  (Left $X)))
+(metta_head  &amp;self isLeft 
+ ((Right $X)))
+(metta_head  &amp;self isLeft 
+ ((Right $X)))
+(metta_defn  &amp;self 
+ (isLeft 
+  (Right $X)) False)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (isLeft 
+   (Right $X)) False))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (isLeft 
+     (Right 5))) Bool)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Bool)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Badly typed expression
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (isLeft 5)) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Parameterized types
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self EitherP 2)
+(metta_params  &amp;self EitherP 
+ ($T Type))
+(metta_last  &amp;self EitherP Type)
+(metta_arity  &amp;self LeftP 2)
+(metta_params  &amp;self LeftP 
+ ($T 
+  (EitherP $T)))
+(metta_last  &amp;self LeftP T)
+(metta_arity  &amp;self RightP 2)
+(metta_params  &amp;self RightP 
+ ($T 
+  (EitherP $T)))
+(metta_last  &amp;self RightP T)
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (LeftP 5)) 
+   (EitherP Number))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((EitherP Number))))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(metta_arity  &amp;self Pair 3)
+(metta_params  &amp;self Pair 
+ ($A $B Type))
+(metta_last  &amp;self Pair Type)
+(metta_arity  &amp;self pair 3)
+(metta_params  &amp;self pair 
+ ($A $B 
+  (Pair $A $B)))
+(metta_last  &amp;self pair B)
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (pair 
+     (LeftP 5) 
+     ($STRING  "String"))) 
+   (Pair 
+    (EitherP Number) String))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((Pair 
+    (EitherP Number) String))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Recursively parameterized types
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self List 2)
+(metta_params  &amp;self List 
+ ($A Type))
+(metta_last  &amp;self List Type)
+(metta_arity  &amp;self () 1)
+(metta_params  &amp;self () 
+ (List $A))
+(metta_last  &amp;self () A)
+(metta_arity  &amp;self Cons 3)
+(metta_params  &amp;self Cons 
+ ($A 
+  (List $A) 
+  (List $A)))
+(metta_last  &amp;self Cons A)
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (5 6)) 
+   (List Number))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((List Number))))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (5 
+     ($STRING  "6"))) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `let` can be convenient to extract information from `get-type` results
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (let 
+    (List $T) 
+    (get-type 
+     (5 6)) $T) Number)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Number)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 215,941 inferences, 0.133 CPU in 0.134 seconds (100% CPU, 1622938 Lips)
+</span> 
+(=  "examples/compat/test_scripts/d1_gadt.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 10
+</span>
+
+</pre>
+</body>
+
+</html>

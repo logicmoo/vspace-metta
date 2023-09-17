@@ -1,4 +1,21 @@
-<html><head><title>./c1_grounded_basic</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi31 { color: #aa0000; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The standard library contains a few basic grounded operations
@@ -18,11 +35,11 @@
   (4))
 
 !(assertEqualToResult
-  (< 4 (+ 2 (* 3 5)))
+  (&lt; 4 (+ 2 (* 3 5)))
   (True))
 
 !(assertEqualToResult
-  (and (> 4 2) (< 4 3))
+  (and (&gt; 4 2) (&lt; 4 3))
   (False))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -43,8 +60,8 @@
 ; unreduced, if it type-checks.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(assertEqualToResult
-  (> 4 (+ ln 2))
-  ((> 4 (+ ln 2))))
+  (&gt; 4 (+ ln 2))
+  ((&gt; 4 (+ ln 2))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52,8 +69,8 @@
 ; grounded operations can do pattern matching
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(assertEqualToResult
-  (> 4 (+ $x 2))
-  ((> 4 (+ $x 2))))
+  (&gt; 4 (+ $x 2))
+  ((&gt; 4 (+ $x 2))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -75,7 +92,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Unlike `<` or `>`, `==` will not remain unreduced if one
+; Unlike `&lt;` or `&gt;`, `==` will not remain unreduced if one
 ; of its arguments is grounded, while another is not.
 ; Instead, it will return `False`
 !(assertEqualToResult
@@ -142,7 +159,7 @@
 ; both possible bits (0, 1), to recursively construct all possible
 ; binary lists of length `$n`, appending bits one by one.
 (= (gen $n)
-   (if (> $n 0)
+   (if (&gt; $n 0)
        (:: (bin) (gen (- $n 1)))
        nil))
 ; Note: `::` is just a custom symbol, used here as a constructor,
@@ -162,4 +179,434 @@
   (let $t (gen 3)
     (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $t) 8) $t (nop)))
   ((:: 1 (:: 0 (:: 1 nil)))))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/c1_grounded_basic.metta -- -- --args examples/compat/test_scripts/c1_grounded_basic.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/c1_grounded_basic.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; The standard library contains a few basic grounded operations
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Implementation of grounded arithmetics may change location,
+%;; but these examples should work
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (+ 2 
+    (* 3 5.5)) 
+   (18.5))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (18.5) 
+  (18.5)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (- 8 
+    ("/" 4 6.4)) 
+   (7.375))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (7.375) 
+  (7.375)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (% 21 17) 
+   (4))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True) 
+  (4)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (&lt; 4 
+    (+ 2 
+     (* 3 5))) 
+   (True))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (True) 
+  (True)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (and 
+    (&gt; 4 2) 
+    (&lt; 4 3)) 
+   (False))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (False)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Currently, `ln` is not a grounded symbol.
+%; If we don''t define its type, then its application
+%; will not be refused, but it will be unreduced.
+%; Currently, its grounded argument will be reduced.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (ln 
+    (+ 2 2)) 
+   ((ln 4)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((ln 
+    (+ 2 2)) 
+   (ln 4)) 
+  ((ln 4))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Similarly, passing ordinary symbols to grounded
+%; operations will not cause errors and simply remain
+%; unreduced, if it type-checks.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (&gt; 4 
+    (+ ln 2)) 
+   ((&gt; 4 
+     (+ ln 2))))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (False) 
+  ((&gt; 4 
+    (+ ln 2)))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; This will also remain unreduced unless
+%; grounded operations can do pattern matching
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (&gt; 4 
+    (+ $X 2)) 
+   ((&gt; 4 
+     (+ $X 2))))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (False) 
+  ((&gt; 4 
+    (+ $_161496 2)))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `==` is now implemented to work with both grounded and
+%; symbolic atoms (while remaining a grounded operation)
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (== 4 
+    (+ 2 2)) 
+   (True))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (False) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (== 2 3) 
+   (False))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (False) 
+  (False)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (== 
+    (A B) 
+    (A B)) 
+   (True))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (True) 
+  (True)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (== 
+    (A B) 
+    (A 
+     (B C))) 
+   (False))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (False) 
+  (False)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Unlike `&lt;` or `&gt;`, `==` will not remain unreduced if one
+%; of its arguments is grounded, while another is not.
+%; Instead, it will return `False`
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (== 4 
+    (+ ln 2)) 
+   (False))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (False) 
+  (False)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Grounded symbols have predefined types.
+%; Evaluation of ill-typed expressions produces
+%; a error expression
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (+ 2 
+    ($STRING  "String")) 
+   ((Error 
+     ($STRING  "String") BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((+ 2 
+    ($STRING  "String"))) 
+  ((Error 
+    ($STRING  "String") BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Custom symbols as arguments of grounded operations
+%; work similarly
+
+(metta_arity  &amp;self ln 0)
+(metta_head  &amp;self : 
+ (ln LN))
+(metta_atom  &amp;self 
+ (: ln LN))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (== 4 
+    (+ ln 2)) 
+   ((Error ln BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (False) 
+  ((Error ln BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Custom functions over grounded functions behave ordinarily
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self sqr 
+ ($X))
+(metta_defn  &amp;self 
+ (sqr $X) 
+ (* $X $X))
+(metta_body  &amp;self * 
+ ($X $X))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (sqr 4) 
+   (16))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (16 
+   (sqr 4)) 
+  (16)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Evaluation of grounded operations over nondeterministic
+%; expressions work in the same way as of custom symbols
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (+ 
+    (superpose 
+     (1 2 3)) 1) 
+   (superpose 
+    (2 3 4)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (2 3 4) 
+  (2 3 4)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(metta_head  &amp;self bin ())
+(metta_defn  &amp;self 
+ (bin) 0)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (bin) 0))
+(metta_head  &amp;self bin ())
+(metta_defn  &amp;self 
+ (bin) 1)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (bin) 1))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (+ 1 
+    (bin)) 
+   (1 2))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((+ 1 
+    (bin))) 
+  (1 2)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (let $X 
+    (+ 2 3) 
+    (* $X $X)) 
+   (25))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (25) 
+  (25)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; basic recursion
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self fact 
+ ($N))
+(metta_defn  &amp;self 
+ (fact $N) 
+ (if 
+  (== $N 0) 1 
+  (* 
+   (fact 
+    (- $N 1)) $N)))
+(metta_body  &amp;self if 
+ ((== $N 0) 1 
+  (* 
+   (fact 
+    (- $N 1)) $N)))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (fact 5) 120)))
+
+
+
+^C^C
+
+^C^Z
+
+
+
+./MeTTa: line 29: 703708 Killed                  bash -c "${BCMD}"
+
+</pre>
+</body>
+
+</html>

@@ -1,23 +1,42 @@
-<html><head><title>./c2_spaces</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Spaces are also represented as grounded symbols in the program.
 ; Importing another script into a separate space
 ; TODO: replace symbol by string
-!(import! &kb c2_spaces_kb.metta)
+!(import! &amp;kb c2_spaces_kb.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; We can `match` over `&self` or another space
+; We can `match` over `&amp;self` or another space
 !(assertEqualToResult
-  (match &kb
+  (match &amp;kb
     (, ($obj is $prop)
        ($prop is-a Color)
        ($obj is-a Planet))
     (Color of Planet $obj is $prop))
   ((Color of Planet Mars is Red)))
 
-; The knowledge in `&kb` is not in `&self`
+; The knowledge in `&amp;kb` is not in `&amp;self`
 !(assertEqualToResult
-  (match &self ($p is-a Color) $p)
+  (match &amp;self ($p is-a Color) $p)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -25,7 +44,7 @@
 ; Checking that grounded symbols from different spaces are compatible
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(assertEqual
-  (match &kb
+  (match &amp;kb
     (, (Venus orbit $x au)
        (Mars orbit $y au))
     (- $y $x))
@@ -39,22 +58,318 @@
 (Chair is High)
 
 !(assertEqualToResult
-  (match &kb ($prop is-a Color)
-    (match &self ($obj is $prop)
+  (match &amp;kb ($prop is-a Color)
+    (match &amp;self ($obj is $prop)
        $obj))
   (Ball))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; We can import into `&self`
+; We can import into `&amp;self`
 ; TODO: replace symbol by string
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(import! &self c2_spaces_kb.metta)
+!(import! &amp;self c2_spaces_kb.metta)
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (, ($obj is $prop)
        ($prop is-a Color)
        ($obj is-a Planet))
     (Color of Planet $obj is $prop))
   ((Color of Planet Mars is Red)))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/c2_spaces.metta -- -- --args examples/compat/test_scripts/c2_spaces.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/c2_spaces.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Spaces are also represented as grounded symbols in the program.
+%;; Importing another script into a separate space
+%;; TODO: replace symbol by string
+
+(:-  
+ (metta_eval  
+  (import! &amp;kb c2_spaces_kb.metta)))
+ 
+(track_load_into_file  c2_spaces_kb.metta)
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; We can `match` over `&amp;self` or another space
+
+(metta_head  &amp;kb Green 
+ (is-a Color))
+(metta_atom  &amp;kb 
+ (Green is-a Color))
+(metta_head  &amp;kb White 
+ (is-a Color))
+(metta_atom  &amp;kb 
+ (White is-a Color))
+(metta_head  &amp;kb Blue 
+ (is-a Color))
+(metta_atom  &amp;kb 
+ (Blue is-a Color))
+(metta_head  &amp;kb Red 
+ (is-a Color))
+(metta_atom  &amp;kb 
+ (Red is-a Color))
+(metta_head  &amp;kb Brown 
+ (is-a Color))
+(metta_atom  &amp;kb 
+ (Brown is-a Color))
+(metta_head  &amp;kb Yellow 
+ (is-a Color))
+(metta_atom  &amp;kb 
+ (Yellow is-a Color))
+(metta_head  &amp;kb Earth 
+ (is-a Planet))
+(metta_atom  &amp;kb 
+ (Earth is-a Planet))
+(metta_head  &amp;kb Mars 
+ (is-a Planet))
+(metta_atom  &amp;kb 
+ (Mars is-a Planet))
+(metta_head  &amp;kb Venus 
+ (is-a Planet))
+(metta_atom  &amp;kb 
+ (Venus is-a Planet))
+(metta_head  &amp;kb Mars 
+ (is Red))
+(metta_atom  &amp;kb 
+ (Mars is Red))
+(metta_head  &amp;kb Blood 
+ (is Red))
+(metta_atom  &amp;kb 
+ (Blood is Red))
+(metta_head  &amp;kb Venus 
+ (orbit 0.7 au))
+(metta_atom  &amp;kb 
+ (Venus orbit 0.7 au))
+(metta_head  &amp;kb Earth 
+ (orbit 1 au))
+(metta_atom  &amp;kb 
+ (Earth orbit 1 au))
+(metta_head  &amp;kb Mars 
+ (orbit 1.5 au))
+(metta_atom  &amp;kb 
+ (Mars orbit 1.5 au))<span class="ansi32">
+% 46,898 inferences, 0.010 CPU in 0.010 seconds (97% CPU, 4609095 Lips)
+</span> 
+(=  c2_spaces_kb.metta 0)
+<span class="ansi33"> % '&amp;kb'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;kb 
+    (and 
+     ($Obj is $Prop) 
+     ($Prop is-a Color) 
+     ($Obj is-a Planet)) 
+    (Color of Planet $Obj is $Prop)) 
+   ((Color of Planet Mars is Red)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Color of Planet Mars is Red)) 
+  ((Color of Planet Mars is Red))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; The knowledge in `&amp;kb` is not in `&amp;self`
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    ($P is-a Color) $P) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Checking that grounded symbols from different spaces are compatible
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (match &amp;kb 
+    (and 
+     (Venus orbit $X au) 
+     (Mars orbit $Y au)) 
+    (- $Y $X)) 0.8)))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (0.8) 
+  (0.8)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Different spaces can be used
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self Ball 
+ (is Red))
+(metta_atom  &amp;self 
+ (Ball is Red))
+(metta_head  &amp;self Chair 
+ (is High))
+(metta_atom  &amp;self 
+ (Chair is High))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;kb 
+    ($Prop is-a Color) 
+    (match &amp;self 
+     ($Obj is $Prop) $Obj)) 
+   (Ball))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (Ball) 
+  (Ball)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; We can import into `&amp;self`
+%; TODO: replace symbol by string
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (import! &amp;self c2_spaces_kb.metta)))
+ 
+(track_load_into_file  c2_spaces_kb.metta)
+
+(metta_head  &amp;self Green 
+ (is-a Color))
+(metta_atom  &amp;self 
+ (Green is-a Color))
+(metta_head  &amp;self White 
+ (is-a Color))
+(metta_atom  &amp;self 
+ (White is-a Color))
+(metta_head  &amp;self Blue 
+ (is-a Color))
+(metta_atom  &amp;self 
+ (Blue is-a Color))
+(metta_head  &amp;self Red 
+ (is-a Color))
+(metta_atom  &amp;self 
+ (Red is-a Color))
+(metta_head  &amp;self Brown 
+ (is-a Color))
+(metta_atom  &amp;self 
+ (Brown is-a Color))
+(metta_head  &amp;self Yellow 
+ (is-a Color))
+(metta_atom  &amp;self 
+ (Yellow is-a Color))
+(metta_head  &amp;self Earth 
+ (is-a Planet))
+(metta_atom  &amp;self 
+ (Earth is-a Planet))
+(metta_head  &amp;self Mars 
+ (is-a Planet))
+(metta_atom  &amp;self 
+ (Mars is-a Planet))
+(metta_head  &amp;self Venus 
+ (is-a Planet))
+(metta_atom  &amp;self 
+ (Venus is-a Planet))
+(metta_head  &amp;self Mars 
+ (is Red))
+(metta_atom  &amp;self 
+ (Mars is Red))
+(metta_head  &amp;self Blood 
+ (is Red))
+(metta_atom  &amp;self 
+ (Blood is Red))
+(metta_head  &amp;self Venus 
+ (orbit 0.7 au))
+(metta_atom  &amp;self 
+ (Venus orbit 0.7 au))
+(metta_head  &amp;self Earth 
+ (orbit 1 au))
+(metta_atom  &amp;self 
+ (Earth orbit 1 au))
+(metta_head  &amp;self Mars 
+ (orbit 1.5 au))
+(metta_atom  &amp;self 
+ (Mars orbit 1.5 au))<span class="ansi32">
+% 46,486 inferences, 0.009 CPU in 0.009 seconds (100% CPU, 5093072 Lips)
+</span> 
+(=  c2_spaces_kb.metta 0)
+<span class="ansi33"> % '&amp;self'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (and 
+     ($Obj is $Prop) 
+     ($Prop is-a Color) 
+     ($Obj is-a Planet)) 
+    (Color of Planet $Obj is $Prop)) 
+   ((Color of Planet Mars is Red)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((Color of Planet Mars is Red) 
+   (Cons  Color 
+    (Cons  of 
+     (Cons  Planet True)))) 
+  ((Color of Planet Mars is Red))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 537,491 inferences, 0.122 CPU in 0.123 seconds (99% CPU, 4419001 Lips)
+</span> 
+(=  "examples/compat/test_scripts/c2_spaces.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 1
+</span>
+
+</pre>
+</body>
+
+</html>

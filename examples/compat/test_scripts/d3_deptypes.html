@@ -1,4 +1,23 @@
-<html><head><title>./d3_deptypes</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; A classical example of dependent types
@@ -7,12 +26,12 @@
 ; Defines the natural numbers `Nat` for counting
 (: Nat Type)
 (: Z Nat)
-(: S (-> Nat Nat))
+(: S (-&gt; Nat Nat))
 
 ; `Vec` takes a `$t` type and a `Nat` length.
-(: Vec (-> $t Nat Type))
+(: Vec (-&gt; $t Nat Type))
 ; `Cons` and `Nil` construct `Vec` values, with `Cons` incrementing the length by 1.
-(: Cons (-> $t (Vec $t $x) (Vec $t (S $x))))
+(: Cons (-&gt; $t (Vec $t $x) (Vec $t (S $x))))
 (: Nil (Vec $t Z))
 
 ; We can query the derived type
@@ -21,7 +40,7 @@
   (Vec Number (S (S Z))))
 
 ; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
-(: drop (-> (Vec $t (S $x)) (Vec $t $x)))
+(: drop (-&gt; (Vec $t (S $x)) (Vec $t $x)))
 (= (drop (Cons $x $xs)) $xs)
 
 ; Query type
@@ -46,8 +65,8 @@
 ; NOTE: tests below is the current behavior, which may be changed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `VecN` and `ConsN` use grounded `+` to increment the length.
-(: VecN (-> $t Number Type))
-(: ConsN (-> $t (VecN $t $x) (VecN $t (+ $x 1))))
+(: VecN (-&gt; $t Number Type))
+(: ConsN (-&gt; $t (VecN $t $x) (VecN $t (+ $x 1))))
 (: NilN (VecN $t 0))
 
 ; When querying types, grounded ops are reduced
@@ -56,7 +75,7 @@
   (VecN String 2))
 
 ; Similarly, `-` reduces the length in `dropN` type.
-(: dropN (-> (VecN $t $x) (VecN $t (- $x 1))))
+(: dropN (-&gt; (VecN $t $x) (VecN $t (- $x 1))))
 (= (dropN (ConsN $x $xs)) $xs)
 
 !(assertEqual
@@ -74,4 +93,276 @@
 !(assertEqualToResult
    (dropN NilN)
   ((dropN NilN)))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/d3_deptypes.metta -- -- --args examples/compat/test_scripts/d3_deptypes.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/d3_deptypes.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; A classical example of dependent types
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Simple type definitions:
+%;; Defines the natural numbers `Nat` for counting
+
+(metta_arity  &amp;self Nat 0)
+(metta_head  &amp;self : 
+ (Nat Type))
+(metta_atom  &amp;self 
+ (: Nat Type))
+(metta_arity  &amp;self Z 0)
+(metta_head  &amp;self : 
+ (Z Nat))
+(metta_atom  &amp;self 
+ (: Z Nat))
+(metta_arity  &amp;self S 2)
+(metta_params  &amp;self S 
+ (Nat Nat))
+(metta_last  &amp;self S Nat)
+%; `Vec` takes a `$t` type and a `Nat` length.
+
+(metta_arity  &amp;self Vec 3)
+(metta_params  &amp;self Vec 
+ ($T Nat Type))
+(metta_last  &amp;self Vec Type)
+%; `Cons` and `Nil` construct `Vec` values, with `Cons` incrementing the length by 1.
+
+(metta_arity  &amp;self Cons 3)
+(metta_params  &amp;self Cons 
+ ($T 
+  (Vec $T $X) 
+  (Vec $T 
+   (S $X))))
+(metta_last  &amp;self Cons X)
+(metta_arity  &amp;self () 2)
+(metta_params  &amp;self () 
+ (Vec $T Z))
+(metta_last  &amp;self () Z)
+%; We can query the derived type
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (0 1)) 
+   (Vec Number 
+    (S 
+     (S Z))))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((Vec Number 
+    (S 
+     (S Z))))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
+
+(metta_arity  &amp;self drop 2)
+(metta_params  &amp;self drop 
+ ((Vec $T 
+   (S $X)) 
+  (Vec $T $X)))
+(metta_last  &amp;self drop X)
+(metta_head  &amp;self drop 
+ ((Cons  $X $Xs)))
+(metta_defn  &amp;self 
+ (drop 
+  (Cons  $X $Xs)) $Xs)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (drop 
+   (Cons  $X $Xs)) $Xs))
+%; Query type
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (drop 
+     (1))) 
+   (Vec Number Z))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((Vec Number Z))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Check length after dropping
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (drop 
+    (2 1)) 
+   (1))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((1) 
+   (drop 
+    (2 1))) 
+  ((1))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Types can protect against misuse, like dropping from empty Vec
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (get-type 
+    (drop ())) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; The result returned by `get-type` is reduced, thus,
+%; grounded operations in type declarations work (kind of)
+%; NOTE: tests below is the current behavior, which may be changed
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `VecN` and `ConsN` use grounded `+` to increment the length.
+
+(metta_arity  &amp;self VecN 3)
+(metta_params  &amp;self VecN 
+ ($T Number Type))
+(metta_last  &amp;self VecN Type)
+(metta_arity  &amp;self ConsN 3)
+(metta_params  &amp;self ConsN 
+ ($T 
+  (VecN $T $X) 
+  (VecN $T 
+   (+ $X 1))))
+(metta_last  &amp;self ConsN 1)
+(metta_arity  &amp;self NilN 2)
+(metta_params  &amp;self NilN 
+ (VecN $T 0))
+(metta_last  &amp;self NilN 0)
+%; When querying types, grounded ops are reduced
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (ConsN 
+     ($STRING  "1") 
+     (ConsN 
+      ($STRING  "2") NilN))) 
+   (VecN String 2))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((VecN String 2))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Similarly, `-` reduces the length in `dropN` type.
+
+(metta_arity  &amp;self dropN 2)
+(metta_params  &amp;self dropN 
+ ((VecN $T $X) 
+  (VecN $T 
+   (- $X 1))))
+(metta_last  &amp;self dropN 1)
+(metta_head  &amp;self dropN 
+ ((ConsN $X $Xs)))
+(metta_defn  &amp;self 
+ (dropN 
+  (ConsN $X $Xs)) $Xs)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (dropN 
+   (ConsN $X $Xs)) $Xs))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-type 
+    (dropN 
+     (ConsN 
+      ($STRING  "1") NilN))) 
+   (VecN String 0))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  ((VecN String 0))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; TODO: doesn't work after type checking fixes
+%; However, without any validation, invalid lengths like -1 can be derived.
+
+(metta_head  &amp;self assertEqual 
+ (((get-type 
+    (dropN 
+     (dropN 
+      (ConsN 
+       ($STRING  "1") NilN))))) 
+  (VecN String -1)))
+(metta_atom  &amp;self 
+ (assertEqual 
+  ((get-type 
+    (dropN 
+     (dropN 
+      (ConsN 
+       ($STRING  "1") NilN))))) 
+  (VecN String -1)))
+%; Applying `dropN` to `NilN` is not badly typed, but it
+%; doesn't reduce, since there are no definitions for this case.
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (dropN NilN) 
+   ((dropN NilN)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((dropN NilN)) 
+  ((dropN NilN))))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi32">% 237,636 inferences, 0.113 CPU in 0.113 seconds (99% CPU, 2105948 Lips)
+</span> 
+(=  "examples/compat/test_scripts/d3_deptypes.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 2
+</span><span class="ansi31">Failures: 5
+</span>
+
+</pre>
+</body>
+
+</html>

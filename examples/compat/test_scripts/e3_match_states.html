@@ -1,14 +1,32 @@
-<html><head><title>./e3_match_states</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This function creates a symbolic expression, which wraps a novel state,
-; and puts it into &self.
+; and puts it into &amp;self.
 ; This is a way to address particular state atoms without creating
 ; unique tokens for them (it can be used for any grounded atom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (= (new-goal-status! $goal $status)
     (let $new-state (new-state $status)
-         (add-atom &self (= (status (Goal $goal)) $new-state))
+         (add-atom &amp;self (= (status (Goal $goal)) $new-state))
     )
 )
 
@@ -40,15 +58,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Introducing tokens for states is not recommended, because these states are mutable
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(bind! &state-active (new-state active))
-!(nop (change-state! &state-active inactive))
+!(bind! &amp;state-active (new-state active))
+!(nop (change-state! &amp;state-active inactive))
 ; We cannot put `(new-state active)` inside `match`, because it doesn't
 ; reduce the input pattern expression. Instead, we should use
 ; `(let $state-active (new-state active)) ...) here.
 
 ; In any case, direct matching against expressions with states work:
 !(assertEqual
-    (match &self (= (status (Goal $goal)) &state-active) $goal)
+    (match &amp;self (= (status (Goal $goal)) &amp;state-active) $goal)
     meditation)
 
 ; But we can also find all goal statuses, unwrap them from State,
@@ -59,4 +77,353 @@
       $goal
       (superpose ()))
   lunch-order)
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/e3_match_states.metta -- -- --args examples/compat/test_scripts/e3_match_states.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/e3_match_states.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; This function creates a symbolic expression, which wraps a novel state,
+%;; and puts it into &amp;self.
+%;; This is a way to address particular state atoms without creating
+%;; unique tokens for them (it can be used for any grounded atom)
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self new-goal-status! 
+ ($Goal $Status))
+(metta_defn  &amp;self 
+ (new-goal-status! $Goal $Status) 
+ (let $New_state 
+  (new-state $Status) 
+  (add-atom &amp;self 
+   (= 
+    (status 
+     (Goal $Goal)) $New_state))))
+(metta_body  &amp;self let 
+ ($New_state 
+  (new-state $Status) 
+  (add-atom &amp;self 
+   (= 
+    (status 
+     (Goal $Goal)) $New_state))))
+(:-  
+ (metta_eval  
+  (new-goal-status! lunch-order inactive)))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))<span class="ansi33">
+ % 'True'
+
+</span>
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal lunch-order)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal lunch-order)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))<span class="ansi33">
+ % ['new-goal-status!','lunch-order',inactive]
+
+</span>
+(:-  
+ (metta_eval  
+  (new-goal-status! meditation inactive)))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))<span class="ansi33">
+ % 'True'
+
+</span>
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))
+(metta_head  &amp;self status 
+ ((Goal meditation)))
+(metta_defn  &amp;self 
+ (status 
+  (Goal meditation)) 
+ (new-state inactive))
+(metta_body  &amp;self new-state 
+ (inactive))<span class="ansi33">
+ % ['new-goal-status!',meditation,inactive]
+
+</span>%; We can use `status` as a function to access corresponding state
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-state 
+    (status 
+     (Goal lunch-order))) inactive)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((get-state 
+    (status 
+     (Goal lunch-order))) 
+   (get-state 
+    (new-state inactive))) 
+  (inactive)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `status` returns a `State`, which can be altered
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `nop` is used only to get () for passing unit tests
+
+(:-  
+ (metta_eval  
+  (nop 
+   (change-state! 
+    (status 
+     (Goal lunch-order)) active))))<span class="ansi33">
+ % [nop,['change-state!',[status,['Goal','lunch-order']],active]]
+
+</span><span class="ansi33"> % [nop,['change-state!',['new-state',inactive],active]]
+
+</span>%; The result is now different. This might be surprising, since
+%; the content of Space is not changed. However, this is the whole
+%; intention behind states: the atom remains the same, and we don't
+%; need to reinsert it into Space, but the state it wraps changes
+%; (even if it is inside equality).
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (get-state 
+    (status 
+     (Goal lunch-order))) active)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((get-state 
+    (status 
+     (Goal lunch-order))) 
+   (get-state 
+    (new-state inactive))) 
+  (active)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Introducing tokens for states is not recommended, because these states are mutable
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (bind! &amp;state-active 
+   (new-state active))))<span class="ansi33">
+ % ['new-state',active]
+
+</span>
+(:-  
+ (metta_eval  
+  (nop 
+   (change-state! &amp;state-active inactive))))<span class="ansi33">
+ % [nop,['change-state!','&amp;state-active',inactive]]
+
+</span><span class="ansi33"> % [nop,['change-state!',['new-state',active],inactive]]
+
+</span>%; We cannot put `(new-state active)` inside `match`, because it doesn't
+%; reduce the input pattern expression. Instead, we should use
+%; `(let $state-active (new-state active)) ...) here.
+%; In any case, direct matching against expressions with states work:
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (match &amp;self 
+    (= 
+     (status 
+      (Goal $Goal)) &amp;state-active) $Goal) meditation)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (meditation)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; But we can also find all goal statuses, unwrap them from State,
+%; and compare to the desirable result
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (if 
+    (== 
+     (get-state 
+      (status 
+       (Goal $Goal))) active) $Goal 
+    (superpose ())) lunch-order)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (lunch-order)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 986,337 inferences, 0.164 CPU in 0.164 seconds (100% CPU, 6032052 Lips)
+</span> 
+(=  "examples/compat/test_scripts/e3_match_states.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 4
+</span>
+
+</pre>
+</body>
+
+</html>
