@@ -21,9 +21,13 @@ MeTTaLog is a language designed to be a successor to OpenCog Classic Atomese. It
 Before you install MeTTaLog, open your SWI-Prolog terminal and install the Janus Python Bridge and logimcoo_utils packs:
 
 ```prolog
-?- pack_install('logicmoo_utils').
 
-?- pack_install('logicmoo_utils').
+ % Utility Code used throughout this library
+?- pack_install(logicmoo_utils).
+
+ % OOP thru Prolog Dicts
+?- pack_install(dictoo).
+
 ```
 
 ### Main Installation Steps
@@ -33,28 +37,29 @@ Before you install MeTTaLog, open your SWI-Prolog terminal and install the Janus
 git clone https://github.com/logicmoo/metta-vspace.git
 
 # Navigate into the directory
-cd MeTTaLog
+cd metta-vspace
 
-# Install dependencies
-make install
+# To start the first unit test, run:
+./Metta examples/compat/test_scripts/00_lang_case.metta
 
-# Build the project
-make build
+# To run all:
+./Metta examples/compat/test_scripts/*.metta
+
 ```
 
-To start the first unit test, run:
 
 ```bash
-./Metta examples/compat/test_scripts/00_lang_case.metta
 ```
 
 ## Getting Started
 
 To get familiar with MeTTaLog, you may:
 
-1. Read the [MeTTaLog specification](LINK).
-2. Watch [video tutorials](LINK).
-3. Browse through examples located in `./python/tests/scripts`.
+## Documentation
+1. Read the [MeTTaLog specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
+2. Learn the [Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
+
+3. Browse through examples located in
 
 - [00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_case.html)
 - [00_lang_ok_to_redefine.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_ok_to_redefine.html)
@@ -88,18 +93,8 @@ To get familiar with MeTTaLog, you may:
 - [f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleB.html)
 
 
-Additional resources can be found on the [OpenCog Wiki](LINK).
-
-## Documentation
 
 
-## How to Contribute
-
-If you're interested in contributing to this project, please read the [contribution guide](LINK) first. Contributions are always welcome!
-
-## Troubleshooting
-
-If you encounter any issues during installation or usage, consult the [Troubleshooting](#troubleshooting) section or the [Troubleshooting guide](LINK).
 
 ## License
 
@@ -111,5 +106,4 @@ Special thanks to the OpenCog community and everyone involved in the development
 
 ---
 
-For more information, please visit our [official website](http://www.example.com) or contact us at [contact@example.com].
 
