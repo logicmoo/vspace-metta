@@ -1,4 +1,23 @@
-<html><head><title>./b5_types_prelim</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Symbols are typed. If no type definition is provided,
@@ -20,12 +39,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Adding type definitions.
-; Arrow (->) is a built-in symbol of the type system
+; Arrow (-&gt;) is a built-in symbol of the type system
 ; `Nat` is a custom symbol
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (: Z Nat)
-(: S (-> Nat Nat))
-(: Add (-> Nat Nat Nat))
+(: S (-&gt; Nat Nat))
+(: Add (-&gt; Nat Nat Nat))
 ; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
 !(assertEqualToResult
   (Add S Z)
@@ -64,7 +83,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; List has a function type. Its argument should be of Type type.
 ; The type of the whole expression, e.g. (List String), will also have Type type.
-(: List (-> Type Type))
+(: List (-&gt; Type Type))
 
 ; Nil's type is parametrized as the type returned by List when it
 ; takes parameter $t (which, per the definition above,
@@ -75,7 +94,7 @@
 ; Based on the definition of List above, Cons' arguments
 ; are equally typed, and it returns the same type
 ; as its arguments.
-(: Cons (-> $t (List $t) (List $t)))
+(: Cons (-&gt; $t (List $t) (List $t)))
 
 ; This list is well typed and evaluated to itself
 !(assertEqualToResult
@@ -95,7 +114,7 @@
 ; The type definition of `eq` specifies both its arguments
 ; must be of the same type, but its own type is left undefined,
 ; just as a Type.
-(: eq (-> $t $t Type))
+(: eq (-&gt; $t $t Type))
 ; The definition of `eq` specifies its actual type (T)
 (= (eq $x $x) T)
 ; Accepted and reduced
@@ -124,7 +143,7 @@
 (: Square Shape)
 (: Circle Shape)
 ; This type definition is the same as that of `eq` above
-(: of-same-type (-> $t $t Type))
+(: of-same-type (-&gt; $t $t Type))
 ; It returns True for any pair of arguments, as long as there
 ; is not Type error
 
@@ -165,7 +184,7 @@
   (Green $who)
   T)
 !(assertEqual
-  (match &self (Green $who) $who)
+  (match &amp;self (Green $who) $who)
   Sam)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -175,7 +194,7 @@
 ; returns `(Green Sam)`, which is then evaluated to `T`.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(assertEqual
-  (match &self (Green $who) (Green $who))
+  (match &amp;self (Green $who) (Green $who))
   T)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -185,11 +204,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(assertEqual
   (let $r (Add (S Z) Z)
-    (match &self (= (eq $r (S Z)) $tv) $tv))
+    (match &amp;self (= (eq $r (S Z)) $tv) $tv))
   T)
 ; but it will not work inside `match`:
 !(assertEqualToResult
-  (match &self (= (eq (Add (S Z) Z) (S Z)) $tv) $tv)
+  (match &amp;self (= (eq (Add (S Z) Z) (S Z)) $tv) $tv)
   ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -218,7 +237,7 @@
   (let* (($r1 (Add Z Z))
          ($r2 (Add $r1 (S Z)))
          ($r3 (Add $r2 (S Z))))
-        (match &self (= (eq (S (S Z)) $r3) $tv) $tv))
+        (match &amp;self (= (eq (S (S Z)) $r3) $tv) $tv))
   T)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -226,7 +245,7 @@
 ; Atom type can be required in custom functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `eqa` will compare expressions:
-(: eqa (-> Atom Atom Type))
+(: eqa (-&gt; Atom Atom Type))
 (= (eqa $x $x) T)
 ; These expressions are identical:
 !(assertEqual
@@ -249,4 +268,704 @@
      (eqa Z $z))
    T)
 
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/b5_types_prelim.metta -- -- --args examples/compat/test_scripts/b5_types_prelim.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/b5_types_prelim.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Symbols are typed. If no type definition is provided,
+%;; the type is %Undefined%, which can match against any
+%;; other type in a gradual typing fashion.
+%;; Automatic type checking is off by default ATM, so
+%;; incorrectly typed expressions can be added to Atomspace.
+%;; However, the interpreter checks types in runtime, and
+%;; evaluation of badly typed expressions leads to a error expression.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self Add 
+ ($X Z))
+(metta_defn  &amp;self 
+ (Add $X Z) $X)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (Add $X Z) $X))
+(metta_head  &amp;self Add 
+ ($X 
+  (S $Y)))
+(metta_defn  &amp;self 
+ (Add $X 
+  (S $Y)) 
+ (Add 
+  (S $X) $Y))
+(metta_body  &amp;self Add 
+ ((S $X) $Y))
+%; `(Add S Z)` will be reduced to `S` without type definitions
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Add S Z) S)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (S 
+   (Add S Z)) 
+  (S)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Adding type definitions.
+%; Arrow (-&gt;) is a built-in symbol of the type system
+%; `Nat` is a custom symbol
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self Z 0)
+(metta_head  &amp;self : 
+ (Z Nat))
+(metta_atom  &amp;self 
+ (: Z Nat))
+(metta_arity  &amp;self S 2)
+(metta_params  &amp;self S 
+ (Nat Nat))
+(metta_last  &amp;self S Nat)
+(metta_arity  &amp;self Add 3)
+(metta_params  &amp;self Add 
+ (Nat Nat Nat))
+(metta_last  &amp;self Add Nat)
+%; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (Add S Z) 
+   ((Error S BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (S 
+   (Add S Z)) 
+  ((Error S BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; But these other examples works normally
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Add 
+    (S Z) Z) 
+   (S Z))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((S Z) 
+   (Add 
+    (S Z) Z)) 
+  ((S Z))))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Add Z 
+    (S Z)) 
+   (S Z))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((S Z) 
+   (Add 
+    (S Z) Z) 
+   (Add Z 
+    (S Z))) 
+  ((S Z))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Adding to an untyped symbol (Something) will still work,
+%; because it might be `Nat`
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Add Something Z) Something)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (Something 
+   (Add Something Z)) 
+  (Something)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Types can be nondeterministic
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self Ten 0)
+(metta_head  &amp;self : 
+ (Ten Nat))
+(metta_atom  &amp;self 
+ (: Ten Nat))
+(metta_arity  &amp;self Ten 0)
+(metta_head  &amp;self : 
+ (Ten Int))
+(metta_atom  &amp;self 
+ (: Ten Int))
+%; The following will be accepted by the interpreter
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (Add Z Ten) 
+   ((Add Z Ten)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Add Z Ten)) 
+  ((Add Z Ten))))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Types can be parameterized
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; List has a function type. Its argument should be of Type type.
+%; The type of the whole expression, e.g. (List String), will also have Type type.
+
+(metta_arity  &amp;self List 2)
+(metta_params  &amp;self List 
+ (Type Type))
+(metta_last  &amp;self List Type)
+%; Nil's type is parametrized as the type returned by List when it
+%; takes parameter $t (which, per the definition above,
+%; is the same type as $t)
+
+(metta_arity  &amp;self () 1)
+(metta_params  &amp;self () 
+ (List $T))
+(metta_last  &amp;self () T)
+%; Cons is defined as a parametrized List constructor
+%; Based on the definition of List above, Cons' arguments
+%; are equally typed, and it returns the same type
+%; as its arguments.
+
+(metta_arity  &amp;self Cons 3)
+(metta_params  &amp;self Cons 
+ ($T 
+  (List $T) 
+  (List $T)))
+(metta_last  &amp;self Cons T)
+%; This list is well typed and evaluated to itself
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   ((S Z) Z) 
+   (((S Z) Z)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (((S Z) Z)) 
+  (((S Z) Z))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; This list is badly typed, because S and Z are not the same type
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (S Z) 
+   ((Error Z BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((S Z)) 
+  ((Error Z BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Another example
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self True 0)
+(metta_head  &amp;self : 
+ (True Type))
+(metta_atom  &amp;self 
+ (: True Type))
+%; The type definition of `eq` specifies both its arguments
+%; must be of the same type, but its own type is left undefined,
+%; just as a Type.
+
+(metta_arity  &amp;self eq 3)
+(metta_params  &amp;self eq 
+ ($T $T Type))
+(metta_last  &amp;self eq Type)
+%; The definition of `eq` specifies its actual type (T)
+
+(metta_head  &amp;self eq 
+ ($X $X))
+(metta_atom  &amp;self 
+ (eq $X $X))
+%; Accepted and reduced
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (eq 
+    (Add Z Z) Z) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((eq 
+    (Add Z Z) Z) True 
+   (eq Z Z)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Accepted, not reduced because no definition is known
+%; for `eq` when its arguments are not the same
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (eq Z 
+    (S Z)) 
+   ((eq Z 
+     (S Z))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((eq Z 
+    (S Z))) 
+  ((eq Z 
+    (S Z)))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; Not accepted, because Z and S are not the same type
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (eq Z S) 
+   ((Error S BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((eq Z S)) 
+  ((Error S BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Type (symbols) are not prohibited from being elements
+%; of other custom types
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_arity  &amp;self Color 0)
+(metta_head  &amp;self : 
+ (Color Property))
+(metta_atom  &amp;self 
+ (: Color Property))
+(metta_arity  &amp;self Green 0)
+(metta_head  &amp;self : 
+ (Green Color))
+(metta_atom  &amp;self 
+ (: Green Color))
+(metta_arity  &amp;self Red 0)
+(metta_head  &amp;self : 
+ (Red Color))
+(metta_atom  &amp;self 
+ (: Red Color))
+(metta_arity  &amp;self Shape 0)
+(metta_head  &amp;self : 
+ (Shape Property))
+(metta_atom  &amp;self 
+ (: Shape Property))
+(metta_arity  &amp;self Square 0)
+(metta_head  &amp;self : 
+ (Square Shape))
+(metta_atom  &amp;self 
+ (: Square Shape))
+(metta_arity  &amp;self Circle 0)
+(metta_head  &amp;self : 
+ (Circle Shape))
+(metta_atom  &amp;self 
+ (: Circle Shape))
+%; This type definition is the same as that of `eq` above
+
+(metta_arity  &amp;self of-same-type 3)
+(metta_params  &amp;self of-same-type 
+ ($T $T Type))
+(metta_last  &amp;self of-same-type Type)
+%; It returns True for any pair of arguments, as long as there
+%; is not Type error
+%; Accepted
+
+(metta_head  &amp;self of-same-type 
+ ($X $Y))
+(metta_atom  &amp;self 
+ (of-same-type $X $Y))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (of-same-type Color Shape) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (of-same-type Color Shape)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (of-same-type Green Red) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (of-same-type Green Red)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Not accepted
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (of-same-type Green Color) 
+   ((Error Color BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (of-same-type Green Color)) 
+  ((Error Color BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (of-same-type Green Circle) 
+   ((Error Circle BadType)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (of-same-type Green Circle)) 
+  ((Error Circle BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; There are some meta-types, which may influence
+%; the process of interpretation. One of them is `Atom`.
+%; If a function expects `Atom` as its argument,
+%; this argument is not reduced before passing to
+%; the function, so the function can process the
+%; original expression itself.
+%; The `match` function expects an `Atom` type as argument.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; In the following example, `(Green $who)` is evaluated
+%; to `T`. However, it is not reduced as `match` argument,
+%; and the query returns `Sam`.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self Green 
+ (Sam))
+(metta_atom  &amp;self 
+ (Green Sam))
+(metta_head  &amp;self Green 
+ (Sam))
+(metta_atom  &amp;self 
+ (Green Sam))
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (Green $Who) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((Sam) 
+   (Green $_438798)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (match &amp;self 
+    (Green $Who) $Who) Sam)))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (Sam) 
+  (Sam)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; It should be noted that the result of `match` will be
+%; evaluated further. In the following, `match` first
+%; returns `(Green Sam)`, which is then evaluated to `T`.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (match &amp;self 
+    (Green $Who) 
+    (Green $Who)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (Green Sam)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; If one wants to evaluate an expression before passing it
+%; to `match`, `let` can be used:
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (let $R 
+    (Add 
+     (S Z) Z) 
+    (match &amp;self 
+     (= 
+      (eq $R 
+       (S Z)) $Tv) $Tv)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; but it will not work inside `match`:
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (eq 
+      (Add 
+       (S Z) Z) 
+      (S Z)) $Tv) $Tv) ())))<span class="ansi36">
+
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; The second argument of `let` is not `Atom` and evaluated
+%; by the interpreter before executing `let`, while
+%; the third argument is `Atom`, which is transformed by `let`
+%; as an expression, and then returned for further evaluation.
+%; `match` and `let` are implemented as an ordinary grounded operations
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; In fact, one can use patterns instead of variables in `let`
+%; in order to deconstruct the result immediately.
+%; This example binds the result of (Add (S Z) (S Z)) to
+%; the whole pattern (S (S $r)), and extracts the inner variable $r
+%; This is cleaner than binding and re-matching.
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (let 
+    (S 
+     (S $R)) 
+    (Add 
+     (S Z) 
+     (S Z)) $R) Z)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (Z)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; One can use `let*` for convenience, when multiple consequent
+%; substitutions are needed
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (let* 
+    (($R1 
+      (Add Z Z)) 
+     ($R2 
+      (Add $R1 
+       (S Z))) 
+     ($R3 
+      (Add $R2 
+       (S Z)))) 
+    (match &amp;self 
+     (= 
+      (eq 
+       (S 
+        (S Z)) $R3) $Tv) $Tv)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  () 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Atom type can be required in custom functions
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `eqa` will compare expressions:
+
+(metta_arity  &amp;self eqa 3)
+(metta_params  &amp;self eqa 
+ (Atom Atom Type))
+(metta_last  &amp;self eqa Type)
+(metta_head  &amp;self eqa 
+ ($X $X))
+(metta_atom  &amp;self 
+ (eqa $X $X))
+%; These expressions are identical:
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (eqa 
+    (Add Z Z) 
+    (Add Z Z)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (eqa Z Z) 
+   (eqa Z 
+    (Add Z Z)) 
+   (eqa 
+    (Add Z Z) Z) 
+   (eqa 
+    (Add Z Z) 
+    (Add Z Z))) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; while this will not be reduced because the expressions
+%; are not the same (even if their evaluation would be)
+%; (`eqa` is not total)
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (eqa Z 
+    (Add Z Z)) 
+   ((eqa Z 
+     (Add Z Z))))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((eqa Z 
+    (Add Z Z)) True 
+   (eqa Z Z)) 
+  ((eqa Z 
+    (Add Z Z)))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; In contrast to this:
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (eq Z 
+    (Add Z Z)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((eq Z 
+    (Add Z Z)) True 
+   (eq Z Z)) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Or this:
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (let $Z 
+    (Add Z Z) 
+    (eqa Z $Z)) True)))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (True 
+   (eqa Z Z) 
+   (eqa Z 
+    (Add Z Z))) 
+  (True)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 27,132,185 inferences, 3.919 CPU in 3.919 seconds (100% CPU, 6923961 Lips)
+</span> 
+(=  "examples/compat/test_scripts/b5_types_prelim.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 5
+</span><span class="ansi31">Failures: 21
+</span>
+
+</pre>
+</body>
+
+</html>

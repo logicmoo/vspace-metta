@@ -1,4 +1,23 @@
-<html><head><title>./b0_chaining_prelim</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; From matching to evaluation of expressions via equality queries chaining
@@ -14,7 +33,7 @@
 
 ; A single matching step
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (:= (S K K x) $r)
     $r)
   ((K x (K x))))
@@ -22,16 +41,16 @@
 ; A second matching step; the result of the previous
 ; step is manually used as input for the next query
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (:= (K x (K x)) $r)
     $r)
   (x))
 
 ; Combined reduction via matching in two steps
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (:= (S K K x) $r)
-    (match &self (:= $r $r2)
+    (match &amp;self (:= $r $r2)
       $r2))
   (x))
 
@@ -44,16 +63,232 @@
 
 ; First step
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (:= (Add (S Z) (S Z)) $r)
     $r)
   ((Add (S (S Z)) Z)))
 
 ; Two steps together
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (:= (Add (S Z) (S Z)) $r)
-    (match &self (:= $r $r2)
+    (match &amp;self (:= $r $r2)
       $r2))
   ((S (S Z))))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/b0_chaining_prelim.metta -- -- --args examples/compat/test_scripts/b0_chaining_prelim.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/b0_chaining_prelim.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; From matching to evaluation of expressions via equality queries chaining
+%;; It's possible to chain together matching queries
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Some knowledge base entries
+%;; `:=` is a custom symbol
+%;; Combinatory logic rules
+
+(metta_head  &amp;self I 
+ ($X))
+(metta_defn  &amp;self 
+ (I $X) $X)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (I $X) $X))
+(metta_head  &amp;self 
+ (K $X) 
+ ($Y))
+(metta_defn  &amp;self 
+ ((K $X) $Y) $X)
+(unknown_do_metta  &amp;self load 
+ (= 
+  ((K $X) $Y) $X))
+(metta_head  &amp;self K 
+ ($X $Y))
+(metta_defn  &amp;self 
+ (K $X $Y) $X)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (K $X $Y) $X))
+(metta_head  &amp;self S 
+ ($X $Y $Z))
+(metta_defn  &amp;self 
+ (S $X $Y $Z) 
+ ($X $Z 
+  ($Y $Z)))
+(metta_body  &amp;self $X 
+ ($Z 
+  ($Y $Z)))
+%; A single matching step
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (S K K x) $R) $R) 
+   ((K x 
+     (K x))))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  (x 
+   (K x 
+    (K x))) 
+  ((K x 
+    (K x)))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; A second matching step; the result of the previous
+%; step is manually used as input for the next query
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (K x 
+      (K x)) $R) $R) 
+   (x))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (x) 
+  (x)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; Combined reduction via matching in two steps
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (S K K x) $R) 
+    (match &amp;self 
+     (= $R $R2) $R2)) 
+   (x))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (x) 
+  (x)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Another example (Peano summation)
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self Add 
+ ($X Z))
+(metta_defn  &amp;self 
+ (Add $X Z) $X)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (Add $X Z) $X))
+(metta_head  &amp;self Add 
+ ($X 
+  (S $Y)))
+(metta_defn  &amp;self 
+ (Add $X 
+  (S $Y)) 
+ (Add 
+  (S $X) $Y))
+(metta_body  &amp;self Add 
+ ((S $X) $Y))
+%; First step
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (Add 
+      (S Z) 
+      (S Z)) $R) $R) 
+   ((Add 
+     (S 
+      (S Z)) Z)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((S 
+    (S Z)) 
+   (Add 
+    (S 
+     (S Z)) Z)) 
+  ((Add 
+    (S 
+     (S Z)) Z))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; Two steps together
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (Add 
+      (S Z) 
+      (S Z)) $R) 
+    (match &amp;self 
+     (= $R $R2) $R2)) 
+   ((S 
+     (S Z))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((S 
+    (S Z))) 
+  ((S 
+    (S Z)))))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi32">% 184,129 inferences, 0.048 CPU in 0.049 seconds (99% CPU, 3828690 Lips)
+</span> 
+(=  "examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 2
+</span>
+
+</pre>
+</body>
+
+</html>

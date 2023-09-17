@@ -1,4 +1,23 @@
-<html><head><title>./a1_symbols</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `match` searches for all expressions corresponding to
@@ -15,7 +34,7 @@
 ; expression; it doesn't evaluate the second expression,
 ; which is treated as a set of expected results.
 !(assertEqualToResult
-  (match &self (($x leaf2) leaf3) $x)
+  (match &amp;self (($x leaf2) leaf3) $x)
   (leaf1
    (leaf0 leaf1)))
 
@@ -28,7 +47,7 @@
 (Sophia is a robot)
 ; `match` can bind more that one variable
 !(assertEqualToResult
-  (match &self ($who is a $what) ($who the $what))
+  (match &amp;self ($who is a $what) ($who the $what))
   ((Sam the frog)
    (Tom the cat)
    (Sophia the robot)))
@@ -42,20 +61,20 @@
 (:= (White Tom) T)
 (:= (Green Tom) F)
 !(assertEqualToResult
-  (match &self (:= (Green $who) T) ($who is really green))
+  (match &amp;self (:= (Green $who) T) ($who is really green))
   ((Sam is really green)))
 !(assertEqualToResult
-  (match &self (:= ($color $who) T) ($who is really $color))
+  (match &amp;self (:= ($color $who) T) ($who is really $color))
   ((Sam is really Green)
    (Tom is really White)))
 !(assertEqualToResult
-  (match &self (:= ($color $who) $tv) (It's $tv that $who is $color))
+  (match &amp;self (:= ($color $who) $tv) (It's $tv that $who is $color))
   ((It's T that Sam is Green)
    (It's T that Tom is White)
    (It's F that Tom is Green)))
 ; This type of query works as a sort of evaluation/reduction
 !(assertEqualToResult
-  (match &self (:= (Green Tom) $tv) $tv)
+  (match &amp;self (:= (Green Tom) $tv) $tv)
   (F))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -66,6 +85,267 @@
 (isa green color)
 (isa blue color)
 !(assertEqualToResult
-  (match &self (isa $color color) $color)
+  (match &amp;self (isa $color color) $color)
   (red green blue))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/a1_symbols.metta -- -- --args examples/compat/test_scripts/a1_symbols.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/a1_symbols.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; `match` searches for all expressions corresponding to
+%;; the given pattern and produces the output pattern.
+%;; It doesn't search in subexpressions.
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; Some expressions to be matched
+
+(metta_head  &amp;self 
+ (leaf1 leaf2) 
+ (leaf3))
+(metta_atom  &amp;self 
+ ((leaf1 leaf2) leaf3))
+(metta_head  &amp;self 
+ ((leaf0 leaf1) leaf2) 
+ (leaf3))
+(metta_atom  &amp;self 
+ (((leaf0 leaf1) leaf2) leaf3))
+%; This one contains `((leaf1 leaf2) leaf3)` as a subexpression
+%; and thus will not be matched
+
+(metta_head  &amp;self top 
+ (((leaf1 leaf2) leaf3)))
+(metta_atom  &amp;self 
+ (top 
+  ((leaf1 leaf2) leaf3)))
+%; `assertEqualToResult` checks all the results of the first
+%; expression; it doesn't evaluate the second expression,
+%; which is treated as a set of expected results.
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (($X leaf2) leaf3) $X) 
+   (leaf1 
+    (leaf0 leaf1)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (leaf1 
+   (leaf0 leaf1)) 
+  (leaf1 
+   (leaf0 leaf1))))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; Symbols can be arranged in arbitrary expressions
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self Sam 
+ (is a frog))
+(metta_atom  &amp;self 
+ (Sam is a frog))
+(metta_head  &amp;self Tom 
+ (is a cat))
+(metta_atom  &amp;self 
+ (Tom is a cat))
+(metta_head  &amp;self Sophia 
+ (is a robot))
+(metta_atom  &amp;self 
+ (Sophia is a robot))
+%; `match` can bind more that one variable
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    ($Who is a $What) 
+    ($Who the $What)) 
+   ((Sam the frog) 
+    (Tom the cat) 
+    (Sophia the robot)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Sam the frog) 
+   (Tom the cat) 
+   (Sophia the robot)) 
+  ((Sam the frog) 
+   (Tom the cat) 
+   (Sophia the robot))))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; More examples of pattern matching
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; `:=` is a custom symbol. These are still purely symbolic expressions
+
+(metta_head  &amp;self Green 
+ (Sam))
+(metta_atom  &amp;self 
+ (Green Sam))
+(metta_head  &amp;self White 
+ (Tom))
+(metta_atom  &amp;self 
+ (White Tom))
+(metta_head  &amp;self Green 
+ (Tom))
+(metta_head  &amp;self Green 
+ (Tom))
+(metta_defn  &amp;self 
+ (Green Tom) False)
+(unknown_do_metta  &amp;self load 
+ (= 
+  (Green Tom) False))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (Green $Who) 
+    ($Who is really green)) 
+   ((Sam is really green)))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Sam is really green)) 
+  ((Sam is really green))))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    ($Color $Who) 
+    ($Who is really $Color)) 
+   ((Sam is really Green) 
+    (Tom is really White)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((leaf3 is really 
+    (leaf1 leaf2)) 
+   (leaf3 is really 
+    ((leaf0 leaf1) leaf2)) 
+   (((leaf1 leaf2) leaf3) is really top) 
+   (True is really top) 
+   (Sam is really Green) 
+   (Tom is really White)) 
+  ((Sam is really Green) 
+   (Tom is really White))))
+</span><span class="ansi33"> % 'False'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     ($Color $Who) $Tv) 
+    (It is $Tv that $Who is $Color)) 
+   ((It is True that Sam is Green) 
+    (It is True that Tom is White) 
+    (It is False that Tom is Green)))))<span class="ansi31">
+
+(loonit_failure  
+ (=@=  
+  ((It is False that Tom is Green)) 
+  ((It is True that Sam is Green) 
+   (It is True that Tom is White) 
+   (It is False that Tom is Green))))
+</span><span class="ansi33"> % 'False'
+
+</span>%; This type of query works as a sort of evaluation/reduction
+
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (= 
+     (Green Tom) $Tv) $Tv) 
+   (False))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (False) 
+  (False)))
+</span><span class="ansi33"> % 'True'
+
+</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%; One more example
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self isa 
+ (red color))
+(metta_atom  &amp;self 
+ (isa red color))
+(metta_head  &amp;self isa 
+ (green color))
+(metta_atom  &amp;self 
+ (isa green color))
+(metta_head  &amp;self isa 
+ (blue color))
+(metta_atom  &amp;self 
+ (isa blue color))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (isa $Color color) $Color) 
+   (red green blue))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (red green blue) 
+  (red green blue)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi32">% 457,576 inferences, 0.120 CPU in 0.121 seconds (100% CPU, 3798462 Lips)
+</span> 
+(=  "examples/compat/test_scripts/a1_symbols.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 5
+</span><span class="ansi31">Failures: 2
+</span>
+
+</pre>
+</body>
+
+</html>

@@ -1,4 +1,23 @@
-<html><head><title>./a2_opencoggy</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; We can use Nodes and Links in the OpenCog Classic style,
@@ -25,7 +44,7 @@
      (ConceptNode "flies")))
 
 !(assertEqualToResult
-  (match &self
+  (match &amp;self
     (EvaluationLink
       (PredicateNode "eats")
         (ListLink
@@ -34,4 +53,139 @@
      $x)
   ((ConceptNode "Sam")
    (ConceptNode "Fritz")))
-</pre></body></html>
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/a2_opencoggy.metta -- -- --args examples/compat/test_scripts/a2_opencoggy.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/a2_opencoggy.metta")
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%;; We can use Nodes and Links in the OpenCog Classic style,
+%;; because these are also symbolic expressions,
+%;; although Concept and List will not be turned into types
+%;; and will remain just symbols in expressions
+%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(metta_head  &amp;self EvaluationLink 
+ ((PredicateNode 
+   ($STRING  "eats")) 
+  (ListLink 
+   (ConceptNode 
+    ($STRING  "Sam")) 
+   (ConceptNode 
+    ($STRING  "flies")))))
+(metta_atom  &amp;self 
+ (EvaluationLink 
+  (PredicateNode 
+   ($STRING  "eats")) 
+  (ListLink 
+   (ConceptNode 
+    ($STRING  "Sam")) 
+   (ConceptNode 
+    ($STRING  "flies")))))
+(metta_head  &amp;self EvaluationLink 
+ ((PredicateNode 
+   ($STRING  "eats")) 
+  (ListLink 
+   (ConceptNode 
+    ($STRING  "Bill")) 
+   (ConceptNode 
+    ($STRING  "pizza")))))
+(metta_atom  &amp;self 
+ (EvaluationLink 
+  (PredicateNode 
+   ($STRING  "eats")) 
+  (ListLink 
+   (ConceptNode 
+    ($STRING  "Bill")) 
+   (ConceptNode 
+    ($STRING  "pizza")))))
+(metta_head  &amp;self EvaluationLink 
+ ((PredicateNode 
+   ($STRING  "eats")) 
+  (ListLink 
+   (ConceptNode 
+    ($STRING  "Fritz")) 
+   (ConceptNode 
+    ($STRING  "flies")))))
+(metta_atom  &amp;self 
+ (EvaluationLink 
+  (PredicateNode 
+   ($STRING  "eats")) 
+  (ListLink 
+   (ConceptNode 
+    ($STRING  "Fritz")) 
+   (ConceptNode 
+    ($STRING  "flies")))))
+(:-  
+ (metta_eval  
+  (assertEqualToResult 
+   (match &amp;self 
+    (EvaluationLink 
+     (PredicateNode 
+      ($STRING  "eats")) 
+     (ListLink $X 
+      (ConceptNode 
+       ($STRING  "flies")))) $X) 
+   ((ConceptNode 
+     ($STRING  "Sam")) 
+    (ConceptNode 
+     ($STRING  "Fritz"))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((ConceptNode 
+    ($STRING  "Sam")) 
+   (ConceptNode 
+    ($STRING  "Fritz"))) 
+  ((ConceptNode 
+    ($STRING  "Sam")) 
+   (ConceptNode 
+    ($STRING  "Fritz")))))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi32">% 45,270 inferences, 0.015 CPU in 0.016 seconds (98% CPU, 2936293 Lips)
+</span> 
+(=  "examples/compat/test_scripts/a2_opencoggy.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 0
+</span>
+
+</pre>
+</body>
+
+</html>
