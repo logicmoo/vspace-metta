@@ -48,13 +48,12 @@ cd metta-vspace
 
 ## Getting Started
 
-To get familiar with MeTTaLog, you may:
+To get familiar with MeTTa, you may:
 
-## Documentation
-1. Read the [MeTTaLog specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
+1. Read the [MeTTa specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
 2. Learn the [Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
 
-3. Browse through examples located in
+3. Fix bugs (In MeTTaLog) that you see in the LoonIt tests:
 
 - [00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_case.html)
 - [00_lang_ok_to_redefine.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_ok_to_redefine.html)
