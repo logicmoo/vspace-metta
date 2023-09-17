@@ -12,10 +12,14 @@ MeTTa is a language designed to be a successor to OpenCog Classic Atomese. It fo
 
 ## Main Installation Steps
 
-### Installing Required SWI-Prolog Packs
+### Installing Optional SWI-Prolog Packages
 
-Before you install MeTTaLog, open your SWI-Prolog terminal and install the Janus Python Bridge and logimcoo_utils packs:
+[Janus (requires SWI-Prolog 9.1.12 or later)](https://www.swi-prolog.org/pldoc/man?section=janus-python-package)
+ - This lets you call Python code you have been or will be writting for MeTTa
 
+### Installing Required SWI-Prolog Packages
+
+ Open your SWI-Prolog terminal and install logicmoo_utils and dictoo packs:
 
 ```bash
 ~# swipl
@@ -33,31 +37,44 @@ For built-in help, use ?- help(Topic). or ?- apropos(Word).
 % OOP thru Prolog Dicts
 ?- pack_install(dictoo).
 
+```
 
-# Clone the MeTTaLog repository
+
+### Clone the MeTTaLog repository
+
+```bash
 git clone https://github.com/logicmoo/metta-vspace.git
 
 # Navigate into the directory
 cd metta-vspace
 
-# To start the first unit test, run:
-./Metta examples/compat/test_scripts/00_lang_case.metta
+# You maybe start you first unit (LoonIt Test) test, run:
+./MeTTa examples/compat/test_scripts/00_lang_case.metta
 
-(Note: The first letter of Metta is capitolized to distinquish it from metta written in Rust)
+(Notice the `MeTTa` capitalization to distinquish it from `metta` written in Rust)
 
-# To run all:
-./Metta examples/compat/test_scripts/*.metta
+# output will be saved to: examples/compat/test_scripts/00_lang_case.html
+
+# To run all tests:
+./MeTTa examples/compat/test_scripts/*.metta
+
+
+# to run the debugger/repl
+
+./MeTTa --repl
 
 ```
 
-## Getting Started
 
-To get familiar with MeTTa, you may:
+## Get familiar with MeTTa
+
+you may:
 
 1. Read the [MeTTa specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
+
 2. Learn the [Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
 
-3. Fix bugs (In MeTTaLog) that you see in the LoonIt tests:
+3. Fix bugs in MeTTaLog:
 
 - [00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_case.html)
 - [00_lang_ok_to_redefine.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/00_lang_ok_to_redefine.html)
@@ -91,9 +108,6 @@ To get familiar with MeTTa, you may:
 - [f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleB.html)
 
 
-## License
-
-This project is licensed under the GNU Lesser General Public License v3.0 - see the [`LICENSE.md`](LICENSE.md) file for details.
 
 ## Acknowledgments
 
