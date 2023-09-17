@@ -1,4 +1,23 @@
-<html><head><title>./00_lang_case</title></head><body><pre>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
 
 ; cases are processed sequentially
 !(assertEqual
@@ -60,7 +79,7 @@
 
 ; Basic Match
 !(assertEqual
-   (match &self ($rel A $x) ($rel $x))
+   (match &amp;self ($rel A $x) ($rel $x))
    (superpose ((Rel-P B) (Rel-Q C))))
 
 
@@ -68,13 +87,13 @@
 !(assertEqual
   (superpose ((P B) (Q C)))
   (case
-   (match &self ($rel A $x) ($rel $x))
+   (match &amp;self ($rel A $x) ($rel $x))
     (((Rel-P $y) (P $y))
      ((Rel-Q $y) (Q $y)))))
 
 
 ; %void% can be used to capture empty results
-!(assertEqual (case (match &self ($rel B $x) ($rel $x))
+!(assertEqual (case (match &amp;self ($rel B $x) ($rel $x))
     (((Rel-P $y) (P $y))
     ((Rel-Q $y) (Q $y))
     (%void% no-match
@@ -85,4 +104,593 @@
 
 
 
-</pre></body></html>
+Script started on 2023-09-17 00:55:28-07:00 [COMMAND="TYPESCRIPT=1 ./MeTTa --tee examples/compat/test_scripts/00_lang_case.metta" TERM="xterm" TTY="/dev/pts/1" COLUMNS="187" LINES="100"]
+start ./MeTTa examples/compat/test_scripts/00_lang_case.metta
+METTA_DIR=/mnt/ffff/metta-vspace
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl -- -- examples/compat/test_scripts/00_lang_case.metta --args examples/compat/test_scripts/00_lang_case.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/00_lang_case.metta")
+%; cases are processed sequentially
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (+ 1 
+    (superpose 
+     (1 2 3))) 
+   (+ 1 
+    (superpose 
+     (1 2 3))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (2 3 4) 
+  (2 3 4)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (+ 1 
+    (superpose 
+     (1 2 3))) 
+   (+ 1 
+    (superpose 
+     (1 
+      (superpose 
+       (2 3))))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (2 3 4) 
+  (2 3 4)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   ((superpose 
+     (1 2 3))) 
+   ((superpose 
+     (1 
+      (superpose 
+       ((+ 1 1) 3))))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((1) 
+   (2) 
+   (3)) 
+  ((1) 
+   (2) 
+   (3))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; cases are processed sequentially
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 5) 
+    ((5 Error) 
+     (6 OK) 
+     (6 Error))) OK)))
+ c(0,5)='Error'
+ c(1,6)='OK'
+ c(2,6)='Error'
+ switch=6
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (OK) 
+  (OK)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; we can use variables as cases
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 5) 
+    (($X 
+      (+ 1 $X)))) 7)))
+ c(0,_303220)=[+,1,_303220]
+ switch=6
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (7) 
+  (7)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; cases are not necessarily exhaustive,
+%; and the result can be empty
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 5 
+    ((6 OK))) 
+   (superpose ()))))
+ c(0,6)='OK'
+ switch=5
+<span class="ansi36">
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%; it is non-deterministic: each value is matched against all cases
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 
+     (superpose 
+      (1 2 3))) 
+    ((3 OK-3) 
+     (4 OK-4))) 
+   (superpose 
+    (OK-3 OK-4)))))
+ c(0,3)='OK-3'
+ c(1,4)='OK-4'
+ switch=2
+ switch=3
+ switch=4
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (OK-3 OK-4) 
+  (OK-3 OK-4)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; one case can produce multiple results
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 
+     (superpose 
+      (1 2 3))) 
+    (($X 
+      (+ 1 $X)))) 
+   (superpose 
+    (3 4 5)))))
+ c(0,_363580)=[+,1,_363580]
+ switch=2
+ switch=3
+ switch=4
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (3 4 5) 
+  (3 4 5)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(metta_head  &amp;self Rel-P 
+ (A B))
+(metta_atom  &amp;self 
+ (Rel-P A B))
+(metta_head  &amp;self Rel-Q 
+ (A C))
+(metta_atom  &amp;self 
+ (Rel-Q A C))
+%; Basic Match
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (match &amp;self 
+    ($Rel A $X) 
+    ($Rel $X)) 
+   (superpose 
+    ((Rel-P B) 
+     (Rel-Q C))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Rel-P B) 
+   (Rel-Q C)) 
+  ((Rel-P B) 
+   (Rel-Q C))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; cases can be used for deconstruction
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (superpose 
+    ((P B) 
+     (Q C))) 
+   (case 
+    (match &amp;self 
+     ($Rel A $X) 
+     ($Rel $X)) 
+    (((Rel-P $Y) 
+      (P $Y)) 
+     ((Rel-Q $Y) 
+      (Q $Y)))))))
+ c(0,['Rel-P',_428220])=['P',_428220]
+ c(1,['Rel-Q',_428220])=['Q',_428220]
+ switch=['Rel-P','B']
+ switch=['Rel-Q','C']
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  ((P B) 
+   (Q C)) 
+  ((P B) 
+   (Q C))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; %void% can be used to capture empty results
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (match &amp;self 
+     ($Rel B $X) 
+     ($Rel $X)) 
+    (((Rel-P $Y) 
+      (P $Y)) 
+     ((Rel-Q $Y) 
+      (Q $Y)) 
+     (%void% no-match))) no-match)))
+ c(0,['Rel-P',_466732])=['P',_466732]
+ c(1,['Rel-Q',_466732])=['Q',_466732]
+ c(2,'%void%')='no-match'
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (no-match) 
+  (no-match)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi32">% 179,393 inferences, 0.090 CPU in 0.091 seconds (100% CPU, 1986068 Lips)
+</span> 
+(=  "examples/compat/test_scripts/00_lang_case.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 0
+</span>
+Script done on 2023-09-17 00:55:31-07:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2023-09-17 01:04:50-07:00 [COMMAND="TYPESCRIPT=1 ./MeTTa --tee examples/compat/test_scripts/00_lang_case.metta" TERM="xterm" TTY="/dev/pts/1" COLUMNS="187" LINES="100"]
+start ./MeTTa examples/compat/test_scripts/00_lang_case.metta
+METTA_DIR=/mnt/ffff/metta-vspace
+BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl -- -- examples/compat/test_scripts/00_lang_case.metta --args examples/compat/test_scripts/00_lang_case.metta
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+add_history1(list_column_names)
+add_history1(setup_flybase_cols)
+add_history1(pmt)
+add_history1(save_value_symbol_cols)
+add_history1(is_swipl)
+add_history1(mine_args_that_need_reduced)
+add_history1(print_est_sizes)
+add_history1(print_loaded_from_files)
+add_history1(load_flybase_chado)
+add_history1(load_obo_files)
+add_history1(load_flybase_obo_files)
+add_history1(load_fbase_after_17)
+add_history1(load_flybase_files_ftp)
+add_history1(load_flybase_das_11)
+add_history1(load_flybase_files)
+add_history1(load_flybase_dirs)
+add_history1(load_flybase)
+add_history1(recount_total_loaded_symbols)
+add_history1(gc_now)
+add_history1(cleanup_arities)
+add_history1(should_sample)
+add_history1(should_fix_args)
+add_history1(reached_file_max)
+add_history1(should_cache)
+add_history1(try_overlaps)
+add_history1(mine_unif_overlap)
+add_history1(mine_symbolspace_overlaps)
+add_history1(mine_typelevel_overlaps)
+add_history1(mine_overlaps2_slow)
+add_history1(mine_overlaps1)
+add_history1(mine_overlaps)
+add_history1(fb_stats)
+ 
+(track_load_into_file  "examples/compat/test_scripts/00_lang_case.metta")
+%; cases are processed sequentially
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (+ 1 
+    (superpose 
+     (1 2 3))) 
+   (+ 1 
+    (superpose 
+     (1 2 3))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (2 3 4) 
+  (2 3 4)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (+ 1 
+    (superpose 
+     (1 2 3))) 
+   (+ 1 
+    (superpose 
+     (1 
+      (superpose 
+       (2 3))))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  (2 3 4) 
+  (2 3 4)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(:-  
+ (metta_eval  
+  (assertEqual 
+   ((superpose 
+     (1 2 3))) 
+   ((superpose 
+     (1 
+      (superpose 
+       ((+ 1 1) 3))))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((1) 
+   (2) 
+   (3)) 
+  ((1) 
+   (2) 
+   (3))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; cases are processed sequentially
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 5) 
+    ((5 Error) 
+     (6 OK) 
+     (6 Error))) OK)))
+ c(0,5)='Error'
+ c(1,6)='OK'
+ c(2,6)='Error'
+ switch=6
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (OK) 
+  (OK)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; we can use variables as cases
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 5) 
+    (($X 
+      (+ 1 $X)))) 7)))
+ c(0,_302952)=[+,1,_302952]
+ switch=6
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (7) 
+  (7)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; cases are not necessarily exhaustive,
+%; and the result can be empty
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 5 
+    ((6 OK))) 
+   (superpose ()))))
+ c(0,6)='OK'
+ switch=5
+<span class="ansi36">
+(loonit_success  
+ (=@=  () ()))
+</span><span class="ansi33"> % 'True'
+
+</span>%; it is non-deterministic: each value is matched against all cases
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 
+     (superpose 
+      (1 2 3))) 
+    ((3 OK-3) 
+     (4 OK-4))) 
+   (superpose 
+    (OK-3 OK-4)))))
+ c(0,3)='OK-3'
+ c(1,4)='OK-4'
+ switch=2
+ switch=3
+ switch=4
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (OK-3 OK-4) 
+  (OK-3 OK-4)))
+</span><span class="ansi33"> % 'True'
+
+</span>%; one case can produce multiple results
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (+ 1 
+     (superpose 
+      (1 2 3))) 
+    (($X 
+      (+ 1 $X)))) 
+   (superpose 
+    (3 4 5)))))
+ c(0,_363312)=[+,1,_363312]
+ switch=2
+ switch=3
+ switch=4
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (3 4 5) 
+  (3 4 5)))
+</span><span class="ansi33"> % 'True'
+
+</span>
+(metta_head  &amp;self Rel-P 
+ (A B))
+(metta_atom  &amp;self 
+ (Rel-P A B))
+(metta_head  &amp;self Rel-Q 
+ (A C))
+(metta_atom  &amp;self 
+ (Rel-Q A C))
+%; Basic Match
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (match &amp;self 
+    ($Rel A $X) 
+    ($Rel $X)) 
+   (superpose 
+    ((Rel-P B) 
+     (Rel-Q C))))))<span class="ansi36">
+
+(loonit_success  
+ (=@=  
+  ((Rel-P B) 
+   (Rel-Q C)) 
+  ((Rel-P B) 
+   (Rel-Q C))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; cases can be used for deconstruction
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (superpose 
+    ((P B) 
+     (Q C))) 
+   (case 
+    (match &amp;self 
+     ($Rel A $X) 
+     ($Rel $X)) 
+    (((Rel-P $Y) 
+      (P $Y)) 
+     ((Rel-Q $Y) 
+      (Q $Y)))))))
+ c(0,['Rel-P',_427952])=['P',_427952]
+ c(1,['Rel-Q',_427952])=['Q',_427952]
+ switch=['Rel-P','B']
+ switch=['Rel-Q','C']
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  ((P B) 
+   (Q C)) 
+  ((P B) 
+   (Q C))))
+</span><span class="ansi33"> % 'True'
+
+</span>%; %void% can be used to capture empty results
+
+(:-  
+ (metta_eval  
+  (assertEqual 
+   (case 
+    (match &amp;self 
+     ($Rel B $X) 
+     ($Rel $X)) 
+    (((Rel-P $Y) 
+      (P $Y)) 
+     ((Rel-Q $Y) 
+      (Q $Y)) 
+     (%void% no-match))) no-match)))
+ c(0,['Rel-P',_466464])=['P',_466464]
+ c(1,['Rel-Q',_466464])=['Q',_466464]
+ c(2,'%void%')='no-match'
+<span class="ansi36">
+(loonit_success  
+ (=@=  
+  (no-match) 
+  (no-match)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi32">% 179,393 inferences, 0.098 CPU in 0.098 seconds (100% CPU, 1835121 Lips)
+</span> 
+(=  "examples/compat/test_scripts/00_lang_case.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 0
+</span>
+
+</pre>
+</body>
+
+</html>
