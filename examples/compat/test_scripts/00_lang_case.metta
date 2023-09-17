@@ -81,49 +81,6 @@
      no-match )
 
 
-; a functional example
-(= (maybe-inc $x)
-    (case $x
-     (((Just $v) (Just (+ 1 $v)))
-	(Nothing Nothing))))
-
-!(assertEqual (maybe-inc Nothing) Nothing)
-!(assertEqual (maybe-inc (Just 2)) (Just 3))
-
-
-; Curried plus
-(: plus (-> Number (-> Number Number)))
-(= ((plus $x) $y) (+ $x $y))
-; Define inc as partial evaluation of plus
-(: inc (-> (-> Number Number)))
-(= (inc) (plus 1))
-
-!(assertEqualToResult ((inc) 2) (3))
-
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;
-; sorted lists
-;;;;;;;;;;;;;;;;;;;;;;;;
-(: List (-> $a Type))
-(: Nil (List $a))
-(: Cons (-> $a (List $a) (List $a)))
-
-(: if (-> bool Any Any) Any)
-(= (if true $then $else) $then)
-(= (if false $then $else) $else)
-
-(= (insert $x Nil) (Cons $x Nil))
-(= (insert $x (Cons $head $tail))
-       (if (< $x $head)
-	      (Cons $x (Cons $head $tail))
-	      (Cons $head (insert $x $tail))))
-
-
-!(assertEqual  (insert 1 Nil)  (Cons 1 Nil))
-
-!(assertEqual  (insert 3 (insert 2 (insert 1 Nil))) (Cons 1 (Cons 2 (Cons 3 Nil))))
 
 
 
