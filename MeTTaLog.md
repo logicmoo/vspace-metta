@@ -1,38 +1,38 @@
 
-# MeTTaLog: An Implementation of MeTTa for Logic Programming
-
-## Overview
-
-MeTTaLog is a novel logic programming framework inspired by OpenCog Hyperon's MeTTa (Meta Type Talk) language. This project aims to provide a rich set of features, including meta-language capabilities, various types of inference, and clear semantics. MeTTaLog is designed to serve as a practical tool for both research and applications in artificial intelligence, semantic web, natural language processing, and beyond.
+# MeTTaLog: An Implementation of MeTTa in Prolog
 
 ## Introduction
 
-MeTTaLog is a language designed to be a successor to OpenCog Classic Atomese. It forms part of the OpenCog Hyperon initiative, with clear semantics supporting meta-language features, different types of inference, and more.
+MeTTa is a language designed to be a successor to OpenCog Classic Atomese. It forms part of the OpenCog Hyperon initiative, with clear semantics supporting meta-language features, different types of inference, and more.
 
 ## Prerequisites
 
 - SWI-Prolog
 - Python 3.x
 
-## Installation
+## Main Installation Steps
 
 ### Installing Required SWI-Prolog Packs
 
 Before you install MeTTaLog, open your SWI-Prolog terminal and install the Janus Python Bridge and logimcoo_utils packs:
 
-```prolog
-
- % Utility Code used throughout this library
-?- pack_install(logicmoo_utils).
-
- % OOP thru Prolog Dicts
-?- pack_install(dictoo).
-
-```
-
-### Main Installation Steps
 
 ```bash
+~# swipl
+Welcome to SWI-Prolog (threaded, 64 bits, version 9.1.15-49-g93d0c9ac6)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- pack_install(logicmoo_utils).
+% Contacting server at https://www.swi-prolog.org/pack/query ... ok
+% Pack `logicmoo_utils' is already installed @3.1.3
+% OOP thru Prolog Dicts
+?- pack_install(dictoo).
+...
+```
 # Clone the repository
 git clone https://github.com/logicmoo/metta-vspace.git
 
@@ -45,10 +45,6 @@ cd metta-vspace
 # To run all:
 ./Metta examples/compat/test_scripts/*.metta
 
-```
-
-
-```bash
 ```
 
 ## Getting Started
@@ -93,9 +89,6 @@ To get familiar with MeTTaLog, you may:
 - [f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleB.html)
 
 
-
-
-
 ## License
 
 This project is licensed under the GNU Lesser General Public License v3.0 - see the [`LICENSE.md`](LICENSE.md) file for details.
@@ -103,7 +96,5 @@ This project is licensed under the GNU Lesser General Public License v3.0 - see 
 ## Acknowledgments
 
 Special thanks to the OpenCog community and everyone involved in the development and conceptualization of Hyperon and MeTTa.
-
----
 
 
