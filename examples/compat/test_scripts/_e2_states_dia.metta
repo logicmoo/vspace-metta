@@ -1,10 +1,10 @@
 ; This example rewritten with `case` works (as per 19 Oct 22),
 ; but it might not be good as a unit test:
-; - what's going on is not obvious
+; - what''s going on is not obvious
 ; - there might be a better way to implement what the code is doing
 ; - processing commands with side effect and empty results and
 ;   chaining them might not be idiomatic
-; - it's relatively slow (why? FIXME?)
+; - it''s relatively slow (why? FIXME?)
 
 !(bind! &memory (new-space))
 
@@ -31,7 +31,7 @@
    (match &memory (state $var $value) $value))
 
 ; Earlier, `(get-state (person name))` got cached, and it changes
-; in one equality for `listen` didn't affect other equalities.
+; in one equality for `listen` didn''t affect other equalities.
 ; `case` accepts an `Atom` and forcefully evaluates it.
 ; However, the idea of using equalities as sequentially processed
 ; rules with side effects is still questionable

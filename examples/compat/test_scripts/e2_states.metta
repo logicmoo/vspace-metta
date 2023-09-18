@@ -8,7 +8,7 @@
 !(bind! &state-token (new-state (A B)))
 
 ; &state-token is replaced by the state atom in the code below its creation
-; we wrap it into a function to show that it's not the token that changes, but
+; we wrap it into a function to show that it''s not the token that changes, but
 ; the content of the state atom
 (= (get-token) &state-token)
 
@@ -79,7 +79,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; MeTTa provides proper encapsulated state manipulation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; scoping doesn't conflict between let bound variables and state atom types.
+; scoping doesn''t conflict between let bound variables and state atom types.
 !(assertEqual
   (let $x (new-state 1)
      (change-state! $x (+ (get-state $x) 1)))

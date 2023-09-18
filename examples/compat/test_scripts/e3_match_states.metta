@@ -28,7 +28,7 @@
 
 ; The result is now different. This might be surprising, since
 ; the content of Space is not changed. However, this is the whole
-; intention behind states: the atom remains the same, and we don't
+; intention behind states: the atom remains the same, and we don''t
 ; need to reinsert it into Space, but the state it wraps changes
 ; (even if it is inside equality).
 !(assertEqual
@@ -41,9 +41,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(bind! &state-active (new-state active))
 !(nop (change-state! &state-active inactive))
-; We cannot put `(new-state active)` inside `match`, because it doesn't
+; We cannot put `(new-state active)` inside `match`, because it doesn''t
 ; reduce the input pattern expression. Instead, we should use
-; `(let $state-active (new-state active)) ...) here.
+; `(let $state-active (new-state active)) ...) here.   `
 
 ; In any case, direct matching against expressions with states work:
 !(assertEqual

@@ -13,7 +13,7 @@
 
 ; `(Mortal Plato)` is an expression of `Type` type
 ; It represents the proposition "Plato is mortal"
-; but doesn't mean this proposition is inhabited/proven
+; but doesn''t mean this proposition is inhabited/proven
 !(assertEqual
   (get-type (Mortal Plato))
   Type)
@@ -22,7 +22,7 @@
 ; `HumansAreMortal` represents the implication:
 ; "For all x, if Human(x) then Mortal(x)"
 (: HumansAreMortal (-> (Human $t) (Mortal $t)))
-; NOTE: MeTTa doesn't differentiate between type constructors and
+; NOTE: MeTTa doesn''t differentiate between type constructors and
 ;       other symbols (including functional) of the same type.
 ;       Thus, ATM, we cannot prove any proposition with universal
 ;       quantification (e.g., that all humans are mortal) by
@@ -84,7 +84,7 @@
 ; (: Refl (-> (: $x $T) (= $x $x))).
 ; As per https://github.com/trueagi-io/hyperon-experimental/issues/177 ,
 ; there is no way to match both argument and its type in type definition.
-; Such syntax `(: (Refl $x) (-> Type (= $x $x)))` also doesn't work now.
+; Such syntax `(: (Refl $x) (-> Type (= $x $x)))` also doesn''t work now.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
