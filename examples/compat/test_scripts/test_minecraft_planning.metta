@@ -32,9 +32,9 @@
 (: stone-pickaxe Any)
 (= (stone-pickaxe) (craft stone-pickaxe crafting-table (allof (pack-cobblestones 3) (pack-sticks 2))))
 
-!(assert (in-inventory wooden-pickaxe) False)
+!(assertEqual (in-inventory wooden-pickaxe) False)
 !(wooden-pickaxe)
-!(assert (in-inventory four-planks) True)
-!(assert (in-inventory crafting-table) True)
-!(assert (in-inventory wooden-pickaxe) True)
+!(assertEqual (in-inventory four-planks) True)
+!(assertEqual (in-inventory crafting-table) True)
+!(assertEqual (in-inventory wooden-pickaxe) True)
 
