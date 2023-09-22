@@ -2,92 +2,107 @@
 
 
 
-(= (is $x $x) True)
 
-; LOGICAL Recursive Factorial
-(= (factorial-pred 0 1) True)
-(= (factorial-pred $N $R-X)
-   (and (> $N 0)
-      (is $F2 (- $N 1))
-      (factorial-pred $F2 $R)
-      (is $R-X (* $N $R))))
-
-;;!(assertTrue (factorial-pred 0 1))
-;;!(assertTrue (factorial-pred 1 1))
-;;!(assertTrue (factorial-pred 2 2))
-;;!(assertTrue (factorial-pred 3 6))
-;;!(assertTrue (factorial-pred 4 24))
-;;!(assertTrue (factorial-pred 5 120))
-
-; LOGICAL Factorial Using Accumulators
-(= (factorial-pred-acc $F $A) (factorial-pred-acc-helper $F 1 $A))
-(= (factorial-pred-acc-helper 0 $A $A) True)
-(= (factorial-pred-acc-helper $N $F $A)
-   (and (> $N 0)
-      (is $X (* $F $N))
-      (is $F1 (- $N 1))
-      (factorial-pred-acc-helper $F1 $X $A)))
-
-;;!(assertTrue (factorial-pred-acc 0 1))
-;;!(assertTrue (factorial-pred-acc 1 1))
-;;!(assertTrue (factorial-pred-acc 2 2))
-;;!(assertTrue (factorial-pred-acc 3 6))
-;;!(assertTrue (factorial-pred-acc 4 24))
-;;!(assertTrue (factorial-pred-acc 5 120))
-
-; LOGICAL Tail-Recursive Factorial
-(= (factorial-pred-tail-rec $F $R-H) (factorial-pred-tail-rec-helper $F 1 $R-H))
-(= (factorial-pred-tail-rec-helper 0 $H $H) True)
-(= (factorial-pred-tail-rec-helper $N1 $F $H)
-   (and (> $N1 0)
-      (is $X (* $F $N1))
-      (is $F2 (- $N1 1))
-      (factorial-pred-tail-rec-helper $F2 $X $H)))
-
-;;!(assertTrue (factorial-pred-tail-rec 0 1))
-;;!(assertTrue (factorial-pred-tail-rec 1 1))
-;;!(assertTrue (factorial-pred-tail-rec 2 2))
-;;!(assertTrue (factorial-pred-tail-rec 3 6))
-;;!(assertTrue (factorial-pred-tail-rec 4 24))
-;;!(assertTrue (factorial-pred-tail-rec 5 120))
-
-
-
-; FUNCTIONAL Recursive Factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; functional recursive factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (= (factorial 0) 1)
 (= (factorial $n) (* $n (factorial (- $n 1))))
 
 ;;!(assertEqual (factorial 0) 1)
 ;;!(assertEqual (factorial 1) 1)
-;;!(assertEqual (factorial 2) 2)
 ;;!(assertEqual (factorial 4) 24)
 ;;!(assertEqual (factorial 5) 120)
+;;!(assertEqual (factorial 10) 3628800)
 
 
-; FUNCTIONAL Tail-Recursive Factorial
-(= (factorial-tail-rec $n) (factorial-tail-rec-helper $n 1))
-(= (factorial-tail-rec-helper 0 $acc) $acc)
-(= (factorial-tail-rec-helper $n $acc) (factorial-tail-rec-helper (- $n 1) (* $n $acc)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; functional tail-recursive factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(= (factorial-tailrec $n) (factorial-tailrec-helper $n 1))
+(= (factorial-tailrec-helper 0 $acc) $acc)
+(= (factorial-tailrec-helper $n $acc) (factorial-tailrec-helper (- $n 1) (* $n $acc)))
 
-;;!(assertEqual (factorial-tail-rec 0) 1)
-;;!(assertEqual (factorial-tail-rec 1) 1)
-;;!(assertEqual (factorial-tail-rec 2) 2)
-;;!(assertEqual (factorial-tail-rec 3) 6)
-;;!(assertEqual (factorial-tail-rec 4) 24)
-;;!(assertEqual (factorial-tail-rec 5) 120)
+;;!(assertEqual (factorial-tailrec 0) 1)
+;;!(assertEqual (factorial-tailrec 1) 1)
+;;!(assertEqual (factorial-tailrec 4) 24)
+;;!(assertEqual (factorial-tailrec 5) 120)
+;;!(assertEqual (factorial-tailrec 10) 3628800)
 
-; FUNCTIONAL Factorial Using Accumulators
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; functional factorial using accumulators
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (= (factorial-acc $n) (factorial-acc-helper $n 1))
 (= (factorial-acc-helper 0 $acc) $acc)
 (= (factorial-acc-helper $n $acc) (factorial-acc-helper (- $n 1) (* $n $acc)))
 
 ;;!(assertEqual (factorial-acc 0) 1)
 ;;!(assertEqual (factorial-acc 1) 1)
-;;!(assertEqual (factorial-acc 2) 2)
-;;!(assertEqual (factorial-acc 3) 6)
 ;;!(assertEqual (factorial-acc 4) 24)
 ;;!(assertEqual (factorial-acc 5) 120)
+;;!(assertEqual (factorial-acc 10) 3628800)
 
 
 
+
+
+
+
+
+
+
+
+
+(= (is $x $x) true)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; logical recursive factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(= (practorial 0 1) true)
+(= (practorial $n $out)
+   (and (> $n 0)
+      (is $f2 (- $n 1))
+      (practorial $f2 $r)
+      (is $out (* $n $r))))
+
+;;!(assertTrue (practorial 0 1))
+;;!(assertTrue (practorial 1 1))
+;;!(assertTrue (practorial 4 24))
+;;!(assertTrue (practorial 5 120))
+;;!(assertTrue (practorial 10) 3628800)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; logical tail-recursive factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(= (practorial-tailrec $f $rout) (practorial-tailrec-helper $f 1 $rout))
+(= (practorial-tailrec-helper 0 $h $h) true)
+(= (practorial-tailrec-helper $n1 $f $rout)
+   (and (> $n1 0)
+      (is $x (* $f $n1))
+      (is $f2 (- $n1 1))
+      (practorial-tailrec-helper $f2 $x $rout)))
+
+;;!(assertTrue (practorial-tailrec 0 1))
+;;!(assertTrue (practorial-tailrec 1 1))
+;;!(assertTrue (practorial-tailrec 4 24))
+;;!(assertTrue (practorial-tailrec 5 120))
+;;!(assertTrue (practorial-tailrec 10) 3628800)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; logical factorial using accumulators
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(= (practorial-acc $f $accout) (practorial-acc-helper $f 1 $accout))
+(= (practorial-acc-helper 0 $accout $accout) true)
+(= (practorial-acc-helper $n $f $accout)
+   (and (> $n 0)
+      (is $x (* $f $n))
+      (is $f1 (- $n 1))
+      (practorial-acc-helper $f1 $x $accout)))
+
+;;!(assertTrue (practorial-acc 0 1))
+;;!(assertTrue (practorial-acc 1 1))
+;;!(assertTrue (practorial-acc 4 24))
+;;!(assertTrue (practorial-acc 5 120))
+;;!(assertTrue (practorial-acc 10) 3628800)
 
