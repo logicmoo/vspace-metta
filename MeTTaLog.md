@@ -82,6 +82,8 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 ./MeTTa
 ```
 
+
+**See `--help` for more options:**
 ```
 ./MeTTa --help
  CMD: ./MeTTa
@@ -144,7 +146,8 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 1. [Read the MeTTa specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
 2. [Learn the Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
 
-## Fix Bugs in MeTTaLog
+
+# Fix Bugs in MeTTaLog
 
 |Pass |Fail |File                               |GitHub Link                                                                                                                       |
 |-----|-----|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -183,7 +186,7 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 |  0  |  0  | f1_moduleC.metta                  |[examples/compat/test_scripts/f1_moduleC.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/f1_moduleC.html)|
 |68   |161  |Totals                             |For 'examples/compat/test_scripts/*.metta'                                                                                        |
 
-## Acknowledgments
+# Acknowledgments
 
 Special thanks to the OpenCog community and everyone involved in the development and conceptualization of Hyperon and MeTTa.
 
@@ -202,10 +205,13 @@ This is the normal way to start MeTTa. The MeTTa flag `argv` provides access to 
 - `./MeTTa -o output -c metta-file ...`
 The `-c` option is used to compile a set of MeTTa files into an executable.
 
-- `./MeTTa -o output -b bootfile metta-file ...`
+- `./MeTTa -o output -b prolog-bootfile metta-file ...`
 Bootstrap compilation.
+[These are inherited from SWI-Prolog](https://www.swi-prolog.org/pldoc/man?section=cmdline)
+
 
 ### Command Line Options for Running MeTTa
+[These are inherited from SWI-Prolog](https://www.swi-prolog.org/pldoc/man?section=cmdline)
 
 Boolean options may be written as `--name` (true), `--noname` or `--no-name` (false).
 
@@ -263,14 +269,15 @@ Use file.metta as initialisation file instead of the default `init.metta`.
 - `-F script`
 Select a startup script from the MeTTa home directory.
 
-- `-x bootfile`
-Boot from bootfile instead of the system''s default boot file.
+- `-x prolog-bootfile`
+Boot from prolog-bootfile instead of the system''s default boot file.
 
 - `-p alias=path1[:path2 ...]`
 Define a path alias for file_search_path.
 
 - `--`
 Stops scanning for more arguments.
+
 
 ### Controlling the Stack Sizes
 
@@ -298,7 +305,7 @@ Goal is executed just before entering the top level.
 ```
 
 - `-t (goal)`
-Use goal as an interactive top level instead of the default goal `metta/0`.
+Use goal as an interactive top level instead of the default goal `repl/0`.
 
 ### Compilation Options
 
