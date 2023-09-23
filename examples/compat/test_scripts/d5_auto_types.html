@@ -38,7 +38,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 00:32:32-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 01:17:12-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -60,28 +60,21 @@ Script started on 2023-09-23 00:32:32-07:00 [COMMAND="timeout --foreground --pre
 
 </span>; checking grounded types
 <span class="ansi38-000068000">! (assertEqualToResult 
-    (+ 5 
-      ($STRING  "S")) 
-    ( (Error 
-        ($STRING  "S") BadType)))
+    (+ 5 "S") 
+    ( (Error "S" BadType)))
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
-      ( (+ 5 
-          ($STRING  "S"))) 
-      ( (Error 
-          ($STRING  "S") BadType))))
+      (88) 
+      ( (Error "S" BadType))))
 </span><span class="ansi33"> % 'False'
 
 </span><span class="ansi38-000068000">! (assertEqualToResult 
-    (== 5 
-      ($STRING  "S")) 
-    ( (Error 
-        ($STRING  "S") BadType)))
+    (== 5 "S") 
+    ( (Error "S" BadType)))
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
       (False) 
-      ( (Error 
-          ($STRING  "S") BadType))))
+      ( (Error "S" BadType))))
 </span><span class="ansi33"> % 'False'
 
 </span>; declaring some custom types
@@ -167,16 +160,12 @@ Script started on 2023-09-23 00:32:32-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">! (assertEqualToResult 
     (collapse 
-      (+ 5 
-        ($STRING  "S"))) 
-    ( ( (Error 
-          ($STRING  "S") BadType))))
+      (+ 5 "S")) 
+    ( ( (Error "S" BadType))))
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
-      ( (+ 5 
-          ($STRING  "S"))) 
-      ( ( (Error 
-            ($STRING  "S") BadType)))))
+      ( (88)) 
+      ( ( (Error "S" BadType)))))
 </span><span class="ansi33"> % 'False'
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -199,8 +188,7 @@ Script started on 2023-09-23 00:32:32-07:00 [COMMAND="timeout --foreground --pre
 ; let binds without type checking, but errors when used
 <span class="ansi38-255165000">  (metta_atom  &amp;self 
     (let $X 
-      (+ 5 
-        ($STRING  "S")) $X))
+      (+ 5 "S") $X))
 </span><span class="ansi38-255165000">  (metta_type  &amp;self f 
     (-&gt; $T Number))
 </span>  (metta_arity  &amp;self f 2)
@@ -209,20 +197,15 @@ Script started on 2023-09-23 00:32:32-07:00 [COMMAND="timeout --foreground --pre
   (metta_last  &amp;self f Number)<span class="ansi38-000068000">
 ! (assertEqualToResult 
     (f 
-      (+ 5 
-        ($STRING  "S"))) 
-    ( (Error 
-        ($STRING  "S") BadType)))
+      (+ 5 "S")) 
+    ( (Error "S" BadType)))
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
-      ( (f 
-          (+ 5 
-            ($STRING  "S")))) 
-      ( (Error 
-          ($STRING  "S") BadType))))
+      ( (f 88)) 
+      ( (Error "S" BadType))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 152,295 inferences, 0.096 CPU in 0.096 seconds (100% CPU, 1590425 Lips)
+</span><span class="ansi32">% 154,039 inferences, 0.095 CPU in 0.095 seconds (100% CPU, 1618713 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta" 34)
  --repl=false
  --args
@@ -232,7 +215,7 @@ Script started on 2023-09-23 00:32:32-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 6
 </span>
-Script done on 2023-09-23 00:32:34-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 01:17:14-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

@@ -39,7 +39,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 01:17:17-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -83,14 +83,14 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
           (eval 
             (if-equal $Atom () $Else $Then)) $Else))))
   (metta_defn  &amp;self 
-    (if-non-empty-expression $_380702 $_381144 $_381528) 
+    (if-non-empty-expression $_385718 $_386160 $_386544) 
     (chain 
       (eval 
-        (get-metatype $_380702)) $_381820 
+        (get-metatype $_385718)) $_386836 
       (eval 
-        (if-equal $_381820 Expression 
+        (if-equal $_386836 Expression 
           (eval 
-            (if-equal $_380702 () $_381528 $_381144)) $_381528))))  ; 11 
+            (if-equal $_385718 () $_386544 $_386160)) $_386544))))  ; 11 
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (if-decons $Atom $Head $Tail $Then $Else) 
@@ -101,22 +101,22 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
           (match $List 
             ($Head $Tail) $Then $Else)) $Else)))
   (metta_defn  &amp;self 
-    (if-decons $_428244 $_428800 $_429298 $_429738 $_430120) 
+    (if-decons $_433260 $_433816 $_434314 $_434754 $_435136) 
     (eval 
-      (if-non-empty-expression $_428244 
+      (if-non-empty-expression $_433260 
         (chain 
-          (decons $_428244) $_430416 
-          (match $_430416 
-            ($_428800 $_429298) $_429738 $_430120)) $_430120)))  ; 12 
+          (decons $_433260) $_435432 
+          (match $_435432 
+            ($_433816 $_434314) $_434754 $_435136)) $_435136)))  ; 12 
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (if-empty $Atom $Then $Else) 
     (eval 
       (if-equal $Atom Empty $Then $Else)))
   (metta_defn  &amp;self 
-    (if-empty $_465518 $_465780 $_465984) 
+    (if-empty $_470534 $_470796 $_471000) 
     (eval 
-      (if-equal $_465518 Empty $_465780 $_465984)))  ; 13 
+      (if-equal $_470534 Empty $_470796 $_471000)))  ; 13 
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (if-error $Atom $Then $Else) 
@@ -135,8 +135,7 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
     (eval 
       (if-decons $Atom $Head $_ $Head 
         (Error 
-          (car $Atom) 
-          ($STRING  "car expects a non-empty expression as an argument")))))
+          (car $Atom) "car expects a non-empty expression as an argument"))))
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (switch $Atom $Cases) 
     (chain 
@@ -153,8 +152,7 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
     (subst $Atom $Var $Templ) 
     (match $Atom $Var $Templ 
       (Error 
-        (subst $Atom $Var $Templ) 
-        ($STRING  "subst expects a variable as a second argument"))))
+        (subst $Atom $Var $Templ) "subst expects a variable as a second argument")))
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (reduce $Atom $Var $Templ) 
     (chain 
@@ -254,10 +252,8 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
                     (eval 
                       (return-on-error $Reduced_args 
                         (cons $Reduced_op $Reduced_args)))) 
-                  (Error $Type 
-                    ($STRING  "Function type expected"))))))) 
-        (Error $Expr 
-          ($STRING  "Non-empty expression atom is expected")))))
+                  (Error $Type "Function type expected")))))) 
+        (Error $Expr "Non-empty expression atom is expected"))))
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (interpret-args $Atom $Args $Arg_types $Space) 
     (match $Args () 
@@ -281,8 +277,7 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
                           (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space))))))) 
               (Error $Atom BadType))) 
           (Error 
-            (interpret-atom $Atom $Args $Arg_types $Space) 
-            ($STRING  "Non-empty expression atom is expected"))))))
+            (interpret-atom $Atom $Args $Arg_types $Space) "Non-empty expression atom is expected")))))
 </span>; check that head was changed otherwise Error or Empty in the head
 ; can be just an argument which is passed by intention
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
@@ -306,8 +301,7 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
                 (interpret-tuple $Tail $Space)) $Rtail 
               (cons $Rhead $Rtail))) 
           (Error 
-            (interpret-tuple $Atom $Space) 
-            ($STRING  "Non-empty expression atom is expected as an argument"))))))
+            (interpret-tuple $Atom $Space) "Non-empty expression atom is expected as an argument")))))
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (call $Atom $Type $Space) 
     (chain 
@@ -318,7 +312,7 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
             (if-error $Result $Result 
               (eval 
                 (interpret $Result $Type $Space))))))))
-</span><span class="ansi32">% 403,724 inferences, 0.535 CPU in 0.535 seconds (100% CPU, 755273 Lips)
+</span><span class="ansi32">% 403,264 inferences, 0.608 CPU in 0.608 seconds (100% CPU, 663531 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta" 29)
  --repl=false
  --args
@@ -327,7 +321,7 @@ Script started on 2023-09-23 00:32:37-07:00 [COMMAND="timeout --foreground --pre
 </span>------------
 <span class="ansi33">Nothing to report
 </span>
-Script done on 2023-09-23 00:32:40-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 01:17:20-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

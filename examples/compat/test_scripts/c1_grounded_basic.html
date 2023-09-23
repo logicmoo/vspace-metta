@@ -48,7 +48,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 01:17:49-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -124,12 +124,11 @@ Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --pre
     (ln 
       (+ 2 2)) 
     ( (ln 4)))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi36">  (loonit_success  
     (=@=  
-      ( (ln 
-          (+ 2 2))) 
+      ( (ln 4)) 
       ( (ln 4))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> % 'True'
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -163,7 +162,7 @@ Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (False) 
       ( (&gt; 4 
-          (+ $_160396 2)))))
+          (+ $_187512 2)))))
 </span><span class="ansi33"> % 'False'
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -235,16 +234,12 @@ Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --pre
 ; a error expression
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">! (assertEqualToResult 
-    (+ 2 
-      ($STRING  "String")) 
-    ( (Error 
-        ($STRING  "String") BadType)))
+    (+ 2 "String") 
+    ( (Error "String" BadType)))
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
-      ( (+ 2 
-          ($STRING  "String"))) 
-      ( (Error 
-          ($STRING  "String") BadType))))
+      ( (+ 2 "String")) 
+      ( (Error "String" BadType))))
 </span><span class="ansi33"> % 'False'
 
 </span>; Custom symbols as arguments of grounded operations
@@ -344,7 +339,7 @@ Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --pre
     (fact 5) 120)
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
-      (60 20 5 1 
+      (20 120 5 1 
         (fact 5)) 
       (120)))
 </span><span class="ansi33"> % 'False'
@@ -360,32 +355,30 @@ Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --pre
     (gen $N) 
     (if 
       (&gt; $N 0) 
-      (:: 
-        (bin) 
-        (gen 
-          (- $N 1))) nil))
+      ( (bin) gen 
+        (- $N 1)) ()))
 </span>; Note: `::` is just a custom symbol, used here as a constructor,
 ; but any other symbol can be used for this.
 ; Calculates the sum of element-wise products between two lists
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (subsum nil nil) 0)
+    (subsum () ()) 0)
 </span>  (unknown_do_metta  &amp;self load 
     (= 
-      (subsum nil nil) 0))
+      (subsum () ()) 0))
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
     (subsum 
-      (:: $X $Xs) 
-      (:: $B $Bs)) 
+      (Cons  $X $Xs) 
+      (Cons  $B $Bs)) 
     (+ 
       (* $X $B) 
       (subsum $Xs $Bs)))
   (metta_defn  &amp;self 
     (subsum 
-      (:: $_293362 $_293730) 
-      (:: $_294038 $_294288)) 
+      (Cons  $_154714 $_155054) 
+      (Cons  $_155336 $_155558)) 
     (+ 
-      (* $_293362 $_294038) 
-      (subsum $_293730 $_294288)))  ; 10 
+      (* $_154714 $_155336) 
+      (subsum $_155054 $_155558)))  ; 10 
 
 </span>; Non-determinism "reasoning":
 ; Among all 3-bit binary lists, return the one whose `subsum`
@@ -397,32 +390,26 @@ Script started on 2023-09-23 00:33:09-07:00 [COMMAND="timeout --foreground --pre
       (if 
         (== 
           (subsum 
-            (:: 3 
-              (:: 7 
-                (:: 5 nil))) $T) 8) $T 
+            (3 7 5) $T) 8) $T 
         (nop))) 
-    ( (:: 1 
-        (:: 0 
-          (:: 1 nil)))))
+    ( (1 0 1)))
 </span><span class="ansi31">  (loonit_failure  
     (=@=  
       ( (nop)) 
-      ( (:: 1 
-          (:: 0 
-            (:: 1 nil))))))
+      ( (1 0 1))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 757,255 inferences, 0.611 CPU in 0.611 seconds (100% CPU, 1238679 Lips)
+</span><span class="ansi32">% 25,441,737 inferences, 3.191 CPU in 3.191 seconds (100% CPU, 7974204 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 10)
  --repl=false
  --args
  --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 10
-</span><span class="ansi31">Failures: 11
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 10
 </span>
-Script done on 2023-09-23 00:33:12-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 01:17:54-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

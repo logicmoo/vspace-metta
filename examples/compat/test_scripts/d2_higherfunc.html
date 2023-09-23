@@ -82,7 +82,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -118,6 +118,10 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
     (-&gt; Number 
       (-&gt; Number Number)))
 </span>%~ catch_warn( (/*2*/
+%~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
+%~               False_True='False')) --&gt;
+%~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
+%~ catch_warn( (/*2*/
 %~               (/*2*/
 %~                 call(apply(-&gt;,['Number',[-&gt;,'Number','Number']])) *-&gt;
 %~                 False_True='True') ;
@@ -180,16 +184,15 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
     ( (curry-a $F $A) $B) 
     ($F $A $B))
   (metta_defn  &amp;self 
-    ( (curry-a $_298250 $_298496) $_298678) 
-    ($_298250 $_298496 $_298678))  ; 10 
+    ( (curry-a $_345214 $_345460) $_345642) 
+    ($_345214 $_345460 $_345642))  ; 10 
 
 </span>; Tests
 <span class="ansi38-000068000">! (assertEqual 
     (get-type 
       (curry-a + 2)) 
     (-&gt; Number Number))
-</span>%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:820 
-%~ catch_warn( (/*2*/
+</span>%~ catch_warn( (/*2*/
 %~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
@@ -209,8 +212,7 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
 </span>; Badly typed
 <span class="ansi38-000068000">! (assertEqualToResult 
     (get-type 
-      ( (curry-a + 2) 
-        ($STRING  "S"))) ())
+      ( (curry-a + 2) "S")) ())
 </span><span class="ansi36">  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
@@ -525,8 +527,7 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
     (get-type 
       (fmap 
         (curry-a + 2) 
-        (Left 
-          ($STRING  "5")))) ())
+        (Left "5"))) ())
 </span><span class="ansi36">  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
@@ -535,8 +536,7 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
     (get-type 
       (fmap 
         (curry-a + 2) 
-        (UntypedC 
-          ($STRING  "5")))) ())
+        (UntypedC "5"))) ())
 </span><span class="ansi36">  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
@@ -700,43 +700,67 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
       (insert 2 
         (insert 1 ()))) 
     (1 2 3))
-</span> c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+</span> c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
- switch='True'
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch=[&lt;,3,insert]
- c(0,'True')=[3,insert,2,[insert,1,[]]]
- c(1,'False')=[insert,insert,3,[2,[insert,1,[]]]]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch=[&lt;,3,insert]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch='True'
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
+ switch=[&lt;,3,insert]
+ c(0,'True')=[3,insert,2,[1]]
+ c(1,'False')=[insert,insert,3,[2,[1]]]
  switch=[&lt;,3,insert]
 <span class="ansi31">  (loonit_failure  
     (=@=  
       ( (3 insert 2 
-          (insert 1 ())) 
+          (1)) 
         (insert 3 
           (insert 2 
-            (insert 1 ())))) 
+            (1)))) 
       ( (1 2 3))))
 </span><span class="ansi33"> % 'False'
 
@@ -1023,7 +1047,7 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
       ( (1 2 3))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 1,545,736 inferences, 0.942 CPU in 0.942 seconds (100% CPU, 1640496 Lips)
+</span><span class="ansi32">% 2,185,530 inferences, 0.974 CPU in 0.974 seconds (100% CPU, 2244797 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta" 84)
  --repl=false
  --args
@@ -1033,7 +1057,7 @@ Script started on 2023-09-23 00:32:57-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 6
 </span><span class="ansi31">Failures: 21
 </span>
-Script done on 2023-09-23 00:33:00-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 01:17:40-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
