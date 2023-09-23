@@ -19,9 +19,6 @@ base_url="https://htmlpreview.github.io/?https://raw.githubusercontent.com/logic
 # Change to the appropriate directory
 # cd $UNITS_DIR || exit 1
 
-# Print header
-printf "|%-5s|%-5s|%-35s|%-130s|\n" "Pass" "Fail" "File" "GitHub Link"
-printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})"
 cat /dev/null > $FOUND_UNITS.sortme
 
 # Use find to get all HTML files and save them to a temporary file
@@ -67,12 +64,31 @@ mv "$FOUND_UNITS.sorted" "$FOUND_UNITS.sortme"
 
 
 
-# Print total counts
-cat $FOUND_UNITS.sortme
-printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})"
-printf "|%-5s|%-5s|%-35s|%-130s|\n" "$total_successes" "$total_failures" "Totals" "For '${UNITS_DIR}*.metta'"
-echo "Total Successes: $total_successes"
-echo "Total Failures: $total_failures"
+# Print header
+echo "# Fix Bugs in MeTTaLog" > PASS_FAIL.md
+echo "" >> PASS_FAIL.md
+printf "|%-5s|%-5s|%-35s|%-130s|\n" "Pass" "Fail" "File" "GitHub Link" >> PASS_FAIL.md
+printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})" >> PASS_FAIL.md
+cat $FOUND_UNITS.sortme >> PASS_FAIL.md
+#printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})"  >> PASS_FAIL.md
+printf "|%-5s|%-5s|%-35s|%-130s|\n" " $total_successes" " $total_failures" " Totals" " For '${UNITS_DIR}*.metta'"  >> PASS_FAIL.md
+echo "" >> PASS_FAIL.md
+
+
+cat PASS_FAIL.md
+
+awk '/# Fix Bugs in MeTTaLog/{exit} 1' MeTTaLog.md > temp1.txt
+awk 'BEGIN{flag=0} /# Acknowledgments/{flag=1} flag' MeTTaLog.md > temp2.txt
+
+cat temp1.txt PASS_FAIL.md temp2.txt > final_MeTTaLog.md
+
+# Optional: Overwrite the MeTTaLog.md with the final_MeTTaLog.md
+mv final_MeTTaLog.md MeTTaLog.md
+
+# Clean up temporary files
+rm temp1.txt temp2.txt
+
+
 
 #grep -A 3 loonit_f -R . --include="*.html"
 
