@@ -79,12 +79,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:08:47-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
@@ -109,9 +111,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
     (Add 
       (S $X) $Y))
 </span>; `(Add S Z)` will be reduced to `S` without type definitions
-<span class="ansi38-000068000">! (assertEqual 
-    (Add S Z) S)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (Add S Z) S)
+</span>
+subst_vars([assertEqual,['Add','S','Z'],'S'],[assertEqual,['Add','S','Z'],'S'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (S 
         (Add S Z)) 
@@ -148,10 +151,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
   (metta_last  &amp;self Add Nat)
   (metta_last  &amp;self Add Nat)  ; 13 
 ; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (Add S Z) 
-    ( (Error S BadType)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (Add S Z) ((Error S BadType)))
+</span>
+subst_vars([assertEqualToResult,['Add','S','Z'],[['Error','S','BadType']]],[assertEqualToResult,['Add','S','Z'],[['Error','S','BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (S 
         (Add S Z)) 
@@ -159,11 +162,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'False'
 
 </span>; But these other examples works normally
-<span class="ansi38-000068000">! (assertEqual 
-    (Add 
-      (S Z) Z) 
-    (S Z))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (Add (S Z) Z) (S Z))
+</span>
+subst_vars([assertEqual,['Add',['S','Z'],'Z'],['S','Z']],[assertEqual,['Add',['S','Z'],'Z'],['S','Z']])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (S Z) 
         (Add 
@@ -171,11 +173,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
       ( (S Z))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (Add Z 
-      (S Z)) 
-    (S Z))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (Add Z (S Z)) (S Z))
+</span>
+subst_vars([assertEqual,['Add','Z',['S','Z']],['S','Z']],[assertEqual,['Add','Z',['S','Z']],['S','Z']])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (S Z) 
         (Add 
@@ -190,9 +191,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 ; Adding to an untyped symbol (Something) will still work,
 ; because it might be `Nat`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (Add Something Z) Something)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (Add Something Z) Something)
+</span>
+subst_vars([assertEqual,['Add','Something','Z'],'Something'],[assertEqual,['Add','Something','Z'],'Something'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (Something 
         (Add Something Z)) 
@@ -212,10 +214,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
   (metta_atom  &amp;self 
     (: Ten Int))
 </span>; The following will be accepted by the interpreter
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (Add Z Ten) 
-    ( (Add Z Ten)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (Add Z Ten) ((Add Z Ten)))
+</span>
+subst_vars([assertEqualToResult,['Add','Z','Ten'],[['Add','Z','Ten']]],[assertEqualToResult,['Add','Z','Ten'],[['Add','Z','Ten']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Add Z Ten)) 
       ( (Add Z Ten))))
@@ -257,20 +259,20 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
       (List $T)))
   (metta_last  &amp;self Cons T)
 ; This list is well typed and evaluated to itself
-<span class="ansi38-000068000">! (assertEqualToResult 
-    ( (S Z) Z) 
-    ( ( (S Z) Z)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult ((S Z) Z) (((S Z) Z)))
+</span>
+subst_vars([assertEqualToResult,[['S','Z'],'Z'],[[['S','Z'],'Z']]],[assertEqualToResult,[['S','Z'],'Z'],[[['S','Z'],'Z']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( ( (S Z) Z)) 
       ( ( (S Z) Z))))
 </span><span class="ansi33"> % 'True'
 
 </span>; This list is badly typed, because S and Z are not the same type
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (S Z) 
-    ( (Error Z BadType)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (S Z) ((Error Z BadType)))
+</span>
+subst_vars([assertEqualToResult,['S','Z'],[['Error','Z','BadType']]],[assertEqualToResult,['S','Z'],[['Error','Z','BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (S Z)) 
       ( (Error Z BadType))))
@@ -297,10 +299,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi38-255165000">  (metta_atom  &amp;self 
     (eq $X $X))
 </span>; Accepted and reduced
-<span class="ansi38-000068000">! (assertEqual 
-    (eq 
-      (Add Z Z) Z) True)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (eq (Add Z Z) Z) True)
+</span>
+subst_vars([assertEqual,[eq,['Add','Z','Z'],'Z'],'True'],[assertEqual,[eq,['Add','Z','Z'],'Z'],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
@@ -308,12 +310,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 
 </span>; Accepted, not reduced because no definition is known
 ; for `eq` when its arguments are not the same
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (eq Z 
-      (S Z)) 
-    ( (eq Z 
-        (S Z))))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (eq Z (S Z)) ((eq Z (S Z))))
+</span>
+subst_vars([assertEqualToResult,[eq,'Z',['S','Z']],[[eq,'Z',['S','Z']]]],[assertEqualToResult,[eq,'Z',['S','Z']],[[eq,'Z',['S','Z']]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (eq Z 
           (S Z))) 
@@ -322,10 +322,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'True'
 
 </span>; Not accepted, because Z and S are not the same type
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (eq Z S) 
-    ( (Error S BadType)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (eq Z S) ((Error S BadType)))
+</span>
+subst_vars([assertEqualToResult,[eq,'Z','S'],[['Error','S','BadType']]],[assertEqualToResult,[eq,'Z','S'],[['Error','S','BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (eq Z S)) 
       ( (Error S BadType))))
@@ -372,36 +372,38 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 ; Accepted
 <span class="ansi38-255165000">  (metta_atom  &amp;self 
     (of-same-type $X $Y))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (of-same-type Color Shape) True)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (of-same-type Color Shape) True)
+</span>
+subst_vars([assertEqual,['of-same-type','Color','Shape'],'True'],[assertEqual,['of-same-type','Color','Shape'],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (of-same-type Green Red) True)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (of-same-type Green Red) True)
+</span>
+subst_vars([assertEqual,['of-same-type','Green','Red'],'True'],[assertEqual,['of-same-type','Green','Red'],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
 </span>; Not accepted
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (of-same-type Green Color) 
-    ( (Error Color BadType)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Color) ((Error Color BadType)))
+</span>
+subst_vars([assertEqualToResult,['of-same-type','Green','Color'],[['Error','Color','BadType']]],[assertEqualToResult,['of-same-type','Green','Color'],[['Error','Color','BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (True) 
       ( (Error Color BadType))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (of-same-type Green Circle) 
-    ( (Error Circle BadType)))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Circle) ((Error Circle BadType)))
+</span>
+subst_vars([assertEqualToResult,['of-same-type','Green','Circle'],[['Error','Circle','BadType']]],[assertEqualToResult,['of-same-type','Green','Circle'],[['Error','Circle','BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (True) 
       ( (Error Circle BadType))))
@@ -425,18 +427,19 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
     (Green Sam))
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
     (Green Sam))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (Green $Who) True)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (Green $Who) True)
+</span>
+subst_vars([assertEqual,['Green',Who],'True'],[assertEqual,['Green',_316416],'True'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (Sam)) 
       (True)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (match &amp;self 
-      (Green $Who) $Who) Sam)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) $Who) Sam)
+</span>
+subst_vars([assertEqual,[match,'&amp;self',['Green',Who],Who],'Sam'],[assertEqual,[match,'&amp;self',['Green',_367296],_367296],'Sam'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (Sam) 
       (Sam)))
@@ -448,11 +451,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 ; evaluated further. In the following, `match` first
 ; returns `(Green Sam)`, which is then evaluated to `T`.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (match &amp;self 
-      (Green $Who) 
-      (Green $Who)) True)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) (Green $Who)) True)
+</span>
+subst_vars([assertEqual,[match,'&amp;self',['Green',Who],['Green',Who]],'True'],[assertEqual,[match,'&amp;self',['Green',_412854],['Green',_412854]],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
@@ -463,28 +465,26 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 ; If one wants to evaluate an expression before passing it
 ; to `match`, `let` can be used:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (let $R 
-      (Add 
-        (S Z) Z) 
-      (match &amp;self 
-        (= 
-          (eq $R 
-            (S Z)) $Tv) $Tv)) True)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual 
+  (let $R 
+    (Add 
+      (S Z) Z) 
+    (match &amp;self 
+      (= 
+        (eq $R 
+          (S Z)) $Tv) $Tv)) True)
+</span>
+subst_vars([assertEqual,[let,R,['Add',['S','Z'],'Z'],[match,'&amp;self',[=,[eq,R,['S','Z']],Tv],Tv]],'True'],[assertEqual,[let,_456828,['Add',['S','Z'],'Z'],[match,'&amp;self',[=,[eq,_456828,['S','Z']],_457066],_457066]],'True'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (True)))
 </span><span class="ansi33"> % 'False'
 
 </span>; but it will not work inside `match`:
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (= 
-        (eq 
-          (Add 
-            (S Z) Z) 
-          (S Z)) $Tv) $Tv) ())
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv) ())
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[=,[eq,['Add',['S','Z'],'Z'],['S','Z']],Tv],Tv],[]],[assertEqualToResult,[match,'&amp;self',[=,[eq,['Add',['S','Z'],'Z'],['S','Z']],_518160],_518160],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -501,14 +501,16 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 ; This example binds the result of (Add (S Z) (S Z)) to
 ; the whole pattern (S (S $r)), and extracts the inner variable $r
 ; This is cleaner than binding and re-matching.
-<span class="ansi38-000068000">! (assertEqual 
-    (let 
-      (S 
-        (S $R)) 
-      (Add 
-        (S Z) 
-        (S Z)) $R) Z)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual 
+  (let 
+    (S 
+      (S $R)) 
+    (Add 
+      (S Z) 
+      (S Z)) $R) Z)
+</span>
+subst_vars([assertEqual,[let,['S',['S',R]],['Add',['S','Z'],['S','Z']],R],'Z'],[assertEqual,[let,['S',['S',_29656]],['Add',['S','Z'],['S','Z']],_29656],'Z'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Z)))
 </span><span class="ansi33"> % 'False'
@@ -518,22 +520,24 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 ; One can use `let*` for convenience, when multiple consequent
 ; substitutions are needed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (let* 
-      ( ($R1 
-          (Add Z Z)) 
-        ($R2 
-          (Add $R1 
-            (S Z))) 
-        ($R3 
-          (Add $R2 
-            (S Z)))) 
-      (match &amp;self 
-        (= 
-          (eq 
-            (S 
-              (S Z)) $R3) $Tv) $Tv)) True)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual 
+  (let* 
+    ( ($R1 
+        (Add Z Z)) 
+      ($R2 
+        (Add $R1 
+          (S Z))) 
+      ($R3 
+        (Add $R2 
+          (S Z)))) 
+    (match &amp;self 
+      (= 
+        (eq 
+          (S 
+            (S Z)) $R3) $Tv) $Tv)) True)
+</span>
+subst_vars([assertEqual,['let*',[[R1,['Add','Z','Z']],[R2,['Add',R1,['S','Z']]],[R3,['Add',R2,['S','Z']]]],[match,'&amp;self',[=,[eq,['S',['S','Z']],R3],Tv],Tv]],'True'],[assertEqual,['let*',[[_242216,['Add','Z','Z']],[_242672,['Add',_242216,['S','Z']]],[_243070,['Add',_242672,['S','Z']]]],[match,'&amp;self',[=,[eq,['S',['S','Z']],_243070],_243414],_243414]],'True'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (True)))
 </span><span class="ansi33"> % 'False'
@@ -552,11 +556,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
   (metta_atom  &amp;self 
     (eqa $X $X))
 </span>; These expressions are identical:
-<span class="ansi38-000068000">! (assertEqual 
-    (eqa 
-      (Add Z Z) 
-      (Add Z Z)) True)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (eqa (Add Z Z) (Add Z Z)) True)
+</span>
+subst_vars([assertEqual,[eqa,['Add','Z','Z'],['Add','Z','Z']],'True'],[assertEqual,[eqa,['Add','Z','Z'],['Add','Z','Z']],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
@@ -565,12 +568,10 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 </span>; while this will not be reduced because the expressions
 ; are not the same (even if their evaluation would be)
 ; (`eqa` is not total)
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (eqa Z 
-      (Add Z Z)) 
-    ( (eqa Z 
-        (Add Z Z))))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (eqa Z (Add Z Z)) ((eqa Z (Add Z Z))))
+</span>
+subst_vars([assertEqualToResult,[eqa,'Z',['Add','Z','Z']],[[eqa,'Z',['Add','Z','Z']]]],[assertEqualToResult,[eqa,'Z',['Add','Z','Z']],[[eqa,'Z',['Add','Z','Z']]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (True) 
       ( (eqa Z 
@@ -578,37 +579,39 @@ Script started on 2023-09-23 01:17:14-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'False'
 
 </span>; In contrast to this:
-<span class="ansi38-000068000">! (assertEqual 
-    (eq Z 
-      (Add Z Z)) True)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (eq Z (Add Z Z)) True)
+</span>
+subst_vars([assertEqual,[eq,'Z',['Add','Z','Z']],'True'],[assertEqual,[eq,'Z',['Add','Z','Z']],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
 </span>; Or this:
-<span class="ansi38-000068000">! (assertEqual 
-    (let $Z 
-      (Add Z Z) 
-      (eqa Z $Z)) True)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual 
+  (let $Z 
+    (Add Z Z) 
+    (eqa Z $Z)) True)
+</span>
+subst_vars([assertEqual,[let,Z,['Add','Z','Z'],[eqa,'Z',Z]],'True'],[assertEqual,[let,_448952,['Add','Z','Z'],[eqa,'Z',_448952]],'True'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 1,238,040 inferences, 0.804 CPU in 0.804 seconds (100% CPU, 1540292 Lips)
+</span><span class="ansi32">% 1,248,484 inferences, 0.872 CPU in 0.872 seconds (100% CPU, 1431857 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta" 69)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 12
 </span><span class="ansi31">Failures: 14
 </span>
-Script done on 2023-09-23 01:17:17-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:08:50-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

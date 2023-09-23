@@ -37,12 +37,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:08:28-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
@@ -65,12 +67,10 @@ Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --pre
 </span>; `assertEqualToResult` checks all the results of the first
 ; expression; it doesn''t evaluate the second expression,
 ; which is treated as a set of expected results.
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      ( ($X leaf2) leaf3) $X) 
-    (leaf1 
-      (leaf0 leaf1)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[[X,leaf2],leaf3],X],[leaf1,[leaf0,leaf1]]],[assertEqualToResult,[match,'&amp;self',[[_256690,leaf2],leaf3],_256690],[leaf1,[leaf0,leaf1]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (leaf1 
         (leaf0 leaf1)) 
@@ -89,14 +89,10 @@ Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
     (Sophia is a robot))
 </span>; `match` can bind more that one variable
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      ($Who is a $What) 
-      ($Who the $What)) 
-    ( (Sam the frog) 
-      (Tom the cat) 
-      (Sophia the robot)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[Who,is,a,What],[Who,the,What]],[['Sam',the,frog],['Tom',the,cat],['Sophia',the,robot]]],[assertEqualToResult,[match,'&amp;self',[_328412,is,a,_328656],[_328412,the,_328656]],[['Sam',the,frog],['Tom',the,cat],['Sophia',the,robot]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Sam the frog) 
         (Tom the cat) 
@@ -120,26 +116,19 @@ Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
     (:= 
       (Green Tom) False))
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (Green $Who) True) 
-      ($Who is really green)) 
-    ( (Sam is really green)))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Green $Who) True) ($Who is really green)) ((Sam is really green)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['Green',Who],'True'],[Who,is,really,green]],[['Sam',is,really,green]]],[assertEqualToResult,[match,'&amp;self',[:=,['Green',_384248],'True'],[_384248,is,really,green]],[['Sam',is,really,green]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Sam is really green)) 
       ( (Sam is really green))))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        ($Color $Who) True) 
-      ($Who is really $Color)) 
-    ( (Sam is really Green) 
-      (Tom is really White)))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,[Color,Who],'True'],[Who,is,really,Color]],[['Sam',is,really,'Green'],['Tom',is,really,'White']]],[assertEqualToResult,[match,'&amp;self',[:=,[_413172,_413416],'True'],[_413416,is,really,_413172]],[['Sam',is,really,'Green'],['Tom',is,really,'White']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Sam is really Green) 
         (Tom is really White)) 
@@ -147,15 +136,10 @@ Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --pre
         (Tom is really White))))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        ($Color $Who) $Tv) 
-      (It is $Tv that $Who is $Color)) 
-    ( (It is True that Sam is Green) 
-      (It is True that Tom is White) 
-      (It is False that Tom is Green)))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= ($Color $Who) $Tv) (It is $Tv that $Who is $Color)) ((It is True that Sam is Green) (It is True that Tom is White) (It is False that Tom is Green)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,[Color,Who],Tv],['It',is,Tv,that,Who,is,Color]],[['It',is,'True',that,'Sam',is,'Green'],['It',is,'True',that,'Tom',is,'White'],['It',is,'False',that,'Tom',is,'Green']]],[assertEqualToResult,[match,'&amp;self',[:=,[_450766,_451172],_451516],['It',is,_451516,that,_451172,is,_450766]],[['It',is,'True',that,'Sam',is,'Green'],['It',is,'True',that,'Tom',is,'White'],['It',is,'False',that,'Tom',is,'Green']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (It is True that Sam is Green) 
         (It is True that Tom is White) 
@@ -166,12 +150,10 @@ Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'True'
 
 </span>; This type of query works as a sort of evaluation/reduction
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (Green Tom) $Tv) $Tv) 
-    (False))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Green Tom) $Tv) $Tv) (False))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['Green','Tom'],Tv],Tv],['False']],[assertEqualToResult,[match,'&amp;self',[:=,['Green','Tom'],_475114],_475114],['False']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (False) 
       (False)))
@@ -196,27 +178,26 @@ Script started on 2023-09-23 01:16:55-07:00 [COMMAND="timeout --foreground --pre
   (metta_atom  &amp;self 
     (isa blue color))  ; 12 
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (isa $Color color) $Color) 
-    (red green blue))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (isa $Color color) $Color) (red green blue))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[isa,Color,color],Color],[red,green,blue]],[assertEqualToResult,[match,'&amp;self',[isa,_497608,color],_497608],[red,green,blue]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (red green blue) 
       (red green blue)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 161,530 inferences, 0.087 CPU in 0.087 seconds (100% CPU, 1852910 Lips)
+</span><span class="ansi32">% 164,568 inferences, 0.087 CPU in 0.087 seconds (100% CPU, 1887382 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta" 12)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 01:16:57-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:08:30-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

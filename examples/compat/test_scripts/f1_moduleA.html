@@ -27,12 +27,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:17:47-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:21-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
@@ -40,8 +42,10 @@ Script started on 2023-09-23 01:17:47-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleC.metta)
-</span>  (track_load_into_file  f1_moduleC.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleC.metta'],['import!','&amp;self','f1_moduleC.metta'])
+  (track_load_into_file  f1_moduleC.metta)
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
@@ -72,17 +76,18 @@ Script started on 2023-09-23 01:17:47-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_191848) 
-    (+ $_191848 
+    (g $_203628) 
+    (+ $_203628 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 22,181 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 6012252 Lips)
+</span><span class="ansi32">% 22,549 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 4268461 Lips)
 </span>  (=  f1_moduleC.metta 10)
 <span class="ansi33"> % '&amp;self'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (+ 1 2) 3)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
+</span>
+subst_vars([assertEqual,[+,1,2],3],[assertEqual,[+,1,2],3])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (3) 
       (3)))
@@ -108,17 +113,17 @@ Script started on 2023-09-23 01:17:47-07:00 [COMMAND="timeout --foreground --pre
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi32">% 62,257 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5226323 Lips)
+</span><span class="ansi32">% 63,530 inferences, 0.017 CPU in 0.017 seconds (100% CPU, 3649094 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta" 6)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 01:17:49-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:23-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

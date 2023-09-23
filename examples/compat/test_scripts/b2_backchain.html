@@ -36,12 +36,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:40-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
@@ -57,28 +59,30 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
     (frog $X) 
     (Frog $X))
 </span>; `(Frog Sam)` is not reduced; it is just a declaration
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (Frog Sam) 
-    ( (Frog Sam)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
+</span>
+subst_vars([assertEqualToResult,['Frog','Sam'],[['Frog','Sam']]],[assertEqualToResult,['Frog','Sam'],[['Frog','Sam']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (True) 
       ( (Frog Sam))))
 </span><span class="ansi33"> % 'False'
 
 </span>; `frog` uses this declaration
-<span class="ansi38-000068000">! (assertEqual 
-    (frog Sam) True)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (frog Sam) True)
+</span>
+subst_vars([assertEqual,[frog,'Sam'],'True'],[assertEqual,[frog,'Sam'],'True'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (True 
         (frog Sam)) 
       (True)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (frog Fritz) ())
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
+</span>
+subst_vars([assertEqualToResult,[frog,'Fritz'],[]],[assertEqualToResult,[frog,'Fritz'],[]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (Frog Fritz) 
         (frog Fritz)) ()))
@@ -145,11 +149,10 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
 </span>; True &amp; True = True
   (unknown_do_metta  &amp;self load True)
 ; Test deduction that Plato is mortal
-<span class="ansi38-000068000">! (assertEqual 
-    (deduce 
-      (Evaluation 
-        (mortal Plato))) True)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (deduce (Evaluation (mortal Plato))) True)
+</span>
+subst_vars([assertEqual,[deduce,['Evaluation',[mortal,'Plato']]],'True'],[assertEqual,[deduce,['Evaluation',[mortal,'Plato']]],'True'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (Evaluation 
           (mortal Plato)) 
@@ -181,7 +184,7 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
     (ift True $Then) $Then)
   (metta_defn  &amp;self 
-    (ift True $_76056) $_76056)  ; 10 
+    (ift True $_91294) $_91294)  ; 10 
 
 </span>  (unknown_do_metta  &amp;self load 
     (= 
@@ -195,7 +198,7 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
     (ift 
       (deduce 
         (Evaluation 
-          (mortal $_90650))) $_90650))  ; 11 
+          (mortal $_105888))) $_105888))  ; 11 
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -214,11 +217,11 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
   (metta_defn  &amp;self 
     (explain 
       (Evaluation 
-        ($_104284 $_104552))) 
+        ($_119522 $_119790))) 
     (match &amp;self 
       (Evaluation 
-        ($_104284 $_104552)) 
-      ($_104284 $_104552)))  ; 12 
+        ($_119522 $_119790)) 
+      ($_119522 $_119790)))  ; 12 
 
 </span>; Definition of explain when the desired Evaluation is
 ; the result of an implication
@@ -235,13 +238,13 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
   (metta_defn  &amp;self 
     (explain 
       (Evaluation 
-        ($_119874 $_120256))) 
+        ($_135112 $_135494))) 
     (match &amp;self 
-      (Implication $_120546 
+      (Implication $_135784 
         (Evaluation 
-          ($_119874 $_120256))) 
-      ( ($_119874 $_120256) proven by 
-        (explain $_120546))))  ; 13 
+          ($_135112 $_135494))) 
+      ( ($_135112 $_135494) proven by 
+        (explain $_135784))))  ; 13 
 
 </span>; Definition of explain for And
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
@@ -251,16 +254,10 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
       (explain $A) 
       (explain $B)))
 </span>; Example of explain why Plato is mortal
-<span class="ansi38-000068000">! (assertEqual 
-    (explain 
-      (Evaluation 
-        (mortal Plato))) 
-    ( (mortal Plato) proven by 
-      ( (human Plato) proven by 
-        (And 
-          (philosopher Plato) 
-          (likes-to-wrestle Plato)))))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
+</span>
+subst_vars([assertEqual,[explain,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]]],[assertEqual,[explain,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( ( (mortal Plato) proven by 
           (explain 
@@ -276,17 +273,17 @@ Script started on 2023-09-23 01:18:06-07:00 [COMMAND="timeout --foreground --pre
               (likes-to-wrestle Plato)))))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 1,987,410 inferences, 0.310 CPU in 0.310 seconds (100% CPU, 6418705 Lips)
+</span><span class="ansi32">% 1,989,772 inferences, 0.310 CPU in 0.310 seconds (100% CPU, 6423391 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 14)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 5
 </span>
-Script done on 2023-09-23 01:18:08-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:42-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

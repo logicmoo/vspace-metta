@@ -47,12 +47,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:18-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
@@ -61,43 +63,44 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
 ;; Basic types of grounded symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `get-type` returns the type of its argument
-<span class="ansi38-000068000">! (assertEqual 
-    (get-type 5) Number)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (get-type 5) Number)
+</span>
+subst_vars([assertEqual,['get-type',5],'Number'],[assertEqual,['get-type',5],'Number'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Number)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      (+ 5 7)) Number)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
+</span>
+subst_vars([assertEqual,['get-type',[+,5,7]],'Number'],[assertEqual,['get-type',[+,5,7]],'Number'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Number)))
 </span><span class="ansi33"> % 'False'
 
 </span>; It works for built-in symbols too
-<span class="ansi38-000068000">! (assertEqual 
-    (get-type +) 
-    (-&gt; Number Number Number))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (get-type +) (-&gt; Number Number Number))
+</span>
+subst_vars([assertEqual,['get-type',+],[-&gt;,'Number','Number','Number']],[assertEqual,['get-type',+],[-&gt;,'Number','Number','Number']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       ( (-&gt; Number Number Number))))
 </span><span class="ansi33"> % 'False'
 
 </span>; If its argument is a badly typed expression,
 ; `get-type` returns the empty set
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (+ 5 "4")) ())
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (get-type (+ 5 "4")) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[+,5,"4"]],[]],[assertEqualToResult,['get-type',[+,5,"4"]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (+ -)) ())
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[+,-]],[]],[assertEqualToResult,['get-type',[+,-]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -106,9 +109,10 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
 </span>  (metta_arity  &amp;self Either 0)<span class="ansi38-255165000">
   (metta_atom  &amp;self 
     (: Either Type))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (get-type Either) Type)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (get-type Either) Type)
+</span>
+subst_vars([assertEqual,['get-type','Either'],'Type'],[assertEqual,['get-type','Either'],'Type'])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (Type) 
       (Type)))
@@ -133,10 +137,10 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
     (%Undefined% Either))  ; 10 
   (metta_last  &amp;self Right Either)
   (metta_last  &amp;self Right Either)  ; 11 
-<span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      (Left 5)) Either)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (get-type (Left 5)) Either)
+</span>
+subst_vars([assertEqual,['get-type',['Left',5]],'Either'],[assertEqual,['get-type',['Left',5]],'Either'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Either)))
 </span><span class="ansi33"> % 'False'
@@ -158,20 +162,19 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
     (= 
       (isLeft 
         (Right $X)) False))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      (isLeft 
-        (Right 5))) Bool)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (get-type (isLeft (Right 5))) Bool)
+</span>
+subst_vars([assertEqual,['get-type',[isLeft,['Right',5]]],'Bool'],[assertEqual,['get-type',[isLeft,['Right',5]]],'Bool'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Bool)))
 </span><span class="ansi33"> % 'False'
 
 </span>; Badly typed expression
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (isLeft 5)) ())
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (get-type (isLeft 5)) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[isLeft,5]],[]],[assertEqualToResult,['get-type',[isLeft,5]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -200,12 +203,11 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
   (metta_params  &amp;self RightP 
     ($T 
       (EitherP $T)))
-  (metta_last  &amp;self RightP T)<span class="ansi38-000068000">
-! (assertEqual 
-    (get-type 
-      (LeftP 5)) 
-    (EitherP Number))
-</span><span class="ansi31">  (loonit_failure  
+  (metta_last  &amp;self RightP T)
+<span class="ansi38-000068000">!(assertEqual (get-type (LeftP 5)) (EitherP Number))
+</span>
+subst_vars([assertEqual,['get-type',['LeftP',5]],['EitherP','Number']],[assertEqual,['get-type',['LeftP',5]],['EitherP','Number']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       ( (EitherP Number))))
 </span><span class="ansi33"> % 'False'
@@ -223,14 +225,11 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
   (metta_params  &amp;self pair 
     ($A $B 
       (Pair $A $B)))
-  (metta_last  &amp;self pair B)<span class="ansi38-000068000">
-! (assertEqual 
-    (get-type 
-      (pair 
-        (LeftP 5) "String")) 
-    (Pair 
-      (EitherP Number) String))
-</span><span class="ansi31">  (loonit_failure  
+  (metta_last  &amp;self pair B)
+<span class="ansi38-000068000">!(assertEqual (get-type (pair (LeftP 5) "String")) (Pair (EitherP Number) String))
+</span>
+subst_vars([assertEqual,['get-type',[pair,['LeftP',5],"String"]],['Pair',['EitherP','Number'],'String']],[assertEqual,['get-type',[pair,['LeftP',5],"String"]],['Pair',['EitherP','Number'],'String']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       ( (Pair 
           (EitherP Number) String))))
@@ -261,20 +260,19 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
     ($A 
       (List $A) 
       (List $A)))
-  (metta_last  &amp;self Cons A)<span class="ansi38-000068000">
-! (assertEqual 
-    (get-type 
-      (5 6)) 
-    (List Number))
-</span><span class="ansi31">  (loonit_failure  
+  (metta_last  &amp;self Cons A)
+<span class="ansi38-000068000">!(assertEqual (get-type (5 6)) (List Number))
+</span>
+subst_vars([assertEqual,['get-type',[5,6]],['List','Number']],[assertEqual,['get-type',[5,6]],['List','Number']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       ( (List Number))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (5 "6")) ())
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (get-type (5 "6")) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[5,"6"]],[]],[assertEqualToResult,['get-type',[5,"6"]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -282,27 +280,29 @@ Script started on 2023-09-23 01:17:44-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `let` can be convenient to extract information from `get-type` results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (let 
-      (List $T) 
-      (get-type 
-        (5 6)) $T) Number)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual 
+  (let 
+    (List $T) 
+    (get-type 
+      (5 6)) $T) Number)
+</span>
+subst_vars([assertEqual,[let,['List',T],['get-type',[5,6]],T],'Number'],[assertEqual,[let,['List',_194734],['get-type',[5,6]],_194734],'Number'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Number)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 217,555 inferences, 0.125 CPU in 0.125 seconds (100% CPU, 1737688 Lips)
+</span><span class="ansi32">% 222,952 inferences, 0.126 CPU in 0.126 seconds (100% CPU, 1767848 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta" 49)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 9
 </span>
-Script done on 2023-09-23 01:17:47-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:21-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

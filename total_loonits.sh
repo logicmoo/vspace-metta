@@ -6,7 +6,7 @@ export FOUND_UNITS=/tmp/found_units
 
 #find "${UNITS_DIR}" -name "*.html" -type f -delete
 
-find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=60 {} --html \;
+find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} --html \;
 
 
 # Initialize counters
@@ -48,20 +48,37 @@ done < $FOUND_UNITS
 # Clean up the temporary file
 rm $FOUND_UNITS
 
-sort -t'|' -k2,2nr -k3,3n -k4,4 -o $FOUND_UNITS.sortme  $FOUND_UNITS.sortme
+sort -t'|'  -k3,3n  -k2,2nr -k4,4 -o $FOUND_UNITS.sortme  $FOUND_UNITS.sortme
 
-awk -F'|' '{
-    total = $2 + $3 + 1;
-    zero = ($2 == 0 && $3 == 0) ? 1 : 0;
-    ratio = (1 + $2 * 2) / total;
-    print ratio "\t" $3 "\t" zero "\t" $0
-}' "$FOUND_UNITS.sortme" |
-sort -t$'\t' -k3,3n -k1,1nr -k2,2n |
-cut -f4- > "$FOUND_UNITS.sorted"
+if [[ "never" == "enable" ]]; then
 
-mv "$FOUND_UNITS.sorted" "$FOUND_UNITS.sortme"
+   awk -F'|' '{
+       total = $2 + $3 + 1;
+       zero = ($2 == 0 && $3 == 0) ? 1 : 0;
+       ratio = (1 + $2 * 2) / total;
+       print ratio "\t" $3 "\t" zero "\t" $0
+   }' "$FOUND_UNITS.sortme" |
+   sort -t$'\t' -k3,3n -k1,1nr -k2,2n |
+   cut -f4- > "$FOUND_UNITS.sorted"
 
+   mv "$FOUND_UNITS.sorted" "$FOUND_UNITS.sortme"
 
+fi
+
+# calculate the total number of tests
+total=$((total_successes + total_failures))
+
+# calculate the percentage of failures
+if [ $total -ne 0 ]; then
+    percent_failures=$(( 100*total_failures/total ))
+    percent_successes=$(( 100*total_successes/total ))
+else
+    percent_failures=0
+    percent_successes=0
+fi
+
+echo "Total tests: $total"
+echo "Percentage of failures: $percent_failures%"
 
 
 # Print header
@@ -70,7 +87,7 @@ printf "|%-5s|%-5s|%-35s|%-130s|\n" "Pass" "Fail" "File" "GitHub Link" >> PASS_F
 printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})" >> PASS_FAIL.md
 cat $FOUND_UNITS.sortme >> PASS_FAIL.md
 #printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})"  >> PASS_FAIL.md
-printf "|%-5s|%-5s|%-35s|%-130s|\n" " $total_successes" " $total_failures" " Totals" " For '${UNITS_DIR}*.metta'"  >> PASS_FAIL.md
+printf "|%-5s|%-5s|%-35s|%-130s|\n" " $total_successes" " $total_failures" " Total: $total" " For $percent_successes% '${UNITS_DIR}*.metta'"  >> PASS_FAIL.md
 echo "" >> PASS_FAIL.md
 
 

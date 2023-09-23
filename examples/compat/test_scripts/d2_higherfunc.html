@@ -82,12 +82,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:10-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
@@ -112,12 +114,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
     ( ( (curry $F) $X) $Y) 
     ($F $X $Y))
 </span>; Type checks
-<span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      (curry +)) 
-    (-&gt; Number 
-      (-&gt; Number Number)))
-</span>%~ catch_warn( (/*2*/
+<span class="ansi38-000068000">!(assertEqual (get-type (curry +)) (-&gt; Number (-&gt; Number Number)))
+</span>
+subst_vars([assertEqual,['get-type',[curry,+]],[-&gt;,'Number',[-&gt;,'Number','Number']]],[assertEqual,['get-type',[curry,+]],[-&gt;,'Number',[-&gt;,'Number','Number']]])
+%~ catch_warn( (/*2*/
 %~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
@@ -133,11 +133,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
           (-&gt; Number Number)))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      ( (curry +) 2)) 
-    (-&gt; Number Number))
-</span>%~ catch_warn( (/*2*/
+</span><span class="ansi38-000068000">!(assertEqual (get-type ((curry +) 2)) (-&gt; Number Number))
+</span>
+subst_vars([assertEqual,['get-type',[[curry,+],2]],[-&gt;,'Number','Number']],[assertEqual,['get-type',[[curry,+],2]],[-&gt;,'Number','Number']])
+%~ catch_warn( (/*2*/
 %~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
@@ -147,19 +146,20 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'False'
 
 </span>; Partial application is not reduced, basically
-<span class="ansi38-000068000">! (assertEqualToResult 
-    ( (curry +) 2) 
-    ( ( (curry +) 2)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult ((curry +) 2) (((curry +) 2)))
+</span>
+subst_vars([assertEqualToResult,[[curry,+],2],[[[curry,+],2]]],[assertEqualToResult,[[curry,+],2],[[[curry,+],2]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( ( (curry +) 2)) 
       ( ( (curry +) 2))))
 </span><span class="ansi33"> % 'True'
 
 </span>; Full application will be reduced
-<span class="ansi38-000068000">! (assertEqual 
-    ( ( (curry +) 2) 3) 5)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (((curry +) 2) 3) 5)
+</span>
+subst_vars([assertEqual,[[[curry,+],2],3],5],[assertEqual,[[[curry,+],2],3],5])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (5 
         ( ( (curry +) 2) 3)) 
@@ -184,15 +184,14 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
     ( (curry-a $F $A) $B) 
     ($F $A $B))
   (metta_defn  &amp;self 
-    ( (curry-a $_345214 $_345460) $_345642) 
-    ($_345214 $_345460 $_345642))  ; 10 
+    ( (curry-a $_346418 $_346664) $_346846) 
+    ($_346418 $_346664 $_346846))  ; 10 
 
 </span>; Tests
-<span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      (curry-a + 2)) 
-    (-&gt; Number Number))
-</span>%~ catch_warn( (/*2*/
+<span class="ansi38-000068000">!(assertEqual (get-type (curry-a + 2)) (-&gt; Number Number))
+</span>
+subst_vars([assertEqual,['get-type',['curry-a',+,2]],[-&gt;,'Number','Number']],[assertEqual,['get-type',['curry-a',+,2]],[-&gt;,'Number','Number']])
+%~ catch_warn( (/*2*/
 %~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
@@ -201,26 +200,27 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       ( (-&gt; Number Number))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      ( (curry-a + 2) 3)) Number)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
+</span>
+subst_vars([assertEqual,['get-type',[['curry-a',+,2],3]],'Number'],[assertEqual,['get-type',[['curry-a',+,2],3]],'Number'])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Number)))
 </span><span class="ansi33"> % 'False'
 
 </span>; Badly typed
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      ( (curry-a + 2) "S")) ())
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (get-type ((curry-a + 2) "S")) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[['curry-a',+,2],"S"]],[]],[assertEqualToResult,['get-type',[['curry-a',+,2],"S"]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
 </span>; Full application works
-<span class="ansi38-000068000">! (assertEqual 
-    ( (curry-a + 2) 3) 5)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual ((curry-a + 2) 3) 5)
+</span>
+subst_vars([assertEqual,[['curry-a',+,2],3],5],[assertEqual,[['curry-a',+,2],3],5])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (5 
         ( (curry-a + 2) 3)) 
@@ -259,20 +259,20 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
     (is-socrates) 
     (curry-a is Socrates))
 </span>; Tests
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (is-socrates) 
-    ( (curry-a is Socrates)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (is-socrates) ((curry-a is Socrates)))
+</span>
+subst_vars([assertEqualToResult,['is-socrates'],[['curry-a',is,'Socrates']]],[assertEqualToResult,['is-socrates'],[['curry-a',is,'Socrates']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (is-socrates)) 
       ( (curry-a is Socrates))))
 </span><span class="ansi33"> % 'False'
 
 </span>; not reduced
-<span class="ansi38-000068000">! (assertEqual 
-    ( (curry-a is Socrates) Human) 
-    (is Socrates Human))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual ((curry-a is Socrates) Human) (is Socrates Human))
+</span>
+subst_vars([assertEqual,[['curry-a',is,'Socrates'],'Human'],[is,'Socrates','Human']],[assertEqual,[['curry-a',is,'Socrates'],'Human'],[is,'Socrates','Human']])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (True 
         ( (curry-a is Socrates) Human)) 
@@ -280,9 +280,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'False'
 
 </span>; reduced
-<span class="ansi38-000068000">! (assertEqual 
-    ( (is-socrates) Human) True)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual ((is-socrates) Human) True)
+</span>
+subst_vars([assertEqual,[['is-socrates'],'Human'],'True'],[assertEqual,[['is-socrates'],'Human'],'True'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( ( (is-socrates) Human)) 
       (True)))
@@ -307,21 +308,19 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
     ( (lambda $Var $Body) $Arg) 
     (let $Var $Arg $Body))
 </span>; Tests
-<span class="ansi38-000068000">! (assertEqual 
-    ( (lambda $X 
-        (+ $X 1)) 2) 3)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual ((lambda $X (+ $X 1)) 2) 3)
+</span>
+subst_vars([assertEqual,[[lambda,X,[+,X,1]],2],3],[assertEqual,[[lambda,_219378,[+,_219378,1]],2],3])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (3) 
       (3)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    ( (lambda 
-        ($X $Y) 
-        (+ $X $Y)) 
-      (2 7)) 9)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
+</span>
+subst_vars([assertEqual,[[lambda,[X,Y],[+,X,Y]],[2,7]],9],[assertEqual,[[lambda,[_293606,_293780],[+,_293606,_293780]],[2,7]],9])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (9)))
 </span><span class="ansi33"> % 'False'
@@ -334,9 +333,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (inc) 
     (part-appl + 1))
-</span><span class="ansi38-000068000">! (assertEqual 
-    ( (inc) 5) 6)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual ((inc) 5) 6)
+</span>
+subst_vars([assertEqual,[[inc],5],6],[assertEqual,[[inc],5],6])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( ( (inc) 5)) 
       (6)))
@@ -437,12 +437,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 ; TODO? This could be avoided if we could indicate that $C0
 ;       is a `Symbol` (not `Expression` or `Atom` in general)
 ; Tests
-<span class="ansi38-000068000">! (assertEqual 
-    (fmap 
-      (curry-a + 2) 
-      (Something 5)) 
-    (Something 7))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Something 5)) (Something 7))
+</span>
+subst_vars([assertEqual,[fmap,['curry-a',+,2],['Something',5]],['Something',7]],[assertEqual,[fmap,['curry-a',+,2],['Something',5]],['Something',7]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (Something 
           ( (curry-a + 2) 5)) 
@@ -452,12 +450,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       ( (Something 7))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (fmap 
-      (curry-a + 2) 
-      (Nothing)) 
-    (Nothing))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Nothing)) (Nothing))
+</span>
+subst_vars([assertEqual,[fmap,['curry-a',+,2],['Nothing']],['Nothing']],[assertEqual,[fmap,['curry-a',+,2],['Nothing']],['Nothing']])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (Nothing) 
         (fmap 
@@ -467,25 +463,20 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'False'
 
 </span>; Type inference works
-<span class="ansi38-000068000">! (assertEqual 
-    (get-type 
-      (fmap 
-        (curry-a + 1) 
-        (Left 5))) 
-    (Either Number))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (get-type (fmap (curry-a + 1) (Left 5))) (Either Number))
+</span>
+subst_vars([assertEqual,['get-type',[fmap,['curry-a',+,1],['Left',5]]],['Either','Number']],[assertEqual,['get-type',[fmap,['curry-a',+,1],['Left',5]]],['Either','Number']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       ( (Either Number))))
 </span><span class="ansi33"> % 'False'
 
 </span>; It works for untyped constructors as well, if they
 ; follow the patterns in `fmap` equalities
-<span class="ansi38-000068000">! (assertEqual 
-    (fmap 
-      (curry-a + 2) 
-      (UntypedC 5)) 
-    (UntypedC 7))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5)) (UntypedC 7))
+</span>
+subst_vars([assertEqual,[fmap,['curry-a',+,2],['UntypedC',5]],['UntypedC',7]],[assertEqual,[fmap,['curry-a',+,2],['UntypedC',5]],['UntypedC',7]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (UntypedC 
           ( (curry-a + 2) 5)) 
@@ -495,16 +486,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       ( (UntypedC 7))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (fmap 
-      (curry-a + 2) 
-      (UntypedC 5 
-        (UntypedC 8 
-          (Null)))) 
-    (UntypedC 7 
-      (UntypedC 10 
-        (Null))))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null)))) (UntypedC 7 (UntypedC 10 (Null))))
+</span>
+subst_vars([assertEqual,[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],['UntypedC',7,['UntypedC',10,['Null']]]],[assertEqual,[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],['UntypedC',7,['UntypedC',10,['Null']]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (UntypedC 
           ( (curry-a + 2) 5) 
@@ -523,31 +508,24 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'False'
 
 </span>; Type mismatches are detected:
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (fmap 
-        (curry-a + 2) 
-        (Left "5"))) ())
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (Left "5"))) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['Left',"5"]]],[]],[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['Left',"5"]]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (fmap 
-        (curry-a + 2) 
-        (UntypedC "5"))) ())
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5"))) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC',"5"]]],[]],[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC',"5"]]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (get-type 
-      (fmap 
-        (curry-a + 2) 
-        (UntypedC 
-          (Null) 5))) ())
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
+</span>
+subst_vars([assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],[]],[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -579,12 +557,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       (Right $X)) 
     (Right 
       ($F $X)))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (fmap-i 
-      (curry-a - 7) 
-      (Right 3)) 
-    (Right 4))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (fmap-i (curry-a - 7) (Right 3)) (Right 4))
+</span>
+subst_vars([assertEqual,['fmap-i',['curry-a',-,7],['Right',3]],['Right',4]],[assertEqual,['fmap-i',['curry-a',-,7],['Right',3]],['Right',4]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (Right 
           ( (curry-a - 7) 3)) 
@@ -624,12 +600,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
     (fmap-i $F 
       (Cons  $X $Xs)) 
     ( ($F $X) fmap-i $F $Xs))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (fmap-i 
-      (curry-a * 2) 
-      (3 4)) 
-    (6 8))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (fmap-i (curry-a * 2) (3 4)) (6 8))
+</span>
+subst_vars([assertEqual,['fmap-i',['curry-a',*,2],[3,4]],[6,8]],[assertEqual,['fmap-i',['curry-a',*,2],[3,4]],[6,8]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( ( ( (curry-a * 2) 3) fmap-i 
           (curry-a * 2) 
@@ -643,14 +617,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
 </span>; Thus, there is no problem in having different implementations
 ; of the same function for different types. But it will not
 ; work "for free" (it requires explicit implementation for each type)
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (fmap-i 
-      (curry-a + 2) 
-      (Untyped 5)) 
-    ( (fmap-i 
-        (curry-a + 2) 
-        (Untyped 5))))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (fmap-i (curry-a + 2) (Untyped 5)) ((fmap-i (curry-a + 2) (Untyped 5))))
+</span>
+subst_vars([assertEqualToResult,['fmap-i',['curry-a',+,2],['Untyped',5]],[['fmap-i',['curry-a',+,2],['Untyped',5]]]],[assertEqualToResult,['fmap-i',['curry-a',+,2],['Untyped',5]],[['fmap-i',['curry-a',+,2],['Untyped',5]]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( ( ( (curry-a + 2) Untyped) fmap-i 
           (curry-a + 2) 
@@ -695,12 +665,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       (Cons  $Head $Tail)) 
     (insert $Head 
       (sort $Tail)))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (insert 3 
-      (insert 2 
-        (insert 1 ()))) 
-    (1 2 3))
-</span> c(0,'True')=[3,insert,2,[1]]
+</span><span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 ()))) (1 2 3))
+</span>
+subst_vars([assertEqual,[insert,3,[insert,2,[insert,1,[]]]],[1,2,3]],[assertEqual,[insert,3,[insert,2,[insert,1,[]]]],[1,2,3]])
+ c(0,'True')=[3,insert,2,[1]]
  c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
  c(0,'True')=[3,insert,2,[1]]
@@ -764,11 +732,10 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       ( (1 2 3))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (sort 
-      (3 1 2)) 
-    (1 2 3))
-</span> c(0,'True')=[3,sort,[1,2]]
+</span><span class="ansi38-000068000">!(assertEqual (sort (3 1 2)) (1 2 3))
+</span>
+subst_vars([assertEqual,[sort,[3,1,2]],[1,2,3]],[assertEqual,[sort,[3,1,2]],[1,2,3]])
+ c(0,'True')=[3,sort,[1,2]]
  c(1,'False')=[sort,insert,3,[[1,2]]]
  switch='True'
  c(0,'True')=[3,sort,[1,2]]
@@ -1047,17 +1014,17 @@ Script started on 2023-09-23 01:17:37-07:00 [COMMAND="timeout --foreground --pre
       ( (1 2 3))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 2,185,530 inferences, 0.974 CPU in 0.974 seconds (100% CPU, 2244797 Lips)
+</span><span class="ansi32">% 2,199,215 inferences, 1.117 CPU in 1.118 seconds (100% CPU, 1967996 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta" 84)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 6
 </span><span class="ansi31">Failures: 21
 </span>
-Script done on 2023-09-23 01:17:40-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:13-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

@@ -29,12 +29,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:18:16-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:50-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta")
@@ -61,13 +63,10 @@ Script started on 2023-09-23 01:18:16-07:00 [COMMAND="timeout --foreground --pre
       ($X $Z 
         ($Y $Z))))
 </span>; A single matching step
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (S K K x) $R) $R) 
-    ( (K x 
-        (K x))))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (S K K x) $R) $R) ((K x (K x))))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['S','K','K',x],R],R],[['K',x,['K',x]]]],[assertEqualToResult,[match,'&amp;self',[:=,['S','K','K',x],_247370],_247370],[['K',x,['K',x]]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (K x 
           (K x))) 
@@ -77,27 +76,20 @@ Script started on 2023-09-23 01:18:16-07:00 [COMMAND="timeout --foreground --pre
 
 </span>; A second matching step; the result of the previous
 ; step is manually used as input for the next query
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (K x 
-          (K x)) $R) $R) 
-    (x))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (K x (K x)) $R) $R) (x))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['K',x,['K',x]],R],R],[x]],[assertEqualToResult,[match,'&amp;self',[:=,['K',x,['K',x]],_271986],_271986],[x]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (x) 
       (x)))
 </span><span class="ansi33"> % 'True'
 
 </span>; Combined reduction via matching in two steps
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (S K K x) $R) 
-      (match &amp;self 
-        (:= $R $R2) $R2)) 
-    (x))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (S K K x) $R) (match &amp;self (:= $R $R2) $R2)) (x))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['S','K','K',x],R],[match,'&amp;self',[:=,R,R2],R2]],[x]],[assertEqualToResult,[match,'&amp;self',[:=,['S','K','K',x],_299360],[match,'&amp;self',[:=,_299360,_299586],_299586]],[x]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (x) 
       (x)))
@@ -117,16 +109,10 @@ Script started on 2023-09-23 01:18:16-07:00 [COMMAND="timeout --foreground --pre
       (Add 
         (S $X) $Y)))
 </span>; First step
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (Add 
-          (S Z) 
-          (S Z)) $R) $R) 
-    ( (Add 
-        (S 
-          (S Z)) Z)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Add (S Z) (S Z)) $R) $R) ((Add (S (S Z)) Z)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['Add',['S','Z'],['S','Z']],R],R],[['Add',['S',['S','Z']],'Z']]],[assertEqualToResult,[match,'&amp;self',[:=,['Add',['S','Z'],['S','Z']],_334544],_334544],[['Add',['S',['S','Z']],'Z']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Add 
           (S 
@@ -137,17 +123,10 @@ Script started on 2023-09-23 01:18:16-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> % 'True'
 
 </span>; Two steps together
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (:= 
-        (Add 
-          (S Z) 
-          (S Z)) $R) 
-      (match &amp;self 
-        (:= $R $R2) $R2)) 
-    ( (S 
-        (S Z))))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Add (S Z) (S Z)) $R) (match &amp;self (:= $R $R2) $R2)) ((S (S Z))))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[:=,['Add',['S','Z'],['S','Z']],R],[match,'&amp;self',[:=,R,R2],R2]],[['S',['S','Z']]]],[assertEqualToResult,[match,'&amp;self',[:=,['Add',['S','Z'],['S','Z']],_356580],[match,'&amp;self',[:=,_356580,_356848],_356848]],[['S',['S','Z']]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (S 
           (S Z))) 
@@ -155,17 +134,17 @@ Script started on 2023-09-23 01:18:16-07:00 [COMMAND="timeout --foreground --pre
           (S Z)))))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 108,320 inferences, 0.036 CPU in 0.036 seconds (100% CPU, 3020156 Lips)
+</span><span class="ansi32">% 109,494 inferences, 0.035 CPU in 0.035 seconds (100% CPU, 3122414 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta" 6)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 01:18:18-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:52-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

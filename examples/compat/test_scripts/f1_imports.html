@@ -67,12 +67,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:33-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
@@ -83,20 +85,21 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 ;; returns one atom, which wraps the space of stdlib.
 ;; The type of this atom is the same as of `&amp;self`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    ( (let $X 
-        (get-atoms &amp;self) 
-        (get-type $X))) 
-    ( (get-type &amp;self)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (
+  (let $X 
+    (get-atoms &amp;self) 
+    (get-type $X))) ((get-type &amp;self)))
+</span>
+subst_vars([assertEqual,[[let,X,['get-atoms','&amp;self'],['get-type',X]]],[['get-type','&amp;self']]],[assertEqual,[[let,_224288,['get-atoms','&amp;self'],['get-type',_224288]]],[['get-type','&amp;self']]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
 </span>; stdlib is already loaded
-<span class="ansi38-000068000">! (assertEqual 
-    (if 
-      (&gt; 1 2) 1 2) 2)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (if (&gt; 1 2) 1 2) 2)
+</span>
+subst_vars([assertEqual,[if,[&gt;,1,2],1,2],2],[assertEqual,[if,[&gt;,1,2],1,2],2])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (2) 
       (2)))
@@ -106,15 +109,19 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Importing the module into new space
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;m f1_moduleA.metta)
-</span>  (track_load_into_file  f1_moduleA.metta)
+<span class="ansi38-000068000">!(import! &amp;m f1_moduleA.metta)
+</span>
+subst_vars(['import!','&amp;m','f1_moduleA.metta'],['import!','&amp;m','f1_moduleA.metta'])
+  (track_load_into_file  f1_moduleA.metta)
 ; It''s first atom is a space
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleC.metta)
-</span>  (track_load_into_file  f1_moduleC.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleC.metta'],['import!','&amp;self','f1_moduleC.metta'])
+  (track_load_into_file  f1_moduleC.metta)
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
@@ -145,17 +152,18 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;m 
-    (g $_339280) 
-    (+ $_339280 
+    (g $_351762) 
+    (+ $_351762 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 22,138 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6643260 Lips)
+</span><span class="ansi32">% 22,531 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 6417260 Lips)
 </span>  (=  f1_moduleC.metta 10)
 <span class="ansi33"> % '&amp;m'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (+ 1 2) 3)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
+</span>
+subst_vars([assertEqual,[+,1,2],3],[assertEqual,[+,1,2],3])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (3) 
       (3)))
@@ -181,20 +189,21 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi32">% 62,192 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 5606520 Lips)
+</span><span class="ansi32">% 63,520 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5377628 Lips)
 </span>  (=  f1_moduleA.metta 6)
 <span class="ansi33"> % '&amp;m'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (let* 
-      ( ($X 
-          (collapse 
-            (get-atoms &amp;m))) 
-        ($Y 
-          (car-atom $X))) 
-      (get-type $Y)) 
-    (get-type &amp;self))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual 
+  (let* 
+    ( ($X 
+        (collapse 
+          (get-atoms &amp;m))) 
+      ($Y 
+        (car-atom $X))) 
+    (get-type $Y)) (get-type &amp;self))
+</span>
+subst_vars([assertEqual,['let*',[[X,[collapse,['get-atoms','&amp;m']]],[Y,['car-atom',X]]],['get-type',Y]],['get-type','&amp;self']],[assertEqual,['let*',[[_456376,[collapse,['get-atoms','&amp;m']]],[_456592,['car-atom',_456376]]],['get-type',_456592]],['get-type','&amp;self']])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -210,12 +219,10 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 ; behavior, but it shows that this way of importing spaces is not too useful
 ; for importing modules with functions.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (match &amp;m 
-      (= 
-        (f 2) $X) $X) 
-    (g 3))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (match &amp;m (= (f 2) $X) $X) (g 3))
+</span>
+subst_vars([assertEqual,[match,'&amp;m',[=,[f,2],X],X],[g,3]],[assertEqual,[match,'&amp;m',[=,[f,2],_496380],_496380],[g,3]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (g 3)) 
       ( (g 3))))
@@ -224,15 +231,19 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 </span>; Importing the same space into `&amp;self` should break nothing
 ; TODO? If stdlib space would be in `&amp;m`, which should check that it is not
 ; there anymore since in should be removed after importing it to `&amp;self`
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleA.metta)
-</span>  (track_load_into_file  f1_moduleA.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleA.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleA.metta'],['import!','&amp;self','f1_moduleA.metta'])
+  (track_load_into_file  f1_moduleA.metta)
 ; Now indirectly imported `g` works and `f` fully works
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleC.metta)
-</span>  (track_load_into_file  f1_moduleC.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleC.metta'],['import!','&amp;self','f1_moduleC.metta'])
+  (track_load_into_file  f1_moduleC.metta)
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
@@ -263,17 +274,18 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_24774) 
-    (+ $_24774 
+    (g $_46592) 
+    (+ $_46592 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 21,961 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6497530 Lips)
+</span><span class="ansi32">% 22,354 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 6223447 Lips)
 </span>  (=  f1_moduleC.metta 10)
 <span class="ansi33"> % '&amp;self'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (+ 1 2) 3)
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
+</span>
+subst_vars([assertEqual,[+,1,2],3],[assertEqual,[+,1,2],3])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (3) 
       (3)))
@@ -299,13 +311,14 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi32">% 60,766 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 5453338 Lips)
+</span><span class="ansi32">% 62,097 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5312340 Lips)
 </span>  (=  f1_moduleA.metta 6)
 <span class="ansi33"> % '&amp;self'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (g 2) 102)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
+</span>
+subst_vars([assertEqual,[g,2],102],[assertEqual,[g,2],102])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 2 
           (__g)) 
@@ -313,9 +326,10 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (102)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (f 2) 103)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
+</span>
+subst_vars([assertEqual,[f,2],103],[assertEqual,[f,2],103])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 3 
           (__g)) 
@@ -328,17 +342,19 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 ; - stdlib
 ; - moduleC imported by moduleA and removed from A after its import to &amp;self
 ; - moduleA itself, which is the same as &amp;m
-<span class="ansi38-000068000">! (assertEqual &amp;m 
-    (let* 
-      ( ($A 
-          (collapse 
-            (get-atoms &amp;self))) 
-        ($X 
-          (cdr-atom $A)) 
-        ($Y 
-          (cdr-atom $X))) 
-      (car-atom $Y)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual &amp;m 
+  (let* 
+    ( ($A 
+        (collapse 
+          (get-atoms &amp;self))) 
+      ($X 
+        (cdr-atom $A)) 
+      ($Y 
+        (cdr-atom $X))) 
+    (car-atom $Y)))
+</span>
+subst_vars([assertEqual,'&amp;m',['let*',[[A,[collapse,['get-atoms','&amp;self']]],[X,['cdr-atom',A]],[Y,['cdr-atom',X]]],['car-atom',Y]]],[assertEqual,'&amp;m',['let*',[[_399210,[collapse,['get-atoms','&amp;self']]],[_399506,['cdr-atom',_399210]],[_399744,['cdr-atom',_399506]]],['car-atom',_399744]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (&amp;m) 
       ( (car-atom 
@@ -349,33 +365,33 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 </span>; NOTE: now the first atom, which was a space, is removed from `&amp;m`,
 ; because we load modules only once, and we collect atoms-spaces to
 ; prevent duplication
-<span class="ansi38-000068000">! (assertEqual 
-    (== 
-      (let* 
-        ( ($X 
-            (collapse 
-              (get-atoms &amp;m))) 
-          ($Y 
-            (car-atom $X))) 
-        (get-type $Y)) 
-      (get-type &amp;self)) False)
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqual (== 
+  (let* 
+    ( ($X 
+        (collapse 
+          (get-atoms &amp;m))) 
+      ($Y 
+        (car-atom $X))) 
+    (get-type $Y)) (get-type &amp;self)) False)
+</span>
+subst_vars([assertEqual,[==,['let*',[[X,[collapse,['get-atoms','&amp;m']]],[Y,['car-atom',X]]],['get-type',Y]],['get-type','&amp;self']],'False'],[assertEqual,[==,['let*',[[_437384,[collapse,['get-atoms','&amp;m']]],[_437622,['car-atom',_437384]]],['get-type',_437622]],['get-type','&amp;self']],'False'])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (== 
           (let* 
-            ( ($_419596 ()) 
-              ($_419614 
-                (car-atom $_419596))) 
-            (get-type $_419614)) 
+            ( ($_443616 ()) 
+              ($_443634 
+                (car-atom $_443616))) 
+            (get-type $_443634)) 
           (get-type &amp;self))) 
       (False)))
 </span><span class="ansi33"> % 'False'
 
 </span>; Let''s check that `if` from stdlib is not duplicated and gives only one result
-<span class="ansi38-000068000">! (assertEqual 
-    (if 
-      (&gt; 1 2) 1 2) 2)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (if (&gt; 1 2) 1 2) 2)
+</span>
+subst_vars([assertEqual,[if,[&gt;,1,2],1,2],2],[assertEqual,[if,[&gt;,1,2],1,2],2])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (2) 
       (2)))
@@ -385,16 +401,20 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Let''s import one more module into `&amp;self` with a diamond dependence
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleB.metta)
-</span>  (track_load_into_file  f1_moduleB.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleB.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleB.metta'],['import!','&amp;self','f1_moduleB.metta'])
+  (track_load_into_file  f1_moduleB.metta)
 ; `g` from moduleC imported via two paths as well as `f`, which uses `g`,
 ; are not duplicated and produce deterministic results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleC.metta)
-</span>  (track_load_into_file  f1_moduleC.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleC.metta'],['import!','&amp;self','f1_moduleC.metta'])
+  (track_load_into_file  f1_moduleC.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
@@ -421,11 +441,11 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_483430) 
-    (+ $_483430 
+    (g $_509156) 
+    (+ $_509156 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 21,497 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6523929 Lips)
+</span><span class="ansi32">% 21,890 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6437478 Lips)
 </span>  (=  f1_moduleC.metta 10)
 <span class="ansi33"> % '&amp;self'
 
@@ -435,13 +455,14 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (== $X 0) 
       (g $X) 
       (+ $X 10)))
-</span><span class="ansi32">% 35,074 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 6591370 Lips)
+</span><span class="ansi32">% 35,873 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 6079860 Lips)
 </span>  (=  f1_moduleB.metta 1)
 <span class="ansi33"> % '&amp;self'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (g 2) 102)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
+</span>
+subst_vars([assertEqual,[g,2],102],[assertEqual,[g,2],102])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 2 
           (__g)) 
@@ -449,9 +470,10 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (102)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (f 2) 103)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
+</span>
+subst_vars([assertEqual,[f,2],103],[assertEqual,[f,2],103])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 3 
           (__g)) 
@@ -462,10 +484,10 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 
 </span>; Function declared in different imported modules will still produce
 ; non-deterministic results
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (dup 2) 
-    (12 102))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
+</span>
+subst_vars([assertEqualToResult,[dup,2],[12,102]],[assertEqualToResult,[dup,2],[12,102]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 2 
           (__g)) 
@@ -477,14 +499,18 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
 </span>; Let''s import f1_moduleB.metta once more using a different path.
 ; Such import should be ignored and thus f, g and dup should remain
 ; unchanged.
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleB.metta)
-</span>  (track_load_into_file  f1_moduleB.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleB.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleB.metta'],['import!','&amp;self','f1_moduleB.metta'])
+  (track_load_into_file  f1_moduleB.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self f1_moduleC.metta)
-</span>  (track_load_into_file  f1_moduleC.metta)
+<span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
+</span>
+subst_vars(['import!','&amp;self','f1_moduleC.metta'],['import!','&amp;self','f1_moduleC.metta'])
+  (track_load_into_file  f1_moduleC.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
@@ -511,11 +537,11 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_50850) 
-    (+ $_50850 
+    (g $_81278) 
+    (+ $_81278 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 21,497 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6388980 Lips)
+</span><span class="ansi32">% 21,890 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 6248038 Lips)
 </span>  (=  f1_moduleC.metta 10)
 <span class="ansi33"> % '&amp;self'
 
@@ -525,13 +551,14 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (== $X 0) 
       (g $X) 
       (+ $X 10)))
-</span><span class="ansi32">% 34,880 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 6506613 Lips)
+</span><span class="ansi32">% 35,679 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 6318110 Lips)
 </span>  (=  f1_moduleB.metta 1)
 <span class="ansi33"> % '&amp;self'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (g 2) 102)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
+</span>
+subst_vars([assertEqual,[g,2],102],[assertEqual,[g,2],102])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 2 
           (__g)) 
@@ -539,9 +566,10 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (102)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqual 
-    (f 2) 103)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
+</span>
+subst_vars([assertEqual,[f,2],103],[assertEqual,[f,2],103])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 3 
           (__g)) 
@@ -550,10 +578,10 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (103)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (dup 2) 
-    (12 102))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
+</span>
+subst_vars([assertEqualToResult,[dup,2],[12,102]],[assertEqualToResult,[dup,2],[12,102]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 2 
           (__g)) 
@@ -562,17 +590,17 @@ Script started on 2023-09-23 01:17:59-07:00 [COMMAND="timeout --foreground --pre
       (12 102)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 1,498,111 inferences, 0.357 CPU in 0.357 seconds (100% CPU, 4196415 Lips)
+</span><span class="ansi32">% 1,508,866 inferences, 0.363 CPU in 0.363 seconds (100% CPU, 4154006 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta" 0)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 10
 </span>
-Script done on 2023-09-23 01:18:01-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:36-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

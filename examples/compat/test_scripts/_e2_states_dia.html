@@ -10,6 +10,7 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
@@ -26,12 +27,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:16:53-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:08:25-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta")
@@ -42,9 +45,10 @@ Script started on 2023-09-23 01:16:53-07:00 [COMMAND="timeout --foreground --pre
 ;; - processing commands with side effect and empty results and
 ;;   chaining them might not be idiomatic
 ;; - it''s relatively slow (why? FIXME?)
-<span class="ansi38-000068000">! (bind! &amp;memory 
-    (new-space))
-</span><span class="ansi33"> % ['new-space']
+<span class="ansi38-000068000">!(bind! &amp;memory (new-space))
+</span>
+subst_vars(['bind!','&amp;memory',['new-space']],['bind!','&amp;memory',['new-space']])<span class="ansi33">
+ % ['new-space']
 
 </span>; catching empty results
 <span class="ansi38-255165000">  (metta_type  &amp;self do 
@@ -103,9 +107,9 @@ Script started on 2023-09-23 01:16:53-07:00 [COMMAND="timeout --foreground --pre
       (person name) $X))
   (metta_defn  &amp;self 
     (listen 
-      (My name is $_300018)) 
+      (My name is $_311756)) 
     (change-state 
-      (person name) $_300018))  ; 10 
+      (person name) $_311756))  ; 10 
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (listen $_) 
@@ -120,7 +124,7 @@ Script started on 2023-09-23 01:16:53-07:00 [COMMAND="timeout --foreground --pre
               ($P_name 
                 (Nice to meet you $P_name))))))))
   (metta_defn  &amp;self 
-    (listen $_316602) 
+    (listen $_328340) 
     (case 
       (get-state greeted) 
       ( (%void% 
@@ -129,28 +133,28 @@ Script started on 2023-09-23 01:16:53-07:00 [COMMAND="timeout --foreground --pre
               (person name)) 
             ( (%void% 
                 (Hi. What is your name?)) 
-              ($_316954 
-                (Nice to meet you $_316954))))))))  ; 11 
+              ($_328692 
+                (Nice to meet you $_328692))))))))  ; 11 
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (listen $_) 
     (nop 
       (change-state greeted True)))
   (metta_defn  &amp;self 
-    (listen $_324356) 
+    (listen $_336094) 
     (nop 
       (change-state greeted True)))  ; 12 
 
-</span><span class="ansi32">% 98,556 inferences, 0.053 CPU in 0.053 seconds (100% CPU, 1862946 Lips)
+</span><span class="ansi32">% 99,727 inferences, 0.052 CPU in 0.052 seconds (100% CPU, 1901880 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta" 12)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi33">Nothing to report
 </span>
-Script done on 2023-09-23 01:16:55-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:08:28-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

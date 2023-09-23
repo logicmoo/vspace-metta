@@ -55,12 +55,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:48-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta")
@@ -69,8 +71,10 @@ Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --pre
 ;; Spaces are also represented as grounded symbols in the program.
 ;; Importing another script into a separate space
 ;; TODO: replace symbol by string
-<span class="ansi38-000068000">! (import! &amp;kb c2_spaces_kb.metta)
-</span>  (track_load_into_file  c2_spaces_kb.metta)
+<span class="ansi38-000068000">!(import! &amp;kb c2_spaces_kb.metta)
+</span>
+subst_vars(['import!','&amp;kb','c2_spaces_kb.metta'],['import!','&amp;kb','c2_spaces_kb.metta'])
+  (track_load_into_file  c2_spaces_kb.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; We can `match` over `&amp;self` or another space
 <span class="ansi38-255165000">  (metta_atom  &amp;kb 
@@ -113,29 +117,24 @@ Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --pre
 
 </span><span class="ansi38-255165000">  (metta_atom  &amp;kb 
     (Mars orbit 1.5 au))
-</span><span class="ansi32">% 39,967 inferences, 0.009 CPU in 0.009 seconds (100% CPU, 4557656 Lips)
+</span><span class="ansi32">% 40,596 inferences, 0.008 CPU in 0.008 seconds (100% CPU, 4841965 Lips)
 </span>  (=  c2_spaces_kb.metta 14)
 <span class="ansi33"> % '&amp;kb'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;kb 
-      (and 
-        ($Obj is $Prop) 
-        ($Prop is-a Color) 
-        ($Obj is-a Planet)) 
-      (Color of Planet $Obj is $Prop)) 
-    ( (Color of Planet Mars is Red)))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;kb (and ($Obj is $Prop) ($Prop is-a Color) ($Obj is-a Planet)) (Color of Planet $Obj is $Prop)) ((Color of Planet Mars is Red)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;kb',[',',[Obj,is,Prop],[Prop,'is-a','Color'],[Obj,'is-a','Planet']],['Color',of,'Planet',Obj,is,Prop]],[['Color',of,'Planet','Mars',is,'Red']]],[assertEqualToResult,[match,'&amp;kb',[',',[_287508,is,_287826],[_287826,'is-a','Color'],[_287508,'is-a','Planet']],['Color',of,'Planet',_287508,is,_287826]],[['Color',of,'Planet','Mars',is,'Red']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Color of Planet Mars is Red)) 
       ( (Color of Planet Mars is Red))))
 </span><span class="ansi33"> % 'True'
 
 </span>; The knowledge in `&amp;kb` is not in `&amp;self`
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      ($P is-a Color) $P) ())
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self ($P is-a Color) $P) ())
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[P,'is-a','Color'],P],[]],[assertEqualToResult,[match,'&amp;self',[_318184,'is-a','Color'],_318184],[]])<span class="ansi36">
+  (loonit_success  
     (=@=  () ()))
 </span><span class="ansi33"> % 'True'
 
@@ -143,13 +142,10 @@ Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Checking that grounded symbols from different spaces are compatible
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (match &amp;kb 
-      (and 
-        (Venus orbit $X au) 
-        (Mars orbit $Y au)) 
-      (- $Y $X)) 0.8)
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (match &amp;kb (and (Venus orbit $X au) (Mars orbit $Y au)) (- $Y $X)) 0.8)
+</span>
+subst_vars([assertEqual,[match,'&amp;kb',[',',['Venus',orbit,X,au],['Mars',orbit,Y,au]],[-,Y,X]],0.8],[assertEqual,[match,'&amp;kb',[',',['Venus',orbit,_348198,au],['Mars',orbit,_348416,au]],[-,_348416,_348198]],0.8])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (0.8) 
       (0.8)))
@@ -163,13 +159,10 @@ Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --pre
     (Ball is Red))
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
     (Chair is High))
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;kb 
-      ($Prop is-a Color) 
-      (match &amp;self 
-        ($Obj is $Prop) $Obj)) 
-    (Ball))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;kb ($Prop is-a Color) (match &amp;self ($Obj is $Prop) $Obj)) (Ball))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;kb',[Prop,'is-a','Color'],[match,'&amp;self',[Obj,is,Prop],Obj]],['Ball']],[assertEqualToResult,[match,'&amp;kb',[_386236,'is-a','Color'],[match,'&amp;self',[_386434,is,_386236],_386434]],['Ball']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (Ball) 
       (Ball)))
@@ -180,8 +173,10 @@ Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --pre
 ; We can import into `&amp;self`
 ; TODO: replace symbol by string
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (import! &amp;self c2_spaces_kb.metta)
-</span>  (track_load_into_file  c2_spaces_kb.metta)
+<span class="ansi38-000068000">!(import! &amp;self c2_spaces_kb.metta)
+</span>
+subst_vars(['import!','&amp;self','c2_spaces_kb.metta'],['import!','&amp;self','c2_spaces_kb.metta'])
+  (track_load_into_file  c2_spaces_kb.metta)
 <span class="ansi38-255165000">  (metta_atom  &amp;self 
     (Green is-a Color))
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
@@ -222,35 +217,30 @@ Script started on 2023-09-23 01:18:13-07:00 [COMMAND="timeout --foreground --pre
 
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
     (Mars orbit 1.5 au))
-</span><span class="ansi32">% 39,728 inferences, 0.009 CPU in 0.009 seconds (100% CPU, 4612080 Lips)
+</span><span class="ansi32">% 40,357 inferences, 0.008 CPU in 0.008 seconds (100% CPU, 5329556 Lips)
 </span>  (=  c2_spaces_kb.metta 14)
 <span class="ansi33"> % '&amp;self'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;self 
-      (and 
-        ($Obj is $Prop) 
-        ($Prop is-a Color) 
-        ($Obj is-a Planet)) 
-      (Color of Planet $Obj is $Prop)) 
-    ( (Color of Planet Mars is Red)))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (and ($Obj is $Prop) ($Prop is-a Color) ($Obj is-a Planet)) (Color of Planet $Obj is $Prop)) ((Color of Planet Mars is Red)))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;self',[',',[Obj,is,Prop],[Prop,'is-a','Color'],[Obj,'is-a','Planet']],['Color',of,'Planet',Obj,is,Prop]],[['Color',of,'Planet','Mars',is,'Red']]],[assertEqualToResult,[match,'&amp;self',[',',[_469394,is,_469712],[_469712,'is-a','Color'],[_469394,'is-a','Planet']],['Color',of,'Planet',_469394,is,_469712]],[['Color',of,'Planet','Mars',is,'Red']]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (Color of Planet Mars is Red)) 
       ( (Color of Planet Mars is Red))))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 183,174 inferences, 0.071 CPU in 0.071 seconds (100% CPU, 2581930 Lips)
+</span><span class="ansi32">% 186,615 inferences, 0.069 CPU in 0.069 seconds (100% CPU, 2722312 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta" 2)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 01:18:15-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:50-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

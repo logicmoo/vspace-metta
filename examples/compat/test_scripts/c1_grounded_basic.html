@@ -48,12 +48,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:09:23-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
@@ -63,52 +65,46 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Implementation of grounded arithmetics may change location,
 ;; but these examples should work
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (+ 2 
-      (* 3 5.5)) 
-    (18.5))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (+ 2 (* 3 5.5)) (18.5))
+</span>
+subst_vars([assertEqualToResult,[+,2,[*,3,5.5]],[18.5]],[assertEqualToResult,[+,2,[*,3,5.5]],[18.5]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (18.5) 
       (18.5)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (- 8 
-      ("/" 4 6.4)) 
-    (7.375))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (- 8 ("/" 4 6.4)) (7.375))
+</span>
+subst_vars([assertEqualToResult,[-,8,[/,4,6.4]],[7.375]],[assertEqualToResult,[-,8,[/,4,6.4]],[7.375]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (7.375) 
       (7.375)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (% 21 17) 
-    (4))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (% 21 17) (4))
+</span>
+subst_vars([assertEqualToResult,['%',21,17],[4]],[assertEqualToResult,['%',21,17],[4]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (4) 
       (4)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (&lt; 4 
-      (+ 2 
-        (* 3 5))) 
-    (True))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (&lt; 4 (+ 2 (* 3 5))) (True))
+</span>
+subst_vars([assertEqualToResult,[&lt;,4,[+,2,[*,3,5]]],['True']],[assertEqualToResult,[&lt;,4,[+,2,[*,3,5]]],['True']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (and 
-      (&gt; 4 2) 
-      (&lt; 4 3)) 
-    (False))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqualToResult (and (&gt; 4 2) (&lt; 4 3)) (False))
+</span>
+subst_vars([assertEqualToResult,[and,[&gt;,4,2],[&lt;,4,3]],['False']],[assertEqualToResult,[and,[&gt;,4,2],[&lt;,4,3]],['False']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (False)))
 </span><span class="ansi33"> % 'False'
@@ -120,11 +116,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; will not be refused, but it will be unreduced.
 ; Currently, its grounded argument will be reduced.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (ln 
-      (+ 2 2)) 
-    ( (ln 4)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (ln (+ 2 2)) ((ln 4)))
+</span>
+subst_vars([assertEqualToResult,[ln,[+,2,2]],[[ln,4]]],[assertEqualToResult,[ln,[+,2,2]],[[ln,4]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       ( (ln 4)) 
       ( (ln 4))))
@@ -136,12 +131,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; operations will not cause errors and simply remain
 ; unreduced, if it type-checks.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (&gt; 4 
-      (+ ln 2)) 
-    ( (&gt; 4 
-        (+ ln 2))))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ ln 2)) ((&gt; 4 (+ ln 2))))
+</span>
+subst_vars([assertEqualToResult,[&gt;,4,[+,ln,2]],[[&gt;,4,[+,ln,2]]]],[assertEqualToResult,[&gt;,4,[+,ln,2]],[[&gt;,4,[+,ln,2]]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (False) 
       ( (&gt; 4 
@@ -153,16 +146,14 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; This will also remain unreduced unless
 ; grounded operations can do pattern matching
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (&gt; 4 
-      (+ $X 2)) 
-    ( (&gt; 4 
-        (+ $X 2))))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ $X 2)) ((&gt; 4 (+ $X 2))))
+</span>
+subst_vars([assertEqualToResult,[&gt;,4,[+,X,2]],[[&gt;,4,[+,X,2]]]],[assertEqualToResult,[&gt;,4,[+,_187494,2]],[[&gt;,4,[+,_187494,2]]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (False) 
       ( (&gt; 4 
-          (+ $_187508 2)))))
+          (+ $_187494 2)))))
 </span><span class="ansi33"> % 'False'
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -170,43 +161,37 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; `==` is now implemented to work with both grounded and
 ; symbolic atoms (while remaining a grounded operation)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (== 4 
-      (+ 2 2)) 
-    (True))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ 2 2)) (True))
+</span>
+subst_vars([assertEqualToResult,[==,4,[+,2,2]],['True']],[assertEqualToResult,[==,4,[+,2,2]],['True']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (== 2 3) 
-    (False))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (== 2 3) (False))
+</span>
+subst_vars([assertEqualToResult,[==,2,3],['False']],[assertEqualToResult,[==,2,3],['False']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (False) 
       (False)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (== 
-      (A B) 
-      (A B)) 
-    (True))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A B)) (True))
+</span>
+subst_vars([assertEqualToResult,[==,['A','B'],['A','B']],['True']],[assertEqualToResult,[==,['A','B'],['A','B']],['True']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (True) 
       (True)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (== 
-      (A B) 
-      (A 
-        (B C))) 
-    (False))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A (B C))) (False))
+</span>
+subst_vars([assertEqualToResult,[==,['A','B'],['A',['B','C']]],['False']],[assertEqualToResult,[==,['A','B'],['A',['B','C']]],['False']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (False) 
       (False)))
@@ -217,11 +202,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; Unlike `&lt;` or `&gt;`, `==` will not remain unreduced if one
 ; of its arguments is grounded, while another is not.
 ; Instead, it will return `False`
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (== 4 
-      (+ ln 2)) 
-    (False))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) (False))
+</span>
+subst_vars([assertEqualToResult,[==,4,[+,ln,2]],['False']],[assertEqualToResult,[==,4,[+,ln,2]],['False']])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (False) 
       (False)))
@@ -233,10 +217,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; Evaluation of ill-typed expressions produces
 ; a error expression
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (+ 2 "String") 
-    ( (Error "String" BadType)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (+ 2 "String") ((Error "String" BadType)))
+</span>
+subst_vars([assertEqualToResult,[+,2,"String"],[['Error',"String",'BadType']]],[assertEqualToResult,[+,2,"String"],[['Error',"String",'BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 2 "String")) 
       ( (Error "String" BadType))))
@@ -248,11 +232,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 </span>  (metta_arity  &amp;self ln 0)<span class="ansi38-255165000">
   (metta_atom  &amp;self 
     (: ln LN))
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (== 4 
-      (+ ln 2)) 
-    ( (Error ln BadType)))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) ((Error ln BadType)))
+</span>
+subst_vars([assertEqualToResult,[==,4,[+,ln,2]],[['Error',ln,'BadType']]],[assertEqualToResult,[==,4,[+,ln,2]],[['Error',ln,'BadType']]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (False) 
       ( (Error ln BadType))))
@@ -265,10 +248,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
     (sqr $X) 
     (* $X $X))
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (sqr 4) 
-    (16))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqualToResult (sqr 4) (16))
+</span>
+subst_vars([assertEqualToResult,[sqr,4],[16]],[assertEqualToResult,[sqr,4],[16]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (16 
         (sqr 4)) 
@@ -280,13 +263,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
 ; Evaluation of grounded operations over nondeterministic
 ; expressions work in the same way as of custom symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqual 
-    (+ 
-      (superpose 
-        (1 2 3)) 1) 
-    (superpose 
-      (2 3 4)))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqual (+ (superpose (1 2 3)) 1) (superpose (2 3 4)))
+</span>
+subst_vars([assertEqual,[+,[superpose,[1,2,3]],1],[superpose,[2,3,4]]],[assertEqual,[+,[superpose,[1,2,3]],1],[superpose,[2,3,4]]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (2 3 4) 
       (2 3 4)))
@@ -301,24 +281,24 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
     (bin) 1)
 </span>  (unknown_do_metta  &amp;self load 
     (= 
-      (bin) 1))<span class="ansi38-000068000">
-! (assertEqualToResult 
-    (+ 1 
-      (bin)) 
-    (1 2))
-</span><span class="ansi31">  (loonit_failure  
+      (bin) 1))
+<span class="ansi38-000068000">!(assertEqualToResult (+ 1 (bin)) (1 2))
+</span>
+subst_vars([assertEqualToResult,[+,1,[bin]],[1,2]],[assertEqualToResult,[+,1,[bin]],[1,2]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (+ 1 
           (bin))) 
       (1 2)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi38-000068000">! (assertEqualToResult 
-    (let $X 
-      (+ 2 3) 
-      (* $X $X)) 
-    (25))
-</span><span class="ansi36">  (loonit_success  
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (let $X 
+    (+ 2 3) 
+    (* $X $X)) (25))
+</span>
+subst_vars([assertEqualToResult,[let,X,[+,2,3],[*,X,X]],[25]],[assertEqualToResult,[let,_194882,[+,2,3],[*,_194882,_194882]],[25]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (25) 
       (25)))
@@ -335,9 +315,10 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
       (* 
         (fact 
           (- $N 1)) $N)))
-</span><span class="ansi38-000068000">! (assertEqual 
-    (fact 5) 120)
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi38-000068000">!(assertEqual (fact 5) 120)
+</span>
+subst_vars([assertEqual,[fact,5],120],[assertEqual,[fact,5],120])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       (20 120 5 1 
         (fact 5)) 
@@ -374,41 +355,43 @@ Script started on 2023-09-23 01:50:28-07:00 [COMMAND="swipl --debug=true -l /opt
       (subsum $Xs $Bs)))
   (metta_defn  &amp;self 
     (subsum 
-      (Cons  $_154706 $_155046) 
-      (Cons  $_155328 $_155550)) 
+      (Cons  $_173964 $_174304) 
+      (Cons  $_174586 $_174808)) 
     (+ 
-      (* $_154706 $_155328) 
-      (subsum $_155046 $_155550)))  ; 10 
+      (* $_173964 $_174586) 
+      (subsum $_174304 $_174808)))  ; 10 
 
 </span>; Non-determinism "reasoning":
 ; Among all 3-bit binary lists, return the one whose `subsum`
 ; with (:: 3 (:: 7 (:: 5 nil))) equals 8, or `nop` if not found
 ; (`nop` is a grounded function that consumes its arguments and returns nothing)
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (let $T 
-      (gen 3) 
-      (if 
-        (== 
-          (subsum 
-            (3 7 5) $T) 8) $T 
-        (nop))) 
-    ( (1 0 1)))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (let $T 
+    (gen 3) 
+    (if 
+      (== 
+        (subsum 
+          (3 7 5) $T) 8) $T 
+      (nop))) ((1 0 1)))
+</span>
+subst_vars([assertEqualToResult,[let,T,[gen,3],[if,[==,[subsum,[3,7,5],T],8],T,[nop]]],[[1,0,1]]],[assertEqualToResult,[let,_192038,[gen,3],[if,[==,[subsum,[3,7,5],_192038],8],_192038,[nop]]],[[1,0,1]]])<span class="ansi31">
+  (loonit_failure  
     (=@=  
       ( (nop)) 
       ( (1 0 1))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 25,441,951 inferences, 2.999 CPU in 2.999 seconds (100% CPU, 8483527 Lips)
+</span><span class="ansi32">% 25,448,339 inferences, 2.986 CPU in 2.986 seconds (100% CPU, 8522349 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 10)
  --repl=false
  --args
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 12
 </span><span class="ansi31">Failures: 9
 </span>
-Script done on 2023-09-23 01:50:34-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:09:28-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

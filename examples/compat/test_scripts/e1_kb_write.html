@@ -30,12 +30,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 01:17:05-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 16:08:37-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
- --python=enable
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:841:
+Warning:    Singleton variables: [Attr]
+</span> --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta")
@@ -44,21 +46,23 @@ Script started on 2023-09-23 01:17:05-07:00 [COMMAND="timeout --foreground --pre
 ;; MeTTa allows to use a separate knowledge base (Space) &amp;kb
 ;; to accumulate inferred knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (let $X 
-      (+ 2 3) 
-      (* $X $X)) 
-    (25))
-</span><span class="ansi36">  (loonit_success  
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (let $X 
+    (+ 2 3) 
+    (* $X $X)) (25))
+</span>
+subst_vars([assertEqualToResult,[let,X,[+,2,3],[*,X,X]],[25]],[assertEqualToResult,[let,_191978,[+,2,3],[*,_191978,_191978]],[25]])<span class="ansi36">
+  (loonit_success  
     (=@=  
       (25) 
       (25)))
 </span><span class="ansi33"> % 'True'
 
 </span>; Bind &amp;kb to a new empty Space
-<span class="ansi38-000068000">! (bind! &amp;kb 
-    (new-space))
-</span><span class="ansi33"> % ['new-space']
+<span class="ansi38-000068000">!(bind! &amp;kb (new-space))
+</span>
+subst_vars(['bind!','&amp;kb',['new-space']],['bind!','&amp;kb',['new-space']])<span class="ansi33">
+ % ['new-space']
 
 </span>; Some knowledge
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
@@ -88,39 +92,37 @@ Script started on 2023-09-23 01:17:05-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
     (ift True $Then) $Then)
   (metta_defn  &amp;self 
-    (ift True $_249030) $_249030)  ; 11 
+    (ift True $_260896) $_260896)  ; 11 
 
 </span>  (unknown_do_metta  &amp;self load 
     (= 
       (ift True $Then) $Then))
 ; For anything that is green, assert it is Green in &amp;kb
-<span class="ansi38-000068000">! (ift 
-    (green $X) 
-    (add-atom &amp;kb 
-      (Green $X)))
-</span><span class="ansi33"> % [ift,[green,_260696],['add-atom','&amp;kb',['Green',_260696]]]
+<span class="ansi38-000068000">!(ift (green $X) (add-atom &amp;kb (Green $X)))
+</span>
+subst_vars([ift,[green,X],['add-atom','&amp;kb',['Green',X]]],[ift,[green,_271712],['add-atom','&amp;kb',['Green',_271712]]])<span class="ansi33">
+ % [ift,[green,_271712],['add-atom','&amp;kb',['Green',_271712]]]
 
 </span>; Retrieve the inferred Green things: Fritz and Sam.
-<span class="ansi38-000068000">! (assertEqualToResult 
-    (match &amp;kb 
-      (Green $X) $X) 
-    (Fritz Sam))
-</span><span class="ansi31">  (loonit_failure  
+<span class="ansi38-000068000">!(assertEqualToResult (match &amp;kb (Green $X) $X) (Fritz Sam))
+</span>
+subst_vars([assertEqualToResult,[match,'&amp;kb',['Green',X],X],['Fritz','Sam']],[assertEqualToResult,[match,'&amp;kb',['Green',_283944],_283944],['Fritz','Sam']])<span class="ansi31">
+  (loonit_failure  
     (=@=  () 
       (Fritz Sam)))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 71,835 inferences, 0.019 CPU in 0.019 seconds (100% CPU, 3800150 Lips)
+</span><span class="ansi32">% 73,439 inferences, 0.019 CPU in 0.019 seconds (100% CPU, 3789109 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta" 11)
  --repl=false
  --args
- --timeout=60
+ --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 1
 </span>
-Script done on 2023-09-23 01:17:07-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 16:08:40-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
