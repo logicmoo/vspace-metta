@@ -24,7 +24,7 @@ MeTTaLog serves as an implementation of MeTTa, a language designed to succeed Op
 ```bash
 Welcome to SWI-Prolog (threaded, 64 bits, version 9.1.15-49-g93d0c9ac6)
 SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
-Please run ?- license. for legal details.
+Please run ?- license. for legal details.`
 
 For online help and background, visit https://www.swi-prolog.org
 For built-in help, use ?- help(Topic). or ?- apropos(Word).
@@ -55,7 +55,13 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 **To run all tests:**
 
 ```bash
-./MeTTa examples/compat/test_scripts/*.metta
+./total_loonits.sh examples/compat/test_scripts/
+```
+
+**To run a single test:**
+
+```bash
+./MeTTa --html examples/compat/test_scripts/b0_chaining_prelim.metta
 ```
 
 **To run the debugger/REPL:**
@@ -64,7 +70,7 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 ./MeTTa --repl
 ```
 
-## Familiarize Yourself with MeTTa
+## Familiarize Yourself with MeTTa`
 
 1. [Read the MeTTa specification](https://wiki.opencog.org/wikihome/images/b/b7/MeTTa_Specification.pdf).
 2. [Learn the Minimal instruction set](https://github.com/trueagi-io/hyperon-experimental/blob/main/docs/minimal-metta.md)
