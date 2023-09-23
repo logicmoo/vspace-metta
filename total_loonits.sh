@@ -65,7 +65,7 @@ mv "$FOUND_UNITS.sorted" "$FOUND_UNITS.sortme"
 
 
 # Print header
-echo "# Fix Bugs in MeTTaLog" > PASS_FAIL.md
+echo "# Bugs in MeTTaLog" > PASS_FAIL.md
 echo "" >> PASS_FAIL.md
 printf "|%-5s|%-5s|%-35s|%-130s|\n" "Pass" "Fail" "File" "GitHub Link" >> PASS_FAIL.md
 printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})" >> PASS_FAIL.md
@@ -77,8 +77,8 @@ echo "" >> PASS_FAIL.md
 
 cat PASS_FAIL.md
 
-awk '/# Fix Bugs in MeTTaLog/{exit} 1' MeTTaLog.md > temp1.txt
-awk 'BEGIN{flag=0} /# Acknowledgments/{flag=1} flag' MeTTaLog.md > temp2.txt
+awk '/# Bugs in MeTTaLog/{exit} 1' MeTTaLog.md > temp1.txt
+awk 'BEGIN{flag=0} /# Installation Guide/{flag=1} flag' MeTTaLog.md > temp2.txt
 
 cat temp1.txt PASS_FAIL.md temp2.txt > final_MeTTaLog.md
 
