@@ -31,18 +31,12 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-22 22:03:43-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 00:32:52-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
-<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
-Warning:    Singleton variables: [Depth,Self]
-</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
-Warning:    Singleton variables: [Depth,Self]
-</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
-Warning:    Singleton variables: [Depth,Self]
-</span> --python=enable
+ --python=enable
 
   (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
   (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
@@ -56,12 +50,8 @@ Warning:    Singleton variables: [Depth,Self]
         (1 2 3))))
 </span><span class="ansi36">  (loonit_success  
     (=@=  
-      ( (+ 1 1) 
-        (+ 1 2) 
-        (+ 1 3)) 
-      ( (+ 1 1) 
-        (+ 1 2) 
-        (+ 1 3))))
+      (2 3 4) 
+      (2 3 4)))
 </span><span class="ansi33"> % 'True'
 
 </span><span class="ansi38-000068000">! (assertEqual 
@@ -75,12 +65,8 @@ Warning:    Singleton variables: [Depth,Self]
             (2 3))))))
 </span><span class="ansi36">  (loonit_success  
     (=@=  
-      ( (+ 1 1) 
-        (+ 1 2) 
-        (+ 1 3)) 
-      ( (+ 1 1) 
-        (+ 1 2) 
-        (+ 1 3))))
+      (2 3 4) 
+      (2 3 4)))
 </span><span class="ansi33"> % 'True'
 
 </span><span class="ansi38-000068000">! (assertEqual 
@@ -90,15 +76,15 @@ Warning:    Singleton variables: [Depth,Self]
         (1 
           (superpose 
             ( (+ 1 1) 3))))))
-</span><span class="ansi31">  (loonit_failure  
+</span><span class="ansi36">  (loonit_success  
     (=@=  
       ( (1) 
         (2) 
         (3)) 
       ( (1) 
-        ( (+ 1 1)) 
+        (2) 
         (3))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> % 'True'
 
 </span>; cases are processed sequentially
 <span class="ansi38-000068000">! (assertEqual 
@@ -110,11 +96,12 @@ Warning:    Singleton variables: [Depth,Self]
 </span> c(0,5)='Error'
  c(1,6)='OK'
  c(2,6)='Error'
- switch=[+,1,5]
-<span class="ansi31">  (loonit_failure  
-    (=@=  () 
+ switch=6
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (OK) 
       (OK)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> % 'True'
 
 </span>; we can use variables as cases
 <span class="ansi38-000068000">! (assertEqual 
@@ -122,14 +109,13 @@ Warning:    Singleton variables: [Depth,Self]
       (+ 1 5) 
       ( ($X 
           (+ 1 $X)))) 7)
-</span> c(0,_320902)=[+,1,_320902]
- switch=[+,1,5]
-<span class="ansi31">  (loonit_failure  
+</span> c(0,_306600)=[+,1,_306600]
+ switch=6
+<span class="ansi36">  (loonit_success  
     (=@=  
-      ( (+ 1 
-          (+ 1 5))) 
+      (7) 
       (7)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> % 'True'
 
 </span>; cases are not necessarily exhaustive,
 ; and the result can be empty
@@ -155,13 +141,14 @@ Warning:    Singleton variables: [Depth,Self]
       (OK-3 OK-4)))
 </span> c(0,3)='OK-3'
  c(1,4)='OK-4'
- switch=[+,1,1]
- switch=[+,1,2]
- switch=[+,1,3]
-<span class="ansi31">  (loonit_failure  
-    (=@=  () 
+ switch=2
+ switch=3
+ switch=4
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (OK-3 OK-4) 
       (OK-3 OK-4)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> % 'True'
 
 </span>; one case can produce multiple results
 <span class="ansi38-000068000">! (assertEqual 
@@ -173,20 +160,15 @@ Warning:    Singleton variables: [Depth,Self]
           (+ 1 $X)))) 
     (superpose 
       (3 4 5)))
-</span> c(0,_393992)=[+,1,_393992]
- switch=[+,1,1]
- switch=[+,1,2]
- switch=[+,1,3]
-<span class="ansi31">  (loonit_failure  
+</span> c(0,_375746)=[+,1,_375746]
+ switch=2
+ switch=3
+ switch=4
+<span class="ansi36">  (loonit_success  
     (=@=  
-      ( (+ 1 
-          (+ 1 1)) 
-        (+ 1 
-          (+ 1 2)) 
-        (+ 1 
-          (+ 1 3))) 
+      (3 4 5) 
       (3 4 5)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> % 'True'
 
 </span><span class="ansi38-255165000">  (metta_atom  &amp;self 
     (Rel-P A B))
@@ -221,8 +203,8 @@ Warning:    Singleton variables: [Depth,Self]
           (P $Y)) 
         ( (Rel-Q $Y) 
           (Q $Y)))))
-</span> c(0,['Rel-P',_473322])=['P',_473322]
- c(1,['Rel-Q',_473322])=['Q',_473322]
+</span> c(0,['Rel-P',_447246])=['P',_447246]
+ c(1,['Rel-Q',_447246])=['Q',_447246]
  switch=['Rel-P','B']
  switch=['Rel-Q','C']
 <span class="ansi36">  (loonit_success  
@@ -244,8 +226,8 @@ Warning:    Singleton variables: [Depth,Self]
         ( (Rel-Q $Y) 
           (Q $Y)) 
         (%void% no-match))) no-match)
-</span> c(0,['Rel-P',_502044])=['P',_502044]
- c(1,['Rel-Q',_502044])=['Q',_502044]
+</span> c(0,['Rel-P',_475968])=['P',_475968]
+ c(1,['Rel-Q',_475968])=['Q',_475968]
  c(2,'%void%')='no-match'
 <span class="ansi36">  (loonit_success  
     (=@=  
@@ -253,17 +235,17 @@ Warning:    Singleton variables: [Depth,Self]
       (no-match)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 192,866 inferences, 0.085 CPU in 0.085 seconds (100% CPU, 2260518 Lips)
+</span><span class="ansi32">% 172,356 inferences, 0.085 CPU in 0.085 seconds (100% CPU, 2031199 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta" 2)
  --repl=false
  --args
  --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 6
-</span><span class="ansi31">Failures: 5
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-22 22:03:46-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 00:32:54-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
