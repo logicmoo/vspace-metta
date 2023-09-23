@@ -3,7 +3,6 @@
 MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succeed OpenCog Classic Atomese.  It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
 
 # Bugs in MeTTaLog
-
 |Pass |Fail |File                               |GitHub Link                                                                                                                       |
 |-----|-----|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 |  7  |  0  | a1_symbols.metta                  |[examples/compat/test_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/examples/compat/test_scripts/a1_symbols.html)|

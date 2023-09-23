@@ -66,7 +66,6 @@ mv "$FOUND_UNITS.sorted" "$FOUND_UNITS.sortme"
 
 # Print header
 echo "# Bugs in MeTTaLog" > PASS_FAIL.md
-echo "" >> PASS_FAIL.md
 printf "|%-5s|%-5s|%-35s|%-130s|\n" "Pass" "Fail" "File" "GitHub Link" >> PASS_FAIL.md
 printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})" >> PASS_FAIL.md
 cat $FOUND_UNITS.sortme >> PASS_FAIL.md
