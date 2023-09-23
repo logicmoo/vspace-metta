@@ -14,14 +14,41 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; The equality sign is specially treated by the interpreter.
+Script started on 2023-09-22 21:42:38-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The equality sign is specially treated by the interpreter.
 ; The evaluation of any (expr) in MeTTa is done via
 ; constructing the following equality query:
 ; (match &amp;self (= (expr) $r) $r)
@@ -29,316 +56,153 @@
 ; until the match is empty (when the equality match is
 ; empty, the expression is evaluated to itself).
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (I $x) $x)
-(= ((K $x) $y) $x) ; Note that `(K $x)` is allowed here
-(= (K $x $y) $x)
-(= (S $x $y $z) ($x $z ($y $z)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (I $X) $X)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (I $X) $X))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    ( (K $X) $Y) $X)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      ( (K $X) $Y) $X))
+; Note that `(K $x)` is allowed here
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (K $X $Y) $X)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (K $X $Y) $X))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (S $X $Y $Z) 
+    ($X $Z 
+      ($Y $Z)))
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `assertEqual` compares (sets of) results of evaluation
 ; of two expressions (both expressions can have empty
 ; sets of results, so `assertEqualToResult` is safer)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (S K K x)
-  x)
+<span class="ansi38-000068000">! (assertEqual 
+    (S K K x) x)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      (x 
+        (K x 
+          (K x)) 
+        (S K K x)) 
+      (x)))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Here, we use `assertEqualToResult` to make sure
 ; that the expression is evaluated to itself
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqualToResult
-   (expression without known equalities)
-  ((expression without known equalities)))
+<span class="ansi38-000068000">! (assertEqualToResult 
+    (expression without known equalities) 
+    ( (expression without known equalities)))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (expression without known equalities)) 
+      ( (expression without known equalities))))
+</span><span class="ansi33"> % 'True'
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (Add $x Z) $x)
-(= (Add $x (S $y)) (Add (S $x) $y))
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (Add $X Z) $X)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (Add $X Z) $X))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (Add $X 
+      (S $Y)) 
+    (Add 
+      (S $X) $Y))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (Add 
+      (S Z) 
+      (S Z)) 
+    (S 
+      (S Z)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (S 
+          (S Z)) 
+        (Add 
+          (S 
+            (S Z)) Z) 
+        (Add 
+          (S Z) 
+          (S Z))) 
+      ( (S 
+          (S Z)))))
+</span><span class="ansi33"> % 'False'
 
-!(assertEqual
-  (Add (S Z) (S Z))
-  (S (S Z)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; In the current implementation, child expressions
 ; are reduced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (Something? (Add (S Z) (S Z)))
-  (Something? (S (S Z))))
+<span class="ansi38-000068000">! (assertEqual 
+    (Something? 
+      (Add 
+        (S Z) 
+        (S Z))) 
+    (Something? 
+      (S 
+        (S Z))))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (Something? 
+          (Add 
+            (S Z) 
+            (S Z)))) 
+      ( (Something? 
+          (S 
+            (S Z))))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Note that the same variable can be used multiple times on the left
 ; side of expressions, and that the "function" doesn''t need to
 ; cover all possible inputs (i.e. it can be "non-total")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (eq $x $x) T)
-!(assertEqual
-  (eq (S K K x) x)
-  T)
-!(assertEqualToResult
-   (eq Green Blue)
-  ((eq Green Blue)))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/b1_equal_chain.metta -- -- --args examples/compat/test_scripts/b1_equal_chain.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/b1_equal_chain.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; The equality sign is specially treated by the interpreter.
-%; The evaluation of any (expr) in MeTTa is done via
-%; constructing the following equality query:
-%; (match &amp;self (= (expr) $r) $r)
-%; The result $r is recursively evaluated in the same way,
-%; until the match is empty (when the equality match is
-%; empty, the expression is evaluated to itself).
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self I 
- ($X))
-(metta_defn  &amp;self 
- (I $X) $X)
-(unknown_do_metta  &amp;self load 
- (= 
-  (I $X) $X))
-(metta_head  &amp;self 
- (K $X) 
- ($Y))
-(metta_defn  &amp;self 
- ((K $X) $Y) $X)
-(unknown_do_metta  &amp;self load 
- (= 
-  ((K $X) $Y) $X))
-%; Note that `(K $x)` is allowed here
-
-(metta_head  &amp;self K 
- ($X $Y))
-(metta_defn  &amp;self 
- (K $X $Y) $X)
-(unknown_do_metta  &amp;self load 
- (= 
-  (K $X $Y) $X))
-(metta_head  &amp;self S 
- ($X $Y $Z))
-(metta_defn  &amp;self 
- (S $X $Y $Z) 
- ($X $Z 
-  ($Y $Z)))
-(metta_body  &amp;self $X 
- ($Z 
-  ($Y $Z)))
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; `assertEqual` compares (sets of) results of evaluation
-%; of two expressions (both expressions can have empty
-%; sets of results, so `assertEqualToResult` is safer)
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (S K K x) x)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  (x 
-   (K x 
-    (K x)) 
-   (S K K x) 
-   (Cons  S K)) 
-  (x)))
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (eq $X $X))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (eq 
+      (S K K x) x) True)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (eq 
+          (S K K x) x)) 
+      (True)))
 </span><span class="ansi33"> % 'False'
 
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Here, we use `assertEqualToResult` to make sure
-%; that the expression is evaluated to itself
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (expression without known equalities) 
-   ((expression without known equalities)))))<span class="ansi36">
-
-(loonit_success  
- (=@=  
-  ((expression without known equalities)) 
-  ((expression without known equalities))))
+</span><span class="ansi38-000068000">! (assertEqualToResult 
+    (eq Green Blue) 
+    ( (eq Green Blue)))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (eq Green Blue)) 
+      ( (eq Green Blue))))
 </span><span class="ansi33"> % 'True'
 
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Another example
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self Add 
- ($X Z))
-(metta_defn  &amp;self 
- (Add $X Z) $X)
-(unknown_do_metta  &amp;self load 
- (= 
-  (Add $X Z) $X))
-(metta_head  &amp;self Add 
- ($X 
-  (S $Y)))
-(metta_defn  &amp;self 
- (Add $X 
-  (S $Y)) 
- (Add 
-  (S $X) $Y))
-(metta_body  &amp;self Add 
- ((S $X) $Y))
-(:-  
- (metta_eval  
-  (assertEqual 
-   (Add 
-    (S Z) 
-    (S Z)) 
-   (S 
-    (S Z)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((S 
-    (S Z)) 
-   (Add 
-    (S 
-     (S Z)) Z) 
-   (Add 
-    (S Z) 
-    (S Z))) 
-  ((S 
-    (S Z)))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; In the current implementation, child expressions
-%; are reduced
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (Something? 
-    (Add 
-     (S Z) 
-     (S Z))) 
-   (Something? 
-    (S 
-     (S Z))))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((Something? 
-    (Add 
-     (S Z) 
-     (S Z))) 
-   (Something? 
-    (Add 
-     (S 
-      (S Z)) Z)) 
-   (Something? 
-    (S 
-     (S Z)))) 
-  ((Something? 
-    (S 
-     (S Z))))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Note that the same variable can be used multiple times on the left
-%; side of expressions, and that the "function" doesn''t need to
-%; cover all possible inputs (i.e. it can be "non-total")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self eq 
- ($X $X))
-(metta_atom  &amp;self 
- (eq $X $X))
-(:-  
- (metta_eval  
-  (assertEqual 
-   (eq 
-    (S K K x) x) True)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((eq 
-    (S K K x) x) 
-   (eq 
-    (K x 
-     (K x)) x) True 
-   (eq x x) 
-   (eq 
-    (Cons  S K) x)) 
-  (True)))
-</span><span class="ansi33"> % 'False'
-
-</span>
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (eq Green Blue) 
-   ((eq Green Blue)))))<span class="ansi36">
-
-(loonit_success  
- (=@=  
-  ((eq Green Blue)) 
-  ((eq Green Blue))))
-</span><span class="ansi33"> % 'True'
-
-</span><span class="ansi32">% 2,430,699 inferences, 0.372 CPU in 0.372 seconds (100% CPU, 6532218 Lips)
-</span> 
-(=  "examples/compat/test_scripts/b1_equal_chain.metta" 0)
+</span><span class="ansi32">% 241,817 inferences, 0.095 CPU in 0.095 seconds (100% CPU, 2543268 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta" 7)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2
 </span><span class="ansi31">Failures: 4
 </span>
+Script done on 2023-09-22 21:42:41-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

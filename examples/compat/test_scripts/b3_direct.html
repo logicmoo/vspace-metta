@@ -14,218 +14,113 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example from OpenCog Classic wiki on PLN Backward Chaining
-; No explicit backward chaining is needed
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; facts
-(= (croaks Fritz) T)
-(= (eat_flies Fritz) T)
-; Rules
-(= (And T T) T)
-(= (frog $x)
-   (And (croaks $x)
-        (eat_flies $x)))
-(= (green $x)
-   (frog $x))
+Script started on 2023-09-22 21:43:16-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
-; Conclusion from facts and rules
-!(assertEqual
-  (green Fritz)
-  T)
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example from OpenCog Classic wiki on PLN Backward Chaining
+;; No explicit backward chaining is needed
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; facts
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (croaks Fritz))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (eat_flies Fritz))
+</span>; Rules
+  (unknown_do_metta  &amp;self load True)<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (frog $X) 
+    (And 
+      (croaks $X) 
+      (eat_flies $X)))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (green $X) 
+    (frog $X))
+</span>; Conclusion from facts and rules
+<span class="ansi38-000068000">! (assertEqual 
+    (green Fritz) True)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (And 
+          (croaks Fritz) 
+          (eat_flies Fritz)) 
+        (frog Fritz) 
+        (green Fritz)) 
+      (True)))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This is not just functional programming,
 ; because we can do inference
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (ift T $then) $then)
-!(assertEqual
-  (ift (green $x) $x)
-  Fritz)
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (ift True $Then) $Then)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (ift True $Then) $Then))<span class="ansi38-000068000">
+! (assertEqual 
+    (ift 
+      (green $X) $X) Fritz)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (ift 
+          (green $_330656) $_330656)) 
+      (Fritz)))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; We can also use expressions with `=` in `match`
 ; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
 ; with it may work differently from that over purely symbolic expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqualToResult
-  (match &amp;self (= ($p Fritz) T) $p)
-  (croaks eat_flies))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/b3_direct.metta -- -- --args examples/compat/test_scripts/b3_direct.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/b3_direct.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; Example from OpenCog Classic wiki on PLN Backward Chaining
-%;; No explicit backward chaining is needed
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; facts
-
-(metta_head  &amp;self croaks 
- (Fritz))
-(metta_atom  &amp;self 
- (croaks Fritz))
-(metta_head  &amp;self eat_flies 
- (Fritz))
-(metta_atom  &amp;self 
- (eat_flies Fritz))
-%; Rules
-
-(unknown_do_metta  &amp;self load True)
-(metta_head  &amp;self frog 
- ($X))
-(metta_defn  &amp;self 
- (frog $X) 
- (And 
-  (croaks $X) 
-  (eat_flies $X)))
-(metta_body  &amp;self And 
- ((croaks $X) 
-  (eat_flies $X)))
-(metta_head  &amp;self green 
- ($X))
-(metta_defn  &amp;self 
- (green $X) 
- (frog $X))
-(metta_body  &amp;self frog 
- ($X))
-%; Conclusion from facts and rules
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (green Fritz) True)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((And 
-    (croaks Fritz) 
-    (eat_flies Fritz)) 
-   (And True True) 
-   (And True 
-    (eat_flies Fritz)) 
-   (And 
-    (croaks Fritz) True) 
-   (frog Fritz) 
-   (green Fritz)) 
-  (True)))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; This is not just functional programming,
-%; because we can do inference
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self ift 
- (True $Then))
-(metta_defn  &amp;self 
- (ift True $Then) $Then)
-(unknown_do_metta  &amp;self load 
- (= 
-  (ift True $Then) $Then))
-(:-  
- (metta_eval  
-  (assertEqual 
-   (ift 
-    (green $X) $X) Fritz)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((ift 
-    (green $_330992) $_330992) 
-   (ift 
-    (frog $_330956) $_330956) 
-   (ift 
-    (And 
-     (croaks $_330902) 
-     (eat_flies $_330902)) $_330902) 
-   (ift 
-    (And 
-     (Fritz) True) Fritz) 
-   (ift 
-    (And 
-     (Fritz) 
-     (eat_flies Fritz)) Fritz) 
-   (ift 
-    (And 
-     (croaks Fritz) 
-     (Fritz)) Fritz) 
-   (ift 
-    (And True 
-     (Fritz)) Fritz)) 
-  (Fritz)))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; We can also use expressions with `=` in `match`
-%; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
-%; with it may work differently from that over purely symbolic expressions
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (match &amp;self 
-    ($P Fritz) $P) 
-   (croaks eat_flies))))<span class="ansi36">
-
-(loonit_success  
- (=@=  
-  (croaks eat_flies) 
-  (croaks eat_flies)))
+<span class="ansi38-000068000">! (assertEqualToResult 
+    (match &amp;self 
+      ($P Fritz) $P) 
+    (croaks eat_flies))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      (croaks eat_flies) 
+      (croaks eat_flies)))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 31,382,284 inferences, 3.567 CPU in 3.567 seconds (100% CPU, 8798966 Lips)
-</span> 
-(=  "examples/compat/test_scripts/b3_direct.metta" 0)
+</span><span class="ansi32">% 109,859 inferences, 0.029 CPU in 0.029 seconds (100% CPU, 3812338 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta" 5)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 2
 </span>
+Script done on 2023-09-22 21:43:18-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

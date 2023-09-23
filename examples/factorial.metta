@@ -1,4 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Summary:
 ;;
 ;; 1. Functional Recursive Factorial:
@@ -85,6 +85,16 @@
 
 
 
+
+!(bind! &factorialstate (new-state 1))
+(= (fast-factorial $K)
+   (If (> $K 1)
+       (do (sequential ((change-state! &factorialstate (* $K (get-state &factorialstate)))
+                        (fast-factorial (- $K 1)))))))
+(= (factorial $N)
+   (sequential ((do (change-state! &factorialstate 1))
+                (fast-factorial $N)
+                (get-state &factorialstate))))
 
 
 

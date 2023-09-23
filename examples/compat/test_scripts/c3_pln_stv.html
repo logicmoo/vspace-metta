@@ -9,23 +9,75 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; The examples in this file is inspired by OpenCog Classic examples
-; from github.com/opencog/pln, in particular from
-; examples/pln/conjunction, extended with implication
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Some helpful definitions
-(= (min $a $b) (if (&lt; $a $b) $a $b))
-(= (s-tv (stv $s $c)) $s)
-(= (c-tv (stv $s $c)) $c)
+Script started on 2023-09-22 21:42:45-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The examples in this file is inspired by OpenCog Classic examples
+;; from github.com/opencog/pln, in particular from
+;; examples/pln/conjunction, extended with implication
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Some helpful definitions
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (min $A $B) 
+    (if 
+      (&lt; $A $B) $A $B))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (s-tv 
+      (stv $S $C)) $S)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (s-tv 
+        (stv $S $C)) $S))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (c-tv 
+      (stv $S $C)) $C)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (c-tv 
+        (stv $S $C)) $C))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `TV` "metarule" based on `match` to run
@@ -33,578 +85,251 @@
 ; PLN-like expressions with their truth values.
 ; Some `.tv` facts will be defined below
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (TV $x)
-   (match &amp;self
-     (.tv $x $stv)
-     $stv
-   )
-)
-
-; Definition of TV for a conjunction
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (TV $X) 
+    (match &amp;self 
+      (.tv $X $Stv) $Stv))
+</span>; Definition of TV for a conjunction
 ; we could use `(.tv (And $a $b) (stv ...))` instead of this
-(= (TV (And $a $b))
-   (stv (min (s-tv (TV $a)) (s-tv (TV $b)))
-        (min (c-tv (TV $a)) (c-tv (TV $b)))
-   )
-)
-
-; Definition of TV for $x when it''s the consequent of an implication
-(= (TV $x)
-   (match &amp;self
-     (.tv (Implication $y $x)
-          (stv $s $c))
-     (stv (* $s (s-tv (TV $y)))
-          (* $c (c-tv (TV $y))))
-   )
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (TV 
+      (And $A $B)) 
+    (stv 
+      (min 
+        (s-tv 
+          (TV $A)) 
+        (s-tv 
+          (TV $B))) 
+      (min 
+        (c-tv 
+          (TV $A)) 
+        (c-tv 
+          (TV $B)))))
+</span>; Definition of TV for $x when it''s the consequent of an implication
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (TV $X) 
+    (match &amp;self 
+      (.tv 
+        (Implication $Y $X) 
+        (stv $S $C)) 
+      (stv 
+        (* $S 
+          (s-tv 
+            (TV $Y))) 
+        (* $C 
+          (c-tv 
+            (TV $Y))))))
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; First example
 ; .tv serves as a special type of equality when
 ; matched by the TV "metarules" above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts
-(.tv (Evaluation (Predicate P) (Concept A))
-     (stv 0.5 0.8))
-(.tv (Evaluation (Predicate P) (Concept B))
-     (stv 0.3 0.9))
-(.tv (Implication (Evaluation (Predicate P) (Concept A))
-                  (Evaluation (Predicate F) (Concept A)))
-     (stv 0.8 1.0))
-
-; FIXME? `(PA)` and `(PB)` are used because otherwise
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Evaluation 
+        (Predicate P) 
+        (Concept A)) 
+      (stv 0.5 0.8)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Evaluation 
+        (Predicate P) 
+        (Concept B)) 
+      (stv 0.3 0.9)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (Evaluation 
+          (Predicate P) 
+          (Concept A)) 
+        (Evaluation 
+          (Predicate False) 
+          (Concept A))) 
+      (stv 0.8 1.0)))
+</span>; FIXME? `(PA)` and `(PB)` are used because otherwise
 ; substitution is not invoked (atm of test creation)
-(= (PA) (Evaluation (Predicate P) (Concept A)))
-(= (PB) (Evaluation (Predicate P) (Concept B)))
-(= (FA) (Evaluation (Predicate F) (Concept A)))
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (PA) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept A)))
+  (metta_defn  &amp;self 
+    (PA) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept A)))  ; 10 
 
-; Tests
-!(assertEqual (TV (And (PA) (PB))) (stv 0.3 0.8))
-!(assertEqual (TV (FA)) (stv 0.4 0.8))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (PB) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept B)))
+  (metta_defn  &amp;self 
+    (PB) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept B)))  ; 11 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (FA) 
+    (Evaluation 
+      (Predicate False) 
+      (Concept A)))
+  (metta_defn  &amp;self 
+    (FA) 
+    (Evaluation 
+      (Predicate False) 
+      (Concept A)))  ; 12 
+
+</span>; Tests
+<span class="ansi38-000068000">! (assertEqual 
+    (TV 
+      (And 
+        (PA) 
+        (PB))) 
+    (stv 0.3 0.8))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (min 
+            (s-tv 
+              (TV 
+                (PA))) 
+            (s-tv 
+              (TV 
+                (PB)))) 
+          (min 
+            (c-tv 
+              (TV 
+                (PA))) 
+            (c-tv 
+              (TV 
+                (PB))))) 
+        (TV 
+          (And 
+            (PA) 
+            (PB)))) 
+      ( (stv 0.3 0.8))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi38-000068000">! (assertEqual 
+    (TV 
+      (FA)) 
+    (stv 0.4 0.8))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (TV 
+          (FA))) 
+      ( (stv 0.4 0.8))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Second example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Implication rule
-(.tv
-  (Implication
-     (And (croaks $x)
-          (eat_flies $x))
-     (frog $x))
-  (stv 0.9 0.8)
-)
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (And 
+          (croaks $X) 
+          (eat_flies $X)) 
+        (frog $X)) 
+      (stv 0.9 0.8)))
+  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (And 
+          (croaks $_289250) 
+          (eat_flies $_289250)) 
+        (frog $_289250)) 
+      (stv 0.9 0.8)))  ; 13 
 
-; Some facts
-(.tv (croaks Fritz)
-     (stv 0.95 0.85))
-(.tv (eat_flies Fritz)
-     (stv 0.87 0.95))
-
-(.tv
-  (Implication
-     (frog $x)
-     (green $x))
-  (stv 0.9 1.0)
-)
-
-; Tests
-!(assertEqual
-  (TV (croaks Fritz))
-  (stv 0.95 0.85))
-!(assertEqual
-  (TV (frog Fritz))
-  (stv 0.783 0.68))
-!(assertEqual
-  (TV (green Fritz))
-  (stv 0.7047 0.68))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/c3_pln_stv.metta -- -- --args examples/compat/test_scripts/c3_pln_stv.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/c3_pln_stv.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; The examples in this file is inspired by OpenCog Classic examples
-%;; from github.com/opencog/pln, in particular from
-%;; examples/pln/conjunction, extended with implication
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; Some helpful definitions
-
-(metta_head  &amp;self min 
- ($A $B))
-(metta_defn  &amp;self 
- (min $A $B) 
- (if 
-  (&lt; $A $B) $A $B))
-(metta_body  &amp;self if 
- ((&lt; $A $B) $A $B))
-(metta_head  &amp;self s-tv 
- ((stv $S $C)))
-(metta_defn  &amp;self 
- (s-tv 
-  (stv $S $C)) $S)
-(unknown_do_metta  &amp;self load 
- (= 
-  (s-tv 
-   (stv $S $C)) $S))
-(metta_head  &amp;self c-tv 
- ((stv $S $C)))
-(metta_defn  &amp;self 
- (c-tv 
-  (stv $S $C)) $C)
-(unknown_do_metta  &amp;self load 
- (= 
-  (c-tv 
-   (stv $S $C)) $C))
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; `TV` "metarule" based on `match` to run
-%; `.tv` is a custom symbol, which is used to connect
-%; PLN-like expressions with their truth values.
-%; Some `.tv` facts will be defined below
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self TV 
- ($X))
-(metta_defn  &amp;self 
- (TV $X) 
- (match &amp;self 
-  (.tv $X $Stv) $Stv))
-(metta_body  &amp;self match 
- (&amp;self 
-  (.tv $X $Stv) $Stv))
-%; Definition of TV for a conjunction
-%; we could use `(.tv (And $a $b) (stv ...))` instead of this
-
-(metta_head  &amp;self TV 
- ((And $A $B)))
-(metta_defn  &amp;self 
- (TV 
-  (And $A $B)) 
- (stv 
-  (min 
-   (s-tv 
-    (TV $A)) 
-   (s-tv 
-    (TV $B))) 
-  (min 
-   (c-tv 
-    (TV $A)) 
-   (c-tv 
-    (TV $B)))))
-(metta_body  &amp;self stv 
- ((min 
-   (s-tv 
-    (TV $A)) 
-   (s-tv 
-    (TV $B))) 
-  (min 
-   (c-tv 
-    (TV $A)) 
-   (c-tv 
-    (TV $B)))))
-%; Definition of TV for $x when it''s the consequent of an implication
-
-(metta_head  &amp;self TV 
- ($X))
-(metta_defn  &amp;self 
- (TV $X) 
- (match &amp;self 
-  (.tv 
-   (Implication $Y $X) 
-   (stv $S $C)) 
-  (stv 
-   (* $S 
-    (s-tv 
-     (TV $Y))) 
-   (* $C 
-    (c-tv 
-     (TV $Y))))))
-(metta_body  &amp;self match 
- (&amp;self 
-  (.tv 
-   (Implication $Y $X) 
-   (stv $S $C)) 
-  (stv 
-   (* $S 
-    (s-tv 
-     (TV $Y))) 
-   (* $C 
-    (c-tv 
-     (TV $Y))))))
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; First example
-%; .tv serves as a special type of equality when
-%; matched by the TV "metarules" above
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Some facts
-
-(metta_head  &amp;self .tv 
- ((Evaluation 
-   (Predicate P) 
-   (Concept A)) 
-  (stv 0.5 0.8)))
-(metta_atom  &amp;self 
- (.tv 
-  (Evaluation 
-   (Predicate P) 
-   (Concept A)) 
-  (stv 0.5 0.8)))
-(metta_head  &amp;self .tv 
- ((Evaluation 
-   (Predicate P) 
-   (Concept B)) 
-  (stv 0.3 0.9)))
-(metta_atom  &amp;self 
- (.tv 
-  (Evaluation 
-   (Predicate P) 
-   (Concept B)) 
-  (stv 0.3 0.9)))
-(metta_head  &amp;self .tv 
- ((Implication 
-   (Evaluation 
-    (Predicate P) 
-    (Concept A)) 
-   (Evaluation 
-    (Predicate False) 
-    (Concept A))) 
-  (stv 0.8 1.0)))
-(metta_atom  &amp;self 
- (.tv 
-  (Implication 
-   (Evaluation 
-    (Predicate P) 
-    (Concept A)) 
-   (Evaluation 
-    (Predicate False) 
-    (Concept A))) 
-  (stv 0.8 1.0)))
-%; FIXME? `(PA)` and `(PB)` are used because otherwise
-%; substitution is not invoked (atm of test creation)
-
-(metta_head  &amp;self PA ())
-(metta_defn  &amp;self 
- (PA) 
- (Evaluation 
-  (Predicate P) 
-  (Concept A)))
-(metta_body  &amp;self Evaluation 
- ((Predicate P) 
-  (Concept A)))
-(metta_head  &amp;self PB ())
-(metta_defn  &amp;self 
- (PB) 
- (Evaluation 
-  (Predicate P) 
-  (Concept B)))
-(metta_body  &amp;self Evaluation 
- ((Predicate P) 
-  (Concept B)))
-(metta_head  &amp;self FA ())
-(metta_defn  &amp;self 
- (FA) 
- (Evaluation 
-  (Predicate False) 
-  (Concept A)))
-(metta_body  &amp;self Evaluation 
- ((Predicate False) 
-  (Concept A)))
-%; Tests
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (TV 
-    (And 
-     (PA) 
-     (PB))) 
-   (stv 0.3 0.8))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((stv 
-    (min 
-     (s-tv 
-      (TV 
-       (PA))) 
-     (s-tv 
-      (TV 
-       (PB)))) 
-    (min 
-     (c-tv 
-      (TV 
-       (PA))) 
-     (c-tv 
-      (TV 
-       (PB))))) 
-   (stv 
-    (if 
-     (&lt; 
-      (s-tv 
-       (TV 
-        (PA))) 
-      (s-tv 
-       (TV 
-        (PB)))) 
-     (s-tv 
-      (TV 
-       (PA))) 
-     (s-tv 
-      (TV 
-       (PB)))) 
-    (if 
-     (&lt; 
-      (c-tv 
-       (TV 
-        (PA))) 
-      (c-tv 
-       (TV 
-        (PB)))) 
-     (c-tv 
-      (TV 
-       (PA))) 
-     (c-tv 
-      (TV 
-       (PB))))) 
-   (stv 
-    (s-tv 
-     (TV 
-      (PA))) 
-    (c-tv 
-     (TV 
-      (PA)))) 
-   (stv 
-    (if 
-     (&lt; 
-      (s-tv 
-       (TV 
-        (PA))) 
-      (s-tv 
-       (TV 
-        (PB)))) 
-     (s-tv 
-      (TV 
-       (PA))) 
-     (s-tv 
-      (TV 
-       (PB)))) 
-    (min 
-     (c-tv 
-      (TV 
-       (PA))) 
-     (c-tv 
-      (TV 
-       (PB))))) 
-   (stv 
-    (s-tv 
-     (TV 
-      (PA))) 
-    (if 
-     (&lt; 
-      (c-tv 
-       (TV 
-        (PA))) 
-      (c-tv 
-       (TV 
-        (PB)))) 
-     (c-tv 
-      (TV 
-       (PA))) 
-     (c-tv 
-      (TV 
-       (PB))))) 
-   (stv 
-    (s-tv 
-     (TV 
-      (PA))) 
-    (min 
-     (c-tv 
-      (TV 
-       (PA))) 
-     (c-tv 
-      (TV 
-       (PB))))) 
-   (stv 
-    (min 
-     (s-tv 
-      (TV 
-       (PA))) 
-     (s-tv 
-      (TV 
-       (PB)))) 
-    (if 
-     (&lt; 
-      (c-tv 
-       (TV 
-        (PA))) 
-      (c-tv 
-       (TV 
-        (PB)))) 
-     (c-tv 
-      (TV 
-       (PA))) 
-     (c-tv 
-      (TV 
-       (PB))))) 
-   (stv 
-    (if 
-     (&lt; 
-      (s-tv 
-       (TV 
-        (PA))) 
-      (s-tv 
-       (TV 
-        (PB)))) 
-     (s-tv 
-      (TV 
-       (PA))) 
-     (s-tv 
-      (TV 
-       (PB)))) 
-    (c-tv 
-     (TV 
-      (PA)))) 
-   (stv 
-    (min 
-     (s-tv 
-      (TV 
-       (PA))) 
-     (s-tv 
-      (TV 
-       (PB)))) 
-    (c-tv 
-     (TV 
-      (PA)))) 
-   (TV 
-    (And 
-     (PA) 
-     (PB)))) 
-  ((stv 0.3 0.8))))
+</span>; Some facts
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (croaks Fritz) 
+      (stv 0.95 0.85)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (eat_flies Fritz) 
+      (stv 0.87 0.95)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (frog $X) 
+        (green $X)) 
+      (stv 0.9 1.0)))
+</span>; Tests
+<span class="ansi38-000068000">! (assertEqual 
+    (TV 
+      (croaks Fritz)) 
+    (stv 0.95 0.85))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 0.95 0.85) 
+        (TV 
+          (croaks Fritz))) 
+      ( (stv 0.95 0.85))))
 </span><span class="ansi33"> % 'False'
 
+</span><span class="ansi38-000068000">! (assertEqual 
+    (TV 
+      (frog Fritz)) 
+    (stv 0.783 0.68))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (* 0.9 
+            (s-tv 
+              (TV 
+                (And 
+                  (croaks Fritz) 
+                  (eat_flies Fritz))))) 
+          (* 0.8 
+            (c-tv 
+              (TV 
+                (And 
+                  (croaks Fritz) 
+                  (eat_flies Fritz)))))) 
+        (TV 
+          (frog Fritz))) 
+      ( (stv 0.783 0.68))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi38-000068000">! (assertEqual 
+    (TV 
+      (green Fritz)) 
+    (stv 0.7047 0.68))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (* 0.9 
+            (s-tv 
+              (TV 
+                (frog Fritz)))) 
+          (* 1.0 
+            (c-tv 
+              (TV 
+                (frog Fritz))))) 
+        (TV 
+          (green Fritz))) 
+      ( (stv 0.7047 0.68))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 484,965 inferences, 0.157 CPU in 0.157 seconds (100% CPU, 3080117 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta" 16)
+ --repl=false
+ --args
+ --timeout=60
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 5
 </span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (TV 
-    (FA)) 
-   (stv 0.4 0.8))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((TV 
-    (FA))) 
-  ((stv 0.4 0.8))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Second example
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Implication rule
-
-(metta_head  &amp;self .tv 
- ((Implication 
-   (And 
-    (croaks $X) 
-    (eat_flies $X)) 
-   (frog $X)) 
-  (stv 0.9 0.8)))
-(metta_atom  &amp;self 
- (.tv 
-  (Implication 
-   (And 
-    (croaks $X) 
-    (eat_flies $X)) 
-   (frog $X)) 
-  (stv 0.9 0.8)))
-%; Some facts
-
-(metta_head  &amp;self .tv 
- ((croaks Fritz) 
-  (stv 0.95 0.85)))
-(metta_atom  &amp;self 
- (.tv 
-  (croaks Fritz) 
-  (stv 0.95 0.85)))
-(metta_head  &amp;self .tv 
- ((eat_flies Fritz) 
-  (stv 0.87 0.95)))
-(metta_atom  &amp;self 
- (.tv 
-  (eat_flies Fritz) 
-  (stv 0.87 0.95)))
-(metta_head  &amp;self .tv 
- ((Implication 
-   (frog $X) 
-   (green $X)) 
-  (stv 0.9 1.0)))
-(metta_atom  &amp;self 
- (.tv 
-  (Implication 
-   (frog $X) 
-   (green $X)) 
-  (stv 0.9 1.0)))
-%; Tests
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (TV 
-    (croaks Fritz)) 
-   (stv 0.95 0.85))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((stv 0.95 0.85) 
-   (TV 
-    (croaks Fritz))) 
-  ((stv 0.95 0.85))))
-</span><span class="ansi33"> % 'False'
-
-</span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (TV 
-    (frog Fritz)) 
-   (stv 0.783 0.68))))./MeTTa: line 29: 704466 Killed                  bash -c "${BCMD}"
+Script done on 2023-09-22 21:42:48-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

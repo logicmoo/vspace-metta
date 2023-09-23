@@ -14,90 +14,208 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Nondeterminism in matching and interpretation
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (color) green)
-(= (color) yellow)
-(= (color) red)
+Script started on 2023-09-22 21:43:44-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Nondeterminism in matching and interpretation
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (color) green)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (color) green))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (color) yellow)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (color) yellow))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (color) red)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (color) red))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; In `a1_symbols` we saw that `match` can return multiple or no results
 ; The same is true for equality queries
 ; `superpose` turns a tuple into a non-deterministic result (for comparison here)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (match &amp;self (= (color) $x) $x)
-  (superpose (green yellow red)))
+<span class="ansi38-000068000">! (assertEqual 
+    (match &amp;self 
+      (= 
+        (color) $X) $X) 
+    (superpose 
+      (green yellow red)))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      (green yellow red) 
+      (green yellow red)))
+</span><span class="ansi33"> % 'True'
 
-
-
-
-
-;!(assertEqual (match &amp;self (= (color) $x) $x) (color))
-
-
+</span>;!(assertEqual (match &amp;self (= (color) $x) $x) (color))
 ;!(assertEqual (collapse (color)) (red yellow green))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `collapse` converts a nondeterministic result into a tuple
 ; We don''t use it above, because the order of non-deterministic results
 ; is not guaranteed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">! (assertEqual 
+    (collapse 
+      (match &amp;self 
+        (= 
+          (shape) $X) $X)) ())
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  () 
+      (())))
+</span><span class="ansi33"> % 'False'
 
-!(assertEqual (collapse (match &amp;self (= (shape) $x) $x)) ())
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Multiple results from equality queries
 ; are also returned by the interpreter
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (color)
-  (superpose (red yellow green)))
+<span class="ansi38-000068000">! (assertEqual 
+    (color) 
+    (superpose 
+      (red yellow green)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (color)) 
+      (red yellow green)))
+</span><span class="ansi33"> % 'False'
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `superpose` reverts `collapse`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `let` is used to introduce temporary variable bindings within an expression
-!(assertEqual
-  (color)
-  (let $x (collapse (color)) (superpose $x)))
+<span class="ansi38-000068000">! (assertEqual 
+    (color) 
+    (let $X 
+      (collapse 
+        (color)) 
+      (superpose $X)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (color)) 
+      (color)))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; In contrast to `match`, if the equality query returns an empty result
 ; the interpreter doesn''t reduce a symbolic expression
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (collapse (shape))
-  ((shape)))
-!(assertEqualToResult
-   (shape)
-  ((shape)))
+<span class="ansi38-000068000">! (assertEqual 
+    (collapse 
+      (shape)) 
+    ( (shape)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (shape)) 
+      ( ( (shape)))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span><span class="ansi38-000068000">! (assertEqualToResult 
+    (shape) 
+    ( (shape)))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (shape)) 
+      ( (shape))))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; If the expression is composed over nondeterministic
 ; expressions, all combinations will be produced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (bin) A)
-(= (bin) B)
-(= (pair $x $y) ($x $y))
-!(assertEqualToResult
-  (pair (bin) (bin))
-  ((A A) (A B) (B A) (B B)))
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (bin) A)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (bin) A))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (bin) B)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (bin) B))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (pair $X $Y) 
+    ($X $Y))
+</span><span class="ansi38-000068000">! (assertEqualToResult 
+    (pair 
+      (bin) 
+      (bin)) 
+    ( (A A) 
+      (A B) 
+      (B A) 
+      (B B)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( ( (bin) 
+          (bin)) 
+        (pair 
+          (bin) 
+          (bin))) 
+      ( (A A) 
+        (A B) 
+        (B A) 
+        (B B))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; For the ordinary symbolic expression, if its subexpressions
 ; are nondeterministic, and no reduction rule is available
@@ -106,653 +224,209 @@
 ; but without reduction. However, `match` can be called
 ; directly to filter out non-reducible results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (foo) red)
-(= (foo) boo)
-(= (eq $x $x) T)
-(= (find-equal $x $y)
-   (match &amp;self (= (eq $x $y) T) $x))
-!(assertEqual
-  (find-equal (color) (foo))
-  red)
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (foo) red)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (foo) red))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (foo) boo)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (foo) boo))<span class="ansi38-255165000">
+  (metta_atom  &amp;self 
+    (eq $X $X))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (find-equal $X $Y) 
+    (match &amp;self 
+      (eq $X $Y) $X))
+  (metta_defn  &amp;self 
+    (find-equal $_194762 $_194958) 
+    (match &amp;self 
+      (eq $_194762 $_194958) $_194762))  ; 10 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span><span class="ansi38-000068000">! (assertEqual 
+    (find-equal 
+      (color) 
+      (foo)) red)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (find-equal 
+          (color) 
+          (foo))) 
+      (red)))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; One can pass nondeterministic expressions to an ordinary
 ; function and get multiple results.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(= (rev $x $y) ($y $x))
-!(assertEqualToResult
-  (rev A (superpose (B C D)))
-  ((B A) (C A) (D A)))
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (rev $X $Y) 
+    ($Y $X))
+  (metta_defn  &amp;self 
+    (rev $_238302 $_238468) 
+    ($_238468 $_238302))  ; 11 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span><span class="ansi38-000068000">! (assertEqualToResult 
+    (rev A 
+      (superpose 
+        (B C D))) 
+    ( (B A) 
+      (C A) 
+      (D A)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (B A) 
+        (rev A B) 
+        (C A) 
+        (rev A C) 
+        (D A) 
+        (rev A D)) 
+      ( (B A) 
+        (C A) 
+        (D A))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Extended example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some rules
-(= (ift T $then) $then)
-(= (And T T) T)
-(= (make $x) (ift (makes $y $x) (start $y)))
-(= (make $x) (ift (And (prevents (making $y) (making $x))
-                       (makes $z $y)) (stop $z)))
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (ift True $Then) $Then)
+  (metta_defn  &amp;self 
+    (ift True $_286776) $_286776)  ; 12 
 
-; Add facts to knowledge base
-(= (prevents (making (air dry)) (making (air wet))) T)
-(= (prevents (making (air wet)) (making (air dry))) T)
-(= (makes humidifier (air wet)) T)
-(= (makes kettle (air wet)) T)
-(= (makes ventilation (air dry)) T)
-(= (is (air dry)) (make (air wet)))
-(= (is (air wet)) (make (air dry)))
-
-; the results are not sequential in sense that their order is arbitrary
-!(assertEqual
-  (is (air dry))
-  (superpose ((stop ventilation) (start kettle) (start humidifier))))
-!(assertEqual
-  (is (air wet))
-  (superpose ((stop kettle) (stop humidifier) (start ventilation))))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/b4_nondeterm.metta -- -- --args examples/compat/test_scripts/b4_nondeterm.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/b4_nondeterm.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; Nondeterminism in matching and interpretation
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self color ())
-(metta_defn  &amp;self 
- (color) green)
-(unknown_do_metta  &amp;self load 
- (= 
-  (color) green))
-(metta_head  &amp;self color ())
-(metta_defn  &amp;self 
- (color) yellow)
-(unknown_do_metta  &amp;self load 
- (= 
-  (color) yellow))
-(metta_head  &amp;self color ())
-(metta_defn  &amp;self 
- (color) red)
-(unknown_do_metta  &amp;self load 
- (= 
-  (color) red))
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; In `a1_symbols` we saw that `match` can return multiple or no results
-%; The same is true for equality queries
-%; `superpose` turns a tuple into a non-deterministic result (for comparison here)
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (match &amp;self 
+</span>  (unknown_do_metta  &amp;self load 
     (= 
-     (color) $X) $X) 
-   (superpose 
-    (green yellow red)))))<span class="ansi36">
+      (ift True $Then) $Then))
+  (unknown_do_metta  &amp;self load True)
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (make $X) 
+    (ift 
+      (makes $Y $X) 
+      (start $Y)))
+  (metta_defn  &amp;self 
+    (make $_303344) 
+    (ift 
+      (makes $_303542 $_303344) 
+      (start $_303542)))  ; 13 
 
-(loonit_success  
- (=@=  
-  (green yellow red) 
-  (green yellow red)))
-</span><span class="ansi33"> % 'True'
-
-</span>%;!(assertEqual (match &amp;self (= (color) $x) $x) (color))
-%;!(assertEqual (collapse (color)) (red yellow green))
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; `collapse` converts a nondeterministic result into a tuple
-%; We don''t use it above, because the order of non-deterministic results
-%; is not guaranteed
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (collapse 
-    (match &amp;self 
-     (= 
-      (shape) $X) $X)) ())))<span class="ansi31">
-
-(loonit_failure  
- (=@=  () 
-  (())))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Multiple results from equality queries
-%; are also returned by the interpreter
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (color) 
-   (superpose 
-    (red yellow green)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((color)) 
-  (red yellow green)))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; `superpose` reverts `collapse`
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; `let` is used to introduce temporary variable bindings within an expression
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (color) 
-   (let $X 
-    (collapse 
-     (color)) 
-    (superpose $X)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((color)) 
-  (color)))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; In contrast to `match`, if the equality query returns an empty result
-%; the interpreter doesn''t reduce a symbolic expression
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (collapse 
-    (shape)) 
-   ((shape)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((shape)) 
-  (((shape)))))
-</span><span class="ansi33"> % 'False'
-
-</span>
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (shape) 
-   ((shape)))))<span class="ansi36">
-
-(loonit_success  
- (=@=  
-  ((shape)) 
-  ((shape))))
-</span><span class="ansi33"> % 'True'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; If the expression is composed over nondeterministic
-%; expressions, all combinations will be produced
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self bin ())
-(metta_defn  &amp;self 
- (bin) A)
-(unknown_do_metta  &amp;self load 
- (= 
-  (bin) A))
-(metta_head  &amp;self bin ())
-(metta_defn  &amp;self 
- (bin) B)
-(unknown_do_metta  &amp;self load 
- (= 
-  (bin) B))
-(metta_head  &amp;self pair 
- ($X $Y))
-(metta_defn  &amp;self 
- (pair $X $Y) 
- ($X $Y))
-(metta_body  &amp;self $X 
- ($Y))
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (pair 
-    (bin) 
-    (bin)) 
-   ((A A) 
-    (A B) 
-    (B A) 
-    (B B)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  (((bin) 
-    (bin)) 
-   (pair 
-    (bin) 
-    (bin))) 
-  ((A A) 
-   (A B) 
-   (B A) 
-   (B B))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; For the ordinary symbolic expression, if its subexpressions
-%; are nondeterministic, and no reduction rule is available
-%; for some combinations of their values, the whole expression
-%; for these values will appear in the set of final results,
-%; but without reduction. However, `match` can be called
-%; directly to filter out non-reducible results
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self foo ())
-(metta_defn  &amp;self 
- (foo) red)
-(unknown_do_metta  &amp;self load 
- (= 
-  (foo) red))
-(metta_head  &amp;self foo ())
-(metta_defn  &amp;self 
- (foo) boo)
-(unknown_do_metta  &amp;self load 
- (= 
-  (foo) boo))
-(metta_head  &amp;self eq 
- ($X $X))
-(metta_atom  &amp;self 
- (eq $X $X))
-(metta_head  &amp;self find-equal 
- ($X $Y))
-(metta_defn  &amp;self 
- (find-equal $X $Y) 
- (match &amp;self 
-  (eq $X $Y) $X))
-(metta_body  &amp;self match 
- (&amp;self 
-  (eq $X $Y) $X))
-(:-  
- (metta_eval  
-  (assertEqual 
-   (find-equal 
-    (color) 
-    (foo)) red)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((find-equal 
-    (color) 
-    (foo))) 
-  (red)))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; One can pass nondeterministic expressions to an ordinary
-%; function and get multiple results.
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_head  &amp;self rev 
- ($X $Y))
-(metta_defn  &amp;self 
- (rev $X $Y) 
- ($Y $X))
-(metta_body  &amp;self $Y 
- ($X))
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (rev A 
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (make $X) 
+    (ift 
+      (And 
+        (prevents 
+          (making $Y) 
+          (making $X)) 
+        (makes $Z $Y)) 
+      (stop $Z)))
+</span>; Add facts to knowledge base
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (prevents 
+      (making 
+        (air dry)) 
+      (making 
+        (air wet))))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (prevents 
+      (making 
+        (air wet)) 
+      (making 
+        (air dry))))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (makes humidifier 
+      (air wet)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (makes kettle 
+      (air wet)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (makes ventilation 
+      (air dry)))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (is 
+      (air dry)) 
+    (make 
+      (air wet)))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (is 
+      (air wet)) 
+    (make 
+      (air dry)))
+</span>; the results are not sequential in sense that their order is arbitrary
+<span class="ansi38-000068000">! (assertEqual 
+    (is 
+      (air dry)) 
     (superpose 
-     (B C D))) 
-   ((B A) 
-    (C A) 
-    (D A)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((B A) 
-   (rev A B) 
-   (C A) 
-   (rev A C) 
-   (D A) 
-   (rev A D)) 
-  ((B A) 
-   (C A) 
-   (D A))))
+      ( (stop ventilation) 
+        (start kettle) 
+        (start humidifier))))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (ift 
+          (makes $_94794 
+            (air wet)) 
+          (start $_94794)) 
+        (ift 
+          (And 
+            (prevents 
+              (making $_94692) 
+              (making 
+                (air wet))) 
+            (makes $_94740 $_94692)) 
+          (stop $_94740)) 
+        (make 
+          (air wet)) 
+        (is 
+          (air dry))) 
+      ( (stop ventilation) 
+        (start kettle) 
+        (start humidifier))))
 </span><span class="ansi33"> % 'False'
 
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Extended example
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Some rules
-
-(metta_head  &amp;self ift 
- (True $Then))
-(metta_defn  &amp;self 
- (ift True $Then) $Then)
-(unknown_do_metta  &amp;self load 
- (= 
-  (ift True $Then) $Then))
-(unknown_do_metta  &amp;self load True)
-(metta_head  &amp;self make 
- ($X))
-(metta_defn  &amp;self 
- (make $X) 
- (ift 
-  (makes $Y $X) 
-  (start $Y)))
-(metta_body  &amp;self ift 
- ((makes $Y $X) 
-  (start $Y)))
-(metta_head  &amp;self make 
- ($X))
-(metta_defn  &amp;self 
- (make $X) 
- (ift 
-  (And 
-   (prevents 
-    (making $Y) 
-    (making $X)) 
-   (makes $Z $Y)) 
-  (stop $Z)))
-(metta_body  &amp;self ift 
- ((And 
-   (prevents 
-    (making $Y) 
-    (making $X)) 
-   (makes $Z $Y)) 
-  (stop $Z)))
-%; Add facts to knowledge base
-
-(metta_head  &amp;self prevents 
- ((making 
-   (air dry)) 
-  (making 
-   (air wet))))
-(metta_atom  &amp;self 
- (prevents 
-  (making 
-   (air dry)) 
-  (making 
-   (air wet))))
-(metta_head  &amp;self prevents 
- ((making 
-   (air wet)) 
-  (making 
-   (air dry))))
-(metta_atom  &amp;self 
- (prevents 
-  (making 
-   (air wet)) 
-  (making 
-   (air dry))))
-(metta_head  &amp;self makes 
- (humidifier 
-  (air wet)))
-(metta_atom  &amp;self 
- (makes humidifier 
-  (air wet)))
-(metta_head  &amp;self makes 
- (kettle 
-  (air wet)))
-(metta_atom  &amp;self 
- (makes kettle 
-  (air wet)))
-(metta_head  &amp;self makes 
- (ventilation 
-  (air dry)))
-(metta_atom  &amp;self 
- (makes ventilation 
-  (air dry)))
-(metta_head  &amp;self is 
- ((air dry)))
-(metta_defn  &amp;self 
- (is 
-  (air dry)) 
- (make 
-  (air wet)))
-(metta_body  &amp;self make 
- ((air wet)))
-(metta_head  &amp;self is 
- ((air wet)))
-(metta_defn  &amp;self 
- (is 
-  (air wet)) 
- (make 
-  (air dry)))
-(metta_body  &amp;self make 
- ((air dry)))
-%; the results are not sequential in sense that their order is arbitrary
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (is 
-    (air dry)) 
-   (superpose 
-    ((stop ventilation) 
-     (start kettle) 
-     (start humidifier))))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((ift 
-    (makes $_361434 
-     (air wet)) 
-    (start $_361434)) 
-   (ift 
-    (humidifier) 
-    (start humidifier)) 
-   (ift 
-    (kettle) 
-    (start kettle)) 
-   (ift 
-    (And 
-     (prevents 
-      (making $_361248) 
-      (making 
-       (air wet))) 
-     (makes $_361296 $_361248)) 
-    (stop $_361296)) 
-   (ift 
-    (And 
-     ((air dry)) 
-     (ventilation)) 
-    (stop ventilation)) 
-   (ift 
-    (And 
-     ((air dry)) 
-     (makes $_361092 
-      (air dry))) 
-    (stop $_361092)) 
-   (ift 
-    (And 
-     (prevents 
-      (making 
-       (air wet)) 
-      (making 
-       (air wet))) 
-     (humidifier 
-      (air wet))) 
-    (stop humidifier)) 
-   (ift 
-    (And 
-     (prevents 
-      (making 
-       (air wet)) 
-      (making 
-       (air wet))) 
-     (kettle 
-      (air wet))) 
-    (stop kettle)) 
-   (ift 
-    (And 
-     (prevents 
-      (making 
-       (air dry)) 
-      (making 
-       (air wet))) 
-     (ventilation 
-      (air dry))) 
-    (stop ventilation)) 
-   (ift 
-    (And True 
-     (ventilation 
-      (air dry))) 
-    (stop ventilation)) 
-   (make 
-    (air wet)) 
-   (is 
-    (air dry))) 
-  ((stop ventilation) 
-   (start kettle) 
-   (start humidifier))))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (is 
+      (air wet)) 
+    (superpose 
+      ( (stop kettle) 
+        (stop humidifier) 
+        (start ventilation))))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (ift 
+          (makes $_344526 
+            (air dry)) 
+          (start $_344526)) 
+        (ift 
+          (And 
+            (prevents 
+              (making $_344424) 
+              (making 
+                (air dry))) 
+            (makes $_344472 $_344424)) 
+          (stop $_344472)) 
+        (make 
+          (air dry)) 
+        (is 
+          (air wet))) 
+      ( (stop kettle) 
+        (stop humidifier) 
+        (start ventilation))))
 </span><span class="ansi33"> % 'False'
 
-</span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (is 
-    (air wet)) 
-   (superpose 
-    ((stop kettle) 
-     (stop humidifier) 
-     (start ventilation))))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((ift 
-    (makes $_272260 
-     (air dry)) 
-    (start $_272260)) 
-   (ift 
-    (ventilation) 
-    (start ventilation)) 
-   (ift 
-    (And 
-     (prevents 
-      (making $_272116) 
-      (making 
-       (air dry))) 
-     (makes $_272164 $_272116)) 
-    (stop $_272164)) 
-   (ift 
-    (And 
-     ((air wet)) 
-     (humidifier)) 
-    (stop humidifier)) 
-   (ift 
-    (And 
-     ((air wet)) 
-     (kettle)) 
-    (stop kettle)) 
-   (ift 
-    (And 
-     ((air wet)) 
-     (makes $_271882 
-      (air wet))) 
-    (stop $_271882)) 
-   (ift 
-    (And 
-     (prevents 
-      (making 
-       (air wet)) 
-      (making 
-       (air dry))) 
-     (humidifier 
-      (air wet))) 
-    (stop humidifier)) 
-   (ift 
-    (And True 
-     (humidifier 
-      (air wet))) 
-    (stop humidifier)) 
-   (ift 
-    (And 
-     (prevents 
-      (making 
-       (air wet)) 
-      (making 
-       (air dry))) 
-     (kettle 
-      (air wet))) 
-    (stop kettle)) 
-   (ift 
-    (And True 
-     (kettle 
-      (air wet))) 
-    (stop kettle)) 
-   (ift 
-    (And 
-     (prevents 
-      (making 
-       (air dry)) 
-      (making 
-       (air dry))) 
-     (ventilation 
-      (air dry))) 
-    (stop ventilation)) 
-   (make 
-    (air dry)) 
-   (is 
-    (air wet))) 
-  ((stop kettle) 
-   (stop humidifier) 
-   (start ventilation))))
-</span><span class="ansi33"> % 'False'
-
-</span><span class="ansi32">% 99,608,688 inferences, 11.863 CPU in 11.862 seconds (100% CPU, 8396353 Lips)
-</span> 
-(=  "examples/compat/test_scripts/b4_nondeterm.metta" 0)
+</span><span class="ansi32">% 675,082 inferences, 0.343 CPU in 0.344 seconds (100% CPU, 1965331 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta" 21)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2
 </span><span class="ansi31">Failures: 9
 </span>
+Script done on 2023-09-22 21:43:47-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

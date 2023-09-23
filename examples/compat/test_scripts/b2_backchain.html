@@ -13,31 +13,84 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; `match` can be used inside equalities, which is typically
-; used for querying and reasoning over declarative knowledge
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Fact
-(Frog Sam)
-(= (frog $x) (match &amp;self (Frog $x) T))
-; `(Frog Sam)` is not reduced; it is just a declaration
-!(assertEqualToResult
-   (Frog Sam)
-  ((Frog Sam)))
-; `frog` uses this declaration
-!(assertEqual
-  (frog Sam)
-  T)
-!(assertEqualToResult
-  (frog Fritz)
-  ())
+Script started on 2023-09-22 21:43:39-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; `match` can be used inside equalities, which is typically
+;; used for querying and reasoning over declarative knowledge
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Fact
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (Frog Sam))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (frog $X) 
+    (Frog $X))
+</span>; `(Frog Sam)` is not reduced; it is just a declaration
+<span class="ansi38-000068000">! (assertEqualToResult 
+    (Frog Sam) 
+    ( (Frog Sam)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      (True) 
+      ( (Frog Sam))))
+</span><span class="ansi33"> % 'False'
+
+</span>; `frog` uses this declaration
+<span class="ansi38-000068000">! (assertEqual 
+    (frog Sam) True)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      (True 
+        (frog Sam)) 
+      (True)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi38-000068000">! (assertEqualToResult 
+    (frog Fritz) ())
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (Frog Fritz) 
+        (frog Fritz)) ()))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; The result of matching is also chained
 ; Example from OpenCog Classic wiki on PLN Backward Chaining
@@ -45,645 +98,201 @@
 ; to avoid mixing them up with symbols from common lib)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts in the knowledge base
-(Evaluation (philosopher Plato))
-(Evaluation (likes-to-wrestle Plato))
-
-; An implication rule
-(Implication
-   (And (Evaluation (philosopher $x))
-        (Evaluation (likes-to-wrestle $x)))
-   (Evaluation (human $x)))
-
-; Another implication rule
-(Implication
-   (Evaluation (human $x))
-   (Evaluation (mortal $x)))
-
-; Deduction case when the desired evaluation is present in
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (Evaluation 
+      (philosopher Plato)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (Evaluation 
+      (likes-to-wrestle Plato)))
+</span>; An implication rule
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (Implication 
+      (And 
+        (Evaluation 
+          (philosopher $X)) 
+        (Evaluation 
+          (likes-to-wrestle $X))) 
+      (Evaluation 
+        (human $X))))
+</span>; Another implication rule
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (Implication 
+      (Evaluation 
+        (human $X)) 
+      (Evaluation 
+        (mortal $X))))
+</span>; Deduction case when the desired evaluation is present in
 ; the knowledge base
-(= (deduce (Evaluation ($P $x)))
-   (match &amp;self (Evaluation ($P $x)) T))
-
-; Deduction case when the desired evaluation is the result
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (deduce 
+      (Evaluation 
+        ($P $X))) 
+    (Evaluation 
+      ($P $X)))
+</span>; Deduction case when the desired evaluation is the result
 ; of an implication, which implies a recursion
-(= (deduce (Evaluation ($P $x)))
-   (match &amp;self
-     (Implication $a (Evaluation ($P $x)))
-     (deduce $a)))
-
-; Deduction case for generic "And" expressions;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (deduce 
+      (Evaluation 
+        ($P $X))) 
+    (match &amp;self 
+      (Implication $A 
+        (Evaluation 
+          ($P $X))) 
+      (deduce $A)))
+</span>; Deduction case for generic "And" expressions;
 ; also recursive
-(= (deduce (And $a $b))
-   (And (deduce $a) (deduce $b)))
-
-; True &amp; True = True
-(= (And T T) T)
-
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (deduce 
+      (And $A $B)) 
+    (And 
+      (deduce $A) 
+      (deduce $B)))
+</span>; True &amp; True = True
+  (unknown_do_metta  &amp;self load True)
 ; Test deduction that Plato is mortal
-!(assertEqual
-  (deduce (Evaluation (mortal Plato)))
-  T)
+<span class="ansi38-000068000">! (assertEqual 
+    (deduce 
+      (Evaluation 
+        (mortal Plato))) True)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (Evaluation 
+          (mortal Plato)) 
+        (Evaluation 
+          (human Plato)) 
+        (And 
+          (deduce 
+            (Evaluation 
+              (philosopher Plato))) 
+          (deduce 
+            (Evaluation 
+              (likes-to-wrestle Plato)))) 
+        (deduce 
+          (And 
+            (Evaluation 
+              (philosopher Plato)) 
+            (Evaluation 
+              (likes-to-wrestle Plato)))) 
+        (deduce 
+          (Evaluation 
+            (human Plato))) 
+        (deduce 
+          (Evaluation 
+            (mortal Plato)))) 
+      (True)))
+</span><span class="ansi33"> % 'False'
 
-; TODO : Some variables are not substituted
-(= (ift T $then) $then)
-(ift (deduce (Evaluation (mortal $x))) $x)
+</span>; TODO : Some variables are not substituted
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (ift True $Then) $Then)
+  (metta_defn  &amp;self 
+    (ift True $_415606) $_415606)  ; 10 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (ift True $Then) $Then))
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (ift 
+      (deduce 
+        (Evaluation 
+          (mortal $X))) $X))
+  (metta_atom  &amp;self 
+    (ift 
+      (deduce 
+        (Evaluation 
+          (mortal $_430200))) $_430200))  ; 11 
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example of backchaining
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definition of explain when the desired Evaluation is
 ; in the knowledge base
-(= (explain (Evaluation ($P $x)))
-   (match &amp;self (Evaluation ($P $x)) ($P $x)))
-
-; Definition of explain when the desired Evaluation is
-; the result of an implication
-(= (explain (Evaluation ($P $x)))
-   (match &amp;self
-     (Implication $a (Evaluation ($P $x)))
-     (($P $x) proven by (explain $a))))
-
-; Definition of explain for And
-(= (explain (And $a $b))
-   (And (explain $a) (explain $b)))
-
-; Example of explain why Plato is mortal
-!(assertEqual
-  (explain (Evaluation (mortal Plato)))
-  ((mortal Plato)
-    proven by ((human Plato)
-      proven by (And
-        (philosopher Plato)
-        (likes-to-wrestle Plato)))))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/b2_backchain.metta -- -- --args examples/compat/test_scripts/b2_backchain.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/b2_backchain.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; `match` can be used inside equalities, which is typically
-%;; used for querying and reasoning over declarative knowledge
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; Fact
-
-(metta_head  &amp;self Frog 
- (Sam))
-(metta_atom  &amp;self 
- (Frog Sam))
-(metta_head  &amp;self frog 
- ($X))
-(metta_defn  &amp;self 
- (frog $X) 
- (Frog $X))
-(metta_body  &amp;self Frog 
- ($X))
-%; `(Frog Sam)` is not reduced; it is just a declaration
-
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (Frog Sam) 
-   ((Frog Sam)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  (True 
-   (Frog Sam)) 
-  ((Frog Sam))))
-</span><span class="ansi33"> % 'False'
-
-</span>%; `frog` uses this declaration
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (frog Sam) True)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  (True 
-   (Frog Sam) 
-   (frog Sam)) 
-  (True)))
-</span><span class="ansi33"> % 'False'
-
-</span>
-(:-  
- (metta_eval  
-  (assertEqualToResult 
-   (frog Fritz) ())))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((Frog Fritz) 
-   (frog Fritz)) ()))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; The result of matching is also chained
-%; Example from OpenCog Classic wiki on PLN Backward Chaining
-%; `And` and `T` are custom symbols (they are used here
-%; to avoid mixing them up with symbols from common lib)
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Some facts in the knowledge base
-
-(metta_head  &amp;self Evaluation 
- ((philosopher Plato)))
-(metta_atom  &amp;self 
- (Evaluation 
-  (philosopher Plato)))
-(metta_head  &amp;self Evaluation 
- ((likes-to-wrestle Plato)))
-(metta_atom  &amp;self 
- (Evaluation 
-  (likes-to-wrestle Plato)))
-%; An implication rule
-
-(metta_head  &amp;self Implication 
- ((And 
-   (Evaluation 
-    (philosopher $X)) 
-   (Evaluation 
-    (likes-to-wrestle $X))) 
-  (Evaluation 
-   (human $X))))
-(metta_atom  &amp;self 
- (Implication 
-  (And 
-   (Evaluation 
-    (philosopher $X)) 
-   (Evaluation 
-    (likes-to-wrestle $X))) 
-  (Evaluation 
-   (human $X))))
-%; Another implication rule
-
-(metta_head  &amp;self Implication 
- ((Evaluation 
-   (human $X)) 
-  (Evaluation 
-   (mortal $X))))
-(metta_atom  &amp;self 
- (Implication 
-  (Evaluation 
-   (human $X)) 
-  (Evaluation 
-   (mortal $X))))
-%; Deduction case when the desired evaluation is present in
-%; the knowledge base
-
-(metta_head  &amp;self deduce 
- ((Evaluation 
-   ($P $X))))
-(metta_defn  &amp;self 
- (deduce 
-  (Evaluation 
-   ($P $X))) 
- (Evaluation 
-  ($P $X)))
-(metta_body  &amp;self Evaluation 
- (($P $X)))
-%; Deduction case when the desired evaluation is the result
-%; of an implication, which implies a recursion
-
-(metta_head  &amp;self deduce 
- ((Evaluation 
-   ($P $X))))
-(metta_defn  &amp;self 
- (deduce 
-  (Evaluation 
-   ($P $X))) 
- (match &amp;self 
-  (Implication $A 
-   (Evaluation 
-    ($P $X))) 
-  (deduce $A)))
-(metta_body  &amp;self match 
- (&amp;self 
-  (Implication $A 
-   (Evaluation 
-    ($P $X))) 
-  (deduce $A)))
-%; Deduction case for generic "And" expressions;
-%; also recursive
-
-(metta_head  &amp;self deduce 
- ((And $A $B)))
-(metta_defn  &amp;self 
- (deduce 
-  (And $A $B)) 
- (And 
-  (deduce $A) 
-  (deduce $B)))
-(metta_body  &amp;self And 
- ((deduce $A) 
-  (deduce $B)))
-%; True &amp; True = True
-
-(unknown_do_metta  &amp;self load True)
-%; Test deduction that Plato is mortal
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (deduce 
-    (Evaluation 
-     (mortal Plato))) True)))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((Evaluation 
-    (mortal Plato)) 
-   (Evaluation 
-    (human Plato)) 
-   (And 
-    (deduce 
-     (Evaluation 
-      (philosopher Plato))) 
-    (deduce 
-     (Evaluation 
-      (likes-to-wrestle Plato)))) 
-   (And 
-    (Evaluation 
-     (philosopher Plato)) 
-    (Evaluation 
-     (likes-to-wrestle Plato))) 
-   (And True True) 
-   (And True 
-    (Evaluation 
-     (likes-to-wrestle Plato))) 
-   (And 
-    (Evaluation 
-     (philosopher Plato)) True) 
-   (And 
-    (Evaluation 
-     (philosopher Plato)) 
-    (deduce 
-     (Evaluation 
-      (likes-to-wrestle Plato)))) 
-   (And True 
-    (deduce 
-     (Evaluation 
-      (likes-to-wrestle Plato)))) 
-   (And True 
-    (deduce True)) 
-   (And 
-    (Evaluation 
-     (philosopher Plato)) 
-    (deduce True)) 
-   (And 
-    (deduce 
-     (Evaluation 
-      (philosopher Plato))) 
-    (Evaluation 
-     (likes-to-wrestle Plato))) 
-   (And 
-    (deduce 
-     (Evaluation 
-      (philosopher Plato))) True) 
-   (And 
-    (deduce True) True) 
-   (And 
-    (deduce True) 
-    (Evaluation 
-     (likes-to-wrestle Plato))) 
-   (And 
-    (deduce 
-     (Evaluation 
-      (philosopher Plato))) 
-    (deduce True)) 
-   (And 
-    (deduce True) 
-    (deduce True)) 
-   (And 
-    (deduce True) 
-    (deduce 
-     (Evaluation 
-      (likes-to-wrestle Plato)))) 
-   (deduce 
-    (And 
-     (Evaluation 
-      (philosopher Plato)) 
-     (Evaluation 
-      (likes-to-wrestle Plato)))) 
-   (deduce 
-    (And True True)) 
-   (deduce 
-    (And True 
-     (Evaluation 
-      (likes-to-wrestle Plato)))) 
-   (deduce 
-    (And 
-     (Evaluation 
-      (philosopher Plato)) True)) 
-   (deduce 
-    (Evaluation 
-     (human Plato))) 
-   (deduce 
-    (Evaluation 
-     (mortal Plato)))) 
-  (True)))
-</span><span class="ansi33"> % 'False'
-
-</span>%; TODO : Some variables are not substituted
-
-(metta_head  &amp;self ift 
- (True $Then))
-(metta_defn  &amp;self 
- (ift True $Then) $Then)
-(unknown_do_metta  &amp;self load 
- (= 
-  (ift True $Then) $Then))
-(metta_head  &amp;self ift 
- ((deduce 
-   (Evaluation 
-    (mortal $X))) $X))
-(metta_atom  &amp;self 
- (ift 
-  (deduce 
-   (Evaluation 
-    (mortal $X))) $X))
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Another example of backchaining
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Definition of explain when the desired Evaluation is
-%; in the knowledge base
-
-(metta_head  &amp;self explain 
- ((Evaluation 
-   ($P $X))))
-(metta_defn  &amp;self 
- (explain 
-  (Evaluation 
-   ($P $X))) 
- (match &amp;self 
-  (Evaluation 
-   ($P $X)) 
-  ($P $X)))
-(metta_body  &amp;self match 
- (&amp;self 
-  (Evaluation 
-   ($P $X)) 
-  ($P $X)))
-%; Definition of explain when the desired Evaluation is
-%; the result of an implication
-
-(metta_head  &amp;self explain 
- ((Evaluation 
-   ($P $X))))
-(metta_defn  &amp;self 
- (explain 
-  (Evaluation 
-   ($P $X))) 
- (match &amp;self 
-  (Implication $A 
-   (Evaluation 
-    ($P $X))) 
-  (($P $X) proven by 
-   (explain $A))))
-(metta_body  &amp;self match 
- (&amp;self 
-  (Implication $A 
-   (Evaluation 
-    ($P $X))) 
-  (($P $X) proven by 
-   (explain $A))))
-%; Definition of explain for And
-
-(metta_head  &amp;self explain 
- ((And $A $B)))
-(metta_defn  &amp;self 
- (explain 
-  (And $A $B)) 
- (And 
-  (explain $A) 
-  (explain $B)))
-(metta_body  &amp;self And 
- ((explain $A) 
-  (explain $B)))
-%; Example of explain why Plato is mortal
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (explain 
-    (Evaluation 
-     (mortal Plato))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (philosopher Plato) 
-      (likes-to-wrestle Plato)))))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  (((mortal Plato) proven by 
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
     (explain 
-     (Evaluation 
-      (human Plato)))) 
-   ((mortal Plato) proven by 
+      (Evaluation 
+        ($P $X))) 
     (match &amp;self 
-     (Evaluation 
-      (human Plato)) 
-     (human Plato))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (explain 
-      (And 
-       (Evaluation 
-        (philosopher Plato)) 
-       (Evaluation 
-        (likes-to-wrestle Plato)))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain 
-       (Evaluation 
-        (philosopher Plato))) 
-      (explain 
-       (Evaluation 
-        (likes-to-wrestle Plato)))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (match &amp;self 
-       (Evaluation 
-        (philosopher Plato)) 
-       (philosopher Plato)) 
-      (match &amp;self 
-       (Evaluation 
-        (likes-to-wrestle Plato)) 
-       (likes-to-wrestle Plato))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (match &amp;self 
-       (Evaluation 
-        (philosopher Plato)) 
-       (philosopher Plato)) 
-      (explain 
-       (Evaluation 
-        (likes-to-wrestle Plato)))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain 
-       (Evaluation 
-        (philosopher Plato))) 
-      (match &amp;self 
-       (Evaluation 
-        (likes-to-wrestle Plato)) 
-       (likes-to-wrestle Plato))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (philosopher Plato) 
-      (likes-to-wrestle Plato)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (philosopher Plato) 
-      (match &amp;self 
-       (Evaluation 
-        (likes-to-wrestle Plato)) 
-       (likes-to-wrestle Plato))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (philosopher Plato) 
-      (explain 
-       (Evaluation 
-        (likes-to-wrestle Plato)))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (match &amp;self 
-       (Evaluation 
-        (philosopher Plato)) 
-       (philosopher Plato)) 
-      (likes-to-wrestle Plato)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain 
-       (Evaluation 
-        (philosopher Plato))) 
-      (likes-to-wrestle Plato)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain True) 
-      (explain True)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (explain 
-      (And True True)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain True) 
-      (explain 
-       (Evaluation 
-        (likes-to-wrestle Plato)))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain True) 
-      (match &amp;self 
-       (Evaluation 
-        (likes-to-wrestle Plato)) 
-       (likes-to-wrestle Plato))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain True) 
-      (likes-to-wrestle Plato)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (explain 
-      (And True 
-       (Evaluation 
-        (likes-to-wrestle Plato)))))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (explain 
-       (Evaluation 
-        (philosopher Plato))) 
-      (explain True)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (match &amp;self 
-       (Evaluation 
-        (philosopher Plato)) 
-       (philosopher Plato)) 
-      (explain True)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (philosopher Plato) 
-      (explain True)))) 
-   ((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (explain 
-      (And 
-       (Evaluation 
-        (philosopher Plato)) True)))) 
-   (explain 
-    (Evaluation 
-     (mortal Plato)))) 
-  (((mortal Plato) proven by 
-    ((human Plato) proven by 
-     (And 
-      (philosopher Plato) 
-      (likes-to-wrestle Plato)))))))
+      (Evaluation 
+        ($P $X)) 
+      ($P $X)))
+  (metta_defn  &amp;self 
+    (explain 
+      (Evaluation 
+        ($_443834 $_444102))) 
+    (match &amp;self 
+      (Evaluation 
+        ($_443834 $_444102)) 
+      ($_443834 $_444102)))  ; 12 
+
+</span>; Definition of explain when the desired Evaluation is
+; the result of an implication
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (explain 
+      (Evaluation 
+        ($P $X))) 
+    (match &amp;self 
+      (Implication $A 
+        (Evaluation 
+          ($P $X))) 
+      ( ($P $X) proven by 
+        (explain $A))))
+  (metta_defn  &amp;self 
+    (explain 
+      (Evaluation 
+        ($_459424 $_459806))) 
+    (match &amp;self 
+      (Implication $_460096 
+        (Evaluation 
+          ($_459424 $_459806))) 
+      ( ($_459424 $_459806) proven by 
+        (explain $_460096))))  ; 13 
+
+</span>; Definition of explain for And
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (explain 
+      (And $A $B)) 
+    (And 
+      (explain $A) 
+      (explain $B)))
+</span>; Example of explain why Plato is mortal
+<span class="ansi38-000068000">! (assertEqual 
+    (explain 
+      (Evaluation 
+        (mortal Plato))) 
+    ( (mortal Plato) proven by 
+      ( (human Plato) proven by 
+        (And 
+          (philosopher Plato) 
+          (likes-to-wrestle Plato)))))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( ( (mortal Plato) proven by 
+          (explain 
+            (Evaluation 
+              (human Plato)))) 
+        (explain 
+          (Evaluation 
+            (mortal Plato)))) 
+      ( ( (mortal Plato) proven by 
+          ( (human Plato) proven by 
+            (And 
+              (philosopher Plato) 
+              (likes-to-wrestle Plato)))))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 333,355,861 inferences, 38.754 CPU in 38.749 seconds (100% CPU, 8601803 Lips)
-</span> 
-(=  "examples/compat/test_scripts/b2_backchain.metta" 0)
+</span><span class="ansi32">% 1,146,426 inferences, 0.231 CPU in 0.231 seconds (100% CPU, 4953056 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 14)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 5
 </span>
+Script done on 2023-09-22 21:43:42-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

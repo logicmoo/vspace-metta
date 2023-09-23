@@ -13,164 +13,117 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
-.ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(import! &amp;self f1_moduleC.metta)
+Script started on 2023-09-22 21:43:23-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">! (import! &amp;self f1_moduleC.metta)
+</span>  (track_load_into_file  f1_moduleC.metta)
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
-!(assertEqual (+ 1 2) 3)
-; !(assertEqual (if True "S" "F") "S")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_type  &amp;self __g 
+    (-&gt; Number))
+</span>  (metta_arity  &amp;self __g 1)
+  (metta_params  &amp;self __g 
+    (Number))
+  (metta_last  &amp;self __g Number)<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (__g) 100)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (__g) 100))<span class="ansi38-255165000">
+  (metta_type  &amp;self g 
+    (-&gt; Number Numer))
+</span>  (metta_arity  &amp;self g 2)
+  (metta_params  &amp;self g 
+    (Number Numer))
+  (metta_last  &amp;self g Numer)
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (g $X) 
+    (+ $X 
+      (__g)))
+  (metta_defn  &amp;self 
+    (g $_189644) 
+    (+ $_189644 
+      (__g)))  ; 10 
 
-(= (dup $x) (if (== $x 0) (+ $x 10) (g $x)))
-
-(: f (-&gt; Number Number))
-(= (f $x) (if (&lt; $x 0) (- 0 $x) (g (+ 1 $x))))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/f1_moduleA.metta -- -- --args examples/compat/test_scripts/f1_moduleA.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/f1_moduleA.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; Example file used by f1_imports.metta
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (import! &amp;self f1_moduleC.metta)))
- 
-(track_load_into_file  f1_moduleC.metta)
-%; FIXME? stdlib space is not available at importing time -
-%; only tokens / grounded operations work, while symbolic functions
-%; (like `if`) don''t work.
-%; FIXME? Exceptions are not caught by `importOp`
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; Example file used by f1_imports.metta
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_arity  &amp;self __g 1)
-(metta_params  &amp;self __g 
- (Number))
-(metta_last  &amp;self __g Number)
-(metta_head  &amp;self __g ())
-(metta_defn  &amp;self 
- (__g) 100)
-(unknown_do_metta  &amp;self load 
- (= 
-  (__g) 100))
-(metta_arity  &amp;self g 2)
-(metta_params  &amp;self g 
- (Number Numer))
-(metta_last  &amp;self g Numer)
-(metta_head  &amp;self g 
- ($X))
-(metta_defn  &amp;self 
- (g $X) 
- (+ $X 
-  (__g)))
-(metta_body  &amp;self + 
- ($X 
-  (__g)))<span class="ansi32">
-% 20,312 inferences, 0.003 CPU in 0.004 seconds (92% CPU, 6010179 Lips)
-</span> 
-(=  f1_moduleC.metta 0)
+</span><span class="ansi32">% 22,165 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6378050 Lips)
+</span>  (=  f1_moduleC.metta 10)
 <span class="ansi33"> % '&amp;self'
 
-</span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (+ 1 2) 3)))<span class="ansi36">
+</span><span class="ansi38-000068000">! (assertEqual 
+    (+ 1 2) 3)
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (+ 1 2)) 
+      (3)))
+</span><span class="ansi33"> % 'False'
 
-(loonit_success  
- (=@=  
-  (3) 
-  (3)))
-</span><span class="ansi33"> % 'True'
-
-</span>%; !(assertEqual (if True "S" "F") "S")
-
-(metta_head  &amp;self dup 
- ($X))
-(metta_defn  &amp;self 
- (dup $X) 
- (if 
-  (== $X 0) 
-  (+ $X 10) 
-  (g $X)))
-(metta_body  &amp;self if 
- ((== $X 0) 
-  (+ $X 10) 
-  (g $X)))
-(metta_arity  &amp;self f 2)
-(metta_params  &amp;self f 
- (Number Number))
-(metta_last  &amp;self f Number)
-(metta_head  &amp;self f 
- ($X))
-(metta_defn  &amp;self 
- (f $X) 
- (if 
-  (&lt; $X 0) 
-  (- 0 $X) 
-  (g 
-   (+ 1 $X))))
-(metta_body  &amp;self if 
- ((&lt; $X 0) 
-  (- 0 $X) 
-  (g 
-   (+ 1 $X))))<span class="ansi32">
-% 63,196 inferences, 0.013 CPU in 0.013 seconds (93% CPU, 5036983 Lips)
-</span> 
-(=  "examples/compat/test_scripts/f1_moduleA.metta" 0)
+</span>; !(assertEqual (if True "S" "F") "S")
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (dup $X) 
+    (if 
+      (== $X 0) 
+      (+ $X 10) 
+      (g $X)))
+</span><span class="ansi38-255165000">  (metta_type  &amp;self f 
+    (-&gt; Number Number))
+</span>  (metta_arity  &amp;self f 2)
+  (metta_params  &amp;self f 
+    (Number Number))
+  (metta_last  &amp;self f Number)<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (f $X) 
+    (if 
+      (&lt; $X 0) 
+      (- 0 $X) 
+      (g 
+        (+ 1 $X))))
+</span><span class="ansi32">% 62,837 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5392068 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta" 6)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 0
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 1
 </span>
+Script done on 2023-09-22 21:43:25-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

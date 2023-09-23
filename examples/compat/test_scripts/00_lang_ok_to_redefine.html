@@ -12,672 +12,329 @@
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-
-
-;`$then`, `$else` should be of `Atom` type to avoid evaluation
-; and infinite cycle in inference
-(: if (-&gt; Bool Atom Atom $t))
-(= (if True $then $else) $then)
-(= (if False $then $else) $else)
-
-(: Error (-&gt; Atom Atom ErrorType))
-
-(= (if-non-empty-expression $atom $then $else)
-  (chain (eval (get-metatype $atom)) $type
-    (eval (if-equal $type Expression
-      (eval (if-equal $atom () $else $then))
-      $else ))))
-
-(= (if-decons $atom $head $tail $then $else)
-  (eval (if-non-empty-expression $atom
-    (chain (decons $atom) $list
-      (match $list ($head $tail) $then $else) )
-    $else )))
-
-(= (if-empty $atom $then $else)
-  (eval (if-equal $atom Empty $then $else)))
-
-(= (if-error $atom $then $else)
-  (eval (if-decons $atom $head $_
-    (eval (if-equal $head Error $then $else))
-    $else )))
-
-(= (return-on-error $atom $then)
-  (eval (if-empty $atom Empty
-    (eval (if-error $atom $atom
-      $then )))))
-
-(= (car $atom)
-  (eval (if-decons $atom $head $_
-    $head
-    (Error (car $atom) "car expects a non-empty expression as an argument") )))
-
-(= (switch $atom $cases)
-  (chain (decons $cases) $list (eval (switch-internal $atom $list))))
-
-(= (switch-internal $atom (($pattern $template) $tail))
-  (match $atom $pattern $template (eval (switch $atom $tail))))
-
-(= (subst $atom $var $templ)
-  (match $atom $var $templ
-    (Error (subst $atom $var $templ)
-      "subst expects a variable as a second argument") ))
-
-(= (reduce $atom $var $templ)
-  (chain (eval $atom) $res
-    (eval (if-error $res $res
-      (eval (if-empty $res
-        (eval (subst $atom $var $templ))
-        (eval (reduce $res $var $templ)) ))))))
-
-(= (type-cast $atom $type $space)
-  (chain (eval (get-type $atom $space)) $actual-type
-    (eval (switch ($actual-type $type)
-      (
-        ((%Undefined% $_) $atom)
-        (($_ %Undefined%) $atom)
-        (($type $_) $atom)
-        ($_ (Error $atom BadType)) )))))
-
-(= (is-function $type)
-  (chain (eval (get-metatype $type)) $meta
-    (eval (switch ($type $meta)
-      (
-        (($_ Expression)
-          (chain (eval (car $type)) $head
-            (match $head -&gt; True False) ))
-        ($_ False) )))))
-
-(= (interpret $atom $type $space)
-  (chain (eval (get-metatype $atom)) $meta
-    (eval (switch ($type $meta)
-      (
-        ((Atom $_meta) $atom)
-        (($meta $meta) $atom)
-        (($_type Variable) $atom)
-
-        (($_type Symbol) (eval (type-cast $atom $type $space)))
-        (($_type Grounded) (eval (type-cast $atom $type $space)))
-        (($_type Expression) (eval (interpret-expression $atom $type $space))) )))))
-
-(= (interpret-expression $atom $type $space)
-  (eval (if-decons $atom $op $args
-    (chain (eval (get-type $op $space)) $op-type
-      (chain (eval (is-function $op-type)) $is-func
-        (match $is-func True
-          (chain (eval (interpret-func $atom $op-type $space)) $reduced-atom
-            (eval (call $reduced-atom $type $space)) )
-          (chain (eval (interpret-tuple $atom $space)) $reduced-atom
-            (eval (call $reduced-atom $type $space)) ))))
-    (eval (type-cast $atom $type $space)) )))
-
-(= (interpret-func $expr $type $space)
-  (eval (if-decons $expr $op $args
-    (chain (eval (interpret $op $type $space)) $reduced-op
-      (eval (return-on-error $reduced-op
-        (eval (if-decons $type $arrow $arg-types
-          (chain (eval (interpret-args $expr $args $arg-types $space)) $reduced-args
-            (eval (return-on-error $reduced-args
-              (cons $reduced-op $reduced-args) )))
-          (Error $type "Function type expected") )))))
-    (Error $expr "Non-empty expression atom is expected") )))
-
-(= (interpret-args $atom $args $arg-types $space)
-  (match $args ()
-    (match $arg-types ($ret) () (Error $atom BadType))
-    (eval (if-decons $args $head $tail
-      (eval (if-decons $arg-types $head-type $tail-types
-        (chain (eval (interpret $head $head-type $space)) $reduced-head
-          ; check that head was changed otherwise Error or Empty in the head
-          ; can be just an argument which is passed by intention
-          (eval (if-equal $reduced-head $head
-            (eval (interpret-args-tail $atom $reduced-head $tail $tail-types $space))
-            (eval (return-on-error $reduced-head
-              (eval (interpret-args-tail $atom $reduced-head $tail $tail-types $space)) )))))
-        (Error $atom BadType) ))
-      (Error (interpret-atom $atom $args $arg-types $space)
-        "Non-empty expression atom is expected") ))))
-
-(= (interpret-args-tail $atom $head $args-tail $args-tail-types $space)
-  (chain (eval (interpret-args $atom $args-tail $args-tail-types $space)) $reduced-tail
-    (eval (return-on-error $reduced-tail
-      (cons $head $reduced-tail) ))))
-
-(= (interpret-tuple $atom $space)
-  (match $atom ()
-    $atom
-    (eval (if-decons $atom $head $tail
-      (chain (eval (interpret $head %Undefined% $space)) $rhead
-        (chain (eval (interpret-tuple $tail $space)) $rtail
-          (cons $rhead $rtail) ))
-      (Error (interpret-tuple $atom $space) "Non-empty expression atom is expected as an argument") ))))
-
-(= (call $atom $type $space)
-  (chain (eval $atom) $result
-    (eval (if-empty $result $atom
-      (eval (if-error $result $result
-        (eval (interpret $result $type $space)) ))))))
-
-
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/00_lang_ok_to_redefine.metta -- -- --args examples/compat/test_scripts/00_lang_ok_to_redefine.metta
+Script started on 2023-09-22 21:42:53-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/00_lang_ok_to_redefine.metta")
-%;`$then`, `$else` should be of `Atom` type to avoid evaluation
-%; and infinite cycle in inference
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
-(metta_arity  &amp;self if 4)
-(metta_params  &amp;self if 
- (Bool Atom Atom $T))
-(metta_last  &amp;self if T)
-(metta_head  &amp;self if 
- (True $Then $Else))
-(metta_defn  &amp;self 
- (if True $Then $Else) $Then)
-(unknown_do_metta  &amp;self load 
- (= 
-  (if True $Then $Else) $Then))
-(metta_head  &amp;self if 
- (False $Then $Else))
-(metta_defn  &amp;self 
- (if False $Then $Else) $Else)
-(unknown_do_metta  &amp;self load 
- (= 
-  (if False $Then $Else) $Else))
-(metta_arity  &amp;self Error 3)
-(metta_params  &amp;self Error 
- (Atom Atom ErrorType))
-(metta_last  &amp;self Error ErrorType)
-(metta_head  &amp;self if-non-empty-expression 
- ($Atom $Then $Else))
-(metta_defn  &amp;self 
- (if-non-empty-expression $Atom $Then $Else) 
- (chain 
-  (eval 
-   (get-metatype $Atom)) $Type 
-  (eval 
-   (if-equal $Type Expression 
-    (eval 
-     (if-equal $Atom () $Else $Then)) $Else))))
-(metta_body  &amp;self chain 
- ((eval 
-   (get-metatype $Atom)) $Type 
-  (eval 
-   (if-equal $Type Expression 
-    (eval 
-     (if-equal $Atom () $Else $Then)) $Else))))
-(metta_head  &amp;self if-decons 
- ($Atom $Head $Tail $Then $Else))
-(metta_defn  &amp;self 
- (if-decons $Atom $Head $Tail $Then $Else) 
- (eval 
-  (if-non-empty-expression $Atom 
-   (chain 
-    (decons $Atom) $List 
-    (match $List 
-     ($Head $Tail) $Then $Else)) $Else)))
-(metta_body  &amp;self eval 
- ((if-non-empty-expression $Atom 
-   (chain 
-    (decons $Atom) $List 
-    (match $List 
-     ($Head $Tail) $Then $Else)) $Else)))
-(metta_head  &amp;self if-empty 
- ($Atom $Then $Else))
-(metta_defn  &amp;self 
- (if-empty $Atom $Then $Else) 
- (eval 
-  (if-equal $Atom Empty $Then $Else)))
-(metta_body  &amp;self eval 
- ((if-equal $Atom Empty $Then $Else)))
-(metta_head  &amp;self if-error 
- ($Atom $Then $Else))
-(metta_defn  &amp;self 
- (if-error $Atom $Then $Else) 
- (eval 
-  (if-decons $Atom $Head $_ 
-   (eval 
-    (if-equal $Head Error $Then $Else)) $Else)))
-(metta_body  &amp;self eval 
- ((if-decons $Atom $Head $_ 
-   (eval 
-    (if-equal $Head Error $Then $Else)) $Else)))
-(metta_head  &amp;self return-on-error 
- ($Atom $Then))
-(metta_defn  &amp;self 
- (return-on-error $Atom $Then) 
- (eval 
-  (if-empty $Atom Empty 
-   (eval 
-    (if-error $Atom $Atom $Then)))))
-(metta_body  &amp;self eval 
- ((if-empty $Atom Empty 
-   (eval 
-    (if-error $Atom $Atom $Then)))))
-(metta_head  &amp;self car 
- ($Atom))
-(metta_defn  &amp;self 
- (car $Atom) 
- (eval 
-  (if-decons $Atom $Head $_ $Head 
-   (Error 
-    (car $Atom) 
-    ($STRING  "car expects a non-empty expression as an argument")))))
-(metta_body  &amp;self eval 
- ((if-decons $Atom $Head $_ $Head 
-   (Error 
-    (car $Atom) 
-    ($STRING  "car expects a non-empty expression as an argument")))))
-(metta_head  &amp;self switch 
- ($Atom $Cases))
-(metta_defn  &amp;self 
- (switch $Atom $Cases) 
- (chain 
-  (decons $Cases) $List 
-  (eval 
-   (switch-internal $Atom $List))))
-(metta_body  &amp;self chain 
- ((decons $Cases) $List 
-  (eval 
-   (switch-internal $Atom $List))))
-(metta_head  &amp;self switch-internal 
- ($Atom 
-  (($Pattern $Template) $Tail)))
-(metta_defn  &amp;self 
- (switch-internal $Atom 
-  (($Pattern $Template) $Tail)) 
- (match $Atom $Pattern $Template 
-  (eval 
-   (switch $Atom $Tail))))
-(metta_body  &amp;self match 
- ($Atom $Pattern $Template 
-  (eval 
-   (switch $Atom $Tail))))
-(metta_head  &amp;self subst 
- ($Atom $Var $Templ))
-(metta_defn  &amp;self 
- (subst $Atom $Var $Templ) 
- (match $Atom $Var $Templ 
-  (Error 
-   (subst $Atom $Var $Templ) 
-   ($STRING  "subst expects a variable as a second argument"))))
-(metta_body  &amp;self match 
- ($Atom $Var $Templ 
-  (Error 
-   (subst $Atom $Var $Templ) 
-   ($STRING  "subst expects a variable as a second argument"))))
-(metta_head  &amp;self reduce 
- ($Atom $Var $Templ))
-(metta_defn  &amp;self 
- (reduce $Atom $Var $Templ) 
- (chain 
-  (eval $Atom) $Res 
-  (eval 
-   (if-error $Res $Res 
-    (eval 
-     (if-empty $Res 
-      (eval 
-       (subst $Atom $Var $Templ)) 
-      (eval 
-       (reduce $Res $Var $Templ))))))))
-(metta_body  &amp;self chain 
- ((eval $Atom) $Res 
-  (eval 
-   (if-error $Res $Res 
-    (eval 
-     (if-empty $Res 
-      (eval 
-       (subst $Atom $Var $Templ)) 
-      (eval 
-       (reduce $Res $Var $Templ))))))))
-(metta_head  &amp;self type-cast 
- ($Atom $Type $Space))
-(metta_defn  &amp;self 
- (type-cast $Atom $Type $Space) 
- (chain 
-  (eval 
-   (get-type $Atom $Space)) $Actual_type 
-  (eval 
-   (switch 
-    ($Actual_type $Type) 
-    (((%Undefined% $_) $Atom) 
-     (($_ %Undefined%) $Atom) 
-     (($Type $_) $Atom) 
-     ($_ 
-      (Error $Atom BadType)))))))
-(metta_body  &amp;self chain 
- ((eval 
-   (get-type $Atom $Space)) $Actual_type 
-  (eval 
-   (switch 
-    ($Actual_type $Type) 
-    (((%Undefined% $_) $Atom) 
-     (($_ %Undefined%) $Atom) 
-     (($Type $_) $Atom) 
-     ($_ 
-      (Error $Atom BadType)))))))
-(metta_head  &amp;self is-function 
- ($Type))
-(metta_defn  &amp;self 
- (is-function $Type) 
- (chain 
-  (eval 
-   (get-metatype $Type)) $Meta 
-  (eval 
-   (switch 
-    ($Type $Meta) 
-    ((($_ Expression) 
-      (chain 
-       (eval 
-        (car $Type)) $Head 
-       (match $Head -&gt; True False))) 
-     ($_ False))))))
-(metta_body  &amp;self chain 
- ((eval 
-   (get-metatype $Type)) $Meta 
-  (eval 
-   (switch 
-    ($Type $Meta) 
-    ((($_ Expression) 
-      (chain 
-       (eval 
-        (car $Type)) $Head 
-       (match $Head -&gt; True False))) 
-     ($_ False))))))
-(metta_head  &amp;self interpret 
- ($Atom $Type $Space))
-(metta_defn  &amp;self 
- (interpret $Atom $Type $Space) 
- (chain 
-  (eval 
-   (get-metatype $Atom)) $Meta 
-  (eval 
-   (switch 
-    ($Type $Meta) 
-    (((Atom $_meta) $Atom) 
-     (($Meta $Meta) $Atom) 
-     (($_type Variable) $Atom) 
-     (($_type Symbol) 
-      (eval 
-       (type-cast $Atom $Type $Space))) 
-     (($_type Grounded) 
-      (eval 
-       (type-cast $Atom $Type $Space))) 
-     (($_type Expression) 
-      (eval 
-       (interpret-expression $Atom $Type $Space))))))))
-(metta_body  &amp;self chain 
- ((eval 
-   (get-metatype $Atom)) $Meta 
-  (eval 
-   (switch 
-    ($Type $Meta) 
-    (((Atom $_meta) $Atom) 
-     (($Meta $Meta) $Atom) 
-     (($_type Variable) $Atom) 
-     (($_type Symbol) 
-      (eval 
-       (type-cast $Atom $Type $Space))) 
-     (($_type Grounded) 
-      (eval 
-       (type-cast $Atom $Type $Space))) 
-     (($_type Expression) 
-      (eval 
-       (interpret-expression $Atom $Type $Space))))))))
-(metta_head  &amp;self interpret-expression 
- ($Atom $Type $Space))
-(metta_defn  &amp;self 
- (interpret-expression $Atom $Type $Space) 
- (eval 
-  (if-decons $Atom $Op $Args 
-   (chain 
-    (eval 
-     (get-type $Op $Space)) $Op_type 
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta")
+;`$then`, `$else` should be of `Atom` type to avoid evaluation
+; and infinite cycle in inference
+<span class="ansi38-255165000">  (metta_type  &amp;self if 
+    (-&gt; Bool Atom Atom $T))
+</span>  (metta_arity  &amp;self if 4)
+  (metta_params  &amp;self if 
+    (Bool Atom Atom $T))
+  (metta_last  &amp;self if T)<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (if True $Then $Else) $Then)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (if True $Then $Else) $Then))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (if False $Then $Else) $Else)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (if False $Then $Else) $Else))<span class="ansi38-255165000">
+  (metta_type  &amp;self Error 
+    (-&gt; Atom Atom ErrorType))
+</span>  (metta_arity  &amp;self Error 3)
+  (metta_params  &amp;self Error 
+    (Atom Atom ErrorType))
+  (metta_last  &amp;self Error ErrorType)
+  (metta_last  &amp;self Error ErrorType)  ; 10 
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (if-non-empty-expression $Atom $Then $Else) 
     (chain 
-     (eval 
-      (is-function $Op_type)) $Is_func 
-     (match $Is_func True 
-      (chain 
-       (eval 
-        (interpret-func $Atom $Op_type $Space)) $Reduced_atom 
-       (eval 
-        (call $Reduced_atom $Type $Space))) 
-      (chain 
-       (eval 
-        (interpret-tuple $Atom $Space)) $Reduced_atom 
-       (eval 
-        (call $Reduced_atom $Type $Space)))))) 
-   (eval 
-    (type-cast $Atom $Type $Space)))))
-(metta_body  &amp;self eval 
- ((if-decons $Atom $Op $Args 
-   (chain 
-    (eval 
-     (get-type $Op $Space)) $Op_type 
+      (eval 
+        (get-metatype $Atom)) $Type 
+      (eval 
+        (if-equal $Type Expression 
+          (eval 
+            (if-equal $Atom () $Else $Then)) $Else))))
+  (metta_defn  &amp;self 
+    (if-non-empty-expression $_383514 $_383956 $_384340) 
     (chain 
-     (eval 
-      (is-function $Op_type)) $Is_func 
-     (match $Is_func True 
-      (chain 
-       (eval 
-        (interpret-func $Atom $Op_type $Space)) $Reduced_atom 
-       (eval 
-        (call $Reduced_atom $Type $Space))) 
-      (chain 
-       (eval 
-        (interpret-tuple $Atom $Space)) $Reduced_atom 
-       (eval 
-        (call $Reduced_atom $Type $Space)))))) 
-   (eval 
-    (type-cast $Atom $Type $Space)))))
-(metta_head  &amp;self interpret-func 
- ($Expr $Type $Space))
-(metta_defn  &amp;self 
- (interpret-func $Expr $Type $Space) 
- (eval 
-  (if-decons $Expr $Op $Args 
-   (chain 
-    (eval 
-     (interpret $Op $Type $Space)) $Reduced_op 
-    (eval 
-     (return-on-error $Reduced_op 
       (eval 
-       (if-decons $Type $Arrow $Arg_types 
-        (chain 
-         (eval 
-          (interpret-args $Expr $Args $Arg_types $Space)) $Reduced_args 
-         (eval 
-          (return-on-error $Reduced_args 
-           (cons $Reduced_op $Reduced_args)))) 
-        (Error $Type 
-         ($STRING  "Function type expected"))))))) 
-   (Error $Expr 
-    ($STRING  "Non-empty expression atom is expected")))))
-(metta_body  &amp;self eval 
- ((if-decons $Expr $Op $Args 
-   (chain 
-    (eval 
-     (interpret $Op $Type $Space)) $Reduced_op 
-    (eval 
-     (return-on-error $Reduced_op 
+        (get-metatype $_383514)) $_384632 
       (eval 
-       (if-decons $Type $Arrow $Arg_types 
-        (chain 
-         (eval 
-          (interpret-args $Expr $Args $Arg_types $Space)) $Reduced_args 
-         (eval 
-          (return-on-error $Reduced_args 
-           (cons $Reduced_op $Reduced_args)))) 
-        (Error $Type 
-         ($STRING  "Function type expected"))))))) 
-   (Error $Expr 
-    ($STRING  "Non-empty expression atom is expected")))))
-(metta_head  &amp;self interpret-args 
- ($Atom $Args $Arg_types $Space))
-(metta_defn  &amp;self 
- (interpret-args $Atom $Args $Arg_types $Space) 
- (match $Args () 
-  (match $Arg_types 
-   ($Ret) () 
-   (Error $Atom BadType)) 
-  (eval 
-   (if-decons $Args $Head $Tail 
-    (eval 
-     (if-decons $Arg_types $Head_type $Tail_types 
-      (chain 
-       (eval 
-        (interpret $Head $Head_type $Space)) $Reduced_head 
-       (eval 
-        (if-equal $Reduced_head $Head 
-         (eval 
-          (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space)) 
-         (eval 
-          (return-on-error $Reduced_head 
-           (eval 
-            (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space))))))) 
-      (Error $Atom BadType))) 
-    (Error 
-     (interpret-atom $Atom $Args $Arg_types $Space) 
-     ($STRING  "Non-empty expression atom is expected"))))))
-(metta_body  &amp;self match 
- ($Args () 
-  (match $Arg_types 
-   ($Ret) () 
-   (Error $Atom BadType)) 
-  (eval 
-   (if-decons $Args $Head $Tail 
-    (eval 
-     (if-decons $Arg_types $Head_type $Tail_types 
-      (chain 
-       (eval 
-        (interpret $Head $Head_type $Space)) $Reduced_head 
-       (eval 
-        (if-equal $Reduced_head $Head 
-         (eval 
-          (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space)) 
-         (eval 
-          (return-on-error $Reduced_head 
-           (eval 
-            (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space))))))) 
-      (Error $Atom BadType))) 
-    (Error 
-     (interpret-atom $Atom $Args $Arg_types $Space) 
-     ($STRING  "Non-empty expression atom is expected"))))))
-%; check that head was changed otherwise Error or Empty in the head
-%; can be just an argument which is passed by intention
+        (if-equal $_384632 Expression 
+          (eval 
+            (if-equal $_383514 () $_384340 $_383956)) $_384340))))  ; 11 
 
-(metta_head  &amp;self interpret-args-tail 
- ($Atom $Head $Args_tail $Args_tail_types $Space))
-(metta_defn  &amp;self 
- (interpret-args-tail $Atom $Head $Args_tail $Args_tail_types $Space) 
- (chain 
-  (eval 
-   (interpret-args $Atom $Args_tail $Args_tail_types $Space)) $Reduced_tail 
-  (eval 
-   (return-on-error $Reduced_tail 
-    (cons $Head $Reduced_tail)))))
-(metta_body  &amp;self chain 
- ((eval 
-   (interpret-args $Atom $Args_tail $Args_tail_types $Space)) $Reduced_tail 
-  (eval 
-   (return-on-error $Reduced_tail 
-    (cons $Head $Reduced_tail)))))
-(metta_head  &amp;self interpret-tuple 
- ($Atom $Space))
-(metta_defn  &amp;self 
- (interpret-tuple $Atom $Space) 
- (match $Atom () $Atom 
-  (eval 
-   (if-decons $Atom $Head $Tail 
-    (chain 
-     (eval 
-      (interpret $Head %Undefined% $Space)) $Rhead 
-     (chain 
-      (eval 
-       (interpret-tuple $Tail $Space)) $Rtail 
-      (cons $Rhead $Rtail))) 
-    (Error 
-     (interpret-tuple $Atom $Space) 
-     ($STRING  "Non-empty expression atom is expected as an argument"))))))
-(metta_body  &amp;self match 
- ($Atom () $Atom 
-  (eval 
-   (if-decons $Atom $Head $Tail 
-    (chain 
-     (eval 
-      (interpret $Head %Undefined% $Space)) $Rhead 
-     (chain 
-      (eval 
-       (interpret-tuple $Tail $Space)) $Rtail 
-      (cons $Rhead $Rtail))) 
-    (Error 
-     (interpret-tuple $Atom $Space) 
-     ($STRING  "Non-empty expression atom is expected as an argument"))))))
-(metta_head  &amp;self call 
- ($Atom $Type $Space))
-(metta_defn  &amp;self 
- (call $Atom $Type $Space) 
- (chain 
-  (eval $Atom) $Result 
-  (eval 
-   (if-empty $Result $Atom 
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (if-decons $Atom $Head $Tail $Then $Else) 
     (eval 
-     (if-error $Result $Result 
-      (eval 
-       (interpret $Result $Type $Space))))))))
-(metta_body  &amp;self chain 
- ((eval $Atom) $Result 
-  (eval 
-   (if-empty $Result $Atom 
+      (if-non-empty-expression $Atom 
+        (chain 
+          (decons $Atom) $List 
+          (match $List 
+            ($Head $Tail) $Then $Else)) $Else)))
+  (metta_defn  &amp;self 
+    (if-decons $_431056 $_431612 $_432110 $_432550 $_432932) 
     (eval 
-     (if-error $Result $Result 
+      (if-non-empty-expression $_431056 
+        (chain 
+          (decons $_431056) $_433228 
+          (match $_433228 
+            ($_431612 $_432110) $_432550 $_432932)) $_432932)))  ; 12 
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (if-empty $Atom $Then $Else) 
+    (eval 
+      (if-equal $Atom Empty $Then $Else)))
+  (metta_defn  &amp;self 
+    (if-empty $_468330 $_468592 $_468796) 
+    (eval 
+      (if-equal $_468330 Empty $_468592 $_468796)))  ; 13 
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (if-error $Atom $Then $Else) 
+    (eval 
+      (if-decons $Atom $Head $_ 
+        (eval 
+          (if-equal $Head Error $Then $Else)) $Else)))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (return-on-error $Atom $Then) 
+    (eval 
+      (if-empty $Atom Empty 
+        (eval 
+          (if-error $Atom $Atom $Then)))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (car $Atom) 
+    (eval 
+      (if-decons $Atom $Head $_ $Head 
+        (Error 
+          (car $Atom) 
+          ($STRING  "car expects a non-empty expression as an argument")))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (switch $Atom $Cases) 
+    (chain 
+      (decons $Cases) $List 
       (eval 
-       (interpret $Result $Type $Space))))))))<span class="ansi32">
-% 548,643 inferences, 0.589 CPU in 0.590 seconds (100% CPU, 931540 Lips)
-</span> 
-(=  "examples/compat/test_scripts/00_lang_ok_to_redefine.metta" 0)
+        (switch-internal $Atom $List))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (switch-internal $Atom 
+      ( ($Pattern $Template) $Tail)) 
+    (match $Atom $Pattern $Template 
+      (eval 
+        (switch $Atom $Tail))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (subst $Atom $Var $Templ) 
+    (match $Atom $Var $Templ 
+      (Error 
+        (subst $Atom $Var $Templ) 
+        ($STRING  "subst expects a variable as a second argument"))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (reduce $Atom $Var $Templ) 
+    (chain 
+      (eval $Atom) $Res 
+      (eval 
+        (if-error $Res $Res 
+          (eval 
+            (if-empty $Res 
+              (eval 
+                (subst $Atom $Var $Templ)) 
+              (eval 
+                (reduce $Res $Var $Templ))))))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (type-cast $Atom $Type $Space) 
+    (chain 
+      (eval 
+        (get-type $Atom $Space)) $Actual_type 
+      (eval 
+        (switch 
+          ($Actual_type $Type) 
+          ( ( (%Undefined% $_) $Atom) 
+            ( ($_ %Undefined%) $Atom) 
+            ( ($Type $_) $Atom) 
+            ($_ 
+              (Error $Atom BadType)))))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (is-function $Type) 
+    (chain 
+      (eval 
+        (get-metatype $Type)) $Meta 
+      (eval 
+        (switch 
+          ($Type $Meta) 
+          ( ( ($_ Expression) 
+              (chain 
+                (eval 
+                  (car $Type)) $Head 
+                (match $Head -&gt; True False))) 
+            ($_ False))))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (interpret $Atom $Type $Space) 
+    (chain 
+      (eval 
+        (get-metatype $Atom)) $Meta 
+      (eval 
+        (switch 
+          ($Type $Meta) 
+          ( ( (Atom $_meta) $Atom) 
+            ( ($Meta $Meta) $Atom) 
+            ( ($_type Variable) $Atom) 
+            ( ($_type Symbol) 
+              (eval 
+                (type-cast $Atom $Type $Space))) 
+            ( ($_type Grounded) 
+              (eval 
+                (type-cast $Atom $Type $Space))) 
+            ( ($_type Expression) 
+              (eval 
+                (interpret-expression $Atom $Type $Space))))))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (interpret-expression $Atom $Type $Space) 
+    (eval 
+      (if-decons $Atom $Op $Args 
+        (chain 
+          (eval 
+            (get-type $Op $Space)) $Op_type 
+          (chain 
+            (eval 
+              (is-function $Op_type)) $Is_func 
+            (match $Is_func True 
+              (chain 
+                (eval 
+                  (interpret-func $Atom $Op_type $Space)) $Reduced_atom 
+                (eval 
+                  (call $Reduced_atom $Type $Space))) 
+              (chain 
+                (eval 
+                  (interpret-tuple $Atom $Space)) $Reduced_atom 
+                (eval 
+                  (call $Reduced_atom $Type $Space)))))) 
+        (eval 
+          (type-cast $Atom $Type $Space)))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (interpret-func $Expr $Type $Space) 
+    (eval 
+      (if-decons $Expr $Op $Args 
+        (chain 
+          (eval 
+            (interpret $Op $Type $Space)) $Reduced_op 
+          (eval 
+            (return-on-error $Reduced_op 
+              (eval 
+                (if-decons $Type $Arrow $Arg_types 
+                  (chain 
+                    (eval 
+                      (interpret-args $Expr $Args $Arg_types $Space)) $Reduced_args 
+                    (eval 
+                      (return-on-error $Reduced_args 
+                        (cons $Reduced_op $Reduced_args)))) 
+                  (Error $Type 
+                    ($STRING  "Function type expected"))))))) 
+        (Error $Expr 
+          ($STRING  "Non-empty expression atom is expected")))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (interpret-args $Atom $Args $Arg_types $Space) 
+    (match $Args () 
+      (match $Arg_types 
+        ($Ret) () 
+        (Error $Atom BadType)) 
+      (eval 
+        (if-decons $Args $Head $Tail 
+          (eval 
+            (if-decons $Arg_types $Head_type $Tail_types 
+              (chain 
+                (eval 
+                  (interpret $Head $Head_type $Space)) $Reduced_head 
+                (eval 
+                  (if-equal $Reduced_head $Head 
+                    (eval 
+                      (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space)) 
+                    (eval 
+                      (return-on-error $Reduced_head 
+                        (eval 
+                          (interpret-args-tail $Atom $Reduced_head $Tail $Tail_types $Space))))))) 
+              (Error $Atom BadType))) 
+          (Error 
+            (interpret-atom $Atom $Args $Arg_types $Space) 
+            ($STRING  "Non-empty expression atom is expected"))))))
+</span>; check that head was changed otherwise Error or Empty in the head
+; can be just an argument which is passed by intention
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (interpret-args-tail $Atom $Head $Args_tail $Args_tail_types $Space) 
+    (chain 
+      (eval 
+        (interpret-args $Atom $Args_tail $Args_tail_types $Space)) $Reduced_tail 
+      (eval 
+        (return-on-error $Reduced_tail 
+          (cons $Head $Reduced_tail)))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (interpret-tuple $Atom $Space) 
+    (match $Atom () $Atom 
+      (eval 
+        (if-decons $Atom $Head $Tail 
+          (chain 
+            (eval 
+              (interpret $Head %Undefined% $Space)) $Rhead 
+            (chain 
+              (eval 
+                (interpret-tuple $Tail $Space)) $Rtail 
+              (cons $Rhead $Rtail))) 
+          (Error 
+            (interpret-tuple $Atom $Space) 
+            ($STRING  "Non-empty expression atom is expected as an argument"))))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (call $Atom $Type $Space) 
+    (chain 
+      (eval $Atom) $Result 
+      (eval 
+        (if-empty $Result $Atom 
+          (eval 
+            (if-error $Result $Result 
+              (eval 
+                (interpret $Result $Type $Space))))))))
+</span><span class="ansi32">% 403,721 inferences, 0.591 CPU in 0.591 seconds (100% CPU, 682552 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_ok_to_redefine.metta" 29)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 0
+<span class="ansi33">Nothing to report
 </span>
+Script done on 2023-09-22 21:42:56-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

@@ -13,266 +13,151 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-; This example rewritten with `case` works (as per 19 Oct 22),
-; but it might not be good as a unit test:
-; - what's going on is not obvious
-; - there might be a better way to implement what the code is doing
-; - processing commands with side effect and empty results and
-;   chaining them might not be idiomatic
-; - it's relatively slow (why? FIXME?)
+Script started on 2023-09-22 21:42:29-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
-!(bind! &amp;memory (new-space))
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta")
+;; This example rewritten with `case` works (as per 19 Oct 22),
+;; but it might not be good as a unit test:
+;; - what''s going on is not obvious
+;; - there might be a better way to implement what the code is doing
+;; - processing commands with side effect and empty results and
+;;   chaining them might not be idiomatic
+;; - it''s relatively slow (why? FIXME?)
+<span class="ansi38-000068000">! (bind! &amp;memory 
+    (new-space))
+</span><span class="ansi33"> % ['new-space']
 
-; catching empty results
-(: do (-&gt; Atom %Undefined%))
-(= (do $expr)
-   (case $expr
-     (($x $x)
-      (%void% None))))
-
-; `remove-state` will return an empty result if there is no
+</span>; catching empty results
+<span class="ansi38-255165000">  (metta_type  &amp;self do 
+    (-&gt; Atom %Undefined%))
+</span>  (metta_arity  &amp;self do 2)
+  (metta_params  &amp;self do 
+    (Atom %Undefined%))
+  (metta_last  &amp;self do %Undefined%)<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (do $Expr) 
+    (case $Expr 
+      ( ($X $X) 
+        (%void% None))))
+</span>; `remove-state` will return an empty result if there is no
 ; corresponding state in the memory
-(= (remove-state $var)
-   (match &amp;memory (state $var $y)
-         (call:remove_atom &amp;memory (state $var $y))))
-
-; using `do` assures that the next clause will be executed
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (remove-state $Var) 
+    (match &amp;memory 
+      (state $Var $Y) 
+      (call:remove_atom &amp;memory 
+        (state $Var $Y))))
+</span>; using `do` assures that the next clause will be executed
 ; even if the result of the previous clause is empty
-(= (change-state $var $value)
-   (nop (do (remove-state $var))
-        (do (add-atom &amp;memory (state $var $value)))))
-
-(= (get-state $var)
-   (match &amp;memory (state $var $value) $value))
-
-; Earlier, `(get-state (person name))` got cached, and it changes
-; in one equality for `listen` didn't affect other equalities.
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (change-state $Var $Value) 
+    (nop 
+      (do 
+        (remove-state $Var)) 
+      (do 
+        (add-atom &amp;memory 
+          (state $Var $Value)))))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (get-state $Var) 
+    (match &amp;memory 
+      (state $Var $Value) $Value))
+</span>; Earlier, `(get-state (person name))` got cached, and it changes
+; in one equality for `listen` didn''t affect other equalities.
 ; `case` accepts an `Atom` and forcefully evaluates it.
 ; However, the idea of using equalities as sequentially processed
 ; rules with side effects is still questionable
-(= (listen (My name is $x))
-   (case (get-state (person name))
-       (($x (Yes, I remember))
-        ; $y cannot be %void%
-        ($y (I thought you are $y)))
-   )
-)
-
-(= (listen (My name is $x))
-   (change-state (person name) $x))
-
-(= (listen $_)
-   (case (get-state greeted)
-      ((%void%
-          (case (get-state (person name))
-                ((%void% (Hi. What is your name?))
-                 ($p-name (Nice to meet you $p-name)))))
-      )
-    )
-)
-
-(= (listen $_)
-   (nop (change-state greeted True)))
-
-;!(listen (Hello))
-;!(listen (My name is Alexey))
-;!(listen (My name is Alexey))
-;!(listen (My name is Ben))
-
-;!(call:get_atoms &amp;memory)
-
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/_e2_states_dia.metta -- -- --args examples/compat/test_scripts/_e2_states_dia.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/_e2_states_dia.metta")
-%;; This example rewritten with `case` works (as per 19 Oct 22),
-%;; but it might not be good as a unit test:
-%;; - what's going on is not obvious
-%;; - there might be a better way to implement what the code is doing
-%;; - processing commands with side effect and empty results and
-%;;   chaining them might not be idiomatic
-%;; - it's relatively slow (why? FIXME?)
-
-(:-  
- (metta_eval  
-  (bind! &amp;memory 
-   (new-space))))<span class="ansi33">
- % ['new-space']
-
-</span>%; catching empty results
-
-(metta_arity  &amp;self do 2)
-(metta_params  &amp;self do 
- (Atom %Undefined%))
-(metta_last  &amp;self do %Undefined%)
-(metta_head  &amp;self do 
- ($Expr))
-(metta_defn  &amp;self 
- (do $Expr) 
- (case $Expr 
-  (($X $X) 
-   (%void% None))))
-(metta_body  &amp;self case 
- ($Expr 
-  (($X $X) 
-   (%void% None))))
-%; `remove-state` will return an empty result if there is no
-%; corresponding state in the memory
-
-(metta_head  &amp;self remove-state 
- ($Var))
-(metta_defn  &amp;self 
- (remove-state $Var) 
- (match &amp;memory 
-  (state $Var $Y) 
-  (call:remove_atom &amp;memory 
-   (state $Var $Y))))
-(metta_body  &amp;self match 
- (&amp;memory 
-  (state $Var $Y) 
-  (call:remove_atom &amp;memory 
-   (state $Var $Y))))
-%; using `do` assures that the next clause will be executed
-%; even if the result of the previous clause is empty
-
-(metta_head  &amp;self change-state 
- ($Var $Value))
-(metta_defn  &amp;self 
- (change-state $Var $Value) 
- (nop 
-  (do 
-   (remove-state $Var)) 
-  (do 
-   (add-atom &amp;memory 
-    (state $Var $Value)))))
-(metta_body  &amp;self nop 
- ((do 
-   (remove-state $Var)) 
-  (do 
-   (add-atom &amp;memory 
-    (state $Var $Value)))))
-(metta_head  &amp;self get-state 
- ($Var))
-(metta_defn  &amp;self 
- (get-state $Var) 
- (match &amp;memory 
-  (state $Var $Value) $Value))
-(metta_body  &amp;self match 
- (&amp;memory 
-  (state $Var $Value) $Value))
-%; Earlier, `(get-state (person name))` got cached, and it changes
-%; in one equality for `listen` didn't affect other equalities.
-%; `case` accepts an `Atom` and forcefully evaluates it.
-%; However, the idea of using equalities as sequentially processed
-%; rules with side effects is still questionable
-
-(metta_head  &amp;self listen 
- ((My name is $X)))
-(metta_defn  &amp;self 
- (listen 
-  (My name is $X)) 
- (case 
-  (get-state 
-   (person name)) 
-  (($X 
-    ("Yes," I remember)) 
-   ($Y 
-    (I thought you are $Y)))))
-(metta_body  &amp;self case 
- ((get-state 
-   (person name)) 
-  (($X 
-    ("Yes," I remember)) 
-   ($Y 
-    (I thought you are $Y)))))
-%; $y cannot be %void%
-
-(metta_head  &amp;self listen 
- ((My name is $X)))
-(metta_defn  &amp;self 
- (listen 
-  (My name is $X)) 
- (change-state 
-  (person name) $X))
-(metta_body  &amp;self change-state 
- ((person name) $X))
-(metta_head  &amp;self listen 
- ($_))
-(metta_defn  &amp;self 
- (listen $_) 
- (case 
-  (get-state greeted) 
-  ((%void% 
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (listen 
+      (My name is $X)) 
     (case 
-     (get-state 
-      (person name)) 
-     ((%void% 
-       (Hi. What is your name?)) 
-      ($P_name 
-       (Nice to meet you $P_name))))))))
-(metta_body  &amp;self case 
- ((get-state greeted) 
-  ((%void% 
+      (get-state 
+        (person name)) 
+      ( ($X 
+          ("Yes," I remember)) 
+        ($Y 
+          (I thought you are $Y)))))
+</span>; $y cannot be %void%
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (listen 
+      (My name is $X)) 
+    (change-state 
+      (person name) $X))
+  (metta_defn  &amp;self 
+    (listen 
+      (My name is $_297814)) 
+    (change-state 
+      (person name) $_297814))  ; 10 
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (listen $_) 
     (case 
-     (get-state 
-      (person name)) 
-     ((%void% 
-       (Hi. What is your name?)) 
-      ($P_name 
-       (Nice to meet you $P_name))))))))
-(metta_head  &amp;self listen 
- ($_))
-(metta_defn  &amp;self 
- (listen $_) 
- (nop 
-  (change-state greeted True)))
-(metta_body  &amp;self nop 
- ((change-state greeted True)))<span class="ansi32">
-% 120,885 inferences, 0.057 CPU in 0.058 seconds (99% CPU, 2113260 Lips)
-</span> 
-(=  "examples/compat/test_scripts/_e2_states_dia.metta" 0)
+      (get-state greeted) 
+      ( (%void% 
+          (case 
+            (get-state 
+              (person name)) 
+            ( (%void% 
+                (Hi. What is your name?)) 
+              ($P_name 
+                (Nice to meet you $P_name))))))))
+  (metta_defn  &amp;self 
+    (listen $_314398) 
+    (case 
+      (get-state greeted) 
+      ( (%void% 
+          (case 
+            (get-state 
+              (person name)) 
+            ( (%void% 
+                (Hi. What is your name?)) 
+              ($_314750 
+                (Nice to meet you $_314750))))))))  ; 11 
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (listen $_) 
+    (nop 
+      (change-state greeted True)))
+  (metta_defn  &amp;self 
+    (listen $_322152) 
+    (nop 
+      (change-state greeted True)))  ; 12 
+
+</span><span class="ansi32">% 98,427 inferences, 0.052 CPU in 0.052 seconds (100% CPU, 1900561 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/_e2_states_dia.metta" 12)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 0
+<span class="ansi33">Nothing to report
 </span>
+Script done on 2023-09-22 21:42:31-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

@@ -14,253 +14,142 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
+Script started on 2023-09-22 21:42:58-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ; sorted lists
 ;;;;;;;;;;;;;;;;;;;;;;;;
-(: List (-&gt; $a Type))
-(: Nil (List $a))
-(: Cons (-&gt; $a (List $a) (List $a)))
+<span class="ansi38-255165000">  (metta_type  &amp;self List 
+    (-&gt; $A Type))
+</span>  (metta_arity  &amp;self List 2)
+  (metta_params  &amp;self List 
+    ($A Type))
+  (metta_last  &amp;self List Type)<span class="ansi38-255165000">
+  (metta_type  &amp;self () 
+    (List $A))
+</span>  (metta_arity  &amp;self () 1)
+  (metta_params  &amp;self () 
+    (List $A))
+  (metta_last  &amp;self () A)<span class="ansi38-255165000">
+  (metta_type  &amp;self Cons 
+    (-&gt; $A 
+      (List $A) 
+      (List $A)))
+</span>  (metta_arity  &amp;self Cons 3)
+  (metta_arity  &amp;self Cons 3)  ; 10 
+  (metta_params  &amp;self Cons 
+    ($A 
+      (List $A) 
+      (List $A)))
+  (metta_params  &amp;self Cons 
+    ($_196012 
+      (List $_196012) 
+      (List $_196012)))  ; 11 
+  (metta_last  &amp;self Cons A)
+  (metta_last  &amp;self Cons A)  ; 12 
+<span class="ansi38-255165000">  (metta_type  &amp;self if 
+    (-&gt; bool Any Any Any))
+  (metta_type  &amp;self if 
+    (-&gt; bool Any Any Any))  ; 13 
 
-(: if (-&gt; bool Any Any) Any)
-(= (if true $then $else) $then)
-(= (if false $then $else) $else)
-
-(= (insert $x Nil) (Cons $x Nil))
-(= (insert $x (Cons $head $tail))
-       (if (&lt; $x $head)
-	      (Cons $x (Cons $head $tail))
-	      (Cons $head (insert $x $tail))))
-
-
-!(assertEqual  (Cons 1 Nil)  (Cons 1 Nil))
-
-!(assertEqual  (insert 1 Nil)  (Cons 1 Nil))
-
-!(assertEqual  (insert 3 (insert 2 (insert 1 Nil))) (Cons 1 (Cons 2 (Cons 3 Nil))))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/03-soring-via-insert.metta -- -- --args examples/compat/test_scripts/03-soring-via-insert.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/03-soring-via-insert.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;
-%; sorted lists
-%;;;;;;;;;;;;;;;;;;;;;;;;
-
-(metta_arity  &amp;self List 2)
-(metta_params  &amp;self List 
- ($A Type))
-(metta_last  &amp;self List Type)
-(metta_arity  &amp;self () 1)
-(metta_params  &amp;self () 
- (List $A))
-(metta_last  &amp;self () A)
-(metta_arity  &amp;self Cons 3)
-(metta_params  &amp;self Cons 
- ($A 
-  (List $A) 
-  (List $A)))
-(metta_last  &amp;self Cons A)
-(metta_arity  &amp;self if 4)
-(metta_params  &amp;self if 
- (bool Any Any Any))
-(metta_return  &amp;self if Any)
-(metta_head  &amp;self if 
- (True $Then $Else))
-(metta_defn  &amp;self 
- (if True $Then $Else) $Then)
-(unknown_do_metta  &amp;self load 
- (= 
-  (if True $Then $Else) $Then))
-(metta_head  &amp;self if 
- (false $Then $Else))
-(metta_defn  &amp;self 
- (if false $Then $Else) $Else)
-(unknown_do_metta  &amp;self load 
- (= 
-  (if false $Then $Else) $Else))
-(metta_head  &amp;self insert 
- ($X ()))
-(metta_defn  &amp;self 
- (insert $X ()) 
- ($X))
-(metta_body  &amp;self $X ())
-(metta_head  &amp;self insert 
- ($X 
-  (Cons  $Head $Tail)))
-(metta_defn  &amp;self 
- (insert $X 
-  (Cons  $Head $Tail)) 
- (if 
-  (&lt; $X $Head) 
-  (Cons  $X 
-   (Cons  $Head $Tail)) 
-  ($Head insert $X $Tail)))
-(metta_body  &amp;self if 
- ((&lt; $X $Head) 
-  (Cons  $X 
-   (Cons  $Head $Tail)) 
-  ($Head insert $X $Tail)))
-(:-  
- (metta_eval  
-  (assertEqual 
-   (1) 
-   (1))))<span class="ansi36">
-
-(loonit_success  
- (=@=  
-  ((1)) 
-  ((1))))
+</span>  (metta_arity  &amp;self if 4)
+  (metta_params  &amp;self if 
+    (bool Any Any Any))
+  (metta_return  &amp;self if Any)<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (if True $Then $Else) $Then)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (if True $Then $Else) $Then))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (if false $Then $Else) $Else)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (if false $Then $Else) $Else))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (insert $X ()) 
+    ($X))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (insert $X 
+      (Cons  $Head $Tail)) 
+    (if 
+      (&lt; $X $Head) 
+      (Cons  $X 
+        (Cons  $Head $Tail)) 
+      ($Head insert $X $Tail)))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (1) 
+    (1))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (1)) 
+      ( (1))))
 </span><span class="ansi33"> % 'True'
 
-</span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (insert 1 ()) 
-   (1))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((1) 
-   (insert 1 ())) 
-  ((1))))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (insert 1 ()) 
+    (1))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (1) 
+        (insert 1 ())) 
+      ( (1))))
 </span><span class="ansi33"> % 'False'
 
-</span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (insert 3 
-    (insert 2 
-     (insert 1 ()))) 
-   (1 2 3))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((3 insert 2 
-    (insert 1 ())) 
-   (3 if 
-    (&lt; 2 insert) 
-    (2 insert 1 ()) 
-    (insert insert 2 
-     (1 ()))) 
-   (3 2 insert 1 ()) 
-   (3 2 1) 
-   (3 if 
-    (&lt; 2 1) 
-    (2 1) 
-    (1 insert 2 ())) 
-   (3 1 insert 2 ()) 
-   (3 1 2) 
-   (3 insert 2 
-    (1)) 
-   (insert 3 
-    (insert 2 
-     (insert 1 ()))) 
-   (insert 3 
-    (if 
-     (&lt; 2 insert) 
-     (2 insert 1 ()) 
-     (insert insert 2 
-      (1 ())))) 
-   (2 insert 3 
-    (insert 1 ())) 
-   (2 if 
-    (&lt; 3 insert) 
-    (3 insert 1 ()) 
-    (insert insert 3 
-     (1 ()))) 
-   (2 3 insert 1 ()) 
-   (2 3 1) 
-   (2 if 
-    (&lt; 3 1) 
-    (3 1) 
-    (1 insert 3 ())) 
-   (2 1 insert 3 ()) 
-   (2 1 3) 
-   (2 insert 3 
-    (1)) 
-   (insert 3 
-    (2 insert 1 ())) 
-   (insert 3 
-    (2 1)) 
-   (insert 3 
-    (if 
-     (&lt; 2 1) 
-     (2 1) 
-     (1 insert 2 ()))) 
-   (1 insert 3 
-    (insert 2 ())) 
-   (1 if 
-    (&lt; 3 insert) 
-    (3 insert 2 ()) 
-    (insert insert 3 
-     (2 ()))) 
-   (1 3 insert 2 ()) 
-   (1 3 2) 
-   (1 if 
-    (&lt; 3 2) 
-    (3 2) 
-    (2 insert 3 ())) 
-   (1 2 insert 3 ()) 
-   (1 2 3) 
-   (1 insert 3 
-    (2)) 
-   (insert 3 
-    (1 insert 2 ())) 
-   (insert 3 
-    (1 2)) 
-   (insert 3 
-    (insert 2 
-     (1)))) 
-  ((1 2 3))))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (insert 3 
+      (insert 2 
+        (insert 1 ()))) 
+    (1 2 3))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (3 insert 2 
+          (insert 1 ())) 
+        (insert 3 
+          (insert 2 
+            (insert 1 ())))) 
+      ( (1 2 3))))
 </span><span class="ansi33"> % 'False'
 
-</span><span class="ansi32">% 159,878,697 inferences, 18.007 CPU in 18.005 seconds (100% CPU, 8878683 Lips)
-</span> 
-(=  "examples/compat/test_scripts/03-soring-via-insert.metta" 0)
+</span><span class="ansi32">% 95,253 inferences, 0.021 CPU in 0.021 seconds (100% CPU, 4506756 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta" 20)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 2
 </span>
+Script done on 2023-09-22 21:43:00-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

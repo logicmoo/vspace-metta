@@ -93,6 +93,32 @@ factorial_acc_guard(N, Accumulator, Result) :-
     M is N - 1,
     factorial_acc_guard(M, NewAccumulator, Result).
 
+% Tabling Method
+% Summary: Uses tabling to store intermediate results, avoiding redundant calculations and improving efficiency.
+% Pros: Efficient even for large N due to no recalculations; polynomial time complexity.
+% Cons: Uses additional memory to store the intermediate results; support for tabling is not available in all Prolog implementations.
+:- table factorial_tabled/2.
+factorial_tabled(0, 1) :- !.
+factorial_tabled(N, F) :-
+    N > 0,
+    N1 is N - 1,
+    factorial_tabled(N1, F1),
+    F is N * F1.
+
+% Memoization (Dynamic Programming) Method
+% Summary: Uses memoization to store previously calculated factorials, improving efficiency.
+% Pros: Efficient even for large N due to no recalculations.
+% Cons: Uses additional memory to store the previously calculated factorials.
+:- dynamic was_factorial_memo/2.
+factorial_memo(0, 1) :- !.
+factorial_memo(N, F) :-
+    N > 0,
+    ( was_factorial_memo(N, F) -> true ;
+      N1 is N - 1,
+      factorial_memo(N1, F1),
+      F is N * F1,
+      assertz(was_factorial_memo(N, F)) ).
+
 
 
 % List of all the factorial implementations
@@ -102,26 +128,33 @@ factorials([
     factorial_findall,
     factorial_tail_basic,
     factorial_tail_between,
+    factorial_tabled,
+    factorial_memo,
     factorial_tail_cut,
     factorial_acc_cut,
     factorial_acc_guard
 ]).
 
-% Utility to run and time each factorial implementation
+% Utility to run and time each Factorial implementation
 time_factorials(N) :-
-    factorials(Factorials),
-    member(Fact, Factorials),
-    functor(Goal, Fact, 2),
-    arg(1, Goal, N),
-    statistics(walltime, [Start|_]),
-    call(Goal),
-    statistics(walltime, [End|_]),
-    Time is End - Start,
-    format('~w took ~w ms~n', [Fact, Time]),
-    fail.
-time_factorials(_).
+  retractall(was_factorial_memo(_,_)), % Clear any memoized results
+  factorials(Factorials),
+  member(Fib, Factorials),
+  format('~N~n% =====================================================~n',[]),
+  Goal=..[Fib,N,_],
+  statistics(walltime, [Start|_]),
+  catch(call(Goal),E,format('~N~nError in Goal: ~q ~q ~n',[Goal,E])),
+  statistics(walltime, [End|_]),
+  Time is End - Start,
+  format('~N~n~w(~w) took \t~w ms~n', [Fib, N, Time]),
+  fail.
 
-% Running the utility with an example, N=20.
 
-:- time_factorials(20).
+time_factorials(_):-
+    format('~N~n% =====================================================~n',[]),!.
+
+% Running the utility with an example, N=30.
+:- writeln(':- time_factorials(61111).').
+
+
 

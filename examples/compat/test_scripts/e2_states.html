@@ -14,384 +14,233 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; State atoms
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; `new-state` creates a new state atom wrapping the initial value (A B).
-; Then it binds this state atom to the token `&amp;state-token`,
-; which is replaced by the corresponding atom at parse-time.
-!(bind! &amp;state-token (new-state (A B)))
+Script started on 2023-09-22 21:43:18-07:00 [COMMAND="timeout --foreground --preserve-status 60 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta --repl=false --args --timeout=60 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+<span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:319:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:320:
+Warning:    Singleton variables: [Depth,Self]
+</span><span class="ansi31">Warning: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:321:
+Warning:    Singleton variables: [Depth,Self]
+</span> --python=enable
 
-; &amp;state-token is replaced by the state atom in the code below its creation
-; we wrap it into a function to show that it's not the token that changes, but
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; State atoms
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; `new-state` creates a new state atom wrapping the initial value (A B).
+;; Then it binds this state atom to the token `&amp;state-token`,
+;; which is replaced by the corresponding atom at parse-time.
+<span class="ansi38-000068000">! (bind! &amp;state-token 
+    (new-state 
+      (A B)))
+</span><span class="ansi33"> % ['new-state','A','B']
+
+</span>; &amp;state-token is replaced by the state atom in the code below its creation
+; we wrap it into a function to show that it''s not the token that changes, but
 ; the content of the state atom
-(= (get-token) &amp;state-token)
-
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (get-token) &amp;state-token)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (get-token) &amp;state-token))
 ; `new-state $x` creates a `(State $x)` structure,
 ; and `get-token` will show its content
-!(assertEqual
-   (get-state (get-token))
-   (A B))
+<span class="ansi38-000068000">! (assertEqual 
+    (get-state 
+      (get-token)) 
+    (A B))
+</span>Error: Invalid input.
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (get-state 
+          (get-token))) 
+      ( (A B))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; States can be equal even if they are wrapped into different state atoms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-   (get-token)
-   (new-state (A B)))
+<span class="ansi38-000068000">! (assertEqual 
+    (get-token) 
+    (new-state 
+      (A B)))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (get-token)) 
+      ( (new-state A B))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; State atoms are of StateMonad type
 ; These are inferred types based on new-state and change-state! signatures
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(assertEqual
-  (get-type (new-state 2))
-  (StateMonad Number))
-!(assertEqual
-  (get-type (change-state! (new-state "S") "V"))
-  (StateMonad String))
+<span class="ansi38-000068000">! (assertEqual 
+    (get-type 
+      (new-state 2)) 
+    (StateMonad Number))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  () 
+      ( (StateMonad Number))))
+</span><span class="ansi33"> % 'False'
 
-; These are the types of State grounded atom
-!(assertEqual
-  (let $v (new-state 1) (get-type $v))
-  (StateMonad Number))
-; atm, meta-types for states of non-grounded types are used
-!(assertEqual
-  (get-type &amp;state-token)
-  (StateMonad Expression))
+</span><span class="ansi38-000068000">! (assertEqual 
+    (get-type 
+      (change-state! 
+        (new-state 
+          ($STRING  "S")) 
+        ($STRING  "V"))) 
+    (StateMonad String))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  () 
+      ( (StateMonad String))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>; These are the types of State grounded atom
+<span class="ansi38-000068000">! (assertEqual 
+    (let $V 
+      (new-state 1) 
+      (get-type $V)) 
+    (StateMonad Number))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  () 
+      ( (StateMonad Number))))
+</span><span class="ansi33"> % 'False'
+
+</span>; atm, meta-types for states of non-grounded types are used
+<span class="ansi38-000068000">! (assertEqual 
+    (get-type &amp;state-token) 
+    (StateMonad Expression))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  () 
+      ( (StateMonad Expression))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; State atoms have a defined type based on initial state
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; &amp;state-token was initialized with state of type (A B), so
 ; it cannot be changed to int
-!(assertEqual
-  (change-state! &amp;state-token 1)
-  (Error 1 BadType))
+<span class="ansi38-000068000">! (assertEqual 
+    (change-state! &amp;state-token 1) 
+    (Error 1 BadType))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (change-state! &amp;state-token 1)) 
+      ( (Error 1 BadType))))
+</span><span class="ansi33"> % 'False'
 
-; the new state here is int, so it cannot be changed to string
-!(assertEqual
-  (change-state! (new-state 1) "S")
-  (Error "S" BadType))
+</span>; the new state here is int, so it cannot be changed to string
+<span class="ansi38-000068000">! (assertEqual 
+    (change-state! 
+      (new-state 1) 
+      ($STRING  "S")) 
+    (Error 
+      ($STRING  "S") BadType))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (change-state! 
+          (new-state 1) 
+          ($STRING  "S"))) 
+      ( (Error 
+          ($STRING  "S") BadType))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Changing the content of the state atom
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; (nop ...) provides a way to obtain side-effects of a statement
 ; while ignoring unwanted return values.
-!(nop (change-state! &amp;state-token (C D)))
+<span class="ansi38-000068000">! (nop 
+    (change-state! &amp;state-token 
+      (C D)))
+</span><span class="ansi33"> % []
 
-; The same state atom has different content now
-!(assertEqual
-   (get-state (get-token))
-   (C D))
+</span>; The same state atom has different content now
+<span class="ansi38-000068000">! (assertEqual 
+    (get-state 
+      (get-token)) 
+    (C D))
+</span>Error: Invalid input.
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (get-state 
+          (get-token))) 
+      ( (C D))))
+</span><span class="ansi33"> % 'False'
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; MeTTa provides proper encapsulated state manipulation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; scoping doesn't conflict between let bound variables and state atom types.
-!(assertEqual
-  (let $x (new-state 1)
-     (change-state! $x (+ (get-state $x) 1)))
-  (new-state 2))
+; scoping doesn''t conflict between let bound variables and state atom types.
+<span class="ansi38-000068000">! (assertEqual 
+    (let $X 
+      (new-state 1) 
+      (change-state! $X 
+        (+ 
+          (get-state $X) 1))) 
+    (new-state 2))
+</span><span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (change-state! 
+          (Cons  new-state 1) 
+          (+ 
+            (get-state 
+              (Cons  new-state 1)) 1))) 
+      ( (Cons  new-state 2))))
+</span><span class="ansi33"> % 'False'
 
-; Checking that there is no conflict between variable names in
+</span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
-!(assertEqual
-   (let $tnso (new-state 1) $tnso)
-   (new-state 1))
-
-; FIXME: doesn't work as for 25 May 2023
-; !(get-state (let $x (new-state 1) $x))
-BCMD=export TEE_FILE='/mnt/ffff/metta-vspace/tee.ansi' ; cd /mnt/ffff/metta-vspace ; exec swipl -l metta_vspace/pyswip/metta_interp.pl examples/compat/test_scripts/e2_states.metta -- -- --args examples/compat/test_scripts/e2_states.metta
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-add_history1(list_column_names)
-add_history1(setup_flybase_cols)
-add_history1(pmt)
-add_history1(save_value_symbol_cols)
-add_history1(is_swipl)
-add_history1(mine_args_that_need_reduced)
-add_history1(print_est_sizes)
-add_history1(print_loaded_from_files)
-add_history1(load_flybase_chado)
-add_history1(load_obo_files)
-add_history1(load_flybase_obo_files)
-add_history1(load_fbase_after_17)
-add_history1(load_flybase_files_ftp)
-add_history1(load_flybase_das_11)
-add_history1(load_flybase_files)
-add_history1(load_flybase_dirs)
-add_history1(load_flybase)
-add_history1(recount_total_loaded_symbols)
-add_history1(gc_now)
-add_history1(cleanup_arities)
-add_history1(should_sample)
-add_history1(should_fix_args)
-add_history1(reached_file_max)
-add_history1(should_cache)
-add_history1(try_overlaps)
-add_history1(mine_unif_overlap)
-add_history1(mine_symbolspace_overlaps)
-add_history1(mine_typelevel_overlaps)
-add_history1(mine_overlaps2_slow)
-add_history1(mine_overlaps1)
-add_history1(mine_overlaps)
-add_history1(fb_stats)
- 
-(track_load_into_file  "examples/compat/test_scripts/e2_states.metta")
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; State atoms
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;; `new-state` creates a new state atom wrapping the initial value (A B).
-%;; Then it binds this state atom to the token `&amp;state-token`,
-%;; which is replaced by the corresponding atom at parse-time.
-
-(:-  
- (metta_eval  
-  (bind! &amp;state-token 
-   (new-state 
-    (A B)))))<span class="ansi33">
- % ['new-state',['A','B']]
-
-</span>%; &amp;state-token is replaced by the state atom in the code below its creation
-%; we wrap it into a function to show that it's not the token that changes, but
-%; the content of the state atom
-
-(metta_head  &amp;self get-token ())
-(metta_defn  &amp;self 
- (get-token) &amp;state-token)
-(unknown_do_metta  &amp;self load 
- (= 
-  (get-token) &amp;state-token))
-%; `new-state $x` creates a `(State $x)` structure,
-%; and `get-token` will show its content
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (get-state 
-    (get-token)) 
-   (A B))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((get-state 
-    (get-token))) 
-  ((A B))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; States can be equal even if they are wrapped into different state atoms
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (get-token) 
-   (new-state 
-    (A B)))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((get-token)) 
-  ((new-state 
-    (A B)))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; State atoms are of StateMonad type
-%; These are inferred types based on new-state and change-state! signatures
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (get-type 
-    (new-state 2)) 
-   (StateMonad Number))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  () 
-  ((StateMonad Number))))
-</span><span class="ansi33"> % 'False'
-
-</span>
-(:-  
- (metta_eval  
-  (assertEqual 
-   (get-type 
-    (change-state! 
-     (new-state 
-      ($STRING  "S")) 
-     ($STRING  "V"))) 
-   (StateMonad String))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  () 
-  ((StateMonad String))))
-</span><span class="ansi33"> % 'False'
-
-</span>%; These are the types of State grounded atom
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (let $V 
-    (new-state 1) 
-    (get-type $V)) 
-   (StateMonad Number))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  () 
-  ((StateMonad Number))))
-</span><span class="ansi33"> % 'False'
-
-</span>%; atm, meta-types for states of non-grounded types are used
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (get-type &amp;state-token) 
-   (StateMonad Expression))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  () 
-  ((StateMonad Expression))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; State atoms have a defined type based on initial state
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; &amp;state-token was initialized with state of type (A B), so
-%; it cannot be changed to int
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (change-state! &amp;state-token 1) 
-   (Error 1 BadType))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((change-state! &amp;state-token 1)) 
-  ((Error 1 BadType))))
-</span><span class="ansi33"> % 'False'
-
-</span>%; the new state here is int, so it cannot be changed to string
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (change-state! 
-    (new-state 1) 
-    ($STRING  "S")) 
-   (Error 
-    ($STRING  "S") BadType))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((change-state! 
-    (new-state 1) 
-    ($STRING  "S"))) 
-  ((Error 
-    ($STRING  "S") BadType))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; Changing the content of the state atom
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; (nop ...) provides a way to obtain side-effects of a statement
-%; while ignoring unwanted return values.
-
-(:-  
- (metta_eval  
-  (nop 
-   (change-state! &amp;state-token 
-    (C D)))))<span class="ansi33">
- % [nop,['change-state!','&amp;state-token',['C','D']]]
-
-</span>%; The same state atom has different content now
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (get-state 
-    (get-token)) 
-   (C D))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((get-state 
-    (get-token))) 
-  ((C D))))
-</span><span class="ansi33"> % 'False'
-
-</span>%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; MeTTa provides proper encapsulated state manipulation
-%;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%; scoping doesn't conflict between let bound variables and state atom types.
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (let $X 
-    (new-state 1) 
-    (change-state! $X 
-     (+ 
-      (get-state $X) 1))) 
-   (new-state 2))))<span class="ansi31">
-
-(loonit_failure  
- (=@=  
-  ((change-state! 
-    (new-state 1) 
-    (+ 
-     (get-state 
-      (new-state 1)) 1))) 
-  ((new-state 2))))
-</span><span class="ansi33"> % 'False'
-
-</span>%; Checking that there is no conflict between variable names in
-%; let-expression and type definition of new-state
-
-(:-  
- (metta_eval  
-  (assertEqual 
-   (let $Tnso 
-    (new-state 1) $Tnso) 
-   (new-state 1))))<span class="ansi36">
-
-(loonit_success  
- (=@=  
-  ((new-state 1)) 
-  ((new-state 1))))
+<span class="ansi38-000068000">! (assertEqual 
+    (let $Tnso 
+      (new-state 1) $Tnso) 
+    (new-state 1))
+</span><span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (Cons  new-state 1)) 
+      ( (Cons  new-state 1))))
 </span><span class="ansi33"> % 'True'
 
-</span><span class="ansi32">% 372,179 inferences, 0.171 CPU in 0.171 seconds (100% CPU, 2180148 Lips)
-</span> 
-(=  "examples/compat/test_scripts/e2_states.metta" 0)
+</span><span class="ansi32">% 147,874 inferences, 0.144 CPU in 0.144 seconds (100% CPU, 1029111 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta" 1)
+ --repl=false
+ --args
+ --timeout=60
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 10
 </span>
+Script done on 2023-09-22 21:43:20-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
