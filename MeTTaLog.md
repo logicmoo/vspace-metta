@@ -193,6 +193,7 @@ Special thanks to the OpenCog community and everyone involved in the development
 
 
 # MeTTa Execution Modes
+[These are inherited from SWI-Prolog](https://www.swi-prolog.org/pldoc/man?section=cmdline)
 
 MeTTa can be executed in one of the following modes:
 
@@ -207,7 +208,6 @@ The `-c` option is used to compile a set of MeTTa files into an executable.
 
 - `./MeTTa -o output -b prolog-bootfile metta-file ...`
 Bootstrap compilation.
-[These are inherited from SWI-Prolog](https://www.swi-prolog.org/pldoc/man?section=cmdline)
 
 
 ### Command Line Options for Running MeTTa
@@ -305,12 +305,13 @@ Goal is executed just before entering the top level.
 ```
 
 - `-t (goal)`
-Use goal as an interactive top level instead of the default goal `repl/0`.
+Use goal as an interactive top level instead of the default goal `!(repl!)`.
 
 ### Compilation Options
+[MeTTa Code is tranliterated to SWI-Prolog code and compiled](https://www.swi-prolog.org/pldoc/man?section=runtime)
 
 - `-c file.metta ...`
-Compile files into an‘intermediate code file''.
+Compile files into an intermediate code file.
 
 - `-o output`
 Used in combination with `-c` to determine the output file for compilation.
@@ -340,6 +341,7 @@ Print a key (string) that represents the binary compatibility on a number of asp
 
 
 ### Maintenance Options
+[These are inherited from SWI-Prolog](https://www.swi-prolog.org/pldoc/man?section=cmdline)
 
 - `-b initfile.metta ...-c file.metta ...`
 Boot compilation.
