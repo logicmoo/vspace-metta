@@ -64,22 +64,22 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 ./MeTTa --html examples/compat/test_scripts/b0_chaining_prelim.metta
 ```
 
-**To run a metta file normally**
+**To run a metta file normally:**
 
 ```bash
 ./MeTTa examples/compat/test_scripts/b0_chaining_prelim.metta
 ```
 
-**To run the REPL once the file is loaded**
+**To run the REPL (such as to debug) once the file is loaded:**
 
 ```bash
-./MeTTa --repl examples/compat/test_scripts/b0_chaining_prelim.metta
+./MeTTa examples/compat/test_scripts/b0_chaining_prelim.metta --repl
 ```
 
 **To run the REPL:**
 
 ```bash
-./MeTTa --repl
+./MeTTa
 ```
 
 ```
@@ -193,12 +193,6 @@ Special thanks to the OpenCog community and everyone involved in the development
 
 MeTTa can be executed in one of the following modes:
 
-- `./MeTTa --help`
-- `./MeTTa --version`
-- `./MeTTa --arch`
-- `./MeTTa --dump-runtime-variables`
-These options must appear as the only option. They cause MeTTa to print an informational message and exit.
-
 - `./MeTTa [option ...] script-file [arg ...]`
 Arguments after the script file are made available in the MeTTa flag `argv`.
 
@@ -211,97 +205,72 @@ The `-c` option is used to compile a set of MeTTa files into an executable.
 - `./MeTTa -o output -b bootfile metta-file ...`
 Bootstrap compilation.
 
-
-### Informational Command Line Options
-
-- `--arch`
-
-  When given as the only option, it prints the architecture identifier (see MeTTa flag `arch`) and exits. See also `--dump-runtime-variables`.
-
-- `--dump-runtime-variables [=format]`
-
-  When given as the only option, it prints a sequence of variable settings that can be used in shell scripts to deal with MeTTa parameters.
-
-```shell
-eval `./MeTTa --dump-runtime-variables`
-cc -I$PLBASE/include -L$PLBASE/lib/$PLARCH ...
-```
-
-- `--help`
-  When given as the only option, it summarises the most important options.
-
-- `--version`
-  When given as the only option, it summarises the version and the architecture identifier.
-
-- `--abi-version`
-  Print a key (string) that represents the binary compatibility on a number of aspects.
-
 ### Command Line Options for Running MeTTa
 
 Boolean options may be written as `--name` (true), `--noname` or `--no-name` (false).
 
 - `--debug-on-interrupt`
-  Enable debugging on an interrupt signal immediately.
+Enable debugging on an interrupt signal immediately.
 
 - `--home[=DIR]`
-  Use `DIR` as home directory.
+Use `DIR` as home directory.
 
 - `--quiet`
-  Set the MeTTa flag `verbose` to `silent`, suppressing informational and banner messages. Also available as `-q`.
+Set the MeTTa flag `verbose` to `silent`, suppressing informational and banner messages. Also available as `-q`.
 
 - `--no-debug`
-  Disable debugging.
+Disable debugging.
 
 - `--no-signals`
-  Inhibit any signal handling by MeTTa, a property that is sometimes desirable for embedded applications. This option sets the flag signals to false. Note that the handler to unblock system calls is still installed. This can be prevented using `--sigalert=0` additionally.
+Inhibit any signal handling by MeTTa, a property that is sometimes desirable for embedded applications. This option sets the flag signals to false. Note that the handler to unblock system calls is still installed. This can be prevented using `--sigalert=0` additionally.
 
 - `--no-threads`
-  Disable threading for the multi-threaded version at runtime. See also the flags `threads` and `gc_thread`.
+Disable threading for the multi-threaded version at runtime. See also the flags `threads` and `gc_thread`.
 
 - `--no-packs`
-  Do not attach extension packages (add-ons).
+Do not attach extension packages (add-ons).
 
 - `--no-pce`
-  Enable/disable the xpce GUI subsystem. Using `--pce` loads the xpce system in user space and `--no-pce` makes it unavailable in the session.
+Enable/disable the xpce GUI subsystem. Using `--pce` loads the xpce system in user space and `--no-pce` makes it unavailable in the session.
 
 - `--on-error=style`
-  How to handle errors.
+How to handle errors.
 
 - `--on-warning=style`
-  How to handle warnings.
+How to handle warnings.
 
 - `--pldoc[=port]`
-  Start the PlDoc documentation system on a free network port. If port is specified, the server is started at the given port and the browser is not launched.
+Start the PlDoc documentation system on a free network port. If port is specified, the server is started at the given port and the browser is not launched.
 
 - `--sigalert=NUM`
-  Use signal NUM (1 ... 31) for alerting a thread. If NUM is 0 (zero), this handler is not installed.
+Use signal NUM (1 ... 31) for alerting a thread. If NUM is 0 (zero), this handler is not installed.
 
 - `--no-tty`
-  Unix only. Switches controlling the terminal.
+Unix only. Switches controlling the terminal.
 
 - `-O`
-  Optimised compilation.
+Optimised compilation.
 
 - `-l file.metta`
-  Load file.metta.
+Load file.metta.
 
 - `-s file.metta`
-  Use file.metta as a script file.
+Use file.metta as a script file.
 
 - `-f file.metta`
-  Use file.metta as initialisation file instead of the default `init.metta`.
+Use file.metta as initialisation file instead of the default `init.metta`.
 
 - `-F script`
-  Select a startup script from the MeTTa home directory.
+Select a startup script from the MeTTa home directory.
 
 - `-x bootfile`
-  Boot from bootfile instead of the system''s default boot file.
+Boot from bootfile instead of the system''s default boot file.
 
 - `-p alias=path1[:path2 ...]`
-  Define a path alias for file_search_path.
+Define a path alias for file_search_path.
 
 - `--`
-  Stops scanning for more arguments.
+Stops scanning for more arguments.
 
 ### Controlling the Stack Sizes
 
@@ -311,39 +280,64 @@ $ ./MeTTa --stack-limit=32g
 ```
 
 - `--stack-limit=size[bkmg]`
-  Limit the combined size of the MeTTa stacks to the indicated size.
+Limit the combined size of the MeTTa stacks to the indicated size.
 
 - `--table-space=size[bkmg]`
-  Limit for the table space.
+Limit for the table space.
 
 - `--shared-table-space=size[bkmg]`
-  Limit for the table space for shared tables.
+Limit for the table space for shared tables.
 
 ### Running Goals from the Command Line
 
 - `-g goal`
-  Goal is executed just before entering the top level.
+Goal is executed just before entering the top level.
 
 ```shell
 % ./MeTTa <options> -g (go) -g (quit)
 ```
 
 - `-t (goal)`
-  Use goal as an interactive top level instead of the default goal `metta/0`.
+Use goal as an interactive top level instead of the default goal `metta/0`.
 
 ### Compilation Options
 
 - `-c file.metta ...`
-  Compile files into an‘intermediate code file''.
+Compile files into an‘intermediate code file''.
 
 - `-o output`
-  Used in combination with `-c` to determine the output file for compilation.
+Used in combination with `-c` to determine the output file for compilation.
+
+
+### Informational Command Line Options
+
+- `--arch`
+When given as the only option, it prints the architecture identifier (see MeTTa flag `arch`) and exits. See also `--dump-runtime-variables`.
+
+- `--dump-runtime-variables [=format]`
+When given as the only option, it prints a sequence of variable settings that can be used in shell scripts to deal with MeTTa parameters.
+
+```shell
+eval `./MeTTa --dump-runtime-variables`
+cc -I$PLBASE/include -L$PLBASE/lib/$PLARCH ...
+```
+
+- `--help`
+When given as the only option, it summarises the most important options.
+
+- `--version`
+When given as the only option, it summarises the version and the architecture identifier.
+
+- `--abi-version`
+Print a key (string) that represents the binary compatibility on a number of aspects.
+
 
 ### Maintenance Options
 
 - `-b initfile.metta ...-c file.metta ...`
-  Boot compilation.
+Boot compilation.
 
 - `-d token1,token2,...`
-  Print debug messages for DEBUG statements.
+Print debug messages for DEBUG statements.
+
 
