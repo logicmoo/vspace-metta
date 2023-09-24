@@ -2,6 +2,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Basic types of grounded symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(: + (-> Number Number Number))
+(: - (-> Number Number Number))
+(: * (-> Number Number Number))
+(: % (-> Number Number Number))
+
+
 ; `get-type` returns the type of its argument
 !(assertEqual
   (get-type 5)

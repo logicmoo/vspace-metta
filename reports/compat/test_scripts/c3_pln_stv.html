@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+Script started on 2023-09-23 18:40:36-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+ --python=enable
+
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The examples in this file is inspired by OpenCog Classic examples
+;; from github.com/opencog/pln, in particular from
+;; examples/pln/conjunction, extended with implication
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Some helpful definitions
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (min $A $B) 
+    (if 
+      (&lt; $A $B) $A $B))
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (s-tv 
+      (stv $S $C)) $S)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (s-tv 
+        (stv $S $C)) $S))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (c-tv 
+      (stv $S $C)) $C)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (c-tv 
+        (stv $S $C)) $C))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; `TV` "metarule" based on `match` to run
+; `.tv` is a custom symbol, which is used to connect
+; PLN-like expressions with their truth values.
+; Some `.tv` facts will be defined below
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (TV $X) 
+    (match &amp;self 
+      (.tv $X $Stv) $Stv))
+</span>; Definition of TV for a conjunction
+; we could use `(.tv (And $a $b) (stv ...))` instead of this
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (TV 
+      (And $A $B)) 
+    (stv 
+      (min 
+        (s-tv 
+          (TV $A)) 
+        (s-tv 
+          (TV $B))) 
+      (min 
+        (c-tv 
+          (TV $A)) 
+        (c-tv 
+          (TV $B)))))
+</span>; Definition of TV for $x when it''s the consequent of an implication
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (TV $X) 
+    (match &amp;self 
+      (.tv 
+        (Implication $Y $X) 
+        (stv $S $C)) 
+      (stv 
+        (* $S 
+          (s-tv 
+            (TV $Y))) 
+        (* $C 
+          (c-tv 
+            (TV $Y))))))
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; First example
+; .tv serves as a special type of equality when
+; matched by the TV "metarules" above
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Some facts
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Evaluation 
+        (Predicate P) 
+        (Concept A)) 
+      (stv 0.5 0.8)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Evaluation 
+        (Predicate P) 
+        (Concept B)) 
+      (stv 0.3 0.9)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (Evaluation 
+          (Predicate P) 
+          (Concept A)) 
+        (Evaluation 
+          (Predicate False) 
+          (Concept A))) 
+      (stv 0.8 1.0)))
+</span>; FIXME? `(PA)` and `(PB)` are used because otherwise
+; substitution is not invoked (atm of test creation)
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (PA) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept A)))
+  (metta_defn  &amp;self 
+    (PA) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept A)))  ; 10 
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (PB) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept B)))
+  (metta_defn  &amp;self 
+    (PB) 
+    (Evaluation 
+      (Predicate P) 
+      (Concept B)))  ; 11 
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (FA) 
+    (Evaluation 
+      (Predicate False) 
+      (Concept A)))
+  (metta_defn  &amp;self 
+    (FA) 
+    (Evaluation 
+      (Predicate False) 
+      (Concept A)))  ; 12 
+
+</span>; Tests
+<span class="ansi38-000068000">!(assertEqual (TV (And (PA) (PB))) (stv 0.3 0.8))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (min 
+            (s-tv 
+              (TV 
+                (Evaluation 
+                  (Predicate P) 
+                  (Concept A)))) 
+            (s-tv 
+              (TV 
+                (Evaluation 
+                  (Predicate P) 
+                  (Concept B))))) 
+          (min 
+            (c-tv 
+              (TV 
+                (Evaluation 
+                  (Predicate P) 
+                  (Concept A)))) 
+            (c-tv 
+              (TV 
+                (Evaluation 
+                  (Predicate P) 
+                  (Concept B))))))) 
+      ( (stv 0.3 0.8))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi38-000068000">!(assertEqual (TV (FA)) (stv 0.4 0.8))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (* 0.8 
+            (s-tv 
+              (TV 
+                (Evaluation 
+                  (Predicate P) 
+                  (Concept A))))) 
+          (* 1.0 
+            (c-tv 
+              (TV 
+                (Evaluation 
+                  (Predicate P) 
+                  (Concept A))))))) 
+      ( (stv 0.4 0.8))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Second example
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Implication rule
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (And 
+          (croaks $X) 
+          (eat_flies $X)) 
+        (frog $X)) 
+      (stv 0.9 0.8)))
+  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (And 
+          (croaks $_370248) 
+          (eat_flies $_370248)) 
+        (frog $_370248)) 
+      (stv 0.9 0.8)))  ; 13 
+
+</span>; Some facts
+<span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (croaks Fritz) 
+      (stv 0.95 0.85)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (eat_flies Fritz) 
+      (stv 0.87 0.95)))
+</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+    (.tv 
+      (Implication 
+        (frog $X) 
+        (green $X)) 
+      (stv 0.9 1.0)))
+</span>; Tests
+<span class="ansi38-000068000">!(assertEqual (TV (croaks Fritz)) (stv 0.95 0.85))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (stv 0.95 0.85)) 
+      ( (stv 0.95 0.85))))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqual (TV (frog Fritz)) (stv 0.783 0.68))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (* 0.9 
+            (s-tv 
+              (TV 
+                (And 
+                  (croaks Fritz) 
+                  (eat_flies Fritz))))) 
+          (* 0.8 
+            (c-tv 
+              (TV 
+                (And 
+                  (croaks Fritz) 
+                  (eat_flies Fritz))))))) 
+      ( (stv 0.783 0.68))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi38-000068000">!(assertEqual (TV (green Fritz)) (stv 0.7047 0.68))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (stv 
+          (* 0.9 
+            (s-tv 
+              (TV 
+                (frog Fritz)))) 
+          (* 1.0 
+            (c-tv 
+              (TV 
+                (frog Fritz)))))) 
+      ( (stv 0.7047 0.68))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 22,140,709 inferences, 2.445 CPU in 2.445 seconds (100% CPU, 9056051 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c3_pln_stv.metta" 16)
+ --repl=false
+ --args
+ --timeout=20
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 4
+</span>
+Script done on 2023-09-23 18:40:40-07:00 [COMMAND_EXIT_CODE="7"]
+
+</pre>
+</body>
+
+</html>

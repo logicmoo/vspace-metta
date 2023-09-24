@@ -6,7 +6,7 @@ export FOUND_UNITS=/tmp/found_units
 
 #find "${UNITS_DIR}" -name "*.html" -type f -delete
 
-find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} --html \;
+#find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} --html \;
 
 
 # Initialize counters
@@ -33,7 +33,7 @@ while read -r file; do
     [ -z "$current_successes" ] && current_successes=0
     [ -z "$current_failures" ] && current_failures=0
 
-    relative_path=$(echo "$file" | sed 's/^\.\///')
+    relative_path=$(echo "$file" | sed 's/^\.\///' | sed -e 's/examples/reports/g')
     basename=$(basename $relative_path)
     basename=${basename%.*}
     github_link="${base_url}${relative_path}"
@@ -48,22 +48,15 @@ done < $FOUND_UNITS
 # Clean up the temporary file
 rm $FOUND_UNITS
 
-sort -t'|'  -k3,3n  -k2,2nr -k4,4 -o $FOUND_UNITS.sortme  $FOUND_UNITS.sortme
+sort -t'|' -k3,3nr -k2,2nr -k4,4 -o $FOUND_UNITS.sortme  $FOUND_UNITS.sortme
 
-if [[ "never" == "enable" ]]; then
+#sort -t'|' -k2,2nr -k3,3nr -k4,4 -o $FOUND_UNITS.sortme  $FOUND_UNITS.sortme
 
-   awk -F'|' '{
-       total = $2 + $3 + 1;
-       zero = ($2 == 0 && $3 == 0) ? 1 : 0;
-       ratio = (1 + $2 * 2) / total;
-       print ratio "\t" $3 "\t" zero "\t" $0
-   }' "$FOUND_UNITS.sortme" |
-   sort -t$'\t' -k3,3n -k1,1nr -k2,2n |
-   cut -f4- > "$FOUND_UNITS.sorted"
-
-   mv "$FOUND_UNITS.sorted" "$FOUND_UNITS.sortme"
-
+if [[ "never" == "never" ]]; then
+    awk -F'|' 'NR>1{print ( $3+$2 ) ( $2-$3 >= 0 ? $2-$3 : $3-$2 ) ,$0}' FOUND_UNITS.sortme | sort -n | cut -f3- -d' ' > FOUND_UNITS.sorted
+    mv FOUND_UNITS.sorted FOUND_UNITS.sortme
 fi
+
 
 # calculate the total number of tests
 total=$((total_successes + total_failures))
@@ -107,4 +100,3 @@ rm temp1.txt temp2.txt
 
 
 #grep -A 3 loonit_f -R . --include="*.html"
-

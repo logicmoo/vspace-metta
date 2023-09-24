@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+Script started on 2023-09-23 18:41:23-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+% init_phase(after_load).
+% dot_cfg:using_dot_type(core,user)
+:- time_factorials(61111).
+:- time_fibonaccis(30000)
+ --python=enable
+
+  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
+  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The standard library contains a few basic grounded operations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Implementation of grounded arithmetics may change location,
+;; but these examples should work
+<span class="ansi38-000068000">!(assertEqualToResult (+ 2 (* 3 5.5)) (18.5))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (18.5) 
+      (18.5)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (- 8 ("/" 4 6.4)) (7.375))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (7.375) 
+      (7.375)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (% 21 17) (4))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (4) 
+      (4)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (&lt; 4 (+ 2 (* 3 5))) (True))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (True) 
+      (True)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (and (&gt; 4 2) (&lt; 4 3)) (False))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (and True False)) 
+      (False)))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Currently, `ln` is not a grounded symbol.
+; If we don''t define its type, then its application
+; will not be refused, but it will be unreduced.
+; Currently, its grounded argument will be reduced.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult (ln (+ 2 2)) ((ln 4)))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      ( (ln 4)) 
+      ( (ln 4))))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Similarly, passing ordinary symbols to grounded
+; operations will not cause errors and simply remain
+; unreduced, if it type-checks.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ ln 2)) ((&gt; 4 (+ ln 2))))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      (False) 
+      ( (&gt; 4 
+          (+ ln 2)))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; This will also remain unreduced unless
+; grounded operations can do pattern matching
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ $X 2)) ((&gt; 4 (+ $X 2))))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      (False) 
+      ( (&gt; 4 
+          (+ $_224854 2)))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; `==` is now implemented to work with both grounded and
+; symbolic atoms (while remaining a grounded operation)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ 2 2)) (True))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (True) 
+      (True)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (== 2 3) (False))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (False) 
+      (False)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A B)) (True))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (True) 
+      (True)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A (B C))) (False))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (False) 
+      (False)))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Unlike `&lt;` or `&gt;`, `==` will not remain unreduced if one
+; of its arguments is grounded, while another is not.
+; Instead, it will return `False`
+<span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) (False))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (False) 
+      (False)))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Grounded symbols have predefined types.
+; Evaluation of ill-typed expressions produces
+; a error expression
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult (+ 2 "String") ((Error "String" BadType)))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      ( (+ 2 "String")) 
+      ( (Error "String" BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>; Custom symbols as arguments of grounded operations
+; work similarly
+<span class="ansi38-255165000">  (metta_type  &amp;self ln LN)
+</span>  (metta_arity  &amp;self ln 0)<span class="ansi38-255165000">
+  (metta_atom  &amp;self 
+    (: ln LN))
+</span><span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) ((Error ln BadType)))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      (False) 
+      ( (Error ln BadType))))
+</span><span class="ansi33"> % 'False'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Custom functions over grounded functions behave ordinarily
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (sqr $X) 
+    (* $X $X))
+</span><span class="ansi38-000068000">!(assertEqualToResult (sqr 4) (16))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (16) 
+      (16)))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Evaluation of grounded operations over nondeterministic
+; expressions work in the same way as of custom symbols
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqual (+ (superpose (1 2 3)) 1) (superpose (2 3 4)))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (2 3 4) 
+      (2 3 4)))
+</span><span class="ansi33"> % 'True'
+
+</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (bin) 0)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (bin) 0))<span class="ansi38-255165000">
+  (metta_defn  &amp;self 
+    (bin) 1)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (bin) 1))
+<span class="ansi38-000068000">!(assertEqualToResult (+ 1 (bin)) (1 2))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      (1) 
+      (1 2)))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (let $X 
+    (+ 2 3) 
+    (* $X $X)) (25))
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (25) 
+      (25)))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; basic recursion
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (fact $N) 
+    (if 
+      (== $N 0) 1 
+      (* 
+        (fact 
+          (- $N 1)) $N)))
+</span><span class="ansi38-000068000">!(assertEqual (fact 5) 120)
+</span>
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (120) 
+      (120)))
+</span><span class="ansi33"> % 'True'
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Grounded symbols work with non-determinism based "reasoning"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Uses the grounded call `bin`, which returns a list of
+; both possible bits (0, 1), to recursively construct all possible
+; binary lists of length `$n`, appending bits one by one.
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (gen $N) 
+    (if 
+      (&gt; $N 0) 
+      ( (bin) gen 
+        (- $N 1)) ()))
+</span>; Note: `::` is just a custom symbol, used here as a constructor,
+; but any other symbol can be used for this.
+; Calculates the sum of element-wise products between two lists
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (subsum () ()) 0)
+</span>  (unknown_do_metta  &amp;self load 
+    (= 
+      (subsum () ()) 0))
+<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (subsum 
+      (Cons  $X $Xs) 
+      (Cons  $B $Bs)) 
+    (+ 
+      (* $X $B) 
+      (subsum $Xs $Bs)))
+  (metta_defn  &amp;self 
+    (subsum 
+      (Cons  $_263340 $_263680) 
+      (Cons  $_263962 $_264184)) 
+    (+ 
+      (* $_263340 $_263962) 
+      (subsum $_263680 $_264184)))  ; 10 
+
+</span>; Non-determinism "reasoning":
+; Among all 3-bit binary lists, return the one whose `subsum`
+; with (:: 3 (:: 7 (:: 5 nil))) equals 8, or `nop` if not found
+; (`nop` is a grounded function that consumes its arguments and returns nothing)
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (let $T 
+    (gen 3) 
+    (if 
+      (== 
+        (subsum 
+          (3 7 5) $T) 8) $T 
+      (nop))) ((1 0 1)))
+</span>
+<span class="ansi31">  (loonit_failure  
+    (=@=  
+      (True) 
+      ( (1 0 1))))
+</span><span class="ansi33"> % 'False'
+
+</span><span class="ansi32">% 1,306,207 inferences, 0.583 CPU in 0.583 seconds (100% CPU, 2240646 Lips)
+</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 10)
+ --repl=false
+ --args
+ --timeout=20
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 14
+</span><span class="ansi31">Failures: 7
+</span>
+Script done on 2023-09-23 18:41:25-07:00 [COMMAND_EXIT_CODE="7"]
+
+</pre>
+</body>
+
+</html>
