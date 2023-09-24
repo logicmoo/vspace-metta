@@ -59,7 +59,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d4_type_prop.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:21:28-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d4_type_prop.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -110,10 +110,10 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
 ; but doesn''t mean this proposition is inhabited/proven
 <span class="ansi38-000068000">!(assertEqual (get-type (Mortal Plato)) Type)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       (Type)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; A function type as an implication
 ; `HumansAreMortal` represents the implication:
@@ -151,17 +151,17 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
 ; as a proof that that `(Mortal Socrates)`.
 <span class="ansi38-000068000">!(assertEqual (get-type (HumansAreMortal SocratesIsHuman)) (Mortal Socrates))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       ( (Mortal Socrates))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Bad typing
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (HumansAreMortal (Human Socrates))) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; We can write this code, but it will make not too much
 ; difference for the assertion that "all humans are mortal"
@@ -189,40 +189,40 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
   (metta_last  &amp;self = Type)
 <span class="ansi38-000068000">!(assertEqual (get-type (= SocratesIsMortal (HumansAreMortal SocratesIsHuman))) Type)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       (Type)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; This equality is well-typed, because both its arguments are of `Type`.
 ; It doesn't mean they are both inhabited (true propositions), and
 ; it doesn't mean that the equality itself is true (an inhabited type).
 <span class="ansi38-000068000">!(assertEqual (get-type (= (Mortal Socrates) (Mortal Plato))) Type)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       (Type)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Wrong proof
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsMortal (HumansAreMortal PlatoIsHuman))) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Wrong equalities
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman PlatoIsHuman)) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman SocratesIsMortal)) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -252,7 +252,7 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (= (+ 1 1) (- 3 1)) True)
 </span>
@@ -260,7 +260,7 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; One can also define an equality for directly inhabited types
   (unknown_do_metta  &amp;self load 
@@ -268,19 +268,19 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
       (: $X $Type)))
 <span class="ansi38-000068000">!(assertEqual (Mortal Socrates) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (Mortal Socrates)) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; It will not immediately work for implications
 <span class="ansi38-000068000">!(assertEqualToResult (Mortal Plato) ())
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (Mortal Plato)) ()))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; But we can add 'reasoning'
   (unknown_do_metta  &amp;self load 
@@ -290,11 +290,11 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
           (-&gt; $Cause $Type)) $Cause)))
 <span class="ansi38-000068000">!(assertEqual (Mortal Plato) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (Mortal Plato)) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-255165000">  (metta_type  &amp;self Sam Entity)
 </span>  (metta_arity  &amp;self Sam 0)<span class="ansi38-255165000">
@@ -302,10 +302,10 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
     (: Sam Entity))
 </span><span class="ansi38-000068000">!(assertEqualToResult (Human Sam) ())
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (Human Sam)) ()))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -317,7 +317,7 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (Mortal Plato)) 
       ( (Mortal Plato))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Refl rule itself equals to True
 <span class="ansi38-000068000">!(assertEqual (= $X $X) True)
@@ -326,7 +326,7 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; We can also add direct equalities
 ; (= (Human Socrates) T)
@@ -344,7 +344,7 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; We can even try backward chaining
 <span class="ansi38-255165000">  (metta_type  &amp;self ift 
@@ -360,14 +360,14 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
       (ift True $Then) $Then))
 <span class="ansi38-000068000">!(assertEqualToResult (ift (Mortal $X) $X) (Socrates Plato))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (ift 
-          (Mortal $_192942) $_192942)) 
+          (Mortal $_125924) $_125924)) 
       (Plato Socrates)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
-</span><span class="ansi32">% 378,548 inferences, 0.347 CPU in 0.347 seconds (100% CPU, 1090571 Lips)
+</span><span class="ansi32">% 316,173 inferences, 0.344 CPU in 0.344 seconds (100% CPU, 919820 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d4_type_prop.metta" 52)
  --repl=false
  --args
@@ -377,7 +377,7 @@ Script started on 2023-09-23 18:40:24-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 9
 </span><span class="ansi31">Failures: 9
 </span>
-Script done on 2023-09-23 18:40:26-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:21:31-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

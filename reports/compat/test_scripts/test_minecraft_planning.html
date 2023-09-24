@@ -52,7 +52,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:41:25-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:22:21-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -80,7 +80,7 @@ Script started on 2023-09-23 18:41:25-07:00 [COMMAND="timeout --foreground --pre
   (metta_params  &amp;self mine 
     ($Obj $Tool Any))
   (metta_params  &amp;self mine 
-    ($_226820 $_226942 Any))  ; 11 
+    ($_229544 $_229666 Any))  ; 11 
   (metta_last  &amp;self mine Any)
   (metta_last  &amp;self mine Any)  ; 12 
 <span class="ansi38-255165000">  (metta_type  &amp;self wood Any)
@@ -187,41 +187,55 @@ Script started on 2023-09-23 18:41:25-07:00 [COMMAND="timeout --foreground --pre
         (pack-sticks 2))))
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory wooden-pickaxe) False)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (in-inventory wooden-pickaxe)) 
       (False)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(wooden-pickaxe)
 </span>
-<span class="ansi33"> % [craft,'wooden-pickaxe','crafting-table',[allof,[allof,[craft,'four-planks',inventory,[mine,'spruce-tree',hand]],nop],[allof,[craft,stick,inventory,[allof,[craft,'four-planks',inventory,[mine,'spruce-tree',hand]],nop]],[allof,[craft,stick,inventory,[allof,[craft,'four-planks',inventory,[mine,'spruce-tree',hand]],nop]],nop]]]]
+<span class="ansi33">  (craft wooden-pickaxe crafting-table 
+    (allof 
+      (allof 
+        (craft four-planks inventory 
+          (mine spruce-tree hand)) nop) 
+      (allof 
+        (craft stick inventory 
+          (allof 
+            (craft four-planks inventory 
+              (mine spruce-tree hand)) nop)) 
+        (allof 
+          (craft stick inventory 
+            (allof 
+              (craft four-planks inventory 
+                (mine spruce-tree hand)) nop)) nop))))
 
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory four-planks) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (in-inventory four-planks)) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory crafting-table) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (in-inventory crafting-table)) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory wooden-pickaxe) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (in-inventory wooden-pickaxe)) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
-</span><span class="ansi32">% 8,131,714 inferences, 0.856 CPU in 0.856 seconds (100% CPU, 9500795 Lips)
+</span><span class="ansi32">% 290,429 inferences, 0.126 CPU in 0.126 seconds (100% CPU, 2301026 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta" 55)
  --repl=false
  --args
@@ -231,7 +245,7 @@ Script started on 2023-09-23 18:41:25-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 4
 </span>
-Script done on 2023-09-23 18:41:28-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:22:24-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

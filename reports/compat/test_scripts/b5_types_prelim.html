@@ -79,7 +79,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -115,7 +115,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (S) 
       (S)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -149,11 +149,11 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
 ; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
 <span class="ansi38-000068000">!(assertEqualToResult (Add S Z) ((Error S BadType)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (S) 
       ( (Error S BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; But these other examples works normally
 <span class="ansi38-000068000">!(assertEqual (Add (S Z) Z) (S Z))
@@ -162,7 +162,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (S Z)) 
       ( (S Z))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (Add Z (S Z)) (S Z))
 </span>
@@ -170,7 +170,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (S Z)) 
       ( (S Z))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -183,7 +183,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Something) 
       (Something)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -204,7 +204,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (Add Z Ten)) 
       ( (Add Z Ten))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -248,16 +248,16 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( ( (S Z) Z)) 
       ( ( (S Z) Z))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; This list is badly typed, because S and Z are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (S Z) ((Error Z BadType)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (S Z)) 
       ( (Error Z BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -286,7 +286,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Accepted, not reduced because no definition is known
 ; for `eq` when its arguments are not the same
@@ -298,16 +298,16 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
           (S Z))) 
       ( (eq Z 
           (S Z)))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Not accepted, because Z and S are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (eq Z S) ((Error S BadType)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (eq Z S)) 
       ( (Error S BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -356,7 +356,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (of-same-type Green Red) True)
 </span>
@@ -364,24 +364,24 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Not accepted
 <span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Color) ((Error Color BadType)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (True) 
       ( (Error Color BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Circle) ((Error Circle BadType)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (True) 
       ( (Error Circle BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -403,11 +403,11 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (Green Sam))
 </span><span class="ansi38-000068000">!(assertEqual (Green $Who) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi36">  (loonit_success  
     (=@=  
-      ( (Sam)) 
+      (True) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) $Who) Sam)
 </span>
@@ -415,7 +415,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Sam) 
       (Sam)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -429,7 +429,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -445,17 +445,18 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
         (eq $R 
           (S Z)) $Tv) $Tv)) True)
 </span>
-<span class="ansi31">  (loonit_failure  
-    (=@=  () 
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (True) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> True
 
 </span>; but it will not work inside `match`:
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -482,7 +483,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Z) 
       (Z)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -505,10 +506,11 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
           (S 
             (S Z)) $R3) $Tv) $Tv)) True)
 </span>
-<span class="ansi31">  (loonit_failure  
-    (=@=  () 
+<span class="ansi36">  (loonit_success  
+    (=@=  
+      (True) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -530,19 +532,19 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; while this will not be reduced because the expressions
 ; are not the same (even if their evaluation would be)
 ; (`eqa` is not total)
 <span class="ansi38-000068000">!(assertEqualToResult (eqa Z (Add Z Z)) ((eqa Z (Add Z Z))))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (True) 
       ( (eqa Z 
           (Add Z Z)))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; In contrast to this:
 <span class="ansi38-000068000">!(assertEqual (eq Z (Add Z Z)) True)
@@ -551,7 +553,7 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Or this:
 <span class="ansi38-000068000">!(assertEqual 
@@ -563,19 +565,19 @@ Script started on 2023-09-23 18:40:43-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
-</span><span class="ansi32">% 951,149 inferences, 0.926 CPU in 0.926 seconds (100% CPU, 1027033 Lips)
+</span><span class="ansi32">% 557,435 inferences, 0.792 CPU in 0.792 seconds (100% CPU, 704133 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta" 69)
  --repl=false
  --args
  --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 17
-</span><span class="ansi31">Failures: 9
+<span class="ansi32">Successes: 20
+</span><span class="ansi31">Failures: 6
 </span>
-Script done on 2023-09-23 18:40:46-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:21:48-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

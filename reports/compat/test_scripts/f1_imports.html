@@ -67,7 +67,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -88,12 +88,13 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (get-atoms &amp;self) 
     (get-type $X))) ((get-type &amp;self)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
-      ( ( (get-type 
-            (get-atoms &amp;self)))) 
+      ( ( (let $_234594 
+            (get-atoms &amp;self) 
+            (get-type $_234594)))) 
       ( ( (get-type &amp;self)))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; stdlib is already loaded
 <span class="ansi38-000068000">!(assertEqual (if (&gt; 1 2) 1 2) 2)
@@ -102,7 +103,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (2) 
       (2)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -149,13 +150,13 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;m 
-    (g $_365016) 
-    (+ $_365016 
+    (g $_362546) 
+    (+ $_362546 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 22,955 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 6041743 Lips)
+</span><span class="ansi32">% 22,955 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5777895 Lips)
 </span>  (=  f1_moduleC.metta 10)
-<span class="ansi33"> % '&amp;m'
+<span class="ansi33"> &amp;m
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 </span>
@@ -163,7 +164,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (3) 
       (3)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
 <span class="ansi38-255165000">  (metta_defn  &amp;m 
@@ -185,9 +186,9 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi32">% 65,904 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5273628 Lips)
+</span><span class="ansi32">% 65,163 inferences, 0.013 CPU in 0.013 seconds (100% CPU, 5155056 Lips)
 </span>  (=  f1_moduleA.metta 6)
-<span class="ansi33"> % '&amp;m'
+<span class="ansi33"> &amp;m
 
 </span><span class="ansi38-000068000">!(assertEqual 
   (let* 
@@ -200,7 +201,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; FIXME? Now, it is moduleC space.
 ;        Should it be `stdlib` atom for a separately imported space
@@ -220,7 +221,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (g 3)) 
       ( (g 3))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Importing the same space into `&amp;self` should break nothing
 ; TODO? If stdlib space would be in `&amp;m`, which should check that it is not
@@ -266,13 +267,13 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_61322) 
-    (+ $_61322 
+    (g $_58406) 
+    (+ $_58406 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 22,778 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5985390 Lips)
+</span><span class="ansi32">% 22,778 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5736809 Lips)
 </span>  (=  f1_moduleC.metta 10)
-<span class="ansi33"> % '&amp;self'
+<span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 </span>
@@ -280,7 +281,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (3) 
       (3)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
@@ -302,9 +303,9 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi32">% 64,476 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5305007 Lips)
+</span><span class="ansi32">% 63,735 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5157555 Lips)
 </span>  (=  f1_moduleA.metta 6)
-<span class="ansi33"> % '&amp;self'
+<span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 </span>
@@ -312,7 +313,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (102) 
       (102)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 </span>
@@ -320,7 +321,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (103) 
       (103)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; `&amp;self` contains 3 atoms-spaces now:
 ; - stdlib
@@ -337,10 +338,10 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
         (cdr-atom $X))) 
     (car-atom $Y)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (&amp;m) ()))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; NOTE: now the first atom, which was a space, is removed from `&amp;m`,
 ; because we load modules only once, and we collect atoms-spaces to
@@ -354,11 +355,18 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
         (car-atom $X))) 
     (get-type $Y)) (get-type &amp;self)) False)
 </span>
-<span class="ansi36">  (loonit_success  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
-      (False) 
+      ( (== 
+          (let* 
+            ( ($_248194 
+                (())) 
+              ($_248218 
+                (car-atom $_248194))) 
+            (get-type $_248218)) 
+          (get-type &amp;self))) 
       (False)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> False
 
 </span>; Let''s check that `if` from stdlib is not duplicated and gives only one result
 <span class="ansi38-000068000">!(assertEqual (if (&gt; 1 2) 1 2) 2)
@@ -367,7 +375,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (2) 
       (2)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -411,13 +419,13 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_395960) 
-    (+ $_395960 
+    (g $_314138) 
+    (+ $_314138 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 22,270 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6454698 Lips)
+</span><span class="ansi32">% 22,270 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5457531 Lips)
 </span>  (=  f1_moduleC.metta 10)
-<span class="ansi33"> % '&amp;self'
+<span class="ansi33"> &amp;self
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (dup $X) 
@@ -425,9 +433,9 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
       (== $X 0) 
       (g $X) 
       (+ $X 10)))
-</span><span class="ansi32">% 36,667 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 6503663 Lips)
+</span><span class="ansi32">% 36,751 inferences, 0.007 CPU in 0.007 seconds (100% CPU, 5599640 Lips)
 </span>  (=  f1_moduleB.metta 1)
-<span class="ansi33"> % '&amp;self'
+<span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 </span>
@@ -435,7 +443,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (102) 
       (102)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 </span>
@@ -443,7 +451,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (103) 
       (103)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Function declared in different imported modules will still produce
 ; non-deterministic results
@@ -453,7 +461,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (12 102) 
       (12 102)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Let''s import f1_moduleB.metta once more using a different path.
 ; Such import should be ignored and thus f, g and dup should remain
@@ -494,13 +502,13 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (+ $X 
       (__g)))
   (metta_defn  &amp;self 
-    (g $_168430) 
-    (+ $_168430 
+    (g $_418634) 
+    (+ $_418634 
       (__g)))  ; 10 
 
-</span><span class="ansi32">% 22,270 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5914378 Lips)
+</span><span class="ansi32">% 22,270 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5585513 Lips)
 </span>  (=  f1_moduleC.metta 10)
-<span class="ansi33"> % '&amp;self'
+<span class="ansi33"> &amp;self
 
 </span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (dup $X) 
@@ -508,9 +516,9 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
       (== $X 0) 
       (g $X) 
       (+ $X 10)))
-</span><span class="ansi32">% 36,451 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 6157576 Lips)
+</span><span class="ansi32">% 36,535 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 5790934 Lips)
 </span>  (=  f1_moduleB.metta 1)
-<span class="ansi33"> % '&amp;self'
+<span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 </span>
@@ -518,7 +526,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (102) 
       (102)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 </span>
@@ -526,7 +534,7 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (103) 
       (103)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
 </span>
@@ -534,19 +542,19 @@ Script started on 2023-09-23 18:41:31-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (12 102) 
       (12 102)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
-</span><span class="ansi32">% 934,658 inferences, 0.283 CPU in 0.283 seconds (100% CPU, 3303987 Lips)
+</span><span class="ansi32">% 438,718 inferences, 0.242 CPU in 0.242 seconds (100% CPU, 1815352 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta" 0)
  --repl=false
  --args
  --timeout=20
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 15
-</span><span class="ansi31">Failures: 2
+<span class="ansi32">Successes: 14
+</span><span class="ansi31">Failures: 3
 </span>
-Script done on 2023-09-23 18:41:34-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:22:29-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

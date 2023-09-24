@@ -51,7 +51,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:22:14-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -102,7 +102,7 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Number) 
       (Number)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
 </span>
@@ -110,7 +110,7 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Number) 
       (Number)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; It works for built-in symbols too
 <span class="ansi38-000068000">!(assertEqual (get-type +) (-&gt; Number Number Number))
@@ -119,24 +119,24 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (-&gt; Number Number Number)) 
       ( (-&gt; Number Number Number))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; If its argument is a badly typed expression,
 ; `get-type` returns the empty set
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (+ 5 "4")) ())
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (Number) ()))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (List 
           (-&gt; Number Number Number))) ()))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Also works for custom types
 <span class="ansi38-255165000">  (metta_type  &amp;self Either Type)
@@ -149,7 +149,7 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Type) 
       (Type)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -169,10 +169,10 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
   (metta_last  &amp;self Right Either)
 <span class="ansi38-000068000">!(assertEqual (get-type (Left 5)) Either)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       (Either)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-255165000">  (metta_type  &amp;self isLeft 
     (-&gt; Either Bool))
@@ -189,17 +189,17 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
         (Right $X)) False))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (isLeft (Right 5))) Bool)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       (Bool)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Badly typed expression
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (isLeft 5)) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -229,10 +229,10 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
   (metta_last  &amp;self RightP T)
 <span class="ansi38-000068000">!(assertEqual (get-type (LeftP 5)) (EitherP Number))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       ( (EitherP Number))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-255165000">  (metta_type  &amp;self Pair 
     (-&gt; $A $B Type))
@@ -250,11 +250,11 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
   (metta_last  &amp;self pair B)
 <span class="ansi38-000068000">!(assertEqual (get-type (pair (LeftP 5) "String")) (Pair (EitherP Number) String))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       ( (Pair 
           (EitherP Number) String))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -288,13 +288,13 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (List Number)) 
       ( (List Number))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (5 "6")) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -310,9 +310,9 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (Number) 
       (Number)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
-</span><span class="ansi32">% 323,815 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 2124685 Lips)
+</span><span class="ansi32">% 256,982 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 1689103 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta" 65)
  --repl=false
  --args
@@ -322,7 +322,7 @@ Script started on 2023-09-23 18:41:18-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 8
 </span><span class="ansi31">Failures: 6
 </span>
-Script done on 2023-09-23 18:41:20-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:22:16-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

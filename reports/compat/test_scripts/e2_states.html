@@ -32,7 +32,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:22:11-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -50,7 +50,9 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
 ;; which is replaced by the corresponding atom at parse-time.
 <span class="ansi38-000068000">!(bind! &amp;state-token (new-state (A B)))
 </span>
-<span class="ansi33"> % 'State'(['A','B'])
+<span class="ansi33">  (State  
+    (A B))
+ % 'State'(['A','B'])
 
 </span>; &amp;state-token is replaced by the state atom in the code below its creation
 ; we wrap it into a function to show that it''s not the token that changes, but
@@ -64,11 +66,11 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
 ; and `get-token` will show its content
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (A B))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (get-token) 
       ( (A B))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -82,7 +84,7 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
           (A B))) 
       ( (State  
           (A B)))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -91,18 +93,18 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (State) 
       ( (StateMonad Number))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       ( (StateMonad String))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; These are the types of State grounded atom
 <span class="ansi38-000068000">!(assertEqual 
@@ -110,20 +112,20 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
     (new-state 1) 
     (get-type $V)) (StateMonad Number))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (State) 
       ( (StateMonad Number))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; atm, meta-types for states of non-grounded types are used
 <span class="ansi38-000068000">!(assertEqual (get-type &amp;state-token) (StateMonad Expression))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (State) 
       ( (StateMonad Expression))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -133,20 +135,20 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
 ; it cannot be changed to int
 <span class="ansi38-000068000">!(assertEqual (change-state! &amp;state-token 1) (Error 1 BadType))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (1) 
       ( (Error 1 BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ("S") 
       ( (Error "S" BadType))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -156,16 +158,16 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
 ; while ignoring unwanted return values.
 <span class="ansi38-000068000">!(nop (change-state! &amp;state-token (C D)))
 </span>
-<span class="ansi33"> % []
+<span class="ansi33"> ()
 
 </span>; The same state atom has different content now
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (get-token) 
       ( (C D))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -179,11 +181,11 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
       (+ 
         (get-state $X) 1))) (new-state 2))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
-      (3) 
+      (2) 
       ( (State  2))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
@@ -195,9 +197,9 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (State  1)) 
       ( (State  1))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
-</span><span class="ansi32">% 228,739 inferences, 0.158 CPU in 0.158 seconds (100% CPU, 1444674 Lips)
+</span><span class="ansi32">% 155,520 inferences, 0.150 CPU in 0.150 seconds (100% CPU, 1034472 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta" 1)
  --repl=false
  --args
@@ -207,7 +209,7 @@ Script started on 2023-09-23 18:41:15-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 2
 </span><span class="ansi31">Failures: 9
 </span>
-Script done on 2023-09-23 18:41:18-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:22:14-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

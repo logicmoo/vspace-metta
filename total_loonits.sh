@@ -6,7 +6,7 @@ export FOUND_UNITS=/tmp/found_units
 
 #find "${UNITS_DIR}" -name "*.html" -type f -delete
 
-#find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} --html \;
+find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} --html \;
 
 
 # Initialize counters

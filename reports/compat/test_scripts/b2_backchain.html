@@ -37,7 +37,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:22:33-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -60,11 +60,11 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
 </span>; `(Frog Sam)` is not reduced; it is just a declaration
 <span class="ansi38-000068000">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       (True) 
       ( (Frog Sam))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; `frog` uses this declaration
 <span class="ansi38-000068000">!(assertEqual (frog Sam) True)
@@ -73,14 +73,14 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       (True) 
       (True)))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (Frog Fritz)) ()))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -145,7 +145,7 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
 ; Test deduction that Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (deduce (Evaluation (mortal Plato))) True)
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (And 
           (deduce 
@@ -159,13 +159,13 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
         (Evaluation 
           (mortal Plato))) 
       (True)))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; TODO : Some variables are not substituted
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
     (ift True $Then) $Then)
   (metta_defn  &amp;self 
-    (ift True $_87750) $_87750)  ; 10 
+    (ift True $_517748) $_517748)  ; 10 
 
 </span>  (unknown_do_metta  &amp;self load 
     (= 
@@ -179,7 +179,7 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
     (ift 
       (deduce 
         (Evaluation 
-          (mortal $_102614))) $_102614))  ; 11 
+          (mortal $_15642))) $_15642))  ; 11 
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -198,11 +198,11 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
   (metta_defn  &amp;self 
     (explain 
       (Evaluation 
-        ($_116818 $_117086))) 
+        ($_29846 $_30114))) 
     (match &amp;self 
       (Evaluation 
-        ($_116818 $_117086)) 
-      ($_116818 $_117086)))  ; 12 
+        ($_29846 $_30114)) 
+      ($_29846 $_30114)))  ; 12 
 
 </span>; Definition of explain when the desired Evaluation is
 ; the result of an implication
@@ -219,13 +219,13 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
   (metta_defn  &amp;self 
     (explain 
       (Evaluation 
-        ($_133248 $_133630))) 
+        ($_46276 $_46658))) 
     (match &amp;self 
-      (Implication $_133920 
+      (Implication $_46948 
         (Evaluation 
-          ($_133248 $_133630))) 
-      ( ($_133248 $_133630) proven by 
-        (explain $_133920))))  ; 13 
+          ($_46276 $_46658))) 
+      ( ($_46276 $_46658) proven by 
+        (explain $_46948))))  ; 13 
 
 </span>; Definition of explain for And
 <span class="ansi38-255165000">  (metta_defn  &amp;self 
@@ -237,7 +237,7 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
 </span>; Example of explain why Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( ( (mortal Plato) proven by 
           (explain 
@@ -248,9 +248,9 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
             (And 
               (philosopher Plato) 
               (likes-to-wrestle Plato)))))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
-</span><span class="ansi32">% 1,274,146 inferences, 0.280 CPU in 0.280 seconds (100% CPU, 4558138 Lips)
+</span><span class="ansi32">% 178,271 inferences, 0.136 CPU in 0.136 seconds (100% CPU, 1315259 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 14)
  --repl=false
  --args
@@ -260,7 +260,7 @@ Script started on 2023-09-23 18:41:38-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 4
 </span>
-Script done on 2023-09-23 18:41:41-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:22:36-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

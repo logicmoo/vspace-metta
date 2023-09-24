@@ -41,7 +41,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-23 20:21:38-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -75,14 +75,14 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi38-255165000">  (metta_type  &amp;self Vec 
     (-&gt; $T Nat Type))
   (metta_type  &amp;self Vec 
-    (-&gt; $_242254 Nat Type))  ; 11 
+    (-&gt; $_244978 Nat Type))  ; 11 
 
 </span>  (metta_arity  &amp;self Vec 3)
   (metta_arity  &amp;self Vec 3)  ; 12 
   (metta_params  &amp;self Vec 
     ($T Nat Type))
   (metta_params  &amp;self Vec 
-    ($_251180 Nat Type))  ; 13 
+    ($_253904 Nat Type))  ; 13 
   (metta_last  &amp;self Vec Type)
 ; `Cons` and `Nil` construct `Vec` values, with `Cons` incrementing the length by 1.
 <span class="ansi38-255165000">  (metta_type  &amp;self Cons 
@@ -106,13 +106,13 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
 ; We can query the derived type
 <span class="ansi38-000068000">!(assertEqual (get-type (0 1)) (Vec Number (S (S Z))))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
       ( (List Number)) 
       ( (Vec Number 
           (S 
             (S Z))))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
 <span class="ansi38-255165000">  (metta_type  &amp;self drop 
@@ -136,11 +136,11 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
 ; Query type
 <span class="ansi38-000068000">!(assertEqual (get-type (drop (1))) (Vec Number Z))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
-      ( (Vec $_442640 Z)) 
+      ( (Vec $_376478 Z)) 
       ( (Vec Number Z))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Check length after dropping
 <span class="ansi38-000068000">!(assertEqual (drop (2 1)) (1))
@@ -149,14 +149,14 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (1)) 
       ( (1))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>; Types can protect against misuse, like dropping from empty Vec
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (drop ())) ())
 </span>
 <span class="ansi36">  (loonit_success  
     (=@=  () ()))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -192,10 +192,10 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
 ; When querying types, grounded ops are reduced
 <span class="ansi38-000068000">!(assertEqual (get-type (ConsN "1" (ConsN "2" NilN))) (VecN String 2))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  () 
       ( (VecN String 2))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; Similarly, `-` reduces the length in `dropN` type.
 <span class="ansi38-255165000">  (metta_type  &amp;self dropN 
@@ -218,11 +218,11 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
         (ConsN $X $Xs)) $Xs))
 <span class="ansi38-000068000">!(assertEqual (get-type (dropN (ConsN "1" NilN))) (VecN String 0))
 </span>
-<span class="ansi31">  (loonit_failure  
+<span class="ansi31">  (loonit_failureR  
     (=@=  
-      ( (VecN $_134942 0)) 
+      ( (VecN $_10054 0)) 
       ( (VecN String 0))))
-</span><span class="ansi33"> % 'False'
+</span><span class="ansi33"> False
 
 </span>; TODO: doesn't work after type checking fixes
 ; However, without any validation, invalid lengths like -1 can be derived.
@@ -241,9 +241,9 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
     (=@=  
       ( (dropN NilN)) 
       ( (dropN NilN))))
-</span><span class="ansi33"> % 'True'
+</span><span class="ansi33"> True
 
-</span><span class="ansi32">% 310,040 inferences, 0.117 CPU in 0.117 seconds (100% CPU, 2644158 Lips)
+</span><span class="ansi32">% 196,349 inferences, 0.132 CPU in 0.132 seconds (100% CPU, 1490766 Lips)
 </span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta" 45)
  --repl=false
  --args
@@ -253,7 +253,7 @@ Script started on 2023-09-23 18:40:33-07:00 [COMMAND="timeout --foreground --pre
 <span class="ansi32">Successes: 3
 </span><span class="ansi31">Failures: 4
 </span>
-Script done on 2023-09-23 18:40:36-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-23 20:21:40-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
