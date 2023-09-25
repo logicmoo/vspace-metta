@@ -6,7 +6,15 @@ export FOUND_UNITS=/tmp/found_units
 
 #find "${UNITS_DIR}" -name "*.html" -type f -delete
 
-find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} --html \;
+
+#time find "${UNITS_DIR}" -name "*.metta" -type f -printf "running %P\n" -exec metta {} \;
+
+if [ -n "${1}" ] && [ -d "${UNITS_DIR}" ]; then
+   # --html
+   find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} \;
+fi
+
+
 
 
 # Initialize counters
@@ -92,7 +100,10 @@ awk 'BEGIN{flag=0} /# Installation Guide/{flag=1} flag' MeTTaLog.md > temp2.txt
 cat temp1.txt PASS_FAIL.md temp2.txt > final_MeTTaLog.md
 
 # Optional: Overwrite the MeTTaLog.md with the final_MeTTaLog.md
-mv final_MeTTaLog.md MeTTaLog.md
+echo "Dont forget 1) \\mv ${UNITS_DIR}*.html $(echo ${UNITS_DIR} | sed -e 's/examples/reports/g')"
+echo "            2) \\mv final_MeTTaLog.md MeTTaLog.md"
+echo find "${UNITS_DIR}" -name \"*.metta\" -type f -exec ./MeTTa --timeout=20 {} \\;
+
 
 # Clean up temporary files
 rm temp1.txt temp2.txt
