@@ -38,6 +38,7 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
@@ -48,15 +49,6 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-25 01:50:00-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-:- time_factorials(61111).
-:- time_fibonaccis(30000)
- --python=enable
- --repl=false
-
-(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
  (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -98,11 +90,11 @@ Script started on 2023-09-25 01:50:00-07:00 [COMMAND="timeout --foreground --pre
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (and (&gt; 4 2) (&lt; 4 3)) (False))
 </span>
-<span class="ansi31">(@ loonit_failureR 
+<span class="ansi36">(@ loonit_success 
   (=@=  
-    ( (and True False)) 
+    (False) 
     (False)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -127,12 +119,13 @@ Script started on 2023-09-25 01:50:00-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ ln 2)) ((&gt; 4 (+ ln 2))))
 </span>
-<span class="ansi31">(@ loonit_failureR 
+<span class="ansi36">(@ loonit_success 
   (=@=  
-    (False) 
+    ( (&gt; 4 
+        (+ ln 2))) 
     ( (&gt; 4 
         (+ ln 2)))))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -141,12 +134,13 @@ Script started on 2023-09-25 01:50:00-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ $X 2)) ((&gt; 4 (+ $X 2))))
 </span>
-<span class="ansi31">(@ loonit_failureR 
+<span class="ansi36">(@ loonit_success 
   (=@=  
-    (False) 
     ( (&gt; 4 
-        (+ $_233962 2)))))
-</span><span class="ansi33"> False
+        (+ $_268650 2))) 
+    ( (&gt; 4 
+        (+ $_265418 2)))))
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -268,7 +262,15 @@ Script started on 2023-09-25 01:50:00-07:00 [COMMAND="timeout --foreground --pre
 </span>(@ unknown_do_metta &amp;self load 
   (= 
     (bin) 1))
-<span class="ansi38-000068000">!(assertEqualToResult (+ 1 (bin)) (1 2))
+<span class="ansi38-000068000">!(assertEqualToResult (bin) (0 1))
+</span>
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (0 1) 
+    (0 1)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (+ 1 (bin)) (1 2))
 </span>
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
@@ -353,21 +355,21 @@ Script started on 2023-09-25 01:50:00-07:00 [COMMAND="timeout --foreground --pre
 </span>
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
-    ($_399106) 
+    ($_473690) 
     ( (1 0 1))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 404,078 inferences, 0.468 CPU in 0.468 seconds (100% CPU, 863614 Lips)
+</span><span class="ansi32">% 405,730 inferences, 0.482 CPU in 0.482 seconds (100% CPU, 841335 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 0)
- --args
- --timeout=20
- --html
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 14
-</span><span class="ansi31">Failures: 7
-</span>
-Script done on 2023-09-25 01:50:02-07:00 [COMMAND_EXIT_CODE="7"]
+<span class="ansi32">Successes: 18
+</span><span class="ansi31">Failures: 4
+</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.html" )
+ --args
+ --timeout=20
+
+Script done on 2023-09-25 06:55:17-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

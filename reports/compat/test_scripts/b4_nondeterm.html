@@ -50,15 +50,6 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-25 01:50:19-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-:- time_factorials(61111).
-:- time_fibonaccis(30000)
- --python=enable
- --repl=false
-
-(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
  (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -223,13 +214,12 @@ Script started on 2023-09-25 01:50:19-07:00 [COMMAND="timeout --foreground --pre
   (metta_defn  &amp;self 
     (find-equal $X $Y) 
     (match &amp;self 
-      (eq $X $Y) $X)))
+      (= 
+        (eq $X $Y) True) $X)))
 </span><span class="ansi38-000068000">!(assertEqual (find-equal (color) (foo)) red)
 </span>
 <span class="ansi31">(@ loonit_failureR 
-  (=@=  
-    ( (find-equal green 
-        (foo))) 
+  (=@=  () 
     (red)))
 </span><span class="ansi33"> False
 
@@ -264,7 +254,8 @@ Script started on 2023-09-25 01:50:19-07:00 [COMMAND="timeout --foreground --pre
     (ift True $Then) $Then))
 </span>(@ unknown_do_metta &amp;self load 
   (= 
-    (ift True $Then) $Then))(@ unknown_do_metta &amp;self load True)<span class="ansi38-255165000">
+    (ift True $Then) $Then))(@ unknown_do_metta &amp;self load 
+  (= True True))<span class="ansi38-255165000">
 (@ = load 
   (metta_defn  &amp;self 
     (make $X) 
@@ -328,15 +319,15 @@ Script started on 2023-09-25 01:50:19-07:00 [COMMAND="timeout --foreground --pre
     ( (ift 
         (And 
           (prevents 
-            (making $_454044) 
+            (making $_449890) 
             (making 
               (air wet))) 
-          (makes $_454092 $_454044)) 
-        (stop $_454092)) 
+          (makes $_449938 $_449890)) 
+        (stop $_449938)) 
       (ift 
-        (makes $_454146 
+        (makes $_449992 
           (air wet)) 
-        (start $_454146))) 
+        (start $_449992))) 
     ( (start humidifier) 
       (start kettle) 
       (stop ventilation))))
@@ -349,31 +340,31 @@ Script started on 2023-09-25 01:50:19-07:00 [COMMAND="timeout --foreground --pre
     ( (ift 
         (And 
           (prevents 
-            (making $_474408) 
+            (making $_471504) 
             (making 
               (air dry))) 
-          (makes $_474456 $_474408)) 
-        (stop $_474456)) 
+          (makes $_471552 $_471504)) 
+        (stop $_471552)) 
       (ift 
-        (makes $_474510 
+        (makes $_471606 
           (air dry)) 
-        (start $_474510))) 
+        (start $_471606))) 
     ( (start ventilation) 
       (stop humidifier) 
       (stop kettle))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 273,610 inferences, 0.303 CPU in 0.303 seconds (100% CPU, 902713 Lips)
+</span><span class="ansi32">% 276,913 inferences, 0.317 CPU in 0.317 seconds (100% CPU, 874663 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta" 0)
- --args
- --timeout=20
- --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 4
-</span>
-Script done on 2023-09-25 01:50:22-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.html" )
+ --args
+ --timeout=20
+
+Script done on 2023-09-25 06:55:35-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

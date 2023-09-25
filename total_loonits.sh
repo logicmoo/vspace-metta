@@ -102,7 +102,7 @@ cat temp1.txt PASS_FAIL.md temp2.txt > final_MeTTaLog.md
 # Optional: Overwrite the MeTTaLog.md with the final_MeTTaLog.md
 echo "Dont forget 1) \\mv ${UNITS_DIR}*.html $(echo ${UNITS_DIR} | sed -e 's/examples/reports/g')"
 echo "            2) \\mv final_MeTTaLog.md MeTTaLog.md"
-echo find "${UNITS_DIR}" -name \"*.metta\" -type f -exec ./MeTTa --timeout=20 {} \\;
+echo find "${UNITS_DIR}" -name \"*.metta\" -type f -exec ./MeTTa --timeout=20 {} \\\;
 
 
 # Clean up temporary files

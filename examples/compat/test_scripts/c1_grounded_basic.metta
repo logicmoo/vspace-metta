@@ -118,6 +118,10 @@
 
 (= (bin) 0)
 (= (bin) 1)
+
+!(assertEqualToResult (bin) (0 1))
+
+
 !(assertEqualToResult
   (+ 1 (bin))
   (1 2))
