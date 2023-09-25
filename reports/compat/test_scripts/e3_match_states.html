@@ -26,11 +26,14 @@
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-25 01:40:53-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:49:32-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
@@ -131,7 +134,31 @@ Script started on 2023-09-25 01:40:53-07:00 [COMMAND="timeout --foreground --pre
 </span>; We cannot put `(new-state active)` inside `match`, because it doesn''t
 ; reduce the input pattern expression. Instead, we should use
 ; `(let $state-active (new-state active)) ...) here.   `
-; In any case, direct matching against expressions with states work:
+<span class="ansi38-000068000">!(assertEqual (get-type &amp;state-active) (StateMonad Symbol))
+</span>
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (State) 
+    ( (StateMonad Symbol))))
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqual (get-state &amp;state-active) inactive)
+</span>
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (inactive) 
+    (inactive)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual &amp;state-active (new-state inactive))
+</span>
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (State  inactive)) 
+    ( (State  inactive))))
+</span><span class="ansi33"> True
+
+</span>; In any case, direct matching against expressions with states work:
 <span class="ansi38-000068000">!(assertEqual (match &amp;self (= (status (Goal $Goal)) &amp;state-active) $Goal) meditation)
 </span>
 <span class="ansi31">(@ loonit_failureR 
@@ -148,17 +175,17 @@ Script started on 2023-09-25 01:40:53-07:00 [COMMAND="timeout --foreground --pre
     (lunch-order)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 106,303 inferences, 0.069 CPU in 0.069 seconds (100% CPU, 1550945 Lips)
+</span><span class="ansi32">% 127,238 inferences, 0.083 CPU in 0.083 seconds (100% CPU, 1527502 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta" 0)
  --args
  --timeout=20
  --html
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 3
+<span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 4
 </span>
-Script done on 2023-09-25 01:40:56-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:49:34-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

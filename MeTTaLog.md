@@ -14,11 +14,11 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  0  |  6  | d5_auto_types.metta               |[reports/compat/test_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html)|
 |  7  |  4  | b4_nondeterm.metta                |[reports/compat/test_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html)|
 |  3  |  4  | d3_deptypes.metta                 |[reports/compat/test_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d3_deptypes.html)|
+|  3  |  4  | e3_match_states.metta             |[reports/compat/test_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html)|
 |  1  |  4  | b2_backchain.metta                |[reports/compat/test_scripts/b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html)|
 |  1  |  4  | c3_pln_stv.metta                  |[reports/compat/test_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c3_pln_stv.html)|
 |  0  |  4  | test_minecraft_planning.metta     |[reports/compat/test_scripts/test_minecraft_planning.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/test_minecraft_planning.html)|
 |  14 |  3  | f1_imports.metta                  |[reports/compat/test_scripts/f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html)|
-|  1  |  3  | e3_match_states.metta             |[reports/compat/test_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html)|
 |  1  |  2  | b3_direct.metta                   |[reports/compat/test_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b3_direct.html)|
 |  0  |  2  | test_minecraft_planning_with_abstractions.metta|[reports/compat/test_scripts/test_minecraft_planning_with_abstractions.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/test_minecraft_planning_with_abstractions.html)|
 |  5  |  1  | b1_equal_chain.metta              |[reports/compat/test_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b1_equal_chain.html)|
@@ -38,7 +38,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  0  |  0  | _e2_states_dia.metta              |[reports/compat/test_scripts/_e2_states_dia.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/_e2_states_dia.html)|
 |  0  |  0  | f1_moduleB.metta                  |[reports/compat/test_scripts/f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleB.html)|
 |  0  |  0  | f1_moduleC.metta                  |[reports/compat/test_scripts/f1_moduleC.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleC.html)|
-| 139 | 90  | Total: 229                        | For 60% 'examples/compat/test_scripts/*.metta'                                                                                   |
+| 141 | 91  | Total: 232                        | For 60% 'examples/compat/test_scripts/*.metta'                                                                                   |
 
 ## Installation Guide
 
