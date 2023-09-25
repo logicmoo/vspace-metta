@@ -45,13 +45,12 @@ for file in "${files[@]}"; do
   fi
 done
 
-# If the script is being sourced, use 'return'. Otherwise, use 'exit'.
-[[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
 
-
-echo "| STATUS | TEST NAME                                                              | TEST CONDITION                                                                                       | EXPECTED RESULT   | ACTUAL RESULT    |" > TEST_LINKS.md
-echo "|--------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|-------------------|------------------|" >> TEST_LINKS.md
+echo "| STATUS | TEST NAME                                                              | TEST CONDITION                                                                               | ACTUAL RESULT             | EXPECTED RESULT  |" > TEST_LINKS.md
+echo "|--------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------|------------------|" >> TEST_LINKS.md
 grep -h "UNIT-TEST: | " -R examples/ --include="*.html" | sed -e "s|</span>||g" -e "s|; UNIT-TEST: ||g" | sort -t'|' -k2  >> TEST_LINKS.md
 sed 's/^[ \t]*//' -i TEST_LINKS.md
 
-
+echo DONT FORGET TO:  \\mv TEST_LINKS.md UNIT_LINKS.md
+# If the script is being sourced, use 'return'. Otherwise, use 'exit'.
+[[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0

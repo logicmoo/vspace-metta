@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
 .body_foreground { color: #000000; }
 .body_background { background-color: #AAAAAA; }
 .inv_foreground { color: #AAAAAA; }
@@ -81,7 +81,7 @@
 </span>; We can use `status` as a function to access corresponding state
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.01">TEST-SCRIPTS.E3-MATCH-STATES.01</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.01">TEST-SCRIPTS.E3-MATCH-STATES.01</h3>
 ; UNIT-TEST: | PASS | [TEST-SCRIPTS.E3-MATCH-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.01) | (assertEqual (get-state (status (Goal lunch-order)))) | (inactive) | (inactive)
 <span class="ansi36">(@ loonit_success 
   (=@=  
@@ -105,7 +105,7 @@
 ; (even if it is inside equality).
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) active)
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.02">TEST-SCRIPTS.E3-MATCH-STATES.02</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.02">TEST-SCRIPTS.E3-MATCH-STATES.02</h3>
 ; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.02) | (assertEqual (get-state (status (Goal lunch-order)))) | (inactive) | (active)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
@@ -131,7 +131,7 @@
 ; `(let $state-active (new-state active)) ...) here.   `
 <span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.03">TEST-SCRIPTS.E3-MATCH-STATES.03</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">TEST-SCRIPTS.E3-MATCH-STATES.03</h3>
 ; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.03) | (assertEqual (get-type &state-active)) | (Symbol (StateMonad Symbol)) | ((StateMonad Symbol))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
@@ -142,7 +142,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.04">TEST-SCRIPTS.E3-MATCH-STATES.04</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.04">TEST-SCRIPTS.E3-MATCH-STATES.04</h3>
 ; UNIT-TEST: | PASS | [TEST-SCRIPTS.E3-MATCH-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.04) | (assertEqual (get-state &state-active)) | (inactive) | (inactive)
 <span class="ansi36">(@ loonit_success 
   (=@=  
@@ -152,7 +152,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.05">TEST-SCRIPTS.E3-MATCH-STATES.05</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">TEST-SCRIPTS.E3-MATCH-STATES.05</h3>
 ; UNIT-TEST: | PASS | [TEST-SCRIPTS.E3-MATCH-STATES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.05) | (assertEqual &state-active) | ((State  inactive)) | ((State  inactive))
 <span class="ansi36">(@ loonit_success 
   (=@=  
@@ -163,7 +163,7 @@
 </span>; In any case, direct matching against expressions with states work:
 <span class="ansi38-000068000">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.06">TEST-SCRIPTS.E3-MATCH-STATES.06</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.06">TEST-SCRIPTS.E3-MATCH-STATES.06</h3>
 ; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.06) | (assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal)) | () | (meditation)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
@@ -174,20 +174,20 @@
 ; and compare to the desirable result
 <span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
 
-</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.07">TEST-SCRIPTS.E3-MATCH-STATES.07</h2>
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">TEST-SCRIPTS.E3-MATCH-STATES.07</h3>
 ; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.07) | (assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ()))) | () | (lunch-order)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (lunch-order)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 138,770 inferences, 0.086 CPU in 0.086 seconds (100% CPU, 1611927 Lips)
+</span><span class="ansi32">% 140,073 inferences, 0.086 CPU in 0.086 seconds (100% CPU, 1624031 Lips)
 </span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
 </span><span class="ansi31">Failures: 4
-</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e3_match_states.html" )
+</span>doing(ansi2html -u -l < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e3_match_states.html" )
 
 </pre>
 </body>
