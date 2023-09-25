@@ -14,6 +14,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  5  |  6  | OrderedSetTest.metta              |[reports/compat/common/OrderedSetTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html)|
 |  0  |  6  | d5_auto_types.metta               |[reports/compat/test_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html)|
 |  5  |  5  | NumTest.metta                     |[reports/compat/common/NumTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/NumTest.html)|
+|  4  |  5  | inf_order_probs.metta             |[reports/compat/prob-dep-types/inf_order_probs.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/prob-dep-types/inf_order_probs.html)|
 |  18 |  4  | c1_grounded_basic.metta           |[reports/compat/test_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html)|
 |  7  |  4  | b4_nondeterm.metta                |[reports/compat/test_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html)|
 |  3  |  4  | d3_deptypes.metta                 |[reports/compat/test_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d3_deptypes.html)|
@@ -38,16 +39,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  1  |  0  | a2_opencoggy.metta                |[reports/compat/test_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a2_opencoggy.html)|
 |  1  |  0  | c2_spaces.metta                   |[reports/compat/test_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c2_spaces.html)|
 |  1  |  0  | f1_moduleA.metta                  |[reports/compat/test_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleA.html)|
-|  0  |  0  | c2_spaces_kb.metta                |[reports/compat/test_scripts/c2_spaces_kb.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c2_spaces_kb.html)|
-|  0  |  0  | DeductionFormula.metta            |[reports/compat/common/formula/DeductionFormula.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormula.html)|
-|  0  |  0  | f1_moduleB.metta                  |[reports/compat/test_scripts/f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleB.html)|
-|  0  |  0  | f1_moduleC.metta                  |[reports/compat/test_scripts/f1_moduleC.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleC.html)|
-|  0  |  0  | In.metta                          |[reports/compat/common/In.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/In.html)|
-|  0  |  0  | Num.metta                         |[reports/compat/common/Num.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/Num.html)|
-|  0  |  0  | OrderedSet.metta                  |[reports/compat/common/OrderedSet.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSet.html)|
-|  0  |  0  | Synthesize.metta                  |[reports/compat/synthesis/Synthesize.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/synthesis/Synthesize.html)|
-|  0  |  0  | TruthValue.metta                  |[reports/compat/common/truthvalue/TruthValue.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/truthvalue/TruthValue.html)|
-| 147 | 103 | Total: 250                        | For 58% 'examples/compat/*.metta'                                                                                                |
+| 151 | 108 | Total: 259                        | For 58% 'examples/compat/*.metta'                                                                                                |
 
 ## Installation Guide
 
