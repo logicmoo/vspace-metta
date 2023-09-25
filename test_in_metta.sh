@@ -58,9 +58,9 @@ function generate_final_MeTTaLog() {
     percent_passed=$(awk -v passed="$passed" -v total="$total" 'BEGIN { printf "%.2f", (passed/total)*100 }')
 
     {
-    echo -e "\n"
-    echo -e "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |\n"
-    echo -e "|--------|-----------|----------------|---------------|-----------------|\n"
+    echo " "
+    echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |"
+    echo "|--------|-----------|----------------|---------------|-----------------|"
     } > TEST_LINKS.md
 
     sort -t'|' -k3 TEE.ansi.UNITS | sed 's/^[ \t]*//' | \
