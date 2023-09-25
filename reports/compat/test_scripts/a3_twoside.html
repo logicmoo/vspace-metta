@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -26,18 +26,18 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/a3_twoside.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables can appear in knowledge base entries
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (implies 
       (Frog $X) 
       (Green $X))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (implies 
       (Frog $X) 
       (Eats-flies $X))))
@@ -45,8 +45,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bound variables on both sides will be substituted
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
+
+</span><h2 id="TEST-SCRIPTS.A3-TWOSIDE.01">TEST-SCRIPTS.A3-TWOSIDE.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A3-TWOSIDE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a3_twoside.html#TEST-SCRIPTS.A3-TWOSIDE.01) | (assertEqualToResult (match &self (implies (Frog Sam) $What) $What)) | ((Eats-flies Sam) (Green Sam)) | ((Eats-flies Sam) (Green Sam))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Eats-flies Sam) 
@@ -55,8 +57,10 @@
       (Green Sam))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
-</span>
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
+
+</span><h2 id="TEST-SCRIPTS.A3-TWOSIDE.02">TEST-SCRIPTS.A3-TWOSIDE.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A3-TWOSIDE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a3_twoside.html#TEST-SCRIPTS.A3-TWOSIDE.02) | (assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P))) | ((Sam might be Frog)) | ((Sam might be Frog))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Sam might be Frog)) 
@@ -71,13 +75,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Frog Sam)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Robot Sophia)))
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
-</span>
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
+
+</span><h2 id="TEST-SCRIPTS.A3-TWOSIDE.03">TEST-SCRIPTS.A3-TWOSIDE.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A3-TWOSIDE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a3_twoside.html#TEST-SCRIPTS.A3-TWOSIDE.03) | (assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y)) | ((Eats-flies Sam) (Green Sam)) | ((Eats-flies Sam) (Green Sam))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Eats-flies Sam) 
@@ -90,25 +96,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Variables in queries can remain unbound
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
+
+</span><h2 id="TEST-SCRIPTS.A3-TWOSIDE.04">TEST-SCRIPTS.A3-TWOSIDE.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A3-TWOSIDE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a3_twoside.html#TEST-SCRIPTS.A3-TWOSIDE.04) | (assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P))) | ((Then it is definitely Frog)) | ((Then it is definitely Frog))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Then it is definitely Frog)) 
     ( (Then it is definitely Frog))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 88,473 inferences, 0.040 CPU in 0.040 seconds (100% CPU, 2219365 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta" 0)
+</span><span class="ansi32">% 97,757 inferences, 0.045 CPU in 0.045 seconds (100% CPU, 2185417 Lips)
+</span> (@ = "examples/compat/test_scripts/a3_twoside.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:42-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a3_twoside.html" )
 
 </pre>
 </body>

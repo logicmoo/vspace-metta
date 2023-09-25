@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -79,7 +79,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/b5_types_prelim.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Symbols are typed. If no type definition is provided,
@@ -91,20 +91,22 @@
 ;; evaluation of badly typed expressions leads to a error expression.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (Add $X Z) $X))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (Add $X Z) $X))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (Add $X 
       (S $Y)) 
     (Add 
       (S $X) $Y)))
 </span>; `(Add S Z)` will be reduced to `S` without type definitions
 <span class="ansi38-000068000">!(assertEqual (Add S Z) S)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.01">TEST-SCRIPTS.B5-TYPES-PRELIM.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.01) | (assertEqual (Add S Z)) | (S) | (S)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (S) 
@@ -114,23 +116,25 @@
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Adding type definitions.
-; Arrow (-&gt;) is a built-in symbol of the type system
+; Arrow (->) is a built-in symbol of the type system
 ; `Nat` is a custom symbol
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Z Nat))
+  (metta_type  &self Z Nat))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Z Nat)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self S 
-    (-&gt; Nat Nat)))
+  (metta_type  &self S 
+    (-> Nat Nat)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Add 
-    (-&gt; Nat Nat Nat)))
+  (metta_type  &self Add 
+    (-> Nat Nat Nat)))
 </span>; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
 <span class="ansi38-000068000">!(assertEqualToResult (Add S Z) ((Error S BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.02">TEST-SCRIPTS.B5-TYPES-PRELIM.02</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B5-TYPES-PRELIM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.02) | (assertEqualToResult (Add S Z)) | (S) | ((Error S BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (S) 
@@ -139,7 +143,9 @@
 
 </span>; But these other examples works normally
 <span class="ansi38-000068000">!(assertEqual (Add (S Z) Z) (S Z))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.03">TEST-SCRIPTS.B5-TYPES-PRELIM.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.03) | (assertEqual (Add (S Z) Z)) | ((S Z)) | ((S Z))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (S Z)) 
@@ -147,7 +153,9 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (Add Z (S Z)) (S Z))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.04">TEST-SCRIPTS.B5-TYPES-PRELIM.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.04) | (assertEqual (Add Z (S Z))) | ((S Z)) | ((S Z))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (S Z)) 
@@ -160,7 +168,9 @@
 ; because it might be `Nat`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (Add Something Z) Something)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.05">TEST-SCRIPTS.B5-TYPES-PRELIM.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.05) | (assertEqual (Add Something Z)) | (Something) | (Something)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Something) 
@@ -172,18 +182,20 @@
 ; Types can be nondeterministic
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Ten Nat))
+  (metta_type  &self Ten Nat))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Ten Nat)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Ten Int))
+  (metta_type  &self Ten Int))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Ten Int)))
 </span>; The following will be accepted by the interpreter
 <span class="ansi38-000068000">!(assertEqualToResult (Add Z Ten) ((Add Z Ten)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.06">TEST-SCRIPTS.B5-TYPES-PRELIM.06</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.06) | (assertEqualToResult (Add Z Ten)) | ((Add Z Ten)) | ((Add Z Ten))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Add Z Ten)) 
@@ -197,26 +209,28 @@
 ; List has a function type. Its argument should be of Type type.
 ; The type of the whole expression, e.g. (List String), will also have Type type.
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self List 
-    (-&gt; Type Type)))
+  (metta_type  &self List 
+    (-> Type Type)))
 </span>; Nil's type is parametrized as the type returned by List when it
 ; takes parameter $t (which, per the definition above,
 ; is the same type as $t)
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self () 
+  (metta_type  &self () 
     (List $T)))
 </span>; Cons is defined as a parametrized List constructor
 ; Based on the definition of List above, Cons' arguments
 ; are equally typed, and it returns the same type
 ; as its arguments.
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Cons 
-    (-&gt; $T 
+  (metta_type  &self Cons 
+    (-> $T 
       (List $T) 
       (List $T))))
 </span>; This list is well typed and evaluated to itself
 <span class="ansi38-000068000">!(assertEqualToResult ((S Z) Z) (((S Z) Z)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.07">TEST-SCRIPTS.B5-TYPES-PRELIM.07</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.07) | (assertEqualToResult ((S Z) Z)) | (((S Z) Z)) | (((S Z) Z))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( ( (S Z) Z)) 
@@ -225,7 +239,9 @@
 
 </span>; This list is badly typed, because S and Z are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (S Z) ((Error Z BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.08">TEST-SCRIPTS.B5-TYPES-PRELIM.08</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B5-TYPES-PRELIM.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.08) | (assertEqualToResult (S Z)) | ((S Z)) | ((Error Z BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (S Z)) 
@@ -237,23 +253,25 @@
 ; Another example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self True Type))
+  (metta_type  &self True Type))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: True Type)))
 </span>; The type definition of `eq` specifies both its arguments
 ; must be of the same type, but its own type is left undefined,
 ; just as a Type.
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self eq 
-    (-&gt; $T $T Type)))
+  (metta_type  &self eq 
+    (-> $T $T Type)))
 </span>; The definition of `eq` specifies its actual type (T)
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (eq $X $X)))
 </span>; Accepted and reduced
 <span class="ansi38-000068000">!(assertEqual (eq (Add Z Z) Z) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.09">TEST-SCRIPTS.B5-TYPES-PRELIM.09</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.09) | (assertEqual (eq (Add Z Z) Z)) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -263,7 +281,9 @@
 </span>; Accepted, not reduced because no definition is known
 ; for `eq` when its arguments are not the same
 <span class="ansi38-000068000">!(assertEqualToResult (eq Z (S Z)) ((eq Z (S Z))))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.10">TEST-SCRIPTS.B5-TYPES-PRELIM.10</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.10) | (assertEqualToResult (eq Z (S Z))) | ((eq Z (S Z))) | ((eq Z (S Z)))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (eq Z 
@@ -274,7 +294,9 @@
 
 </span>; Not accepted, because Z and S are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (eq Z S) ((Error S BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.11">TEST-SCRIPTS.B5-TYPES-PRELIM.11</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B5-TYPES-PRELIM.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.11) | (assertEqualToResult (eq Z S)) | ((eq Z S)) | ((Error S BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (eq Z S)) 
@@ -287,47 +309,49 @@
 ; of other custom types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Color Property))
+  (metta_type  &self Color Property))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Color Property)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Green Color))
+  (metta_type  &self Green Color))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Green Color)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Red Color))
+  (metta_type  &self Red Color))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Red Color)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Shape Property))
+  (metta_type  &self Shape Property))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Shape Property)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Square Shape))
+  (metta_type  &self Square Shape))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Square Shape)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Circle Shape))
+  (metta_type  &self Circle Shape))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Circle Shape)))
 </span>; This type definition is the same as that of `eq` above
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self of-same-type 
-    (-&gt; $T $T Type)))
+  (metta_type  &self of-same-type 
+    (-> $T $T Type)))
 </span>; It returns True for any pair of arguments, as long as there
 ; is not Type error
 ; Accepted
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (of-same-type $X $Y)))
 </span><span class="ansi38-000068000">!(assertEqual (of-same-type Color Shape) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.12">TEST-SCRIPTS.B5-TYPES-PRELIM.12</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.12) | (assertEqual (of-same-type Color Shape)) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -335,7 +359,9 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (of-same-type Green Red) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.13">TEST-SCRIPTS.B5-TYPES-PRELIM.13</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.13) | (assertEqual (of-same-type Green Red)) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -344,7 +370,9 @@
 
 </span>; Not accepted
 <span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Color) ((Error Color BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.14">TEST-SCRIPTS.B5-TYPES-PRELIM.14</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B5-TYPES-PRELIM.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.14) | (assertEqualToResult (of-same-type Green Color)) | (True) | ((Error Color BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (True) 
@@ -352,7 +380,9 @@
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Circle) ((Error Circle BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.15">TEST-SCRIPTS.B5-TYPES-PRELIM.15</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B5-TYPES-PRELIM.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.15) | (assertEqualToResult (of-same-type Green Circle)) | (True) | ((Error Circle BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (True) 
@@ -374,21 +404,25 @@
 ; and the query returns `Sam`.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Green Sam)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Green Sam)))
 </span><span class="ansi38-000068000">!(assertEqual (Green $Who) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.16">TEST-SCRIPTS.B5-TYPES-PRELIM.16</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.16) | (assertEqual (Green $Who)) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
     (True)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) $Who) Sam)
-</span>
+</span><span class="ansi38-000068000">!(assertEqual (match &self (Green $Who) $Who) Sam)
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.17">TEST-SCRIPTS.B5-TYPES-PRELIM.17</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.17) | (assertEqual (match &self (Green $Who) $Who)) | (Sam) | (Sam)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Sam) 
@@ -401,8 +435,10 @@
 ; evaluated further. In the following, `match` first
 ; returns `(Green Sam)`, which is then evaluated to `T`.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) (Green $Who)) True)
-</span>
+<span class="ansi38-000068000">!(assertEqual (match &self (Green $Who) (Green $Who)) True)
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.18">TEST-SCRIPTS.B5-TYPES-PRELIM.18</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.18) | (assertEqual (match &self (Green $Who) (Green $Who))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -414,15 +450,10 @@
 ; If one wants to evaluate an expression before passing it
 ; to `match`, `let` can be used:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual 
-  (let $R 
-    (Add 
-      (S Z) Z) 
-    (match &amp;self 
-      (= 
-        (eq $R 
-          (S Z)) $Tv) $Tv)) True)
-</span>
+<span class="ansi38-000068000">!(assertEqual (let $R (Add (S Z) Z) (match &self (= (eq $R (S Z)) $Tv) $Tv)) True)
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.19">TEST-SCRIPTS.B5-TYPES-PRELIM.19</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.19) | (assertEqual (let $R (Add (S Z) Z) (match &self (= (eq $R (S Z)) $Tv) $Tv))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -430,8 +461,10 @@
 </span><span class="ansi33"> True
 
 </span>; but it will not work inside `match`:
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv) ())
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv) ())
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.20">TEST-SCRIPTS.B5-TYPES-PRELIM.20</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.20) | (assertEqualToResult (match &self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv)) | () | ()
 <span class="ansi36">(@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
@@ -449,14 +482,10 @@
 ; This example binds the result of (Add (S Z) (S Z)) to
 ; the whole pattern (S (S $r)), and extracts the inner variable $r
 ; This is cleaner than binding and re-matching.
-<span class="ansi38-000068000">!(assertEqual 
-  (let 
-    (S 
-      (S $R)) 
-    (Add 
-      (S Z) 
-      (S Z)) $R) Z)
-</span>
+<span class="ansi38-000068000">!(assertEqual (let (S (S $R)) (Add (S Z) (S Z)) $R) Z)
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.21">TEST-SCRIPTS.B5-TYPES-PRELIM.21</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.21) | (assertEqual (let (S (S $R)) (Add (S Z) (S Z)) $R)) | (Z) | (Z)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Z) 
@@ -468,22 +497,10 @@
 ; One can use `let*` for convenience, when multiple consequent
 ; substitutions are needed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual 
-  (let* 
-    ( ($R1 
-        (Add Z Z)) 
-      ($R2 
-        (Add $R1 
-          (S Z))) 
-      ($R3 
-        (Add $R2 
-          (S Z)))) 
-    (match &amp;self 
-      (= 
-        (eq 
-          (S 
-            (S Z)) $R3) $Tv) $Tv)) True)
-</span>
+<span class="ansi38-000068000">!(assertEqual (let* (($R1 (Add Z Z)) ($R2 (Add $R1 (S Z))) ($R3 (Add $R2 (S Z)))) (match &self (= (eq (S (S Z)) $R3) $Tv) $Tv)) True)
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.22">TEST-SCRIPTS.B5-TYPES-PRELIM.22</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.22) | (assertEqual (let* (($R1 (Add Z Z)) ($R2 (Add $R1 (S Z))) ($R3 (Add $R2 (S Z)))) (match &self (= (eq (S (S Z)) $R3) $Tv) $Tv))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -496,14 +513,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `eqa` will compare expressions:
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self eqa 
-    (-&gt; Atom Atom Type)))
+  (metta_type  &self eqa 
+    (-> Atom Atom Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (eqa $X $X)))
 </span>; These expressions are identical:
 <span class="ansi38-000068000">!(assertEqual (eqa (Add Z Z) (Add Z Z)) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.23">TEST-SCRIPTS.B5-TYPES-PRELIM.23</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.23) | (assertEqual (eqa (Add Z Z) (Add Z Z))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -514,7 +533,9 @@
 ; are not the same (even if their evaluation would be)
 ; (`eqa` is not total)
 <span class="ansi38-000068000">!(assertEqualToResult (eqa Z (Add Z Z)) ((eqa Z (Add Z Z))))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.24">TEST-SCRIPTS.B5-TYPES-PRELIM.24</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B5-TYPES-PRELIM.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.24) | (assertEqualToResult (eqa Z (Add Z Z))) | (True) | ((eqa Z (Add Z Z)))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (True) 
@@ -524,7 +545,9 @@
 
 </span>; In contrast to this:
 <span class="ansi38-000068000">!(assertEqual (eq Z (Add Z Z)) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.25">TEST-SCRIPTS.B5-TYPES-PRELIM.25</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.25) | (assertEqual (eq Z (Add Z Z))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -532,28 +555,23 @@
 </span><span class="ansi33"> True
 
 </span>; Or this:
-<span class="ansi38-000068000">!(assertEqual 
-  (let $Z 
-    (Add Z Z) 
-    (eqa Z $Z)) True)
-</span>
+<span class="ansi38-000068000">!(assertEqual (let $Z (Add Z Z) (eqa Z $Z)) True)
+
+</span><h2 id="TEST-SCRIPTS.B5-TYPES-PRELIM.26">TEST-SCRIPTS.B5-TYPES-PRELIM.26</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B5-TYPES-PRELIM.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html#TEST-SCRIPTS.B5-TYPES-PRELIM.26) | (assertEqual (let $Z (Add Z Z) (eqa Z $Z))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
     (True)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 519,014 inferences, 0.780 CPU in 0.780 seconds (100% CPU, 665158 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta" 0)
+</span><span class="ansi32">% 553,225 inferences, 0.812 CPU in 0.812 seconds (100% CPU, 681204 Lips)
+</span> (@ = "examples/compat/test_scripts/b5_types_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 20
 </span><span class="ansi31">Failures: 6
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:02-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b5_types_prelim.html" )
 
 </pre>
 </body>

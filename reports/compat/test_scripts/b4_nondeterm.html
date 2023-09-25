@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -50,27 +50,27 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/b4_nondeterm.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Nondeterminism in matching and interpretation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (color) green))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (color) green))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (color) yellow))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (color) yellow))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (color) red))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (color) red))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -79,15 +79,17 @@
 ; The same is true for equality queries
 ; `superpose` turns a tuple into a non-deterministic result (for comparison here)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (match &amp;self (= (color) $X) $X) (superpose (green yellow red)))
-</span>
+<span class="ansi38-000068000">!(assertEqual (match &self (= (color) $X) $X) (superpose (green yellow red)))
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.01">TEST-SCRIPTS.B4-NONDETERM.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.01) | (assertEqual (match &self (= (color) $X) $X)) | (green red yellow) | (green red yellow)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (green red yellow) 
     (green red yellow)))
 </span><span class="ansi33"> True
 
-</span>;!(assertEqual (match &amp;self (= (color) $x) $x) (color))
+</span>;!(assertEqual (match &self (= (color) $x) $x) (color))
 ;!(assertEqual (collapse (color)) (red yellow green))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -95,8 +97,10 @@
 ; We don''t use it above, because the order of non-deterministic results
 ; is not guaranteed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (collapse (match &amp;self (= (shape) $X) $X)) ())
-</span>
+<span class="ansi38-000068000">!(assertEqual (collapse (match &self (= (shape) $X) $X)) ())
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.02">TEST-SCRIPTS.B4-NONDETERM.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.02) | (assertEqual (collapse (match &self (= (shape) $X) $X))) | (()) | (())
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (()) 
@@ -109,7 +113,9 @@
 ; are also returned by the interpreter
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (color) (superpose (red yellow green)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.03">TEST-SCRIPTS.B4-NONDETERM.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.03) | (assertEqual (color)) | (green red yellow) | (green red yellow)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (green red yellow) 
@@ -121,12 +127,10 @@
 ; `superpose` reverts `collapse`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `let` is used to introduce temporary variable bindings within an expression
-<span class="ansi38-000068000">!(assertEqual (color) 
-  (let $X 
-    (collapse 
-      (color)) 
-    (superpose $X)))
-</span>
+<span class="ansi38-000068000">!(assertEqual (color) (let $X (collapse (color)) (superpose $X)))
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.04">TEST-SCRIPTS.B4-NONDETERM.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.04) | (assertEqual (color)) | (green red yellow) | (green red yellow)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (green red yellow) 
@@ -139,7 +143,9 @@
 ; the interpreter doesn''t reduce a symbolic expression
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (collapse (shape)) ((shape)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.05">TEST-SCRIPTS.B4-NONDETERM.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.05) | (assertEqual (collapse (shape))) | (((shape))) | (((shape)))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( ( (shape))) 
@@ -147,7 +153,9 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (shape) ((shape)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.06">TEST-SCRIPTS.B4-NONDETERM.06</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.06) | (assertEqualToResult (shape)) | ((shape)) | ((shape))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (shape)) 
@@ -160,23 +168,25 @@
 ; expressions, all combinations will be produced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (bin) A))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (bin) A))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (bin) B))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (bin) B))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (pair $X $Y) 
     ($X $Y)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (pair (bin) (bin)) ((A A) (A B) (B A) (B B)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.07">TEST-SCRIPTS.B4-NONDETERM.07</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B4-NONDETERM.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.07) | (assertEqualToResult (pair (bin) (bin))) | ((A A)) | ((A A) (A B) (B A) (B B))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (A A)) 
@@ -196,28 +206,30 @@
 ; directly to filter out non-reducible results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (foo) red))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (foo) red))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (foo) boo))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (foo) boo))<span class="ansi38-255165000">
 (@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (eq $X $X)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (find-equal $X $Y) 
-    (match &amp;self 
+    (match &self 
       (= 
         (eq $X $Y) True) $X)))
 </span><span class="ansi38-000068000">!(assertEqual (find-equal (color) (foo)) red)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.08">TEST-SCRIPTS.B4-NONDETERM.08</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B4-NONDETERM.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.08) | (assertEqual (find-equal (color) (foo))) | () | (red)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (red)))
@@ -229,11 +241,13 @@
 ; function and get multiple results.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (rev $X $Y) 
     ($Y $X)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (rev A (superpose (B C D))) ((B A) (C A) (D A)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.09">TEST-SCRIPTS.B4-NONDETERM.09</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B4-NONDETERM.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.09) | (assertEqualToResult (rev A (superpose (B C D)))) | ((B A) (C A) (D A)) | ((B A) (C A) (D A))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (B A) 
@@ -250,20 +264,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some rules
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (ift True $Then) $Then))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
-    (ift True $Then) $Then))(@ unknown_do_metta &amp;self load 
+    (ift True $Then) $Then))(@ unknown_do_metta &self load 
   (= True True))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (make $X) 
     (ift 
       (makes $Y $X) 
       (start $Y))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (make $X) 
     (ift 
       (And 
@@ -274,97 +288,97 @@
       (stop $Z))))
 </span>; Add facts to knowledge base
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (prevents 
       (making 
         (air dry)) 
       (making 
         (air wet)))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (prevents 
       (making 
         (air wet)) 
       (making 
         (air dry)))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (makes humidifier 
       (air wet))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (makes kettle 
       (air wet))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (makes ventilation 
       (air dry))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (is 
       (air dry)) 
     (make 
       (air wet))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (is 
       (air wet)) 
     (make 
       (air dry))))
 </span>; the results are not sequential in sense that their order is arbitrary
 <span class="ansi38-000068000">!(assertEqual (is (air dry)) (superpose ((stop ventilation) (start kettle) (start humidifier))))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.10">TEST-SCRIPTS.B4-NONDETERM.10</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B4-NONDETERM.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.10) | (assertEqual (is (air dry))) | ((ift (And (prevents (making $_490496) (making (air wet))) (makes $_490544 $_490496)) (stop $_490544)) (ift (makes $_490598 (air wet)) (start $_490598))) | ((start humidifier) (start kettle) (stop ventilation))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (ift 
         (And 
           (prevents 
-            (making $_449890) 
+            (making $_490496) 
             (making 
               (air wet))) 
-          (makes $_449938 $_449890)) 
-        (stop $_449938)) 
+          (makes $_490544 $_490496)) 
+        (stop $_490544)) 
       (ift 
-        (makes $_449992 
+        (makes $_490598 
           (air wet)) 
-        (start $_449992))) 
+        (start $_490598))) 
     ( (start humidifier) 
       (start kettle) 
       (stop ventilation))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (is (air wet)) (superpose ((stop kettle) (stop humidifier) (start ventilation))))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B4-NONDETERM.11">TEST-SCRIPTS.B4-NONDETERM.11</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B4-NONDETERM.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html#TEST-SCRIPTS.B4-NONDETERM.11) | (assertEqual (is (air wet))) | ((ift (And (prevents (making $_515122) (making (air dry))) (makes $_515170 $_515122)) (stop $_515170)) (ift (makes $_515224 (air dry)) (start $_515224))) | ((start ventilation) (stop humidifier) (stop kettle))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (ift 
         (And 
           (prevents 
-            (making $_471504) 
+            (making $_515122) 
             (making 
               (air dry))) 
-          (makes $_471552 $_471504)) 
-        (stop $_471552)) 
+          (makes $_515170 $_515122)) 
+        (stop $_515170)) 
       (ift 
-        (makes $_471606 
+        (makes $_515224 
           (air dry)) 
-        (start $_471606))) 
+        (start $_515224))) 
     ( (start ventilation) 
       (stop humidifier) 
       (stop kettle))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 276,913 inferences, 0.300 CPU in 0.300 seconds (100% CPU, 923620 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta" 0)
+</span><span class="ansi32">% 295,103 inferences, 0.324 CPU in 0.324 seconds (100% CPU, 910433 Lips)
+</span> (@ = "examples/compat/test_scripts/b4_nondeterm.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 4
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:52-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b4_nondeterm.html" )
 
 </pre>
 </body>

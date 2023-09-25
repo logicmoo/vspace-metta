@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -37,7 +37,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/b2_backchain.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `match` can be used inside equalities, which is typically
@@ -45,16 +45,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Fact
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Frog Sam)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (frog $X) 
-    (match &amp;self 
+    (match &self 
       (Frog $X) True)))
 </span>; `(Frog Sam)` is not reduced; it is just a declaration
 <span class="ansi38-000068000">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B2-BACKCHAIN.01">TEST-SCRIPTS.B2-BACKCHAIN.01</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B2-BACKCHAIN.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html#TEST-SCRIPTS.B2-BACKCHAIN.01) | (assertEqualToResult (Frog Sam)) | (True) | ((Frog Sam))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (True) 
@@ -63,7 +65,9 @@
 
 </span>; `frog` uses this declaration
 <span class="ansi38-000068000">!(assertEqual (frog Sam) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B2-BACKCHAIN.02">TEST-SCRIPTS.B2-BACKCHAIN.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B2-BACKCHAIN.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html#TEST-SCRIPTS.B2-BACKCHAIN.02) | (assertEqual (frog Sam)) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -71,7 +75,9 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B2-BACKCHAIN.03">TEST-SCRIPTS.B2-BACKCHAIN.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B2-BACKCHAIN.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html#TEST-SCRIPTS.B2-BACKCHAIN.03) | (assertEqualToResult (frog Fritz)) | () | ()
 <span class="ansi36">(@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
@@ -85,16 +91,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts in the knowledge base
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Evaluation 
       (philosopher Plato))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Evaluation 
       (likes-to-wrestle Plato))))
 </span>; An implication rule
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Implication 
       (And 
         (Evaluation 
@@ -105,7 +111,7 @@
         (human $X)))))
 </span>; Another implication rule
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Implication 
       (Evaluation 
         (human $X)) 
@@ -114,21 +120,21 @@
 </span>; Deduction case when the desired evaluation is present in
 ; the knowledge base
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (deduce 
       (Evaluation 
         ($P $X))) 
-    (match &amp;self 
+    (match &self 
       (Evaluation 
         ($P $X)) True)))
 </span>; Deduction case when the desired evaluation is the result
 ; of an implication, which implies a recursion
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (deduce 
       (Evaluation 
         ($P $X))) 
-    (match &amp;self 
+    (match &self 
       (Implication $A 
         (Evaluation 
           ($P $X))) 
@@ -136,18 +142,20 @@
 </span>; Deduction case for generic "And" expressions;
 ; also recursive
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (deduce 
       (And $A $B)) 
     (And 
       (deduce $A) 
       (deduce $B))))
-</span>; True &amp; True = True
-(@ unknown_do_metta &amp;self load 
+</span>; True & True = True
+(@ unknown_do_metta &self load 
   (= True True))
 ; Test deduction that Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (deduce (Evaluation (mortal Plato))) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B2-BACKCHAIN.04">TEST-SCRIPTS.B2-BACKCHAIN.04</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B2-BACKCHAIN.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html#TEST-SCRIPTS.B2-BACKCHAIN.04) | (assertEqual (deduce (Evaluation (mortal Plato)))) | ((And (deduce (Evaluation (philosopher Plato))) (deduce (Evaluation (likes-to-wrestle Plato))))) | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (And 
@@ -162,13 +170,13 @@
 
 </span>; TODO : Some variables are not substituted
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (ift True $Then) $Then))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (ift True $Then) $Then))<span class="ansi38-255165000">
 (@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (ift 
       (deduce 
         (Evaluation 
@@ -180,22 +188,22 @@
 ; Definition of explain when the desired Evaluation is
 ; in the knowledge base
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (explain 
       (Evaluation 
         ($P $X))) 
-    (match &amp;self 
+    (match &self 
       (Evaluation 
         ($P $X)) 
       ($P $X))))
 </span>; Definition of explain when the desired Evaluation is
 ; the result of an implication
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (explain 
       (Evaluation 
         ($P $X))) 
-    (match &amp;self 
+    (match &self 
       (Implication $A 
         (Evaluation 
           ($P $X))) 
@@ -203,7 +211,7 @@
         (explain $A)))))
 </span>; Definition of explain for And
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (explain 
       (And $A $B)) 
     (And 
@@ -211,7 +219,9 @@
       (explain $B))))
 </span>; Example of explain why Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B2-BACKCHAIN.05">TEST-SCRIPTS.B2-BACKCHAIN.05</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B2-BACKCHAIN.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html#TEST-SCRIPTS.B2-BACKCHAIN.05) | (assertEqual (explain (Evaluation (mortal Plato)))) | (((mortal Plato) proven by (explain (Evaluation (human Plato))))) | (((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( ( (mortal Plato) proven by 
@@ -225,17 +235,13 @@
             (likes-to-wrestle Plato)))))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 167,765 inferences, 0.129 CPU in 0.129 seconds (100% CPU, 1300427 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 0)
+</span><span class="ansi32">% 175,899 inferences, 0.147 CPU in 0.147 seconds (100% CPU, 1200419 Lips)
+</span> (@ = "examples/compat/test_scripts/b2_backchain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2
 </span><span class="ansi31">Failures: 3
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:47-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b2_backchain.html" )
 
 </pre>
 </body>

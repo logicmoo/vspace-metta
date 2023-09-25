@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "../Num.metta")
+; Consistency Conditions
+;;; Collection of functions operating on numbers
+;; Define max
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self max 
+    (-> $A $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (max $X $Y) 
+    (if 
+      (> $X $Y) $X $Y)))
+</span>;; Define min
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self min 
+    (-> $A $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (min $X $Y) 
+    (if 
+      (< $X $Y) $X $Y)))
+</span>;; Clamp an number to be within a certain range
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self clamp 
+    (-> $A $A $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (clamp $X $L $U) 
+    (max $L 
+      (min $U $X))))
+</span>;; Define abs
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self abs 
+    (-> $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (abs $X) 
+    (if 
+      (< $X 0) 
+      (* -1 $X) $X)))
+</span>;; Define <=
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self <= 
+    (-> $A $A Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (<= $X $Y) 
+    (or 
+      (< $X $Y) 
+      (== $X $Y))))
+</span>;; Define >=
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self >= 
+    (-> $A $A Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (>= $X $Y) 
+    (or 
+      (> $X $Y) 
+      (== $X $Y))))
+</span>;; Define approximatively equal
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self approxEq 
+    (-> $A $A $A Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (approxEq $X $Y $Epsilon) 
+    (<= 
+      (abs 
+        (- $X $Y)) $Epsilon)))
+</span>;; Define Nat
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self Nat Type))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (: Nat Type)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self Z Nat))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (: Z Nat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self S 
+    (-> Nat Nat)))
+</span>;; Define cast functions between Nat and Number
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self fromNumber 
+    (-> Number Nat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (fromNumber $N) 
+    (if 
+      (<= $N 0) Z 
+      (S 
+        (fromNumber 
+          (- $N 1))))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self fromNat 
+    (-> Nat Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (fromNat Z) 0))
+</span>(@ unknown_do_metta &self load 
+  (= 
+    (fromNat Z) 0))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &self 
+    (fromNat 
+      (S $K)) 
+    (+ 1 
+      (fromNat $K))))
+</span>;; Define a generic less than operator, â©», for Nat.  < cannot be used
+;; because it is a built-in, its type is hardwired and cannot be
+;; overloaded.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â©» 
+    (-> Nat Nat Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (= 
+      (â©» $_ Z) False)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (â©» Z 
+      (S $_))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (â©» 
+      (S $X) 
+      (S $Y)) 
+    (â©» $X $Y)))
+</span>;; Overload â©» for Number.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â©» 
+    (-> Number Number Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (â©» $X $Y) 
+    (< $X $Y)))
+</span>;; Return the ceiling of a non negative number.  If the number is
+;; negative it returns 1.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self ceil 
+    (-> Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (ceil $N) 
+    (fromNat 
+      (fromNumber $N))))
+</span>;; Convert Number to Bool.  Anything above 0 converts to True.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self number->bool 
+    (-> Number Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (number->bool $X) 
+    (< 0 $X)))
+</span>;; Convert Bool to Number.  False converts to 0, True converts to 1.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self bool->number 
+    (-> Bool Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (bool->number False) 0))
+</span>(@ unknown_do_metta &self load 
+  (= 
+    (bool->number False) 0))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &self 
+    (bool->number True) 1))
+</span>(@ unknown_do_metta &self load 
+  (= 
+    (bool->number True) 1))
+;; Define a less than type.  Note that it is purposefully different
+;; than â©» as it is a type, not an operator.  Inhabitants of (â x y)
+;; are proofs that x â©» y == True.  For now â is only axiomatized for
+;; Nat.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â 
+    (-> $T $T Type)))
+</span>;; Zero is always less than the successor of something
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self 
+    (zero-lt-succ-axiom) 
+    (-> Atom)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (zero-lt-succ-axiom) 
+    (: ZeroLTSucc 
+      (â Z 
+        (S $K)))))
+</span>;; If x â y then (S x) â (S y)
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self 
+    (succ-monotonicity-rule) 
+    (-> Atom)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (succ-monotonicity-rule) 
+    (: SuccMonotonicity 
+      (-> 
+        (â $X $Y) 
+        (â 
+          (S $X) 
+          (S $Y))))))
+</span><span class="ansi32">% 221,706 inferences, 0.184 CPU in 0.184 seconds (100% CPU, 1204722 Lips)
+</span> (@ = "../Num.metta" 0)
+<span class="ansi33"> &self
+
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self smallest-intersection-probability 
+    (-> Number Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (smallest-intersection-probability $As $Bs) 
+    (clamp 
+      ("/" 
+        (- 
+          (+ $As $Bs) 1) $As) 0 1)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self largest-intersection-probability 
+    (-> Number Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (largest-intersection-probability $As $Bs) 
+    (clamp 
+      ("/" $Bs $As) 0 1)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self conditional-probability-consistency 
+    (-> Number Number Number Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (conditional-probability-consistency $As $Bs $ABs)))
+</span>;; (and (< 0 $As)
+;;      (and (<= (smallest-intersection-probability $As $Bs) $ABs)
+;;           (<= $ABs (largest-intersection-probability $As $Bs)))))
+;; Main Formula
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self simple-deduction-strength-formula 
+    (-> Number Number Number Number Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (simple-deduction-strength-formula $As $Bs $Cs $ABs $BCs) 
+    (if 
+      (and 
+        (conditional-probability-consistency $As $Bs $ABs) 
+        (conditional-probability-consistency $Bs $Cs $BCs)) 
+      (if 
+        (< 0.99 $Bs) $Cs 
+        (+ 
+          (* $ABs $BCs) 
+          ("/" 
+            (* 
+              (- 1 $ABs) 
+              (- $Cs 
+                (* $Bs $BCs))) 
+            (- 1 $Bs)))) 0)))
+</span>;; Preconditions are met
+;; sB tends to 1
+;; otherwise
+;; Preconditions are not met
+;; Deduction formula
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (ded_formula $Ptv $Qtv $Rtv $Pqtv $Qrtv) 
+    (let* 
+      ( ($Pc 
+          (confidence $Ptv)) 
+        ($Qc 
+          (confidence $Qtv)) 
+        ($Rc 
+          (confidence $Rtv)) 
+        ($PQc 
+          (confidence $Pqtv)) 
+        ($QRc 
+          (confidence $Qrtv)) 
+        ($PQs 
+          (mode $Pqtv)) 
+        ($QRs 
+          (mode $Qrtv)) 
+        ($Ps 
+          (mode $Ptv)) 
+        ($Qs 
+          (mode $Qtv)) 
+        ($Rs 
+          (mode $Rtv))) 
+      (let* 
+        ( ($PRs 
+            (simple-deduction-strength-formula $Ps $Qs $Rs $PQs $QRs)) 
+          ($PRc 
+            (min $Pc 
+              (min $Qc 
+                (min $Rc 
+                  (min $PQc $QRc)))))) 
+        (if 
+          (== $PRs 0) 
+          (PrCnt 1 0) 
+          (PrCnt $PRs $PRs))))))
+</span>;; Alternate deduction formula hardwired for STV to make it faster.
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (deduction-formula 
+      (STV $Ps $Pc) 
+      (STV $Qs $Qc) 
+      (STV $Rs $Rc) 
+      (STV $PQs $PQc) 
+      (STV $QRs $QRc)) 
+    (if 
+      (and 
+        (conditional-probability-consistency $Ps $Qs $PQs) 
+        (conditional-probability-consistency $Qs $Rs $QRs)) 
+      (STV 
+        (if 
+          (< 0.9999 $Qs) $Rs 
+          (+ 
+            (* $PQs $QRs) 
+            ("/" 
+              (* 
+                (- 1 $PQs) 
+                (- $Rs 
+                  (* $Qs $QRs))) 
+              (- 1 $Qs)))) 
+        (min $Pc 
+          (min $Qc 
+            (min $Rc 
+              (min $PQc $QRc))))) 
+      (STV 1 0))))
+</span><span class="ansi32">% 956,826 inferences, 0.975 CPU in 0.981 seconds (99% CPU, 981355 Lips)
+</span> (@ = DeductionFormula.metta 0)
+<span class="ansi33"> &self
+
+</span>;; Preconditions are met
+; avoid division by 0
+;; Qs tends to 1
+;; Otherwise
+;; Preconditions are not met
+<span class="ansi38-000068000">!(assertEqualToResult (max 3 4) (4))
+
+</span><h2 id="FORMULA.DEDUCTIONFORMULATEST.01">FORMULA.DEDUCTIONFORMULATEST.01</h2>
+; UNIT-TEST: | PASS | [FORMULA.DEDUCTIONFORMULATEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.01) | (assertEqualToResult (max 3 4)) | (4) | (4)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (4) 
+    (4)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (min 3 4) (3))
+
+</span><h2 id="FORMULA.DEDUCTIONFORMULATEST.02">FORMULA.DEDUCTIONFORMULATEST.02</h2>
+; UNIT-TEST: | PASS | [FORMULA.DEDUCTIONFORMULATEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.02) | (assertEqualToResult (min 3 4)) | (3) | (3)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (3) 
+    (3)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (and True True) (True))
+
+</span><h2 id="FORMULA.DEDUCTIONFORMULATEST.03">FORMULA.DEDUCTIONFORMULATEST.03</h2>
+; UNIT-TEST: | PASS | [FORMULA.DEDUCTIONFORMULATEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.03) | (assertEqualToResult (and True True)) | (True) | (True)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (or True False) (True))
+
+</span><h2 id="FORMULA.DEDUCTIONFORMULATEST.04">FORMULA.DEDUCTIONFORMULATEST.04</h2>
+; UNIT-TEST: | FAIL | [FORMULA.DEDUCTIONFORMULATEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.04) | (assertEqualToResult (or True False)) | (False True) | (True)
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (False True) 
+    (True)))
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (<= 5 4) (False))
+
+</span><h2 id="FORMULA.DEDUCTIONFORMULATEST.05">FORMULA.DEDUCTIONFORMULATEST.05</h2>
+; UNIT-TEST: | PASS | [FORMULA.DEDUCTIONFORMULATEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.05) | (assertEqualToResult (<= 5 4)) | (False) | (False)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(clamp 2 0 1)
+
+</span><span class="ansi33"> 1
+
+</span><span class="ansi38-000068000">!(smallest-intersection-probability 0.9 0.6)
+
+</span><span class="ansi33"> 0.5555555555555556
+
+</span><span class="ansi38-000068000">!(conditional-probability-consistency 0.9 0.6 0.5)
+
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(simple-deduction-strength-formula 0.9 0.6 0.5 0.3 0.4)
+
+</span><span class="ansi33"> 0.575
+
+</span><span class="ansi38-000068000">!(ded_formula (PrCnt 1 10) (PrCnt 1 4) (PrCnt 1 2) (PrCnt 1 3) (PrCnt 1 5))
+
+</span><span class="ansi33">  (PrCnt 
+    (simple-deduction-strength-formula 
+      (mode 
+        (PrCnt 1 10)) 
+      (mode 
+        (PrCnt 1 4)) 
+      (mode 
+        (PrCnt 1 2)) 
+      (mode 
+        (PrCnt 1 3)) 
+      (mode 
+        (PrCnt 1 5))) 
+    (simple-deduction-strength-formula 
+      (mode 
+        (PrCnt 1 10)) 
+      (mode 
+        (PrCnt 1 4)) 
+      (mode 
+        (PrCnt 1 2)) 
+      (mode 
+        (PrCnt 1 3)) 
+      (mode 
+        (PrCnt 1 5))))
+
+</span><span class="ansi38-000068000">!(conditional-probability-consistency 0.2 0.3 1)
+
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(conditional-probability-consistency 0.3 0.4 0.9)
+
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(deduction-formula (STV 0.2 0.3) (STV 0.3 0.2) (STV 0.4 0.1) (STV 1 0.5) (STV 0.9 0.7))
+
+</span><span class="ansi33">  (STV 0.9 0.1)
+
+</span><span class="ansi32">% 1,413,642 inferences, 1.053 CPU in 1.061 seconds (99% CPU, 1342817 Lips)
+</span> (@ = "examples/compat/common/formula/DeductionFormulaTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/common/formula/DeductionFormulaTest.html" )
+
+</pre>
+</body>
+
+</html>

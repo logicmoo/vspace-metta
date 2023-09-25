@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -52,135 +52,128 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-25 01:50:03-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
-% init_phase(after_load).
-% dot_cfg:using_dot_type(core,user)
-:- time_factorials(61111).
-:- time_fibonaccis(30000)
- --python=enable
- --repl=false
-
-(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta")
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta")
+ (@ track_load_into_file "examples/compat/minecraft/test_minecraft_planning.metta")
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self in-inventory 
-    (-&gt; $A Bool)))
+  (metta_type  &self in-inventory 
+    (-> $A Bool)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self craft 
-    (-&gt; $Obj $Where $Comp Any)))
+  (metta_type  &self craft 
+    (-> $Obj $Where $Comp Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self mine 
-    (-&gt; $Obj $Tool Any)))
+  (metta_type  &self mine 
+    (-> $Obj $Tool Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self wood Any))
+  (metta_type  &self wood Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: wood Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (wood) 
     (mine spruce-tree hand)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self four-planks Any))
+  (metta_type  &self four-planks Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: four-planks Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (four-planks) 
     (craft four-planks inventory 
       (wood))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self pack-planks 
-    (-&gt; Int Any)))
+  (metta_type  &self pack-planks 
+    (-> Int Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (pack-planks $N) 
     (if 
-      (&gt; $N 0) 
+      (> $N 0) 
       (allof 
         (four-planks) 
         (pack-planks 
           (- $N 4))) nop)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self crafting-table Any))
+  (metta_type  &self crafting-table Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: crafting-table Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (crafting-table) 
     (craft crafting-table inventory 
       (pack-planks 4))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self stick Any))
+  (metta_type  &self stick Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: stick Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (stick) 
     (craft stick inventory 
       (pack-planks 2))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self pack-sticks 
-    (-&gt; Int Any)))
+  (metta_type  &self pack-sticks 
+    (-> Int Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (pack-sticks $N) 
     (if 
-      (&gt; $N 0) 
+      (> $N 0) 
       (allof 
         (stick) 
         (pack-sticks 
           (- $N 1))) nop)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self wooden-pickaxe Any))
+  (metta_type  &self wooden-pickaxe Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: wooden-pickaxe Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (wooden-pickaxe) 
     (craft wooden-pickaxe crafting-table 
       (allof 
         (pack-planks 3) 
         (pack-sticks 2)))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self cobblestone Any))
+  (metta_type  &self cobblestone Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: cobblestone Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (cobblestone) 
     (mine cobble-ore wooden-pickaxe)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self pack-cobblestones 
-    (-&gt; Int Any)))
+  (metta_type  &self pack-cobblestones 
+    (-> Int Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (pack-cobblestones $N) 
     (if 
-      (&gt; $N 0) 
+      (> $N 0) 
       (allof 
         (cobblestone) 
         (pack-cobblestones 
           (- $N 1))) nop)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self stone-pickaxe Any))
+  (metta_type  &self stone-pickaxe Any))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: stone-pickaxe Any)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (stone-pickaxe) 
     (craft stone-pickaxe crafting-table 
       (allof 
         (pack-cobblestones 3) 
         (pack-sticks 2)))))
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory wooden-pickaxe) False)
-</span>
+
+</span><h2 id="MINECRAFT.TEST-MINECRAFT-PLANNING.01">MINECRAFT.TEST-MINECRAFT-PLANNING.01</h2>
+; UNIT-TEST: | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning.html#MINECRAFT.TEST-MINECRAFT-PLANNING.01) | (assertEqual (in-inventory wooden-pickaxe)) | ((in-inventory wooden-pickaxe)) | (False)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (in-inventory wooden-pickaxe)) 
@@ -188,8 +181,8 @@ Script started on 2023-09-25 01:50:03-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(wooden-pickaxe)
-</span>
-<span class="ansi33">  (craft wooden-pickaxe crafting-table 
+
+</span><span class="ansi33">  (craft wooden-pickaxe crafting-table 
     (allof 
       (allof 
         (craft four-planks inventory 
@@ -206,7 +199,9 @@ Script started on 2023-09-25 01:50:03-07:00 [COMMAND="timeout --foreground --pre
                 (mine spruce-tree hand)) nop)) nop))))
 
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory four-planks) True)
-</span>
+
+</span><h2 id="MINECRAFT.TEST-MINECRAFT-PLANNING.02">MINECRAFT.TEST-MINECRAFT-PLANNING.02</h2>
+; UNIT-TEST: | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning.html#MINECRAFT.TEST-MINECRAFT-PLANNING.02) | (assertEqual (in-inventory four-planks)) | ((in-inventory four-planks)) | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (in-inventory four-planks)) 
@@ -214,7 +209,9 @@ Script started on 2023-09-25 01:50:03-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory crafting-table) True)
-</span>
+
+</span><h2 id="MINECRAFT.TEST-MINECRAFT-PLANNING.03">MINECRAFT.TEST-MINECRAFT-PLANNING.03</h2>
+; UNIT-TEST: | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning.html#MINECRAFT.TEST-MINECRAFT-PLANNING.03) | (assertEqual (in-inventory crafting-table)) | ((in-inventory crafting-table)) | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (in-inventory crafting-table)) 
@@ -222,24 +219,22 @@ Script started on 2023-09-25 01:50:03-07:00 [COMMAND="timeout --foreground --pre
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (in-inventory wooden-pickaxe) True)
-</span>
+
+</span><h2 id="MINECRAFT.TEST-MINECRAFT-PLANNING.04">MINECRAFT.TEST-MINECRAFT-PLANNING.04</h2>
+; UNIT-TEST: | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning.html#MINECRAFT.TEST-MINECRAFT-PLANNING.04) | (assertEqual (in-inventory wooden-pickaxe)) | ((in-inventory wooden-pickaxe)) | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (in-inventory wooden-pickaxe)) 
     (True)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 259,776 inferences, 0.070 CPU in 0.070 seconds (100% CPU, 3736698 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/test_minecraft_planning.metta" 0)
- --args
- --timeout=20
- --html
+</span><span class="ansi32">% 260,791 inferences, 0.074 CPU in 0.074 seconds (100% CPU, 3521490 Lips)
+</span> (@ = "examples/compat/minecraft/test_minecraft_planning.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 4
-</span>
-Script done on 2023-09-25 01:50:05-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/minecraft/test_minecraft_planning.html" )
 
 </pre>
 </body>

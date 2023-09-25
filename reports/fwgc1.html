@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/fwgc1.metta")
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self State 
+    (-> Side Side Side Side)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self safe 
+    (-> Side Side Side Side Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self move-farmer-alone 
+    (-> Side Side Side Side State)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self move-farmer-wolf 
+    (-> Side Side Side Side State)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self move-farmer-goat 
+    (-> Side Side Side Side State)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self move-farmer-cabbage 
+    (-> Side Side Side Side State)))
+</span>; Define which states are safe
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (safe $F $W $G $C) 
+    (or 
+      (eq $F $W) 
+      (and 
+        (neq $F $G) 
+        (neq $F $C)))))
+</span>; Move rules
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (move-farmer-alone $F $W $G $C) 
+    (if 
+      (safe 
+        (not $F) $W $G $C) 
+      (State 
+        (not $F) $W $G $C) invalid)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (move-farmer-wolf $F $W $G $C) 
+    (if 
+      (and 
+        (eq $F $W) 
+        (safe 
+          (not $F) 
+          (not $W) $G $C)) 
+      (State 
+        (not $F) 
+        (not $W) $G $C) invalid)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (move-farmer-goat $F $W $G $C) 
+    (if 
+      (and 
+        (eq $F $G) 
+        (safe 
+          (not $F) $W 
+          (not $G) $C)) 
+      (State 
+        (not $F) $W 
+        (not $G) $C) invalid)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (move-farmer-cabbage $F $W $G $C) 
+    (if 
+      (and 
+        (eq $F $C) 
+        (safe 
+          (not $F) $W $G 
+          (not $C))) 
+      (State 
+        (not $F) $W $G 
+        (not $C)) invalid)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self solve 
+    (-> State State Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (solve $Start $Goal) 
+    (if 
+      (eq $Start $Goal) True 
+      (or 
+        (solve 
+          (move-farmer-alone $Start) $Goal) 
+        (solve 
+          (move-farmer-wolf $Start) $Goal) 
+        (solve 
+          (move-farmer-goat $Start) $Goal) 
+        (solve 
+          (move-farmer-cabbage $Start) $Goal)))))
+</span>; Initial state: All on one side of the river
+<span class="ansi38-000068000">!(let start (State True True True True))
+
+</span><span class="ansi33">  (let start 
+    (State True True True True))
+
+</span>; Goal state: All on the other side of the river
+<span class="ansi38-000068000">!(let goal (State False False False False))
+
+</span><span class="ansi33">  (let goal 
+    (State False False False False))
+
+</span><span class="ansi38-000068000">!(assertEqual (solve start goal) True)
+
+</span><h2 id="EXAMPLES.FWGC1.01">EXAMPLES.FWGC1.01</h2>
+; UNIT-TEST: | PASS | [EXAMPLES.FWGC1.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fwgc1.html#EXAMPLES.FWGC1.01) | (assertEqual (solve start goal)) | (True) | (True)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi32">% 151,634 inferences, 0.070 CPU in 0.070 seconds (100% CPU, 2155107 Lips)
+</span> (@ = "examples/fwgc1.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 0
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/fwgc1.html" )
+
+</pre>
+</body>
+
+</html>

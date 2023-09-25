@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -29,7 +29,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/b0_chaining_prelim.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; From matching to evaluation of expressions via equality queries chaining
@@ -39,26 +39,28 @@
 ;; `:=` is a custom symbol
 ;; Combinatory logic rules
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (I $X) $X)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       ( (K $X) $Y) $X)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (K $X $Y) $X)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (S $X $Y $Z) 
       ($X $Z 
         ($Y $Z)))))
 </span>; A single matching step
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (S K K x) $R) $R) ((K x (K x))))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) $R) ((K x (K x))))
+
+</span><h2 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.01">TEST-SCRIPTS.B0-CHAINING-PRELIM.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B0-CHAINING-PRELIM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b0_chaining_prelim.html#TEST-SCRIPTS.B0-CHAINING-PRELIM.01) | (assertEqualToResult (match &self (:= (S K K x) $R) $R)) | ((K x (K x))) | ((K x (K x)))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (K x 
@@ -69,8 +71,10 @@
 
 </span>; A second matching step; the result of the previous
 ; step is manually used as input for the next query
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (K x (K x)) $R) $R) (x))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (K x (K x)) $R) $R) (x))
+
+</span><h2 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.02">TEST-SCRIPTS.B0-CHAINING-PRELIM.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B0-CHAINING-PRELIM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b0_chaining_prelim.html#TEST-SCRIPTS.B0-CHAINING-PRELIM.02) | (assertEqualToResult (match &self (:= (K x (K x)) $R) $R)) | (x) | (x)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (x) 
@@ -78,8 +82,10 @@
 </span><span class="ansi33"> True
 
 </span>; Combined reduction via matching in two steps
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (S K K x) $R) (match &amp;self (:= $R $R2) $R2)) (x))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2)) (x))
+
+</span><h2 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.03">TEST-SCRIPTS.B0-CHAINING-PRELIM.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B0-CHAINING-PRELIM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b0_chaining_prelim.html#TEST-SCRIPTS.B0-CHAINING-PRELIM.03) | (assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2))) | (x) | (x)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (x) 
@@ -91,19 +97,21 @@
 ; Another example (Peano summation)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (Add $X Z) $X)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (Add $X 
         (S $Y)) 
       (Add 
         (S $X) $Y))))
 </span>; First step
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Add (S Z) (S Z)) $R) $R) ((Add (S (S Z)) Z)))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) $R) ((Add (S (S Z)) Z)))
+
+</span><h2 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.04">TEST-SCRIPTS.B0-CHAINING-PRELIM.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B0-CHAINING-PRELIM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b0_chaining_prelim.html#TEST-SCRIPTS.B0-CHAINING-PRELIM.04) | (assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) $R)) | ((Add (S (S Z)) Z)) | ((Add (S (S Z)) Z))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Add 
@@ -115,8 +123,10 @@
 </span><span class="ansi33"> True
 
 </span>; Two steps together
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Add (S Z) (S Z)) $R) (match &amp;self (:= $R $R2) $R2)) ((S (S Z))))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2)) ((S (S Z))))
+
+</span><h2 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.05">TEST-SCRIPTS.B0-CHAINING-PRELIM.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B0-CHAINING-PRELIM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b0_chaining_prelim.html#TEST-SCRIPTS.B0-CHAINING-PRELIM.05) | (assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2))) | ((S (S Z))) | ((S (S Z)))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (S 
@@ -125,17 +135,13 @@
         (S Z)))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 109,918 inferences, 0.038 CPU in 0.038 seconds (100% CPU, 2917733 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
+</span><span class="ansi32">% 120,262 inferences, 0.038 CPU in 0.038 seconds (100% CPU, 3155398 Lips)
+</span> (@ = "examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:57-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b0_chaining_prelim.html" )
 
 </pre>
 </body>

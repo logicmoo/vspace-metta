@@ -23,7 +23,11 @@ for file in "${files[@]}"; do
   cd "$SCRIPT_DIR"
 
   # Define the test command with more aggressive killing options
-  TEST_CMD="timeout -v --foreground --signal=SIGTERM --kill-after=5s $MAX_TIME ./MeTTa \"$file\""
+  TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false --html \"$file\""
+
+  #rests in real Metta
+  #TEST_CMD="timeout -v --foreground --signal=SIGTERM --kill-after=5s $MAX_TIME metta $file"
+
 
   # Echo the command
   echo "Running command: $TEST_CMD"
@@ -43,4 +47,11 @@ done
 
 # If the script is being sourced, use 'return'. Otherwise, use 'exit'.
 [[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
+
+
+echo "| STATUS | TEST NAME                                                              | TEST CONDITION                                                                                       | EXPECTED RESULT   | ACTUAL RESULT    |" > TEST_LINKS.md
+echo "|--------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|-------------------|------------------|" >> TEST_LINKS.md
+grep -h "UNIT-TEST: | " -R examples/ --include="*.html" | sed -e "s|</span>||g" -e "s|; UNIT-TEST: ||g" | sort -t'|' -k2  >> TEST_LINKS.md
+sed 's/^[ \t]*//' -i TEST_LINKS.md
+
 

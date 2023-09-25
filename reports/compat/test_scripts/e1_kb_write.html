@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -31,92 +31,89 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/e1_kb_write.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; MeTTa allows to use a separate knowledge base (Space) &amp;kb
+;; MeTTa allows to use a separate knowledge base (Space) &kb
 ;; to accumulate inferred knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult 
-  (let $X 
-    (+ 2 3) 
-    (* $X $X)) (25))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (let $X (+ 2 3) (* $X $X)) (25))
+
+</span><h2 id="TEST-SCRIPTS.E1-KB-WRITE.01">TEST-SCRIPTS.E1-KB-WRITE.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E1-KB-WRITE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e1_kb_write.html#TEST-SCRIPTS.E1-KB-WRITE.01) | (assertEqualToResult (let $X (+ 2 3) (* $X $X))) | (25) | (25)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (25) 
     (25)))
 </span><span class="ansi33"> True
 
-</span>; Bind &amp;kb to a new empty Space
-<span class="ansi38-000068000">!(bind! &amp;kb (new-space))
-</span>
-<span class="ansi33">  (new-space)
+</span>; Bind &kb to a new empty Space
+<span class="ansi38-000068000">!(bind! &kb (new-space))
+
+</span><span class="ansi33">  (new-space)
 
 </span>; Some knowledge
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (frog $X) 
     (and 
       (croaks $X) 
       (eat_flies $X))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (croaks Fritz)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (eat_flies Fritz)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (croaks Sam)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (eat_flies Sam)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (green $X) 
     (frog $X)))
 </span>; Define conditional
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self ift 
-    (-&gt; Bool Atom Atom)))
+  (metta_type  &self ift 
+    (-> Bool Atom Atom)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (ift True $Then) $Then))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (ift True $Then) $Then))
-; For anything that is green, assert it is Green in &amp;kb
-<span class="ansi38-000068000">!(ift (green $X) (add-atom &amp;kb (Green $X)))
-</span>
-<span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;kb 
+; For anything that is green, assert it is Green in &kb
+<span class="ansi38-000068000">!(ift (green $X) (add-atom &kb (Green $X)))
+
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &kb 
     (Green Fritz)))
 </span><span class="ansi33">  (ift 
-    (green $_329528) 
-    (add-atom &amp;kb 
-      (Green $_329528)))
+    (green $_348326) 
+    (add-atom &kb 
+      (Green $_348326)))
 
 </span>; Retrieve the inferred Green things: Fritz and Sam.
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;kb (Green $X) $X) (Fritz Sam))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &kb (Green $X) $X) (Fritz Sam))
+
+</span><h2 id="TEST-SCRIPTS.E1-KB-WRITE.02">TEST-SCRIPTS.E1-KB-WRITE.02</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E1-KB-WRITE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e1_kb_write.html#TEST-SCRIPTS.E1-KB-WRITE.02) | (assertEqualToResult (match &kb (Green $X) $X)) | (Fritz) | (Fritz Sam)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Fritz) 
     (Fritz Sam)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 70,792 inferences, 0.020 CPU in 0.020 seconds (100% CPU, 3533663 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta" 0)
+</span><span class="ansi32">% 73,524 inferences, 0.020 CPU in 0.020 seconds (100% CPU, 3670327 Lips)
+</span> (@ = "examples/compat/test_scripts/e1_kb_write.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 1
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:02:51-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e1_kb_write.html" )
 
 </pre>
 </body>

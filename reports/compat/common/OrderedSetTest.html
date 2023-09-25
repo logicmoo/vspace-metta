@@ -1,0 +1,501 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file Num.metta)
+;; Definition of a set data structure.  Under the hood it is a sorted
+;; list without duplicates, thus called OrderedSet.  For now its
+;; constructor :: is unconstrained, meaning it does not guaranty that
+;; the constructed OrderedSet are sorted and without duplicates.
+;; Rather this is delegated to the insert function defined below.  In
+;; order to guaranty that it is sorted without duplicates, the
+;; constructor :: would need to take an additional argument encoding a
+;; proof that the element to prepend is less than the head of the set
+;; to be prepended to.
+;;; Collection of functions operating on numbers
+;; Define max
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self max 
+    (-> $A $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (max $X $Y) 
+    (if 
+      (> $X $Y) $X $Y)))
+</span>;; Define min
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self min 
+    (-> $A $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (min $X $Y) 
+    (if 
+      (< $X $Y) $X $Y)))
+</span>;; Clamp an number to be within a certain range
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self clamp 
+    (-> $A $A $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (clamp $X $L $U) 
+    (max $L 
+      (min $U $X))))
+</span>;; Define abs
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self abs 
+    (-> $A $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (abs $X) 
+    (if 
+      (< $X 0) 
+      (* -1 $X) $X)))
+</span>;; Define <=
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self <= 
+    (-> $A $A Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (<= $X $Y) 
+    (or 
+      (< $X $Y) 
+      (== $X $Y))))
+</span>;; Define >=
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self >= 
+    (-> $A $A Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (>= $X $Y) 
+    (or 
+      (> $X $Y) 
+      (== $X $Y))))
+</span>;; Define approximatively equal
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self approxEq 
+    (-> $A $A $A Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (approxEq $X $Y $Epsilon) 
+    (<= 
+      (abs 
+        (- $X $Y)) $Epsilon)))
+</span>;; Define Nat
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self Nat Type))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (: Nat Type)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self Z Nat))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (: Z Nat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self S 
+    (-> Nat Nat)))
+</span>;; Define cast functions between Nat and Number
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self fromNumber 
+    (-> Number Nat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (fromNumber $N) 
+    (if 
+      (<= $N 0) Z 
+      (S 
+        (fromNumber 
+          (- $N 1))))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self fromNat 
+    (-> Nat Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (fromNat Z) 0))
+</span>(@ unknown_do_metta &self load 
+  (= 
+    (fromNat Z) 0))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &self 
+    (fromNat 
+      (S $K)) 
+    (+ 1 
+      (fromNat $K))))
+</span>;; Define a generic less than operator, â©», for Nat.  < cannot be used
+;; because it is a built-in, its type is hardwired and cannot be
+;; overloaded.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â©» 
+    (-> Nat Nat Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (= 
+      (â©» $_ Z) False)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (â©» Z 
+      (S $_))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (â©» 
+      (S $X) 
+      (S $Y)) 
+    (â©» $X $Y)))
+</span>;; Overload â©» for Number.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â©» 
+    (-> Number Number Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (â©» $X $Y) 
+    (< $X $Y)))
+</span>;; Return the ceiling of a non negative number.  If the number is
+;; negative it returns 1.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self ceil 
+    (-> Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (ceil $N) 
+    (fromNat 
+      (fromNumber $N))))
+</span>;; Convert Number to Bool.  Anything above 0 converts to True.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self number->bool 
+    (-> Number Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (number->bool $X) 
+    (< 0 $X)))
+</span>;; Convert Bool to Number.  False converts to 0, True converts to 1.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self bool->number 
+    (-> Bool Number)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (bool->number False) 0))
+</span>(@ unknown_do_metta &self load 
+  (= 
+    (bool->number False) 0))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &self 
+    (bool->number True) 1))
+</span>(@ unknown_do_metta &self load 
+  (= 
+    (bool->number True) 1))
+;; Define a less than type.  Note that it is purposefully different
+;; than â©» as it is a type, not an operator.  Inhabitants of (â x y)
+;; are proofs that x â©» y == True.  For now â is only axiomatized for
+;; Nat.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â 
+    (-> $T $T Type)))
+</span>;; Zero is always less than the successor of something
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self 
+    (zero-lt-succ-axiom) 
+    (-> Atom)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (zero-lt-succ-axiom) 
+    (: ZeroLTSucc 
+      (â Z 
+        (S $K)))))
+</span>;; If x â y then (S x) â (S y)
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self 
+    (succ-monotonicity-rule) 
+    (-> Atom)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (succ-monotonicity-rule) 
+    (: SuccMonotonicity 
+      (-> 
+        (â $X $Y) 
+        (â 
+          (S $X) 
+          (S $Y))))))
+</span><span class="ansi32">% 222,637 inferences, 0.153 CPU in 0.153 seconds (100% CPU, 1455056 Lips)
+</span> (@ = Num.metta 0)
+<span class="ansi33"> &self
+
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self OrderedSet 
+    (-> $A Type)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self â 
+    (OrderedSet $A)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &self :: 
+    (-> $A 
+      (OrderedSet $A) 
+      (OrderedSet $A))))
+</span>;; Check if an element is in a set.  TODO: optimize assuming it is
+;; ordered.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self elem 
+    (-> $A 
+      (OrderedSet $A) Bool)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &self 
+    (= 
+      (elem $X â) False)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (elem $X 
+      (Cons  $H $T)) 
+    (if 
+      (== $X $H) True 
+      (elem $X $T))))
+</span>;; Insert an element into a set.  Only insert if the element is not
+;; already in the set as to produce an ordered set.
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &self insert 
+    (-> $A 
+      (OrderedSet $A) 
+      (OrderedSet $A))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (insert $X â) 
+    (Cons  $X â)))
+</span>; Base case
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
+    (insert $X 
+      (Cons  $H $T)) 
+    (if 
+      (== $X $H) 
+      (Cons  $H $T) 
+      (if 
+        (â©» $X $H) 
+        (Cons  $X 
+          (Cons  $H $T)) 
+        ($H insert $X $T)))))
+</span><span class="ansi32">% 305,140 inferences, 0.193 CPU in 0.195 seconds (99% CPU, 1581798 Lips)
+</span> (@ = OrderedSet.metta 0)
+<span class="ansi33"> &self
+
+</span>; Recursive case
+; Present, no need to insert
+; Use generic <
+; Safely insert since $x < $h
+; Recursive call
+<span class="ansi38-000068000">!(assertEqual (elem 1 â) False)
+
+</span><h2 id="COMMON.ORDEREDSETTEST.01">COMMON.ORDEREDSETTEST.01</h2>
+; UNIT-TEST: | PASS | [COMMON.ORDEREDSETTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.01) | (assertEqual (elem 1 â)) | (False) | (False)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 1 â)) True)
+
+</span><h2 id="COMMON.ORDEREDSETTEST.02">COMMON.ORDEREDSETTEST.02</h2>
+; UNIT-TEST: | PASS | [COMMON.ORDEREDSETTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.02) | (assertEqual (elem 1 (insert 1 â))) | (True) | (True)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 2 â)) False)
+
+</span><h2 id="COMMON.ORDEREDSETTEST.03">COMMON.ORDEREDSETTEST.03</h2>
+; UNIT-TEST: | PASS | [COMMON.ORDEREDSETTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.03) | (assertEqual (elem 1 (insert 2 â))) | (False) | (False)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 1 (insert 2 â))) True)
+
+</span><h2 id="COMMON.ORDEREDSETTEST.04">COMMON.ORDEREDSETTEST.04</h2>
+; UNIT-TEST: | PASS | [COMMON.ORDEREDSETTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.04) | (assertEqual (elem 1 (insert 1 (insert 2 â)))) | (True) | (True)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 2 (insert 3 â))) False)
+
+</span><h2 id="COMMON.ORDEREDSETTEST.05">COMMON.ORDEREDSETTEST.05</h2>
+; UNIT-TEST: | FAIL | [COMMON.ORDEREDSETTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.05) | (assertEqual (elem 1 (insert 2 (insert 3 â)))) | ((elem 1 ())) | (False)
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (elem 1 ())) 
+    (False)))
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqual (elem 2 (insert 1 (insert 2 (insert 3 â)))) True)
+
+</span><h2 id="COMMON.ORDEREDSETTEST.06">COMMON.ORDEREDSETTEST.06</h2>
+; UNIT-TEST: | FAIL | [COMMON.ORDEREDSETTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.06) | (assertEqual (elem 2 (insert 1 (insert 2 (insert 3 â))))) | ((elem 2 ())) | (True)
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (elem 2 ())) 
+    (True)))
+</span><span class="ansi33"> False
+
+</span>;; Test insert
+<span class="ansi38-000068000">!(assertEqual (insert 1 â) (Cons  1 â))
+
+</span><h2 id="COMMON.ORDEREDSETTEST.07">COMMON.ORDEREDSETTEST.07</h2>
+; UNIT-TEST: | PASS | [COMMON.ORDEREDSETTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.07) | (assertEqual (insert 1 â)) | ((Cons  1 â)) | ((Cons  1 â))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Cons  1 â)) 
+    ( (Cons  1 â))))
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual (insert 2 (insert 1 â)) (Cons  1 (Cons  2 â)))
+
+</span><h2 id="COMMON.ORDEREDSETTEST.08">COMMON.ORDEREDSETTEST.08</h2>
+; UNIT-TEST: | FAIL | [COMMON.ORDEREDSETTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.08) | (assertEqual (insert 2 (insert 1 â))) | ((1 insert 2 â)) | ((Cons  1 (Cons  2 â)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (1 insert 2 â)) 
+    ( (Cons  1 
+        (Cons  2 â)))))
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 â))) (Cons  1 (Cons  2 (Cons  3 â))))
+
+</span><h2 id="COMMON.ORDEREDSETTEST.09">COMMON.ORDEREDSETTEST.09</h2>
+; UNIT-TEST: | FAIL | [COMMON.ORDEREDSETTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.09) | (assertEqual (insert 3 (insert 2 (insert 1 â)))) | ((3 insert 2 (Cons  1 â))) | ((Cons  1 (Cons  2 (Cons  3 â))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (3 insert 2 
+        (Cons  1 â))) 
+    ( (Cons  1 
+        (Cons  2 
+          (Cons  3 â))))))
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqual (insert 2 (insert 3 (insert 2 (insert 1 â)))) (Cons  1 (Cons  2 (Cons  3 â))))
+
+</span><h2 id="COMMON.ORDEREDSETTEST.10">COMMON.ORDEREDSETTEST.10</h2>
+; UNIT-TEST: | FAIL | [COMMON.ORDEREDSETTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.10) | (assertEqual (insert 2 (insert 3 (insert 2 (insert 1 â))))) | ((2 insert 3 (insert 2 (Cons  1 â)))) | ((Cons  1 (Cons  2 (Cons  3 â))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (2 insert 3 
+        (insert 2 
+          (Cons  1 â)))) 
+    ( (Cons  1 
+        (Cons  2 
+          (Cons  3 â))))))
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqual (insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z â)))) (Cons  Z (Cons  (S Z) (Cons  (S (S Z)) â))))
+
+</span><h2 id="COMMON.ORDEREDSETTEST.11">COMMON.ORDEREDSETTEST.11</h2>
+; UNIT-TEST: | FAIL | [COMMON.ORDEREDSETTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.11) | (assertEqual (insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z â))))) | (((S Z) insert (S (S Z)) (insert (S Z) (Cons  Z â)))) | ((Cons  Z (Cons  (S Z) (Cons  (S (S Z)) â))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( (S Z) insert 
+        (S 
+          (S Z)) 
+        (insert 
+          (S Z) 
+          (Cons  Z â)))) 
+    ( (Cons  Z 
+        (Cons  
+          (S Z) 
+          (Cons  
+            (S 
+              (S Z)) â))))))
+</span><span class="ansi33"> False
+
+</span><span class="ansi32">% 481,869 inferences, 0.238 CPU in 0.242 seconds (98% CPU, 2020429 Lips)
+</span> (@ = "examples/compat/common/OrderedSetTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 5
+</span><span class="ansi31">Failures: 6
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/common/OrderedSetTest.html" )
+
+</pre>
+</body>
+
+</html>

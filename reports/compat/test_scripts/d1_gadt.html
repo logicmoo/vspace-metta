@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -51,26 +51,28 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/d1_gadt.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic types of grounded symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self + 
-    (-&gt; Number Number Number)))
+  (metta_type  &self + 
+    (-> Number Number Number)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self - 
-    (-&gt; Number Number Number)))
+  (metta_type  &self - 
+    (-> Number Number Number)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self * 
-    (-&gt; Number Number Number)))
+  (metta_type  &self * 
+    (-> Number Number Number)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self % 
-    (-&gt; Number Number Number)))
+  (metta_type  &self % 
+    (-> Number Number Number)))
 </span>; `get-type` returns the type of its argument
 <span class="ansi38-000068000">!(assertEqual (get-type 5) Number)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.01">TEST-SCRIPTS.D1-GADT.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.01) | (assertEqual (get-type 5)) | (Number) | (Number)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Number) 
@@ -78,7 +80,9 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.02">TEST-SCRIPTS.D1-GADT.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.02) | (assertEqual (get-type (+ 5 7))) | (Number) | (Number)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Number) 
@@ -86,25 +90,31 @@
 </span><span class="ansi33"> True
 
 </span>; It works for built-in symbols too
-<span class="ansi38-000068000">!(assertEqual (get-type +) (-&gt; Number Number Number))
-</span>
+<span class="ansi38-000068000">!(assertEqual (get-type +) (-> Number Number Number))
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.03">TEST-SCRIPTS.D1-GADT.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.03) | (assertEqual (get-type +)) | ((-> Number Number Number)) | ((-> Number Number Number))
 <span class="ansi36">(@ loonit_success 
   (=@=  
-    ( (-&gt; Number Number Number)) 
-    ( (-&gt; Number Number Number))))
+    ( (-> Number Number Number)) 
+    ( (-> Number Number Number))))
 </span><span class="ansi33"> True
 
 </span>; If its argument is a badly typed expression,
 ; `get-type` returns the empty set
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (+ 5 "4")) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.04">TEST-SCRIPTS.D1-GADT.04</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D1-GADT.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.04) | (assertEqualToResult (get-type (+ 5 "4"))) | (Number) | ()
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Number) ()))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.05">TEST-SCRIPTS.D1-GADT.05</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D1-GADT.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.05) | (assertEqualToResult (get-type (+ -))) | (Number) | ()
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Number) ()))
@@ -112,12 +122,14 @@
 
 </span>; Also works for custom types
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Either Type))
+  (metta_type  &self Either Type))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Either Type)))
 </span><span class="ansi38-000068000">!(assertEqual (get-type Either) Type)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.06">TEST-SCRIPTS.D1-GADT.06</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.06) | (assertEqual (get-type Either)) | (Type) | (Type)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Type) 
@@ -129,13 +141,15 @@
 ; Arrow types of functions and constructors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Left 
-    (-&gt; %Undefined% Either)))
+  (metta_type  &self Left 
+    (-> %Undefined% Either)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Right 
-    (-&gt; %Undefined% Either)))
+  (metta_type  &self Right 
+    (-> %Undefined% Either)))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (Left 5)) Either)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.07">TEST-SCRIPTS.D1-GADT.07</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.07) | (assertEqual (get-type (Left 5))) | (Either) | (Either)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Either) 
@@ -143,19 +157,21 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self isLeft 
-    (-&gt; Either Bool)))
+  (metta_type  &self isLeft 
+    (-> Either Bool)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (isLeft 
       (Left $X))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (= 
       (isLeft 
         (Right $X)) False)))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (isLeft (Right 5))) Bool)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.08">TEST-SCRIPTS.D1-GADT.08</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.08) | (assertEqual (get-type (isLeft (Right 5)))) | (Bool) | (Bool)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Bool) 
@@ -164,7 +180,9 @@
 
 </span>; Badly typed expression
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (isLeft 5)) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.09">TEST-SCRIPTS.D1-GADT.09</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D1-GADT.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.09) | (assertEqualToResult (get-type (isLeft 5))) | (Bool) | ()
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Bool) ()))
@@ -175,32 +193,36 @@
 ; Parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self EitherP 
-    (-&gt; $T Type)))
+  (metta_type  &self EitherP 
+    (-> $T Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self LeftP 
-    (-&gt; $T 
+  (metta_type  &self LeftP 
+    (-> $T 
       (EitherP $T))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self RightP 
-    (-&gt; $T 
+  (metta_type  &self RightP 
+    (-> $T 
       (EitherP $T))))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (LeftP 5)) (EitherP Number))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.10">TEST-SCRIPTS.D1-GADT.10</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D1-GADT.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.10) | (assertEqual (get-type (LeftP 5))) | () | ((EitherP Number))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     ( (EitherP Number))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Pair 
-    (-&gt; $A $B Type)))
+  (metta_type  &self Pair 
+    (-> $A $B Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self pair 
-    (-&gt; $A $B 
+  (metta_type  &self pair 
+    (-> $A $B 
       (Pair $A $B))))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (pair (LeftP 5) "String")) (Pair (EitherP Number) String))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.11">TEST-SCRIPTS.D1-GADT.11</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D1-GADT.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.11) | (assertEqual (get-type (pair (LeftP 5) "String"))) | () | ((Pair (EitherP Number) String))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     ( (Pair 
@@ -212,18 +234,20 @@
 ; Recursively parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self List 
-    (-&gt; $A Type)))
+  (metta_type  &self List 
+    (-> $A Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self () 
+  (metta_type  &self () 
     (List $A)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Cons 
-    (-&gt; $A 
+  (metta_type  &self Cons 
+    (-> $A 
       (List $A) 
       (List $A))))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (5 6)) (List Number))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.12">TEST-SCRIPTS.D1-GADT.12</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D1-GADT.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.12) | (assertEqual (get-type (5 6))) | ((List Number) (Number Number)) | ((List Number))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (List Number) 
@@ -232,7 +256,9 @@
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (5 "6")) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.13">TEST-SCRIPTS.D1-GADT.13</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.13) | (assertEqualToResult (get-type (5 "6"))) | () | ()
 <span class="ansi36">(@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
@@ -241,29 +267,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `let` can be convenient to extract information from `get-type` results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual 
-  (let 
-    (List $T) 
-    (get-type 
-      (5 6)) $T) Number)
-</span>
+<span class="ansi38-000068000">!(assertEqual (let (List $T) (get-type (5 6)) $T) Number)
+
+</span><h2 id="TEST-SCRIPTS.D1-GADT.14">TEST-SCRIPTS.D1-GADT.14</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D1-GADT.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html#TEST-SCRIPTS.D1-GADT.14) | (assertEqual (let (List $T) (get-type (5 6)) $T)) | (Number) | (Number)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Number) 
     (Number)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 209,787 inferences, 0.148 CPU in 0.148 seconds (100% CPU, 1421588 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta" 0)
+</span><span class="ansi32">% 224,888 inferences, 0.172 CPU in 0.172 seconds (100% CPU, 1306870 Lips)
+</span> (@ = "examples/compat/test_scripts/d1_gadt.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 8
 </span><span class="ansi31">Failures: 6
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:29-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d1_gadt.html" )
 
 </pre>
 </body>

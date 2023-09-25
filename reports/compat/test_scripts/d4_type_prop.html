@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -62,39 +62,41 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d4_type_prop.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/d4_type_prop.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Types as propositions can be used in MeTTa but with nuances
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Entities
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Entity Type))
+  (metta_type  &self Entity Type))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Entity Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Socrates Entity))
+  (metta_type  &self Socrates Entity))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Socrates Entity)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Plato Entity))
+  (metta_type  &self Plato Entity))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Plato Entity)))
 </span>; Predicates (functions) from `Entity` to `Type`
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Human 
-    (-&gt; Entity Type)))
+  (metta_type  &self Human 
+    (-> Entity Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Mortal 
-    (-&gt; Entity Type)))
+  (metta_type  &self Mortal 
+    (-> Entity Type)))
 </span>; `(Mortal Plato)` is an expression of `Type` type
 ; It represents the proposition "Plato is mortal"
 ; but doesn''t mean this proposition is inhabited/proven
 <span class="ansi38-000068000">!(assertEqual (get-type (Mortal Plato)) Type)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.01">TEST-SCRIPTS.D4-TYPE-PROP.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.01) | (assertEqual (get-type (Mortal Plato))) | (Type) | (Type)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Type) 
@@ -105,8 +107,8 @@
 ; `HumansAreMortal` represents the implication:
 ; "For all x, if Human(x) then Mortal(x)"
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self HumansAreMortal 
-    (-&gt; 
+  (metta_type  &self HumansAreMortal 
+    (-> 
       (Human $T) 
       (Mortal $T))))
 </span>; NOTE: MeTTa doesn''t differentiate between type constructors and
@@ -118,15 +120,17 @@
 ; These might be considered as assertions that Plato and
 ; Socrates are Humans:
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self SocratesIsHuman 
+  (metta_type  &self SocratesIsHuman 
     (Human Socrates)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self PlatoIsHuman 
+  (metta_type  &self PlatoIsHuman 
     (Human Plato)))
 </span>; `(HumansAreMortal SocratesIsHuman)` might be considered
 ; as a proof that that `(Mortal Socrates)`.
 <span class="ansi38-000068000">!(assertEqual (get-type (HumansAreMortal SocratesIsHuman)) (Mortal Socrates))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.02">TEST-SCRIPTS.D4-TYPE-PROP.02</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.02) | (assertEqual (get-type (HumansAreMortal SocratesIsHuman))) | () | ((Mortal Socrates))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     ( (Mortal Socrates))))
@@ -134,7 +138,9 @@
 
 </span>; Bad typing
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (HumansAreMortal (Human Socrates))) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.03">TEST-SCRIPTS.D4-TYPE-PROP.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.03) | (assertEqualToResult (get-type (HumansAreMortal (Human Socrates)))) | () | ()
 <span class="ansi36">(@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
@@ -142,12 +148,12 @@
 </span>; We can write this code, but it will make not too much
 ; difference for the assertion that "all humans are mortal"
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self SocratesIsMortal 
+  (metta_type  &self SocratesIsMortal 
     (Mortal Socrates)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (HumansAreMortal SocratesIsHuman) SocratesIsMortal))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (HumansAreMortal SocratesIsHuman) SocratesIsMortal))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -156,10 +162,12 @@
 ; it means that it can be true.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self = 
-    (-&gt; $T $T Type)))
+  (metta_type  &self = 
+    (-> $T $T Type)))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (= SocratesIsMortal (HumansAreMortal SocratesIsHuman))) Type)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.04">TEST-SCRIPTS.D4-TYPE-PROP.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.04) | (assertEqual (get-type (= SocratesIsMortal (HumansAreMortal SocratesIsHuman)))) | (Type) | (Type)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Type) 
@@ -170,7 +178,9 @@
 ; It doesn't mean they are both inhabited (true propositions), and
 ; it doesn't mean that the equality itself is true (an inhabited type).
 <span class="ansi38-000068000">!(assertEqual (get-type (= (Mortal Socrates) (Mortal Plato))) Type)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.05">TEST-SCRIPTS.D4-TYPE-PROP.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.05) | (assertEqual (get-type (= (Mortal Socrates) (Mortal Plato)))) | (Type) | (Type)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (Type) 
@@ -179,7 +189,9 @@
 
 </span>; Wrong proof
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsMortal (HumansAreMortal PlatoIsHuman))) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.06">TEST-SCRIPTS.D4-TYPE-PROP.06</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.06) | (assertEqualToResult (get-type (= SocratesIsMortal (HumansAreMortal PlatoIsHuman)))) | (Type) | ()
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Type) ()))
@@ -187,14 +199,18 @@
 
 </span>; Wrong equalities
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman PlatoIsHuman)) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.07">TEST-SCRIPTS.D4-TYPE-PROP.07</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.07) | (assertEqualToResult (get-type (= SocratesIsHuman PlatoIsHuman))) | (Type) | ()
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Type) ()))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman SocratesIsMortal)) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.08">TEST-SCRIPTS.D4-TYPE-PROP.08</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.08) | (assertEqualToResult (get-type (= SocratesIsHuman SocratesIsMortal))) | (Type) | ()
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Type) ()))
@@ -205,10 +221,10 @@
 ; A standard type-theoretic way of saying that some equality is true
 ; is to present an instance of the corresponding equality type.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; (: Refl (-&gt; (: $x $T) (= $x $x))).
+; (: Refl (-> (: $x $T) (= $x $x))).
 ; As per https://github.com/trueagi-io/hyperon-experimental/issues/177 ,
 ; there is no way to match both argument and its type in type definition.
-; Such syntax `(: (Refl $x) (-&gt; Type (= $x $x)))` also doesn''t work now.
+; Such syntax `(: (Refl $x) (-> Type (= $x $x)))` also doesn''t work now.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another (MeTTa) way is to have explicit reduction of types to True
@@ -216,16 +232,18 @@
 ; be just to use a dedicated comparison operator
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self True Type))
+  (metta_type  &self True Type))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: True Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (= $X $X)))
 </span>; These equalities will be true
 <span class="ansi38-000068000">!(assertEqual (= SocratesIsMortal (HumansAreMortal SocratesIsHuman)) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.09">TEST-SCRIPTS.D4-TYPE-PROP.09</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.09) | (assertEqual (= SocratesIsMortal (HumansAreMortal SocratesIsHuman))) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -233,7 +251,9 @@
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (= (+ 1 1) (- 3 1)) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.10">TEST-SCRIPTS.D4-TYPE-PROP.10</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.10) | (assertEqual (= (+ 1 1) (- 3 1))) | ((= (+ 1 1) (- 3 1))) | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (= 
@@ -244,12 +264,14 @@
 
 </span>; One can also define an equality for directly inhabited types
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (= $Type True) 
-    (match &amp;self 
+    (match &self 
       (: $X $Type) True)))
 </span><span class="ansi38-000068000">!(assertEqual (= (Mortal Socrates) True) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.11">TEST-SCRIPTS.D4-TYPE-PROP.11</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.11) | (assertEqual (= (Mortal Socrates) True)) | () | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (True)))
@@ -257,33 +279,39 @@
 
 </span>; It will not immediately work for implications
 <span class="ansi38-000068000">!(assertEqualToResult (= (Mortal Plato) True) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.12">TEST-SCRIPTS.D4-TYPE-PROP.12</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.12) | (assertEqualToResult (= (Mortal Plato) True)) | () | ()
 <span class="ansi36">(@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>; But we can add 'reasoning'
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (= $Type True) 
-    (match &amp;self 
+    (match &self 
       (: $Impl 
-        (-&gt; $Cause $Type)) 
+        (-> $Cause $Type)) 
       (= $Cause True))))
 </span><span class="ansi38-000068000">!(assertEqual (= (Mortal Plato) True) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.13">TEST-SCRIPTS.D4-TYPE-PROP.13</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.13) | (assertEqual (= (Mortal Plato) True)) | () | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (True)))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Sam Entity))
+  (metta_type  &self Sam Entity))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Sam Entity)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (= (Human Sam) True) ())
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.14">TEST-SCRIPTS.D4-TYPE-PROP.14</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.14) | (assertEqualToResult (= (Human Sam) True)) | () | ()
 <span class="ansi36">(@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
@@ -293,7 +321,9 @@
 ; Types by themselves will not be reduced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (Mortal Plato) ((Mortal Plato)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.15">TEST-SCRIPTS.D4-TYPE-PROP.15</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.15) | (assertEqualToResult (Mortal Plato)) | ((Mortal Plato)) | ((Mortal Plato))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Mortal Plato)) 
@@ -302,7 +332,9 @@
 
 </span>; Refl rule itself equals to True
 <span class="ansi38-000068000">!(assertEqual (= (= $X $X) True) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.16">TEST-SCRIPTS.D4-TYPE-PROP.16</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.16) | (assertEqual (= (= $X $X) True)) | () | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (True)))
@@ -311,18 +343,20 @@
 </span>; We can also add direct equalities
 ; (= (Human Socrates) T)
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Human Plato)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Mortal Socrates)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (Mortal $X) 
     (Human $X)))
 </span>; Then, the type of type itself will be reduced
 <span class="ansi38-000068000">!(assertEqual (Mortal Plato) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.17">TEST-SCRIPTS.D4-TYPE-PROP.17</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.D4-TYPE-PROP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.17) | (assertEqual (Mortal Plato)) | (True) | (True)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (True) 
@@ -331,34 +365,32 @@
 
 </span>; We can even try backward chaining
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self ift 
-    (-&gt; Type $T $T)))
+  (metta_type  &self ift 
+    (-> Type $T $T)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (ift True $Then) $Then))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (ift True $Then) $Then))
 <span class="ansi38-000068000">!(assertEqualToResult (ift (Mortal $X) $X) (Socrates Plato))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D4-TYPE-PROP.18">TEST-SCRIPTS.D4-TYPE-PROP.18</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D4-TYPE-PROP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html#TEST-SCRIPTS.D4-TYPE-PROP.18) | (assertEqualToResult (ift (Mortal $X) $X)) | ((ift (Mortal $_265410) $_265410)) | (Plato Socrates)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (ift 
-        (Mortal $_198630) $_198630)) 
+        (Mortal $_265410) $_265410)) 
     (Plato Socrates)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 284,993 inferences, 0.350 CPU in 0.350 seconds (100% CPU, 814403 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d4_type_prop.metta" 0)
+</span><span class="ansi32">% 304,796 inferences, 0.357 CPU in 0.357 seconds (100% CPU, 854691 Lips)
+</span> (@ = "examples/compat/test_scripts/d4_type_prop.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 9
 </span><span class="ansi31">Failures: 9
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d4_type_prop.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:02:44-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d4_type_prop.html" )
 
 </pre>
 </body>

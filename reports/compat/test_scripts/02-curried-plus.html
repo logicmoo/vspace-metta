@@ -4,15 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
@@ -22,44 +23,42 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/02-curried-plus.metta")
 ;; Curried plus
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self plus 
-    (-&gt; Number 
-      (-&gt; Number Number))))
+  (metta_type  &self plus 
+    (-> Number 
+      (-> Number Number))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     ( (plus $X) $Y) 
     (+ $X $Y)))
 </span>; Define inc as partial evaluation of plus
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self inc 
-    (-&gt; 
-      (-&gt; Number Number))))
+  (metta_type  &self inc 
+    (-> 
+      (-> Number Number))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (inc) 
     (plus 1)))
 </span><span class="ansi38-000068000">!(assertEqualToResult ((inc) 2) (3))
-</span>
-<span class="ansi31">(@ loonit_failureR 
-  (=@=  
-    ( ( (inc) 2)) 
-    (3)))
-</span><span class="ansi33"> False
 
-</span><span class="ansi32">% 25,784 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 5031613 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta" 0)
+</span><h2 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">TEST-SCRIPTS.02-CURRIED-PLUS.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.02-CURRIED-PLUS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/02-curried-plus.html#TEST-SCRIPTS.02-CURRIED-PLUS.01) | (assertEqualToResult ((inc) 2)) | (3) | (3)
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (3) 
+    (3)))
+</span><span class="ansi33"> True
+
+</span><span class="ansi32">% 26,958 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 5267395 Lips)
+</span> (@ = "examples/compat/test_scripts/02-curried-plus.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:13-07:00 [COMMAND_EXIT_CODE="7"]
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 0
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/02-curried-plus.html" )
 
 </pre>
 </body>

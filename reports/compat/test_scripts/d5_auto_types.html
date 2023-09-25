@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -38,18 +38,20 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/d5_auto_types.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(@ unknown_do_metta &amp;self load Auto)(@ unknown_do_metta &amp;self load type-checking)(@ unknown_do_metta &amp;self load can)(@ unknown_do_metta &amp;self load be)(@ unknown_do_metta &amp;self load enabled)
+(@ unknown_do_metta &self load Auto)(@ unknown_do_metta &self load type-checking)(@ unknown_do_metta &self load can)(@ unknown_do_metta &self load be)(@ unknown_do_metta &self load enabled)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(pragma! type-check auto)
-</span>
-<span class="ansi33">  (pragma! type-check auto)
+
+</span><span class="ansi33">  (pragma! type-check auto)
 
 </span>; checking grounded types
 <span class="ansi38-000068000">!(assertEqualToResult (+ 5 "S") ((Error "S" BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D5-AUTO-TYPES.01">TEST-SCRIPTS.D5-AUTO-TYPES.01</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D5-AUTO-TYPES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html#TEST-SCRIPTS.D5-AUTO-TYPES.01) | (assertEqualToResult (+ 5 "S")) | (88) | ((Error "S" BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (88) 
@@ -57,7 +59,9 @@
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 5 "S") ((Error "S" BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D5-AUTO-TYPES.02">TEST-SCRIPTS.D5-AUTO-TYPES.02</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D5-AUTO-TYPES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html#TEST-SCRIPTS.D5-AUTO-TYPES.02) | (assertEqualToResult (== 5 "S")) | (False) | ((Error "S" BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (False) 
@@ -66,42 +70,44 @@
 
 </span>; declaring some custom types
 <span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Entity Type))
+  (metta_type  &self Entity Type))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Entity Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Socrates Entity))
+  (metta_type  &self Socrates Entity))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (: Socrates Entity)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Human 
-    (-&gt; Entity Type)))
+  (metta_type  &self Human 
+    (-> Entity Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self Mortal 
-    (-&gt; Entity Type)))
+  (metta_type  &self Mortal 
+    (-> Entity Type)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self HumansAreMortal 
-    (-&gt; 
+  (metta_type  &self HumansAreMortal 
+    (-> 
       (Human $T) 
       (Mortal $T))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self SocratesIsHuman 
+  (metta_type  &self SocratesIsHuman 
     (Human Socrates)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self SamIsMortal 
+  (metta_type  &self SamIsMortal 
     (Mortal Sam)))
 </span>; well typed
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (HumansAreMortal SocratesIsHuman)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (== Mortal Human)))
 </span>; badly typed examples produce `Error` grounded values describing the issue:
 <span class="ansi38-000068000">!(assertEqualToResult (== SocratesIsHuman SamIsMortal) ((Error SamIsMortal BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D5-AUTO-TYPES.03">TEST-SCRIPTS.D5-AUTO-TYPES.03</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D5-AUTO-TYPES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html#TEST-SCRIPTS.D5-AUTO-TYPES.03) | (assertEqualToResult (== SocratesIsHuman SamIsMortal)) | (False) | ((Error SamIsMortal BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (False) 
@@ -109,7 +115,9 @@
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (HumansAreMortal (Human Socrates)) ((Error (Human Socrates) BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D5-AUTO-TYPES.04">TEST-SCRIPTS.D5-AUTO-TYPES.04</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D5-AUTO-TYPES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html#TEST-SCRIPTS.D5-AUTO-TYPES.04) | (assertEqualToResult (HumansAreMortal (Human Socrates))) | ((HumansAreMortal (Human Socrates))) | ((Error (Human Socrates) BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (HumansAreMortal 
@@ -123,7 +131,9 @@
 ; `collapse` evaluates its argument, so it shows a type error
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (collapse (+ 5 "S")) (((Error "S" BadType))))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D5-AUTO-TYPES.05">TEST-SCRIPTS.D5-AUTO-TYPES.05</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D5-AUTO-TYPES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html#TEST-SCRIPTS.D5-AUTO-TYPES.05) | (assertEqualToResult (collapse (+ 5 "S"))) | ((88)) | (((Error "S" BadType)))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (88)) 
@@ -140,8 +150,8 @@
 ; within MeTTa (e.g. for self-reflective genetic programming).
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
-    (match &amp;self 
+  (metta_atom  &self 
+    (match &self 
       (== SocratesIsHuman SamIsMortal) Really?)))
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -150,31 +160,29 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; let binds without type checking, but errors when used
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (let $X 
       (+ 5 "S") $X)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_type  &amp;self f 
-    (-&gt; $T Number)))
+  (metta_type  &self f 
+    (-> $T Number)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (f (+ 5 "S")) ((Error "S" BadType)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.D5-AUTO-TYPES.06">TEST-SCRIPTS.D5-AUTO-TYPES.06</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.D5-AUTO-TYPES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html#TEST-SCRIPTS.D5-AUTO-TYPES.06) | (assertEqualToResult (f (+ 5 "S"))) | ((f 88)) | ((Error "S" BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (f 88)) 
     ( (Error "S" BadType))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 134,917 inferences, 0.097 CPU in 0.097 seconds (100% CPU, 1393526 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta" 0)
+</span><span class="ansi32">% 142,394 inferences, 0.096 CPU in 0.096 seconds (100% CPU, 1482310 Lips)
+</span> (@ = "examples/compat/test_scripts/d5_auto_types.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 6
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:02:59-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d5_auto_types.html" )
 
 </pre>
 </body>

@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -33,31 +33,31 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/e3_match_states.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This function creates a symbolic expression, which wraps a novel state,
-;; and puts it into &amp;self.
+;; and puts it into &self.
 ;; This is a way to address particular state atoms without creating
 ;; unique tokens for them (it can be used for any grounded atom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (new-goal-status! $Goal $Status) 
     (let $New_state 
       (new-state $Status) 
-      (add-atom &amp;self 
+      (add-atom &self 
         (= 
           (status 
             (Goal $Goal)) $New_state)))))
 </span><span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
-</span>
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
     (status 
       (Goal lunch-order)) 
     (State  inactive)))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (status 
       (Goal lunch-order)) 
@@ -65,13 +65,13 @@
  True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
-</span>
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &self 
     (status 
       (Goal meditation)) 
     (State  inactive)))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (status 
       (Goal meditation)) 
@@ -80,7 +80,9 @@
 
 </span>; We can use `status` as a function to access corresponding state
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.01">TEST-SCRIPTS.E3-MATCH-STATES.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E3-MATCH-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.01) | (assertEqual (get-state (status (Goal lunch-order)))) | (inactive) | (inactive)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (inactive) 
@@ -93,8 +95,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `nop` is used only to get () for passing unit tests
 <span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
-</span>
-<span class="ansi33"> ()
+
+</span><span class="ansi33"> ()
 
 </span>; The result is now different. This might be surprising, since
 ; the content of Space is not changed. However, this is the whole
@@ -102,7 +104,9 @@
 ; need to reinsert it into Space, but the state it wraps changes
 ; (even if it is inside equality).
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) active)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.02">TEST-SCRIPTS.E3-MATCH-STATES.02</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.02) | (assertEqual (get-state (status (Goal lunch-order)))) | (inactive) | (active)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (inactive) 
@@ -113,20 +117,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Introducing tokens for states is not recommended, because these states are mutable
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(bind! &amp;state-active (new-state active))
-</span>
-<span class="ansi33"> (@ State active)
+<span class="ansi38-000068000">!(bind! &state-active (new-state active))
+
+</span><span class="ansi33"> (@ State active)
  % 'State'(active)
 
-</span><span class="ansi38-000068000">!(nop (change-state! &amp;state-active inactive))
-</span>
-<span class="ansi33"> ()
+</span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
+
+</span><span class="ansi33"> ()
 
 </span>; We cannot put `(new-state active)` inside `match`, because it doesn''t
 ; reduce the input pattern expression. Instead, we should use
 ; `(let $state-active (new-state active)) ...) here.   `
-<span class="ansi38-000068000">!(assertEqual (get-type &amp;state-active) (StateMonad Symbol))
-</span>
+<span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.03">TEST-SCRIPTS.E3-MATCH-STATES.03</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.03) | (assertEqual (get-type &state-active)) | (Symbol (StateMonad Symbol)) | ((StateMonad Symbol))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Symbol 
@@ -134,16 +140,20 @@
     ( (StateMonad Symbol))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi38-000068000">!(assertEqual (get-state &amp;state-active) inactive)
-</span>
+</span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.04">TEST-SCRIPTS.E3-MATCH-STATES.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E3-MATCH-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.04) | (assertEqual (get-state &state-active)) | (inactive) | (inactive)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (inactive) 
     (inactive)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-000068000">!(assertEqual &amp;state-active (new-state inactive))
-</span>
+</span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.05">TEST-SCRIPTS.E3-MATCH-STATES.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E3-MATCH-STATES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.05) | (assertEqual &state-active) | ((State  inactive)) | ((State  inactive))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (State  inactive)) 
@@ -151,8 +161,10 @@
 </span><span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
-<span class="ansi38-000068000">!(assertEqual (match &amp;self (= (status (Goal $Goal)) &amp;state-active) $Goal) meditation)
-</span>
+<span class="ansi38-000068000">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.06">TEST-SCRIPTS.E3-MATCH-STATES.06</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.06) | (assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal)) | () | (meditation)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (meditation)))
@@ -161,23 +173,21 @@
 </span>; But we can also find all goal statuses, unwrap them from State,
 ; and compare to the desirable result
 <span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E3-MATCH-STATES.07">TEST-SCRIPTS.E3-MATCH-STATES.07</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E3-MATCH-STATES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e3_match_states.html#TEST-SCRIPTS.E3-MATCH-STATES.07) | (assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ()))) | () | (lunch-order)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     (lunch-order)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 129,777 inferences, 0.110 CPU in 0.110 seconds (100% CPU, 1176176 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta" 0)
+</span><span class="ansi32">% 138,770 inferences, 0.086 CPU in 0.086 seconds (100% CPU, 1611927 Lips)
+</span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
 </span><span class="ansi31">Failures: 4
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:08-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e3_match_states.html" )
 
 </pre>
 </body>

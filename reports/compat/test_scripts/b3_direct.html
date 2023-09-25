@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -26,7 +26,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/b3_direct.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example from OpenCog Classic wiki on PLN Backward Chaining
@@ -34,27 +34,29 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; facts
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (croaks Fritz)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (eat_flies Fritz)))
 </span>; Rules
-(@ unknown_do_metta &amp;self load 
+(@ unknown_do_metta &self load 
   (= True True))<span class="ansi38-255165000">
 (@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (frog $X) 
     (And 
       (croaks $X) 
       (eat_flies $X))))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (green $X) 
     (frog $X)))
 </span>; Conclusion from facts and rules
 <span class="ansi38-000068000">!(assertEqual (green Fritz) True)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B3-DIRECT.01">TEST-SCRIPTS.B3-DIRECT.01</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B3-DIRECT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b3_direct.html#TEST-SCRIPTS.B3-DIRECT.01) | (assertEqual (green Fritz)) | ((And True True)) | (True)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (And True True)) 
@@ -67,17 +69,19 @@
 ; because we can do inference
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
+  (metta_defn  &self 
     (ift True $Then) $Then))
-</span>(@ unknown_do_metta &amp;self load 
+</span>(@ unknown_do_metta &self load 
   (= 
     (ift True $Then) $Then))
 <span class="ansi38-000068000">!(assertEqual (ift (green $X) $X) Fritz)
-</span>
+
+</span><h2 id="TEST-SCRIPTS.B3-DIRECT.02">TEST-SCRIPTS.B3-DIRECT.02</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.B3-DIRECT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b3_direct.html#TEST-SCRIPTS.B3-DIRECT.02) | (assertEqual (ift (green $X) $X)) | ((ift (green $_350328) $_350328)) | (Fritz)
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (ift 
-        (green $_333310) $_333310)) 
+        (green $_350328) $_350328)) 
     (Fritz)))
 </span><span class="ansi33"> False
 
@@ -87,25 +91,23 @@
 ; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
 ; with it may work differently from that over purely symbolic expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (= ($P Fritz) True) $P) (croaks eat_flies))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (= ($P Fritz) True) $P) (croaks eat_flies))
+
+</span><h2 id="TEST-SCRIPTS.B3-DIRECT.03">TEST-SCRIPTS.B3-DIRECT.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.B3-DIRECT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b3_direct.html#TEST-SCRIPTS.B3-DIRECT.03) | (assertEqualToResult (match &self (= ($P Fritz) True) $P)) | (croaks eat_flies) | (croaks eat_flies)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (croaks eat_flies) 
     (croaks eat_flies)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 62,551 inferences, 0.026 CPU in 0.026 seconds (100% CPU, 2403875 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta" 0)
+</span><span class="ansi32">% 66,479 inferences, 0.026 CPU in 0.026 seconds (100% CPU, 2566450 Lips)
+</span> (@ = "examples/compat/test_scripts/b3_direct.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 2
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:24-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b3_direct.html" )
 
 </pre>
 </body>

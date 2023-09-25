@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -32,33 +32,35 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/e2_states.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; State atoms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `new-state` creates a new state atom wrapping the initial value (A B).
-;; Then it binds this state atom to the token `&amp;state-token`,
+;; Then it binds this state atom to the token `&state-token`,
 ;; which is replaced by the corresponding atom at parse-time.
-<span class="ansi38-000068000">!(bind! &amp;state-token (new-state (A B)))
-</span>
-<span class="ansi33"> (@ State 
+<span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
+
+</span><span class="ansi33"> (@ State 
   (A B))
  % 'State'(['A','B'])
 
-</span>; &amp;state-token is replaced by the state atom in the code below its creation
+</span>; &state-token is replaced by the state atom in the code below its creation
 ; we wrap it into a function to show that it''s not the token that changes, but
 ; the content of the state atom
 <span class="ansi38-255165000">(@ = load 
-  (metta_defn  &amp;self 
-    (get-token) &amp;state-token))
-</span>(@ unknown_do_metta &amp;self load 
+  (metta_defn  &self 
+    (get-token) &state-token))
+</span>(@ unknown_do_metta &self load 
   (= 
-    (get-token) &amp;state-token))
+    (get-token) &state-token))
 ; `new-state $x` creates a `(State $x)` structure,
 ; and `get-token` will show its content
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (A B))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.01">TEST-SCRIPTS.E2-STATES.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E2-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.01) | (assertEqual (get-state (get-token))) | ((A B)) | ((A B))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (A B)) 
@@ -70,7 +72,9 @@
 ; States can be equal even if they are wrapped into different state atoms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-token) (new-state (A B)))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.02">TEST-SCRIPTS.E2-STATES.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E2-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.02) | (assertEqual (get-token)) | ((State  (A B))) | ((State  (A B)))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (State  
@@ -85,7 +89,9 @@
 ; These are inferred types based on new-state and change-state! signatures
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.03">TEST-SCRIPTS.E2-STATES.03</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E2-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.03) | (assertEqual (get-type (new-state 2))) | ((StateMonad Number) (Symbol Number)) | ((StateMonad Number))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ( (StateMonad Number) 
@@ -94,18 +100,19 @@
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.04">TEST-SCRIPTS.E2-STATES.04</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E2-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.04) | (assertEqual (get-type (change-state! (new-state "S") "V"))) | () | ((StateMonad String))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  () 
     ( (StateMonad String))))
 </span><span class="ansi33"> False
 
 </span>; These are the types of State grounded atom
-<span class="ansi38-000068000">!(assertEqual 
-  (let $V 
-    (new-state 1) 
-    (get-type $V)) (StateMonad Number))
-</span>
+<span class="ansi38-000068000">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.05">TEST-SCRIPTS.E2-STATES.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E2-STATES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.05) | (assertEqual (let $V (new-state 1) (get-type $V))) | ((StateMonad Number)) | ((StateMonad Number))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (StateMonad Number)) 
@@ -113,8 +120,10 @@
 </span><span class="ansi33"> True
 
 </span>; atm, meta-types for states of non-grounded types are used
-<span class="ansi38-000068000">!(assertEqual (get-type &amp;state-token) (StateMonad Expression))
-</span>
+<span class="ansi38-000068000">!(assertEqual (get-type &state-token) (StateMonad Expression))
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.06">TEST-SCRIPTS.E2-STATES.06</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E2-STATES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.06) | (assertEqual (get-type &state-token)) | (Symbol (StateMonad (List Symbol)) (StateMonad (Symbol Symbol))) | ((StateMonad Expression))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (Symbol 
@@ -129,10 +138,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; State atoms have a defined type based on initial state
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; &amp;state-token was initialized with state of type (A B), so
+; &state-token was initialized with state of type (A B), so
 ; it cannot be changed to int
-<span class="ansi38-000068000">!(assertEqual (change-state! &amp;state-token 1) (Error 1 BadType))
-</span>
+<span class="ansi38-000068000">!(assertEqual (change-state! &state-token 1) (Error 1 BadType))
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.07">TEST-SCRIPTS.E2-STATES.07</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E2-STATES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.07) | (assertEqual (change-state! &state-token 1)) | (1) | ((Error 1 BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (1) 
@@ -141,7 +152,9 @@
 
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.08">TEST-SCRIPTS.E2-STATES.08</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E2-STATES.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.08) | (assertEqual (change-state! (new-state 1) "S")) | ("S") | ((Error "S" BadType))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     ("S") 
@@ -154,13 +167,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; (nop ...) provides a way to obtain side-effects of a statement
 ; while ignoring unwanted return values.
-<span class="ansi38-000068000">!(nop (change-state! &amp;state-token (C D)))
-</span>
-<span class="ansi33"> ()
+<span class="ansi38-000068000">!(nop (change-state! &state-token (C D)))
+
+</span><span class="ansi33"> ()
 
 </span>; The same state atom has different content now
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
-</span>
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.09">TEST-SCRIPTS.E2-STATES.09</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E2-STATES.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.09) | (assertEqual (get-state (get-token))) | ((C D)) | ((C D))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (C D)) 
@@ -172,13 +187,10 @@
 ; MeTTa provides proper encapsulated state manipulation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; scoping doesn''t conflict between let bound variables and state atom types.
-<span class="ansi38-000068000">!(assertEqual 
-  (let $X 
-    (new-state 1) 
-    (change-state! $X 
-      (+ 
-        (get-state $X) 1))) (new-state 2))
-</span>
+<span class="ansi38-000068000">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.10">TEST-SCRIPTS.E2-STATES.10</h2>
+; UNIT-TEST: | FAIL | [TEST-SCRIPTS.E2-STATES.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.10) | (assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1)))) | (2) | ((State  2))
 <span class="ansi31">(@ loonit_failureR 
   (=@=  
     (2) 
@@ -187,27 +199,23 @@
 
 </span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
-<span class="ansi38-000068000">!(assertEqual 
-  (let $Tnso 
-    (new-state 1) $Tnso) (new-state 1))
-</span>
+<span class="ansi38-000068000">!(assertEqual (let $Tnso (new-state 1) $Tnso) (new-state 1))
+
+</span><h2 id="TEST-SCRIPTS.E2-STATES.11">TEST-SCRIPTS.E2-STATES.11</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.E2-STATES.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html#TEST-SCRIPTS.E2-STATES.11) | (assertEqual (let $Tnso (new-state 1) $Tnso)) | ((State  1)) | ((State  1))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (State  1)) 
     ( (State  1))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 161,968 inferences, 0.154 CPU in 0.154 seconds (100% CPU, 1053221 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta" 0)
+</span><span class="ansi32">% 175,995 inferences, 0.148 CPU in 0.148 seconds (100% CPU, 1185880 Lips)
+</span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 6
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:03:26-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e2_states.html" )
 
 </pre>
 </body>

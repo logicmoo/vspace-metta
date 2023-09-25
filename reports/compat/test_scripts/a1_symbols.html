@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <style type="text/css">
-.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
-.body_foreground { color: #AAAAAA; }
-.body_background { background-color: #000000; }
-.inv_foreground { color: #000000; }
-.inv_background { background-color: #AAAAAA; }
+.ansi2html-content { display: inline; white-space: pre; word-wrap: break-word; }
+.body_foreground { color: #000000; }
+.body_background { background-color: #AAAAAA; }
+.inv_foreground { color: #AAAAAA; }
+.inv_background { background-color: #000000; }
 .ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
@@ -37,7 +37,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/a1_symbols.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `match` searches for all expressions corresponding to
@@ -46,22 +46,24 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some expressions to be matched
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     ( (leaf1 leaf2) leaf3)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     ( ( (leaf0 leaf1) leaf2) leaf3)))
 </span>; This one contains `((leaf1 leaf2) leaf3)` as a subexpression
 ; and thus will not be matched
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (top 
       ( (leaf1 leaf2) leaf3))))
 </span>; `assertEqualToResult` checks all the results of the first
 ; expression; it doesn''t evaluate the second expression,
 ; which is treated as a set of expected results.
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.01">TEST-SCRIPTS.A1-SYMBOLS.01</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.01) | (assertEqualToResult (match &self (($X leaf2) leaf3) $X)) | (leaf1 (leaf0 leaf1)) | (leaf1 (leaf0 leaf1))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (leaf1 
@@ -75,17 +77,19 @@
 ; Symbols can be arranged in arbitrary expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Sam is a frog)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Tom is a cat)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (Sophia is a robot)))
 </span>; `match` can bind more that one variable
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.02">TEST-SCRIPTS.A1-SYMBOLS.02</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.02) | (assertEqualToResult (match &self ($Who is a $What) ($Who the $What))) | ((Sam the frog) (Sophia the robot) (Tom the cat)) | ((Sam the frog) (Sophia the robot) (Tom the cat))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Sam the frog) 
@@ -102,27 +106,31 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `:=` is a custom symbol. These are still purely symbolic expressions
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (Green Sam) True)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (White Tom) True)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (:= 
       (Green Tom) False)))
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Green $Who) True) ($Who is really green)) ((Sam is really green)))
-</span>
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green $Who) True) ($Who is really green)) ((Sam is really green)))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.03">TEST-SCRIPTS.A1-SYMBOLS.03</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.03) | (assertEqualToResult (match &self (:= (Green $Who) True) ($Who is really green))) | ((Sam is really green)) | ((Sam is really green))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Sam is really green)) 
     ( (Sam is really green))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
-</span>
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.04">TEST-SCRIPTS.A1-SYMBOLS.04</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.04) | (assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color))) | ((Sam is really Green) (Tom is really White)) | ((Sam is really Green) (Tom is really White))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (Sam is really Green) 
@@ -131,8 +139,10 @@
       (Tom is really White))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= ($Color $Who) $Tv) (It is $Tv that $Who is $Color)) ((It is True that Sam is Green) (It is True that Tom is White) (It is False that Tom is Green)))
-</span>
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) $Tv) (It is $Tv that $Who is $Color)) ((It is True that Sam is Green) (It is True that Tom is White) (It is False that Tom is Green)))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.05">TEST-SCRIPTS.A1-SYMBOLS.05</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.05) | (assertEqualToResult (match &self (:= ($Color $Who) $Tv) (It is $Tv that $Who is $Color))) | ((It is False that Tom is Green) (It is True that Sam is Green) (It is True that Tom is White)) | ((It is False that Tom is Green) (It is True that Sam is Green) (It is True that Tom is White))
 <span class="ansi36">(@ loonit_success 
   (=@=  
     ( (It is False that Tom is Green) 
@@ -144,8 +154,10 @@
 </span><span class="ansi33"> True
 
 </span>; This type of query works as a sort of evaluation/reduction
-<span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Green Tom) $Tv) $Tv) (False))
-</span>
+<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv) (False))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.06">TEST-SCRIPTS.A1-SYMBOLS.06</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.06) | (assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv)) | (False) | (False)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (False) 
@@ -157,33 +169,31 @@
 ; One more example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (isa red color)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (isa green color)))
 </span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &amp;self 
+  (metta_atom  &self 
     (isa blue color)))
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (isa $Color color) $Color) (red green blue))
-</span>
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (isa $Color color) $Color) (red green blue))
+
+</span><h2 id="TEST-SCRIPTS.A1-SYMBOLS.07">TEST-SCRIPTS.A1-SYMBOLS.07</h2>
+; UNIT-TEST: | PASS | [TEST-SCRIPTS.A1-SYMBOLS.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html#TEST-SCRIPTS.A1-SYMBOLS.07) | (assertEqualToResult (match &self (isa $Color color) $Color)) | (blue green red) | (blue green red)
 <span class="ansi36">(@ loonit_success 
   (=@=  
     (blue green red) 
     (blue green red)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 158,445 inferences, 0.094 CPU in 0.094 seconds (100% CPU, 1680037 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta" 0)
+</span><span class="ansi32">% 175,394 inferences, 0.114 CPU in 0.114 seconds (100% CPU, 1542111 Lips)
+</span> (@ = "examples/compat/test_scripts/a1_symbols.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html &lt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" &gt; "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.html" )
- --args
- --timeout=20
-
-Script done on 2023-09-25 07:02:41-07:00 [COMMAND_EXIT_CODE="7"]
+</span>doing(ansi2html -u -l -W < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a1_symbols.html" )
 
 </pre>
 </body>
