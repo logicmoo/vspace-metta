@@ -43,6 +43,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 
  
 <details><summary>Expand for Individual (Extra) Tests</summary>
+ 
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|
 | FAIL | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/InTest.html#COMMON.INTEST.01) | (assertEqual (synthesize (: $Proof (∉ Z ∅)) Z kb rb)) | () | ((: NotInEmpty (∉ Z ∅))) |
