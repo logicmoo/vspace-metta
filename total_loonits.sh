@@ -94,19 +94,5 @@ echo "" >> PASS_FAIL.md
 
 cat PASS_FAIL.md
 
-awk '/# Bugs in MeTTaLog/{exit} 1' MeTTaLog.md > temp1.txt
-awk 'BEGIN{flag=0} /# Installation Guide/{flag=1} flag' MeTTaLog.md > temp2.txt
-
-cat temp1.txt PASS_FAIL.md temp2.txt > final_MeTTaLog.md
-
-# Optional: Overwrite the MeTTaLog.md with the final_MeTTaLog.md
-echo "Dont forget 1) rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ ; find examples/ -name '*.html' -delete"
-echo "            2) \\mv final_MeTTaLog.md MeTTaLog.md"
-echo find "${UNITS_DIR}" -name \"*.metta\" -type f -exec ./MeTTa --timeout=20 {} \\\;
-
-
-# Clean up temporary files
-rm temp1.txt temp2.txt
-
 
 #grep -A 3 loonit_f -R . --include="*.html"

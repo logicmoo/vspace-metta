@@ -15,6 +15,9 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Define maximum execution time in seconds
 MAX_TIME=10
 
+cat /dev/null > TEE.ansi.UNITS
+cat /dev/null > TEST_LINKS.md
+
 # Store the list of files found by grep in an array
 mapfile -t files < <(grep -rl 'assertEq' examples/ --include="*.metta")
 
@@ -45,14 +48,71 @@ for file in "${files[@]}"; do
   fi
 done
 
+#echo "| STATUS | TEST NAME                                                              | TEST CONDITION                                                                               | ACTUAL RESULT             | EXPECTED RESULT  |" > TEST_LINKS.md
+#echo "|--------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------|------------------|" >> TEST_LINKS.md
 
-echo "| STATUS | TEST NAME                                                              | TEST CONDITION                                                                               | ACTUAL RESULT             | EXPECTED RESULT  |" > TEST_LINKS.md
-echo "|--------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------|------------------|" >> TEST_LINKS.md
-grep -h "UNIT-TEST: | " -R reports/ --include="*.html" | sed -e "s|</span>||g" -e "s|; UNIT-TEST: ||g" | sort -t'|' -k3 >> TEST_LINKS.md
-sed 's/^[ \t]*//' -i TEST_LINKS.md
-awk -F '|' -v OFS='|' '{ $4 = substr($4, 1, 200); print }' TEST_LINKS.md > temp && \mv temp TEST_LINKS.md
-awk -F '|' -v OFS='|' '{ $4 = substr($5, 1, 200); print }' TEST_LINKS.md > temp && \mv temp TEST_LINKS.md
 
-echo DONT FORGET TO:  \\mv TEST_LINKS.md UNIT_LINKS.md
+passed=$(grep -c "| PASS |" TEE.ansi.UNITS)
+failed=$(grep -c "| FAIL |" TEE.ansi.UNITS)
+total=$((passed + failed))
+percent_passed=$(awk -v passed="$passed" -v total="$total" 'BEGIN { printf "%.2f", (passed/total)*100 }')
+
+{
+echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |"
+echo "|--------|-----------|----------------|---------------|-----------------|"
+} > TEST_LINKS.md
+
+sort -t'|' -k3 TEE.ansi.UNITS | sed 's/^[ \t]*//' | \
+awk -F '|' -v OFS='|' '{ $4 = substr($4, 1, 200); print }' | \
+awk -F '|' -v OFS='|' '{ $5 = substr($5, 1, 200); print }' | \
+awk -F '|' -v OFS='|' '{ $6 = substr($6, 1, 200); print }' >> TEST_LINKS.md
+echo "" >> TEST_LINKS.md
+echo "" >> TEST_LINKS.md
+echo "" >> TEST_LINKS.md
+
+
+{
+echo "Test Results:"
+echo "Passed: $passed"
+echo "Failed: $failed"
+echo "Total: $total"
+echo "Passed Percentage: $percent_passed%"
+} > summary.md
+
+cat summary.md TEST_LINKS.md  summary.md > temp && mv temp TEST_LINKS.md
+rm summary.md
+
+awk '/# Bugs in MeTTaLog/{exit} 1' MeTTaLog.md > temp1.txt
+awk 'BEGIN{flag=0} /# Installation Guide/{flag=1} flag' MeTTaLog.md > temp2.txt
+
+cat temp1.txt PASS_FAIL.md TEST_LINKS.md temp2.txt > final_MeTTaLog.md
+
+cat final_MeTTaLog.md
+
+# Clean up temporary files
+rm temp1.txt temp2.txt
+
+
+function GenerateUnitReports() {
+      echo "Tasks Completed:"
+      rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/
+      find examples/ -name '*.html' -delete
+      echo "1) Synced HTML files from examples/ to reports/ and deleted the original HTML files in examples/"
+      mv final_MeTTaLog.md MeTTaLog.md
+      echo "2) Renamed final_MeTTaLog.md to MeTTaLog.md"
+}
+
+export -f GenerateUnitReports
+
+# Optional: Overwrite the MeTTaLog.md with the final_MeTTaLog.md
+#echo "Dont forget 1) rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ ; find examples/ -name '*.html' -delete"
+#echo "            2) \\mv final_MeTTaLog.md MeTTaLog.md"
+#echo "            3) \\mv TEST_LINKS.md UNIT_LINKS.md
+#echo find "${UNITS_DIR}" -name \"*.metta\" -type f -exec ./MeTTa --timeout=20 {} \\\;
+
+echo Dont forget to type:  GenerateUnitReports  if you are ready to commit your code
+
 # If the script is being sourced, use 'return'. Otherwise, use 'exit'.
 [[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
+
+
