@@ -3,6 +3,9 @@
 MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succeed OpenCog Classic Atomese.  It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
 
 # Bugs in MeTTaLog
+ 
+<details><summary>Expand for Core Summaries</summary>
+ 
 |Pass |Fail |File                               |GitHub Link                                                                                                                       |
 |-----|-----|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 |  14 |  13 | d2_higherfunc.metta               |[reports/compat/test_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d2_higherfunc.html)|
@@ -40,9 +43,9 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  1  |  0  | c2_spaces.metta                   |[reports/compat/test_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c2_spaces.html)|
 |  1  |  0  | f1_moduleA.metta                  |[reports/compat/test_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleA.html)|
 | 151 | 108 | Total: 259                        | For 58% 'examples/compat/*.metta'                                                                                                |
-
  
-<details><summary>Expand for Individual (Extra) Tests</summary>
+</details>
+
  
  
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
@@ -69,6 +72,8 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 | FAIL | [COMMON.ORDEREDSETTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.09) | (assertEqual (insert 3 (insert 2 (insert 1 ∅)))) | ((3 insert 2 (Cons  1 ∅))) | ((Cons  1 (Cons  2 (Cons  3 ∅)))) |
 | FAIL | [COMMON.ORDEREDSETTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.10) | (assertEqual (insert 2 (insert 3 (insert 2 (insert 1 ∅))))) | ((2 insert 3 (insert 2 (Cons  1 ∅)))) | ((Cons  1 (Cons  2 (Cons  3 ∅)))) |
 | FAIL | [COMMON.ORDEREDSETTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/OrderedSetTest.html#COMMON.ORDEREDSETTEST.11) | (assertEqual (insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z ∅))))) | (((S Z) insert (S (S Z)) (insert (S Z) (Cons  Z ∅)))) | ((Cons  Z (Cons  (S Z) (Cons  (S (S Z)) ∅)))) |
+| PASS | [EXAMPLES.FIBO.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fibo.html#EXAMPLES.FIBO.01) | (assertEqual (fib 6)) | (8) | (8) |
+| FAIL | [EXAMPLES.FIBO-AS-PRED.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fibo-as-pred.html#EXAMPLES.FIBO-AS-PRED.01) | (assertEqual (fibonacci 1 $W)) | (True (and False True True True (and False True True (and False True True (and False True True (and ... | (True) |
 | PASS | [EXAMPLES.FWGC1.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fwgc1.html#EXAMPLES.FWGC1.01) | (assertEqual (solve start goal)) | (True) | (True) |
 | PASS | [EXAMPLES.FWGC2.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fwgc2.html#EXAMPLES.FWGC2.01) | (assertEqual k-0) | (k-0) | (k-0) |
 | PASS | [EXAMPLES.FWGC2.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fwgc2.html#EXAMPLES.FWGC2.02) | (assertEqual k-1) | (k-1) | (k-1) |
@@ -90,6 +95,13 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 | PASS | [EXAMPLES.KEY-LOOKUPS-MANY.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/key-lookups-many.html#EXAMPLES.KEY-LOOKUPS-MANY.08) | (assertEqual k-7) | (k-7) | (k-7) |
 | PASS | [EXAMPLES.KEY-LOOKUPS-MANY.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/key-lookups-many.html#EXAMPLES.KEY-LOOKUPS-MANY.09) | (assertEqual k-8) | (k-8) | (k-8) |
 | PASS | [EXAMPLES.KEY-LOOKUPS-MANY.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/key-lookups-many.html#EXAMPLES.KEY-LOOKUPS-MANY.10) | (assertEqual k-9) | (k-9) | (k-9) |
+| PASS | [EXAMPLES.PATHFINDING-EASY.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.01) | (assertEqual (path a b)) | (True) | (True) |
+| PASS | [EXAMPLES.PATHFINDING-EASY.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.02) | (assertEqual (path a c)) | (True) | (True) |
+| PASS | [EXAMPLES.PATHFINDING-EASY.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.03) | (assertEqual (path a d)) | (True) | (True) |
+| PASS | [EXAMPLES.PATHFINDING-EASY.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.04) | (assertEqual (path a f)) | (True) | (True) |
+| PASS | [EXAMPLES.PATHFINDING-EASY.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.05) | (assertEqual (path b e)) | (True) | (True) |
+| PASS | [EXAMPLES.PATHFINDING-EASY.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.06) | (assertEqual (path e f)) | (True) | (True) |
+| FAIL | [EXAMPLES.PATHFINDING-EASY.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html#EXAMPLES.PATHFINDING-EASY.07) | (assertEqual (path d f)) | (True) | (False) |
 | PASS | [EXAMPLES.PATHFINDING-EDGE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-edge.html#EXAMPLES.PATHFINDING-EDGE.01) | (assertEqual (path a b)) | (True) | (True) |
 | PASS | [EXAMPLES.PATHFINDING-EDGE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-edge.html#EXAMPLES.PATHFINDING-EDGE.02) | (assertEqual (path a c)) | (True) | (True) |
 | PASS | [EXAMPLES.PATHFINDING-EDGE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-edge.html#EXAMPLES.PATHFINDING-EDGE.03) | (assertEqual (path a d)) | (True) | (True) |
@@ -363,12 +375,11 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 
 
 
-</details>
 Test Results:
-196 Passed,
-116 Failed,
-312 Total,
-62.82% Passed
+203 Passed,
+118 Failed,
+321 Total,
+63.24% Passed
  
 ## Installation Guide
 

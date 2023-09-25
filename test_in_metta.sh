@@ -81,10 +81,7 @@ function generate_final_MeTTaLog() {
     (
     cat PASS_FAIL.md
     echo " "
-    echo "<details><summary>Expand for Individual (Extra) Tests</summary>"
-    echo " "
     cat TEST_LINKS.md
-    echo "</details>"
     cat summary.md
     echo " "
     ) > temp && mv temp TEST_LINKS.md

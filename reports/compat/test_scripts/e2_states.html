@@ -59,7 +59,7 @@
 ; and `get-token` will show its content
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (A B))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.01">TEST-SCRIPTS.E2-STATES.01</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.01">TEST-SCRIPTS.E2-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (A B)) 
@@ -72,7 +72,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-token) (new-state (A B)))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.02">TEST-SCRIPTS.E2-STATES.02</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.02">TEST-SCRIPTS.E2-STATES.02</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (State  
@@ -88,7 +88,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.03">TEST-SCRIPTS.E2-STATES.03</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.03">TEST-SCRIPTS.E2-STATES.03</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     ( (StateMonad Number) 
@@ -98,7 +98,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.04">TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.04">TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  () 
     ( (StateMonad String))))
@@ -107,7 +107,7 @@
 </span>; These are the types of State grounded atom
 <span class="ansi38-000068000">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.05">TEST-SCRIPTS.E2-STATES.05</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.05">TEST-SCRIPTS.E2-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (StateMonad Number)) 
@@ -117,7 +117,7 @@
 </span>; atm, meta-types for states of non-grounded types are used
 <span class="ansi38-000068000">!(assertEqual (get-type &state-token) (StateMonad Expression))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.06">TEST-SCRIPTS.E2-STATES.06</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.06">TEST-SCRIPTS.E2-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (Symbol 
@@ -136,7 +136,7 @@
 ; it cannot be changed to int
 <span class="ansi38-000068000">!(assertEqual (change-state! &state-token 1) (Error 1 BadType))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.07">TEST-SCRIPTS.E2-STATES.07</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.07">TEST-SCRIPTS.E2-STATES.07</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (1) 
@@ -146,7 +146,7 @@
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.08">TEST-SCRIPTS.E2-STATES.08</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.08">TEST-SCRIPTS.E2-STATES.08</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     ("S") 
@@ -166,7 +166,7 @@
 </span>; The same state atom has different content now
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.09">TEST-SCRIPTS.E2-STATES.09</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.09">TEST-SCRIPTS.E2-STATES.09</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (C D)) 
@@ -180,7 +180,7 @@
 ; scoping doesn''t conflict between let bound variables and state atom types.
 <span class="ansi38-000068000">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.10">TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.10">TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (2) 
@@ -191,14 +191,14 @@
 ; let-expression and type definition of new-state
 <span class="ansi38-000068000">!(assertEqual (let $Tnso (new-state 1) $Tnso) (new-state 1))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.11">TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E2-STATES.11">TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (State  1)) 
     ( (State  1))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 182,177 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 1197726 Lips)
+</span><span class="ansi32">% 182,177 inferences, 0.150 CPU in 0.150 seconds (100% CPU, 1213508 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

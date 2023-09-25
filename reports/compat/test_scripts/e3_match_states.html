@@ -81,7 +81,7 @@
 </span>; We can use `status` as a function to access corresponding state
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.01">TEST-SCRIPTS.E3-MATCH-STATES.01</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.01">TEST-SCRIPTS.E3-MATCH-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (inactive) 
@@ -104,7 +104,7 @@
 ; (even if it is inside equality).
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) active)
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.02">TEST-SCRIPTS.E3-MATCH-STATES.02</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.02">TEST-SCRIPTS.E3-MATCH-STATES.02</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (inactive) 
@@ -129,7 +129,7 @@
 ; `(let $state-active (new-state active)) ...) here.   `
 <span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (Symbol 
@@ -139,7 +139,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.04">TEST-SCRIPTS.E3-MATCH-STATES.04</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.04">TEST-SCRIPTS.E3-MATCH-STATES.04</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (inactive) 
@@ -148,7 +148,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (State  inactive)) 
@@ -158,7 +158,7 @@
 </span>; In any case, direct matching against expressions with states work:
 <span class="ansi38-000068000">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.06">TEST-SCRIPTS.E3-MATCH-STATES.06</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.06">TEST-SCRIPTS.E3-MATCH-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  () 
     (meditation)))
@@ -168,13 +168,13 @@
 ; and compare to the desirable result
 <span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">TEST-SCRIPTS.E3-MATCH-STATES.07</h3><span class="ansi31">
+</span>;; <h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">TEST-SCRIPTS.E3-MATCH-STATES.07</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  () 
     (lunch-order)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 142,704 inferences, 0.088 CPU in 0.088 seconds (100% CPU, 1628777 Lips)
+</span><span class="ansi32">% 142,704 inferences, 0.099 CPU in 0.098 seconds (100% CPU, 1448758 Lips)
 </span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
