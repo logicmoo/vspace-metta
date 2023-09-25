@@ -48,7 +48,7 @@ done
 
 echo "| STATUS | TEST NAME                                                              | TEST CONDITION                                                                               | ACTUAL RESULT             | EXPECTED RESULT  |" > TEST_LINKS.md
 echo "|--------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------|------------------|" >> TEST_LINKS.md
-grep -h "UNIT-TEST: | " -R reports/ --include="*.html" | sed -e "s|</span>||g" -e "s|; UNIT-TEST: ||g" | sort -t'|' -k2  >> TEST_LINKS.md
+grep -h "UNIT-TEST: | " -R reports/ --include="*.html" | sed -e "s|</span>||g" -e "s|; UNIT-TEST: ||g" | sort -t'|' -k3 >> TEST_LINKS.md
 sed 's/^[ \t]*//' -i TEST_LINKS.md
 awk -F '|' -v OFS='|' '{ $4 = substr($4, 1, 200); print }' TEST_LINKS.md > temp && \mv temp TEST_LINKS.md
 awk -F '|' -v OFS='|' '{ $4 = substr($5, 1, 200); print }' TEST_LINKS.md > temp && \mv temp TEST_LINKS.md
