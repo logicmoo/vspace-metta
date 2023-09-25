@@ -7,9 +7,9 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |-----|-----|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 |  12 |  15 | d2_higherfunc.metta               |[reports/compat/test_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d2_higherfunc.html)|
 |  9  |  9  | d4_type_prop.metta                |[reports/compat/test_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html)|
-|  4  |  7  | e2_states.metta                   |[reports/compat/test_scripts/e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html)|
 |  20 |  6  | b5_types_prelim.metta             |[reports/compat/test_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html)|
 |  8  |  6  | d1_gadt.metta                     |[reports/compat/test_scripts/d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d1_gadt.html)|
+|  5  |  6  | e2_states.metta                   |[reports/compat/test_scripts/e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html)|
 |  0  |  6  | d5_auto_types.metta               |[reports/compat/test_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html)|
 |  18 |  4  | c1_grounded_basic.metta           |[reports/compat/test_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html)|
 |  7  |  4  | b4_nondeterm.metta                |[reports/compat/test_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b4_nondeterm.html)|
@@ -36,7 +36,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  0  |  0  | _e2_states_dia.metta              |[reports/compat/test_scripts/_e2_states_dia.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/_e2_states_dia.html)|
 |  0  |  0  | f1_moduleB.metta                  |[reports/compat/test_scripts/f1_moduleB.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleB.html)|
 |  0  |  0  | f1_moduleC.metta                  |[reports/compat/test_scripts/f1_moduleC.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleC.html)|
-| 129 | 80  | Total: 209                        | For 61% 'examples/compat/test_scripts/*.metta'                                                                                   |
+| 130 | 79  | Total: 209                        | For 62% 'examples/compat/test_scripts/*.metta'                                                                                   |
 
 ## Installation Guide
 
