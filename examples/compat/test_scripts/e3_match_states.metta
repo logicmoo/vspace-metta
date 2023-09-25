@@ -45,6 +45,14 @@
 ; reduce the input pattern expression. Instead, we should use
 ; `(let $state-active (new-state active)) ...) here.   `
 
+!(assertEqual (get-type &state-active) (StateMonad Symbol))
+
+!(assertEqual (get-state &state-active) inactive)
+
+!(assertEqual &state-active (new-state inactive))
+
+
+
 ; In any case, direct matching against expressions with states work:
 !(assertEqual
     (match &self (= (status (Goal $goal)) &state-active) $goal)
