@@ -39,7 +39,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  1  |  0  | a2_opencoggy.metta                |[reports/compat/test_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a2_opencoggy.html)|
 |  1  |  0  | c2_spaces.metta                   |[reports/compat/test_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c2_spaces.html)|
 |  1  |  0  | f1_moduleA.metta                  |[reports/compat/test_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleA.html)|
-| 151 | 108 | Total: 259                        | For 58% 'examples/compat/*.metta'                                                                                                |
+| 151 | 108 | Total: 259                        | For 58% 'examples/compat/*.metta'                   |
 
  
 <details><summary>Expand for Individual (Extra) Tests</summary>
