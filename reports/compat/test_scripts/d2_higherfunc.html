@@ -82,35 +82,32 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:09-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Higher-order functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Type definition for `curry` function
-<span class="ansi38-255165000">  (metta_type  &amp;self curry 
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self curry 
     (-&gt; 
       (-&gt; $A $B $C) 
       (-&gt; $A 
-        (-&gt; $B $C))))
-</span>  (metta_arity  &amp;self curry 2)
-  (metta_params  &amp;self curry 
-    ( (-&gt; $A $B $C) 
-      (-&gt; $A 
-        (-&gt; $B $C))))
-  (metta_last  &amp;self curry C)
-; A trick to define `curry` in MeTTa without `lambda`
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+        (-&gt; $B $C)))))
+</span>; A trick to define `curry` in MeTTa without `lambda`
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     ( ( (curry $F) $X) $Y) 
-    ($F $X $Y))
+    ($F $X $Y)))
 </span>; Type checks
 <span class="ansi38-000068000">!(assertEqual (get-type (curry +)) (-&gt; Number (-&gt; Number Number)))
 </span>
@@ -124,10 +121,10 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 %~                 False_True='True') ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      ( (-&gt; Number 
-          (-&gt; Number Number)))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    ( (-&gt; Number 
+        (-&gt; Number Number)))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry +) 2)) (-&gt; Number Number))
@@ -136,27 +133,27 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 %~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      ( (-&gt; Number Number))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    ( (-&gt; Number Number))))
 </span><span class="ansi33"> False
 
 </span>; Partial application is not reduced, basically
 <span class="ansi38-000068000">!(assertEqualToResult ((curry +) 2) (((curry +) 2)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( ( (curry +) 2)) 
-      ( ( (curry +) 2))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( ( (curry +) 2)) 
+    ( ( (curry +) 2))))
 </span><span class="ansi33"> True
 
 </span>; Full application will be reduced
 <span class="ansi38-000068000">!(assertEqual (((curry +) 2) 3) 5)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (5) 
-      (5)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (5) 
+    (5)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -164,56 +161,48 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; Curry with first application
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definitions
-<span class="ansi38-255165000">  (metta_type  &amp;self curry-a 
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self curry-a 
     (-&gt; 
       (-&gt; $A $B $C) $A 
-      (-&gt; $B $C)))
-</span>  (metta_arity  &amp;self curry-a 3)
-  (metta_params  &amp;self curry-a 
-    ( (-&gt; $A $B $C) $A 
-      (-&gt; $B $C)))
-  (metta_last  &amp;self curry-a C)
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    ( (curry-a $F $A) $B) 
-    ($F $A $B))
+      (-&gt; $B $C))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    ( (curry-a $_381190 $_381436) $_381618) 
-    ($_381190 $_381436 $_381618))  ; 10 
-
+    ( (curry-a $F $A) $B) 
+    ($F $A $B)))
 </span>; Tests
 <span class="ansi38-000068000">!(assertEqual (get-type (curry-a + 2)) (-&gt; Number Number))
 </span>
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:950 
 %~ catch_warn( (/*2*/
 %~               call(apply(-&gt;,['Number','Number']))*-&gt;False_True='True' ;
 %~               False_True='False')) --&gt;
 %~   error(existence_error(procedure,'Number'/0),context(system:'&lt;meta-call&gt;'/1,Context_Kw)).
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      ( (-&gt; Number Number))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    ( (-&gt; Number Number))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      (Number)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    (Number)))
 </span><span class="ansi33"> False
 
 </span>; Badly typed
 <span class="ansi38-000068000">!(assertEqualToResult (get-type ((curry-a + 2) "S")) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>; Full application works
 <span class="ansi38-000068000">!(assertEqual ((curry-a + 2) 3) 5)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (5) 
-      (5)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (5) 
+    (5)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -221,57 +210,52 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; More tests with partial application wrapping
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definitions
-<span class="ansi38-255165000">  (metta_type  &amp;self Socrates Entity)
-  (metta_type  &amp;self Socrates Entity)  ; 11 
-
-</span>  (metta_arity  &amp;self Socrates 0)
-  (metta_arity  &amp;self Socrates 0)  ; 12 
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (: Socrates Entity))
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Socrates Entity))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Socrates Entity))  ; 13 
-
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Human Entity)
-</span>  (metta_arity  &amp;self Human 0)<span class="ansi38-255165000">
+    (: Socrates Entity)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Human Entity))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Human Entity))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self is 
-    (-&gt; Entity Entity Bool))
-</span>  (metta_arity  &amp;self is 3)
-  (metta_params  &amp;self is 
-    (Entity Entity Bool))
-  (metta_last  &amp;self is Bool)
-; Facts
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (is Socrates Human))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (: Human Entity)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self is 
+    (-&gt; Entity Entity Bool)))
+</span>; Facts
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (is Socrates Human)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (is-socrates) 
-    (curry-a is Socrates))
+    (curry-a is Socrates)))
 </span>; Tests
 <span class="ansi38-000068000">!(assertEqualToResult (is-socrates) ((curry-a is Socrates)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (curry-a is Socrates)) 
-      ( (curry-a is Socrates))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (curry-a is Socrates)) 
+    ( (curry-a is Socrates))))
 </span><span class="ansi33"> True
 
 </span>; not reduced
 <span class="ansi38-000068000">!(assertEqual ((curry-a is Socrates) Human) (is Socrates Human))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>; reduced
 <span class="ansi38-000068000">!(assertEqual ((is-socrates) Human) True)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( ( (is-socrates) Human)) 
-      (True)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( (is-socrates) Human)) 
+    (True)))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -281,48 +265,47 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; FIXME: how to make parameterized type here?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definitions
-<span class="ansi38-255165000">  (metta_type  &amp;self lambda 
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self lambda 
     (-&gt; Atom $T 
-      (-&gt; $A $T)))
-</span>  (metta_arity  &amp;self lambda 3)
-  (metta_params  &amp;self lambda 
-    (Atom $T 
-      (-&gt; $A $T)))
-  (metta_last  &amp;self lambda T)<span class="ansi38-255165000">
+      (-&gt; $A $T))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
     ( (lambda $Var $Body) $Arg) 
-    (let $Var $Arg $Body))
+    (let $Var $Arg $Body)))
 </span>; Tests
 <span class="ansi38-000068000">!(assertEqual ((lambda $X (+ $X 1)) 2) 3)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (3) 
-      (3)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (3) 
+    (3)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (9) 
-      (9)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (9) 
+    (9)))
 </span><span class="ansi33"> True
 
 </span>; Another example
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (part-appl $F $X) 
     (lambda $Y 
-      ($F $X $Y)))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+      ($F $X $Y))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (inc) 
-    (part-appl + 1))
+    (part-appl + 1)))
 </span><span class="ansi38-000068000">!(assertEqual ((inc) 5) 6)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( ( (inc) 5)) 
-      (6)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( (inc) 5)) 
+    (6)))
 </span><span class="ansi33"> False
 
 </span>; REM:
@@ -334,86 +317,63 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Let's introduce some functors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self Maybe 
-    (-&gt; $T Type))
-</span>  (metta_arity  &amp;self Maybe 2)
-  (metta_params  &amp;self Maybe 
-    ($T Type))
-  (metta_last  &amp;self Maybe Type)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Maybe 
+    (-&gt; $T Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Nothing 
     (-&gt; 
-      (Maybe $T)))
-</span>  (metta_arity  &amp;self Nothing 1)
-  (metta_params  &amp;self Nothing 
-    ( (Maybe $T)))
-  (metta_last  &amp;self Nothing T)<span class="ansi38-255165000">
+      (Maybe $T))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Something 
     (-&gt; $T 
-      (Maybe $T)))
-</span>  (metta_arity  &amp;self Something 2)
-  (metta_params  &amp;self Something 
-    ($T 
-      (Maybe $T)))
-  (metta_last  &amp;self Something T)<span class="ansi38-255165000">
+      (Maybe $T))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Either 
-    (-&gt; $T Type))
-</span>  (metta_arity  &amp;self Either 2)
-  (metta_params  &amp;self Either 
-    ($T Type))
-  (metta_last  &amp;self Either Type)<span class="ansi38-255165000">
+    (-&gt; $T Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Left 
     (-&gt; $T 
-      (Either $T)))
-</span>  (metta_arity  &amp;self Left 2)
-  (metta_params  &amp;self Left 
-    ($T 
-      (Either $T)))
-  (metta_last  &amp;self Left T)<span class="ansi38-255165000">
+      (Either $T))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Right 
     (-&gt; $T 
-      (Either $T)))
-</span>  (metta_arity  &amp;self Right 2)
-  (metta_params  &amp;self Right 
-    ($T 
-      (Either $T)))
-  (metta_last  &amp;self Right T)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      (Either $T))))
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; We can implement a generic `fmap`, but it requires
 ; concrete patterns in the type constructors above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Instead, we implement `fmap` as:
-<span class="ansi38-255165000">  (metta_type  &amp;self fmap 
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self fmap 
     (-&gt; 
       (-&gt; $A $B) 
       ($F $A) 
-      ($F $B)))
-</span>  (metta_arity  &amp;self fmap 3)
-  (metta_params  &amp;self fmap 
-    ( (-&gt; $A $B) 
-      ($F $A) 
-      ($F $B)))
-  (metta_last  &amp;self fmap B)
-; Mapping over empty functor, returns empty functor
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+      ($F $B))))
+</span>; Mapping over empty functor, returns empty functor
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fmap $F 
       ($C0)) 
-    ($C0))
+    ($C0)))
 </span>; Inductive case for singleton functor: apply $f to the
 ; element and rewrap in $C.
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fmap $F 
       ($C $X)) 
     ($C 
-      ($F $X)))
+      ($F $X))))
 </span>; Inductive case for non-empty functor: apply to the
 ; head and recurse on the tail.
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fmap $F 
       ($C $X $Xs)) 
     ($C 
       ($F $X) 
-      (fmap $F $Xs)))
+      (fmap $F $Xs))))
 </span>; NOTE: We had to define `Nothing` as a functional constructor.
 ;       Otherwise, we'd have to define `(= (fmap $f $C0) $C0)`,
 ;       and `$C0` would match both `Nothing` and `(Something 2)`
@@ -422,72 +382,72 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; Tests
 <span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Something 5)) (Something 7))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (Something 
-          ( (curry-a + 2) 5))) 
-      ( (Something 7))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (Something 
+        ( (curry-a + 2) 5))) 
+    ( (Something 7))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Nothing)) (Nothing))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Nothing)) 
-      ( (Nothing))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Nothing)) 
+    ( (Nothing))))
 </span><span class="ansi33"> True
 
 </span>; Type inference works
 <span class="ansi38-000068000">!(assertEqual (get-type (fmap (curry-a + 1) (Left 5))) (Either Number))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      ( (Either Number))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    ( (Either Number))))
 </span><span class="ansi33"> False
 
 </span>; It works for untyped constructors as well, if they
 ; follow the patterns in `fmap` equalities
 <span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5)) (UntypedC 7))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (UntypedC 
-          ( (curry-a + 2) 5))) 
-      ( (UntypedC 7))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (UntypedC 
+        ( (curry-a + 2) 5))) 
+    ( (UntypedC 7))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null)))) (UntypedC 7 (UntypedC 10 (Null))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (UntypedC 
-          ( (curry-a + 2) 5) 
-          (fmap 
-            (curry-a + 2) 
-            (UntypedC 8 
-              (Null))))) 
-      ( (UntypedC 7 
-          (UntypedC 10 
-            (Null))))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (UntypedC 
+        ( (curry-a + 2) 5) 
+        (fmap 
+          (curry-a + 2) 
+          (UntypedC 8 
+            (Null))))) 
+    ( (UntypedC 7 
+        (UntypedC 10 
+          (Null))))))
 </span><span class="ansi33"> False
 
 </span>; Type mismatches are detected:
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (Left "5"))) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5"))) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -495,76 +455,64 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; It is possible to implement `fmap` only as an interface
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Type definition is the same as `fmap` above
-<span class="ansi38-255165000">  (metta_type  &amp;self fmap-i 
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self fmap-i 
     (-&gt; 
       (-&gt; $A $B) 
       ($F $A) 
-      ($F $B)))
-</span>  (metta_arity  &amp;self fmap-i 3)
-  (metta_params  &amp;self fmap-i 
-    ( (-&gt; $A $B) 
-      ($F $A) 
-      ($F $B)))
-  (metta_last  &amp;self fmap-i B)
-; Custom implementations for different functors will be
+      ($F $B))))
+</span>; Custom implementations for different functors will be
 ; possible (and needed):
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fmap-i $F 
       (Left $X)) 
     (Left 
-      ($F $X)))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+      ($F $X))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fmap-i $F 
       (Right $X)) 
     (Right 
-      ($F $X)))
+      ($F $X))))
 </span><span class="ansi38-000068000">!(assertEqual (fmap-i (curry-a - 7) (Right 3)) (Right 4))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (Right 
-          ( (curry-a - 7) 3))) 
-      ( (Right 4))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (Right 
+        ( (curry-a - 7) 3))) 
+    ( (Right 4))))
 </span><span class="ansi33"> False
 
 </span>; More examples
-<span class="ansi38-255165000">  (metta_type  &amp;self List 
-    (-&gt; $A Type))
-</span>  (metta_arity  &amp;self List 2)
-  (metta_params  &amp;self List 
-    ($A Type))
-  (metta_last  &amp;self List Type)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self List 
+    (-&gt; $A Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self () 
-    (List $A))
-</span>  (metta_arity  &amp;self () 1)
-  (metta_params  &amp;self () 
-    (List $A))
-  (metta_last  &amp;self () A)<span class="ansi38-255165000">
+    (List $A)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Cons 
     (-&gt; $A 
       (List $A) 
-      (List $A)))
-</span>  (metta_arity  &amp;self Cons 3)
-  (metta_params  &amp;self Cons 
-    ($A 
-      (List $A) 
-      (List $A)))
-  (metta_last  &amp;self Cons A)<span class="ansi38-255165000">
+      (List $A))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
     (= 
-      (fmap-i $F ()) False))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+      (fmap-i $F ()) False)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fmap-i $F 
       (Cons  $X $Xs)) 
-    ( ($F $X) fmap-i $F $Xs))
+    ( ($F $X) fmap-i $F $Xs)))
 </span><span class="ansi38-000068000">!(assertEqual (fmap-i (curry-a * 2) (3 4)) (6 8))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( ( ( (curry-a * 2) 3) fmap-i 
-          (curry-a * 2) 
-          (4))) 
-      ( (6 8))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( ( (curry-a * 2) 3) fmap-i 
+        (curry-a * 2) 
+        (4))) 
+    ( (6 8))))
 </span><span class="ansi33"> False
 
 </span>; Thus, there is no problem in having different implementations
@@ -572,14 +520,14 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; work "for free" (it requires explicit implementation for each type)
 <span class="ansi38-000068000">!(assertEqualToResult (fmap-i (curry-a + 2) (Untyped 5)) ((fmap-i (curry-a + 2) (Untyped 5))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( ( ( (curry-a + 2) Untyped) fmap-i 
-          (curry-a + 2) 
-          (5))) 
-      ( (fmap-i 
-          (curry-a + 2) 
-          (Untyped 5)))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( ( (curry-a + 2) Untyped) fmap-i 
+        (curry-a + 2) 
+        (5))) 
+    ( (fmap-i 
+        (curry-a + 2) 
+        (Untyped 5)))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -592,10 +540,12 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
 ; not interfere with executing functions operating on List.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Insert an element in a presumably sorted list
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (insert $X ()) 
-    ($X))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    ($X)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (insert $X 
       (Cons  $Head $Tail)) 
     (case 
@@ -604,26 +554,28 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
           (Cons  $X 
             (Cons  $Head $Tail))) 
         (False 
-          ($Head insert $X $Tail)))))
+          ($Head insert $X $Tail))))))
 </span>; Sort a list
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (= 
-      (sort ()) False))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+      (sort ()) False)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (sort 
       (Cons  $Head $Tail)) 
     (insert $Head 
-      (sort $Tail)))
+      (sort $Tail))))
 </span><span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 ()))) (1 2 3))
 </span>
  c(0,'True')=[3,insert,2,[1]]
  c(1,'False')=[insert,insert,3,[2,[1]]]
  switch='True'
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (3 insert 2 
-          (1))) 
-      ( (1 2 3))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (3 insert 2 
+        (1))) 
+    ( (1 2 3))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (sort (3 1 2)) (1 2 3))
@@ -631,24 +583,24 @@ Script started on 2023-09-23 20:22:06-07:00 [COMMAND="timeout --foreground --pre
  c(0,'True')=[3,sort,[1,2]]
  c(1,'False')=[sort,insert,3,[[1,2]]]
  switch='True'
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (3 sort 
-          (1 2))) 
-      ( (1 2 3))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (3 sort 
+        (1 2))) 
+    ( (1 2 3))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 1,101,133 inferences, 0.861 CPU in 0.861 seconds (100% CPU, 1278524 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta" 84)
- --repl=false
+</span><span class="ansi32">% 1,039,855 inferences, 0.937 CPU in 0.937 seconds (100% CPU, 1109708 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 12
 </span><span class="ansi31">Failures: 15
 </span>
-Script done on 2023-09-23 20:22:09-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:12-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

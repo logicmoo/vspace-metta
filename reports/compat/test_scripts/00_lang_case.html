@@ -31,43 +31,40 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:01-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:04-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
 ; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 2 3))))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (2 3 4) 
-      (2 3 4)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (2 3 4) 
+    (2 3 4)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (2 3 4) 
-      (2 3 4)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (2 3 4) 
+    (2 3 4)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (1) 
-        (2) 
-        (3)) 
-      ( (1) 
-        (3) 
-        ( (+ 1 1)))))
-</span><span class="ansi33"> False
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (1)) 
+    ( (1))))
+</span><span class="ansi33"> True
 
 </span>; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) ((5 Error) (6 OK) (6 Error))) OK)
@@ -76,21 +73,21 @@ Script started on 2023-09-23 20:22:01-07:00 [COMMAND="timeout --foreground --pre
  c(1,6)='OK'
  c(2,6)='Error'
  switch=6
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (OK) 
-      (OK)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (OK) 
+    (OK)))
 </span><span class="ansi33"> True
 
 </span>; we can use variables as cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
 </span>
- c(0,_333590)=[+,1,_333590]
+ c(0,_367404)=[+,1,_367404]
  switch=6
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (7) 
-      (7)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (7) 
+    (7)))
 </span><span class="ansi33"> True
 
 </span>; cases are not necessarily exhaustive,
@@ -99,8 +96,8 @@ Script started on 2023-09-23 20:22:01-07:00 [COMMAND="timeout --foreground --pre
 </span>
  c(0,6)='OK'
  switch=5
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>; it is non-deterministic: each value is matched against all cases
@@ -111,78 +108,80 @@ Script started on 2023-09-23 20:22:01-07:00 [COMMAND="timeout --foreground --pre
  switch=2
  switch=3
  switch=4
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (OK-3 OK-4) 
-      (OK-3 OK-4)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (OK-3 OK-4) 
+    (OK-3 OK-4)))
 </span><span class="ansi33"> True
 
 </span>; one case can produce multiple results
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
 </span>
- c(0,_405740)=[+,1,_405740]
+ c(0,_441520)=[+,1,_441520]
  switch=2
  switch=3
  switch=4
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (3 4 5) 
-      (3 4 5)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (3 4 5) 
+    (3 4 5)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Rel-P A B))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Rel-Q A C))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Rel-P A B)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Rel-Q A C)))
 </span>; Basic Match
 <span class="ansi38-000068000">!(assertEqual (match &amp;self ($Rel A $X) ($Rel $X)) (superpose ((Rel-P B) (Rel-Q C))))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Rel-P B) 
-        (Rel-Q C)) 
-      ( (Rel-P B) 
-        (Rel-Q C))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Rel-P B) 
+      (Rel-Q C)) 
+    ( (Rel-P B) 
+      (Rel-Q C))))
 </span><span class="ansi33"> True
 
 </span>; cases can be used for deconstruction
 <span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &amp;self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
 </span>
- c(0,['Rel-P',_476658])=['P',_476658]
- c(1,['Rel-Q',_476658])=['Q',_476658]
+ c(0,['Rel-P',_512600])=['P',_512600]
+ c(1,['Rel-Q',_512600])=['Q',_512600]
  switch=['Rel-P','B']
  switch=['Rel-Q','C']
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (P B) 
-        (Q C)) 
-      ( (P B) 
-        (Q C))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (P B) 
+      (Q C)) 
+    ( (P B) 
+      (Q C))))
 </span><span class="ansi33"> True
 
 </span>; %void% can be used to capture empty results
 <span class="ansi38-000068000">!(assertEqual (case (match &amp;self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
 </span>
- c(0,['Rel-P',_505834])=['P',_505834]
- c(1,['Rel-Q',_505834])=['Q',_505834]
+ c(0,['Rel-P',_21426])=['P',_21426]
+ c(1,['Rel-Q',_21426])=['Q',_21426]
  c(2,'%void%')='no-match'
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (no-match) 
-      (no-match)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (no-match) 
+    (no-match)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 179,241 inferences, 0.085 CPU in 0.085 seconds (100% CPU, 2119364 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta" 2)
- --repl=false
+</span><span class="ansi32">% 174,084 inferences, 0.086 CPU in 0.086 seconds (100% CPU, 2033670 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 10
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 20:22:04-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:06-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

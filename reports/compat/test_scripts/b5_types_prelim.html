@@ -79,15 +79,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:40:48-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Symbols are typed. If no type definition is provided,
@@ -98,23 +99,25 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ;; However, the interpreter checks types in runtime, and
 ;; evaluation of badly typed expressions leads to a error expression.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (Add $X Z) $X)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (Add $X Z) $X))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
+    (Add $X Z) $X))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (Add $X Z) $X))<span class="ansi38-255165000">
+(@ = load 
   (metta_defn  &amp;self 
     (Add $X 
       (S $Y)) 
     (Add 
-      (S $X) $Y))
+      (S $X) $Y)))
 </span>; `(Add S Z)` will be reduced to `S` without type definitions
 <span class="ansi38-000068000">!(assertEqual (Add S Z) S)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (S) 
-      (S)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (S) 
+    (S)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -123,53 +126,41 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ; Arrow (-&gt;) is a built-in symbol of the type system
 ; `Nat` is a custom symbol
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self Z Nat)
-</span>  (metta_arity  &amp;self Z 0)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Z Nat))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Z Nat))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self S 
-    (-&gt; Nat Nat))
-</span>  (metta_arity  &amp;self S 2)
-  (metta_params  &amp;self S 
-    (Nat Nat))
-  (metta_last  &amp;self S Nat)
-<span class="ansi38-255165000">  (metta_type  &amp;self Add 
-    (-&gt; Nat Nat Nat))
+    (: Z Nat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self S 
+    (-&gt; Nat Nat)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Add 
-    (-&gt; Nat Nat Nat))  ; 10 
-
-</span>  (metta_arity  &amp;self Add 3)
-  (metta_arity  &amp;self Add 3)  ; 11 
-  (metta_params  &amp;self Add 
-    (Nat Nat Nat))
-  (metta_params  &amp;self Add 
-    (Nat Nat Nat))  ; 12 
-  (metta_last  &amp;self Add Nat)
-  (metta_last  &amp;self Add Nat)  ; 13 
-; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
+    (-&gt; Nat Nat Nat)))
+</span>; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
 <span class="ansi38-000068000">!(assertEqualToResult (Add S Z) ((Error S BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (S) 
-      ( (Error S BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (S) 
+    ( (Error S BadType))))
 </span><span class="ansi33"> False
 
 </span>; But these other examples works normally
 <span class="ansi38-000068000">!(assertEqual (Add (S Z) Z) (S Z))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (S Z)) 
-      ( (S Z))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (S Z)) 
+    ( (S Z))))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (Add Z (S Z)) (S Z))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (S Z)) 
-      ( (S Z))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (S Z)) 
+    ( (S Z))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -179,31 +170,33 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (Add Something Z) Something)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Something) 
-      (Something)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Something) 
+    (Something)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Types can be nondeterministic
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self Ten Nat)
-</span>  (metta_arity  &amp;self Ten 0)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Ten Nat))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Ten Nat))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Ten Int)
-</span>  (metta_arity  &amp;self Ten 0)<span class="ansi38-255165000">
+    (: Ten Nat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Ten Int))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Ten Int))
+    (: Ten Int)))
 </span>; The following will be accepted by the interpreter
 <span class="ansi38-000068000">!(assertEqualToResult (Add Z Ten) ((Add Z Ten)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Add Z Ten)) 
-      ( (Add Z Ten))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Add Z Ten)) 
+    ( (Add Z Ten))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -212,101 +205,89 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; List has a function type. Its argument should be of Type type.
 ; The type of the whole expression, e.g. (List String), will also have Type type.
-<span class="ansi38-255165000">  (metta_type  &amp;self List 
-    (-&gt; Type Type))
-</span>  (metta_arity  &amp;self List 2)
-  (metta_params  &amp;self List 
-    (Type Type))
-  (metta_last  &amp;self List Type)
-; Nil's type is parametrized as the type returned by List when it
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self List 
+    (-&gt; Type Type)))
+</span>; Nil's type is parametrized as the type returned by List when it
 ; takes parameter $t (which, per the definition above,
 ; is the same type as $t)
-<span class="ansi38-255165000">  (metta_type  &amp;self () 
-    (List $T))
-</span>  (metta_arity  &amp;self () 1)
-  (metta_params  &amp;self () 
-    (List $T))
-  (metta_last  &amp;self () T)
-; Cons is defined as a parametrized List constructor
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self () 
+    (List $T)))
+</span>; Cons is defined as a parametrized List constructor
 ; Based on the definition of List above, Cons' arguments
 ; are equally typed, and it returns the same type
 ; as its arguments.
-<span class="ansi38-255165000">  (metta_type  &amp;self Cons 
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Cons 
     (-&gt; $T 
       (List $T) 
-      (List $T)))
-</span>  (metta_arity  &amp;self Cons 3)
-  (metta_params  &amp;self Cons 
-    ($T 
-      (List $T) 
-      (List $T)))
-  (metta_last  &amp;self Cons T)
-; This list is well typed and evaluated to itself
+      (List $T))))
+</span>; This list is well typed and evaluated to itself
 <span class="ansi38-000068000">!(assertEqualToResult ((S Z) Z) (((S Z) Z)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( ( (S Z) Z)) 
-      ( ( (S Z) Z))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( ( (S Z) Z)) 
+    ( ( (S Z) Z))))
 </span><span class="ansi33"> True
 
 </span>; This list is badly typed, because S and Z are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (S Z) ((Error Z BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (S Z)) 
-      ( (Error Z BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (S Z)) 
+    ( (Error Z BadType))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self True Type)
-</span>  (metta_arity  &amp;self True 0)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self True Type))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: True Type))
+    (: True Type)))
 </span>; The type definition of `eq` specifies both its arguments
 ; must be of the same type, but its own type is left undefined,
 ; just as a Type.
-<span class="ansi38-255165000">  (metta_type  &amp;self eq 
-    (-&gt; $T $T Type))
-</span>  (metta_arity  &amp;self eq 3)
-  (metta_params  &amp;self eq 
-    ($T $T Type))
-  (metta_last  &amp;self eq Type)
-; The definition of `eq` specifies its actual type (T)
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (eq $X $X))
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self eq 
+    (-&gt; $T $T Type)))
+</span>; The definition of `eq` specifies its actual type (T)
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (eq $X $X)))
 </span>; Accepted and reduced
 <span class="ansi38-000068000">!(assertEqual (eq (Add Z Z) Z) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>; Accepted, not reduced because no definition is known
 ; for `eq` when its arguments are not the same
 <span class="ansi38-000068000">!(assertEqualToResult (eq Z (S Z)) ((eq Z (S Z))))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (eq Z 
-          (S Z))) 
-      ( (eq Z 
-          (S Z)))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (eq Z 
+        (S Z))) 
+    ( (eq Z 
+        (S Z)))))
 </span><span class="ansi33"> True
 
 </span>; Not accepted, because Z and S are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (eq Z S) ((Error S BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (eq Z S)) 
-      ( (Error S BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (eq Z S)) 
+    ( (Error S BadType))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -314,73 +295,77 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ; Type (symbols) are not prohibited from being elements
 ; of other custom types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self Color Property)
-</span>  (metta_arity  &amp;self Color 0)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Color Property))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Color Property))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Green Color)
-</span>  (metta_arity  &amp;self Green 0)<span class="ansi38-255165000">
+    (: Color Property)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Green Color))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Green Color))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Red Color)
-</span>  (metta_arity  &amp;self Red 0)<span class="ansi38-255165000">
+    (: Green Color)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Red Color))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Red Color))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Shape Property)
-</span>  (metta_arity  &amp;self Shape 0)<span class="ansi38-255165000">
+    (: Red Color)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Shape Property))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Shape Property))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Square Shape)
-</span>  (metta_arity  &amp;self Square 0)<span class="ansi38-255165000">
+    (: Shape Property)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Square Shape))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Square Shape))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Circle Shape)
-</span>  (metta_arity  &amp;self Circle 0)<span class="ansi38-255165000">
+    (: Square Shape)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Circle Shape))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Circle Shape))
+    (: Circle Shape)))
 </span>; This type definition is the same as that of `eq` above
-<span class="ansi38-255165000">  (metta_type  &amp;self of-same-type 
-    (-&gt; $T $T Type))
-</span>  (metta_arity  &amp;self of-same-type 3)
-  (metta_params  &amp;self of-same-type 
-    ($T $T Type))
-  (metta_last  &amp;self of-same-type Type)
-; It returns True for any pair of arguments, as long as there
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self of-same-type 
+    (-&gt; $T $T Type)))
+</span>; It returns True for any pair of arguments, as long as there
 ; is not Type error
 ; Accepted
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (of-same-type $X $Y))
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (of-same-type $X $Y)))
 </span><span class="ansi38-000068000">!(assertEqual (of-same-type Color Shape) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (of-same-type Green Red) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>; Not accepted
 <span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Color) ((Error Color BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (True) 
-      ( (Error Color BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (True) 
+    ( (Error Color BadType))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Circle) ((Error Circle BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (True) 
-      ( (Error Circle BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (True) 
+    ( (Error Circle BadType))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -397,24 +382,26 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ; to `T`. However, it is not reduced as `match` argument,
 ; and the query returns `Sam`.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Green Sam))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Green Sam))
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Green Sam)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Green Sam)))
 </span><span class="ansi38-000068000">!(assertEqual (Green $Who) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) $Who) Sam)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Sam) 
-      (Sam)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Sam) 
+    (Sam)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -425,10 +412,10 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (match &amp;self (Green $Who) (Green $Who)) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -445,17 +432,17 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
         (eq $R 
           (S Z)) $Tv) $Tv)) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>; but it will not work inside `match`:
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -479,10 +466,10 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
       (S Z) 
       (S Z)) $R) Z)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Z) 
-      (Z)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Z) 
+    (Z)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -506,10 +493,10 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
           (S 
             (S Z)) $R3) $Tv) $Tv)) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -517,21 +504,19 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ; Atom type can be required in custom functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `eqa` will compare expressions:
-<span class="ansi38-255165000">  (metta_type  &amp;self eqa 
-    (-&gt; Atom Atom Type))
-</span>  (metta_arity  &amp;self eqa 3)
-  (metta_params  &amp;self eqa 
-    (Atom Atom Type))
-  (metta_last  &amp;self eqa Type)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self eqa 
+    (-&gt; Atom Atom Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (eqa $X $X))
+    (eqa $X $X)))
 </span>; These expressions are identical:
 <span class="ansi38-000068000">!(assertEqual (eqa (Add Z Z) (Add Z Z)) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>; while this will not be reduced because the expressions
@@ -539,20 +524,20 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
 ; (`eqa` is not total)
 <span class="ansi38-000068000">!(assertEqualToResult (eqa Z (Add Z Z)) ((eqa Z (Add Z Z))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (True) 
-      ( (eqa Z 
-          (Add Z Z)))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (True) 
+    ( (eqa Z 
+        (Add Z Z)))))
 </span><span class="ansi33"> False
 
 </span>; In contrast to this:
 <span class="ansi38-000068000">!(assertEqual (eq Z (Add Z Z)) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span>; Or this:
@@ -561,23 +546,23 @@ Script started on 2023-09-23 20:21:45-07:00 [COMMAND="timeout --foreground --pre
     (Add Z Z) 
     (eqa Z $Z)) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 557,435 inferences, 0.792 CPU in 0.792 seconds (100% CPU, 704133 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta" 69)
- --repl=false
+</span><span class="ansi32">% 515,400 inferences, 0.765 CPU in 0.765 seconds (100% CPU, 673837 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b5_types_prelim.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 20
 </span><span class="ansi31">Failures: 6
 </span>
-Script done on 2023-09-23 20:21:48-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:40:51-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

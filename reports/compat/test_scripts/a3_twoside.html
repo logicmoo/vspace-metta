@@ -26,47 +26,50 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:29-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:31-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables can appear in knowledge base entries
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (implies 
       (Frog $X) 
-      (Green $X)))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (Green $X))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (implies 
       (Frog $X) 
-      (Eats-flies $X)))
+      (Eats-flies $X))))
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bound variables on both sides will be substituted
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Eats-flies Sam) 
-        (Green Sam)) 
-      ( (Eats-flies Sam) 
-        (Green Sam))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Eats-flies Sam) 
+      (Green Sam)) 
+    ( (Eats-flies Sam) 
+      (Green Sam))))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Sam might be Frog)) 
-      ( (Sam might be Frog))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Sam might be Frog)) 
+    ( (Sam might be Frog))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -76,18 +79,20 @@ Script started on 2023-09-23 20:22:29-07:00 [COMMAND="timeout --foreground --pre
 ; variables, which should be satisfied simultaneously.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Frog Sam))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Robot Sophia))
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Frog Sam)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Robot Sophia)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Eats-flies Sam) 
-        (Green Sam)) 
-      ( (Eats-flies Sam) 
-        (Green Sam))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Eats-flies Sam) 
+      (Green Sam)) 
+    ( (Eats-flies Sam) 
+      (Green Sam))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -96,23 +101,23 @@ Script started on 2023-09-23 20:22:29-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Then it is definitely Frog)) 
-      ( (Then it is definitely Frog))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Then it is definitely Frog)) 
+    ( (Then it is definitely Frog))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 91,863 inferences, 0.042 CPU in 0.042 seconds (100% CPU, 2198374 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta" 4)
- --repl=false
+</span><span class="ansi32">% 88,325 inferences, 0.040 CPU in 0.040 seconds (100% CPU, 2193898 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
 </span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 20:22:31-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:34-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

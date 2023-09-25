@@ -48,15 +48,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:21-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The standard library contains a few basic grounded operations
@@ -65,42 +66,42 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;; but these examples should work
 <span class="ansi38-000068000">!(assertEqualToResult (+ 2 (* 3 5.5)) (18.5))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (18.5) 
-      (18.5)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (18.5) 
+    (18.5)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (- 8 ("/" 4 6.4)) (7.375))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (7.375) 
-      (7.375)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (7.375) 
+    (7.375)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (% 21 17) (4))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (4) 
-      (4)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (4) 
+    (4)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (&lt; 4 (+ 2 (* 3 5))) (True))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (and (&gt; 4 2) (&lt; 4 3)) (False))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (and True False)) 
-      (False)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (and True False)) 
+    (False)))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -112,10 +113,10 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (ln (+ 2 2)) ((ln 4)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (ln 4)) 
-      ( (ln 4))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (ln 4)) 
+    ( (ln 4))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -126,11 +127,11 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ ln 2)) ((&gt; 4 (+ ln 2))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (False) 
-      ( (&gt; 4 
-          (+ ln 2)))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (False) 
+    ( (&gt; 4 
+        (+ ln 2)))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -140,11 +141,11 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (&gt; 4 (+ $X 2)) ((&gt; 4 (+ $X 2))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (False) 
-      ( (&gt; 4 
-          (+ $_194902 2)))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (False) 
+    ( (&gt; 4 
+        (+ $_233962 2)))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -154,34 +155,34 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ 2 2)) (True))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 2 3) (False))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (False) 
-      (False)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A B)) (True))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A (B C))) (False))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (False) 
-      (False)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -191,10 +192,10 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ; Instead, it will return `False`
 <span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) (False))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (False) 
-      (False)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -205,39 +206,41 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (+ 2 "String") ((Error "String" BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (+ 2 "String")) 
-      ( (Error "String" BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (+ 2 "String")) 
+    ( (Error "String" BadType))))
 </span><span class="ansi33"> False
 
 </span>; Custom symbols as arguments of grounded operations
 ; work similarly
-<span class="ansi38-255165000">  (metta_type  &amp;self ln LN)
-</span>  (metta_arity  &amp;self ln 0)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self ln LN))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: ln LN))
+    (: ln LN)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) ((Error ln BadType)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (False) 
-      ( (Error ln BadType))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (False) 
+    ( (Error ln BadType))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Custom functions over grounded functions behave ordinarily
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (sqr $X) 
-    (* $X $X))
+    (* $X $X)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (sqr 4) (16))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (16) 
-      (16)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (16) 
+    (16)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -247,28 +250,30 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (+ (superpose (1 2 3)) 1) (superpose (2 3 4)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (2 3 4) 
-      (2 3 4)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (2 3 4) 
+    (2 3 4)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (bin) 0)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (bin) 0))<span class="ansi38-255165000">
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (bin) 1)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (bin) 1))
+    (bin) 0))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (bin) 0))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
+    (bin) 1))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (bin) 1))
 <span class="ansi38-000068000">!(assertEqualToResult (+ 1 (bin)) (1 2))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (1) 
-      (1 2)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (1) 
+    (1 2)))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult 
@@ -276,29 +281,30 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
     (+ 2 3) 
     (* $X $X)) (25))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (25) 
-      (25)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (25) 
+    (25)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; basic recursion
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (fact $N) 
     (if 
       (== $N 0) 1 
       (* 
         (fact 
-          (- $N 1)) $N)))
+          (- $N 1)) $N))))
 </span><span class="ansi38-000068000">!(assertEqual (fact 5) 120)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (120) 
-      (120)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (120) 
+    (120)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -308,35 +314,30 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
 ; Uses the grounded call `bin`, which returns a list of
 ; both possible bits (0, 1), to recursively construct all possible
 ; binary lists of length `$n`, appending bits one by one.
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (gen $N) 
     (if 
       (&gt; $N 0) 
       ( (bin) gen 
-        (- $N 1)) ()))
+        (- $N 1)) ())))
 </span>; Note: `::` is just a custom symbol, used here as a constructor,
 ; but any other symbol can be used for this.
 ; Calculates the sum of element-wise products between two lists
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (subsum () ()) 0)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (subsum () ()) 0))
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
+    (subsum () ()) 0))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (subsum () ()) 0))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
     (subsum 
       (Cons  $X $Xs) 
       (Cons  $B $Bs)) 
     (+ 
       (* $X $B) 
-      (subsum $Xs $Bs)))
-  (metta_defn  &amp;self 
-    (subsum 
-      (Cons  $_316434 $_316774) 
-      (Cons  $_317056 $_317278)) 
-    (+ 
-      (* $_316434 $_317056) 
-      (subsum $_316774 $_317278)))  ; 10 
-
+      (subsum $Xs $Bs))))
 </span>; Non-determinism "reasoning":
 ; Among all 3-bit binary lists, return the one whose `subsum`
 ; with (:: 3 (:: 7 (:: 5 nil))) equals 8, or `nop` if not found
@@ -350,23 +351,23 @@ Script started on 2023-09-23 20:22:19-07:00 [COMMAND="timeout --foreground --pre
           (3 7 5) $T) 8) $T 
       (nop))) ((1 0 1)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ($_356742) 
-      ( (1 0 1))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ($_399106) 
+    ( (1 0 1))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 409,199 inferences, 0.469 CPU in 0.469 seconds (100% CPU, 871858 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 10)
- --repl=false
+</span><span class="ansi32">% 404,078 inferences, 0.508 CPU in 0.508 seconds (100% CPU, 795010 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 14
 </span><span class="ansi31">Failures: 7
 </span>
-Script done on 2023-09-23 20:22:21-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:24-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

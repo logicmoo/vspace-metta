@@ -37,15 +37,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:21:26-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:40:28-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `match` searches for all expressions corresponding to
@@ -53,49 +54,55 @@ Script started on 2023-09-23 20:21:26-07:00 [COMMAND="timeout --foreground --pre
 ;; It doesn''t search in subexpressions.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some expressions to be matched
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    ( (leaf1 leaf2) leaf3))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    ( ( (leaf0 leaf1) leaf2) leaf3))
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    ( (leaf1 leaf2) leaf3)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    ( ( (leaf0 leaf1) leaf2) leaf3)))
 </span>; This one contains `((leaf1 leaf2) leaf3)` as a subexpression
 ; and thus will not be matched
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (top 
-      ( (leaf1 leaf2) leaf3)))
+      ( (leaf1 leaf2) leaf3))))
 </span>; `assertEqualToResult` checks all the results of the first
 ; expression; it doesn''t evaluate the second expression,
 ; which is treated as a set of expected results.
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (leaf1 
-        (leaf0 leaf1)) 
-      (leaf1 
-        (leaf0 leaf1))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (leaf1 
+      (leaf0 leaf1)) 
+    (leaf1 
+      (leaf0 leaf1))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Symbols can be arranged in arbitrary expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Sam is a frog))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Tom is a cat))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Sophia is a robot))
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Sam is a frog)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Tom is a cat)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Sophia is a robot)))
 </span>; `match` can bind more that one variable
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Sam the frog) 
-        (Sophia the robot) 
-        (Tom the cat)) 
-      ( (Sam the frog) 
-        (Sophia the robot) 
-        (Tom the cat))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Sam the frog) 
+      (Sophia the robot) 
+      (Tom the cat)) 
+    ( (Sam the frog) 
+      (Sophia the robot) 
+      (Tom the cat))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -103,92 +110,89 @@ Script started on 2023-09-23 20:21:26-07:00 [COMMAND="timeout --foreground --pre
 ; More examples of pattern matching
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `:=` is a custom symbol. These are still purely symbolic expressions
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (:= 
-      (Green Sam) True))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (Green Sam) True)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (:= 
-      (White Tom) True))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (White Tom) True)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (:= 
-      (Green Tom) False))
+      (Green Tom) False)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Green $Who) True) ($Who is really green)) ((Sam is really green)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Sam is really green)) 
-      ( (Sam is really green))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Sam is really green)) 
+    ( (Sam is really green))))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (Sam is really Green) 
-        (Tom is really White)) 
-      ( (Sam is really Green) 
-        (Tom is really White))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (Sam is really Green) 
+      (Tom is really White)) 
+    ( (Sam is really Green) 
+      (Tom is really White))))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= ($Color $Who) $Tv) (It is $Tv that $Who is $Color)) ((It is True that Sam is Green) (It is True that Tom is White) (It is False that Tom is Green)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (It is False that Tom is Green) 
-        (It is True that Sam is Green) 
-        (It is True that Tom is White)) 
-      ( (It is False that Tom is Green) 
-        (It is True that Sam is Green) 
-        (It is True that Tom is White))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (It is False that Tom is Green) 
+      (It is True that Sam is Green) 
+      (It is True that Tom is White)) 
+    ( (It is False that Tom is Green) 
+      (It is True that Sam is Green) 
+      (It is True that Tom is White))))
 </span><span class="ansi33"> True
 
 </span>; This type of query works as a sort of evaluation/reduction
 <span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (:= (Green Tom) $Tv) $Tv) (False))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (False) 
-      (False)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (False) 
+    (False)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; One more example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (isa red color))
+<span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (isa red color))  ; 10 
-
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (isa green color))
+    (isa red color)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (isa green color))  ; 11 
-
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (isa blue color))
+    (isa green color)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (isa blue color))  ; 12 
-
+    (isa blue color)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &amp;self (isa $Color color) $Color) (red green blue))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (blue green red) 
-      (blue green red)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (blue green red) 
+    (blue green red)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 166,436 inferences, 0.091 CPU in 0.091 seconds (100% CPU, 1832086 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta" 12)
- --repl=false
+</span><span class="ansi32">% 158,078 inferences, 0.092 CPU in 0.092 seconds (100% CPU, 1727326 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 0
 </span>
-Script done on 2023-09-23 20:21:28-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:40:31-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

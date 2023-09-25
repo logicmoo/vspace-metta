@@ -67,15 +67,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:29-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
 ;; NOTE: this behavior can change in the future
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -88,21 +89,21 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
     (get-atoms &amp;self) 
     (get-type $X))) ((get-type &amp;self)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( ( (let $_234594 
-            (get-atoms &amp;self) 
-            (get-type $_234594)))) 
-      ( ( (get-type &amp;self)))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( (let $_267550 
+          (get-atoms &amp;self) 
+          (get-type $_267550)))) 
+    ( ( (get-type &amp;self)))))
 </span><span class="ansi33"> False
 
 </span>; stdlib is already loaded
 <span class="ansi38-000068000">!(assertEqual (if (&gt; 1 2) 1 2) 2)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (2) 
-      (2)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (2) 
+    (2)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -111,7 +112,7 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &amp;m f1_moduleA.metta)
 </span>
-  (track_load_into_file  f1_moduleA.metta)
+ (@ track_load_into_file f1_moduleA.metta)
 ; It''s first atom is a space
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -119,7 +120,7 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
 </span>
-  (track_load_into_file  f1_moduleC.metta)
+ (@ track_load_into_file f1_moduleC.metta)
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
@@ -128,66 +129,56 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;m __g 
-    (-&gt; Number))
-</span>  (metta_arity  &amp;m __g 1)
-  (metta_params  &amp;m __g 
-    (Number))
-  (metta_last  &amp;m __g Number)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;m __g 
+    (-&gt; Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;m 
-    (__g) 100)
-</span>  (unknown_do_metta  &amp;m load 
-    (= 
-      (__g) 100))<span class="ansi38-255165000">
+    (__g) 100))
+</span>(@ unknown_do_metta &amp;m load 
+  (= 
+    (__g) 100))<span class="ansi38-255165000">
+(@ = load 
   (metta_type  &amp;m g 
-    (-&gt; Number Numer))
-</span>  (metta_arity  &amp;m g 2)
-  (metta_params  &amp;m g 
-    (Number Numer))
-  (metta_last  &amp;m g Numer)
-<span class="ansi38-255165000">  (metta_defn  &amp;m 
+    (-&gt; Number Numer)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;m 
     (g $X) 
     (+ $X 
-      (__g)))
-  (metta_defn  &amp;m 
-    (g $_362546) 
-    (+ $_362546 
-      (__g)))  ; 10 
-
-</span><span class="ansi32">% 22,955 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5777895 Lips)
-</span>  (=  f1_moduleC.metta 10)
+      (__g))))
+</span><span class="ansi32">% 15,935 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 6160835 Lips)
+</span> (@ = f1_moduleC.metta 0)
 <span class="ansi33"> &amp;m
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (3) 
-      (3)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (3) 
+    (3)))
 </span><span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
-<span class="ansi38-255165000">  (metta_defn  &amp;m 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;m 
     (dup $X) 
     (if 
       (== $X 0) 
       (+ $X 10) 
-      (g $X)))
-</span><span class="ansi38-255165000">  (metta_type  &amp;m f 
-    (-&gt; Number Number))
-</span>  (metta_arity  &amp;m f 2)
-  (metta_params  &amp;m f 
-    (Number Number))
-  (metta_last  &amp;m f Number)<span class="ansi38-255165000">
+      (g $X))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;m f 
+    (-&gt; Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;m 
     (f $X) 
     (if 
       (&lt; $X 0) 
       (- 0 $X) 
       (g 
-        (+ 1 $X))))
-</span><span class="ansi32">% 65,163 inferences, 0.013 CPU in 0.013 seconds (100% CPU, 5155056 Lips)
-</span>  (=  f1_moduleA.metta 6)
+        (+ 1 $X)))))
+</span><span class="ansi32">% 54,528 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 5137511 Lips)
+</span> (@ = f1_moduleA.metta 0)
 <span class="ansi33"> &amp;m
 
 </span><span class="ansi38-000068000">!(assertEqual 
@@ -199,8 +190,8 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
         (car-atom $X))) 
     (get-type $Y)) (get-type &amp;self))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>; FIXME? Now, it is moduleC space.
@@ -217,10 +208,10 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (match &amp;m (= (f 2) $X) $X) (g 3))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (g 3)) 
-      ( (g 3))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (g 3)) 
+    ( (g 3))))
 </span><span class="ansi33"> True
 
 </span>; Importing the same space into `&amp;self` should break nothing
@@ -228,7 +219,7 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ; there anymore since in should be removed after importing it to `&amp;self`
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleA.metta)
 </span>
-  (track_load_into_file  f1_moduleA.metta)
+ (@ track_load_into_file f1_moduleA.metta)
 ; Now indirectly imported `g` works and `f` fully works
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -236,7 +227,7 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
 </span>
-  (track_load_into_file  f1_moduleC.metta)
+ (@ track_load_into_file f1_moduleC.metta)
 ; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
@@ -245,82 +236,72 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self __g 
-    (-&gt; Number))
-</span>  (metta_arity  &amp;self __g 1)
-  (metta_params  &amp;self __g 
-    (Number))
-  (metta_last  &amp;self __g Number)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self __g 
+    (-&gt; Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (__g) 100)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (__g) 100))<span class="ansi38-255165000">
+    (__g) 100))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (__g) 100))<span class="ansi38-255165000">
+(@ = load 
   (metta_type  &amp;self g 
-    (-&gt; Number Numer))
-</span>  (metta_arity  &amp;self g 2)
-  (metta_params  &amp;self g 
-    (Number Numer))
-  (metta_last  &amp;self g Numer)
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (-&gt; Number Numer)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (g $X) 
     (+ $X 
-      (__g)))
-  (metta_defn  &amp;self 
-    (g $_58406) 
-    (+ $_58406 
-      (__g)))  ; 10 
-
-</span><span class="ansi32">% 22,778 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5736809 Lips)
-</span>  (=  f1_moduleC.metta 10)
+      (__g))))
+</span><span class="ansi32">% 15,932 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 5906866 Lips)
+</span> (@ = f1_moduleC.metta 0)
 <span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (3) 
-      (3)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (3) 
+    (3)))
 </span><span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (dup $X) 
     (if 
       (== $X 0) 
       (+ $X 10) 
-      (g $X)))
-</span><span class="ansi38-255165000">  (metta_type  &amp;self f 
-    (-&gt; Number Number))
-</span>  (metta_arity  &amp;self f 2)
-  (metta_params  &amp;self f 
-    (Number Number))
-  (metta_last  &amp;self f Number)<span class="ansi38-255165000">
+      (g $X))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self f 
+    (-&gt; Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
     (f $X) 
     (if 
       (&lt; $X 0) 
       (- 0 $X) 
       (g 
-        (+ 1 $X))))
-</span><span class="ansi32">% 63,735 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 5157555 Lips)
-</span>  (=  f1_moduleA.metta 6)
+        (+ 1 $X)))))
+</span><span class="ansi32">% 53,284 inferences, 0.010 CPU in 0.010 seconds (100% CPU, 5186195 Lips)
+</span> (@ = f1_moduleA.metta 0)
 <span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (102) 
-      (102)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (102) 
+    (102)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (103) 
-      (103)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (103) 
+    (103)))
 </span><span class="ansi33"> True
 
 </span>; `&amp;self` contains 3 atoms-spaces now:
@@ -338,9 +319,9 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
         (cdr-atom $X))) 
     (car-atom $Y)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (&amp;m) ()))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (&amp;m) ()))
 </span><span class="ansi33"> False
 
 </span>; NOTE: now the first atom, which was a space, is removed from `&amp;m`,
@@ -355,26 +336,26 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
         (car-atom $X))) 
     (get-type $Y)) (get-type &amp;self)) False)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (== 
-          (let* 
-            ( ($_248194 
-                (())) 
-              ($_248218 
-                (car-atom $_248194))) 
-            (get-type $_248218)) 
-          (get-type &amp;self))) 
-      (False)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (== 
+        (let* 
+          ( ($_277750 
+              (())) 
+            ($_277774 
+              (car-atom $_277750))) 
+          (get-type $_277774)) 
+        (get-type &amp;self))) 
+    (False)))
 </span><span class="ansi33"> False
 
 </span>; Let''s check that `if` from stdlib is not duplicated and gives only one result
 <span class="ansi38-000068000">!(assertEqual (if (&gt; 1 2) 1 2) 2)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (2) 
-      (2)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (2) 
+    (2)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -383,7 +364,7 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleB.metta)
 </span>
-  (track_load_into_file  f1_moduleB.metta)
+ (@ track_load_into_file f1_moduleB.metta)
 ; `g` from moduleC imported via two paths as well as `f`, which uses `g`,
 ; are not duplicated and produce deterministic results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -392,75 +373,67 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
 </span>
-  (track_load_into_file  f1_moduleC.metta)
+ (@ track_load_into_file f1_moduleC.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self __g 
-    (-&gt; Number))
-</span>  (metta_arity  &amp;self __g 1)
-  (metta_params  &amp;self __g 
-    (Number))
-  (metta_last  &amp;self __g Number)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self __g 
+    (-&gt; Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (__g) 100)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (__g) 100))<span class="ansi38-255165000">
+    (__g) 100))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (__g) 100))<span class="ansi38-255165000">
+(@ = load 
   (metta_type  &amp;self g 
-    (-&gt; Number Numer))
-</span>  (metta_arity  &amp;self g 2)
-  (metta_params  &amp;self g 
-    (Number Numer))
-  (metta_last  &amp;self g Numer)
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (-&gt; Number Numer)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (g $X) 
     (+ $X 
-      (__g)))
-  (metta_defn  &amp;self 
-    (g $_314138) 
-    (+ $_314138 
-      (__g)))  ; 10 
-
-</span><span class="ansi32">% 22,270 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5457531 Lips)
-</span>  (=  f1_moduleC.metta 10)
+      (__g))))
+</span><span class="ansi32">% 15,495 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 6422266 Lips)
+</span> (@ = f1_moduleC.metta 0)
 <span class="ansi33"> &amp;self
 
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (dup $X) 
     (if 
       (== $X 0) 
       (g $X) 
-      (+ $X 10)))
-</span><span class="ansi32">% 36,751 inferences, 0.007 CPU in 0.007 seconds (100% CPU, 5599640 Lips)
-</span>  (=  f1_moduleB.metta 1)
+      (+ $X 10))))
+</span><span class="ansi32">% 29,650 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 6450420 Lips)
+</span> (@ = f1_moduleB.metta 0)
 <span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (102) 
-      (102)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (102) 
+    (102)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (103) 
-      (103)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (103) 
+    (103)))
 </span><span class="ansi33"> True
 
 </span>; Function declared in different imported modules will still produce
 ; non-deterministic results
 <span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (12 102) 
-      (12 102)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (12 102) 
+    (12 102)))
 </span><span class="ansi33"> True
 
 </span>; Let''s import f1_moduleB.metta once more using a different path.
@@ -468,93 +441,85 @@ Script started on 2023-09-23 20:22:26-07:00 [COMMAND="timeout --foreground --pre
 ; unchanged.
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleB.metta)
 </span>
-  (track_load_into_file  f1_moduleB.metta)
+ (@ track_load_into_file f1_moduleB.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &amp;self f1_moduleC.metta)
 </span>
-  (track_load_into_file  f1_moduleC.metta)
+ (@ track_load_into_file f1_moduleC.metta)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self __g 
-    (-&gt; Number))
-</span>  (metta_arity  &amp;self __g 1)
-  (metta_params  &amp;self __g 
-    (Number))
-  (metta_last  &amp;self __g Number)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self __g 
+    (-&gt; Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (__g) 100)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (__g) 100))<span class="ansi38-255165000">
+    (__g) 100))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (__g) 100))<span class="ansi38-255165000">
+(@ = load 
   (metta_type  &amp;self g 
-    (-&gt; Number Numer))
-</span>  (metta_arity  &amp;self g 2)
-  (metta_params  &amp;self g 
-    (Number Numer))
-  (metta_last  &amp;self g Numer)
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (-&gt; Number Numer)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (g $X) 
     (+ $X 
-      (__g)))
-  (metta_defn  &amp;self 
-    (g $_418634) 
-    (+ $_418634 
-      (__g)))  ; 10 
-
-</span><span class="ansi32">% 22,270 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5585513 Lips)
-</span>  (=  f1_moduleC.metta 10)
+      (__g))))
+</span><span class="ansi32">% 15,494 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 6423715 Lips)
+</span> (@ = f1_moduleC.metta 0)
 <span class="ansi33"> &amp;self
 
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (dup $X) 
     (if 
       (== $X 0) 
       (g $X) 
-      (+ $X 10)))
-</span><span class="ansi32">% 36,535 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 5790934 Lips)
-</span>  (=  f1_moduleB.metta 1)
+      (+ $X 10))))
+</span><span class="ansi32">% 29,434 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 6571996 Lips)
+</span> (@ = f1_moduleB.metta 0)
 <span class="ansi33"> &amp;self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (102) 
-      (102)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (102) 
+    (102)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (103) 
-      (103)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (103) 
+    (103)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (12 102) 
-      (12 102)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (12 102) 
+    (12 102)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 438,718 inferences, 0.242 CPU in 0.242 seconds (100% CPU, 1815352 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta" 0)
- --repl=false
+</span><span class="ansi32">% 398,280 inferences, 0.226 CPU in 0.226 seconds (100% CPU, 1765818 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 14
 </span><span class="ansi31">Failures: 3
 </span>
-Script done on 2023-09-23 20:22:29-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:31-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

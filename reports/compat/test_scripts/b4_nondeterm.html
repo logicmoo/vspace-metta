@@ -50,34 +50,38 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:41-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Nondeterminism in matching and interpretation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (color) green)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (color) green))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (color) yellow)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (color) yellow))<span class="ansi38-255165000">
+    (color) green))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (color) green))<span class="ansi38-255165000">
+(@ = load 
   (metta_defn  &amp;self 
-    (color) red)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (color) red))
+    (color) yellow))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (color) yellow))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
+    (color) red))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (color) red))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; In `a1_symbols` we saw that `match` can return multiple or no results
@@ -86,10 +90,10 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (match &amp;self (= (color) $X) $X) (superpose (green yellow red)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (green red yellow) 
-      (green red yellow)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (green red yellow) 
+    (green red yellow)))
 </span><span class="ansi33"> True
 
 </span>;!(assertEqual (match &amp;self (= (color) $x) $x) (color))
@@ -102,10 +106,10 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (collapse (match &amp;self (= (shape) $X) $X)) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (()) 
-      (())))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (()) 
+    (())))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -115,10 +119,10 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (color) (superpose (red yellow green)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (green red yellow) 
-      (green red yellow)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (green red yellow) 
+    (green red yellow)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -132,10 +136,10 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
       (color)) 
     (superpose $X)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (green red yellow) 
-      (green red yellow)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (green red yellow) 
+    (green red yellow)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -145,18 +149,18 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (collapse (shape)) ((shape)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( ( (shape))) 
-      ( ( (shape)))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( ( (shape))) 
+    ( ( (shape)))))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (shape) ((shape)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (shape)) 
-      ( (shape))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (shape)) 
+    ( (shape))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -164,28 +168,31 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ; If the expression is composed over nondeterministic
 ; expressions, all combinations will be produced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (bin) A)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (bin) A))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (bin) B)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (bin) B))<span class="ansi38-255165000">
+    (bin) A))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (bin) A))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
+    (bin) B))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (bin) B))<span class="ansi38-255165000">
+(@ = load 
   (metta_defn  &amp;self 
     (pair $X $Y) 
-    ($X $Y))
+    ($X $Y)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (pair (bin) (bin)) ((A A) (A B) (B A) (B B)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (A A)) 
-      ( (A A) 
-        (A B) 
-        (B A) 
-        (B B))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (A A)) 
+    ( (A A) 
+      (A B) 
+      (B A) 
+      (B B))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -197,34 +204,33 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ; but without reduction. However, `match` can be called
 ; directly to filter out non-reducible results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (foo) red)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (foo) red))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (foo) boo)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (foo) boo))<span class="ansi38-255165000">
+    (foo) red))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (foo) red))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
+    (foo) boo))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (foo) boo))<span class="ansi38-255165000">
+(@ = load 
   (metta_atom  &amp;self 
-    (eq $X $X))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (eq $X $X)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (find-equal $X $Y) 
     (match &amp;self 
-      (eq $X $Y) $X))
-  (metta_defn  &amp;self 
-    (find-equal $_233158 $_233354) 
-    (match &amp;self 
-      (eq $_233158 $_233354) $_233158))  ; 10 
-
+      (eq $X $Y) $X)))
 </span><span class="ansi38-000068000">!(assertEqual (find-equal (color) (foo)) red)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (find-equal green 
-          (foo))) 
-      (red)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (find-equal green 
+        (foo))) 
+    (red)))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -232,23 +238,20 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ; One can pass nondeterministic expressions to an ordinary
 ; function and get multiple results.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (rev $X $Y) 
-    ($Y $X))
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (rev $_276630 $_276796) 
-    ($_276796 $_276630))  ; 11 
-
+    (rev $X $Y) 
+    ($Y $X)))
 </span><span class="ansi38-000068000">!(assertEqualToResult (rev A (superpose (B C D))) ((B A) (C A) (D A)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (B A) 
-        (C A) 
-        (D A)) 
-      ( (B A) 
-        (C A) 
-        (D A))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (B A) 
+      (C A) 
+      (D A)) 
+    ( (B A) 
+      (C A) 
+      (D A))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -256,27 +259,20 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
 ; Extended example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some rules
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (ift True $Then) $Then)
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (ift True $_315690) $_315690)  ; 12 
-
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (ift True $Then) $Then))
-  (unknown_do_metta  &amp;self load True)
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+    (ift True $Then) $Then))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (ift True $Then) $Then))(@ unknown_do_metta &amp;self load True)<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
     (make $X) 
     (ift 
       (makes $Y $X) 
-      (start $Y)))
+      (start $Y))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (make $_332648) 
-    (ift 
-      (makes $_332846 $_332648) 
-      (start $_332846)))  ; 13 
-
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
     (make $X) 
     (ift 
       (And 
@@ -284,93 +280,100 @@ Script started on 2023-09-23 20:22:38-07:00 [COMMAND="timeout --foreground --pre
           (making $Y) 
           (making $X)) 
         (makes $Z $Y)) 
-      (stop $Z)))
+      (stop $Z))))
 </span>; Add facts to knowledge base
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (prevents 
       (making 
         (air dry)) 
       (making 
-        (air wet))))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+        (air wet)))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (prevents 
       (making 
         (air wet)) 
       (making 
-        (air dry))))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+        (air dry)))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (makes humidifier 
-      (air wet)))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (air wet))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (makes kettle 
-      (air wet)))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (air wet))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (makes ventilation 
-      (air dry)))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+      (air dry))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (is 
       (air dry)) 
     (make 
-      (air wet)))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+      (air wet))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (is 
       (air wet)) 
     (make 
-      (air dry)))
+      (air dry))))
 </span>; the results are not sequential in sense that their order is arbitrary
 <span class="ansi38-000068000">!(assertEqual (is (air dry)) (superpose ((stop ventilation) (start kettle) (start humidifier))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (ift 
-          (And 
-            (prevents 
-              (making $_416184) 
-              (making 
-                (air wet))) 
-            (makes $_416232 $_416184)) 
-          (stop $_416232)) 
-        (ift 
-          (makes $_416286 
-            (air wet)) 
-          (start $_416286))) 
-      ( (start humidifier) 
-        (start kettle) 
-        (stop ventilation))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (ift 
+        (And 
+          (prevents 
+            (making $_454044) 
+            (making 
+              (air wet))) 
+          (makes $_454092 $_454044)) 
+        (stop $_454092)) 
+      (ift 
+        (makes $_454146 
+          (air wet)) 
+        (start $_454146))) 
+    ( (start humidifier) 
+      (start kettle) 
+      (stop ventilation))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (is (air wet)) (superpose ((stop kettle) (stop humidifier) (start ventilation))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (ift 
-          (And 
-            (prevents 
-              (making $_435826) 
-              (making 
-                (air dry))) 
-            (makes $_435874 $_435826)) 
-          (stop $_435874)) 
-        (ift 
-          (makes $_435928 
-            (air dry)) 
-          (start $_435928))) 
-      ( (start ventilation) 
-        (stop humidifier) 
-        (stop kettle))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (ift 
+        (And 
+          (prevents 
+            (making $_474408) 
+            (making 
+              (air dry))) 
+          (makes $_474456 $_474408)) 
+        (stop $_474456)) 
+      (ift 
+        (makes $_474510 
+          (air dry)) 
+        (start $_474510))) 
+    ( (start ventilation) 
+      (stop humidifier) 
+      (stop kettle))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 283,665 inferences, 0.326 CPU in 0.326 seconds (100% CPU, 869324 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta" 21)
- --repl=false
+</span><span class="ansi32">% 273,610 inferences, 0.304 CPU in 0.304 seconds (100% CPU, 901515 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 4
 </span>
-Script done on 2023-09-23 20:22:41-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:43-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

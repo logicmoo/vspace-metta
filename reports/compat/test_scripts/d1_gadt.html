@@ -51,249 +51,196 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:14-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:17-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic types of grounded symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self + 
-    (-&gt; Number Number Number))
-</span>  (metta_arity  &amp;self + 3)
-  (metta_params  &amp;self + 
-    (Number Number Number))
-  (metta_last  &amp;self + Number)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self + 
+    (-&gt; Number Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self - 
-    (-&gt; Number Number Number))
-</span>  (metta_arity  &amp;self - 3)
-  (metta_params  &amp;self - 
-    (Number Number Number))
-  (metta_last  &amp;self - Number)<span class="ansi38-255165000">
+    (-&gt; Number Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self * 
-    (-&gt; Number Number Number))
-</span>  (metta_arity  &amp;self * 3)
-  (metta_arity  &amp;self * 3)  ; 10 
-  (metta_params  &amp;self * 
-    (Number Number Number))
-  (metta_params  &amp;self * 
-    (Number Number Number))  ; 11 
-  (metta_last  &amp;self * Number)
-  (metta_last  &amp;self * Number)  ; 12 
-<span class="ansi38-255165000">  (metta_type  &amp;self % 
-    (-&gt; Number Number Number))
+    (-&gt; Number Number Number)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self % 
-    (-&gt; Number Number Number))  ; 13 
-
-</span>  (metta_arity  &amp;self % 3)
-  (metta_params  &amp;self % 
-    (Number Number Number))
-  (metta_last  &amp;self % Number)
-; `get-type` returns the type of its argument
+    (-&gt; Number Number Number)))
+</span>; `get-type` returns the type of its argument
 <span class="ansi38-000068000">!(assertEqual (get-type 5) Number)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Number) 
-      (Number)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Number) 
+    (Number)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Number) 
-      (Number)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Number) 
+    (Number)))
 </span><span class="ansi33"> True
 
 </span>; It works for built-in symbols too
 <span class="ansi38-000068000">!(assertEqual (get-type +) (-&gt; Number Number Number))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (-&gt; Number Number Number)) 
-      ( (-&gt; Number Number Number))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (-&gt; Number Number Number)) 
+    ( (-&gt; Number Number Number))))
 </span><span class="ansi33"> True
 
 </span>; If its argument is a badly typed expression,
 ; `get-type` returns the empty set
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (+ 5 "4")) ())
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (Number) ()))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (Number) ()))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (List 
-          (-&gt; Number Number Number))) ()))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (List 
+        (-&gt; Number Number Number))) ()))
 </span><span class="ansi33"> False
 
 </span>; Also works for custom types
-<span class="ansi38-255165000">  (metta_type  &amp;self Either Type)
-</span>  (metta_arity  &amp;self Either 0)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Either Type))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
-    (: Either Type))
+    (: Either Type)))
 </span><span class="ansi38-000068000">!(assertEqual (get-type Either) Type)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Type) 
-      (Type)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Type) 
+    (Type)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Arrow types of functions and constructors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self Left 
-    (-&gt; %Undefined% Either))
-</span>  (metta_arity  &amp;self Left 2)
-  (metta_params  &amp;self Left 
-    (%Undefined% Either))
-  (metta_last  &amp;self Left Either)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Left 
+    (-&gt; %Undefined% Either)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Right 
-    (-&gt; %Undefined% Either))
-</span>  (metta_arity  &amp;self Right 2)
-  (metta_params  &amp;self Right 
-    (%Undefined% Either))
-  (metta_last  &amp;self Right Either)
-<span class="ansi38-000068000">!(assertEqual (get-type (Left 5)) Either)
+    (-&gt; %Undefined% Either)))
+</span><span class="ansi38-000068000">!(assertEqual (get-type (Left 5)) Either)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      (Either)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    (Either)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi38-255165000">  (metta_type  &amp;self isLeft 
-    (-&gt; Either Bool))
-</span>  (metta_arity  &amp;self isLeft 2)
-  (metta_params  &amp;self isLeft 
-    (Either Bool))
-  (metta_last  &amp;self isLeft Bool)<span class="ansi38-255165000">
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self isLeft 
+    (-&gt; Either Bool)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_atom  &amp;self 
     (isLeft 
-      (Left $X)))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (Left $X))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (= 
       (isLeft 
-        (Right $X)) False))
+        (Right $X)) False)))
 </span><span class="ansi38-000068000">!(assertEqual (get-type (isLeft (Right 5))) Bool)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      (Bool)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    (Bool)))
 </span><span class="ansi33"> False
 
 </span>; Badly typed expression
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (isLeft 5)) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self EitherP 
-    (-&gt; $T Type))
-</span>  (metta_arity  &amp;self EitherP 2)
-  (metta_params  &amp;self EitherP 
-    ($T Type))
-  (metta_last  &amp;self EitherP Type)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self EitherP 
+    (-&gt; $T Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self LeftP 
     (-&gt; $T 
-      (EitherP $T)))
-</span>  (metta_arity  &amp;self LeftP 2)
-  (metta_params  &amp;self LeftP 
-    ($T 
-      (EitherP $T)))
-  (metta_last  &amp;self LeftP T)<span class="ansi38-255165000">
+      (EitherP $T))))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self RightP 
     (-&gt; $T 
-      (EitherP $T)))
-</span>  (metta_arity  &amp;self RightP 2)
-  (metta_params  &amp;self RightP 
-    ($T 
-      (EitherP $T)))
-  (metta_last  &amp;self RightP T)
-<span class="ansi38-000068000">!(assertEqual (get-type (LeftP 5)) (EitherP Number))
+      (EitherP $T))))
+</span><span class="ansi38-000068000">!(assertEqual (get-type (LeftP 5)) (EitherP Number))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      ( (EitherP Number))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    ( (EitherP Number))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi38-255165000">  (metta_type  &amp;self Pair 
-    (-&gt; $A $B Type))
-</span>  (metta_arity  &amp;self Pair 3)
-  (metta_params  &amp;self Pair 
-    ($A $B Type))
-  (metta_last  &amp;self Pair Type)<span class="ansi38-255165000">
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self Pair 
+    (-&gt; $A $B Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self pair 
     (-&gt; $A $B 
-      (Pair $A $B)))
-</span>  (metta_arity  &amp;self pair 3)
-  (metta_params  &amp;self pair 
-    ($A $B 
-      (Pair $A $B)))
-  (metta_last  &amp;self pair B)
-<span class="ansi38-000068000">!(assertEqual (get-type (pair (LeftP 5) "String")) (Pair (EitherP Number) String))
+      (Pair $A $B))))
+</span><span class="ansi38-000068000">!(assertEqual (get-type (pair (LeftP 5) "String")) (Pair (EitherP Number) String))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  () 
-      ( (Pair 
-          (EitherP Number) String))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  () 
+    ( (Pair 
+        (EitherP Number) String))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Recursively parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_type  &amp;self List 
-    (-&gt; $A Type))
-</span>  (metta_arity  &amp;self List 2)
-  (metta_params  &amp;self List 
-    ($A Type))
-  (metta_last  &amp;self List Type)<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_type  &amp;self List 
+    (-&gt; $A Type)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self () 
-    (List $A))
-</span>  (metta_arity  &amp;self () 1)
-  (metta_params  &amp;self () 
-    (List $A))
-  (metta_last  &amp;self () A)<span class="ansi38-255165000">
+    (List $A)))
+</span><span class="ansi38-255165000">(@ = load 
   (metta_type  &amp;self Cons 
     (-&gt; $A 
       (List $A) 
-      (List $A)))
-</span>  (metta_arity  &amp;self Cons 3)
-  (metta_params  &amp;self Cons 
-    ($A 
-      (List $A) 
-      (List $A)))
-  (metta_last  &amp;self Cons A)
-<span class="ansi38-000068000">!(assertEqual (get-type (5 6)) (List Number))
+      (List $A))))
+</span><span class="ansi38-000068000">!(assertEqual (get-type (5 6)) (List Number))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (List Number)) 
-      ( (List Number))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (List Number)) 
+    ( (List Number))))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (5 "6")) ())
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  () ()))
+<span class="ansi36">(@ loonit_success 
+  (=@=  () ()))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -306,23 +253,23 @@ Script started on 2023-09-23 20:22:14-07:00 [COMMAND="timeout --foreground --pre
     (get-type 
       (5 6)) $T) Number)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (Number) 
-      (Number)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (Number) 
+    (Number)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 256,982 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 1689103 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta" 65)
- --repl=false
+</span><span class="ansi32">% 210,839 inferences, 0.145 CPU in 0.145 seconds (100% CPU, 1451047 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 8
 </span><span class="ansi31">Failures: 6
 </span>
-Script done on 2023-09-23 20:22:16-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:19-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

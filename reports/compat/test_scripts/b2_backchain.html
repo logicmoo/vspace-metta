@@ -37,49 +37,52 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:22:33-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:41:36-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `match` can be used inside equalities, which is typically
 ;; used for querying and reasoning over declarative knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Fact
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (Frog Sam))
-</span><span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (Frog Sam)))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (frog $X) 
-    (Frog $X))
+    (Frog $X)))
 </span>; `(Frog Sam)` is not reduced; it is just a declaration
 <span class="ansi38-000068000">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      (True) 
-      ( (Frog Sam))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    (True) 
+    ( (Frog Sam))))
 </span><span class="ansi33"> False
 
 </span>; `frog` uses this declaration
 <span class="ansi38-000068000">!(assertEqual (frog Sam) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (Frog Fritz)) ()))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (Frog Fritz)) ()))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -90,14 +93,17 @@ Script started on 2023-09-23 20:22:33-07:00 [COMMAND="timeout --foreground --pre
 ; to avoid mixing them up with symbols from common lib)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts in the knowledge base
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (Evaluation 
-      (philosopher Plato)))
-</span><span class="ansi38-255165000">  (metta_atom  &amp;self 
+      (philosopher Plato))))
+</span><span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (Evaluation 
-      (likes-to-wrestle Plato)))
+      (likes-to-wrestle Plato))))
 </span>; An implication rule
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (Implication 
       (And 
         (Evaluation 
@@ -105,25 +111,28 @@ Script started on 2023-09-23 20:22:33-07:00 [COMMAND="timeout --foreground --pre
         (Evaluation 
           (likes-to-wrestle $X))) 
       (Evaluation 
-        (human $X))))
+        (human $X)))))
 </span>; Another implication rule
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
     (Implication 
       (Evaluation 
         (human $X)) 
       (Evaluation 
-        (mortal $X))))
+        (mortal $X)))))
 </span>; Deduction case when the desired evaluation is present in
 ; the knowledge base
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (deduce 
       (Evaluation 
         ($P $X))) 
     (Evaluation 
-      ($P $X)))
+      ($P $X))))
 </span>; Deduction case when the desired evaluation is the result
 ; of an implication, which implies a recursion
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (deduce 
       (Evaluation 
         ($P $X))) 
@@ -131,82 +140,69 @@ Script started on 2023-09-23 20:22:33-07:00 [COMMAND="timeout --foreground --pre
       (Implication $A 
         (Evaluation 
           ($P $X))) 
-      (deduce $A)))
+      (deduce $A))))
 </span>; Deduction case for generic "And" expressions;
 ; also recursive
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (deduce 
       (And $A $B)) 
     (And 
       (deduce $A) 
-      (deduce $B)))
+      (deduce $B))))
 </span>; True &amp; True = True
-  (unknown_do_metta  &amp;self load True)
+(@ unknown_do_metta &amp;self load True)
 ; Test deduction that Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (deduce (Evaluation (mortal Plato))) True)
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (And 
-          (deduce 
-            (Evaluation 
-              (philosopher Plato))) 
-          (deduce 
-            (Evaluation 
-              (likes-to-wrestle Plato)))) 
-        (Evaluation 
-          (human Plato)) 
-        (Evaluation 
-          (mortal Plato))) 
-      (True)))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (And 
+        (deduce 
+          (Evaluation 
+            (philosopher Plato))) 
+        (deduce 
+          (Evaluation 
+            (likes-to-wrestle Plato)))) 
+      (Evaluation 
+        (human Plato)) 
+      (Evaluation 
+        (mortal Plato))) 
+    (True)))
 </span><span class="ansi33"> False
 
 </span>; TODO : Some variables are not substituted
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (ift True $Then) $Then)
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    (ift True $_517748) $_517748)  ; 10 
-
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (ift True $Then) $Then))
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (ift 
-      (deduce 
-        (Evaluation 
-          (mortal $X))) $X))
+    (ift True $Then) $Then))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (ift True $Then) $Then))<span class="ansi38-255165000">
+(@ = load 
   (metta_atom  &amp;self 
     (ift 
       (deduce 
         (Evaluation 
-          (mortal $_15642))) $_15642))  ; 11 
-
+          (mortal $X))) $X)))
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example of backchaining
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definition of explain when the desired Evaluation is
 ; in the knowledge base
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (explain 
       (Evaluation 
         ($P $X))) 
     (match &amp;self 
       (Evaluation 
         ($P $X)) 
-      ($P $X)))
-  (metta_defn  &amp;self 
-    (explain 
-      (Evaluation 
-        ($_29846 $_30114))) 
-    (match &amp;self 
-      (Evaluation 
-        ($_29846 $_30114)) 
-      ($_29846 $_30114)))  ; 12 
-
+      ($P $X))))
 </span>; Definition of explain when the desired Evaluation is
 ; the result of an implication
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (explain 
       (Evaluation 
         ($P $X))) 
@@ -215,52 +211,42 @@ Script started on 2023-09-23 20:22:33-07:00 [COMMAND="timeout --foreground --pre
         (Evaluation 
           ($P $X))) 
       ( ($P $X) proven by 
-        (explain $A))))
-  (metta_defn  &amp;self 
-    (explain 
-      (Evaluation 
-        ($_46276 $_46658))) 
-    (match &amp;self 
-      (Implication $_46948 
-        (Evaluation 
-          ($_46276 $_46658))) 
-      ( ($_46276 $_46658) proven by 
-        (explain $_46948))))  ; 13 
-
+        (explain $A)))))
 </span>; Definition of explain for And
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
     (explain 
       (And $A $B)) 
     (And 
       (explain $A) 
-      (explain $B)))
+      (explain $B))))
 </span>; Example of explain why Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( ( (mortal Plato) proven by 
-          (explain 
-            (Evaluation 
-              (human Plato))))) 
-      ( ( (mortal Plato) proven by 
-          ( (human Plato) proven by 
-            (And 
-              (philosopher Plato) 
-              (likes-to-wrestle Plato)))))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( ( (mortal Plato) proven by 
+        (explain 
+          (Evaluation 
+            (human Plato))))) 
+    ( ( (mortal Plato) proven by 
+        ( (human Plato) proven by 
+          (And 
+            (philosopher Plato) 
+            (likes-to-wrestle Plato)))))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 178,271 inferences, 0.136 CPU in 0.136 seconds (100% CPU, 1315259 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 14)
- --repl=false
+</span><span class="ansi32">% 166,741 inferences, 0.127 CPU in 0.127 seconds (100% CPU, 1314066 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 4
 </span>
-Script done on 2023-09-23 20:22:36-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:41:38-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

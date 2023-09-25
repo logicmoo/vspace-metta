@@ -31,15 +31,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-09-23 20:21:33-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
+Script started on 2023-09-25 01:40:36-07:00 [COMMAND="timeout --foreground --preserve-status -s 5 -k 15 20 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta --repl=false --args --timeout=20 --html" TERM="xterm" TTY="/dev/pts/0" COLUMNS="191" LINES="197"]
 % init_phase(after_load).
 % dot_cfg:using_dot_type(core,user)
 :- time_factorials(61111).
 :- time_fibonaccis(30000)
  --python=enable
+ --repl=false
 
-  (load_metta  &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
-  (track_load_into_file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
+(@ load_metta &amp;self "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The equality sign is specially treated by the interpreter.
@@ -50,26 +51,30 @@ Script started on 2023-09-23 20:21:33-07:00 [COMMAND="timeout --foreground --pre
 ; until the match is empty (when the equality match is
 ; empty, the expression is evaluated to itself).
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (I $X) $X)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (I $X) $X))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
   (metta_defn  &amp;self 
-    ( (K $X) $Y) $X)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      ( (K $X) $Y) $X))
+    (I $X) $X))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (I $X) $X))<span class="ansi38-255165000">
+(@ = load 
+  (metta_defn  &amp;self 
+    ( (K $X) $Y) $X))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    ( (K $X) $Y) $X))
 ; Note that `(K $x)` is allowed here
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (K $X $Y) $X)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (K $X $Y) $X))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
+    (K $X $Y) $X))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (K $X $Y) $X))<span class="ansi38-255165000">
+(@ = load 
   (metta_defn  &amp;self 
     (S $X $Y $Z) 
     ($X $Z 
-      ($Y $Z)))
+      ($Y $Z))))
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `assertEqual` compares (sets of) results of evaluation
@@ -78,10 +83,10 @@ Script started on 2023-09-23 20:21:33-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (S K K x) x)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (x) 
-      (x)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (x) 
+    (x)))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -91,34 +96,36 @@ Script started on 2023-09-23 20:21:33-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (expression without known equalities) ((expression without known equalities)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (expression without known equalities)) 
-      ( (expression without known equalities))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (expression without known equalities)) 
+    ( (expression without known equalities))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_defn  &amp;self 
-    (Add $X Z) $X)
-</span>  (unknown_do_metta  &amp;self load 
-    (= 
-      (Add $X Z) $X))<span class="ansi38-255165000">
+<span class="ansi38-255165000">(@ = load 
+  (metta_defn  &amp;self 
+    (Add $X Z) $X))
+</span>(@ unknown_do_metta &amp;self load 
+  (= 
+    (Add $X Z) $X))<span class="ansi38-255165000">
+(@ = load 
   (metta_defn  &amp;self 
     (Add $X 
       (S $Y)) 
     (Add 
-      (S $X) $Y))
+      (S $X) $Y)))
 </span><span class="ansi38-000068000">!(assertEqual (Add (S Z) (S Z)) (S (S Z)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (S 
-          (S Z))) 
-      ( (S 
-          (S Z)))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (S 
+        (S Z))) 
+    ( (S 
+        (S Z)))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -128,15 +135,15 @@ Script started on 2023-09-23 20:21:33-07:00 [COMMAND="timeout --foreground --pre
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (Something? (Add (S Z) (S Z))) (Something? (S (S Z))))
 </span>
-<span class="ansi31">  (loonit_failureR  
-    (=@=  
-      ( (Something? 
-          (Add 
-            (S Z) 
-            (S Z)))) 
-      ( (Something? 
-          (S 
-            (S Z))))))
+<span class="ansi31">(@ loonit_failureR 
+  (=@=  
+    ( (Something? 
+        (Add 
+          (S Z) 
+          (S Z)))) 
+    ( (Something? 
+        (S 
+          (S Z))))))
 </span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -145,35 +152,36 @@ Script started on 2023-09-23 20:21:33-07:00 [COMMAND="timeout --foreground --pre
 ; side of expressions, and that the "function" doesn''t need to
 ; cover all possible inputs (i.e. it can be "non-total")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">  (metta_atom  &amp;self 
-    (eq $X $X))
+<span class="ansi38-255165000">(@ = load 
+  (metta_atom  &amp;self 
+    (eq $X $X)))
 </span><span class="ansi38-000068000">!(assertEqual (eq (S K K x) x) True)
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      (True) 
-      (True)))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    (True) 
+    (True)))
 </span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (eq Green Blue) ((eq Green Blue)))
 </span>
-<span class="ansi36">  (loonit_success  
-    (=@=  
-      ( (eq Green Blue)) 
-      ( (eq Green Blue))))
+<span class="ansi36">(@ loonit_success 
+  (=@=  
+    ( (eq Green Blue)) 
+    ( (eq Green Blue))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 127,655 inferences, 0.096 CPU in 0.096 seconds (100% CPU, 1330123 Lips)
-</span>  (=  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta" 7)
- --repl=false
+</span><span class="ansi32">% 125,181 inferences, 0.095 CPU in 0.095 seconds (100% CPU, 1321552 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta" 0)
  --args
  --timeout=20
+ --html
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 1
 </span>
-Script done on 2023-09-23 20:21:35-07:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2023-09-25 01:40:38-07:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
