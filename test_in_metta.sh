@@ -92,25 +92,25 @@ cat final_MeTTaLog.md
 # Clean up temporary files
 rm temp1.txt temp2.txt
 
-
 function GenerateUnitReports() {
-      echo "Tasks Completed:"
-      rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/
-      find examples/ -name '*.html' -delete
-      echo "1) Synced HTML files from examples/ to reports/ and deleted the original HTML files in examples/"
-      mv final_MeTTaLog.md MeTTaLog.md
-      echo "2) Renamed final_MeTTaLog.md to MeTTaLog.md"
+    echo "Executing Tasks..."
+    rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ \
+    && echo "1) Synced HTML files from examples/ to reports/ and deleted the original HTML files in examples/"
+
+    find examples/ -name '*.html' -delete
+
+    mv final_MeTTaLog.md MeTTaLog.md \
+    && echo "2) Renamed final_MeTTaLog.md to MeTTaLog.md"
+
+    echo "Tasks Completed Successfully."
 }
 
-export -f GenerateUnitReports
-
-# Optional: Overwrite the MeTTaLog.md with the final_MeTTaLog.md
-#echo "Dont forget 1) rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ ; find examples/ -name '*.html' -delete"
-#echo "            2) \\mv final_MeTTaLog.md MeTTaLog.md"
-#echo "            3) \\mv TEST_LINKS.md UNIT_LINKS.md
-#echo find "${UNITS_DIR}" -name \"*.metta\" -type f -exec ./MeTTa --timeout=20 {} \\\;
-
-echo Dont forget to type:  GenerateUnitReports  if you are ready to commit your code
+read -p "Are you ready to commit your code and generate unit reports? (y/n): " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    GenerateUnitReports
+fi
 
 # If the script is being sourced, use 'return'. Otherwise, use 'exit'.
 [[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
