@@ -51,6 +51,7 @@ echo "|--------|----------------------------------------------------------------
 grep -h "UNIT-TEST: | " -R reports/ --include="*.html" | sed -e "s|</span>||g" -e "s|; UNIT-TEST: ||g" | sort -t'|' -k2  >> TEST_LINKS.md
 sed 's/^[ \t]*//' -i TEST_LINKS.md
 awk -F '|' -v OFS='|' '{ $4 = substr($4, 1, 200); print }' TEST_LINKS.md > temp && \mv temp TEST_LINKS.md
+awk -F '|' -v OFS='|' '{ $4 = substr($5, 1, 200); print }' TEST_LINKS.md > temp && \mv temp TEST_LINKS.md
 
 echo DONT FORGET TO:  \\mv TEST_LINKS.md UNIT_LINKS.md
 # If the script is being sourced, use 'return'. Otherwise, use 'exit'.
