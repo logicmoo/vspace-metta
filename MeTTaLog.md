@@ -41,15 +41,8 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  1  |  0  | f1_moduleA.metta                  |[reports/compat/test_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleA.html)|
 | 151 | 108 | Total: 259                        | For 58% 'examples/compat/*.metta'                                                                                                |
 
-<details>
-  <summary>Click to expand!</summary>
-
-
-Test Results:
-Passed: 196
-Failed: 116
-Total: 312
-Passed Percentage: 62.82%
+ 
+<details><summary>Expand for Individual (Extra) Tests</summary>
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|
 | FAIL | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/InTest.html#COMMON.INTEST.01) | (assertEqual (synthesize (: $Proof (∉ Z ∅)) Z kb rb)) | () | ((: NotInEmpty (∉ Z ∅))) |
@@ -365,16 +358,16 @@ Passed Percentage: 62.82%
 | PASS | [TEST-SCRIPTS.F1-IMPORTS.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.05) | (assertEqual (if (> 1 2) 1 2)) | (2) | (2) |
 | PASS | [TEST-SCRIPTS.F1-MODULEA.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleA.html#TEST-SCRIPTS.F1-MODULEA.01) | (assertEqual (+ 1 2)) | (3) | (3) |
 
+
+
+
 </details>
-
-
 Test Results:
-Passed: 196
-Failed: 116
-Total: 312
-Passed Percentage: 62.82%
-
-
+196 Passed,
+116 Failed,
+312 Total,
+62.82% Passed
+ 
 ## Installation Guide
 
 ### Prerequisites
