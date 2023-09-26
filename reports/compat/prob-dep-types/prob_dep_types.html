@@ -13,6 +13,7 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -265,14 +266,16 @@
 
 </span><span class="ansi33"> True
 
+</span><span class="ansi33"> False
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (Bernoulli)) (True False))
 
-</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.01">;; PROB-DEP-TYPES.PROB-DEP-TYPES.01</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.01">;; PROB-DEP-TYPES.PROB-DEP-TYPES.01</h3><span class="ansi36">
+(@ loonit_success 
   (=@=  
-    (True) 
+    (False True) 
     (False True)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;; Colors example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Color','Type')
@@ -308,14 +311,18 @@
 
 </span><span class="ansi33"> Red
 
+</span><span class="ansi33"> Green
+
+</span><span class="ansi33"> Blue
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (ColDist)) (Red Green Red Blue))
 
-</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.02">;; PROB-DEP-TYPES.PROB-DEP-TYPES.02</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.02">;; PROB-DEP-TYPES.PROB-DEP-TYPES.02</h3><span class="ansi36">
+(@ loonit_success 
   (=@=  
-    (Red) 
+    (Blue Green Red) 
     (Blue Green Red)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;; Hybrid example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f,'True'],[sample,['Bernoulli']])
@@ -361,14 +368,22 @@
 
 </span><span class="ansi33"> True
 
+</span><span class="ansi33"> False
+
+</span><span class="ansi33"> Red
+
+</span><span class="ansi33"> Green
+
+</span><span class="ansi33"> Blue
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (HybridDist)) (True False Red Green Red Blue))
 
-</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.03">;; PROB-DEP-TYPES.PROB-DEP-TYPES.03</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.03">;; PROB-DEP-TYPES.PROB-DEP-TYPES.03</h3><span class="ansi36">
+(@ loonit_success 
   (=@=  
-    (True) 
+    (Blue False Green Red True) 
     (Blue False Green Red True)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;; Permutation example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Not',[->,'Bool','Bool'])
@@ -431,13 +446,33 @@
 
 </span><span class="ansi33">  (ColPerm True)
 
+</span><span class="ansi33"> True
+
+</span><span class="ansi33">  (ColPerm False)
+
+</span><span class="ansi33">  (Not Red)
+
+</span><span class="ansi33"> Green
+
+</span><span class="ansi33">  (Not Green)
+
+</span><span class="ansi33"> Blue
+
+</span><span class="ansi33">  (Not Blue)
+
+</span><span class="ansi33"> Red
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (HybridPerm (sample (HybridDist))) (False True Green Blue Green Red))
 
 </span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.04">;; PROB-DEP-TYPES.PROB-DEP-TYPES.04</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    (False 
-      (ColPerm True)) 
+    (Blue False Green Red True 
+      (ColPerm False) 
+      (ColPerm True) 
+      (Not Blue) 
+      (Not Green) 
+      (Not Red)) 
     (Blue False Green Red True)))
 </span><span class="ansi33"> False
 
@@ -489,12 +524,18 @@
 
 </span><span class="ansi33">  (thunk Red)
 
+</span><span class="ansi33">  (thunk Green)
+
+</span><span class="ansi33">  (thunk Blue)
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (SecondOrderColDist)) ((thunk (random Red (random Green Blue))) (thunk (ColPerm (sample (ColDist))))))
 
 </span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.05">;; PROB-DEP-TYPES.PROB-DEP-TYPES.05</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    ( (thunk Red)) 
+    ( (thunk Blue) 
+      (thunk Green) 
+      (thunk Red)) 
     ( (thunk 
         (ColPerm 
           (sample 
@@ -508,14 +549,18 @@
 
 </span><span class="ansi33"> Red
 
+</span><span class="ansi33"> Green
+
+</span><span class="ansi33"> Blue
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (FlattenedColDist)) (Red Green Red Blue Green Blue Green Red))
 
-</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.06">;; PROB-DEP-TYPES.PROB-DEP-TYPES.06</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.06">;; PROB-DEP-TYPES.PROB-DEP-TYPES.06</h3><span class="ansi36">
+(@ loonit_success 
   (=@=  
-    (Red) 
+    (Blue Green Red) 
     (Blue Green Red)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;; Second-order hybrid example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','HybridDistPermuted',['Distribution',['Bool_U_Color']])
@@ -568,12 +613,49 @@
 
 </span><span class="ansi33">  (thunk True)
 
+</span><span class="ansi33">  (thunk False)
+
+</span><span class="ansi33">  (thunk 
+    (ColPerm True))
+
+</span><span class="ansi33">  (thunk 
+    (ColPerm False))
+
+</span><span class="ansi33">  (thunk 
+    (Not Red))
+
+</span><span class="ansi33">  (thunk 
+    (Not Green))
+
+</span><span class="ansi33">  (thunk 
+    (Not Blue))
+
+</span><span class="ansi33">  (thunk Green)
+
+</span><span class="ansi33">  (thunk Blue)
+
+</span><span class="ansi33">  (thunk Red)
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (SecondOrderHybridDist)) ((thunk (f (sample (Bernoulli)))) (thunk (HybridPerm (sample (HybridDist))))))
 
 </span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.07">;; PROB-DEP-TYPES.PROB-DEP-TYPES.07</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    ( (thunk True)) 
+    ( (thunk Blue) 
+      (thunk False) 
+      (thunk Green) 
+      (thunk Red) 
+      (thunk True) 
+      (thunk 
+        (ColPerm False)) 
+      (thunk 
+        (ColPerm True)) 
+      (thunk 
+        (Not Blue)) 
+      (thunk 
+        (Not Green)) 
+      (thunk 
+        (Not Red))) 
     ( (thunk 
         (HybridPerm 
           (sample 
@@ -588,21 +670,44 @@
 
 </span><span class="ansi33"> True
 
+</span><span class="ansi33"> False
+
+</span><span class="ansi33">  (ColPerm True)
+
+</span><span class="ansi33">  (ColPerm False)
+
+</span><span class="ansi33">  (Not Red)
+
+</span><span class="ansi33">  (Not Green)
+
+</span><span class="ansi33">  (Not Blue)
+
+</span><span class="ansi33"> Green
+
+</span><span class="ansi33"> Blue
+
+</span><span class="ansi33"> Red
+
 </span><span class="ansi38-000068000">!(assertEqualToResult (sample (FlattenedHybridDist)) (True False Red Green Red Blue False True Green Blue Green Red))
 
 </span><h3 id="PROB-DEP-TYPES.PROB-DEP-TYPES.08">;; PROB-DEP-TYPES.PROB-DEP-TYPES.08</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    (True) 
+    (Blue False Green Red True 
+      (ColPerm False) 
+      (ColPerm True) 
+      (Not Blue) 
+      (Not Green) 
+      (Not Red)) 
     (Blue False Green Red True)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 528,893 inferences, 0.269 CPU in 0.269 seconds (100% CPU, 1969115 Lips)
+</span><span class="ansi32">% 41,856,511 inferences, 5.440 CPU in 5.440 seconds (100% CPU, 7694036 Lips)
 </span> (@ = "examples/compat/prob-dep-types/prob_dep_types.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 8
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 4
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/prob-dep-types/prob_dep_types.html" )
 
 </pre>
