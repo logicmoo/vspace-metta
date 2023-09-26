@@ -26,10 +26,16 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  3  |  2  | c3_pln_stv.metta                  |[reports/compat/test_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c3_pln_stv.html)|
 |  1  |  2  | f1_imports.metta                  |[reports/compat/test_scripts/f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html)|
 |  0  |  2  | test_minecraft_planning_with_abstractions.metta|[reports/compat/minecraft/test_minecraft_planning_with_abstractions.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning_with_abstractions.html)|
+|  6  |  1  | pathfinding-easy.metta            |[reports/pathfinding-easy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-easy.html)|
+|  6  |  1  | pathfinding-edge.metta            |[reports/pathfinding-edge.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-edge.html)|
 |  4  |  1  | b2_backchain.metta                |[reports/compat/test_scripts/b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b2_backchain.html)|
+|  2  |  1  | pathfinding-hard.metta            |[reports/pathfinding-hard.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-hard.html)|
 |  1  |  1  | e1_kb_write.metta                 |[reports/compat/test_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e1_kb_write.html)|
+|  0  |  1  | fibo-as-pred.metta                |[reports/fibo-as-pred.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fibo-as-pred.html)|
 |  0  |  1  | InTest.metta                      |[reports/compat/common/InTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/InTest.html)|
 |  11 |  0  | 00_lang_case.metta                |[reports/compat/test_scripts/00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/00_lang_case.html)|
+|  10 |  0  | fwgc2.metta                       |[reports/fwgc2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fwgc2.html)|
+|  10 |  0  | key-lookups-many.metta            |[reports/key-lookups-many.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/key-lookups-many.html)|
 |  7  |  0  | a1_symbols.metta                  |[reports/compat/test_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a1_symbols.html)|
 |  6  |  0  | b1_equal_chain.metta              |[reports/compat/test_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b1_equal_chain.html)|
 |  5  |  0  | 03-soring-via-insert.metta        |[reports/compat/test_scripts/03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/03-soring-via-insert.html)|
@@ -42,7 +48,9 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  1  |  0  | a2_opencoggy.metta                |[reports/compat/test_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/a2_opencoggy.html)|
 |  1  |  0  | c2_spaces.metta                   |[reports/compat/test_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c2_spaces.html)|
 |  1  |  0  | f1_moduleA.metta                  |[reports/compat/test_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_moduleA.html)|
-| 173 | 88  | Total: 261                        | For 66% 'examples/compat/*.metta'                                                                                                |
+|  1  |  0  | fibo.metta                        |[reports/fibo.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fibo.html)|
+|  1  |  0  | fwgc1.metta                       |[reports/fwgc1.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/fwgc1.html)|
+| 209 | 92  | Total: 301                        | For 69% 'examples/*.metta'                                                                                                       |
  
 </details>
 

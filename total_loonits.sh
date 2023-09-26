@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export UNITS_DIR="${1:-examples/compat/}"
+export UNITS_DIR="${1:-examples/}"
 export FOUND_UNITS=/tmp/found_units
 
 function delete_html_files() {
