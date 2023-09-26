@@ -182,12 +182,12 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/compat/prob-dep-types/prob_dep_types.metta")
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Distribution',[->,'Type','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Distribution',[->,'Type','Type']])
 </span><span class="ansi38-255165000">  (: Distribution 
     (-> Type Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Union',[->,'Type','Type','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Union',[->,'Type','Type','Type']])
 </span><span class="ansi38-255165000">  (: Union 
     (-> Type Type Type))
 </span>
@@ -202,7 +202,7 @@
     (Union $T1 $T2) $T2)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',random,[->,T1,T2,['Union',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,random,[->,T1,T2,['Union',T1,T2]]])
 </span><span class="ansi38-255165000">  (: random 
     (-> $T1 $T2 
       (Union $T1 $T2)))
@@ -218,14 +218,14 @@
     (random $A $B) $B)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',sample,[->,['Distribution',T1],T1])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,sample,[->,['Distribution',T1],T1]])
 </span><span class="ansi38-255165000">  (: sample 
     (-> 
       (Distribution $T1) $T1))
 </span>
 
 ;(: thunk (-> $t1 (Distribution $t1)))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',thunk,[->,'Atom',['Distribution',T1]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,thunk,[->,'Atom',['Distribution',T1]]])
 </span><span class="ansi38-255165000">  (: thunk 
     (-> Atom 
       (Distribution $T1)))
@@ -238,19 +238,19 @@
 </span>
 
 ;;; Bernoulli example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Bool','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Bool','Type'])
 </span><span class="ansi38-255165000">  (: Bool Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','True','Bool')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'True','Bool'])
 </span><span class="ansi38-255165000">  (: True Bool)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','False','Bool')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'False','Bool'])
 </span><span class="ansi38-255165000">  (: False Bool)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Bernoulli',['Distribution','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Bernoulli',['Distribution','Bool']])
 </span><span class="ansi38-255165000">  (: Bernoulli 
     (Distribution Bool))
 </span>
@@ -278,23 +278,23 @@
 </span><span class="ansi33"> True
 
 </span>;;; Colors example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Color','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Color','Type'])
 </span><span class="ansi38-255165000">  (: Color Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Red','Color')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Red','Color'])
 </span><span class="ansi38-255165000">  (: Red Color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Green','Color')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Green','Color'])
 </span><span class="ansi38-255165000">  (: Green Color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Blue','Color')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Blue','Color'])
 </span><span class="ansi38-255165000">  (: Blue Color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','ColDist',['Distribution','Color'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'ColDist',['Distribution','Color']])
 </span><span class="ansi38-255165000">  (: ColDist 
     (Distribution Color))
 </span>
@@ -339,7 +339,7 @@
       (ColDist)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Bool_U_Color','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Bool_U_Color','Type'])
 </span><span class="ansi38-255165000">  (: Bool_U_Color Type)
 </span>
 
@@ -349,7 +349,7 @@
     (Union Bool Color))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','HybridDist',['Distribution',['Bool_U_Color']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'HybridDist',['Distribution',['Bool_U_Color']]])
 </span><span class="ansi38-255165000">  (: HybridDist 
     (Distribution 
       (Bool_U_Color)))
@@ -386,7 +386,7 @@
 </span><span class="ansi33"> True
 
 </span>;;; Permutation example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Not',[->,'Bool','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Not',[->,'Bool','Bool']])
 </span><span class="ansi38-255165000">  (: Not 
     (-> Bool Bool))
 </span>
@@ -401,7 +401,7 @@
     (Not False) True)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','ColPerm',[->,'Color','Color'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'ColPerm',[->,'Color','Color']])
 </span><span class="ansi38-255165000">  (: ColPerm 
     (-> Color Color))
 </span>
@@ -421,7 +421,7 @@
     (ColPerm Blue) Red)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','HybridPerm',[->,['Bool_U_Color'],['Bool_U_Color']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'HybridPerm',[->,['Bool_U_Color'],['Bool_U_Color']]])
 </span><span class="ansi38-255165000">  (: HybridPerm 
     (-> 
       (Bool_U_Color) 
@@ -477,7 +477,7 @@
 </span><span class="ansi33"> False
 
 </span>;;; Second-order color example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','ColDistPermuted',['Distribution','Color'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'ColDistPermuted',['Distribution','Color']])
 </span><span class="ansi38-255165000">  (: ColDistPermuted 
     (Distribution Color))
 </span>
@@ -491,7 +491,7 @@
           (ColDist)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','SecondOrderColDist',['Distribution',['Distribution','Color']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'SecondOrderColDist',['Distribution',['Distribution','Color']]])
 </span><span class="ansi38-255165000">  (: SecondOrderColDist 
     (Distribution 
       (Distribution Color)))
@@ -506,7 +506,7 @@
         (ColDistPermuted))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','FlattenedColDist',['Distribution','Color'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'FlattenedColDist',['Distribution','Color']])
 </span><span class="ansi38-255165000">  (: FlattenedColDist 
     (Distribution Color))
 </span>
@@ -563,7 +563,7 @@
 </span><span class="ansi33"> True
 
 </span>;;; Second-order hybrid example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','HybridDistPermuted',['Distribution',['Bool_U_Color']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'HybridDistPermuted',['Distribution',['Bool_U_Color']]])
 </span><span class="ansi38-255165000">  (: HybridDistPermuted 
     (Distribution 
       (Bool_U_Color)))
@@ -578,7 +578,7 @@
           (HybridDist)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','SecondOrderHybridDist',['Distribution',['Distribution',['Bool_U_Color']]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'SecondOrderHybridDist',['Distribution',['Distribution',['Bool_U_Color']]]])
 </span><span class="ansi38-255165000">  (: SecondOrderHybridDist 
     (Distribution 
       (Distribution 
@@ -594,7 +594,7 @@
         (HybridDistPermuted))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','FlattenedHybridDist',['Distribution',['Bool_U_Color']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'FlattenedHybridDist',['Distribution',['Bool_U_Color']]])
 </span><span class="ansi38-255165000">  (: FlattenedHybridDist 
     (Distribution 
       (Bool_U_Color)))
@@ -702,7 +702,7 @@
     (Blue False Green Red True)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 41,856,511 inferences, 5.440 CPU in 5.440 seconds (100% CPU, 7694036 Lips)
+</span><span class="ansi32">% 41,973,629 inferences, 5.643 CPU in 5.643 seconds (100% CPU, 7437803 Lips)
 </span> (@ = "examples/compat/prob-dep-types/prob_dep_types.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

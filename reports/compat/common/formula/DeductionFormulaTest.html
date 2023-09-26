@@ -185,7 +185,7 @@
 ; Consistency Conditions
 ;;; Collection of functions operating on numbers
 ;; Define max
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',max,[->,A,A,A])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
 </span><span class="ansi38-255165000">  (: max 
     (-> $A $A $A))
 </span>
@@ -198,7 +198,7 @@
 </span>
 
 ;; Define min
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',min,[->,A,A,A])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
 </span><span class="ansi38-255165000">  (: min 
     (-> $A $A $A))
 </span>
@@ -211,7 +211,7 @@
 </span>
 
 ;; Clamp an number to be within a certain range
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',clamp,[->,A,A,A,A])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
 </span><span class="ansi38-255165000">  (: clamp 
     (-> $A $A $A $A))
 </span>
@@ -224,7 +224,7 @@
 </span>
 
 ;; Define abs
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',abs,[->,A,A])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
 </span><span class="ansi38-255165000">  (: abs 
     (-> $A $A))
 </span>
@@ -238,7 +238,7 @@
 </span>
 
 ;; Define <=
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',<=,[->,A,A,'Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
 </span><span class="ansi38-255165000">  (: <= 
     (-> $A $A Bool))
 </span>
@@ -252,7 +252,7 @@
 </span>
 
 ;; Define >=
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',>=,[->,A,A,'Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
 </span><span class="ansi38-255165000">  (: >= 
     (-> $A $A Bool))
 </span>
@@ -266,7 +266,7 @@
 </span>
 
 ;; Define approximatively equal
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',approxEq,[->,A,A,A,'Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
 </span><span class="ansi38-255165000">  (: approxEq 
     (-> $A $A $A Bool))
 </span>
@@ -280,21 +280,21 @@
 </span>
 
 ;; Define Nat
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Nat','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
 </span><span class="ansi38-255165000">  (: Nat Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Z','Nat')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
 </span><span class="ansi38-255165000">  (: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','S',[->,'Nat','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
 </span><span class="ansi38-255165000">  (: S 
     (-> Nat Nat))
 </span>
 
 ;; Define cast functions between Nat and Number
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',fromNumber,[->,'Number','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
 </span><span class="ansi38-255165000">  (: fromNumber 
     (-> Number Nat))
 </span>
@@ -309,7 +309,7 @@
           (- $N 1)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',fromNat,[->,'Nat','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
 </span><span class="ansi38-255165000">  (: fromNat 
     (-> Nat Number))
 </span>
@@ -330,7 +330,7 @@
 ;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;; because it is a built-in, its type is hardwired and cannot be
 ;; overloaded.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','â©»',[->,'Nat','Nat','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
 </span><span class="ansi38-255165000">  (: â©» 
     (-> Nat Nat Bool))
 </span>
@@ -355,7 +355,7 @@
 </span>
 
 ;; Overload â©» for Number.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','â©»',[->,'Number','Number','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
 </span><span class="ansi38-255165000">  (: â©» 
     (-> Number Number Bool))
 </span>
@@ -368,7 +368,7 @@
 
 ;; Return the ceiling of a non negative number.  If the number is
 ;; negative it returns 1.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',ceil,[->,'Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
 </span><span class="ansi38-255165000">  (: ceil 
     (-> Number Number))
 </span>
@@ -381,7 +381,7 @@
 </span>
 
 ;; Convert Number to Bool.  Anything above 0 converts to True.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','number->bool',[->,'Number','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
 </span><span class="ansi38-255165000">  (: number->bool 
     (-> Number Bool))
 </span>
@@ -393,7 +393,7 @@
 </span>
 
 ;; Convert Bool to Number.  False converts to 0, True converts to 1.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','bool->number',[->,'Bool','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
 </span><span class="ansi38-255165000">  (: bool->number 
     (-> Bool Number))
 </span>
@@ -412,13 +412,13 @@
 ;; than â©» as it is a type, not an operator.  Inhabitants of (â x y)
 ;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;; Nat.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','â\x8D\\x83\',[->,True,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,True,True,'Type']])
 </span><span class="ansi38-255165000">  (: â 
     (-> $True $True Type))
 </span>
 
 ;; Zero is always less than the successor of something
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',['zero-lt-succ-axiom'],[->,'Atom'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
 </span><span class="ansi38-255165000">  (: 
     (zero-lt-succ-axiom) 
     (-> Atom))
@@ -433,7 +433,7 @@
 </span>
 
 ;; If x â y then (S x) â (S y)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',['succ-monotonicity-rule'],[->,'Atom'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
 </span><span class="ansi38-255165000">  (: 
     (succ-monotonicity-rule) 
     (-> Atom))
@@ -450,11 +450,11 @@
           (S $Y)))))
 </span>
 
-<span class="ansi32">% 232,286 inferences, 0.164 CPU in 0.164 seconds (100% CPU, 1416747 Lips)
+<span class="ansi32">% 232,386 inferences, 0.156 CPU in 0.156 seconds (100% CPU, 1494130 Lips)
 </span> (@ = "../Num.metta" 0)
 <span class="ansi33"> &self
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','smallest-intersection-probability',[->,'Number','Number','Number'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'smallest-intersection-probability',[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: smallest-intersection-probability 
     (-> Number Number Number))
 </span>
@@ -468,7 +468,7 @@
           (+ $As $Bs) 1) $As) 0 1))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','largest-intersection-probability',[->,'Number','Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'largest-intersection-probability',[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: largest-intersection-probability 
     (-> Number Number Number))
 </span>
@@ -480,7 +480,7 @@
       ("/" $Bs $As) 0 1))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','conditional-probability-consistency',[->,'Number','Number','Number','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'conditional-probability-consistency',[->,'Number','Number','Number','Bool']])
 </span><span class="ansi38-255165000">  (: conditional-probability-consistency 
     (-> Number Number Number Bool))
 </span>
@@ -494,7 +494,7 @@
 ;;      (and (<= (smallest-intersection-probability $As $Bs) $ABs)
 ;;           (<= $ABs (largest-intersection-probability $As $Bs)))))
 ;; Main Formula
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','simple-deduction-strength-formula',[->,'Number','Number','Number','Number','Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'simple-deduction-strength-formula',[->,'Number','Number','Number','Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: simple-deduction-strength-formula 
     (-> Number Number Number Number Number Number))
 </span>
@@ -592,7 +592,7 @@
       (STV 1 0)))
 </span>
 
-<span class="ansi32">% 983,352 inferences, 0.991 CPU in 0.998 seconds (99% CPU, 992645 Lips)
+<span class="ansi32">% 983,682 inferences, 0.946 CPU in 0.952 seconds (99% CPU, 1039358 Lips)
 </span> (@ = DeductionFormula.metta 0)
 <span class="ansi33"> &self
 
@@ -678,7 +678,7 @@
 
 </span><span class="ansi33">  (STV 0.9 0.1)
 
-</span><span class="ansi32">% 1,815,328 inferences, 1.114 CPU in 1.123 seconds (99% CPU, 1629904 Lips)
+</span><span class="ansi32">% 1,817,242 inferences, 1.070 CPU in 1.078 seconds (99% CPU, 1697930 Lips)
 </span> (@ = "examples/compat/common/formula/DeductionFormulaTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

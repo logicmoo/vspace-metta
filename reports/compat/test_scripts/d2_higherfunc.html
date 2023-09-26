@@ -156,7 +156,7 @@
 ;; Higher-order functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Type definition for `curry` function
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',curry,[->,[->,A,B,C],[->,A,[->,B,C]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,curry,[->,[->,A,B,C],[->,A,[->,B,C]]]])
 </span><span class="ansi38-255165000">  (: curry 
     (-> 
       (-> $A $B $C) 
@@ -214,7 +214,7 @@
 ; Curry with first application
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','curry-a',[->,[->,A,B,C],A,[->,B,C]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'curry-a',[->,[->,A,B,C],A,[->,B,C]]])
 </span><span class="ansi38-255165000">  (: curry-a 
     (-> 
       (-> $A $B $C) $A 
@@ -269,15 +269,15 @@
 ; More tests with partial application wrapping
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Socrates','Entity')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Socrates','Entity'])
 </span><span class="ansi38-255165000">  (: Socrates Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Human','Entity')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Human','Entity'])
 </span><span class="ansi38-255165000">  (: Human Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',is,[->,'Entity','Entity','Bool'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,is,[->,'Entity','Entity','Bool']])
 </span><span class="ansi38-255165000">  (: is 
     (-> Entity Entity Bool))
 </span>
@@ -331,7 +331,7 @@
 ; FIXME: how to make parameterized type here?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',lambda,[->,'Atom',True,[->,A,True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,lambda,[->,'Atom',True,[->,A,True]]])
 </span><span class="ansi38-255165000">  (: lambda 
     (-> Atom $True 
       (-> $A $True)))
@@ -394,35 +394,35 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Let's introduce some functors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Maybe',[->,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Maybe',[->,True,'Type']])
 </span><span class="ansi38-255165000">  (: Maybe 
     (-> $True Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Nothing',[->,['Maybe',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nothing',[->,['Maybe',True]]])
 </span><span class="ansi38-255165000">  (: Nothing 
     (-> 
       (Maybe $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Something',[->,True,['Maybe',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Something',[->,True,['Maybe',True]]])
 </span><span class="ansi38-255165000">  (: Something 
     (-> $True 
       (Maybe $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Either',[->,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Either',[->,True,'Type']])
 </span><span class="ansi38-255165000">  (: Either 
     (-> $True Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Left',[->,True,['Either',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Left',[->,True,['Either',True]]])
 </span><span class="ansi38-255165000">  (: Left 
     (-> $True 
       (Either $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Right',[->,True,['Either',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Right',[->,True,['Either',True]]])
 </span><span class="ansi38-255165000">  (: Right 
     (-> $True 
       (Either $True)))
@@ -434,7 +434,7 @@
 ; concrete patterns in the type constructors above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Instead, we implement `fmap` as:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',fmap,[->,[->,A,B],[False,A],[False,B]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fmap,[->,[->,A,B],[False,A],[False,B]]])
 </span><span class="ansi38-255165000">  (: fmap 
     (-> 
       (-> $A $B) 
@@ -555,7 +555,7 @@
 ; It is possible to implement `fmap` only as an interface
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Type definition is the same as `fmap` above
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','fmap-i',[->,[->,A,B],[False,A],[False,B]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'fmap-i',[->,[->,A,B],[False,A],[False,B]]])
 </span><span class="ansi38-255165000">  (: fmap-i 
     (-> 
       (-> $A $B) 
@@ -591,17 +591,17 @@
 </span><span class="ansi33"> True
 
 </span>; More examples
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','List',[->,A,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List',[->,A,'Type']])
 </span><span class="ansi38-255165000">  (: List 
     (-> $A Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',[],['List',A])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,[],['List',A]])
 </span><span class="ansi38-255165000">  (: () 
     (List $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Cons',[->,A,['List',A],['List',A]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,A,['List',A],['List',A]]])
 </span><span class="ansi38-255165000">  (: Cons 
     (-> $A 
       (List $A) 
@@ -740,7 +740,7 @@
           (Cons 3 ()))))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 719,309 inferences, 0.831 CPU in 0.831 seconds (100% CPU, 865649 Lips)
+</span><span class="ansi32">% 719,732 inferences, 0.856 CPU in 0.856 seconds (100% CPU, 840572 Lips)
 </span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -91,22 +91,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic types of grounded symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',+,[->,'Number','Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,+,[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: + 
     (-> Number Number Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',-,[->,'Number','Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,-,[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: - 
     (-> Number Number Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',*,[->,'Number','Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,*,[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: * 
     (-> Number Number Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','%',[->,'Number','Number','Number'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'%',[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: % 
     (-> Number Number Number))
 </span>
@@ -159,7 +159,7 @@
 </span><span class="ansi33"> False
 
 </span>; Also works for custom types
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Either','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Either','Type'])
 </span><span class="ansi38-255165000">  (: Either Type)
 </span>
 
@@ -176,12 +176,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Arrow types of functions and constructors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Left',[->,'%Undefined%','Either'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Left',[->,'%Undefined%','Either']])
 </span><span class="ansi38-255165000">  (: Left 
     (-> %Undefined% Either))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Right',[->,'%Undefined%','Either'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Right',[->,'%Undefined%','Either']])
 </span><span class="ansi38-255165000">  (: Right 
     (-> %Undefined% Either))
 </span>
@@ -195,7 +195,7 @@
     (Either)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',isLeft,[->,'Either','Bool'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
 </span><span class="ansi38-255165000">  (: isLeft 
     (-> Either Bool))
 </span>
@@ -234,18 +234,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','EitherP',[->,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'EitherP',[->,True,'Type']])
 </span><span class="ansi38-255165000">  (: EitherP 
     (-> $True Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','LeftP',[->,True,['EitherP',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'LeftP',[->,True,['EitherP',True]]])
 </span><span class="ansi38-255165000">  (: LeftP 
     (-> $True 
       (EitherP $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','RightP',[->,True,['EitherP',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'RightP',[->,True,['EitherP',True]]])
 </span><span class="ansi38-255165000">  (: RightP 
     (-> $True 
       (EitherP $True)))
@@ -259,12 +259,12 @@
     ( (EitherP Number))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Pair',[->,A,B,'Type'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Pair',[->,A,B,'Type']])
 </span><span class="ansi38-255165000">  (: Pair 
     (-> $A $B Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',pair,[->,A,B,['Pair',A,B]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,pair,[->,A,B,['Pair',A,B]]])
 </span><span class="ansi38-255165000">  (: pair 
     (-> $A $B 
       (Pair $A $B)))
@@ -283,17 +283,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Recursively parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','List',[->,A,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List',[->,A,'Type']])
 </span><span class="ansi38-255165000">  (: List 
     (-> $A Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',[],['List',A])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,[],['List',A]])
 </span><span class="ansi38-255165000">  (: () 
     (List $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Cons',[->,A,['List',A],['List',A]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,A,['List',A],['List',A]]])
 </span><span class="ansi38-255165000">  (: Cons 
     (-> $A 
       (List $A) 
@@ -327,7 +327,7 @@
     (Number)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 241,974 inferences, 0.146 CPU in 0.146 seconds (100% CPU, 1656359 Lips)
+</span><span class="ansi32">% 242,075 inferences, 0.154 CPU in 0.154 seconds (100% CPU, 1576427 Lips)
 </span> (@ = "examples/compat/test_scripts/d1_gadt.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

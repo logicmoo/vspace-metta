@@ -159,16 +159,16 @@
 ; Arrow (->) is a built-in symbol of the type system
 ; `Nat` is a custom symbol
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Z','Nat')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
 </span><span class="ansi38-255165000">  (: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','S',[->,'Nat','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
 </span><span class="ansi38-255165000">  (: S 
     (-> Nat Nat))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Add',[->,'Nat','Nat','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Add',[->,'Nat','Nat','Nat']])
 </span><span class="ansi38-255165000">  (: Add 
     (-> Nat Nat Nat))
 </span>
@@ -220,11 +220,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Types can be nondeterministic
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Ten','Nat')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Ten','Nat'])
 </span><span class="ansi38-255165000">  (: Ten Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Ten','Int')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Ten','Int'])
 </span><span class="ansi38-255165000">  (: Ten Int)
 </span>
 
@@ -244,7 +244,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; List has a function type. Its argument should be of Type type.
 ; The type of the whole expression, e.g. (List String), will also have Type type.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','List',[->,'Type','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List',[->,'Type','Type']])
 </span><span class="ansi38-255165000">  (: List 
     (-> Type Type))
 </span>
@@ -252,7 +252,7 @@
 ; Nil's type is parametrized as the type returned by List when it
 ; takes parameter $t (which, per the definition above,
 ; is the same type as $t)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',[],['List',True])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,[],['List',True]])
 </span><span class="ansi38-255165000">  (: () 
     (List $True))
 </span>
@@ -261,7 +261,7 @@
 ; Based on the definition of List above, Cons' arguments
 ; are equally typed, and it returns the same type
 ; as its arguments.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Cons',[->,True,['List',True],['List',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,True,['List',True],['List',True]]])
 </span><span class="ansi38-255165000">  (: Cons 
     (-> $True 
       (List $True) 
@@ -297,14 +297,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','True','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'True','Type'])
 </span><span class="ansi38-255165000">  (: True Type)
 </span>
 
 ; The type definition of `eq` specifies both its arguments
 ; must be of the same type, but its own type is left undefined,
 ; just as a Type.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',eq,[->,True,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,eq,[->,True,True,'Type']])
 </span><span class="ansi38-255165000">  (: eq 
     (-> $True $True Type))
 </span>
@@ -353,32 +353,32 @@
 ; Type (symbols) are not prohibited from being elements
 ; of other custom types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Color','Property')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Color','Property'])
 </span><span class="ansi38-255165000">  (: Color Property)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Green','Color')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Green','Color'])
 </span><span class="ansi38-255165000">  (: Green Color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Red','Color')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Red','Color'])
 </span><span class="ansi38-255165000">  (: Red Color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Shape','Property')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Shape','Property'])
 </span><span class="ansi38-255165000">  (: Shape Property)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Square','Shape')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Square','Shape'])
 </span><span class="ansi38-255165000">  (: Square Shape)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Circle','Shape')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Circle','Shape'])
 </span><span class="ansi38-255165000">  (: Circle Shape)
 </span>
 
 ; This type definition is the same as that of `eq` above
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','of-same-type',[->,True,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'of-same-type',[->,True,True,'Type']])
 </span><span class="ansi38-255165000">  (: of-same-type 
     (-> $True $True Type))
 </span>
@@ -547,7 +547,7 @@
 ; Atom type can be required in custom functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `eqa` will compare expressions:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',eqa,[->,'Atom','Atom','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,eqa,[->,'Atom','Atom','Type']])
 </span><span class="ansi38-255165000">  (: eqa 
     (-> Atom Atom Type))
 </span>
@@ -600,7 +600,7 @@
     (True)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 570,869 inferences, 0.798 CPU in 0.798 seconds (100% CPU, 715431 Lips)
+</span><span class="ansi32">% 571,157 inferences, 0.826 CPU in 0.826 seconds (100% CPU, 691442 Lips)
 </span> (@ = "examples/compat/test_scripts/b5_types_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

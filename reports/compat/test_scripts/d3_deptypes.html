@@ -74,27 +74,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Simple type definitions:
 ;; Defines the natural numbers `Nat` for counting
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Nat','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
 </span><span class="ansi38-255165000">  (: Nat Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Z','Nat')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
 </span><span class="ansi38-255165000">  (: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','S',[->,'Nat','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
 </span><span class="ansi38-255165000">  (: S 
     (-> Nat Nat))
 </span>
 
 ; `Vec` takes a `$t` type and a `Nat` length.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Vec',[->,True,'Nat','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Vec',[->,True,'Nat','Type']])
 </span><span class="ansi38-255165000">  (: Vec 
     (-> $True Nat Type))
 </span>
 
 ; `Cons` and `Nil` construct `Vec` values, with `Cons` incrementing the length by 1.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Cons',[->,True,['Vec',True,X],['Vec',True,['S',X]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,True,['Vec',True,X],['Vec',True,['S',X]]]])
 </span><span class="ansi38-255165000">  (: Cons 
     (-> $True 
       (Vec $True $X) 
@@ -102,7 +102,7 @@
         (S $X))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',[],['Vec',True,'Z'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,[],['Vec',True,'Z']])
 </span><span class="ansi38-255165000">  (: () 
     (Vec $True Z))
 </span>
@@ -119,7 +119,7 @@
 </span><span class="ansi33"> False
 
 </span>; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',drop,[->,['Vec',True,['S',X]],['Vec',True,X]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,drop,[->,['Vec',True,['S',X]],['Vec',True,X]]])
 </span><span class="ansi38-255165000">  (: drop 
     (-> 
       (Vec $True 
@@ -167,12 +167,12 @@
 ; NOTE: tests below is the current behavior, which may be changed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `VecN` and `ConsN` use grounded `+` to increment the length.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','VecN',[->,True,'Number','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'VecN',[->,True,'Number','Type']])
 </span><span class="ansi38-255165000">  (: VecN 
     (-> $True Number Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','ConsN',[->,True,['VecN',True,X],['VecN',True,[+,X,1]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'ConsN',[->,True,['VecN',True,X],['VecN',True,[+,X,1]]]])
 </span><span class="ansi38-255165000">  (: ConsN 
     (-> $True 
       (VecN $True $X) 
@@ -180,7 +180,7 @@
         (+ $X 1))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','NilN',['VecN',True,0])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'NilN',['VecN',True,0]])
 </span><span class="ansi38-255165000">  (: NilN 
     (VecN $True 0))
 </span>
@@ -196,7 +196,7 @@
 </span><span class="ansi33"> False
 
 </span>; Similarly, `-` reduces the length in `dropN` type.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',dropN,[->,['VecN',True,X],['VecN',True,[-,X,1]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,dropN,[->,['VecN',True,X],['VecN',True,[-,X,1]]]])
 </span><span class="ansi38-255165000">  (: dropN 
     (-> 
       (VecN $True $X) 
@@ -241,7 +241,7 @@
     ( (dropN NilN))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 177,170 inferences, 0.106 CPU in 0.106 seconds (100% CPU, 1668445 Lips)
+</span><span class="ansi32">% 177,244 inferences, 0.105 CPU in 0.105 seconds (100% CPU, 1686844 Lips)
 </span> (@ = "examples/compat/test_scripts/d3_deptypes.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

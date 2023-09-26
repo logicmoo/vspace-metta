@@ -105,25 +105,25 @@
 ;; Types as propositions can be used in MeTTa but with nuances
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Entities
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Entity','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Entity','Type'])
 </span><span class="ansi38-255165000">  (: Entity Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Socrates','Entity')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Socrates','Entity'])
 </span><span class="ansi38-255165000">  (: Socrates Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Plato','Entity')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Plato','Entity'])
 </span><span class="ansi38-255165000">  (: Plato Entity)
 </span>
 
 ; Predicates (functions) from `Entity` to `Type`
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Human',[->,'Entity','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Human',[->,'Entity','Type']])
 </span><span class="ansi38-255165000">  (: Human 
     (-> Entity Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Mortal',[->,'Entity','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Mortal',[->,'Entity','Type']])
 </span><span class="ansi38-255165000">  (: Mortal 
     (-> Entity Type))
 </span>
@@ -143,7 +143,7 @@
 </span>; A function type as an implication
 ; `HumansAreMortal` represents the implication:
 ; "For all x, if Human(x) then Mortal(x)"
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','HumansAreMortal',[->,['Human',True],['Mortal',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'HumansAreMortal',[->,['Human',True],['Mortal',True]]])
 </span><span class="ansi38-255165000">  (: HumansAreMortal 
     (-> 
       (Human $True) 
@@ -158,12 +158,12 @@
 ;       corresponding type.
 ; These might be considered as assertions that Plato and
 ; Socrates are Humans:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','SocratesIsHuman',['Human','Socrates'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'SocratesIsHuman',['Human','Socrates']])
 </span><span class="ansi38-255165000">  (: SocratesIsHuman 
     (Human Socrates))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','PlatoIsHuman',['Human','Plato'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'PlatoIsHuman',['Human','Plato']])
 </span><span class="ansi38-255165000">  (: PlatoIsHuman 
     (Human Plato))
 </span>
@@ -188,7 +188,7 @@
 
 </span>; We can write this code, but it will make not too much
 ; difference for the assertion that "all humans are mortal"
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','SocratesIsMortal',['Mortal','Socrates'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'SocratesIsMortal',['Mortal','Socrates']])
 </span><span class="ansi38-255165000">  (: SocratesIsMortal 
     (Mortal Socrates))
 </span>
@@ -203,7 +203,7 @@
 ; Equality can be typed. If some equality is well-typed,
 ; it means that it can be true.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',=,[->,True,True,'Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,=,[->,True,True,'Type']])
 </span><span class="ansi38-255165000">  (: = 
     (-> $True $True Type))
 </span>
@@ -270,7 +270,7 @@
 ; (equalities over equalities), although a more practical way would
 ; be just to use a dedicated comparison operator
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','True','Type')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'True','Type'])
 </span><span class="ansi38-255165000">  (: True Type)
 </span>
 
@@ -308,11 +308,12 @@
 
 <span class="ansi38-000068000">!(assertEqual (= (Mortal Socrates) True) True)
 
-</span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.11">;; TEST-SCRIPTS.D4-TYPE-PROP.11</h3><span class="ansi31">
-(@ loonit_failureR 
-  (=@=  () 
+</span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.11">;; TEST-SCRIPTS.D4-TYPE-PROP.11</h3><span class="ansi36">
+(@ loonit_success 
+  (=@=  
+    (True) 
     (True)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>; It will not immediately work for implications
 <span class="ansi38-000068000">!(assertEqualToResult (= (Mortal Plato) True) ())
@@ -334,13 +335,14 @@
 
 <span class="ansi38-000068000">!(assertEqual (= (Mortal Plato) True) True)
 
-</span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.13">;; TEST-SCRIPTS.D4-TYPE-PROP.13</h3><span class="ansi31">
-(@ loonit_failureR 
-  (=@=  () 
+</span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.13">;; TEST-SCRIPTS.D4-TYPE-PROP.13</h3><span class="ansi36">
+(@ loonit_success 
+  (=@=  
+    (True) 
     (True)))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Sam','Entity')
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Sam','Entity'])
 </span><span class="ansi38-255165000">  (: Sam Entity)
 </span>
 
@@ -402,7 +404,7 @@
 </span><span class="ansi33"> True
 
 </span>; We can even try backward chaining
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',ift,[->,'Type',True,True])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ift,[->,'Type',True,True]])
 </span><span class="ansi38-255165000">  (: ift 
     (-> Type $True $True))
 </span>
@@ -421,12 +423,12 @@
     (Plato Socrates)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 321,034 inferences, 0.392 CPU in 0.392 seconds (100% CPU, 819993 Lips)
+</span><span class="ansi32">% 322,107 inferences, 0.372 CPU in 0.372 seconds (100% CPU, 865427 Lips)
 </span> (@ = "examples/compat/test_scripts/d4_type_prop.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 10
-</span><span class="ansi31">Failures: 8
+<span class="ansi32">Successes: 12
+</span><span class="ansi31">Failures: 6
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d4_type_prop.html" )
 
 </pre>
