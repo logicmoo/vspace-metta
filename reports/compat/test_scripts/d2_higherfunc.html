@@ -49,12 +49,6 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -279,15 +273,7 @@
 </span><span class="ansi38-255165000">  (: Socrates Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Socrates','Entity'])
-</span><span class="ansi38-255165000">  (: Socrates Entity)
-</span>
-
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Human','Entity')
-</span><span class="ansi38-255165000">  (: Human Entity)
-</span>
-
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Human','Entity'])
 </span><span class="ansi38-255165000">  (: Human Entity)
 </span>
 
@@ -297,7 +283,7 @@
 </span>
 
 ; Facts
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[is,'Socrates','Human'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[is,'Socrates','Human'],'True')
 </span><span class="ansi38-255165000">  (= 
     (is Socrates Human) True)
 </span>
@@ -622,7 +608,7 @@
       (List $A)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['fmap-i',False,[]],'False'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fmap-i',False,[]],'False')
 </span><span class="ansi38-255165000">  (= 
     (fmap-i $False ()) ())
 </span>
@@ -642,9 +628,7 @@
 (@ loonit_failureR 
   (=@=  
     ( (Cons 6 
-        (Cons 8 
-          (fmap-i 
-            (curry-a * 2) ())))) 
+        (Cons 8 False))) 
     ( (Cons 6 
         (Cons 8 ())))))
 </span><span class="ansi33"> False
@@ -696,7 +680,7 @@
 </span>
 
 ; Sort a list
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[sort,[]],'False'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[sort,[]],'False')
 </span><span class="ansi38-255165000">  (= 
     (sort ()) ())
 </span>
@@ -738,14 +722,13 @@
   (=@=  
     ( (insert 3 
         (insert 1 
-          (insert 2 
-            (sort ()))))) 
+          (insert 2 False)))) 
     ( (Cons 1 
         (Cons 2 
           (Cons 3 ()))))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 723,257 inferences, 0.909 CPU in 0.909 seconds (100% CPU, 795378 Lips)
+</span><span class="ansi32">% 716,890 inferences, 0.859 CPU in 0.859 seconds (100% CPU, 834410 Lips)
 </span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -29,15 +29,6 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
@@ -70,9 +61,6 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
@@ -84,9 +72,6 @@
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -124,23 +109,11 @@
 </span><span class="ansi38-255165000">  (: Entity Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Entity','Type'])
-</span><span class="ansi38-255165000">  (: Entity Type)
-</span>
-
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Socrates','Entity')
 </span><span class="ansi38-255165000">  (: Socrates Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Socrates','Entity'])
-</span><span class="ansi38-255165000">  (: Socrates Entity)
-</span>
-
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','Plato','Entity')
-</span><span class="ansi38-255165000">  (: Plato Entity)
-</span>
-
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Plato','Entity'])
 </span><span class="ansi38-255165000">  (: Plato Entity)
 </span>
 
@@ -301,11 +274,7 @@
 </span><span class="ansi38-255165000">  (: True Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'True','Type'])
-</span><span class="ansi38-255165000">  (: True Type)
-</span>
-
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,X,X])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[=,X,X],'True')
 </span><span class="ansi38-255165000">  (= 
     (= $X $X) True)
 </span>
@@ -375,10 +344,6 @@
 </span><span class="ansi38-255165000">  (: Sam Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Sam','Entity'])
-</span><span class="ansi38-255165000">  (: Sam Entity)
-</span>
-
 <span class="ansi38-000068000">!(assertEqualToResult (= (Human Sam) True) ())
 
 </span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.14">;; TEST-SCRIPTS.D4-TYPE-PROP.14</h3><span class="ansi36">
@@ -410,12 +375,12 @@
 
 </span>; We can also add direct equalities
 ; (= (Human Socrates) T)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Human','Plato'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Human','Plato'],'True')
 </span><span class="ansi38-255165000">  (= 
     (Human Plato) True)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Mortal','Socrates'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Mortal','Socrates'],'True')
 </span><span class="ansi38-255165000">  (= 
     (Mortal Socrates) True)
 </span>
@@ -452,11 +417,11 @@
 </span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.18">;; TEST-SCRIPTS.D4-TYPE-PROP.18</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    (Plato) 
+    (Socrates) 
     (Plato Socrates)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 320,062 inferences, 0.347 CPU in 0.347 seconds (100% CPU, 922378 Lips)
+</span><span class="ansi32">% 318,434 inferences, 0.430 CPU in 0.430 seconds (100% CPU, 739732 Lips)
 </span> (@ = "examples/compat/test_scripts/d4_type_prop.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
