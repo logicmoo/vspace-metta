@@ -15,8 +15,16 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 </style>
@@ -25,33 +33,41 @@
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/compat/test_scripts/02-curried-plus.metta")
 ;; Curried plus
-<span class="ansi38-255165000">(@ = load 
-  (metta_type  &self plus 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',plus,[->,'Number',[->,'Number','Number']])
+</span><span class="ansi38-255165000">  (: plus 
     (-> Number 
-      (-> Number Number))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    ( (plus $X) $Y) 
-    (+ $X $Y)))
-</span>; Define inc as partial evaluation of plus
-<span class="ansi38-255165000">(@ = load 
-  (metta_type  &self inc 
-    (-> 
-      (-> Number Number))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    (inc) 
-    (plus 1)))
-</span><span class="ansi38-000068000">!(assertEqualToResult ((inc) 2) (3))
+      (-> Number Number)))
+</span>
 
-</span>;; <h3 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">TEST-SCRIPTS.02-CURRIED-PLUS.01</h3><span class="ansi36">
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[plus,X],Y],[+,X,Y])
+</span><span class="ansi38-255165000">  (= 
+    ( (plus $X) $Y) 
+    (+ $X $Y))
+</span>
+
+; Define inc as partial evaluation of plus
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',inc,[->,[->,'Number','Number']])
+</span><span class="ansi38-255165000">  (: inc 
+    (-> 
+      (-> Number Number)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[inc],[plus,1])
+</span><span class="ansi38-255165000">  (= 
+    (inc) 
+    (plus 1))
+</span>
+
+<span class="ansi38-000068000">!(assertEqualToResult ((inc) 2) (3))
+
+</span><h3 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">;; TEST-SCRIPTS.02-CURRIED-PLUS.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (3) 
     (3)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 27,520 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 5032367 Lips)
+</span><span class="ansi32">% 28,775 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 4991500 Lips)
 </span> (@ = "examples/compat/test_scripts/02-curried-plus.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

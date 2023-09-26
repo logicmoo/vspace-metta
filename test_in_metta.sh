@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #set -xv
-set -e
+#set -e
 
 # One-liner to check if the script is being sourced or run
 IS_SOURCED=$( [[ "${BASH_SOURCE[0]}" != "${0}" ]] && echo 1 || echo 0)
@@ -30,7 +30,7 @@ function run_tests() {
 
         set +e
         $TEST_CMD
-        set -e
+        #set -e
 
         if [ $? -eq 124 ]; then
             echo "Killed after $MAX_TIME seconds: ${TEST_CMD}"
@@ -41,17 +41,8 @@ function run_tests() {
 }
 
 
-read -p "Run all tests? (y/n): " -n 1 -r
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    run_tests
-fi
-
-
-#!/bin/bash
-
 function generate_final_MeTTaLog() {
+
     passed=$(grep -c "| PASS |" TEE.ansi.UNITS)
     failed=$(grep -c "| FAIL |" TEE.ansi.UNITS)
     total=$((passed + failed))
@@ -100,10 +91,9 @@ function generate_final_MeTTaLog() {
 }
 
 
-generate_final_MeTTaLog
 
 
-function GenerateUnitReports() {
+function PreCommitReports() {
     echo "Executing Tasks..."
     rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ \
     && echo "1) Synced HTML files from examples/ to reports/ and deleted the original HTML files in examples/"
@@ -116,15 +106,85 @@ function GenerateUnitReports() {
     echo "Tasks Completed Successfully."
 }
 
-read -p "Are you ready to commit your code and generate unit reports? (y/n): " -n 1 -r
-echo    # (optional) move to a new line
+
+function compare_test_files() {
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: compare_test_files <file1> <file2>"
+        return 1
+    fi
+
+    file1="$1"
+    file2="$2"
+
+    if [ ! -f "$file1" ] || [ ! -f "$file2" ]; then
+        echo "Error: One or both of the files do not exist."
+        return 1
+    fi
+
+    sorted1=$(mktemp)
+    sorted2=$(mktemp)
+
+#    grep -E '\| PASS \||\| FAIL \|' "$file1" | awk -F'|' '{ gsub(/\(.*/, "", $3); print $2, $3 }' | sort > "$sorted1"
+#    grep -E '\| PASS \||\| FAIL \|' "$file2" | awk -F'|' '{ gsub(/\(.*/, "", $3); print $2, $3 }' | sort > "$sorted2"
+       grep -E '\| PASS \||\| FAIL \|' "$file1" | awk -F'|' '{ gsub(/.*\#/, "", $3); print $2, $3 }' | sort > "$sorted1"
+       grep -E '\| PASS \||\| FAIL \|' "$file2" | awk -F'|' '{ gsub(/.*\#/, "", $3); print $2, $3 }' | sort > "$sorted2"
+
+
+    cat "$sorted1"
+    # If the NewResults.md file exists, remove it and create a new one.
+    [ -e NewResults.md ] && rm NewResults.md
+    touch NewResults.md
+
+    comm -3 "$sorted1" "$sorted2" | while read -r line; do
+        read -r status test <<< "$line"
+
+        status1=$(grep "$test" "$sorted1" | awk '{print $1}' | tr -d ' ')
+        status2=$(grep "$test" "$sorted2" | awk '{print $1}' | tr -d ' ')
+
+        if [[ -n "$status1" && -n "$status2" && "$status1" != "$status2" ]]; then
+            echo "Now ${status2}ING $test" >> NewResults.md
+        fi
+    done
+
+    sort -u NewResults.md -o NewResults.md
+
+    echo "-----------------------------------------"
+    grep 'PASSING' NewResults.md
+    echo "-----------------------------------------"
+    grep 'FAILING' NewResults.md
+    echo "-----------------------------------------"
+
+    new_passing=$(grep -c 'PASSING' NewResults.md)
+    new_failing=$(grep -c 'FAILING' NewResults.md)
+
+    echo "Number of newly PASSING tests: $new_passing"
+    echo "Number of newly FAILING tests: $new_failing"
+
+    rm -f "$sorted1" "$sorted2"
+}
+
+
+
+read -p "Rerun all tests? (y/N): " -n 1 -r
+echo    # Move to a new line for cleaner output
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    GenerateUnitReports
+    run_tests
+else
+    echo "You chose not to run all tests."
 fi
 
+generate_final_MeTTaLog
+compare_test_files ./MeTTaLog.md ./final_MeTTaLog.md
 
-# If the script is being sourced, use 'return'. Otherwise, use 'exit'.
+read -p "Are you ready to commit your code and generate unit reports? (y/N): " -n 1 -r
+echo    # Move to a new line for cleaner output
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    PreCommitReports
+else
+    echo "You chose not to commit your code and generate unit reports."
+fi
+
 [[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
-
 

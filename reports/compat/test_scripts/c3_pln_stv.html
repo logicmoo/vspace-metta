@@ -15,22 +15,54 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -47,27 +79,25 @@
 ;; examples/pln/conjunction, extended with implication
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some helpful definitions
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[min,A,B],[if,[<,A,B],A,B])
+</span><span class="ansi38-255165000">  (= 
     (min $A $B) 
     (if 
-      (< $A $B) $A $B)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+      (< $A $B) $A $B))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['s-tv',[stv,S,C]],S)
+</span><span class="ansi38-255165000">  (= 
     (s-tv 
-      (stv $S $C)) $S))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (s-tv 
-      (stv $S $C)) $S))<span class="ansi38-255165000">
-(@ = load 
-  (metta_defn  &self 
+      (stv $S $C)) $S)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['c-tv',[stv,S,C]],C)
+</span><span class="ansi38-255165000">  (= 
     (c-tv 
-      (stv $S $C)) $C))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (c-tv 
-      (stv $S $C)) $C))
+      (stv $S $C)) $C)
+</span>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `TV` "metarule" based on `match` to run
@@ -75,15 +105,17 @@
 ; PLN-like expressions with their truth values.
 ; Some `.tv` facts will be defined below
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['TV',X],[match,'&self',['.tv',X,Stv],Stv])
+</span><span class="ansi38-255165000">  (= 
     (TV $X) 
     (match &self 
-      (.tv $X $Stv) $Stv)))
-</span>; Definition of TV for a conjunction
+      (.tv $X $Stv) $Stv))
+</span>
+
+; Definition of TV for a conjunction
 ; we could use `(.tv (And $a $b) (stv ...))` instead of this
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['TV',['And',A,B]],[stv,[min,['s-tv',['TV',A]],['s-tv',['TV',B]]],[min,['c-tv',['TV',A]],['c-tv',['TV',B]]]])
+</span><span class="ansi38-255165000">  (= 
     (TV 
       (And $A $B)) 
     (stv 
@@ -96,10 +128,12 @@
         (c-tv 
           (TV $A)) 
         (c-tv 
-          (TV $B))))))
-</span>; Definition of TV for $x when it''s the consequent of an implication
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+          (TV $B)))))
+</span>
+
+; Definition of TV for $x when it''s the consequent of an implication
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['TV',X],[match,'&self',['.tv',['Implication',Y,X],[stv,S,C]],[stv,[*,S,['s-tv',['TV',Y]]],[*,C,['c-tv',['TV',Y]]]]])
+</span><span class="ansi38-255165000">  (= 
     (TV $X) 
     (match &self 
       (.tv 
@@ -111,148 +145,129 @@
             (TV $Y))) 
         (* $C 
           (c-tv 
-            (TV $Y)))))))
-</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            (TV $Y))))))
+</span>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; First example
 ; .tv serves as a special type of equality when
 ; matched by the TV "metarules" above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts
-<span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Evaluation',['Predicate','P'],['Concept','A']],[stv,0.5,0.8]])
+</span><span class="ansi38-255165000">  (.tv 
+    (Evaluation 
+      (Predicate P) 
+      (Concept A)) 
+    (stv 0.5 0.8))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Evaluation',['Predicate','P'],['Concept','B']],[stv,0.3,0.9]])
+</span><span class="ansi38-255165000">  (.tv 
+    (Evaluation 
+      (Predicate P) 
+      (Concept B)) 
+    (stv 0.3 0.9))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Implication',['Evaluation',['Predicate','P'],['Concept','A']],['Evaluation',['Predicate','False'],['Concept','A']]],[stv,0.8,1.0]])
+</span><span class="ansi38-255165000">  (.tv 
+    (Implication 
       (Evaluation 
         (Predicate P) 
         (Concept A)) 
-      (stv 0.5 0.8))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
       (Evaluation 
-        (Predicate P) 
-        (Concept B)) 
-      (stv 0.3 0.9))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
-      (Implication 
-        (Evaluation 
-          (Predicate P) 
-          (Concept A)) 
-        (Evaluation 
-          (Predicate False) 
-          (Concept A))) 
-      (stv 0.8 1.0))))
-</span>; FIXME? `(PA)` and `(PB)` are used because otherwise
+        (Predicate False) 
+        (Concept A))) 
+    (stv 0.8 1.0))
+</span>
+
+; FIXME? `(PA)` and `(PB)` are used because otherwise
 ; substitution is not invoked (atm of test creation)
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['PA'],['Evaluation',['Predicate','P'],['Concept','A']])
+</span><span class="ansi38-255165000">  (= 
     (PA) 
     (Evaluation 
       (Predicate P) 
-      (Concept A))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+      (Concept A)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['PB'],['Evaluation',['Predicate','P'],['Concept','B']])
+</span><span class="ansi38-255165000">  (= 
     (PB) 
     (Evaluation 
       (Predicate P) 
-      (Concept B))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+      (Concept B)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['FA'],['Evaluation',['Predicate','False'],['Concept','A']])
+</span><span class="ansi38-255165000">  (= 
     (FA) 
     (Evaluation 
       (Predicate False) 
-      (Concept A))))
-</span>; Tests
+      (Concept A)))
+</span>
+
+; Tests
 <span class="ansi38-000068000">!(assertEqual (TV (And (PA) (PB))) (stv 0.3 0.8))
 
-</span>;; <h3 id="TEST-SCRIPTS.C3-PLN-STV.01">TEST-SCRIPTS.C3-PLN-STV.01</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.C3-PLN-STV.01">;; TEST-SCRIPTS.C3-PLN-STV.01</h3><span class="ansi36">
+(@ loonit_success 
   (=@=  
-    ( (stv 
-        (min 
-          (s-tv 
-            (TV 
-              (Evaluation 
-                (Predicate P) 
-                (Concept A)))) 
-          (s-tv 
-            (TV 
-              (Evaluation 
-                (Predicate P) 
-                (Concept B))))) 
-        (min 
-          (c-tv 
-            (TV 
-              (Evaluation 
-                (Predicate P) 
-                (Concept A)))) 
-          (c-tv 
-            (TV 
-              (Evaluation 
-                (Predicate P) 
-                (Concept B))))))) 
+    ( (stv 0.3 0.8)) 
     ( (stv 0.3 0.8))))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (TV (FA)) (stv 0.4 0.8))
 
-</span>;; <h3 id="TEST-SCRIPTS.C3-PLN-STV.02">TEST-SCRIPTS.C3-PLN-STV.02</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.C3-PLN-STV.02">;; TEST-SCRIPTS.C3-PLN-STV.02</h3><span class="ansi36">
+(@ loonit_success 
   (=@=  
-    ( (stv 
-        (* 0.8 
-          (s-tv 
-            (TV 
-              (Evaluation 
-                (Predicate P) 
-                (Concept A))))) 
-        (* 1.0 
-          (c-tv 
-            (TV 
-              (Evaluation 
-                (Predicate P) 
-                (Concept A))))))) 
+    ( (stv 0.4 0.8)) 
     ( (stv 0.4 0.8))))
-</span><span class="ansi33"> False
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Second example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Implication rule
-<span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
-      (Implication 
-        (And 
-          (croaks $X) 
-          (eat_flies $X)) 
-        (frog $X)) 
-      (stv 0.9 0.8))))
-</span>; Some facts
-<span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
-      (croaks Fritz) 
-      (stv 0.95 0.85))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
-      (eat_flies Fritz) 
-      (stv 0.87 0.95))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (.tv 
-      (Implication 
-        (frog $X) 
-        (green $X)) 
-      (stv 0.9 1.0))))
-</span>; Tests
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Implication',['And',[croaks,X],[eat_flies,X]],[frog,X]],[stv,0.9,0.8]])
+</span><span class="ansi38-255165000">  (.tv 
+    (Implication 
+      (And 
+        (croaks $X) 
+        (eat_flies $X)) 
+      (frog $X)) 
+    (stv 0.9 0.8))
+</span>
+
+; Some facts
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',[croaks,'Fritz'],[stv,0.95,0.85]])
+</span><span class="ansi38-255165000">  (.tv 
+    (croaks Fritz) 
+    (stv 0.95 0.85))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',[eat_flies,'Fritz'],[stv,0.87,0.95]])
+</span><span class="ansi38-255165000">  (.tv 
+    (eat_flies Fritz) 
+    (stv 0.87 0.95))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Implication',[frog,X],[green,X]],[stv,0.9,1.0]])
+</span><span class="ansi38-255165000">  (.tv 
+    (Implication 
+      (frog $X) 
+      (green $X)) 
+    (stv 0.9 1.0))
+</span>
+
+; Tests
 <span class="ansi38-000068000">!(assertEqual (TV (croaks Fritz)) (stv 0.95 0.85))
 
-</span>;; <h3 id="TEST-SCRIPTS.C3-PLN-STV.03">TEST-SCRIPTS.C3-PLN-STV.03</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.C3-PLN-STV.03">;; TEST-SCRIPTS.C3-PLN-STV.03</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (stv 0.95 0.85)) 
@@ -261,48 +276,28 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (TV (frog Fritz)) (stv 0.783 0.68))
 
-</span>;; <h3 id="TEST-SCRIPTS.C3-PLN-STV.04">TEST-SCRIPTS.C3-PLN-STV.04</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.C3-PLN-STV.04">;; TEST-SCRIPTS.C3-PLN-STV.04</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    ( (stv 
-        (* 0.9 
-          (s-tv 
-            (TV 
-              (And 
-                (croaks Fritz) 
-                (eat_flies Fritz))))) 
-        (* 0.8 
-          (c-tv 
-            (TV 
-              (And 
-                (croaks Fritz) 
-                (eat_flies Fritz))))))) 
+    ( (stv 0.855 0.68)) 
     ( (stv 0.783 0.68))))
 </span><span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (TV (green Fritz)) (stv 0.7047 0.68))
 
-</span>;; <h3 id="TEST-SCRIPTS.C3-PLN-STV.05">TEST-SCRIPTS.C3-PLN-STV.05</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.C3-PLN-STV.05">;; TEST-SCRIPTS.C3-PLN-STV.05</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    ( (stv 
-        (* 0.9 
-          (s-tv 
-            (TV 
-              (frog Fritz)))) 
-        (* 1.0 
-          (c-tv 
-            (TV 
-              (frog Fritz)))))) 
+    ( (stv 0.7695 0.68)) 
     ( (stv 0.7047 0.68))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 346,610 inferences, 0.149 CPU in 0.149 seconds (100% CPU, 2326666 Lips)
+</span><span class="ansi32">% 1,350,231 inferences, 0.284 CPU in 0.284 seconds (100% CPU, 4756157 Lips)
 </span> (@ = "examples/compat/test_scripts/c3_pln_stv.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 4
+<span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 2
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/c3_pln_stv.html" )
 
 </pre>

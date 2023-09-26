@@ -23,6 +23,10 @@
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -35,7 +39,7 @@
 ; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 2 3))))
 
-</span>;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.01">TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (2 3 4) 
@@ -44,7 +48,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
 
-</span>;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.02">TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (2 3 4) 
@@ -53,11 +57,15 @@
 
 </span><span class="ansi38-000068000">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
 
-</span>;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.03">TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
-    ( (1)) 
-    ( (1))))
+    ( (1) 
+      (2) 
+      (3)) 
+    ( (1) 
+      (2) 
+      (3))))
 </span><span class="ansi33"> True
 
 </span>; cases are processed sequentially
@@ -67,7 +75,7 @@
  c(1,6)='OK'
  c(2,6)='Error'
  switch=6
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.04">TEST-SCRIPTS.00-LANG-CASE.04</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.04">;; TEST-SCRIPTS.00-LANG-CASE.04</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (OK) 
@@ -77,9 +85,9 @@
 </span>; we can use variables as cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
 
-</span> c(0,_422838)=[+,1,_422838]
+</span> c(0,_449740)=[+,1,_449740]
  switch=6
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.05">TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (7) 
@@ -92,7 +100,7 @@
 
 </span> c(0,6)='OK'
  switch=5
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.06">TEST-SCRIPTS.00-LANG-CASE.06</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.06">;; TEST-SCRIPTS.00-LANG-CASE.06</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  () ()))
 </span><span class="ansi33"> True
@@ -105,7 +113,7 @@
  switch=2
  switch=3
  switch=4
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.07">TEST-SCRIPTS.00-LANG-CASE.07</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.07">;; TEST-SCRIPTS.00-LANG-CASE.07</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (OK-3 OK-4) 
@@ -115,27 +123,29 @@
 </span>; one case can produce multiple results
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
 
-</span> c(0,_514572)=[+,1,_514572]
+</span> c(0,_24942)=[+,1,_24942]
  switch=2
  switch=3
  switch=4
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.08">TEST-SCRIPTS.00-LANG-CASE.08</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.08">;; TEST-SCRIPTS.00-LANG-CASE.08</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (3 4 5) 
     (3 4 5)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (Rel-P A B)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (Rel-Q A C)))
-</span>; Basic Match
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
+</span><span class="ansi38-255165000">  (Rel-P A B)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-Q','A','C'])
+</span><span class="ansi38-255165000">  (Rel-Q A C)
+</span>
+
+; Basic Match
 <span class="ansi38-000068000">!(assertEqual (match &self ($Rel A $X) ($Rel $X)) (superpose ((Rel-P B) (Rel-Q C))))
 
-</span>;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.09">TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (Rel-P B) 
@@ -147,11 +157,11 @@
 </span>; cases can be used for deconstruction
 <span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
 
-</span> c(0,['Rel-P',_76270])=['P',_76270]
- c(1,['Rel-Q',_76270])=['Q',_76270]
+</span> c(0,['Rel-P',_120136])=['P',_120136]
+ c(1,['Rel-Q',_120136])=['Q',_120136]
  switch=['Rel-P','B']
  switch=['Rel-Q','C']
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.10">TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (P B) 
@@ -163,17 +173,17 @@
 </span>; %void% can be used to capture empty results
 <span class="ansi38-000068000">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
 
-</span> c(0,['Rel-P',_112736])=['P',_112736]
- c(1,['Rel-Q',_112736])=['Q',_112736]
+</span> c(0,['Rel-P',_162002])=['P',_162002]
+ c(1,['Rel-Q',_162002])=['Q',_162002]
  c(2,'%void%')='no-match'
-;; <h3 id="TEST-SCRIPTS.00-LANG-CASE.11">TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (no-match) 
     (no-match)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 197,986 inferences, 0.090 CPU in 0.090 seconds (100% CPU, 2192643 Lips)
+</span><span class="ansi32">% 205,037 inferences, 0.093 CPU in 0.093 seconds (100% CPU, 2201933 Lips)
 </span> (@ = "examples/compat/test_scripts/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

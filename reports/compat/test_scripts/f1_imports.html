@@ -15,9 +15,19 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -31,41 +41,48 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">(@ = load 
-  (metta_type  &self __g 
-    (-> Number)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    (__g) 100))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (__g) 100))<span class="ansi38-255165000">
-(@ = load 
-  (metta_type  &self g 
-    (-> Number Numer)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self','__g',[->,'Number'])
+</span><span class="ansi38-255165000">  (: __g 
+    (-> Number))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['__g'],100)
+</span><span class="ansi38-255165000">  (= 
+    (__g) 100)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',g,[->,'Number','Numer'])
+</span><span class="ansi38-255165000">  (: g 
+    (-> Number Numer))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,X],[+,X,['__g']])
+</span><span class="ansi38-255165000">  (= 
     (g $X) 
     (+ $X 
-      (__g))))
-</span><span class="ansi32">% 15,566 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 5584416 Lips)
+      (__g)))
+</span>
+
+<span class="ansi32">% 15,867 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 5436138 Lips)
 </span> (@ = f1_moduleC.metta 0)
 <span class="ansi33"> &self
 
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dup,X],[if,[==,X,0],[g,X],[+,X,10]])
+</span><span class="ansi38-255165000">  (= 
     (dup $X) 
     (if 
       (== $X 0) 
       (g $X) 
-      (+ $X 10))))
-</span><span class="ansi32">% 30,112 inferences, 0.006 CPU in 0.007 seconds (78% CPU, 5223969 Lips)
+      (+ $X 10)))
+</span>
+
+<span class="ansi32">% 30,982 inferences, 0.006 CPU in 0.008 seconds (78% CPU, 4922075 Lips)
 </span> (@ = f1_moduleB.metta 0)
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
 
-</span>;; <h3 id="TEST-SCRIPTS.F1-IMPORTS.01">TEST-SCRIPTS.F1-IMPORTS.01</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.F1-IMPORTS.01">;; TEST-SCRIPTS.F1-IMPORTS.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (102) 
@@ -74,7 +91,7 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 
-</span>;; <h3 id="TEST-SCRIPTS.F1-IMPORTS.02">TEST-SCRIPTS.F1-IMPORTS.02</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.F1-IMPORTS.02">;; TEST-SCRIPTS.F1-IMPORTS.02</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     ( (f 2)) 
@@ -83,14 +100,14 @@
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
 
-</span>;; <h3 id="TEST-SCRIPTS.F1-IMPORTS.03">TEST-SCRIPTS.F1-IMPORTS.03</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.F1-IMPORTS.03">;; TEST-SCRIPTS.F1-IMPORTS.03</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (12) 
     (12 102)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 433,166 inferences, 0.250 CPU in 0.405 seconds (62% CPU, 1733808 Lips)
+</span><span class="ansi32">% 426,232 inferences, 0.259 CPU in 0.404 seconds (64% CPU, 1646974 Lips)
 </span> (@ = "examples/compat/test_scripts/f1_imports.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

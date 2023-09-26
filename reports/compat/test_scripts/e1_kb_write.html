@@ -17,14 +17,32 @@
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 </style>
@@ -39,7 +57,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (let $X (+ 2 3) (* $X $X)) (25))
 
-</span>;; <h3 id="TEST-SCRIPTS.E1-KB-WRITE.01">TEST-SCRIPTS.E1-KB-WRITE.01</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.01">;; TEST-SCRIPTS.E1-KB-WRITE.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (25) 
@@ -52,60 +70,73 @@
 </span><span class="ansi33">  (new-space)
 
 </span>; Some knowledge
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[frog,X],[and,[croaks,X],[eat_flies,X]])
+</span><span class="ansi38-255165000">  (= 
     (frog $X) 
     (and 
       (croaks $X) 
-      (eat_flies $X))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (croaks Fritz)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (eat_flies Fritz)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (croaks Sam)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (eat_flies Sam)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+      (eat_flies $X)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[croaks,'Fritz'])
+</span><span class="ansi38-255165000">  (= 
+    (croaks Fritz) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[eat_flies,'Fritz'])
+</span><span class="ansi38-255165000">  (= 
+    (eat_flies Fritz) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[croaks,'Sam'])
+</span><span class="ansi38-255165000">  (= 
+    (croaks Sam) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[eat_flies,'Sam'])
+</span><span class="ansi38-255165000">  (= 
+    (eat_flies Sam) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[green,X],[frog,X])
+</span><span class="ansi38-255165000">  (= 
     (green $X) 
-    (frog $X)))
-</span>; Define conditional
-<span class="ansi38-255165000">(@ = load 
-  (metta_type  &self ift 
-    (-> Bool Atom Atom)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    (ift True $Then) $Then))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (ift True $Then) $Then))
+    (frog $X))
+</span>
+
+; Define conditional
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_type('&self',ift,[->,'Bool','Atom','Atom'])
+</span><span class="ansi38-255165000">  (: ift 
+    (-> Bool Atom Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[ift,'True',Then],Then)
+</span><span class="ansi38-255165000">  (= 
+    (ift True $Then) $Then)
+</span>
+
 ; For anything that is green, assert it is Green in &kb
 <span class="ansi38-000068000">!(ift (green $X) (add-atom &kb (Green $X)))
 
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &kb 
-    (Green Fritz)))
-</span><span class="ansi33">  (ift 
-    (green $_352166) 
-    (add-atom &kb 
-      (Green $_352166)))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&kb',['Green','Fritz'])
+</span><span class="ansi38-255165000">  (Green Fritz)
+</span>
 
-</span>; Retrieve the inferred Green things: Fritz and Sam.
+<span class="ansi33"> True
+</span><span class="ansi32">['X'='Fritz']
+</span>
+
+; Retrieve the inferred Green things: Fritz and Sam.
 <span class="ansi38-000068000">!(assertEqualToResult (match &kb (Green $X) $X) (Fritz Sam))
 
-</span>;; <h3 id="TEST-SCRIPTS.E1-KB-WRITE.02">TEST-SCRIPTS.E1-KB-WRITE.02</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.02">;; TEST-SCRIPTS.E1-KB-WRITE.02</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
     (Fritz) 
     (Fritz Sam)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 74,648 inferences, 0.021 CPU in 0.021 seconds (100% CPU, 3542319 Lips)
+</span><span class="ansi32">% 77,636 inferences, 0.021 CPU in 0.021 seconds (100% CPU, 3711924 Lips)
 </span> (@ = "examples/compat/test_scripts/e1_kb_write.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

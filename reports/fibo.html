@@ -15,13 +15,31 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 </style>
@@ -31,93 +49,98 @@
  (@ track_load_into_file "examples/fibo.metta")
 ;;!(extend-py! metta_learner)
 ; Recursive Fibonacci
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    (fib 0) 0))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (fib 0) 0))<span class="ansi38-255165000">
-(@ = load 
-  (metta_defn  &self 
-    (fib 1) 1))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (fib 1) 1))<span class="ansi38-255165000">
-(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fib,0],0)
+</span><span class="ansi38-255165000">  (= 
+    (fib 0) 0)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fib,1],1)
+</span><span class="ansi38-255165000">  (= 
+    (fib 1) 1)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fib,N],[+,[fib,[-,N,1]],[fib,[-,N,2]]])
+</span><span class="ansi38-255165000">  (= 
     (fib $N) 
     (+ 
       (fib 
         (- $N 1)) 
       (fib 
-        (- $N 2)))))
-</span>; Tail-Recursive Fibonacci
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    (tail-rec-fib $N) 
-    (tail-rec-fib-helper $N 0 1)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
-    (tail-rec-fib-helper 0 $A $_) $A))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (tail-rec-fib-helper 0 $A $_) $A))<span class="ansi38-255165000">
-(@ = load 
-  (metta_defn  &self 
-    (tail-rec-fib-helper $N $A $B) 
-    (tail-rec-fib-helper 
+        (- $N 2))))
+</span>
+
+; Tail-Recursive Fibonacci
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fib-tail',N],['fib-tail-helper',N,0,1])
+</span><span class="ansi38-255165000">  (= 
+    (fib-tail $N) 
+    (fib-tail-helper $N 0 1))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fib-tail-helper',0,A,_],A)
+</span><span class="ansi38-255165000">  (= 
+    (fib-tail-helper 0 $A $_) $A)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fib-tail-helper',N,A,B],['fib-tail-helper',[-,N,1],B,[+,A,B]])
+</span><span class="ansi38-255165000">  (= 
+    (fib-tail-helper $N $A $B) 
+    (fib-tail-helper 
       (- $N 1) $B 
-      (+ $A $B))))
-</span>; Fibonacci Using Accumulators
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+      (+ $A $B)))
+</span>
+
+; Fibonacci Using Accumulators
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fib-acc',N],['fib-acc-helper',N,[',',0,1]])
+</span><span class="ansi38-255165000">  (= 
     (fib-acc $N) 
     (fib-acc-helper $N 
-      (and 0 1))))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+      (and 0 1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fib-acc-helper',0,[',',A,_]],A)
+</span><span class="ansi38-255165000">  (= 
     (fib-acc-helper 0 
-      (and $A $_)) $A))
-</span>(@ unknown_do_metta &self load 
-  (= 
-    (fib-acc-helper 0 
-      (and $A $_)) $A))<span class="ansi38-255165000">
-(@ = load 
-  (metta_defn  &self 
+      (and $A $_)) $A)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fib-acc-helper',N,[',',A,B]],['fib-acc-helper',[-,N,1],[',',B,[+,A,B]]])
+</span><span class="ansi38-255165000">  (= 
     (fib-acc-helper $N 
       (and $A $B)) 
     (fib-acc-helper 
       (- $N 1) 
       (and $B 
-        (+ $A $B)))))
-</span>;!(assertEqual (fib 0) 0)
-;!(assertEqual (tail-rec-fib 0) 0)
+        (+ $A $B))))
+</span>
+
+;!(assertEqual (fib 0) 0)
+;!(assertEqual (fib-tail 0) 0)
 ;!(assertEqual (fib-acc 0) 0)
 ;!(assertEqual (fib 1) 1)
-;!(assertEqual (tail-rec-fib 1) 1)
+;!(assertEqual (fib-tail 1) 1)
 ;!(assertEqual (fib-acc 1) 1)
 ;!(assertEqual (fib 2) 1)
-;!(assertEqual (tail-rec-fib 2) 1)
+;!(assertEqual (fib-tail 2) 1)
 ;!(assertEqual (fib-acc 2) 1)
 ;!(assertEqual (fib 3) 2)
-;!(assertEqual (tail-rec-fib 3) 2)
+;!(assertEqual (fib-tail 3) 2)
 ;!(assertEqual (fib-acc 3) 2)
 ;!(assertEqual (fib 4) 3)
-;!(assertEqual (tail-rec-fib 4) 3)
+;!(assertEqual (fib-tail 4) 3)
 ;!(assertEqual (fib-acc 4) 3)
 ;!(assertEqual (fib 5) 5)
-;!(assertEqual (tail-rec-fib 5) 5)
+;!(assertEqual (fib-tail 5) 5)
 ;!(assertEqual (fib-acc 5) 5)
 <span class="ansi38-000068000">!(assertEqual (fib 6) 8)
 
-</span>;; <h3 id="EXAMPLES.FIBO.01">EXAMPLES.FIBO.01</h3><span class="ansi36">
+</span><h3 id="EXAMPLES.FIBO.01">;; EXAMPLES.FIBO.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (8) 
     (8)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 121,421 inferences, 0.074 CPU in 0.074 seconds (100% CPU, 1640711 Lips)
+</span><span class="ansi32">% 126,026 inferences, 0.066 CPU in 0.066 seconds (100% CPU, 1907404 Lips)
 </span> (@ = "examples/fibo.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

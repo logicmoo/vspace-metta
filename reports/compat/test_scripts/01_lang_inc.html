@@ -15,6 +15,8 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 </style>
@@ -23,17 +25,19 @@
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/compat/test_scripts/01_lang_inc.metta")
 ; a functional example
-<span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['maybe-inc',X],[case,X,[[['Just',V],['Just',[+,1,V]]],['Nothing','Nothing']]])
+</span><span class="ansi38-255165000">  (= 
     (maybe-inc $X) 
     (case $X 
       ( ( (Just $V) 
           (Just 
             (+ 1 $V))) 
-        (Nothing Nothing)))))
-</span><span class="ansi38-000068000">!(assertEqual (maybe-inc Nothing) Nothing)
+        (Nothing Nothing))))
+</span>
 
-</span>;; <h3 id="TEST-SCRIPTS.01-LANG-INC.01">TEST-SCRIPTS.01-LANG-INC.01</h3><span class="ansi36">
+<span class="ansi38-000068000">!(assertEqual (maybe-inc Nothing) Nothing)
+
+</span><h3 id="TEST-SCRIPTS.01-LANG-INC.01">;; TEST-SCRIPTS.01-LANG-INC.01</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     (Nothing) 
@@ -42,17 +46,17 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (maybe-inc (Just 2)) (Just 3))
 
-</span> c(0,['Just',_285876])=['Just',[+,1,_285876]]
+</span> c(0,['Just',_307354])=['Just',[+,1,_307354]]
  c(1,'Nothing')='Nothing'
  switch=['Just',2]
-;; <h3 id="TEST-SCRIPTS.01-LANG-INC.02">TEST-SCRIPTS.01-LANG-INC.02</h3><span class="ansi36">
+<h3 id="TEST-SCRIPTS.01-LANG-INC.02">;; TEST-SCRIPTS.01-LANG-INC.02</h3><span class="ansi36">
 (@ loonit_success 
   (=@=  
     ( (Just 3)) 
     ( (Just 3))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 29,592 inferences, 0.007 CPU in 0.007 seconds (100% CPU, 4548766 Lips)
+</span><span class="ansi32">% 31,320 inferences, 0.007 CPU in 0.007 seconds (100% CPU, 4286594 Lips)
 </span> (@ = "examples/compat/test_scripts/01_lang_inc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

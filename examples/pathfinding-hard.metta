@@ -1,23 +1,31 @@
-; Pathfinding using a simple graph
-; Graph is represented as facts: (= (edge A B) True) means there's an edge from A to B.
-(= (edge a b) True)
-(= (edge b c) True)
-(= (edge c d) True)
-(= (edge b e) True)
-(= (edge e f) True)
+(= (edge a b 2) True)
+(= (edge b a 2) True)
+(= (edge b c 3) True)
+(= (edge c b 3) True)
+(= (edge c d 4) True)
+(= (edge d c 4) True)
+(= (edge b e 1) True)
+(= (edge e b 1) True)
+(= (edge e f 5) True)
+(= (edge f e 5) True)
+(= (edge f g 6) True)
+(= (edge g f 6) True)
 
-; Pathfinding rule
-(= (path $x $y) True) ; base case, node to itself
-(= (path $x $y) (and (edge $x $z) (path $z $y))) ; recursive case
+(= (path $x $x 0) True) ; base case, node to itself with distance 0
+(= (path $x $y $w) (and (edge $x $z $d) (path $z $y $dw) (is $w (+ $d $dw)))) ; recursive case with weights
+
+; Finding all nodes reachable from a given node.
+(= (reachable $x $x) True) ; base case, a node is always reachable from itself
+(= (reachable $x $y) (or (and (edge $x $z _) (reachable $z $y)))) ; recursive case
+
 
 
 ; Pathfinding tests
-!(assertEqual (path a b) True)
-!(assertEqual (path a c) True)
-!(assertEqual (path a d) True)
-!(assertEqual (path a f) True)
-!(assertEqual (path b e) True)
-!(assertEqual (path e f) True)
-!(assertEqual (path d f) False)
+!(assertEqual (path a f 11) True)
+!(assertEqual (reachable a f) True)
+
+
+!(assertEqual (path a c $_) True)
+
 
 

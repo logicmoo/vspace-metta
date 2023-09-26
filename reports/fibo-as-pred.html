@@ -14,8 +14,16 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -25,17 +33,23 @@
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/fibo-as-pred.metta")
 ;!(memoize fibonacci)
-<span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (equals $X $X)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (fibonacci 0 0)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_atom  &self 
-    (fibonacci 1 1)))
-</span><span class="ansi38-255165000">(@ = load 
-  (metta_defn  &self 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[equals,X,X])
+</span><span class="ansi38-255165000">  (= 
+    (equals $X $X) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[fibonacci,0,0])
+</span><span class="ansi38-255165000">  (= 
+    (fibonacci 0 0) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[fibonacci,1,1])
+</span><span class="ansi38-255165000">  (= 
+    (fibonacci 1 1) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fibonacci,N1,N4],[and,[>,N1,1],[equals,N2,[+,N1,-1]],[equals,N3,[+,N1,-2]],[fibonacci,N2,N5],[fibonacci,N3,N6],[equals,N4,[+,N5,N6]]])
+</span><span class="ansi38-255165000">  (= 
     (fibonacci $N1 $N4) 
     (and 
       (> $N1 1) 
@@ -46,786 +60,531 @@
       (fibonacci $N2 $N5) 
       (fibonacci $N3 $N6) 
       (equals $N4 
-        (+ $N5 $N6)))))
-</span><span class="ansi38-000068000">!(match &self (fibonacci 10 $W) $W)
+        (+ $N5 $N6))))
+</span>
+
+<span class="ansi38-000068000">!(match &self (fibonacci 10 $W) $W)
 
 </span><span class="ansi38-000068000">!(assertEqual (fibonacci 1 $W) True)
 
-</span>;; <h3 id="EXAMPLES.FIBO-AS-PRED.01">EXAMPLES.FIBO-AS-PRED.01</h3><span class="ansi31">
+</span><h3 id="EXAMPLES.FIBO-AS-PRED.01">;; EXAMPLES.FIBO-AS-PRED.01</h3><span class="ansi31">
 (@ loonit_failureR 
   (=@=  
-    (True 
-      (and False True True True 
+    ( (and False True True 
         (and False True True 
           (and False True True 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_939114 -7) 
-                    (equals $_939138 -8) 
-                    (fibonacci $_939114 $_939168) 
-                    (fibonacci $_939138 $_939192) 
-                    (equals $_939210 
-                      (+ $_939168 $_939192))) 
+                    (equals $_306944 -6) 
+                    (equals $_306968 -7) 
+                    (fibonacci $_306944 $_306998) 
+                    (fibonacci $_306968 $_307022) 
+                    (equals $_307040 
+                      (+ $_306998 $_307022))) 
                   (and False 
-                    (equals $_939270 -8) 
-                    (equals $_939294 -9) 
-                    (fibonacci $_939270 $_939324) 
-                    (fibonacci $_939294 $_939348) 
-                    (equals $_939366 
-                      (+ $_939324 $_939348))) True) 
+                    (equals $_307100 -7) 
+                    (equals $_307124 -8) 
+                    (fibonacci $_307100 $_307154) 
+                    (fibonacci $_307124 $_307178) 
+                    (equals $_307196 
+                      (+ $_307154 $_307178))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_939462 -8) 
-                    (equals $_939486 -9) 
-                    (fibonacci $_939462 $_939516) 
-                    (fibonacci $_939486 $_939540) 
-                    (equals $_939558 
-                      (+ $_939516 $_939540))) 
+                    (equals $_307292 -7) 
+                    (equals $_307316 -8) 
+                    (fibonacci $_307292 $_307346) 
+                    (fibonacci $_307316 $_307370) 
+                    (equals $_307388 
+                      (+ $_307346 $_307370))) 
                   (and False 
-                    (equals $_939618 -9) 
-                    (equals $_939642 -10) 
-                    (fibonacci $_939618 $_939672) 
-                    (fibonacci $_939642 $_939696) 
-                    (equals $_939714 
-                      (+ $_939672 $_939696))) True) True) 
+                    (equals $_307448 -8) 
+                    (equals $_307472 -9) 
+                    (fibonacci $_307448 $_307502) 
+                    (fibonacci $_307472 $_307526) 
+                    (equals $_307544 
+                      (+ $_307502 $_307526))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_939846 -8) 
-                    (equals $_939870 -9) 
-                    (fibonacci $_939846 $_939900) 
-                    (fibonacci $_939870 $_939924) 
-                    (equals $_939942 
-                      (+ $_939900 $_939924))) 
+                    (equals $_307676 -7) 
+                    (equals $_307700 -8) 
+                    (fibonacci $_307676 $_307730) 
+                    (fibonacci $_307700 $_307754) 
+                    (equals $_307772 
+                      (+ $_307730 $_307754))) 
                   (and False 
-                    (equals $_940002 -9) 
-                    (equals $_940026 -10) 
-                    (fibonacci $_940002 $_940056) 
-                    (fibonacci $_940026 $_940080) 
-                    (equals $_940098 
-                      (+ $_940056 $_940080))) True) 
+                    (equals $_307832 -8) 
+                    (equals $_307856 -9) 
+                    (fibonacci $_307832 $_307886) 
+                    (fibonacci $_307856 $_307910) 
+                    (equals $_307928 
+                      (+ $_307886 $_307910))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_940194 -9) 
-                    (equals $_940218 -10) 
-                    (fibonacci $_940194 $_940248) 
-                    (fibonacci $_940218 $_940272) 
-                    (equals $_940290 
-                      (+ $_940248 $_940272))) 
+                    (equals $_308024 -8) 
+                    (equals $_308048 -9) 
+                    (fibonacci $_308024 $_308078) 
+                    (fibonacci $_308048 $_308102) 
+                    (equals $_308120 
+                      (+ $_308078 $_308102))) 
                   (and False 
-                    (equals $_940350 -10) 
-                    (equals $_940374 -11) 
-                    (fibonacci $_940350 $_940404) 
-                    (fibonacci $_940374 $_940428) 
-                    (equals $_940446 
-                      (+ $_940404 $_940428))) True) True) True) 
+                    (equals $_308180 -9) 
+                    (equals $_308204 -10) 
+                    (fibonacci $_308180 $_308234) 
+                    (fibonacci $_308204 $_308258) 
+                    (equals $_308276 
+                      (+ $_308234 $_308258))) True) True) True) 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_940614 -8) 
-                    (equals $_940638 -9) 
-                    (fibonacci $_940614 $_940668) 
-                    (fibonacci $_940638 $_940692) 
-                    (equals $_940710 
-                      (+ $_940668 $_940692))) 
+                    (equals $_308444 -7) 
+                    (equals $_308468 -8) 
+                    (fibonacci $_308444 $_308498) 
+                    (fibonacci $_308468 $_308522) 
+                    (equals $_308540 
+                      (+ $_308498 $_308522))) 
                   (and False 
-                    (equals $_940770 -9) 
-                    (equals $_940794 -10) 
-                    (fibonacci $_940770 $_940824) 
-                    (fibonacci $_940794 $_940848) 
-                    (equals $_940866 
-                      (+ $_940824 $_940848))) True) 
+                    (equals $_308600 -8) 
+                    (equals $_308624 -9) 
+                    (fibonacci $_308600 $_308654) 
+                    (fibonacci $_308624 $_308678) 
+                    (equals $_308696 
+                      (+ $_308654 $_308678))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_940962 -9) 
-                    (equals $_940986 -10) 
-                    (fibonacci $_940962 $_941016) 
-                    (fibonacci $_940986 $_941040) 
-                    (equals $_941058 
-                      (+ $_941016 $_941040))) 
+                    (equals $_308792 -8) 
+                    (equals $_308816 -9) 
+                    (fibonacci $_308792 $_308846) 
+                    (fibonacci $_308816 $_308870) 
+                    (equals $_308888 
+                      (+ $_308846 $_308870))) 
                   (and False 
-                    (equals $_941118 -10) 
-                    (equals $_941142 -11) 
-                    (fibonacci $_941118 $_941172) 
-                    (fibonacci $_941142 $_941196) 
-                    (equals $_941214 
-                      (+ $_941172 $_941196))) True) True) 
+                    (equals $_308948 -9) 
+                    (equals $_308972 -10) 
+                    (fibonacci $_308948 $_309002) 
+                    (fibonacci $_308972 $_309026) 
+                    (equals $_309044 
+                      (+ $_309002 $_309026))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_941346 -9) 
-                    (equals $_941370 -10) 
-                    (fibonacci $_941346 $_941400) 
-                    (fibonacci $_941370 $_941424) 
-                    (equals $_941442 
-                      (+ $_941400 $_941424))) 
+                    (equals $_309176 -8) 
+                    (equals $_309200 -9) 
+                    (fibonacci $_309176 $_309230) 
+                    (fibonacci $_309200 $_309254) 
+                    (equals $_309272 
+                      (+ $_309230 $_309254))) 
                   (and False 
-                    (equals $_941502 -10) 
-                    (equals $_941526 -11) 
-                    (fibonacci $_941502 $_941556) 
-                    (fibonacci $_941526 $_941580) 
-                    (equals $_941598 
-                      (+ $_941556 $_941580))) True) 
+                    (equals $_309332 -9) 
+                    (equals $_309356 -10) 
+                    (fibonacci $_309332 $_309386) 
+                    (fibonacci $_309356 $_309410) 
+                    (equals $_309428 
+                      (+ $_309386 $_309410))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_941694 -10) 
-                    (equals $_941718 -11) 
-                    (fibonacci $_941694 $_941748) 
-                    (fibonacci $_941718 $_941772) 
-                    (equals $_941790 
-                      (+ $_941748 $_941772))) 
+                    (equals $_309524 -9) 
+                    (equals $_309548 -10) 
+                    (fibonacci $_309524 $_309578) 
+                    (fibonacci $_309548 $_309602) 
+                    (equals $_309620 
+                      (+ $_309578 $_309602))) 
                   (and False 
-                    (equals $_941850 -11) 
-                    (equals $_941874 -12) 
-                    (fibonacci $_941850 $_941904) 
-                    (fibonacci $_941874 $_941928) 
-                    (equals $_941946 
-                      (+ $_941904 $_941928))) True) True) True) True) 
+                    (equals $_309680 -10) 
+                    (equals $_309704 -11) 
+                    (fibonacci $_309680 $_309734) 
+                    (fibonacci $_309704 $_309758) 
+                    (equals $_309776 
+                      (+ $_309734 $_309758))) True) True) True) True) 
           (and False True True 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_942150 -8) 
-                    (equals $_942174 -9) 
-                    (fibonacci $_942150 $_942204) 
-                    (fibonacci $_942174 $_942228) 
-                    (equals $_942246 
-                      (+ $_942204 $_942228))) 
+                    (equals $_309980 -7) 
+                    (equals $_310004 -8) 
+                    (fibonacci $_309980 $_310034) 
+                    (fibonacci $_310004 $_310058) 
+                    (equals $_310076 
+                      (+ $_310034 $_310058))) 
                   (and False 
-                    (equals $_942306 -9) 
-                    (equals $_942330 -10) 
-                    (fibonacci $_942306 $_942360) 
-                    (fibonacci $_942330 $_942384) 
-                    (equals $_942402 
-                      (+ $_942360 $_942384))) True) 
+                    (equals $_310136 -8) 
+                    (equals $_310160 -9) 
+                    (fibonacci $_310136 $_310190) 
+                    (fibonacci $_310160 $_310214) 
+                    (equals $_310232 
+                      (+ $_310190 $_310214))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_942498 -9) 
-                    (equals $_942522 -10) 
-                    (fibonacci $_942498 $_942552) 
-                    (fibonacci $_942522 $_942576) 
-                    (equals $_942594 
-                      (+ $_942552 $_942576))) 
+                    (equals $_310328 -8) 
+                    (equals $_310352 -9) 
+                    (fibonacci $_310328 $_310382) 
+                    (fibonacci $_310352 $_310406) 
+                    (equals $_310424 
+                      (+ $_310382 $_310406))) 
                   (and False 
-                    (equals $_942654 -10) 
-                    (equals $_942678 -11) 
-                    (fibonacci $_942654 $_942708) 
-                    (fibonacci $_942678 $_942732) 
-                    (equals $_942750 
-                      (+ $_942708 $_942732))) True) True) 
+                    (equals $_310484 -9) 
+                    (equals $_310508 -10) 
+                    (fibonacci $_310484 $_310538) 
+                    (fibonacci $_310508 $_310562) 
+                    (equals $_310580 
+                      (+ $_310538 $_310562))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_942882 -9) 
-                    (equals $_942906 -10) 
-                    (fibonacci $_942882 $_942936) 
-                    (fibonacci $_942906 $_942960) 
-                    (equals $_942978 
-                      (+ $_942936 $_942960))) 
+                    (equals $_310712 -8) 
+                    (equals $_310736 -9) 
+                    (fibonacci $_310712 $_310766) 
+                    (fibonacci $_310736 $_310790) 
+                    (equals $_310808 
+                      (+ $_310766 $_310790))) 
                   (and False 
-                    (equals $_943038 -10) 
-                    (equals $_943062 -11) 
-                    (fibonacci $_943038 $_943092) 
-                    (fibonacci $_943062 $_943116) 
-                    (equals $_943134 
-                      (+ $_943092 $_943116))) True) 
+                    (equals $_310868 -9) 
+                    (equals $_310892 -10) 
+                    (fibonacci $_310868 $_310922) 
+                    (fibonacci $_310892 $_310946) 
+                    (equals $_310964 
+                      (+ $_310922 $_310946))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_943230 -10) 
-                    (equals $_943254 -11) 
-                    (fibonacci $_943230 $_943284) 
-                    (fibonacci $_943254 $_943308) 
-                    (equals $_943326 
-                      (+ $_943284 $_943308))) 
+                    (equals $_311060 -9) 
+                    (equals $_311084 -10) 
+                    (fibonacci $_311060 $_311114) 
+                    (fibonacci $_311084 $_311138) 
+                    (equals $_311156 
+                      (+ $_311114 $_311138))) 
                   (and False 
-                    (equals $_943386 -11) 
-                    (equals $_943410 -12) 
-                    (fibonacci $_943386 $_943440) 
-                    (fibonacci $_943410 $_943464) 
-                    (equals $_943482 
-                      (+ $_943440 $_943464))) True) True) True) 
+                    (equals $_311216 -10) 
+                    (equals $_311240 -11) 
+                    (fibonacci $_311216 $_311270) 
+                    (fibonacci $_311240 $_311294) 
+                    (equals $_311312 
+                      (+ $_311270 $_311294))) True) True) True) 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_943650 -9) 
-                    (equals $_943674 -10) 
-                    (fibonacci $_943650 $_943704) 
-                    (fibonacci $_943674 $_943728) 
-                    (equals $_943746 
-                      (+ $_943704 $_943728))) 
+                    (equals $_311480 -8) 
+                    (equals $_311504 -9) 
+                    (fibonacci $_311480 $_311534) 
+                    (fibonacci $_311504 $_311558) 
+                    (equals $_311576 
+                      (+ $_311534 $_311558))) 
                   (and False 
-                    (equals $_943806 -10) 
-                    (equals $_943830 -11) 
-                    (fibonacci $_943806 $_943860) 
-                    (fibonacci $_943830 $_943884) 
-                    (equals $_943902 
-                      (+ $_943860 $_943884))) True) 
+                    (equals $_311636 -9) 
+                    (equals $_311660 -10) 
+                    (fibonacci $_311636 $_311690) 
+                    (fibonacci $_311660 $_311714) 
+                    (equals $_311732 
+                      (+ $_311690 $_311714))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_943998 -10) 
-                    (equals $_944022 -11) 
-                    (fibonacci $_943998 $_944052) 
-                    (fibonacci $_944022 $_944076) 
-                    (equals $_944094 
-                      (+ $_944052 $_944076))) 
+                    (equals $_311828 -9) 
+                    (equals $_311852 -10) 
+                    (fibonacci $_311828 $_311882) 
+                    (fibonacci $_311852 $_311906) 
+                    (equals $_311924 
+                      (+ $_311882 $_311906))) 
                   (and False 
-                    (equals $_944154 -11) 
-                    (equals $_944178 -12) 
-                    (fibonacci $_944154 $_944208) 
-                    (fibonacci $_944178 $_944232) 
-                    (equals $_944250 
-                      (+ $_944208 $_944232))) True) True) 
+                    (equals $_311984 -10) 
+                    (equals $_312008 -11) 
+                    (fibonacci $_311984 $_312038) 
+                    (fibonacci $_312008 $_312062) 
+                    (equals $_312080 
+                      (+ $_312038 $_312062))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_944382 -10) 
-                    (equals $_944406 -11) 
-                    (fibonacci $_944382 $_944436) 
-                    (fibonacci $_944406 $_944460) 
-                    (equals $_944478 
-                      (+ $_944436 $_944460))) 
+                    (equals $_312212 -9) 
+                    (equals $_312236 -10) 
+                    (fibonacci $_312212 $_312266) 
+                    (fibonacci $_312236 $_312290) 
+                    (equals $_312308 
+                      (+ $_312266 $_312290))) 
                   (and False 
-                    (equals $_944538 -11) 
-                    (equals $_944562 -12) 
-                    (fibonacci $_944538 $_944592) 
-                    (fibonacci $_944562 $_944616) 
-                    (equals $_944634 
-                      (+ $_944592 $_944616))) True) 
+                    (equals $_312368 -10) 
+                    (equals $_312392 -11) 
+                    (fibonacci $_312368 $_312422) 
+                    (fibonacci $_312392 $_312446) 
+                    (equals $_312464 
+                      (+ $_312422 $_312446))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_944730 -11) 
-                    (equals $_944754 -12) 
-                    (fibonacci $_944730 $_944784) 
-                    (fibonacci $_944754 $_944808) 
-                    (equals $_944826 
-                      (+ $_944784 $_944808))) 
+                    (equals $_312560 -10) 
+                    (equals $_312584 -11) 
+                    (fibonacci $_312560 $_312614) 
+                    (fibonacci $_312584 $_312638) 
+                    (equals $_312656 
+                      (+ $_312614 $_312638))) 
                   (and False 
-                    (equals $_944886 -12) 
-                    (equals $_944910 -13) 
-                    (fibonacci $_944886 $_944940) 
-                    (fibonacci $_944910 $_944964) 
-                    (equals $_944982 
-                      (+ $_944940 $_944964))) True) True) True) True) True) True) 
-      (and False True True 
+                    (equals $_312716 -11) 
+                    (equals $_312740 -12) 
+                    (fibonacci $_312716 $_312770) 
+                    (fibonacci $_312740 $_312794) 
+                    (equals $_312812 
+                      (+ $_312770 $_312794))) True) True) True) True) True) 
         (and False True True 
           (and False True True 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_945258 -6) 
-                    (equals $_945282 -7) 
-                    (fibonacci $_945258 $_945312) 
-                    (fibonacci $_945282 $_945336) 
-                    (equals $_945354 
-                      (+ $_945312 $_945336))) 
+                    (equals $_313052 -7) 
+                    (equals $_313076 -8) 
+                    (fibonacci $_313052 $_313106) 
+                    (fibonacci $_313076 $_313130) 
+                    (equals $_313148 
+                      (+ $_313106 $_313130))) 
                   (and False 
-                    (equals $_945414 -7) 
-                    (equals $_945438 -8) 
-                    (fibonacci $_945414 $_945468) 
-                    (fibonacci $_945438 $_945492) 
-                    (equals $_945510 
-                      (+ $_945468 $_945492))) True) 
+                    (equals $_313208 -8) 
+                    (equals $_313232 -9) 
+                    (fibonacci $_313208 $_313262) 
+                    (fibonacci $_313232 $_313286) 
+                    (equals $_313304 
+                      (+ $_313262 $_313286))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_945606 -7) 
-                    (equals $_945630 -8) 
-                    (fibonacci $_945606 $_945660) 
-                    (fibonacci $_945630 $_945684) 
-                    (equals $_945702 
-                      (+ $_945660 $_945684))) 
+                    (equals $_313400 -8) 
+                    (equals $_313424 -9) 
+                    (fibonacci $_313400 $_313454) 
+                    (fibonacci $_313424 $_313478) 
+                    (equals $_313496 
+                      (+ $_313454 $_313478))) 
                   (and False 
-                    (equals $_945762 -8) 
-                    (equals $_945786 -9) 
-                    (fibonacci $_945762 $_945816) 
-                    (fibonacci $_945786 $_945840) 
-                    (equals $_945858 
-                      (+ $_945816 $_945840))) True) True) 
+                    (equals $_313556 -9) 
+                    (equals $_313580 -10) 
+                    (fibonacci $_313556 $_313610) 
+                    (fibonacci $_313580 $_313634) 
+                    (equals $_313652 
+                      (+ $_313610 $_313634))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_945990 -7) 
-                    (equals $_946014 -8) 
-                    (fibonacci $_945990 $_946044) 
-                    (fibonacci $_946014 $_946068) 
-                    (equals $_946086 
-                      (+ $_946044 $_946068))) 
+                    (equals $_313784 -8) 
+                    (equals $_313808 -9) 
+                    (fibonacci $_313784 $_313838) 
+                    (fibonacci $_313808 $_313862) 
+                    (equals $_313880 
+                      (+ $_313838 $_313862))) 
                   (and False 
-                    (equals $_946146 -8) 
-                    (equals $_946170 -9) 
-                    (fibonacci $_946146 $_946200) 
-                    (fibonacci $_946170 $_946224) 
-                    (equals $_946242 
-                      (+ $_946200 $_946224))) True) 
+                    (equals $_313940 -9) 
+                    (equals $_313964 -10) 
+                    (fibonacci $_313940 $_313994) 
+                    (fibonacci $_313964 $_314018) 
+                    (equals $_314036 
+                      (+ $_313994 $_314018))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_946338 -8) 
-                    (equals $_946362 -9) 
-                    (fibonacci $_946338 $_946392) 
-                    (fibonacci $_946362 $_946416) 
-                    (equals $_946434 
-                      (+ $_946392 $_946416))) 
+                    (equals $_314132 -9) 
+                    (equals $_314156 -10) 
+                    (fibonacci $_314132 $_314186) 
+                    (fibonacci $_314156 $_314210) 
+                    (equals $_314228 
+                      (+ $_314186 $_314210))) 
                   (and False 
-                    (equals $_946494 -9) 
-                    (equals $_946518 -10) 
-                    (fibonacci $_946494 $_946548) 
-                    (fibonacci $_946518 $_946572) 
-                    (equals $_946590 
-                      (+ $_946548 $_946572))) True) True) True) 
+                    (equals $_314288 -10) 
+                    (equals $_314312 -11) 
+                    (fibonacci $_314288 $_314342) 
+                    (fibonacci $_314312 $_314366) 
+                    (equals $_314384 
+                      (+ $_314342 $_314366))) True) True) True) 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_946758 -7) 
-                    (equals $_946782 -8) 
-                    (fibonacci $_946758 $_946812) 
-                    (fibonacci $_946782 $_946836) 
-                    (equals $_946854 
-                      (+ $_946812 $_946836))) 
+                    (equals $_314552 -8) 
+                    (equals $_314576 -9) 
+                    (fibonacci $_314552 $_314606) 
+                    (fibonacci $_314576 $_314630) 
+                    (equals $_314648 
+                      (+ $_314606 $_314630))) 
                   (and False 
-                    (equals $_946914 -8) 
-                    (equals $_946938 -9) 
-                    (fibonacci $_946914 $_946968) 
-                    (fibonacci $_946938 $_946992) 
-                    (equals $_947010 
-                      (+ $_946968 $_946992))) True) 
+                    (equals $_314708 -9) 
+                    (equals $_314732 -10) 
+                    (fibonacci $_314708 $_314762) 
+                    (fibonacci $_314732 $_314786) 
+                    (equals $_314804 
+                      (+ $_314762 $_314786))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_947106 -8) 
-                    (equals $_947130 -9) 
-                    (fibonacci $_947106 $_947160) 
-                    (fibonacci $_947130 $_947184) 
-                    (equals $_947202 
-                      (+ $_947160 $_947184))) 
+                    (equals $_314900 -9) 
+                    (equals $_314924 -10) 
+                    (fibonacci $_314900 $_314954) 
+                    (fibonacci $_314924 $_314978) 
+                    (equals $_314996 
+                      (+ $_314954 $_314978))) 
                   (and False 
-                    (equals $_947262 -9) 
-                    (equals $_947286 -10) 
-                    (fibonacci $_947262 $_947316) 
-                    (fibonacci $_947286 $_947340) 
-                    (equals $_947358 
-                      (+ $_947316 $_947340))) True) True) 
+                    (equals $_315056 -10) 
+                    (equals $_315080 -11) 
+                    (fibonacci $_315056 $_315110) 
+                    (fibonacci $_315080 $_315134) 
+                    (equals $_315152 
+                      (+ $_315110 $_315134))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_947490 -8) 
-                    (equals $_947514 -9) 
-                    (fibonacci $_947490 $_947544) 
-                    (fibonacci $_947514 $_947568) 
-                    (equals $_947586 
-                      (+ $_947544 $_947568))) 
+                    (equals $_315284 -9) 
+                    (equals $_315308 -10) 
+                    (fibonacci $_315284 $_315338) 
+                    (fibonacci $_315308 $_315362) 
+                    (equals $_315380 
+                      (+ $_315338 $_315362))) 
                   (and False 
-                    (equals $_947646 -9) 
-                    (equals $_947670 -10) 
-                    (fibonacci $_947646 $_947700) 
-                    (fibonacci $_947670 $_947724) 
-                    (equals $_947742 
-                      (+ $_947700 $_947724))) True) 
+                    (equals $_315440 -10) 
+                    (equals $_315464 -11) 
+                    (fibonacci $_315440 $_315494) 
+                    (fibonacci $_315464 $_315518) 
+                    (equals $_315536 
+                      (+ $_315494 $_315518))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_947838 -9) 
-                    (equals $_947862 -10) 
-                    (fibonacci $_947838 $_947892) 
-                    (fibonacci $_947862 $_947916) 
-                    (equals $_947934 
-                      (+ $_947892 $_947916))) 
+                    (equals $_315632 -10) 
+                    (equals $_315656 -11) 
+                    (fibonacci $_315632 $_315686) 
+                    (fibonacci $_315656 $_315710) 
+                    (equals $_315728 
+                      (+ $_315686 $_315710))) 
                   (and False 
-                    (equals $_947994 -10) 
-                    (equals $_948018 -11) 
-                    (fibonacci $_947994 $_948048) 
-                    (fibonacci $_948018 $_948072) 
-                    (equals $_948090 
-                      (+ $_948048 $_948072))) True) True) True) True) 
+                    (equals $_315788 -11) 
+                    (equals $_315812 -12) 
+                    (fibonacci $_315788 $_315842) 
+                    (fibonacci $_315812 $_315866) 
+                    (equals $_315884 
+                      (+ $_315842 $_315866))) True) True) True) True) 
           (and False True True 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_948294 -7) 
-                    (equals $_948318 -8) 
-                    (fibonacci $_948294 $_948348) 
-                    (fibonacci $_948318 $_948372) 
-                    (equals $_948390 
-                      (+ $_948348 $_948372))) 
+                    (equals $_316088 -8) 
+                    (equals $_316112 -9) 
+                    (fibonacci $_316088 $_316142) 
+                    (fibonacci $_316112 $_316166) 
+                    (equals $_316184 
+                      (+ $_316142 $_316166))) 
                   (and False 
-                    (equals $_948450 -8) 
-                    (equals $_948474 -9) 
-                    (fibonacci $_948450 $_948504) 
-                    (fibonacci $_948474 $_948528) 
-                    (equals $_948546 
-                      (+ $_948504 $_948528))) True) 
+                    (equals $_316244 -9) 
+                    (equals $_316268 -10) 
+                    (fibonacci $_316244 $_316298) 
+                    (fibonacci $_316268 $_316322) 
+                    (equals $_316340 
+                      (+ $_316298 $_316322))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_948642 -8) 
-                    (equals $_948666 -9) 
-                    (fibonacci $_948642 $_948696) 
-                    (fibonacci $_948666 $_948720) 
-                    (equals $_948738 
-                      (+ $_948696 $_948720))) 
+                    (equals $_316436 -9) 
+                    (equals $_316460 -10) 
+                    (fibonacci $_316436 $_316490) 
+                    (fibonacci $_316460 $_316514) 
+                    (equals $_316532 
+                      (+ $_316490 $_316514))) 
                   (and False 
-                    (equals $_948798 -9) 
-                    (equals $_948822 -10) 
-                    (fibonacci $_948798 $_948852) 
-                    (fibonacci $_948822 $_948876) 
-                    (equals $_948894 
-                      (+ $_948852 $_948876))) True) True) 
+                    (equals $_316592 -10) 
+                    (equals $_316616 -11) 
+                    (fibonacci $_316592 $_316646) 
+                    (fibonacci $_316616 $_316670) 
+                    (equals $_316688 
+                      (+ $_316646 $_316670))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_949026 -8) 
-                    (equals $_949050 -9) 
-                    (fibonacci $_949026 $_949080) 
-                    (fibonacci $_949050 $_949104) 
-                    (equals $_949122 
-                      (+ $_949080 $_949104))) 
+                    (equals $_316820 -9) 
+                    (equals $_316844 -10) 
+                    (fibonacci $_316820 $_316874) 
+                    (fibonacci $_316844 $_316898) 
+                    (equals $_316916 
+                      (+ $_316874 $_316898))) 
                   (and False 
-                    (equals $_949182 -9) 
-                    (equals $_949206 -10) 
-                    (fibonacci $_949182 $_949236) 
-                    (fibonacci $_949206 $_949260) 
-                    (equals $_949278 
-                      (+ $_949236 $_949260))) True) 
+                    (equals $_316976 -10) 
+                    (equals $_317000 -11) 
+                    (fibonacci $_316976 $_317030) 
+                    (fibonacci $_317000 $_317054) 
+                    (equals $_317072 
+                      (+ $_317030 $_317054))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_25426 -9) 
-                    (equals $_25450 -10) 
-                    (fibonacci $_25426 $_25480) 
-                    (fibonacci $_25450 $_25504) 
-                    (equals $_25522 
-                      (+ $_25480 $_25504))) 
+                    (equals $_317168 -10) 
+                    (equals $_317192 -11) 
+                    (fibonacci $_317168 $_317222) 
+                    (fibonacci $_317192 $_317246) 
+                    (equals $_317264 
+                      (+ $_317222 $_317246))) 
                   (and False 
-                    (equals $_25582 -10) 
-                    (equals $_25606 -11) 
-                    (fibonacci $_25582 $_25636) 
-                    (fibonacci $_25606 $_25660) 
-                    (equals $_25678 
-                      (+ $_25636 $_25660))) True) True) True) 
+                    (equals $_317324 -11) 
+                    (equals $_317348 -12) 
+                    (fibonacci $_317324 $_317378) 
+                    (fibonacci $_317348 $_317402) 
+                    (equals $_317420 
+                      (+ $_317378 $_317402))) True) True) True) 
             (and False True True 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_25846 -8) 
-                    (equals $_25870 -9) 
-                    (fibonacci $_25846 $_25900) 
-                    (fibonacci $_25870 $_25924) 
-                    (equals $_25942 
-                      (+ $_25900 $_25924))) 
+                    (equals $_317588 -9) 
+                    (equals $_317612 -10) 
+                    (fibonacci $_317588 $_317642) 
+                    (fibonacci $_317612 $_317666) 
+                    (equals $_317684 
+                      (+ $_317642 $_317666))) 
                   (and False 
-                    (equals $_26002 -9) 
-                    (equals $_26026 -10) 
-                    (fibonacci $_26002 $_26056) 
-                    (fibonacci $_26026 $_26080) 
-                    (equals $_26098 
-                      (+ $_26056 $_26080))) True) 
+                    (equals $_317744 -10) 
+                    (equals $_317768 -11) 
+                    (fibonacci $_317744 $_317798) 
+                    (fibonacci $_317768 $_317822) 
+                    (equals $_317840 
+                      (+ $_317798 $_317822))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_26194 -9) 
-                    (equals $_26218 -10) 
-                    (fibonacci $_26194 $_26248) 
-                    (fibonacci $_26218 $_26272) 
-                    (equals $_26290 
-                      (+ $_26248 $_26272))) 
+                    (equals $_317936 -10) 
+                    (equals $_317960 -11) 
+                    (fibonacci $_317936 $_317990) 
+                    (fibonacci $_317960 $_318014) 
+                    (equals $_318032 
+                      (+ $_317990 $_318014))) 
                   (and False 
-                    (equals $_26350 -10) 
-                    (equals $_26374 -11) 
-                    (fibonacci $_26350 $_26404) 
-                    (fibonacci $_26374 $_26428) 
-                    (equals $_26446 
-                      (+ $_26404 $_26428))) True) True) 
+                    (equals $_318092 -11) 
+                    (equals $_318116 -12) 
+                    (fibonacci $_318092 $_318146) 
+                    (fibonacci $_318116 $_318170) 
+                    (equals $_318188 
+                      (+ $_318146 $_318170))) True) True) 
               (and False True True 
                 (and False True True 
                   (and False 
-                    (equals $_26578 -9) 
-                    (equals $_26602 -10) 
-                    (fibonacci $_26578 $_26632) 
-                    (fibonacci $_26602 $_26656) 
-                    (equals $_26674 
-                      (+ $_26632 $_26656))) 
+                    (equals $_318320 -10) 
+                    (equals $_318344 -11) 
+                    (fibonacci $_318320 $_318374) 
+                    (fibonacci $_318344 $_318398) 
+                    (equals $_318416 
+                      (+ $_318374 $_318398))) 
                   (and False 
-                    (equals $_26734 -10) 
-                    (equals $_26758 -11) 
-                    (fibonacci $_26734 $_26788) 
-                    (fibonacci $_26758 $_26812) 
-                    (equals $_26830 
-                      (+ $_26788 $_26812))) True) 
+                    (equals $_318476 -11) 
+                    (equals $_318500 -12) 
+                    (fibonacci $_318476 $_318530) 
+                    (fibonacci $_318500 $_318554) 
+                    (equals $_318572 
+                      (+ $_318530 $_318554))) True) 
                 (and False True True 
                   (and False 
-                    (equals $_26926 -10) 
-                    (equals $_26950 -11) 
-                    (fibonacci $_26926 $_26980) 
-                    (fibonacci $_26950 $_27004) 
-                    (equals $_27022 
-                      (+ $_26980 $_27004))) 
+                    (equals $_318668 -11) 
+                    (equals $_318692 -12) 
+                    (fibonacci $_318668 $_318722) 
+                    (fibonacci $_318692 $_318746) 
+                    (equals $_318764 
+                      (+ $_318722 $_318746))) 
                   (and False 
-                    (equals $_27082 -11) 
-                    (equals $_27106 -12) 
-                    (fibonacci $_27082 $_27136) 
-                    (fibonacci $_27106 $_27160) 
-                    (equals $_27178 
-                      (+ $_27136 $_27160))) True) True) True) True) True) 
-        (and False True True 
-          (and False True True 
-            (and False True True 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_27418 -7) 
-                    (equals $_27442 -8) 
-                    (fibonacci $_27418 $_27472) 
-                    (fibonacci $_27442 $_27496) 
-                    (equals $_27514 
-                      (+ $_27472 $_27496))) 
-                  (and False 
-                    (equals $_27574 -8) 
-                    (equals $_27598 -9) 
-                    (fibonacci $_27574 $_27628) 
-                    (fibonacci $_27598 $_27652) 
-                    (equals $_27670 
-                      (+ $_27628 $_27652))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_27766 -8) 
-                    (equals $_27790 -9) 
-                    (fibonacci $_27766 $_27820) 
-                    (fibonacci $_27790 $_27844) 
-                    (equals $_27862 
-                      (+ $_27820 $_27844))) 
-                  (and False 
-                    (equals $_27922 -9) 
-                    (equals $_27946 -10) 
-                    (fibonacci $_27922 $_27976) 
-                    (fibonacci $_27946 $_28000) 
-                    (equals $_28018 
-                      (+ $_27976 $_28000))) True) True) 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_28150 -8) 
-                    (equals $_28174 -9) 
-                    (fibonacci $_28150 $_28204) 
-                    (fibonacci $_28174 $_28228) 
-                    (equals $_28246 
-                      (+ $_28204 $_28228))) 
-                  (and False 
-                    (equals $_28306 -9) 
-                    (equals $_28330 -10) 
-                    (fibonacci $_28306 $_28360) 
-                    (fibonacci $_28330 $_28384) 
-                    (equals $_28402 
-                      (+ $_28360 $_28384))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_28498 -9) 
-                    (equals $_28522 -10) 
-                    (fibonacci $_28498 $_28552) 
-                    (fibonacci $_28522 $_28576) 
-                    (equals $_28594 
-                      (+ $_28552 $_28576))) 
-                  (and False 
-                    (equals $_28654 -10) 
-                    (equals $_28678 -11) 
-                    (fibonacci $_28654 $_28708) 
-                    (fibonacci $_28678 $_28732) 
-                    (equals $_28750 
-                      (+ $_28708 $_28732))) True) True) True) 
-            (and False True True 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_28918 -8) 
-                    (equals $_28942 -9) 
-                    (fibonacci $_28918 $_28972) 
-                    (fibonacci $_28942 $_28996) 
-                    (equals $_29014 
-                      (+ $_28972 $_28996))) 
-                  (and False 
-                    (equals $_29074 -9) 
-                    (equals $_29098 -10) 
-                    (fibonacci $_29074 $_29128) 
-                    (fibonacci $_29098 $_29152) 
-                    (equals $_29170 
-                      (+ $_29128 $_29152))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_29266 -9) 
-                    (equals $_29290 -10) 
-                    (fibonacci $_29266 $_29320) 
-                    (fibonacci $_29290 $_29344) 
-                    (equals $_29362 
-                      (+ $_29320 $_29344))) 
-                  (and False 
-                    (equals $_29422 -10) 
-                    (equals $_29446 -11) 
-                    (fibonacci $_29422 $_29476) 
-                    (fibonacci $_29446 $_29500) 
-                    (equals $_29518 
-                      (+ $_29476 $_29500))) True) True) 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_29650 -9) 
-                    (equals $_29674 -10) 
-                    (fibonacci $_29650 $_29704) 
-                    (fibonacci $_29674 $_29728) 
-                    (equals $_29746 
-                      (+ $_29704 $_29728))) 
-                  (and False 
-                    (equals $_29806 -10) 
-                    (equals $_29830 -11) 
-                    (fibonacci $_29806 $_29860) 
-                    (fibonacci $_29830 $_29884) 
-                    (equals $_29902 
-                      (+ $_29860 $_29884))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_29998 -10) 
-                    (equals $_30022 -11) 
-                    (fibonacci $_29998 $_30052) 
-                    (fibonacci $_30022 $_30076) 
-                    (equals $_30094 
-                      (+ $_30052 $_30076))) 
-                  (and False 
-                    (equals $_30154 -11) 
-                    (equals $_30178 -12) 
-                    (fibonacci $_30154 $_30208) 
-                    (fibonacci $_30178 $_30232) 
-                    (equals $_30250 
-                      (+ $_30208 $_30232))) True) True) True) True) 
-          (and False True True 
-            (and False True True 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_30454 -8) 
-                    (equals $_30478 -9) 
-                    (fibonacci $_30454 $_30508) 
-                    (fibonacci $_30478 $_30532) 
-                    (equals $_30550 
-                      (+ $_30508 $_30532))) 
-                  (and False 
-                    (equals $_30610 -9) 
-                    (equals $_30634 -10) 
-                    (fibonacci $_30610 $_30664) 
-                    (fibonacci $_30634 $_30688) 
-                    (equals $_30706 
-                      (+ $_30664 $_30688))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_30802 -9) 
-                    (equals $_30826 -10) 
-                    (fibonacci $_30802 $_30856) 
-                    (fibonacci $_30826 $_30880) 
-                    (equals $_30898 
-                      (+ $_30856 $_30880))) 
-                  (and False 
-                    (equals $_30958 -10) 
-                    (equals $_30982 -11) 
-                    (fibonacci $_30958 $_31012) 
-                    (fibonacci $_30982 $_31036) 
-                    (equals $_31054 
-                      (+ $_31012 $_31036))) True) True) 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_31186 -9) 
-                    (equals $_31210 -10) 
-                    (fibonacci $_31186 $_31240) 
-                    (fibonacci $_31210 $_31264) 
-                    (equals $_31282 
-                      (+ $_31240 $_31264))) 
-                  (and False 
-                    (equals $_31342 -10) 
-                    (equals $_31366 -11) 
-                    (fibonacci $_31342 $_31396) 
-                    (fibonacci $_31366 $_31420) 
-                    (equals $_31438 
-                      (+ $_31396 $_31420))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_31534 -10) 
-                    (equals $_31558 -11) 
-                    (fibonacci $_31534 $_31588) 
-                    (fibonacci $_31558 $_31612) 
-                    (equals $_31630 
-                      (+ $_31588 $_31612))) 
-                  (and False 
-                    (equals $_31690 -11) 
-                    (equals $_31714 -12) 
-                    (fibonacci $_31690 $_31744) 
-                    (fibonacci $_31714 $_31768) 
-                    (equals $_31786 
-                      (+ $_31744 $_31768))) True) True) True) 
-            (and False True True 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_31954 -9) 
-                    (equals $_31978 -10) 
-                    (fibonacci $_31954 $_32008) 
-                    (fibonacci $_31978 $_32032) 
-                    (equals $_32050 
-                      (+ $_32008 $_32032))) 
-                  (and False 
-                    (equals $_32110 -10) 
-                    (equals $_32134 -11) 
-                    (fibonacci $_32110 $_32164) 
-                    (fibonacci $_32134 $_32188) 
-                    (equals $_32206 
-                      (+ $_32164 $_32188))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_32302 -10) 
-                    (equals $_32326 -11) 
-                    (fibonacci $_32302 $_32356) 
-                    (fibonacci $_32326 $_32380) 
-                    (equals $_32398 
-                      (+ $_32356 $_32380))) 
-                  (and False 
-                    (equals $_32458 -11) 
-                    (equals $_32482 -12) 
-                    (fibonacci $_32458 $_32512) 
-                    (fibonacci $_32482 $_32536) 
-                    (equals $_32554 
-                      (+ $_32512 $_32536))) True) True) 
-              (and False True True 
-                (and False True True 
-                  (and False 
-                    (equals $_32686 -10) 
-                    (equals $_32710 -11) 
-                    (fibonacci $_32686 $_32740) 
-                    (fibonacci $_32710 $_32764) 
-                    (equals $_32782 
-                      (+ $_32740 $_32764))) 
-                  (and False 
-                    (equals $_32842 -11) 
-                    (equals $_32866 -12) 
-                    (fibonacci $_32842 $_32896) 
-                    (fibonacci $_32866 $_32920) 
-                    (equals $_32938 
-                      (+ $_32896 $_32920))) True) 
-                (and False True True 
-                  (and False 
-                    (equals $_33034 -11) 
-                    (equals $_33058 -12) 
-                    (fibonacci $_33034 $_33088) 
-                    (fibonacci $_33058 $_33112) 
-                    (equals $_33130 
-                      (+ $_33088 $_33112))) 
-                  (and False 
-                    (equals $_33190 -12) 
-                    (equals $_33214 -13) 
-                    (fibonacci $_33190 $_33244) 
-                    (fibonacci $_33214 $_33268) 
-                    (equals $_33286 
-                      (+ $_33244 $_33268))) True) True) True) True) True) True)) 
+                    (equals $_318824 -12) 
+                    (equals $_318848 -13) 
+                    (fibonacci $_318824 $_318878) 
+                    (fibonacci $_318848 $_318902) 
+                    (equals $_318920 
+                      (+ $_318878 $_318902))) True) True) True) True) True) True)) 
     (True)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 5,159,996 inferences, 0.690 CPU in 0.690 seconds (100% CPU, 7482296 Lips)
+</span><span class="ansi32">% 4,317,672 inferences, 0.496 CPU in 0.496 seconds (100% CPU, 8702177 Lips)
 </span> (@ = "examples/fibo-as-pred.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
