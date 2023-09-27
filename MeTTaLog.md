@@ -6,7 +6,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 
 | Directory                                        | Pass | Fail |Percent|
 |--------------------------------------------------|------|------|-------|
-|reports -                                         |   228|    86|    72%|
+|reports -                                         |   227|    80|    73%|
 |reports/compat -                                  |   185|    76|    70%|
 |reports/compat/common -                           |    20|     7|    74%|
 |reports/compat/common/formula -                   |     5|     0|   100%|
@@ -14,7 +14,6 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |reports/compat/prob-dep-types -                   |    13|     4|    76%|
 |reports/compat/test_scripts -                     |   152|    59|    72%|
 |reports/nars -                                    |     7|     0|   100%|
-|reports/nars_extras -                             |     1|     6|    14%|
 
 <details><summary>Expand for Core Summaries</summary>
 
@@ -25,7 +24,6 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  20 |  6  | b5_types_prelim.metta             |[reports/compat/test_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/b5_types_prelim.html)|
 |  12 |  6  | d4_type_prop.metta                |[reports/compat/test_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d4_type_prop.html)|
 |  5  |  6  | e2_states.metta                   |[reports/compat/test_scripts/e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/e2_states.html)|
-|  1  |  6  | nars_test00.metta                 |[reports/nars_extras/nars_test00.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html)|
 |  0  |  6  | d5_auto_types.metta               |[reports/compat/test_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html)|
 |  6  |  4  | NumTest.metta                     |[reports/compat/common/NumTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/NumTest.html)|
 |  4  |  4  | prob_dep_types.metta              |[reports/compat/prob-dep-types/prob_dep_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/prob-dep-types/prob_dep_types.html)|
@@ -131,7 +129,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 | FAIL | [EXAMPLES.PATHFINDING-HARD.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-hard.html#EXAMPLES.PATHFINDING-HARD.02) | (assertEqual (reachable a f)) | ((or True)) | (True) |
 | PASS | [EXAMPLES.PATHFINDING-HARD.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/pathfinding-hard.html#EXAMPLES.PATHFINDING-HARD.03) | (assertEqual (path a c $_)) | (True) | (True) |
 | PASS | [.F1-MODULEA.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/_253166.html#.F1-MODULEA.01) | (assertEqual (+ 1 2)) | (3) | (3) |
-| PASS | [.F1-MODULEA.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/_501936.html#.F1-MODULEA.01) | (assertEqual (+ 1 2)) | (3) | (3) |
+| PASS | [.F1-MODULEA.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/_501928.html#.F1-MODULEA.01) | (assertEqual (+ 1 2)) | (3) | (3) |
 | PASS | [FORMULA.DEDUCTIONFORMULATEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.01) | (assertEqualToResult (max 3 4)) | (4) | (4) |
 | PASS | [FORMULA.DEDUCTIONFORMULATEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.02) | (assertEqualToResult (min 3 4)) | (3) | (3) |
 | PASS | [FORMULA.DEDUCTIONFORMULATEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/formula/DeductionFormulaTest.html#FORMULA.DEDUCTIONFORMULATEST.03) | (assertEqualToResult (and True True)) | (True) | (True) |
@@ -143,13 +141,6 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning.html#MINECRAFT.TEST-MINECRAFT-PLANNING.04) | (assertEqual (in-inventory wooden-pickaxe)) | ((in-inventory wooden-pickaxe)) | (True) |
 | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING-WITH-ABSTRACTIONS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning_with_abstractions.html#MINECRAFT.TEST-MINECRAFT-PLANNING-WITH-ABSTRACTIONS.01) | (assertEqual (in-inventory diamond)) | ((in-inventory diamond)) | (False) |
 | FAIL | [MINECRAFT.TEST-MINECRAFT-PLANNING-WITH-ABSTRACTIONS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/minecraft/test_minecraft_planning_with_abstractions.html#MINECRAFT.TEST-MINECRAFT-PLANNING-WITH-ABSTRACTIONS.02) | (assertEqual (in-inventory diamond)) | ((in-inventory diamond)) | (True) |
-| FAIL | [NARS-EXTRAS.NARS-TEST00.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.01) | (assertEqualToResult ("|-" ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))) | (((Garfield --> animal) (1.0 0.81)) ((animal --> Garfield) (1.0 0.44751381215469616))) | (and ((Garfield --> animal) (1.0 0.81)) ((animal --> Garfield) (1.0 0.44751381215469616))) |
-| PASS | [NARS-EXTRAS.NARS-TEST00.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.02) | (assertEqualToResult ("|-" ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))) | (((Garfield --> cat) (1.0 0.44751381215469616))) | (((Garfield --> cat) (1.0 0.44751381215469616))) |
-| FAIL | [NARS-EXTRAS.NARS-TEST00.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.03) | (assertEqualToResult ("|-" ((({ a b }) --> mwawa) (1.0 0.9)))) | (((({ a }) --> mwawa) (1.0 0.81)) ((({ b }) --> mwawa) (1.0 0.81))) | (and ((({ a }) --> mwawa) (1.0 0.81)) ((({ b }) --> mwawa) (1.0 0.81))) |
-| FAIL | [NARS-EXTRAS.NARS-TEST00.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.04) | (assertEqualToResult ("|-" (((a * b) --> R) (1.0 0.9)))) | (((a --> (R "/1" b)) (1.0 0.81)) ((b --> (R "/2" a)) (1.0 0.81))) | (and ((a --> (R "/1" b)) (1.0 0.81)) ((b --> (R "/2" a)) (1.0 0.81))) |
-| FAIL | [NARS-EXTRAS.NARS-TEST00.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.05) | (assertEqualToResult ("|-" ((R --> (a * b)) (1.0 0.9)))) | ((((R \1 b) --> a) (1.0 0.81)) (((R \2 a) --> b) (1.0 0.81))) | (and (((R \1 b) --> a) (1.0 0.81)) (((R \2 a) --> b) (1.0 0.81))) |
-| FAIL | [NARS-EXTRAS.NARS-TEST00.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.06) | (assertEqualToResult ("|-" ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9)))) | (((B --> A) (1.0 0.44751381215469616)) ((B <-> A) (1.0 0.44751381215469616)) (((A & B) --> cat) (1.0... | (and ((B --> A) (1.0 0.44751381215469616)) ((B <-> A) (1.0 0.44751381215469616)) (((A & B) --> cat) (1.0 0.81)) (((A "|" B) --> cat) (1.0 0.81)) (((A ~ B) --> cat) (0.0 0.81))) |
-| FAIL | [NARS-EXTRAS.NARS-TEST00.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/nars_test00.html#NARS-EXTRAS.NARS-TEST00.07) | (assertEqualToResult ("|-" ("|-" ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9)))) | (((Garfield --> being) (1.0 0.7290000000000001)) ((animal --> (Garfield & being)) (1.0 0.40276243093... | (and ((Garfield --> being) (1.0 0.7290000000000001)) ((animal --> (Garfield & being)) (1.0 0.40276243093922653)) ((animal --> (Garfield - being)) (0.0 0.40276243093922653)) ((animal --> (Garfield "|" being)) (1.0 0.40276243093922653)) ((being --> Garfield) (1.0 0.28712091374556914)) ((being --> Garfield) (1.0 0.42163100057836905)) ((being <-> Garfield) (1.0 0.28712091374556914))) |
 | PASS | [NARS.TESTS0.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars/tests0.html#NARS.TESTS0.01) | (assertEqualToResult ("|-" ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))) | (((Garfield --> animal) (1.0 0.81)) ((animal --> Garfield) (1.0 0.44751381215469616))) | (((Garfield --> animal) (1.0 0.81)) ((animal --> Garfield) (1.0 0.44751381215469616))) |
 | PASS | [NARS.TESTS0.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars/tests0.html#NARS.TESTS0.02) | (assertEqualToResult ("|-" ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))) | (((Garfield --> cat) (1.0 0.44751381215469616))) | (((Garfield --> cat) (1.0 0.44751381215469616))) |
 | PASS | [NARS.TESTS0.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars/tests0.html#NARS.TESTS0.03) | (assertEqualToResult ("|-" ((({ a b }) --> mwawa) (1.0 0.9)))) | (((({ a }) --> mwawa) (1.0 0.81)) ((({ b }) --> mwawa) (1.0 0.81))) | (((({ a }) --> mwawa) (1.0 0.81)) ((({ b }) --> mwawa) (1.0 0.81))) |
@@ -268,7 +259,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 | PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.05) | (assertEqualToResult (and (> 4 2) (< 4 3))) | (False) | (False) |
 | PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.06) | (assertEqualToResult (ln (+ 2 2))) | ((ln 4)) | ((ln 4)) |
 | PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.07) | (assertEqualToResult (> 4 (+ ln 2))) | ((> 4 (+ ln 2))) | ((> 4 (+ ln 2))) |
-| PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.08) | (assertEqualToResult (> 4 (+ $X 2))) | ((> 4 (+ $_355070 2))) | ((> 4 (+ $_348638 2))) |
+| PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.08) | (assertEqualToResult (> 4 (+ $X 2))) | ((> 4 (+ $_355080 2))) | ((> 4 (+ $_348648 2))) |
 | PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.09) | (assertEqualToResult (== 4 (+ 2 2))) | (True) | (True) |
 | PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.10) | (assertEqualToResult (== 2 3)) | (False) | (False) |
 | PASS | [TEST-SCRIPTS.C1-GROUNDED-BASIC.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/c1_grounded_basic.html#TEST-SCRIPTS.C1-GROUNDED-BASIC.11) | (assertEqualToResult (== (A B) (A B))) | (True) | (True) |
@@ -389,7 +380,7 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 | PASS | [TEST-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.01) | (assertEqual (g 2)) | (102) | (102) |
 | PASS | [TEST-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.01) | (assertEqual (g 2)) | (102) | (102) |
 | FAIL | [TEST-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.01) | (assertEqual (let* (($X (collapse (get-atoms &m))) ($Y (car-atom $X))) (get-type $Y))) | () | (Symbol) |
-| FAIL | [TEST-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.01) | (assertEqual ((let $X (get-atoms &self) (get-type $X)))) | (((let $_319754 (get-atoms &self) (get-type $_319754)))) | ((Symbol)) |
+| FAIL | [TEST-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.01) | (assertEqual ((let $X (get-atoms &self) (get-type $X)))) | (((let $_319746 (get-atoms &self) (get-type $_319746)))) | ((Symbol)) |
 | PASS | [TEST-SCRIPTS.F1-IMPORTS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.02) | (assertEqual (f 2)) | (103) | (103) |
 | FAIL | [TEST-SCRIPTS.F1-IMPORTS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.02) | (assertEqual (f 2)) | ((f 2)) | (103) |
 | FAIL | [TEST-SCRIPTS.F1-IMPORTS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/f1_imports.html#TEST-SCRIPTS.F1-IMPORTS.02) | (assertEqual (f 2)) | ((f 2)) | (103) |
@@ -406,10 +397,10 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 
 
 Test Results:
-241 Passed,
-91 Failed,
-332 Total,
-72.59% Passed
+240 Passed,
+85 Failed,
+325 Total,
+73.85% Passed
  
 ## Installation Guide
 
