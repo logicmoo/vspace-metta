@@ -12,16 +12,17 @@
 (= (sequential $1) (superpose $1))
 (: do (-> Expression %Undefined%))
 (= (do $1) (case $1 ()))
-(= (TupleCount ()) 0)
-(= (TupleCount (1)) 1)
-(= (BuildTupleCounts $TOld $C $N) 
-   (let $T (collapse (superpose (1 (superpose $TOld))))
-        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
+;(= (TupleCount ()) 0)
+;(= (TupleCount (1)) 1)
+;(= (BuildTupleCounts $TOld $C $N)
+;   (let $T (collapse (superpose (1 (superpose $TOld))))
+;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
+;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
+(= (TupleCount $list) (length $list))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 100)
+;!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
 ;; Truth functions
@@ -48,7 +49,7 @@
 (= (Truth_DecomposePPP $v1 $v2) (Truth_DecomposeNPP (Truth_Negation $v1) $v2))
 (= (Truth_DecomposeNNN ($f1 $c1) ($f2 $c2)) (let $fn (* (- 1 $f1) (- 1 $f2)) ((- 1 $fn) (* $fn (* $c1 $c2)))))
 (= (Truth_Eternalize ($f $c)) ($f (Truth_w2c $c)))
-(= (Truth_Revision ($f1 $c1) ($f2 $c2)) 
+(= (Truth_Revision ($f1 $c1) ($f2 $c2))
    (let* (($w1 (Truth_c2w $c1)) ($w2 (Truth_c2w $c2)) ($w  (+ $w1 $w2))
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
@@ -274,7 +275,7 @@
                                     (($w (change-state! &tempstate True))
                                      (%void% (add-atom &tempset $z))))))
                      (get-state &tempstate)))))
-               
+
 ;revise if there is no evidential overlap, else use higher-confident candidate
 (= (RevisionAndChoice (Event ($Term1 ($f1 $c1)) (eternal $ev1 $EPrio1)) (Event ($Term2 ($f2 $c2)) (eternal $ev2 $EPrio2)))
    (let $ConclusionStamp (TupleConcat $ev1 $ev2)
@@ -337,7 +338,7 @@
                                                         $ConcTV))))))))
 
 ;find a belief for the task to generate conclusions with
-(= (ReasonWithTask (Event $S1 ($time1 $ev1 $prio1)) $t) 
+(= (ReasonWithTask (Event $S1 ($time1 $ev1 $prio1)) $t)
    (let ($Belief $CPrio) (case (get-atoms &attentional_focus)
                                (((Concept $Term (Event $SE2 ($timeE2 $evE2 $prioE2)) (Event $S2 ($time2 $ev2 $prio2)) $CPrio)
                                  (If (and (not (== $time1 eternal)) (> (abs (- $time1 $time2)) 20))
@@ -486,3 +487,34 @@
           ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
          (sequential ((do (add-atom &goal_events $InputEvent))
                       (GoalCycle $t)))))
+!(AddBeliefEvent (ballleft (1.0 0.9)))
+!(AddBeliefEvent ((^ left) (1.0 0.9)))
+!(AddBeliefEvent (ballhit (1.0 0.9)))
+
+!(AddBeliefEvent (ballleft (1.0 0.9)))
+!(AddBeliefEvent ((^ left) (1.0 0.9)))
+
+!(AddBeliefEvent (ballright (1.0 0.9)))
+!(AddBeliefEvent ((^ left) (1.0 0.9)))
+!(AddBeliefEvent (ballhit (1.0 0.9)))
+
+!(AddBeliefEvent (ballright (1.0 0.9)))
+!(AddBeliefEvent ((^ right) (1.0 0.9)))
+!(AddBeliefEvent (ballhit (1.0 0.9)))
+
+!(AddBeliefEvent (ballright (1.0 0.9)))
+!(AddBeliefEvent ((^ right) (1.0 0.9)))
+!(AddBeliefEvent (ballhit (1.0 0.9)))
+
+;just for looking at the hypotheses:
+!(EternalQuestion ((ballleft &/ (^ $Op)) =/> ballhit))
+!(EternalQuestion ((ballright &/ (^ $Op)) =/> ballhit))
+
+!(AddBeliefEvent (ballleft (1.0 0.9)))
+!(assertEqual (AddGoalEvent (ballhit (1.0 0.9)))
+ (^ left))
+
+!(AddBeliefEvent (ballright (1.0 0.9)))
+!(assertEqual (AddGoalEvent (ballhit (1.0 0.9)))
+;expected:
+   (^ right))

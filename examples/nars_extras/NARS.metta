@@ -1,4 +1,7 @@
 ;; stdlib extension
+
+(assertEquals 0.11111 0.11112)
+
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
 (= (If False $then) ())
@@ -8,25 +11,23 @@
 (= (max $1 $2) (If (> $1 $2) $1 $2))
 (= (min $1 $2) (If (< $1 $2) $1 $2))
 (= (abs $x) (If (< $x 0) (- 0 $x) $x))
-(: sequential (-> Expression %Undefined%))
+(: sequential (-> Expression %Undefined% ))
 (= (sequential $1) (superpose $1))
-(: do (-> Expression %Undefined%))
+(: do (-> Expression %Undefined% ))
 (= (do $1) (case $1 ()))
-(= (TupleCount ()) 0)
-(= (TupleCount (1)) 1)
-(= (BuildTupleCounts $TOld $C $N)
-   (let $T (collapse (superpose (1 (superpose $TOld))))
-        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
+;(= (TupleCount ()) 0)
+;(= (TupleCount (1)) 1)
+;(= (BuildTupleCounts $TOld $C $N)
+;   (let $T (collapse (superpose (1 (superpose $TOld))))
+;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
+;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
+(= (TupleCount $list) (length $list))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 10)
+;!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
-
-!(get-atoms &self)
-
 ;; Truth functions
 (= (Truth_c2w $c) (/ $c (- 1 $c)))
 (= (Truth_w2c $w) (/ $w (+ $w 1)))
@@ -56,11 +57,6 @@
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
 (= (Truth_Expectation ($f $c)) (+ (* $c (- $f 0.5)) 0.5))
-
-!(get-atoms &self)
-
-
-
 ;;NAL-1
 ;;!Syllogistic rules for Inheritance:
 (= (|- (($a --> $b) $T1) (($b --> $c) $T2)) (($a --> $c) (Truth_Deduction $T1 $T2)))
@@ -217,8 +213,6 @@
 ;spaces
 !(bind! &belief_events (new-space))
 !(bind! &goal_events (new-space))
-
-!(get-atoms &self)
 
 ;states
 !(bind! &currentTime (new-state 1))
@@ -496,10 +490,3 @@
           ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
          (sequential ((do (add-atom &goal_events $InputEvent))
                       (GoalCycle $t)))))
-
-
-
-
-
-
-!(get-atoms &self)
