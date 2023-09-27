@@ -1,3 +1,5 @@
+!(import! &self NARS.metta)
+
 !(AddBeliefEvent (ballleft (1.0 0.9)))
 !(AddBeliefEvent ((^ left) (1.0 0.9)))
 !(AddBeliefEvent (ballhit (1.0 0.9)))
@@ -22,9 +24,11 @@
 !(EternalQuestion ((ballright &/ (^ $Op)) =/> ballhit))
 
 !(AddBeliefEvent (ballleft (1.0 0.9)))
-!(AddGoalEvent (ballhit (1.0 0.9)))
-;expected: [(^ left)]
+!(assertEqual (AddGoalEvent (ballhit (1.0 0.9)))
+ (^ left))
 
 !(AddBeliefEvent (ballright (1.0 0.9)))
-!(AddGoalEvent (ballhit (1.0 0.9)))
-;expected: [(^ right)]
+!(assertEqual
+   (AddGoalEvent (ballhit (1.0 0.9)))
+;expected:
+   (^ right))

@@ -1,7 +1,4 @@
 ;; stdlib extension
-
-(assertEquals 0.11111 0.11112)
-
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
 (= (If False $then) ())

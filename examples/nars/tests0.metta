@@ -1,3 +1,5 @@
+!(import! &self NARS.metta)
+
 ;;NAL tests
 
 !(|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))

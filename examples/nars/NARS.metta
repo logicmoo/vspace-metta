@@ -1,4 +1,7 @@
 ;; stdlib extension
+
+(assertEquals 0.11111 0.11112)
+
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
 (= (If False $then) ())
@@ -273,8 +276,7 @@
                      (do (let $z (superpose $x)
                               (case (match &tempset $z $z)
                                     (($w (change-state! &tempstate True))
-                                     (%void%
-				               (add-atom &tempset $z))))))
+                                     (%void% (add-atom &tempset $z))))))
                      (get-state &tempstate)))))
 
 ;revise if there is no evidential overlap, else use higher-confident candidate
@@ -297,13 +299,11 @@
                                                                 ($MaxPrio (If (> (EventPriorityNow $EPrio $t) (ConceptPriorityNow $CPrio $t))
                                                                               $EPrio $CPrio)))
                                                          (add-atom &attentional_focus (Concept $Term $RevisedBelief $NewEvent $MaxPrio))))))
-                             (%void%
-			          (case (match &concepts $MatchConcept $MatchConcept)
+                             (%void% (case (match &concepts $MatchConcept $MatchConcept)
                                            (($MatchConcept (sequential ((remove-atom &concepts $MatchConcept)
                                                                         (add-atom &attentional_focus $MatchConcept)
                                                                         (UpdateConcept $NewEvent $t))))
-                                            (%void%
-					               (add-atom &attentional_focus (Concept $Term $NewEventEternalized $NewEvent $EPrio))))))))))))
+                                            (%void% (add-atom &attentional_focus (Concept $Term $NewEventEternalized $NewEvent $EPrio))))))))))))
 
 ;bound the size of attentional focus of concepts
 (= (BoundAttention $Threshold $Increment $TargetAmount $t)
@@ -318,14 +318,12 @@
 ;get eternal belief of concept
 (: EternalQuestion (-> Expression $t))
 (= (EternalQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $Belief)
-                                (($Ev $Ev) (%void%
-				               (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
+                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
 
 ;get event belief of concept
 (: EventQuestion (-> Expression $t))
 (= (EventQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $BeliefEvent)
-                                (($Ev $Ev) (%void%
-				                (Event (None (0.5 0.0)) (0 Nil 0.0))))))
+                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (0 Nil 0.0))))))
 ;;Declarative inference (deriving events and knowledge from observed events)
 
 ;Derived belief event priority
@@ -361,7 +359,7 @@
                                      (BoundAttention 0.0 0.1 (AttentionalFocusConceptsMax) $t)))))
 ;;Temporal inference (sequence and implication formation based on FIFO)
 
-;use the event evidence to induce a time-independent belief which can be used in the future
+;use the event's evidence to induce a time-independent belief which can be used in the future
 (= (Eternalize $Ev) (let (Event ($Term $TV) ($Time $Evidence $EPrio)) $Ev
                          (If (== $Time eternal) $Ev
                          (Event ($Term (Truth_Eternalize $TV)) (eternal $Evidence (0 0.0))))))
@@ -370,7 +368,7 @@
 (= (Projection (Event ($Term ($f $c)) ($Time $Evidence $EPrio)) $TargetTime)
    (Event ($Term ($f (* $c (min 1 (/ 1 (abs (- $Time $TargetTime))))))) ($TargetTime $Evidence $EPrio)))
 
-;make the belief occurrence time compatible with the task''s
+;make the belief occurrence time compatible with the task's
 (= (TemporallyAlignedBelief $TaskTime $Belief) (If (== $TaskTime eternal)
                                                    (Eternalize $Belief)
                                                    (Projection $Belief $TaskTime)))
@@ -398,7 +396,7 @@
    (let (Event ($Term1 $Truth1) ($Time1 $Evidence1 $EPrio1)) (Projection $Ev1 $Time2)
         (Event (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)) ($Time2 (TupleConcat $Evidence1 $Evidence2) (0 0.0)))))
 
-;Whether an event''s term is an operation
+;Whether an event's term is an operation
 (= (IsOp (Event ($Term $Truth) $Metadata))
    (case $Term (((^ $Opname) True)
                 ($Otherwise False))))
@@ -420,7 +418,7 @@
         (If (not (== $ObservedCons $PredictedCons))
             (UpdateConcept (Event (($PrecTerm =/> $PredictedCons) (0.0 0.1)) ($t () (0 0.0))) $t))))
 
-;Check if the implication''s preconditions are met to anticipate the by the implication predicted outcome
+;Check if the implication's preconditions are met to anticipate the by the implication predicted outcome
 (= (Anticipate (Cons $Pos Nil) $t))
 (= (Anticipate (Cons $Pos (Cons $Pre Nil)) $t)
    (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)
@@ -492,28 +490,3 @@
           ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
          (sequential ((do (add-atom &goal_events $InputEvent))
                       (GoalCycle $t)))))
-;;NAL tests
-
-!(assertEqualToResult (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))
-    (((animal --> Garfield) (1.0 0.44751381215469616)), ((Garfield --> animal) (1.0 0.81))))
-
-!(assertEqualToResult (|- ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))
-                     (((Garfield --> cat) (1.0 0.44751381215469616))))
-
-!(assertEqualToResult (|- ((({ a b }) --> mwawa) (1.0 0.9)))
-                     (((({ a }) --> mwawa) (1.0 0.81)), ((({ b }) --> mwawa) (1.0 0.81))))
-
-!(assertEqualToResult (|- (((a * b) --> R) (1.0 0.9)))
-                     (((a --> (R /1 b)) (1.0 0.81)), ((b --> (R /2 a)) (1.0 0.81))))
-
-!(assertEqualToResult (|- ((R --> (a * b)) (1.0 0.9)))
-                     ((((R \1 b) --> a) (1.0 0.81)), (((R \2 a) --> b) (1.0 0.81))))
-
-!(assertEqualToResult (|- ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9)))
-                     (((B --> A) (1.0 0.44751381215469616)), (((A ~ B) --> cat) (0.0 0.81)), (((A | B) --> cat) (1.0 0.81)), ((B <-> A) (1.0 0.44751381215469616)), (((A & B) --> cat) (1.0 0.81))))
-
-!(assertEqualToResult (|- (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9)))
-                     (((animal --> (Garfield | being)) (1.0 0.40276243093922653)), ((animal --> (Garfield & being)) (1.0 0.40276243093922653)), ((animal --> (Garfield - being)) (0.0 0.40276243093922653)), ((being <-> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.42163100057836905)), ((Garfield --> being) (1.0 0.7290000000000001))))
-
-
-

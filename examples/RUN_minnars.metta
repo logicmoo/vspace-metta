@@ -22,7 +22,7 @@
 (= (Truth_DecomposePPP $v1 $v2) (Truth_DecomposeNPP (Truth_Negation $v1) $v2))
 (= (Truth_DecomposeNNN ($f1 $c1) ($f2 $c2)) (let $fn (* (- 1 $f1) (- 1 $f2)) ((- 1 $fn) (* $fn (* $c1 $c2)))))
 (= (Truth_Eternalize ($f $c)) ($f (Truth_w2c $c)))
-(= (Truth_Revision ($f1 $c1) ($f2 $c2)) 
+(= (Truth_Revision ($f1 $c1) ($f2 $c2))
    (let* (($w1 (Truth_c2w $c1)) ($w2 (Truth_c2w $c2)) ($w  (+ $w1 $w2))
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
@@ -189,17 +189,17 @@
 (= (Derive $beliefs $depth $maxdepth)
    (if (> $depth $maxdepth)
        $beliefs
-       (let $derivations 
+       (let $derivations
             (collapse (let* (((Sentence $x $Ev1) (superpose $beliefs))
                              ((Sentence $y $Ev2) (superpose $beliefs))
                              ($stamp (TupleConcat $Ev1 $Ev2)))
-                            (if (StampDisjoint $Ev1 $Ev2) 
+                            (if (StampDisjoint $Ev1 $Ev2)
                                 (case (|- $x $y) ((($T $TV) (Sentence ($T $TV) $stamp)))) ())))
             (Derive (TupleConcat $beliefs $derivations) (+ $depth 1) $maxdepth))))
 
 ;retrieve the best candidate
 (= (BestCandidate $evaluateCandidateFunction $bestCandidate $tuple)
-  (if (== $tuple ()) 
+  (if (== $tuple ())
       $bestCandidate
       (let* (($head (car-atom $tuple))
              ($tail (cdr-atom $tuple)))
@@ -214,13 +214,15 @@
 
 ;pose a question of a certain term to the system on some knowledge base
 (= (Question $kb $term $steps)
-   (BestCandidate ConfidenceRank Nil (collapse (let $x (Derive $kb 1 $steps) 
+   (BestCandidate ConfidenceRank Nil (collapse (let $x (Derive $kb 1 $steps)
                                                    (case (superpose $x)
-                                                         (((Sentence ($T $TV) $Ev) (case (== $T $term) 
+                                                         (((Sentence ($T $TV) $Ev) (case (== $T $term)
                                                                                          ((True ($TV $Ev)))))))))))
-;; How much evidence is there that garfield is an artist given the following input using up to 3 inference steps? 
-!(Question ((Sentence ((({ garfield }) --> cat) (1.0 0.9)) (1)) 
-            (Sentence (((cat * sky) --> like) (1.0 0.9)) (2)) 
+;; How much evidence is there that garfield is an artist given the following input using up to 3 inference steps?
+!(assertEqual
+   (Question ((Sentence ((({ garfield }) --> cat) (1.0 0.9)) (1))
+            (Sentence (((cat * sky) --> like) (1.0 0.9)) (2))
             (Sentence ((sky --> ([ blue ])) (1.0 0.9)) (3))
             (Sentence ((((({ garfield }) * ([ blue ])) --> like) ==> (({ garfield }) --> artist)) (1.0 0.9)) (4)))
-           (({ garfield }) --> artist) 3)
+
+          (({ garfield }) --> artist) 3))
