@@ -3,16 +3,6 @@
 export UNITS_DIR="${1:-examples/}"
 export FOUND_UNITS=/tmp/found_units
 
-function delete_html_files() {
-    find "${UNITS_DIR}" -name "*.html" -type f -delete
-}
-
-function run_metta() {
-    if [ -n "${1}" ] && [ -d "${UNITS_DIR}" ]; then
-        find "${UNITS_DIR}" -name "*.metta" -type f -exec ./MeTTa --timeout=20 {} \;
-    fi
-}
-
 function initialize_counters() {
     total_successes=0
     total_failures=0
@@ -47,28 +37,21 @@ function process_file() {
 
     printf "|%-5s|%-5s|%-35s|%-130s|\n" "  $current_successes" "  $current_failures" " ${basename}.metta" "[$relative_path]($github_link)" >> $FOUND_UNITS.sortme
 
-    total_successes=$((total_successes + current_successes))
-    total_failures=$((total_failures + current_failures))
+    # only consider "compat" tests towards the core totals
+    if [[ $file == *"compat"* ]]; then
+       total_successes=$((total_successes + current_successes))
+       total_failures=$((total_failures + current_failures))
+    fi
 }
 
 function get_current_successes() {
     local file="$1"
-
-       if [[ $file == *"compat"* ]]; then
-          cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Successes:' | awk -F: '{sum += $2} END {print sum}'
-       else
-         echo "0"
-       fi
-
+    cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Successes:' | awk -F: '{sum += $2} END {print sum}'
 }
 
 function get_current_failures() {
     local file="$1"
-       if [[ $file == *"compat"* ]]; then
-          cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Failures:' | awk -F: '{sum += $2} END {print sum}'
-       else
-         echo "0"
-       fi
+    cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Failures:' | awk -F: '{sum += $2} END {print sum}'
 }
 
 function sort_and_calculate_totals() {
@@ -114,9 +97,6 @@ function print_report() {
 function main() {
     base_url="https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/"
     initialize_counters
-    # Uncomment below line to delete HTML files
-    # delete_html_files
-    # run_metta
     analyze_files
 }
 

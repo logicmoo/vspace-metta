@@ -396,7 +396,7 @@
    (let (Event ($Term1 $Truth1) ($Time1 $Evidence1 $EPrio1)) (Projection $Ev1 $Time2)
         (Event (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)) ($Time2 (TupleConcat $Evidence1 $Evidence2) (0 0.0)))))
 
-;Whether an event's term is an operation
+;Whether an event''s term is an operation
 (= (IsOp (Event ($Term $Truth) $Metadata))
    (case $Term (((^ $Opname) True)
                 ($Otherwise False))))
@@ -418,7 +418,7 @@
         (If (not (== $ObservedCons $PredictedCons))
             (UpdateConcept (Event (($PrecTerm =/> $PredictedCons) (0.0 0.1)) ($t () (0 0.0))) $t))))
 
-;Check if the implication's preconditions are met to anticipate the by the implication predicted outcome
+;Check if the implication''s preconditions are met to anticipate the by the implication predicted outcome
 (= (Anticipate (Cons $Pos Nil) $t))
 (= (Anticipate (Cons $Pos (Cons $Pre Nil)) $t)
    (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)
