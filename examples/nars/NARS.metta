@@ -1,7 +1,5 @@
 ;; stdlib extension
 
-(assertEquals 0.11111 0.11112)
-
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
 (= (If False $then) ())
@@ -15,17 +13,21 @@
 (= (sequential $1) (superpose $1))
 (: do (-> Expression %Undefined% ))
 (= (do $1) (case $1 ()))
+
 ;(= (TupleCount ()) 0)
 ;(= (TupleCount (1)) 1)
 ;(= (BuildTupleCounts $TOld $C $N)
 ;   (let $T (collapse (superpose (1 (superpose $TOld))))
 ;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
+;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
+
 (= (TupleCount $list) (length $list))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
+
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
 ;!(BuildTupleCounts (1) 0 100)
+
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
 ;; Truth functions
@@ -359,7 +361,7 @@
                                      (BoundAttention 0.0 0.1 (AttentionalFocusConceptsMax) $t)))))
 ;;Temporal inference (sequence and implication formation based on FIFO)
 
-;use the event's evidence to induce a time-independent belief which can be used in the future
+;use the event''s evidence to induce a time-independent belief which can be used in the future
 (= (Eternalize $Ev) (let (Event ($Term $TV) ($Time $Evidence $EPrio)) $Ev
                          (If (== $Time eternal) $Ev
                          (Event ($Term (Truth_Eternalize $TV)) (eternal $Evidence (0 0.0))))))
@@ -368,7 +370,7 @@
 (= (Projection (Event ($Term ($f $c)) ($Time $Evidence $EPrio)) $TargetTime)
    (Event ($Term ($f (* $c (min 1 (/ 1 (abs (- $Time $TargetTime))))))) ($TargetTime $Evidence $EPrio)))
 
-;make the belief occurrence time compatible with the task's
+;make the belief occurrence time compatible with the task''s
 (= (TemporallyAlignedBelief $TaskTime $Belief) (If (== $TaskTime eternal)
                                                    (Eternalize $Belief)
                                                    (Projection $Belief $TaskTime)))

@@ -41,7 +41,7 @@
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (2 3 4) 
     (2 3 4)))
 </span><span class="ansi33"> True
@@ -50,7 +50,7 @@
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (2 3 4) 
     (2 3 4)))
 </span><span class="ansi33"> True
@@ -59,7 +59,7 @@
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (1) 
       (2) 
       (3)) 
@@ -77,7 +77,7 @@
  switch=6
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.04">;; TEST-SCRIPTS.00-LANG-CASE.04</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (OK) 
     (OK)))
 </span><span class="ansi33"> True
@@ -85,11 +85,11 @@
 </span>; we can use variables as cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
 
-</span> c(0,_452498)=[+,1,_452498]
+</span> c(0,_456658)=[+,1,_456658]
  switch=6
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (7) 
     (7)))
 </span><span class="ansi33"> True
@@ -102,7 +102,7 @@
  switch=5
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.06">;; TEST-SCRIPTS.00-LANG-CASE.06</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  () ()))
+  (equal_enough  () ()))
 </span><span class="ansi33"> True
 
 </span>; it is non-deterministic: each value is matched against all cases
@@ -115,7 +115,7 @@
  switch=4
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.07">;; TEST-SCRIPTS.00-LANG-CASE.07</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (OK-3 OK-4) 
     (OK-3 OK-4)))
 </span><span class="ansi33"> True
@@ -123,13 +123,13 @@
 </span>; one case can produce multiple results
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
 
-</span> c(0,_27930)=[+,1,_27930]
+</span> c(0,_30978)=[+,1,_30978]
  switch=2
  switch=3
  switch=4
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.08">;; TEST-SCRIPTS.00-LANG-CASE.08</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (3 4 5) 
     (3 4 5)))
 </span><span class="ansi33"> True
@@ -147,7 +147,7 @@
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (Rel-P B) 
       (Rel-Q C)) 
     ( (Rel-P B) 
@@ -157,13 +157,13 @@
 </span>; cases can be used for deconstruction
 <span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
 
-</span> c(0,['Rel-P',_123310])=['P',_123310]
- c(1,['Rel-Q',_123310])=['Q',_123310]
+</span> c(0,['Rel-P',_126364])=['P',_126364]
+ c(1,['Rel-Q',_126364])=['Q',_126364]
  switch=['Rel-P','B']
  switch=['Rel-Q','C']
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (P B) 
       (Q C)) 
     ( (P B) 
@@ -173,17 +173,17 @@
 </span>; %void% can be used to capture empty results
 <span class="ansi38-000068000">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
 
-</span> c(0,['Rel-P',_164988])=['P',_164988]
- c(1,['Rel-Q',_164988])=['Q',_164988]
+</span> c(0,['Rel-P',_168044])=['P',_168044]
+ c(1,['Rel-Q',_168044])=['Q',_168044]
  c(2,'%void%')='no-match'
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (no-match) 
     (no-match)))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 205,425 inferences, 0.090 CPU in 0.090 seconds (100% CPU, 2275618 Lips)
+</span><span class="ansi32">% 205,744 inferences, 0.092 CPU in 0.092 seconds (100% CPU, 2236715 Lips)
 </span> (@ = "examples/compat/test_scripts/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

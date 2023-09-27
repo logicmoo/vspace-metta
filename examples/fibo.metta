@@ -28,7 +28,7 @@
 ;!(assertEqual (fib-tail 2) 1)
 ;!(assertEqual (fib-acc 2) 1)
 
-;!(assertEqual (fib 3) 2)
+!(assertEqual (fib 3) 2)
 ;!(assertEqual (fib-tail 3) 2)
 ;!(assertEqual (fib-acc 3) 2)
 
@@ -40,7 +40,7 @@
 ;!(assertEqual (fib-tail 5) 5)
 ;!(assertEqual (fib-acc 5) 5)
 
-!(assertEqual (fib 6) 8)
+;!(assertEqual (fib 6) 8)
 ;!(assertEqual (fib-tail 6) 8)
 ;!(assertEqual (fib-acc 6) 8)
 

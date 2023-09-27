@@ -62,7 +62,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.01">;; TEST-SCRIPTS.E2-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (A B)) 
     ( (A B))))
 </span><span class="ansi33"> True
@@ -75,7 +75,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.02">;; TEST-SCRIPTS.E2-STATES.02</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (State  
         (A B))) 
     ( (State  
@@ -91,7 +91,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.03">;; TEST-SCRIPTS.E2-STATES.03</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     ( (StateMonad Number) 
       (Symbol Number)) 
     ( (StateMonad Number))))
@@ -99,9 +99,10 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.04">;; TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
+</span>Error: Invalid input.
+<h3 id="TEST-SCRIPTS.E2-STATES.04">;; TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  () 
+  (equal_enough  () 
     ( (StateMonad String))))
 </span><span class="ansi33"> False
 
@@ -110,7 +111,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.05">;; TEST-SCRIPTS.E2-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (StateMonad Number)) 
     ( (StateMonad Number))))
 </span><span class="ansi33"> True
@@ -120,7 +121,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.06">;; TEST-SCRIPTS.E2-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     (Symbol 
       (StateMonad 
         (List Symbol)) 
@@ -139,7 +140,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.07">;; TEST-SCRIPTS.E2-STATES.07</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     (1) 
     ( (Error 1 BadType))))
 </span><span class="ansi33"> False
@@ -147,9 +148,10 @@
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3><span class="ansi31">
+</span>Error: Invalid input.
+<h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     ("S") 
     ( (Error "S" BadType))))
 </span><span class="ansi33"> False
@@ -169,7 +171,7 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.09">;; TEST-SCRIPTS.E2-STATES.09</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (C D)) 
     ( (C D))))
 </span><span class="ansi33"> True
@@ -183,8 +185,8 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
-    (2) 
+  (equal_enough  
+    (3) 
     ( (State  2))))
 </span><span class="ansi33"> False
 
@@ -194,12 +196,12 @@
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.11">;; TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (State  1)) 
     ( (State  1))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 187,160 inferences, 0.154 CPU in 0.154 seconds (100% CPU, 1218421 Lips)
+</span><span class="ansi32">% 190,193 inferences, 0.151 CPU in 0.151 seconds (100% CPU, 1263010 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

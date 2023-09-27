@@ -30,5 +30,4 @@
 !(AddBeliefEvent (ballright (1.0 0.9)))
 !(assertEqual
    (AddGoalEvent (ballhit (1.0 0.9)))
-;expected:
    (^ right))

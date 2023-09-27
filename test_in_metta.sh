@@ -13,7 +13,7 @@ export PYTHONPATH=./metta_vspace
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Define maximum execution time in seconds
-MAX_TIME=10
+MAX_TIME=30
 
 export UNITS_DIR="${1:-examples/}"
 

@@ -3,3 +3,19 @@ Now PASSING PROB-DEP-TYPES.INF-ORDER-PROBS.08)
 Now PASSING PROB-DEP-TYPES.INF-ORDER-PROBS.09)
 Now PASSING TEST-SCRIPTS.D4-TYPE-PROP.11)
 Now PASSING TEST-SCRIPTS.D4-TYPE-PROP.13)
+ 
+Wed Sep 27 01:29:52 AM PDT 2023
+version_info=main_2743508f93adba4d528a98ef3553a09a5d10e03b_20230927012952_with_uncommitted_changes
+ 
+ 
+Wed Sep 27 01:58:41 AM PDT 2023
+version_info=main_2743508f93adba4d528a98ef3553a09a5d10e03b_20230927015841_with_uncommitted_changes
+ 
+ 
+Wed Sep 27 02:04:58 AM PDT 2023
+version_info=main_2743508f93adba4d528a98ef3553a09a5d10e03b_20230927020458_with_uncommitted_changes
+ 
+ 
+Wed Sep 27 02:15:21 AM PDT 2023
+version_info=main_2743508f93adba4d528a98ef3553a09a5d10e03b_20230927021521_with_uncommitted_changes
+ 

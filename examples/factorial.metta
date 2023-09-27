@@ -119,7 +119,7 @@
 
 ;;!(assertTrue (practorial 0 1))
 ;;!(assertTrue (practorial 1 1))
-;;!(assertTrue (practorial 4 24))
+!(assertTrue (practorial 4 24))
 ;;!(assertTrue (practorial 5 120))
 ;;!(assertTrue (practorial 10) 3628800)
 

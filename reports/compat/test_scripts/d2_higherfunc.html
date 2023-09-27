@@ -20,6 +20,9 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -171,12 +174,18 @@
     ($False $X $Y))
 </span>
 
+;; DMILES: defining here in case not defined in kernel
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,+,[->,'Number','Number','Number']])
+</span><span class="ansi38-255165000">  (: + 
+    (-> Number Number Number))
+</span>
+
 ; Type checks
 <span class="ansi38-000068000">!(assertEqual (get-type (curry +)) (-> Number (-> Number Number)))
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.01">;; TEST-SCRIPTS.D2-HIGHERFUNC.01</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  () 
+  (equal_enough  () 
     ( (-> Number 
         (-> Number Number)))))
 </span><span class="ansi33"> False
@@ -185,7 +194,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.02">;; TEST-SCRIPTS.D2-HIGHERFUNC.02</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  () 
+  (equal_enough  () 
     ( (-> Number Number))))
 </span><span class="ansi33"> False
 
@@ -204,7 +213,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.04">;; TEST-SCRIPTS.D2-HIGHERFUNC.04</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     ( ( ( (curry +) 2) 3)) 
     (5)))
 </span><span class="ansi33"> False
@@ -232,7 +241,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.05">;; TEST-SCRIPTS.D2-HIGHERFUNC.05</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  () 
+  (equal_enough  () 
     ( (-> Number Number))))
 </span><span class="ansi33"> False
 
@@ -240,7 +249,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.06">;; TEST-SCRIPTS.D2-HIGHERFUNC.06</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (Number) 
     (Number)))
 </span><span class="ansi33"> True
@@ -259,7 +268,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.08">;; TEST-SCRIPTS.D2-HIGHERFUNC.08</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (5) 
     (5)))
 </span><span class="ansi33"> True
@@ -309,7 +318,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.10">;; TEST-SCRIPTS.D2-HIGHERFUNC.10</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (True) 
     (True)))
 </span><span class="ansi33"> True
@@ -319,7 +328,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.11">;; TEST-SCRIPTS.D2-HIGHERFUNC.11</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (True) 
     (True)))
 </span><span class="ansi33"> True
@@ -348,7 +357,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.12">;; TEST-SCRIPTS.D2-HIGHERFUNC.12</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (3) 
     (3)))
 </span><span class="ansi33"> True
@@ -357,7 +366,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.13">;; TEST-SCRIPTS.D2-HIGHERFUNC.13</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (9) 
     (9)))
 </span><span class="ansi33"> True
@@ -380,7 +389,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.14">;; TEST-SCRIPTS.D2-HIGHERFUNC.14</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     (6) 
     (6)))
 </span><span class="ansi33"> True
@@ -481,7 +490,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.15">;; TEST-SCRIPTS.D2-HIGHERFUNC.15</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (Something 7)) 
     ( (Something 7))))
 </span><span class="ansi33"> True
@@ -490,7 +499,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.16">;; TEST-SCRIPTS.D2-HIGHERFUNC.16</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (Nothing)) 
     ( (Nothing))))
 </span><span class="ansi33"> True
@@ -500,7 +509,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.17">;; TEST-SCRIPTS.D2-HIGHERFUNC.17</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  () 
+  (equal_enough  () 
     ( (Either Number))))
 </span><span class="ansi33"> False
 
@@ -510,7 +519,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.18">;; TEST-SCRIPTS.D2-HIGHERFUNC.18</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (UntypedC 7)) 
     ( (UntypedC 7))))
 </span><span class="ansi33"> True
@@ -519,7 +528,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.19">;; TEST-SCRIPTS.D2-HIGHERFUNC.19</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (UntypedC 7 
         (UntypedC 10 
           (Null)))) 
@@ -585,7 +594,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.23">;; TEST-SCRIPTS.D2-HIGHERFUNC.23</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (Right 4)) 
     ( (Right 4))))
 </span><span class="ansi33"> True
@@ -626,7 +635,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.24">;; TEST-SCRIPTS.D2-HIGHERFUNC.24</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     ( (Cons 6 
         (Cons 8 False))) 
     ( (Cons 6 
@@ -718,7 +727,7 @@
  switch='False'
 <h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.26">;; TEST-SCRIPTS.D2-HIGHERFUNC.26</h3><span class="ansi36">
 (@ loonit_success 
-  (=@=  
+  (equal_enough  
     ( (Cons 1 
         (Cons 2 
           (Cons 3 ())))) 
@@ -731,7 +740,7 @@
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.27">;; TEST-SCRIPTS.D2-HIGHERFUNC.27</h3><span class="ansi31">
 (@ loonit_failureR 
-  (=@=  
+  (equal_enough  
     ( (insert 3 
         (insert 1 
           (insert 2 False)))) 
@@ -740,7 +749,7 @@
           (Cons 3 ()))))))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 719,732 inferences, 0.856 CPU in 0.856 seconds (100% CPU, 840572 Lips)
+</span><span class="ansi32">% 727,900 inferences, 0.883 CPU in 0.883 seconds (100% CPU, 824010 Lips)
 </span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
