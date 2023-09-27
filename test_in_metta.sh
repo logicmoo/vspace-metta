@@ -15,11 +15,21 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Define maximum execution time in seconds
 MAX_TIME=10
 
+export UNITS_DIR="${1:-examples/}"
+
+function delete_html_files() {
+    cd "$SCRIPT_DIR"
+    find "${UNITS_DIR}" -name "*.html" -type f -delete
+}
 
 function run_tests() {
+
+    delete_html_files
+
+    cd "$SCRIPT_DIR"
     cat /dev/null > TEE.ansi.UNITS
 
-    mapfile -t files < <(grep -rl 'assertEq' examples/ --include="*.metta")
+    mapfile -t files < <(grep -rl 'assertEq' "${UNITS_DIR}" --include="*.metta")
 
     for file in "${files[@]}"; do
         cd "$SCRIPT_DIR"
@@ -42,6 +52,8 @@ function run_tests() {
 
 
 function generate_final_MeTTaLog() {
+
+    cd "$SCRIPT_DIR"
 
     passed=$(grep -c "| PASS |" TEE.ansi.UNITS)
     failed=$(grep -c "| FAIL |" TEE.ansi.UNITS)
@@ -94,6 +106,8 @@ function generate_final_MeTTaLog() {
 
 
 function PreCommitReports() {
+
+    cd "$SCRIPT_DIR"
     echo "Executing Tasks..."
     rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ \
     && echo "1) Synced HTML files from examples/ to reports/ and deleted the original HTML files in examples/"
@@ -103,11 +117,36 @@ function PreCommitReports() {
     mv final_MeTTaLog.md MeTTaLog.md \
     && echo "2) Renamed final_MeTTaLog.md to MeTTaLog.md"
 
-    echo "Tasks Completed Successfully."
+   # Get current branch name
+   branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+   # Get the latest commit SHA
+   latest_commit=$(git rev-parse HEAD)
+
+   # Get the current timestamp
+   timestamp=$(date +%Y%m%d%H%M%S)
+
+   version_info="${branch_name}_${latest_commit}_${timestamp}"
+
+   # Check if there are uncommitted changes
+   if [[ -n $(git status --porcelain) ]]; then
+       changes="_with_uncommitted_changes"
+   fi
+
+   # Construct the reference string
+   version_info="${branch_name}_${latest_commit}_${timestamp}${changes}"
+
+   echo " " >> NewResults.md
+   echo $(date) >> NewResults.md
+   echo "version_info=$version_info" >> NewResults.md
+   echo " " >> NewResults.md
+   cat Results.md  >> NewResults.md
+   echo "Tasks Completed Successfully."
 }
 
 
 function compare_test_files() {
+
     if [ "$#" -ne 2 ]; then
         echo "Usage: compare_test_files <file1> <file2>"
         return 1
@@ -115,6 +154,8 @@ function compare_test_files() {
 
     file1="$1"
     file2="$2"
+
+    cd "$SCRIPT_DIR"
 
     if [ ! -f "$file1" ] || [ ! -f "$file2" ]; then
         echo "Error: One or both of the files do not exist."
@@ -131,9 +172,9 @@ function compare_test_files() {
 
 
     cat "$sorted1"
-    # If the NewResults.md file exists, remove it and create a new one.
-    [ -e NewResults.md ] && rm NewResults.md
-    touch NewResults.md
+    # If the Results.md file exists, remove it and create a new one.
+    [ -e Results.md ] && rm Results.md
+    touch Results.md
 
     comm -3 "$sorted1" "$sorted2" | while read -r line; do
         read -r status test <<< "$line"
@@ -142,20 +183,20 @@ function compare_test_files() {
         status2=$(grep "$test" "$sorted2" | awk '{print $1}' | tr -d ' ')
 
         if [[ -n "$status1" && -n "$status2" && "$status1" != "$status2" ]]; then
-            echo "Now ${status2}ING $test" >> NewResults.md
+            echo "Now ${status2}ING $test" >> Results.md
         fi
     done
 
-    sort -u NewResults.md -o NewResults.md
+    sort -u Results.md -o Results.md
 
     echo "-----------------------------------------"
-    grep 'PASSING' NewResults.md
+    grep 'PASSING' Results.md
     echo "-----------------------------------------"
-    grep 'FAILING' NewResults.md
+    grep 'FAILING' Results.md
     echo "-----------------------------------------"
 
-    new_passing=$(grep -c 'PASSING' NewResults.md)
-    new_failing=$(grep -c 'FAILING' NewResults.md)
+    new_passing=$(grep -c 'PASSING' Results.md)
+    new_failing=$(grep -c 'FAILING' Results.md)
 
     echo "Number of newly PASSING tests: $new_passing"
     echo "Number of newly FAILING tests: $new_failing"
@@ -163,28 +204,30 @@ function compare_test_files() {
     rm -f "$sorted1" "$sorted2"
 }
 
+(
+   cd "$SCRIPT_DIR"
 
+   read -p "Rerun all tests? (y/N): " -n 1 -r
+   echo    # Move to a new line for cleaner output
+   if [[ $REPLY =~ ^[Yy]$ ]]
+   then
+       run_tests
+   else
+       echo "You chose not to run all tests."
+   fi
 
-read -p "Rerun all tests? (y/N): " -n 1 -r
-echo    # Move to a new line for cleaner output
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    run_tests
-else
-    echo "You chose not to run all tests."
-fi
+   generate_final_MeTTaLog
+   compare_test_files ./MeTTaLog.md ./final_MeTTaLog.md
 
-generate_final_MeTTaLog
-compare_test_files ./MeTTaLog.md ./final_MeTTaLog.md
-
-read -p "Are you ready to commit your code and generate unit reports? (y/N): " -n 1 -r
-echo    # Move to a new line for cleaner output
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    PreCommitReports
-else
-    echo "You chose not to commit your code and generate unit reports."
-fi
+   read -p "Are you ready to commit your code and generate unit reports? (y/N): " -n 1 -r
+   echo    # Move to a new line for cleaner output
+   if [[ $REPLY =~ ^[Yy]$ ]]
+   then
+       PreCommitReports
+   else
+       echo "You chose not to commit your code and generate unit reports."
+   fi
+)
 
 [[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
 

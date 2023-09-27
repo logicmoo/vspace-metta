@@ -8,20 +8,24 @@
 (= (max $1 $2) (If (> $1 $2) $1 $2))
 (= (min $1 $2) (If (< $1 $2) $1 $2))
 (= (abs $x) (If (< $x 0) (- 0 $x) $x))
-(: sequential (-> Expression %Undefined%))
+(: sequential (-> Expression %Undefined%
+   ))
 (= (sequential $1) (superpose $1))
-(: do (-> Expression %Undefined%))
+(: do (-> Expression %Undefined%
+   ))
 (= (do $1) (case $1 ()))
-(= (TupleCount ()) 0)
-(= (TupleCount (1)) 1)
-(= (BuildTupleCounts $TOld $C $N) 
-   (let $T (collapse (superpose (1 (superpose $TOld))))
-        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
+
+;(= (TupleCount ()) 0)
+;(= (TupleCount (1)) 1)
+;(= (BuildTupleCounts $TOld $C $N)
+;   (let $T (collapse (superpose (1 (superpose $TOld))))
+;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
+;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
+(= (TupleCount $list) (length $list))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 100)
+;!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
 ;; Truth functions
@@ -48,7 +52,7 @@
 (= (Truth_DecomposePPP $v1 $v2) (Truth_DecomposeNPP (Truth_Negation $v1) $v2))
 (= (Truth_DecomposeNNN ($f1 $c1) ($f2 $c2)) (let $fn (* (- 1 $f1) (- 1 $f2)) ((- 1 $fn) (* $fn (* $c1 $c2)))))
 (= (Truth_Eternalize ($f $c)) ($f (Truth_w2c $c)))
-(= (Truth_Revision ($f1 $c1) ($f2 $c2)) 
+(= (Truth_Revision ($f1 $c1) ($f2 $c2))
    (let* (($w1 (Truth_c2w $c1)) ($w2 (Truth_c2w $c2)) ($w  (+ $w1 $w2))
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))
@@ -274,7 +278,7 @@
                                     (($w (change-state! &tempstate True))
                                      (%void% (add-atom &tempset $z))))))
                      (get-state &tempstate)))))
-               
+
 ;revise if there is no evidential overlap, else use higher-confident candidate
 (= (RevisionAndChoice (Event ($Term1 ($f1 $c1)) (eternal $ev1 $EPrio1)) (Event ($Term2 ($f2 $c2)) (eternal $ev2 $EPrio2)))
    (let $ConclusionStamp (TupleConcat $ev1 $ev2)
@@ -337,7 +341,7 @@
                                                         $ConcTV))))))))
 
 ;find a belief for the task to generate conclusions with
-(= (ReasonWithTask (Event $S1 ($time1 $ev1 $prio1)) $t) 
+(= (ReasonWithTask (Event $S1 ($time1 $ev1 $prio1)) $t)
    (let ($Belief $CPrio) (case (get-atoms &attentional_focus)
                                (((Concept $Term (Event $SE2 ($timeE2 $evE2 $prioE2)) (Event $S2 ($time2 $ev2 $prio2)) $CPrio)
                                  (If (and (not (== $time1 eternal)) (> (abs (- $time1 $time2)) 20))
@@ -492,33 +496,36 @@
 !(AddBeliefEvent ((sky --> ([ blue ])) (1.0 0.9)))
 
 ;The following question needs both a deduction and abduction step:
-!(EternalQuestion ((({ garfield }) * ([ blue ])) --> like))
-;expected: [(Event (((({ garfield }) * ([ blue ])) --> like) (1.0 0.2965825874694874)) (eternal (Cons 2 (Cons 1 (Cons 3 Nil))) 0.643288027761712))]
+!(assertEqual (EternalQuestion ((({ garfield }) * ([ blue ])) --> like))
+;expected:
+  (Event (((({ garfield }) * ([ blue ])) --> like) (1.0 0.2965825874694874)) (eternal (Cons 2 (Cons 1 (Cons 3 Nil))) 0.643288027761712)))
 
 ;Lets stress the control mechanism as these type of events with common extension or intension causes dozens of derivations:
 !(AddBeliefEvent ((A --> cat) (1.0 0.9)))
 !(AddBeliefEvent ((B --> cat) (1.0 0.9)))
 !(AddBeliefEvent ((C --> cat) (1.0 0.9)))
 
-!(EternalQuestion ((A & B) --> cat))
-;expected: [(Event (((A & B) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 4 (Cons 5 Nil)) (5 0.4525)))]
+!(assertEqual (EternalQuestion ((A & B) --> cat))
+;expected:
+  (Event (((A & B) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 4 (Cons 5 Nil)) (5 0.4525))))
 
-!(EternalQuestion ((B & C) --> cat))
-;expected: [(Event (((B & C) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 5 (Cons 6 Nil)) (6 0.4525)))]
+!(assertEqual (EternalQuestion ((B & C) --> cat))
+;expected:
+ (Event (((B & C) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 5 (Cons 6 Nil)) (6 0.4525))))
 
-!(EternalQuestion (((A & B) & C) --> cat))
-;expected: [(Event ((((A & B) & C) --> cat) (1.0 0.42163100057836905)) (eternal (Cons 5 (Cons 4 (Cons 6 Nil))) (6 0.195593125)))
+!(assertEqual (EternalQuestion (((A & B) & C) --> cat))
+;expected:
+  (Event ((((A & B) & C) --> cat) (1.0 0.42163100057836905)) (eternal (Cons 5 (Cons 4 (Cons 6 Nil))) (6 0.195593125))))
 
 !(AddBeliefEvent (((({ garfield }) * ([ blue ])) --> like) (1.0 0.9)))
 
-!(EternalQuestion ((({ garfield }) * ([ blue ])) --> like))
-;expected: [(Event (((({ garfield }) * ([ blue ])) --> like) (1.0 0.5692683291397822)) (eternal (Cons 7 (Cons 2 (Cons 1 (Cons 3 Nil)))) 0.0))]
+!(assertEqual (EternalQuestion ((({ garfield }) * ([ blue ])) --> like))
+;expected:
+ (Event (((({ garfield }) * ([ blue ])) --> like) (1.0 0.5692683291397822)) (eternal (Cons 7 (Cons 2 (Cons 1 (Cons 3 Nil)))) 0.0)))
 ;Please notice that it has revised it with the prior derived result, as you can also see in the evidence trail 1,2,3 being included
 
 ;debug:
-!(CollapseCardinality (get-atoms &belief_events))
-;[8]
-!(CollapseCardinality (get-atoms &attentional_focus))
-;[8]
-!(CollapseCardinality (get-atoms &concepts))
-;[100]
+!(assertEqual (CollapseCardinality (get-atoms &belief_events)) 8)
+!(assertEqual (CollapseCardinality (get-atoms &attentional_focus)) 8)
+!(assertEqual (CollapseCardinality (get-atoms &concepts)) 100)
+

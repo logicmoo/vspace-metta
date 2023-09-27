@@ -7,6 +7,11 @@
 ; A trick to define `curry` in MeTTa without `lambda`
 (= (((curry $f) $x) $y) ($f $x $y))
 
+;; DMILES: defining here in case not defined in kernel
+(: + (-> Number Number Number))
+
+
+
 ; Type checks
 !(assertEqual
   (get-type (curry +))

@@ -53,12 +53,22 @@ function process_file() {
 
 function get_current_successes() {
     local file="$1"
-    cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Successes:' | awk -F: '{sum += $2} END {print sum}'
+
+       if [[ $file == *"compat"* ]]; then
+          cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Successes:' | awk -F: '{sum += $2} END {print sum}'
+       else
+         echo "0"
+       fi
+
 }
 
 function get_current_failures() {
     local file="$1"
-    cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Failures:' | awk -F: '{sum += $2} END {print sum}'
+       if [[ $file == *"compat"* ]]; then
+          cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Failures:' | awk -F: '{sum += $2} END {print sum}'
+       else
+         echo "0"
+       fi
 }
 
 function sort_and_calculate_totals() {
@@ -92,9 +102,11 @@ function print_report() {
     printf "|%-5s|%-5s|%-35s|%-130s|\n" "Pass" "Fail" "File" "GitHub Link" >> PASS_FAIL.md
     printf "|%-5s|%-5s|%-35s|%-130s|\n" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..5})" "$(printf -- '-%.0s' {1..35})" "$(printf -- '-%.0s' {1..130})" >> PASS_FAIL.md
     cat $FOUND_UNITS.sortme >> PASS_FAIL.md
-    printf "|%-5s|%-5s|%-35s|%-130s|\n" " $total_successes" " $total_failures" " Total: $total" " For $percent_successes% '${UNITS_DIR}*.metta'"  >> PASS_FAIL.md
     echo " " >> PASS_FAIL.md
     echo "</details>" >> PASS_FAIL.md
+    echo " " >> PASS_FAIL.md
+    printf "|%-5s|%-5s|%-35s|%-130s|\n" " $total_successes" " $total_failures" " Total: $total" " For $percent_successes% '${UNITS_DIR}*.metta'"  >> PASS_FAIL.md
+       echo " " >> PASS_FAIL.md
     echo "" >> PASS_FAIL.md
     cat PASS_FAIL.md
 }

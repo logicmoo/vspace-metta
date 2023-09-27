@@ -8,20 +8,24 @@
 (= (max $1 $2) (If (> $1 $2) $1 $2))
 (= (min $1 $2) (If (< $1 $2) $1 $2))
 (= (abs $x) (If (< $x 0) (- 0 $x) $x))
-(: sequential (-> Expression %Undefined%))
+(: sequential (-> Expression %Undefined%
+   ))
 (= (sequential $1) (superpose $1))
-(: do (-> Expression %Undefined%))
+(: do (-> Expression %Undefined%
+   ))
 (= (do $1) (case $1 ()))
-(= (TupleCount ()) 0)
-(= (TupleCount (1)) 1)
-(= (BuildTupleCounts $TOld $C $N)
-   (let $T (collapse (superpose (1 (superpose $TOld))))
-        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
+
+;(= (TupleCount ()) 0)
+;(= (TupleCount (1)) 1)
+;(= (BuildTupleCounts $TOld $C $N)
+;   (let $T (collapse (superpose (1 (superpose $TOld))))
+;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
+;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
+(= (TupleCount $list) (length $list))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-!(BuildTupleCounts (1) 0 100)
+;!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
 ;; Truth functions
@@ -272,7 +276,8 @@
                      (do (let $z (superpose $x)
                               (case (match &tempset $z $z)
                                     (($w (change-state! &tempstate True))
-                                     (%void% (add-atom &tempset $z))))))
+                                     (%void%
+				               (add-atom &tempset $z))))))
                      (get-state &tempstate)))))
 
 ;revise if there is no evidential overlap, else use higher-confident candidate
@@ -295,11 +300,13 @@
                                                                 ($MaxPrio (If (> (EventPriorityNow $EPrio $t) (ConceptPriorityNow $CPrio $t))
                                                                               $EPrio $CPrio)))
                                                          (add-atom &attentional_focus (Concept $Term $RevisedBelief $NewEvent $MaxPrio))))))
-                             (%void% (case (match &concepts $MatchConcept $MatchConcept)
+                             (%void%
+			          (case (match &concepts $MatchConcept $MatchConcept)
                                            (($MatchConcept (sequential ((remove-atom &concepts $MatchConcept)
                                                                         (add-atom &attentional_focus $MatchConcept)
                                                                         (UpdateConcept $NewEvent $t))))
-                                            (%void% (add-atom &attentional_focus (Concept $Term $NewEventEternalized $NewEvent $EPrio))))))))))))
+                                            (%void%
+					               (add-atom &attentional_focus (Concept $Term $NewEventEternalized $NewEvent $EPrio))))))))))))
 
 ;bound the size of attentional focus of concepts
 (= (BoundAttention $Threshold $Increment $TargetAmount $t)
@@ -314,12 +321,14 @@
 ;get eternal belief of concept
 (: EternalQuestion (-> Expression $t))
 (= (EternalQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $Belief)
-                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
+                                (($Ev $Ev) (%void%
+				               (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
 
 ;get event belief of concept
 (: EventQuestion (-> Expression $t))
 (= (EventQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $BeliefEvent)
-                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (0 Nil 0.0))))))
+                                (($Ev $Ev) (%void%
+				                (Event (None (0.5 0.0)) (0 Nil 0.0))))))
 ;;Declarative inference (deriving events and knowledge from observed events)
 
 ;Derived belief event priority
@@ -488,24 +497,26 @@
                       (GoalCycle $t)))))
 ;;NAL tests
 
-!(|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))
-;expected: [((animal --> Garfield) (1.0 0.44751381215469616)), ((Garfield --> animal) (1.0 0.81))]
+!(assertEqualToResult (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9)))
+    (((animal --> Garfield) (1.0 0.44751381215469616)), ((Garfield --> animal) (1.0 0.81))))
 
-!(|- ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))
-;expected: [((Garfield --> cat) (1.0 0.44751381215469616))]
+!(assertEqualToResult (|- ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9)))
+                     (((Garfield --> cat) (1.0 0.44751381215469616))))
 
-!(|- ((({ a b }) --> mwawa) (1.0 0.9)))
-;expected: [((({ a }) --> mwawa) (1.0 0.81)), ((({ b }) --> mwawa) (1.0 0.81))]
+!(assertEqualToResult (|- ((({ a b }) --> mwawa) (1.0 0.9)))
+                     (((({ a }) --> mwawa) (1.0 0.81)), ((({ b }) --> mwawa) (1.0 0.81))))
 
-!(|- (((a * b) --> R) (1.0 0.9)))
-;expected: [((a --> (R /1 b)) (1.0 0.81)), ((b --> (R /2 a)) (1.0 0.81))]
+!(assertEqualToResult (|- (((a * b) --> R) (1.0 0.9)))
+                     (((a --> (R /1 b)) (1.0 0.81)), ((b --> (R /2 a)) (1.0 0.81))))
 
-!(|- ((R --> (a * b)) (1.0 0.9)))
-;expected: [(((R \1 b) --> a) (1.0 0.81)), (((R \2 a) --> b) (1.0 0.81))]
+!(assertEqualToResult (|- ((R --> (a * b)) (1.0 0.9)))
+                     ((((R \1 b) --> a) (1.0 0.81)), (((R \2 a) --> b) (1.0 0.81))))
 
-!(|- ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9)))
-;expected: [((B --> A) (1.0 0.44751381215469616)), (((A ~ B) --> cat) (0.0 0.81)), (((A | B) --> cat) (1.0 0.81)), ((B <-> A) (1.0 0.44751381215469616)), (((A & B) --> cat) (1.0 0.81))]
+!(assertEqualToResult (|- ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9)))
+                     (((B --> A) (1.0 0.44751381215469616)), (((A ~ B) --> cat) (0.0 0.81)), (((A | B) --> cat) (1.0 0.81)), ((B <-> A) (1.0 0.44751381215469616)), (((A & B) --> cat) (1.0 0.81))))
 
-!(|- (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9)))
-;expected: [((animal --> (Garfield | being)) (1.0 0.40276243093922653)), ((animal --> (Garfield & being)) (1.0 0.40276243093922653)), ((animal --> (Garfield - being)) (0.0 0.40276243093922653)), ((being <-> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.42163100057836905)), ((Garfield --> being) (1.0 0.7290000000000001))]
+!(assertEqualToResult (|- (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9)))
+                     (((animal --> (Garfield | being)) (1.0 0.40276243093922653)), ((animal --> (Garfield & being)) (1.0 0.40276243093922653)), ((animal --> (Garfield - being)) (0.0 0.40276243093922653)), ((being <-> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.28712091374556914)), ((being --> Garfield) (1.0 0.42163100057836905)), ((Garfield --> being) (1.0 0.7290000000000001))))
+
+
 
