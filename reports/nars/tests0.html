@@ -14,6 +14,7 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -675,8 +676,10 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file NARS.metta)
-;;NAL tests
+ (@ track_load_into_file "examples/nars/tests0.metta")
+<span class="ansi38-000068000">!(import! &self NARS.metta)
+
+</span>;;NAL tests
 ;;; stdlib extension
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom']])
 </span><span class="ansi38-255165000">  (: If 
@@ -2213,13 +2216,13 @@
 </span>;states
 <span class="ansi38-000068000">!(bind! &currentTime (new-state 1))
 
-</span><span class="ansi33"> (@ State 1 $_105322)
- % 'State'(1,_105322)
+</span><span class="ansi33"> (@ State 1 $_104948)
+ % 'State'(1,_104948)
 
 </span><span class="ansi38-000068000">!(bind! &evidentialBase (new-state 1))
 
-</span><span class="ansi33"> (@ State 1 $_307356)
- % 'State'(1,_307356)
+</span><span class="ansi33"> (@ State 1 $_306982)
+ % 'State'(1,_306982)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[increment,Atom],['change-state!',Atom,[+,1,['get-state',Atom]]])
 </span><span class="ansi38-255165000">  (= 
@@ -2257,13 +2260,13 @@
 ;retrieve the best candidate (allows to use tuples / collapse results / spaces as a PQ)
 <span class="ansi38-000068000">!(bind! &tempbest (new-state ()))
 
-</span><span class="ansi33"> (@ State () $_928704)
- % 'State'([],_928704)
+</span><span class="ansi33"> (@ State () $_928330)
+ % 'State'([],_928330)
 
 </span><span class="ansi38-000068000">!(bind! &tempbestscore (new-state 0))
 
-</span><span class="ansi33"> (@ State 0 $_102314)
- % 'State'(0,_102314)
+</span><span class="ansi33"> (@ State 0 $_101940)
+ % 'State'(0,_101940)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['BestCandidate',Tuple,EvaluateCandidateFunction,True],[sequential,[[do,['change-state!','&tempbestscore',0]],[do,['change-state!','&tempbest',[]]],[do,['let*',[[X,[superpose,Tuple]],[Fx,[EvaluateCandidateFunction,X,True]]],[superpose,[['If',[>,Fx,['get-state','&tempbestscore']],[sequential,[['change-state!','&tempbest',X],['change-state!','&tempbestscore',Fx]]]]]]]],['get-state','&tempbest']]])
 </span><span class="ansi38-255165000">  (= 
@@ -2368,8 +2371,8 @@
 ;whether evidence was just counted once
 <span class="ansi38-000068000">!(bind! &tempstate (new-state False))
 
-</span><span class="ansi33"> (@ State False $_359256)
- % 'State'('False',_359256)
+</span><span class="ansi33"> (@ State False $_358882)
+ % 'State'('False',_358882)
 
 </span><span class="ansi38-000068000">!(bind! &tempset (new-space))
 
@@ -2687,8 +2690,8 @@
 ;FIFO max. size bound
 <span class="ansi38-000068000">!(bind! &FIFO (new-state ()))
 
-</span><span class="ansi33"> (@ State () $_952990)
- % 'State'([],_952990)
+</span><span class="ansi33"> (@ State () $_952402)
+ % 'State'([],_952402)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ListFirstK',C,[]],'False')
 </span><span class="ansi38-255165000">  (= 
@@ -3021,8 +3024,6 @@
           (GoalCycle $True)))))
 </span>
 
-<span class="ansi32">% 6,427,915 inferences, 5.536 CPU in 5.536 seconds (100% CPU, 1161119 Lips)
-</span> (@ = NARS.metta 0)
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqualToResult ("|-" ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) (((animal --> Garfield) (1.0 0.44751381215469616)) ((Garfield --> animal) (1.0 0.81))))
@@ -3700,7 +3701,7 @@
               -->(50,'&self',['B',<->,'A'],depth(5))
               -->(51,'&self',['Truth_Comparison',[1.0,0.9],[1.0,0.9]],depth(5))
                   -->(52,'&self',[1.0,0.9],depth(7))
-                -->(53,'&self',[let,_599194,['Truth_or',1.0,1.0],[['If',[==,_599194,0.0],0.0,[/,[*,1.0,1.0],_599194]],['Truth_w2c',[*,_599194,[*,0.9,0.9]]]]],depth(6))
+                -->(53,'&self',[let,_596266,['Truth_or',1.0,1.0],[['If',[==,_596266,0.0],0.0,[/,[*,1.0,1.0],_596266]],['Truth_w2c',[*,_596266,[*,0.9,0.9]]]]],depth(6))
                     -->(54,'&self',['Truth_or',1.0,1.0],depth(8))
                       -->(55,'&self',[-,1,[*,[-,1,1.0],[-,1,1.0]]],depth(9))
                           -->(56,'&self',[*,[-,1,1.0],[-,1,1.0]],depth(11))
@@ -3959,7 +3960,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
 Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
  True
 
-</span><span class="ansi32">% 7,571,719 inferences, 5.841 CPU in 5.843 seconds (100% CPU, 1296400 Lips)
+</span><span class="ansi32">% 7,570,138 inferences, 5.837 CPU in 5.837 seconds (100% CPU, 1296836 Lips)
 </span> (@ = "examples/nars/tests0.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

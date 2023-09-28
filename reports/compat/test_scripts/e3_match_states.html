@@ -60,22 +60,22 @@
 
 <span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_380290))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_380344))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal lunch-order)) 
-    (State  inactive $_380290))
+    (State  inactive $_380344))
 </span>
 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_420020))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_420074))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal meditation)) 
-    (State  inactive $_420020))
+    (State  inactive $_420074))
 </span>
 
 <span class="ansi33"> True
@@ -91,7 +91,7 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_471148)))
+            <--(1,retval('State'(inactive,_471202)))
         <--(0,retval(inactive))
 <span class="ansi33"> True
 
@@ -119,7 +119,7 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_24436)))
+            <--(1,retval('State'(inactive,_24448)))
         <--(0,retval(inactive))
 <span class="ansi33"> False
 
@@ -129,8 +129,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(bind! &state-active (new-state active))
 
-</span><span class="ansi33"> (@ State active $_43514)
- % 'State'(active,_43514)
+</span><span class="ansi33"> (@ State active $_43526)
+ % 'State'(active,_43526)
 
 </span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
 
@@ -141,19 +141,18 @@
 ; `(let $state-active (new-state active)) ...) here.   `
 <span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
 
-</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">;; TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">;; TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi36">
+(@ loonit_success 
   (equal_enough  
-    (Symbol 
-      (StateMonad Symbol)) 
+    ( (StateMonad Symbol)) 
     ( (StateMonad Symbol))))
 </span>        -->(0,'&self',['get-type','&state-active'],depth(2))
               -->(1,'&self','&state-active',depth(5))
-              <--(1,retval('State'(inactive,_90062)))
+              <--(1,retval('State'(inactive,_89946)))
+        <--(0,retval(['StateMonad','Symbol']))
           -->(2,'&self',['StateMonad','Symbol'],depth(3))
-        <--(0,retval('Symbol'))
         -->(3,'&self',['StateMonad','Symbol'],depth(2))
-<span class="ansi33"> False
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
 
@@ -164,7 +163,7 @@
     (inactive)))
 </span>        -->(0,'&self',['get-state','&state-active'],depth(2))
             -->(1,'&self','&state-active',depth(4))
-            <--(1,retval('State'(inactive,_113554)))
+            <--(1,retval('State'(inactive,_113336)))
         <--(0,retval(inactive))
 <span class="ansi33"> True
 
@@ -173,12 +172,12 @@
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  inactive $_129138)) 
-    ( (State  inactive $_129396))))
+    ( (State  inactive $_128920)) 
+    ( (State  inactive $_129178))))
 </span>        -->(0,'&self','&state-active',depth(2))
-        <--(0,retval('State'(inactive,_135906)))
+        <--(0,retval('State'(inactive,_135688)))
         -->(1,'&self',['new-state',inactive],depth(2))
-        <--(1,retval('State'(inactive,_136506)))
+        <--(1,retval('State'(inactive,_136288)))
 <span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
@@ -188,7 +187,7 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (meditation)))
-</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_154666]],'&state-active'],_154666],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_154448]],'&state-active'],_154448],depth(2))
         <--(0,retval(fail))
 <span class="ansi33"> False
 
@@ -200,16 +199,16 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (lunch-order)))
-</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_178612]]],active],_178612,[superpose,[]]],depth(2))
+</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_178394]]],active],_178394,[superpose,[]]],depth(2))
         <--(0,retval(fail))
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 148,675 inferences, 0.094 CPU in 0.094 seconds (100% CPU, 1583998 Lips)
+</span><span class="ansi32">% 148,395 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 1503048 Lips)
 </span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 3
-</span><span class="ansi31">Failures: 4
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 3
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e3_match_states.html" )
 
 </pre>

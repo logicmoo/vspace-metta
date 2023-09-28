@@ -113,8 +113,8 @@
 
 </span><span class="ansi38-000068000">!(bind! &a-first (new-state A))
 
-</span><span class="ansi33"> (@ State A $_484872)
- % 'State'('A',_484872)
+</span><span class="ansi33"> (@ State A $_484926)
+ % 'State'('A',_484926)
 
 </span><span class="ansi38-000068000">!("(get-type A-first)=" (get-type (get-state &a-first)))
 
@@ -171,8 +171,6 @@
 </span><span class="ansi38-000068000">!("(get-type False-first)=" (get-type (get-state &false-first)))
 
 </span><span class="ansi33">  ("(get-type False-first)=" Symbol)
-
-</span><span class="ansi33">  ("(get-type False-first)=" Bool)
 
 </span><span class="ansi38-000068000">!("Change False-first into Sometimes")
 
@@ -262,41 +260,16 @@
 (@ loonit_failureR 
   (equal_enough  
     (Bool) 
-    (Bool Symbol 
-      (Symbol 
-        (StateMonad Bool)) 
-      (Symbol 
-        (StateMonad Symbol)) 
-      (Symbol 
+    ( (Symbol 
         (Symbol Bool)))))
 </span>        -->(0,'&self',['get-type',[isLeft,['Right',5]]],depth(2))
         <--(0,retval('Bool'))
         -->(1,'&self',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]],depth(2))
+        <--(1,retval(['Symbol',['Symbol','Bool']]))
           -->(2,'&self',['Symbol',['Symbol','Bool']],depth(3))
               -->(3,'&self',['Symbol','Bool'],depth(5))
               -->(4,'&self',['Symbol','Bool'],depth(5))
               -->(5,'&self',['Symbol','Bool'],depth(5))
-                -->(6,'&self',['new-state',[isLeft,['Right',5]]],depth(6))
-                    -->(7,'&self',[isLeft,['Right',5]],depth(8))
-                        -->(8,'&self',['Right',5],depth(10))
-          -->(9,'&self',['Symbol',['StateMonad','Symbol']],depth(3))
-              -->(10,'&self',['StateMonad','Symbol'],depth(5))
-              -->(11,'&self',['StateMonad','Symbol'],depth(5))
-              -->(12,'&self',['StateMonad','Symbol'],depth(5))
-          -->(13,'&self',['Symbol',['StateMonad','Bool']],depth(3))
-              -->(14,'&self',['StateMonad','Bool'],depth(5))
-              -->(15,'&self',['StateMonad','Bool'],depth(5))
-              -->(16,'&self',['StateMonad','Bool'],depth(5))
-                    <--(7,retval('False'))
-                <--(6,retval('State'('False',_205346)))
-              -->(17,'&self',['get-state',['new-state',[isLeft,['Right',5]]]],depth(5))
-                  -->(18,'&self',['new-state',[isLeft,['Right',5]]],depth(7))
-                      -->(19,'&self',[isLeft,['Right',5]],depth(9))
-                          -->(20,'&self',['Right',5],depth(11))
-                      <--(19,retval('False'))
-                  <--(18,retval('State'('False',_213174)))
-              <--(17,retval('False'))
-        <--(1,retval('Bool'))
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(bind! &is_left (isLeft (Right 5)))
@@ -317,29 +290,11 @@
     (Symbol 
       (Symbol Bool)))
 
-</span><span class="ansi33">  ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" 
-    (Symbol 
-      (StateMonad Symbol)))
-
-</span><span class="ansi33">  ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" 
-    (Symbol 
-      (StateMonad Bool)))
-
-</span><span class="ansi33">  ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" Symbol)
-
-</span><span class="ansi33">  ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" Bool)
-
 </span><span class="ansi38-000068000">!("(get-type (get-state (new-state (Left  6))))=" (get-type (get-state (new-state (Left 6)))))
 
 </span><span class="ansi33">  ("(get-type (get-state (new-state (Left  6))))=" 
     (Symbol 
       (Symbol Either)))
-
-</span><span class="ansi33">  ("(get-type (get-state (new-state (Left  6))))=" 
-    (Symbol 
-      (StateMonad Either)))
-
-</span><span class="ansi33">  ("(get-type (get-state (new-state (Left  6))))=" Either)
 
 </span><span class="ansi38-000068000">!("(get-type (get-state (new-state (Right 7))))=" (get-type (get-state (new-state (Right 7)))))
 
@@ -347,25 +302,14 @@
     (Symbol 
       (Symbol Either)))
 
-</span><span class="ansi33">  ("(get-type (get-state (new-state (Right 7))))=" 
-    (Symbol 
-      (StateMonad Either)))
-
-</span><span class="ansi33">  ("(get-type (get-state (new-state (Right 7))))=" Either)
-
 </span><span class="ansi38-000068000">!("(get-type &is_left)=" &is_left (get-type &is_left))
 
 </span><span class="ansi33">  ("(get-type &is_left)=" False Symbol)
-
-</span><span class="ansi33">  ("(get-type &is_left)=" False Bool)
 
 </span><span class="ansi38-000068000">!("(get-type &right_7)=" &right_7 (get-type &right_7))
 
 </span><span class="ansi33">  ("(get-type &right_7)=" 
     (Right 7) Either)
-
-</span><span class="ansi33">  ("(get-type &right_7)=" 
-    (Right 7) Symbol)
 
 </span><span class="ansi38-000068000">!("bind &right_7-first with &right_7")
 
@@ -374,27 +318,23 @@
 </span><span class="ansi38-000068000">!(bind! &right_7-first (new-state &right_7))
 
 </span><span class="ansi33"> (@ State 
-  (Right 7) $_432454)
- % 'State'(['Right',7],_432454)
+  (Right 7) $_389140)
+ % 'State'(['Right',7],_389140)
 
 </span><span class="ansi38-000068000">!("change &right_7-first into &is_left" (change-state! &right_7-first &is_left))
 
 </span><span class="ansi33">  ("change &right_7-first into &is_left" 
-    (State  False $_434174))
+    (State  False $_390860))
 
 </span><span class="ansi38-000068000">!("(get-type (get-state &right_7-first))=(" (get-state &right_7-first) ")=" (get-type (get-state &right_7-first)))
 
 </span><span class="ansi33">  ("(get-type (get-state &right_7-first))=(" False ")=" Symbol)
 
-</span><span class="ansi33">  ("(get-type (get-state &right_7-first))=(" False ")=" Bool)
-
 </span><span class="ansi38-000068000">!("(get-type &right_7-first)=" (get-type (get-state &right_7-first)))
 
 </span><span class="ansi33">  ("(get-type &right_7-first)=" Symbol)
 
-</span><span class="ansi33">  ("(get-type &right_7-first)=" Bool)
-
-</span><span class="ansi32">% 341,929 inferences, 0.168 CPU in 0.168 seconds (100% CPU, 2033025 Lips)
+</span><span class="ansi32">% 307,795 inferences, 0.173 CPU in 0.173 seconds (100% CPU, 1778159 Lips)
 </span> (@ = "examples/state_types.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
