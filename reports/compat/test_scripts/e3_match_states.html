@@ -60,22 +60,22 @@
 
 <span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,'Symbol'))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal lunch-order)) 
-    (State  inactive))
+    (State  inactive Symbol))
 </span>
 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,'Symbol'))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal meditation)) 
-    (State  inactive))
+    (State  inactive Symbol))
 </span>
 
 <span class="ansi33"> True
@@ -97,8 +97,7 @@
 ; `nop` is used only to get () for passing unit tests
 <span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
 
-</span>Error: Invalid input.
-<span class="ansi33"> ()
+</span><span class="ansi33"> ()
 
 </span>; The result is now different. This might be surprising, since
 ; the content of Space is not changed. However, this is the whole
@@ -120,8 +119,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(bind! &state-active (new-state active))
 
-</span><span class="ansi33"> (@ State active)
- % 'State'(active)
+</span><span class="ansi33"> (@ State active Symbol)
+ % 'State'(active,'Symbol')
 
 </span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
 
@@ -154,8 +153,8 @@
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  inactive)) 
-    ( (State  inactive))))
+    ( (State  inactive Symbol)) 
+    ( (State  inactive Symbol))))
 </span><span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
@@ -177,7 +176,7 @@
     (lunch-order)))
 </span><span class="ansi33"> False
 
-</span><span class="ansi32">% 144,549 inferences, 0.087 CPU in 0.087 seconds (100% CPU, 1667005 Lips)
+</span><span class="ansi32">% 142,714 inferences, 0.083 CPU in 0.083 seconds (100% CPU, 1714223 Lips)
 </span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

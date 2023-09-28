@@ -1,9 +1,21 @@
 !(import! &self NARS.metta)
 
+; debug
+!(assertEqual (TupleCount (get-atoms &belief_events)) 0)
+
+; breaks into repl
+!(repl!)
+
+
 ;;NARS test
 !(AddBeliefEvent ((({ garfield }) --> cat) (1.0 0.9)))
-!(AddBeliefEvent (((cat * sky) --> like) (1.0 0.9)))
+!(rtrace (AddBeliefEvent (((cat * sky) --> like) (1.0 0.9))))
 !(AddBeliefEvent ((sky --> ([ blue ])) (1.0 0.9)))
+
+
+; debug
+!(print (get-atoms &belief_events))
+!(assertEqual (TupleCount (get-atoms &belief_events)) 3)
 
 ;The following question needs both a deduction and abduction step:
 !(assertEqual
@@ -14,6 +26,9 @@
 !(AddBeliefEvent ((A --> cat) (1.0 0.9)))
 !(AddBeliefEvent ((B --> cat) (1.0 0.9)))
 !(AddBeliefEvent ((C --> cat) (1.0 0.9)))
+
+; debug
+!(assertEqual (TupleCount (get-atoms &belief_events)) 7)
 
 !(assertEqual (EternalQuestion ((A & B) --> cat))
   (Event (((A & B) --> cat) (1.0 0.44751381215469616)) (eternal (Cons 4 (Cons 5 Nil)) (5 0.4525))))

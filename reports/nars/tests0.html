@@ -1149,97 +1149,97 @@
 </span>
 
 ;;!Dealing with properties and instances:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[S,-->,['{',P,'}']],True]],[[S,<->,['{',P,'}']],['Truth_StructuralIntersection',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[S,-->,[{},P]],True]],[[S,<->,[{},P]],['Truth_StructuralIntersection',True]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
       ( ($S --> 
-          ({ $P })) $True)) 
+          ({} $P)) $True)) 
     ( ($S <-> 
-        ({ $P })) 
+        ({} $P)) 
       (Truth_StructuralIntersection $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[['[',S,']']],-->,P],True]],[[[['[',S,']']],<->,P],['Truth_StructuralIntersection',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[['[]',S]],-->,P],True]],[[[['[]',S]],<->,P],['Truth_StructuralIntersection',True]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
-      ( ( ( ([ $S ])) --> $P) $True)) 
-    ( ( ( ([ $S ])) <-> $P) 
+      ( ( ( ([] $S)) --> $P) $True)) 
+    ( ( ( ([] $S)) <-> $P) 
       (Truth_StructuralIntersection $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',M,'}'],-->,P],T1],[[S,<->,M],T2]],[[['{',S,'}'],-->,P],['Truth_Analogy',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},M],-->,P],T1],[[S,<->,M],T2]],[[[{},S],-->,P],['Truth_Analogy',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
-      ( ( ({ $M }) --> $P) $T1) 
+      ( ( ({} $M) --> $P) $T1) 
       ( ($S <-> $M) $T2)) 
-    ( ( ({ $S }) --> $P) 
+    ( ( ({} $S) --> $P) 
       (Truth_Analogy $T1 $T2)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[P,-->,[['[',M,']']]],T1],[[S,<->,M],T2]],[[P,-->,[['[',S,']']]],['Truth_Analogy',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[P,-->,[['[]',M]]],T1],[[S,<->,M],T2]],[[P,-->,[['[]',S]]],['Truth_Analogy',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
       ( ($P --> 
-          ( ([ $M ]))) $T1) 
+          ( ([] $M))) $T1) 
       ( ($S <-> $M) $T2)) 
     ( ($P --> 
-        ( ([ $S ]))) 
+        ( ([] $S))) 
       (Truth_Analogy $T1 $T2)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['|-',[[['{',A,'}'],<->,['{',B,'}']]],[A,<->,B],['Truth_StructuralIntersection',True]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['|-',[[[{},A],<->,[{},B]]],[A,<->,B],['Truth_StructuralIntersection',True]]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
-      ( ( ({ $A }) <-> 
-          ({ $B }))) 
+      ( ( ({} $A) <-> 
+          ({} $B))) 
       ($A <-> $B) 
       (Truth_StructuralIntersection $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['|-',[[[['[',A,']']],<->,[['[',B,']']]]],[A,<->,B],['Truth_StructuralIntersection',True]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['|-',[[[['[]',A]],<->,[['[]',B]]]],[A,<->,B],['Truth_StructuralIntersection',True]]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
-      ( ( ( ([ $A ])) <-> 
-          ( ([ $B ])))) 
+      ( ( ( ([] $A)) <-> 
+          ( ([] $B)))) 
       ($A <-> $B) 
       (Truth_StructuralIntersection $True)))
 </span>
 
 ;;NAL-3
 ;;!Set decomposition:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',A,B,'}'],-->,M],True]],[[['{',A,'}'],-->,M],['Truth_StructuralDeduction',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',A,B,'}'],-->,M],True]],[[[{},A],-->,M],['Truth_StructuralDeduction',True]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
       ( ( ({ $A $B }) --> $M) $True)) 
-    ( ( ({ $A }) --> $M) 
+    ( ( ({} $A) --> $M) 
       (Truth_StructuralDeduction $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',A,B,'}'],-->,M],True]],[[['{',B,'}'],-->,M],['Truth_StructuralDeduction',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',A,B,'}'],-->,M],True]],[[[{},B],-->,M],['Truth_StructuralDeduction',True]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
       ( ( ({ $A $B }) --> $M) $True)) 
-    ( ( ({ $B }) --> $M) 
+    ( ( ({} $B) --> $M) 
       (Truth_StructuralDeduction $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[',A,']']]],['Truth_StructuralDeduction',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[]',A]]],['Truth_StructuralDeduction',True]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
       ( (M --> 
           ( ([ $A $B ]))) $True)) 
     ( (M --> 
-        ( ([ $A ]))) 
+        ( ([] $A))) 
       (Truth_StructuralDeduction $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[',B,']']]],['Truth_StructuralDeduction',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[]',B]]],['Truth_StructuralDeduction',True]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
       ( (M --> 
           ( ([ $A $B ]))) $True)) 
     ( (M --> 
-        ( ([ $B ]))) 
+        ( ([] $B))) 
       (Truth_StructuralDeduction $True)))
 </span>
 
@@ -1561,15 +1561,15 @@
 </span>
 
 ;;!Comparative relations
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',R,'}'],'|-',>,[['[',P,']']]],T1],[[['{',S,'}'],'|-',>,[['[',P,']']]],T2]],[[[['{',R,'}'],*,['{',S,'}']],-->,[>>>,P]],['Truth_FrequencyGreater',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},R],'|-',>,[['[]',P]]],T1],[[[{},S],'|-',>,[['[]',P]]],T2]],[[[[{},R],*,[{},S]],-->,[>>>,P]],['Truth_FrequencyGreater',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
-      ( ( ({ $R }) "|-" > 
-          ( ([ $P ]))) $T1) 
-      ( ( ({ $S }) "|-" > 
-          ( ([ $P ]))) $T2)) 
-    ( ( ( ({ $R }) * 
-          ({ $S })) --> 
+      ( ( ({} $R) "|-" > 
+          ( ([] $P))) $T1) 
+      ( ( ({} $S) "|-" > 
+          ( ([] $P))) $T2)) 
+    ( ( ( ({} $R) * 
+          ({} $S)) --> 
         (>>> $P)) 
       (Truth_FrequencyGreater $T1 $T2)))
 </span>
@@ -1586,15 +1586,15 @@
       (Truth_Deduction $T1 $T2)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[['{',R,'}'],'|-',>,[['[',P,']']]],T1],[[['{',S,'}'],'|-',>,[['[',P,']']]],T2]],[[[['{',R,'}'],*,['{',S,'}']],-->,[===,P]],['Truth_FrequencyEqual',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},R],'|-',>,[['[]',P]]],T1],[[[{},S],'|-',>,[['[]',P]]],T2]],[[[[{},R],*,[{},S]],-->,[===,P]],['Truth_FrequencyEqual',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     ("|-" 
-      ( ( ({ $R }) "|-" > 
-          ( ([ $P ]))) $T1) 
-      ( ( ({ $S }) "|-" > 
-          ( ([ $P ]))) $T2)) 
-    ( ( ( ({ $R }) * 
-          ({ $S })) --> 
+      ( ( ({} $R) "|-" > 
+          ( ([] $P))) $T1) 
+      ( ( ({} $S) "|-" > 
+          ( ([] $P))) $T2)) 
+    ( ( ( ({} $R) * 
+          ({} $S)) --> 
         (=== $P)) 
       (Truth_FrequencyEqual $T1 $T2)))
 </span>
@@ -2128,65 +2128,65 @@
 </span>
 
 ;;!Extensional set reductions:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['{',A,'}'],'|',['{',B,'}']],['{',A,B,'}'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[{},A],'|',[{},B]],['{',A,B,'}'])
 </span><span class="ansi38-255165000">  (= 
-    ( ({ $A }) "|" 
-      ({ $B })) 
+    ( ({} $A) "|" 
+      ({} $B)) 
     ({ $A $B }))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['{',A,B,'}'],'|',['{',C,'}']],['{',[A|B],C,'}'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['{',A,B,'}'],'|',[{},C]],['{',[A|B],C,'}'])
 </span><span class="ansi38-255165000">  (= 
     ( ({ $A $B }) "|" 
-      ({ $C })) 
+      ({} $C)) 
     ({ 
       (Cons  $A $B) $C }))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['{',C,'}'],'|',['{',A,B,'}']],['{',C,[A|B],'}'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[{},C],'|',['{',A,B,'}']],['{',C,[A|B],'}'])
 </span><span class="ansi38-255165000">  (= 
-    ( ({ $C }) "|" 
+    ( ({} $C) "|" 
       ({ $A $B })) 
     ({ $C 
       (Cons  $A $B) }))
 </span>
 
 ;;!Intensional set reductions:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[',A,']']],&,[['[',B,']']]],[['[',A,B,']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[]',A]],&,[['[]',B]]],[['[',A,B,']']])
 </span><span class="ansi38-255165000">  (= 
-    ( ( ([ $A ])) & 
-      ( ([ $B ]))) 
+    ( ( ([] $A)) & 
+      ( ([] $B))) 
     ( ([ $A $B ])))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[',A,B,']']],&,[['[',C,']']]],[['[',[A|B],C,']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[',A,B,']']],&,[['[]',C]]],[['[',[A|B],C,']']])
 </span><span class="ansi38-255165000">  (= 
     ( ( ([ $A $B ])) & 
-      ( ([ $C ]))) 
+      ( ([] $C))) 
     ( ([ 
         (Cons  $A $B) $C ])))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[',A,']']],&,[['[',B,C,']']]],[['[',A,[B|C],']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[]',A]],&,[['[',B,C,']']]],[['[',A,[B|C],']']])
 </span><span class="ansi38-255165000">  (= 
-    ( ( ([ $A ])) & 
+    ( ( ([] $A)) & 
       ( ([ $B $C ]))) 
     ( ([ $A 
         (Cons  $B $C) ])))
 </span>
 
 ;;!Reduction for set element copula:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['{',[A|B],'}'],['{',A,B,'}'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[{},[A|B]],['{',A,B,'}'])
 </span><span class="ansi38-255165000">  (= 
-    ({ 
-      (Cons  $A $B) }) 
+    ({} 
+      (Cons  $A $B)) 
     ({ $A $B }))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['[',[A|B],']']],[['[',A,B,']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['[]',[A|B]]],[['[',A,B,']']])
 </span><span class="ansi38-255165000">  (= 
-    ( ([ 
-        (Cons  $A $B) ])) 
+    ( ([] 
+        (Cons  $A $B))) 
     ( ([ $A $B ])))
 </span>
 
@@ -2213,13 +2213,13 @@
 </span>;states
 <span class="ansi38-000068000">!(bind! &currentTime (new-state 1))
 
-</span><span class="ansi33"> (@ State 1)
- % 'State'(1)
+</span><span class="ansi33"> (@ State 1 Number)
+ % 'State'(1,'Number')
 
 </span><span class="ansi38-000068000">!(bind! &evidentialBase (new-state 1))
 
-</span><span class="ansi33"> (@ State 1)
- % 'State'(1)
+</span><span class="ansi33"> (@ State 1 Number)
+ % 'State'(1,'Number')
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[increment,Atom],['change-state!',Atom,[+,1,['get-state',Atom]]])
 </span><span class="ansi38-255165000">  (= 
@@ -2257,13 +2257,13 @@
 ;retrieve the best candidate (allows to use tuples / collapse results / spaces as a PQ)
 <span class="ansi38-000068000">!(bind! &tempbest (new-state ()))
 
-</span><span class="ansi33"> (@ State ())
- % 'State'([])
+</span><span class="ansi33">  (bind! &tempbest 
+    (new-state ()))
 
 </span><span class="ansi38-000068000">!(bind! &tempbestscore (new-state 0))
 
-</span><span class="ansi33"> (@ State 0)
- % 'State'(0)
+</span><span class="ansi33"> (@ State 0 Number)
+ % 'State'(0,'Number')
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['BestCandidate',Tuple,EvaluateCandidateFunction,True],[sequential,[[do,['change-state!','&tempbestscore',0]],[do,['change-state!','&tempbest',[]]],[do,['let*',[[X,[superpose,Tuple]],[Fx,[EvaluateCandidateFunction,X,True]]],[superpose,[['If',[>,Fx,['get-state','&tempbestscore']],[sequential,[['change-state!','&tempbest',X],['change-state!','&tempbestscore',Fx]]]]]]]],['get-state','&tempbest']]])
 </span><span class="ansi38-255165000">  (= 
@@ -2368,8 +2368,8 @@
 ;whether evidence was just counted once
 <span class="ansi38-000068000">!(bind! &tempstate (new-state False))
 
-</span><span class="ansi33"> (@ State False)
- % 'State'('False')
+</span><span class="ansi33"> (@ State False Bool)
+ % 'State'('False','Bool')
 
 </span><span class="ansi38-000068000">!(bind! &tempset (new-space))
 
@@ -2687,8 +2687,8 @@
 ;FIFO max. size bound
 <span class="ansi38-000068000">!(bind! &FIFO (new-state ()))
 
-</span><span class="ansi33"> (@ State ())
- % 'State'([])
+</span><span class="ansi33">  (bind! &FIFO 
+    (new-state ()))
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ListFirstK',C,[]],'False')
 </span><span class="ansi38-255165000">  (= 
@@ -3021,7 +3021,7 @@
           (GoalCycle $True)))))
 </span>
 
-<span class="ansi32">% 6,429,500 inferences, 5.685 CPU in 5.685 seconds (100% CPU, 1131049 Lips)
+<span class="ansi32">% 6,427,139 inferences, 5.581 CPU in 5.581 seconds (100% CPU, 1151664 Lips)
 </span> (@ = NARS.metta 0)
 <span class="ansi33"> &self
 
@@ -3051,18 +3051,18 @@
         (1.0 0.44751381215469616)))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi38-000068000">!(assertEqualToResult ("|-" ((({ a b }) --> mwawa) (1.0 0.9))) (((({ a }) --> mwawa) (1.0 0.81)) ((({ b }) --> mwawa) (1.0 0.81))))
+</span><span class="ansi38-000068000">!(assertEqualToResult ("|-" ((({ a b }) --> mwawa) (1.0 0.9))) (((({} a) --> mwawa) (1.0 0.81)) ((({} b) --> mwawa) (1.0 0.81))))
 
 </span><h3 id="NARS.TESTS0.03">;; NARS.TESTS0.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( ( ( ({ a }) --> mwawa) 
+    ( ( ( ({} a) --> mwawa) 
         (1.0 0.81)) 
-      ( ( ({ b }) --> mwawa) 
+      ( ( ({} b) --> mwawa) 
         (1.0 0.81))) 
-    ( ( ( ({ a }) --> mwawa) 
+    ( ( ( ({} a) --> mwawa) 
         (1.0 0.81)) 
-      ( ( ({ b }) --> mwawa) 
+      ( ( ({} b) --> mwawa) 
         (1.0 0.81)))))
 </span><span class="ansi33"> True
 
@@ -3168,7 +3168,7 @@
         (1.0 0.28712091374556914)))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 7,118,078 inferences, 5.918 CPU in 5.920 seconds (100% CPU, 1202856 Lips)
+</span><span class="ansi32">% 7,036,742 inferences, 5.782 CPU in 5.784 seconds (100% CPU, 1217085 Lips)
 </span> (@ = "examples/nars/tests0.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

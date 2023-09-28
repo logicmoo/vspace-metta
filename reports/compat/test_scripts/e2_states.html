@@ -45,8 +45,9 @@
 <span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
 
 </span><span class="ansi33"> (@ State 
-  (A B))
- % 'State'(['A','B'])
+  (A B) 
+  (Symbol Symbol))
+ % 'State'(['A','B'],['Symbol','Symbol'])
 
 </span>; &state-token is replaced by the state atom in the code below its creation
 ; we wrap it into a function to show that it''s not the token that changes, but
@@ -77,9 +78,11 @@
 (@ loonit_success 
   (equal_enough  
     ( (State  
-        (A B))) 
+        (A B) 
+        (Symbol Symbol))) 
     ( (State  
-        (A B)))))
+        (A B) 
+        (Symbol Symbol)))))
 </span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -99,10 +102,14 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 
-</span>Error: Invalid input.
-<h3 id="TEST-SCRIPTS.E2-STATES.04">;; TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.E2-STATES.04">;; TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
 (@ loonit_failureR 
-  (equal_enough  () 
+  (equal_enough  
+    ( (StateMonad String) 
+      (Symbol 
+        (StateMonad String) String) 
+      (Symbol 
+        (Symbol String) String)) 
     ( (StateMonad String))))
 </span><span class="ansi33"> False
 
@@ -141,18 +148,18 @@
 </span><h3 id="TEST-SCRIPTS.E2-STATES.07">;; TEST-SCRIPTS.E2-STATES.07</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
-    (1) 
+    ( (State  1 
+        (Symbol Symbol))) 
     ( (Error 1 BadType))))
 </span><span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
 
-</span>Error: Invalid input.
-<h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
-    ("S") 
+    ( (State  "S" Number)) 
     ( (Error "S" BadType))))
 </span><span class="ansi33"> False
 
@@ -183,12 +190,12 @@
 ; scoping doesn''t conflict between let bound variables and state atom types.
 <span class="ansi38-000068000">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
 
-</span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi36">
+(@ loonit_success 
   (equal_enough  
-    (3) 
-    ( (State  2))))
-</span><span class="ansi33"> False
+    ( (State  2 Number)) 
+    ( (State  2 Number))))
+</span><span class="ansi33"> True
 
 </span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
@@ -197,16 +204,16 @@
 </span><h3 id="TEST-SCRIPTS.E2-STATES.11">;; TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  1)) 
-    ( (State  1))))
+    ( (State  1 Number)) 
+    ( (State  1 Number))))
 </span><span class="ansi33"> True
 
-</span><span class="ansi32">% 190,193 inferences, 0.155 CPU in 0.155 seconds (100% CPU, 1223736 Lips)
+</span><span class="ansi32">% 188,173 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 1235281 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 5
-</span><span class="ansi31">Failures: 6
+<span class="ansi32">Successes: 6
+</span><span class="ansi31">Failures: 5
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e2_states.html" )
 
 </pre>
