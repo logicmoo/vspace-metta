@@ -42,11 +42,13 @@
   (equal_enough  
     (Nothing) 
     (Nothing)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['maybe-inc','Nothing'],depth(2))
+        <--(0,retval('Nothing'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (maybe-inc (Just 2)) (Just 3))
 
-</span> c(0,['Just',_317606])=['Just',[+,1,_317606]]
+</span> c(0,['Just',_325882])=['Just',[+,1,_325882]]
  c(1,'Nothing')='Nothing'
  switch=['Just',2]
 <h3 id="TEST-SCRIPTS.01-LANG-INC.02">;; TEST-SCRIPTS.01-LANG-INC.02</h3><span class="ansi36">
@@ -54,9 +56,28 @@
   (equal_enough  
     ( (Just 3)) 
     ( (Just 3))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['maybe-inc',['Just',2]],depth(2))
+            -->(1,'&self',['Just',2],depth(4))
+          -->(2,'&self',[case,['Just',2],[[['Just',_336992],['Just',[+,1,_336992]]],['Nothing','Nothing']]],depth(3))
+ c(0,['Just',_336992])=['Just',[+,1,_336992]]
+ c(1,'Nothing')='Nothing'
+              -->(3,'&self',['Just',2],depth(5))
+ switch=['Just',2]
+              -->(4,'&self',['Just',[+,1,2]],depth(5))
+                  -->(5,'&self',[+,1,2],depth(7))
+                  <--(5,retval(3))
+                  -->(6,'&self',['Just',3],depth(7))
+                -->(7,'&self',['Just',3],depth(6))
+            -->(8,'&self',['Just',3],depth(4))
+                  -->(9,'&self',[+,1,2],depth(7))
+                  <--(9,retval(3))
+              <--(4,retval(['Just',3]))
+          <--(2,retval(['Just',3]))
+        <--(0,retval([case,['Just',2],[[['Just',_337250],['Just',[+,1,_337250]]],['Nothing','Nothing']]]))
+        -->(10,'&self',['Just',3],depth(2))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 30,871 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 4956728 Lips)
+</span><span class="ansi32">% 35,012 inferences, 0.007 CPU in 0.007 seconds (100% CPU, 5095619 Lips)
 </span> (@ = "examples/compat/test_scripts/01_lang_inc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

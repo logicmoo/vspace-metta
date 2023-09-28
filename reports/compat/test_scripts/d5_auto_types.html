@@ -111,7 +111,10 @@
   (equal_enough  
     (88) 
     ( (Error "S" BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[+,5,"S"],depth(2))
+            -->(1,'&self',"S",depth(4))
+        <--(0,retval(88))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 5 "S") ((Error "S" BadType)))
 
@@ -120,7 +123,10 @@
   (equal_enough  
     (False) 
     ( (Error "S" BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[==,5,"S"],depth(2))
+            -->(1,'&self',"S",depth(4))
+        <--(0,retval('False'))
+<span class="ansi33"> False
 
 </span>; declaring some custom types
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Entity','Type'])
@@ -175,7 +181,9 @@
   (equal_enough  
     (False) 
     ( (Error SamIsMortal BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[==,'SocratesIsHuman','SamIsMortal'],depth(2))
+        <--(0,retval('False'))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (HumansAreMortal (Human Socrates)) ((Error (Human Socrates) BadType)))
 
@@ -186,7 +194,11 @@
         (Human Socrates))) 
     ( (Error 
         (Human Socrates) BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['HumansAreMortal',['Human','Socrates']],depth(2))
+            -->(1,'&self',['Human','Socrates'],depth(4))
+            -->(2,'&self',['Human','Socrates'],depth(4))
+            -->(3,'&self',['Human','Socrates'],depth(4))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -199,7 +211,13 @@
   (equal_enough  
     ( (88)) 
     ( ( (Error "S" BadType)))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[collapse,[+,5,"S"]],depth(2))
+            -->(1,'&self',[+,5,"S"],depth(4))
+                -->(2,'&self',"S",depth(6))
+            <--(1,retval(88))
+        <--(0,retval([88]))
+          -->(3,'&self',[88],depth(3))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -238,9 +256,19 @@
   (equal_enough  
     ( (f 88)) 
     ( (Error "S" BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[f,[+,5,"S"]],depth(2))
+            -->(1,'&self',[+,5,"S"],depth(4))
+                -->(2,'&self',"S",depth(6))
+            <--(1,retval(88))
+            -->(3,'&self',[f,88],depth(4))
+          -->(4,'&self',[f,88],depth(3))
+            -->(5,'&self',[+,5,"S"],depth(4))
+                -->(6,'&self',"S",depth(6))
+            <--(5,retval(88))
+        <--(0,retval([f,88]))
+<span class="ansi33"> False
 
-</span><span class="ansi32">% 148,210 inferences, 0.098 CPU in 0.098 seconds (100% CPU, 1511759 Lips)
+</span><span class="ansi32">% 154,386 inferences, 0.101 CPU in 0.101 seconds (100% CPU, 1534683 Lips)
 </span> (@ = "examples/compat/test_scripts/d5_auto_types.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

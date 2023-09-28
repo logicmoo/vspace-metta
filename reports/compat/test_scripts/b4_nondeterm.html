@@ -128,7 +128,11 @@
   (equal_enough  
     (green red yellow) 
     (green red yellow)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[=,[color],_450394],_450394],depth(2))
+        <--(0,retval(red))
+        -->(1,'&self',[superpose,[green,yellow,red]],depth(2))
+        <--(1,retval(red))
+<span class="ansi33"> True
 
 </span>;!(assertEqual (match &self (= (color) $x) $x) (color))
 ;!(assertEqual (collapse (color)) (red yellow green))
@@ -145,7 +149,11 @@
   (equal_enough  
     (()) 
     (())))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[collapse,[match,'&self',[=,[shape],_1796],_1796]],depth(2))
+            -->(1,'&self',[match,'&self',[=,[shape],_1796],_1796],depth(4))
+            <--(1,retval(fail))
+        <--(0,retval([]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -159,7 +167,11 @@
   (equal_enough  
     (green red yellow) 
     (green red yellow)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[color],depth(2))
+        <--(0,retval(red))
+        -->(1,'&self',[superpose,[red,yellow,green]],depth(2))
+        <--(1,retval(green))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -173,7 +185,18 @@
   (equal_enough  
     (green red yellow) 
     (green red yellow)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[color],depth(2))
+        <--(0,retval(red))
+        -->(1,'&self',[let,_116436,[collapse,[color]],[superpose,_116436]],depth(2))
+            -->(2,'&self',[color],depth(4))
+            <--(2,retval(red))
+            -->(3,'&self',[let,_116436,[green,red,yellow],[superpose,_116436]],depth(4))
+                -->(4,'&self',[green,red,yellow],depth(6))
+                -->(5,'&self',[superpose,[green,red,yellow]],depth(6))
+                <--(5,retval(yellow))
+            <--(3,retval(yellow))
+        <--(1,retval(yellow))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -187,7 +210,14 @@
   (equal_enough  
     ( ( (shape))) 
     ( ( (shape)))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[collapse,[shape]],depth(2))
+            -->(1,'&self',[shape],depth(4))
+        <--(0,retval([[shape]]))
+          -->(2,'&self',[[shape]],depth(3))
+              -->(3,'&self',[shape],depth(5))
+        -->(4,'&self',[[shape]],depth(2))
+            -->(5,'&self',[shape],depth(4))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (shape) ((shape)))
 
@@ -196,7 +226,8 @@
   (equal_enough  
     ( (shape)) 
     ( (shape))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[shape],depth(2))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -232,7 +263,65 @@
       (A B) 
       (B A) 
       (B B))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[pair,[bin],[bin]],depth(2))
+            -->(1,'&self',[bin],depth(4))
+            -->(2,'&self',[pair,'A','A'],depth(4))
+              -->(3,'&self',['A','A'],depth(5))
+          -->(4,'&self',['A','A'],depth(3))
+            <--(2,retval(['A','A']))
+            -->(5,'&self',[pair,'B','B'],depth(4))
+              -->(6,'&self',['B','B'],depth(5))
+          -->(7,'&self',['B','B'],depth(3))
+            <--(5,retval(['B','B']))
+            <--(1,retval('B'))
+          -->(8,'&self',[[bin],[bin]],depth(3))
+              -->(9,'&self',[bin],depth(5))
+              -->(10,'&self',[[bin],'A'],depth(5))
+                  -->(11,'&self',['A','A'],depth(7))
+                -->(12,'&self',['A','A'],depth(6))
+            -->(13,'&self',['A','A'],depth(4))
+                  -->(14,'&self',['B','A'],depth(7))
+                -->(15,'&self',['B','A'],depth(6))
+            -->(16,'&self',['B','A'],depth(4))
+              <--(10,retval(['B','A']))
+              -->(17,'&self',[[bin],'B'],depth(5))
+                  -->(18,'&self',['A','B'],depth(7))
+                -->(19,'&self',['A','B'],depth(6))
+            -->(20,'&self',['A','B'],depth(4))
+                  -->(21,'&self',['B','B'],depth(7))
+                -->(22,'&self',['B','B'],depth(6))
+            -->(23,'&self',['B','B'],depth(4))
+              <--(17,retval(['B','B']))
+              <--(9,retval('B'))
+              -->(24,'&self',['A',[bin]],depth(5))
+                  -->(25,'&self',[bin],depth(7))
+                  -->(26,'&self',['A','A'],depth(7))
+                -->(27,'&self',['A','A'],depth(6))
+                  -->(28,'&self',['A','B'],depth(7))
+                -->(29,'&self',['A','B'],depth(6))
+                  <--(25,retval('B'))
+                  -->(30,'&self',[bin],depth(7))
+                  <--(30,retval('B'))
+              <--(24,retval(['A','B']))
+              -->(31,'&self',['B',[bin]],depth(5))
+                  -->(32,'&self',[bin],depth(7))
+                  -->(33,'&self',['B','A'],depth(7))
+                -->(34,'&self',['B','A'],depth(6))
+                  -->(35,'&self',['B','B'],depth(7))
+                -->(36,'&self',['B','B'],depth(6))
+                  <--(32,retval('B'))
+                  -->(37,'&self',[bin],depth(7))
+                  <--(37,retval('B'))
+              <--(31,retval(['B','B']))
+              -->(38,'&self',[bin],depth(5))
+              -->(39,'&self',['A','A'],depth(5))
+              -->(40,'&self',['B','A'],depth(5))
+              -->(41,'&self',['A','B'],depth(5))
+              -->(42,'&self',['B','B'],depth(5))
+              <--(38,retval('B'))
+          <--(8,retval(['B','B']))
+        <--(0,retval([[bin],[bin]]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -273,7 +362,55 @@
   (equal_enough  
     (red) 
     (red)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['find-equal',[color],[foo]],depth(2))
+            -->(1,'&self',[color],depth(4))
+            -->(2,'&self',['find-equal',green,[foo]],depth(4))
+                -->(3,'&self',[foo],depth(6))
+                -->(4,'&self',['find-equal',green,red],depth(6))
+                  -->(5,'&self',[match,'&self',[=,[eq,green,red],'True'],green],depth(7))
+                  <--(5,retval(fail))
+                <--(4,retval([match,'&self',[=,[eq,green,red],'True'],green]))
+                -->(6,'&self',['find-equal',green,boo],depth(6))
+                  -->(7,'&self',[match,'&self',[=,[eq,green,boo],'True'],green],depth(7))
+                  <--(7,retval(fail))
+                <--(6,retval([match,'&self',[=,[eq,green,boo],'True'],green]))
+                <--(3,retval(boo))
+              -->(8,'&self',[match,'&self',[=,[eq,green,[foo]],'True'],green],depth(5))
+              <--(8,retval(fail))
+            <--(2,retval([match,'&self',[=,[eq,green,[foo]],'True'],green]))
+            -->(9,'&self',['find-equal',yellow,[foo]],depth(4))
+                -->(10,'&self',[foo],depth(6))
+                -->(11,'&self',['find-equal',yellow,red],depth(6))
+                  -->(12,'&self',[match,'&self',[=,[eq,yellow,red],'True'],yellow],depth(7))
+                  <--(12,retval(fail))
+                <--(11,retval([match,'&self',[=,[eq,yellow,red],'True'],yellow]))
+                -->(13,'&self',['find-equal',yellow,boo],depth(6))
+                  -->(14,'&self',[match,'&self',[=,[eq,yellow,boo],'True'],yellow],depth(7))
+                  <--(14,retval(fail))
+                <--(13,retval([match,'&self',[=,[eq,yellow,boo],'True'],yellow]))
+                <--(10,retval(boo))
+              -->(15,'&self',[match,'&self',[=,[eq,yellow,[foo]],'True'],yellow],depth(5))
+              <--(15,retval(fail))
+            <--(9,retval([match,'&self',[=,[eq,yellow,[foo]],'True'],yellow]))
+            -->(16,'&self',['find-equal',red,[foo]],depth(4))
+                -->(17,'&self',[foo],depth(6))
+                -->(18,'&self',['find-equal',red,red],depth(6))
+                  -->(19,'&self',[match,'&self',[=,[eq,red,red],'True'],red],depth(7))
+                  <--(19,retval(red))
+                <--(18,retval([match,'&self',[=,[eq,red,red],'True'],red]))
+                -->(20,'&self',['find-equal',red,boo],depth(6))
+                  -->(21,'&self',[match,'&self',[=,[eq,red,boo],'True'],red],depth(7))
+                  <--(21,retval(fail))
+                <--(20,retval([match,'&self',[=,[eq,red,boo],'True'],red]))
+                <--(17,retval(boo))
+              -->(22,'&self',[match,'&self',[=,[eq,red,[foo]],'True'],red],depth(5))
+              <--(22,retval(fail))
+            <--(16,retval([match,'&self',[=,[eq,red,[foo]],'True'],red]))
+            <--(1,retval(red))
+          -->(23,'&self',[match,'&self',[=,[eq,[color],[foo]],'True'],[color]],depth(3))
+          <--(23,retval(fail))
+        <--(0,retval([match,'&self',[=,[eq,[color],[foo]],'True'],[color]]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -297,7 +434,21 @@
     ( (B A) 
       (C A) 
       (D A))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[rev,'A',[superpose,['B','C','D']]],depth(2))
+            -->(1,'&self',[rev,'A','B'],depth(4))
+              -->(2,'&self',['B','A'],depth(5))
+          -->(3,'&self',['B','A'],depth(3))
+            <--(1,retval(['B','A']))
+            -->(4,'&self',[rev,'A','C'],depth(4))
+              -->(5,'&self',['C','A'],depth(5))
+          -->(6,'&self',['C','A'],depth(3))
+            <--(4,retval(['C','A']))
+            -->(7,'&self',[rev,'A','D'],depth(4))
+              -->(8,'&self',['D','A'],depth(5))
+          -->(9,'&self',['D','A'],depth(3))
+            <--(7,retval(['D','A']))
+        <--(0,retval(['D','A']))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -398,7 +549,54 @@
     ( (start humidifier) 
       (start kettle) 
       (stop ventilation))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[is,[air,dry]],depth(2))
+            -->(1,'&self',[air,dry],depth(4))
+          -->(2,'&self',[make,[air,wet]],depth(3))
+              -->(3,'&self',[air,wet],depth(5))
+            -->(4,'&self',[ift,[makes,_226650,[air,wet]],[start,_226650]],depth(4))
+                -->(5,'&self',[air,wet],depth(6))
+                -->(6,'&self',[air,wet],depth(6))
+                -->(7,'&self',[makes,_226650,[air,wet]],depth(6))
+                    -->(8,'&self',[air,wet],depth(8))
+                -->(9,'&self',[start,humidifier],depth(6))
+              -->(10,'&self',[ift,'True',[start,humidifier]],depth(5))
+                  -->(11,'&self',[start,humidifier],depth(7))
+                -->(12,'&self',[start,humidifier],depth(6))
+              <--(10,retval([start,humidifier]))
+                <--(7,retval('True'))
+            <--(4,retval([ift,'True',[start,humidifier]]))
+            -->(13,'&self',[ift,['And',[prevents,[making,_232728],[making,[air,wet]]],[makes,_232764,_232728]],[stop,_232764]],depth(4))
+                -->(14,'&self',[air,wet],depth(6))
+                -->(15,'&self',[air,wet],depth(6))
+                -->(16,'&self',['And',[prevents,[making,_232728],[making,[air,wet]]],[makes,_232764,_232728]],depth(6))
+                    -->(17,'&self',[air,wet],depth(8))
+                    -->(18,'&self',[air,wet],depth(8))
+                    -->(19,'&self',[prevents,[making,_232728],[making,[air,wet]]],depth(8))
+                        -->(20,'&self',[air,wet],depth(10))
+                    -->(21,'&self',[makes,_232764,[air,dry]],depth(8))
+                        -->(22,'&self',[air,dry],depth(10))
+                  -->(23,'&self',['And','True','True'],depth(7))
+                -->(24,'&self',[stop,ventilation],depth(6))
+              -->(25,'&self',[ift,'True',[stop,ventilation]],depth(5))
+                  -->(26,'&self',[stop,ventilation],depth(7))
+                -->(27,'&self',[stop,ventilation],depth(6))
+              <--(25,retval([stop,ventilation]))
+                  <--(23,retval('True'))
+                    <--(21,retval('True'))
+                    <--(19,retval('True'))
+                <--(16,retval(['And','True','True']))
+            <--(13,retval([ift,'True',[stop,ventilation]]))
+          <--(2,retval([ift,['And',[prevents,[making,_233064],[making,[air,wet]]],[makes,_233112,_233064]],[stop,_233112]]))
+        <--(0,retval([make,[air,wet]]))
+        -->(28,'&self',[superpose,[[stop,ventilation],[start,kettle],[start,humidifier]]],depth(2))
+            -->(29,'&self',[stop,ventilation],depth(4))
+          -->(30,'&self',[stop,ventilation],depth(3))
+            -->(31,'&self',[start,kettle],depth(4))
+          -->(32,'&self',[start,kettle],depth(3))
+            -->(33,'&self',[start,humidifier],depth(4))
+        <--(28,retval([start,humidifier]))
+          -->(34,'&self',[start,humidifier],depth(3))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (is (air wet)) (superpose ((stop kettle) (stop humidifier) (start ventilation))))
 
@@ -410,9 +608,56 @@
     ( (start ventilation) 
       (stop humidifier) 
       (stop kettle))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[is,[air,wet]],depth(2))
+            -->(1,'&self',[air,wet],depth(4))
+          -->(2,'&self',[make,[air,dry]],depth(3))
+              -->(3,'&self',[air,dry],depth(5))
+            -->(4,'&self',[ift,[makes,_282922,[air,dry]],[start,_282922]],depth(4))
+                -->(5,'&self',[air,dry],depth(6))
+                -->(6,'&self',[air,dry],depth(6))
+                -->(7,'&self',[makes,_282922,[air,dry]],depth(6))
+                    -->(8,'&self',[air,dry],depth(8))
+                -->(9,'&self',[start,ventilation],depth(6))
+              -->(10,'&self',[ift,'True',[start,ventilation]],depth(5))
+                  -->(11,'&self',[start,ventilation],depth(7))
+                -->(12,'&self',[start,ventilation],depth(6))
+              <--(10,retval([start,ventilation]))
+                <--(7,retval('True'))
+            <--(4,retval([ift,'True',[start,ventilation]]))
+            -->(13,'&self',[ift,['And',[prevents,[making,_289000],[making,[air,dry]]],[makes,_289036,_289000]],[stop,_289036]],depth(4))
+                -->(14,'&self',[air,dry],depth(6))
+                -->(15,'&self',[air,dry],depth(6))
+                -->(16,'&self',['And',[prevents,[making,_289000],[making,[air,dry]]],[makes,_289036,_289000]],depth(6))
+                    -->(17,'&self',[air,dry],depth(8))
+                    -->(18,'&self',[air,dry],depth(8))
+                    -->(19,'&self',[prevents,[making,_289000],[making,[air,dry]]],depth(8))
+                        -->(20,'&self',[air,dry],depth(10))
+                    -->(21,'&self',[makes,_289036,[air,wet]],depth(8))
+                        -->(22,'&self',[air,wet],depth(10))
+                  -->(23,'&self',['And','True','True'],depth(7))
+                -->(24,'&self',[stop,humidifier],depth(6))
+              -->(25,'&self',[ift,'True',[stop,humidifier]],depth(5))
+                  -->(26,'&self',[stop,humidifier],depth(7))
+                -->(27,'&self',[stop,humidifier],depth(6))
+              <--(25,retval([stop,humidifier]))
+                  <--(23,retval('True'))
+                    <--(21,retval('True'))
+                    <--(19,retval('True'))
+                <--(16,retval(['And','True','True']))
+            <--(13,retval([ift,'True',[stop,humidifier]]))
+          <--(2,retval([ift,['And',[prevents,[making,_289336],[making,[air,dry]]],[makes,_289384,_289336]],[stop,_289384]]))
+        <--(0,retval([make,[air,dry]]))
+        -->(28,'&self',[superpose,[[stop,kettle],[stop,humidifier],[start,ventilation]]],depth(2))
+            -->(29,'&self',[stop,kettle],depth(4))
+          -->(30,'&self',[stop,kettle],depth(3))
+            -->(31,'&self',[stop,humidifier],depth(4))
+          -->(32,'&self',[stop,humidifier],depth(3))
+            -->(33,'&self',[start,ventilation],depth(4))
+        <--(28,retval([start,ventilation]))
+          -->(34,'&self',[start,ventilation],depth(3))
+<span class="ansi33"> False
 
-</span><span class="ansi32">% 313,400 inferences, 0.333 CPU in 0.333 seconds (100% CPU, 941613 Lips)
+</span><span class="ansi32">% 368,118 inferences, 0.329 CPU in 0.329 seconds (100% CPU, 1117550 Lips)
 </span> (@ = "examples/compat/test_scripts/b4_nondeterm.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

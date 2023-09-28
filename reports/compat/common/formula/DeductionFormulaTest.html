@@ -450,7 +450,7 @@
           (S $Y)))))
 </span>
 
-<span class="ansi32">% 232,386 inferences, 0.159 CPU in 0.159 seconds (100% CPU, 1462966 Lips)
+<span class="ansi32">% 232,386 inferences, 0.154 CPU in 0.154 seconds (100% CPU, 1513523 Lips)
 </span> (@ = "../Num.metta" 0)
 <span class="ansi33"> &self
 
@@ -592,7 +592,7 @@
       (STV 1 0)))
 </span>
 
-<span class="ansi32">% 983,529 inferences, 0.990 CPU in 0.996 seconds (99% CPU, 993037 Lips)
+<span class="ansi32">% 983,577 inferences, 0.942 CPU in 0.948 seconds (99% CPU, 1043690 Lips)
 </span> (@ = DeductionFormula.metta 0)
 <span class="ansi33"> &self
 
@@ -608,7 +608,13 @@
   (equal_enough  
     (4) 
     (4)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[max,3,4],depth(2))
+          -->(1,'&self',[if,[>,3,4],3,4],depth(3))
+              -->(2,'&self',[>,3,4],depth(5))
+              <--(2,retval('False'))
+          <--(1,retval(4))
+        <--(0,retval([if,[>,3,4],3,4]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (min 3 4) (3))
 
@@ -617,7 +623,13 @@
   (equal_enough  
     (3) 
     (3)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[min,3,4],depth(2))
+          -->(1,'&self',[if,[<,3,4],3,4],depth(3))
+              -->(2,'&self',[<,3,4],depth(5))
+              <--(2,retval('True'))
+          <--(1,retval(3))
+        <--(0,retval([if,[<,3,4],3,4]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (and True True) (True))
 
@@ -626,7 +638,9 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[and,'True','True'],depth(2))
+        <--(0,retval('True'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (or True False) (True))
 
@@ -635,7 +649,9 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[or,'True','False'],depth(2))
+        <--(0,retval('True'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (<= 5 4) (False))
 
@@ -644,7 +660,25 @@
   (equal_enough  
     (False) 
     (False)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[<=,5,4],depth(2))
+          -->(1,'&self',[or,[<,5,4],[==,5,4]],depth(3))
+              -->(2,'&self',[<,5,4],depth(5))
+              <--(2,retval('False'))
+              -->(3,'&self',[or,'False',[==,5,4]],depth(5))
+                  -->(4,'&self',[==,5,4],depth(7))
+                  <--(4,retval('False'))
+                  -->(5,'&self',[or,'False','False'],depth(7))
+                  <--(5,retval('False'))
+                  -->(6,'&self',[==,5,4],depth(7))
+                  <--(6,retval('False'))
+              <--(3,retval('False'))
+              -->(7,'&self',[<,5,4],depth(5))
+              <--(7,retval('False'))
+              -->(8,'&self',[==,5,4],depth(5))
+              <--(8,retval('False'))
+          <--(1,retval('False'))
+        <--(0,retval([or,[<,5,4],[==,5,4]]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(clamp 2 0 1)
 
@@ -664,7 +698,11 @@
 
 </span><span class="ansi38-000068000">!(ded_formula (PrCnt 1 10) (PrCnt 1 4) (PrCnt 1 2) (PrCnt 1 3) (PrCnt 1 5))
 
-</span><span class="ansi33">  (PrCnt 1 0)
+</span><span class="ansi33">  (PrCnt 
+    (mode 
+      (PrCnt 1 2)) 
+    (mode 
+      (PrCnt 1 2)))
 
 </span><span class="ansi38-000068000">!(conditional-probability-consistency 0.2 0.3 1)
 
@@ -678,7 +716,7 @@
 
 </span><span class="ansi33">  (STV 0.9 0.1)
 
-</span><span class="ansi32">% 1,730,282 inferences, 1.108 CPU in 1.115 seconds (99% CPU, 1562250 Lips)
+</span><span class="ansi32">% 2,590,180 inferences, 1.197 CPU in 1.205 seconds (99% CPU, 2163195 Lips)
 </span> (@ = "examples/compat/common/formula/DeductionFormulaTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

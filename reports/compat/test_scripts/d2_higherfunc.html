@@ -188,7 +188,12 @@
   (equal_enough  () 
     ( (-> Number 
         (-> Number Number)))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[curry,+]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',[->,'Number',[->,'Number','Number']],depth(2))
+            -->(2,'&self',[->,'Number','Number'],depth(4))
+            -->(3,'&self',[->,'Number','Number'],depth(4))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry +) 2)) (-> Number Number))
 
@@ -196,7 +201,12 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (-> Number Number))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[[curry,+],2]],depth(2))
+              -->(1,'&self',[[curry,+],2],depth(5))
+                  -->(2,'&self',[curry,+],depth(7))
+        <--(0,retval(fail))
+        -->(3,'&self',[->,'Number','Number'],depth(2))
+<span class="ansi33"> False
 
 </span>; Partial application is not reduced, basically
 <span class="ansi38-000068000">!(assertEqualToResult ((curry +) 2) (((curry +) 2)))
@@ -206,7 +216,9 @@
   (equal_enough  
     ( ( (curry +) 2)) 
     ( ( (curry +) 2))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[[curry,+],2],depth(2))
+            -->(1,'&self',[curry,+],depth(4))
+<span class="ansi33"> True
 
 </span>; Full application will be reduced
 <span class="ansi38-000068000">!(assertEqual (((curry +) 2) 3) 5)
@@ -216,7 +228,10 @@
   (equal_enough  
     ( ( ( (curry +) 2) 3)) 
     (5)))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[[[curry,+],2],3],depth(2))
+            -->(1,'&self',[[curry,+],2],depth(4))
+                -->(2,'&self',[curry,+],depth(6))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -243,7 +258,10 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (-> Number Number))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['curry-a',+,2]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',[->,'Number','Number'],depth(2))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
 
@@ -252,7 +270,13 @@
   (equal_enough  
     (Number) 
     (Number)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[['curry-a',+,2],3]],depth(2))
+              -->(1,'&self',[['curry-a',+,2],3],depth(5))
+                -->(2,'&self',[+,2,3],depth(6))
+                <--(2,retval(5))
+              <--(1,retval([+,2,3]))
+        <--(0,retval('Number'))
+<span class="ansi33"> True
 
 </span>; Badly typed
 <span class="ansi38-000068000">!(assertEqualToResult (get-type ((curry-a + 2) "S")) ())
@@ -261,7 +285,15 @@
 (@ loonit_failureR 
   (equal_enough  
     (Number) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[['curry-a',+,2],"S"]],depth(2))
+                -->(1,'&self',"S",depth(6))
+              -->(2,'&self',[['curry-a',+,2],"S"],depth(5))
+                -->(3,'&self',[+,2,"S"],depth(6))
+                <--(3,retval(85))
+              <--(2,retval([+,2,"S"]))
+                -->(4,'&self',"S",depth(6))
+        <--(0,retval('Number'))
+<span class="ansi33"> False
 
 </span>; Full application works
 <span class="ansi38-000068000">!(assertEqual ((curry-a + 2) 3) 5)
@@ -271,7 +303,11 @@
   (equal_enough  
     (5) 
     (5)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[['curry-a',+,2],3],depth(2))
+          -->(1,'&self',[+,2,3],depth(3))
+          <--(1,retval(5))
+        <--(0,retval([+,2,3]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -311,7 +347,10 @@
   (equal_enough  
     ( (curry-a is Socrates)) 
     ( (curry-a is Socrates))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['is-socrates'],depth(2))
+          -->(1,'&self',['curry-a',is,'Socrates'],depth(3))
+        <--(0,retval(['curry-a',is,'Socrates']))
+<span class="ansi33"> True
 
 </span>; not reduced
 <span class="ansi38-000068000">!(assertEqual ((curry-a is Socrates) Human) (is Socrates Human))
@@ -321,7 +360,13 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[['curry-a',is,'Socrates'],'Human'],depth(2))
+          -->(1,'&self',[is,'Socrates','Human'],depth(3))
+          <--(1,retval('True'))
+        <--(0,retval([is,'Socrates','Human']))
+        -->(2,'&self',[is,'Socrates','Human'],depth(2))
+        <--(2,retval('True'))
+<span class="ansi33"> True
 
 </span>; reduced
 <span class="ansi38-000068000">!(assertEqual ((is-socrates) Human) True)
@@ -331,7 +376,13 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[['is-socrates'],'Human'],depth(2))
+            -->(1,'&self',[['curry-a',is,'Socrates'],'Human'],depth(4))
+              -->(2,'&self',[is,'Socrates','Human'],depth(5))
+              <--(2,retval('True'))
+            <--(1,retval([is,'Socrates','Human']))
+        <--(0,retval('True'))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -360,7 +411,13 @@
   (equal_enough  
     (3) 
     (3)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[[lambda,_356816,[+,_356816,1]],2],depth(2))
+          -->(1,'&self',[let,_356816,2,[+,_356816,1]],depth(3))
+              -->(2,'&self',[+,2,1],depth(5))
+              <--(2,retval(3))
+          <--(1,retval(3))
+        <--(0,retval([let,_365766,2,[+,_365766,1]]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
 
@@ -369,7 +426,15 @@
   (equal_enough  
     (9) 
     (9)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[[lambda,[_435574,_435868],[+,_435574,_435868]],[2,7]],depth(2))
+            -->(1,'&self',[2,7],depth(4))
+          -->(2,'&self',[let,[_435574,_435868],[2,7],[+,_435574,_435868]],depth(3))
+              -->(3,'&self',[2,7],depth(5))
+              -->(4,'&self',[+,2,7],depth(5))
+              <--(4,retval(9))
+          <--(2,retval(9))
+        <--(0,retval([let,[_446458,_446464],[2,7],[+,_446458,_446464]]))
+<span class="ansi33"> True
 
 </span>; Another example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['part-appl',False,X],[lambda,Y,[False,X,Y]])
@@ -392,7 +457,17 @@
   (equal_enough  
     (6) 
     (6)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[[inc],5],depth(2))
+            -->(1,'&self',[['part-appl',+,1],5],depth(4))
+                -->(2,'&self',[[lambda,_76816,[+,1,_76816]],5],depth(6))
+                  -->(3,'&self',[let,_76816,5,[+,1,_76816]],depth(7))
+                      -->(4,'&self',[+,1,5],depth(9))
+                      <--(4,retval(6))
+                  <--(3,retval(6))
+                <--(2,retval([let,_77328,5,[+,1,_77328]]))
+            <--(1,retval(6))
+        <--(0,retval(6))
+<span class="ansi33"> True
 
 </span>; REM:
 ;   (get-type (lambda ($x $y) (+ $x $y)))
@@ -493,7 +568,20 @@
   (equal_enough  
     ( (Something 7)) 
     ( (Something 7))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[fmap,['curry-a',+,2],['Something',5]],depth(2))
+            -->(1,'&self',['curry-a',+,2],depth(4))
+          -->(2,'&self',['Something',[['curry-a',+,2],5]],depth(3))
+              -->(3,'&self',['curry-a',+,2],depth(5))
+              -->(4,'&self',['curry-a',+,2],depth(5))
+              -->(5,'&self',[['curry-a',+,2],5],depth(5))
+                -->(6,'&self',[+,2,5],depth(6))
+                <--(6,retval(7))
+            -->(7,'&self',['Something',7],depth(4))
+              <--(5,retval([+,2,5]))
+          <--(2,retval(['Something',7]))
+        <--(0,retval(['Something',[['curry-a',+,2],5]]))
+        -->(8,'&self',['Something',7],depth(2))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Nothing)) (Nothing))
 
@@ -502,7 +590,12 @@
   (equal_enough  
     ( (Nothing)) 
     ( (Nothing))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[fmap,['curry-a',+,2],['Nothing']],depth(2))
+            -->(1,'&self',['curry-a',+,2],depth(4))
+          -->(2,'&self',['Nothing'],depth(3))
+        <--(0,retval(['Nothing']))
+        -->(3,'&self',['Nothing'],depth(2))
+<span class="ansi33"> True
 
 </span>; Type inference works
 <span class="ansi38-000068000">!(assertEqual (get-type (fmap (curry-a + 1) (Left 5))) (Either Number))
@@ -511,7 +604,10 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (Either Number))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['Either','Number'],depth(2))
+<span class="ansi33"> False
 
 </span>; It works for untyped constructors as well, if they
 ; follow the patterns in `fmap` equalities
@@ -522,7 +618,23 @@
   (equal_enough  
     ( (UntypedC 7)) 
     ( (UntypedC 7))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[fmap,['curry-a',+,2],['UntypedC',5]],depth(2))
+            -->(1,'&self',['curry-a',+,2],depth(4))
+          -->(2,'&self',['UntypedC',[['curry-a',+,2],5]],depth(3))
+              -->(3,'&self',['curry-a',+,2],depth(5))
+              -->(4,'&self',[['curry-a',+,2],5],depth(5))
+                -->(5,'&self',[+,2,5],depth(6))
+                <--(5,retval(7))
+              <--(4,retval([+,2,5]))
+              -->(6,'&self',[['curry-a',+,2],5],depth(5))
+                -->(7,'&self',[+,2,5],depth(6))
+                <--(7,retval(7))
+            -->(8,'&self',['UntypedC',7],depth(4))
+              <--(6,retval([+,2,5]))
+          <--(2,retval(['UntypedC',7]))
+        <--(0,retval(['UntypedC',[['curry-a',+,2],5]]))
+        -->(9,'&self',['UntypedC',7],depth(2))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null)))) (UntypedC 7 (UntypedC 10 (Null))))
 
@@ -535,7 +647,93 @@
     ( (UntypedC 7 
         (UntypedC 10 
           (Null))))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],depth(2))
+            -->(1,'&self',['curry-a',+,2],depth(4))
+          -->(2,'&self',['UntypedC',[['curry-a',+,2],5],[fmap,['curry-a',+,2],['UntypedC',8,['Null']]]],depth(3))
+              -->(3,'&self',['curry-a',+,2],depth(5))
+              -->(4,'&self',[['curry-a',+,2],5],depth(5))
+                -->(5,'&self',[+,2,5],depth(6))
+                <--(5,retval(7))
+              -->(6,'&self',[fmap,['curry-a',+,2],['UntypedC',8,['Null']]],depth(5))
+                  -->(7,'&self',['curry-a',+,2],depth(7))
+                -->(8,'&self',['UntypedC',[['curry-a',+,2],8],[fmap,['curry-a',+,2],['Null']]],depth(6))
+                    -->(9,'&self',['curry-a',+,2],depth(8))
+                    -->(10,'&self',[['curry-a',+,2],8],depth(8))
+                      -->(11,'&self',[+,2,8],depth(9))
+                      <--(11,retval(10))
+                    -->(12,'&self',[fmap,['curry-a',+,2],['Null']],depth(8))
+                        -->(13,'&self',['curry-a',+,2],depth(10))
+                      -->(14,'&self',['Null'],depth(9))
+                    <--(12,retval(['Null']))
+                    <--(10,retval([+,2,8]))
+                    -->(15,'&self',[['curry-a',+,2],8],depth(8))
+                      -->(16,'&self',[+,2,8],depth(9))
+                      <--(16,retval(10))
+                    -->(17,'&self',[fmap,['curry-a',+,2],['Null']],depth(8))
+                        -->(18,'&self',['curry-a',+,2],depth(10))
+                      -->(19,'&self',['Null'],depth(9))
+                  -->(20,'&self',['UntypedC',10,['Null']],depth(7))
+                      -->(21,'&self',['Null'],depth(9))
+                      -->(22,'&self',['Null'],depth(9))
+                      -->(23,'&self',['Null'],depth(9))
+                    <--(17,retval(['Null']))
+                    <--(15,retval([+,2,8]))
+                <--(8,retval(['UntypedC',10,['Null']]))
+              <--(6,retval(['UntypedC',[['curry-a',+,2],8],[fmap,['curry-a',+,2],['Null']]]))
+              <--(4,retval([+,2,5]))
+              -->(24,'&self',[['curry-a',+,2],5],depth(5))
+                -->(25,'&self',[+,2,5],depth(6))
+                <--(25,retval(7))
+              -->(26,'&self',[fmap,['curry-a',+,2],['UntypedC',8,['Null']]],depth(5))
+                  -->(27,'&self',['curry-a',+,2],depth(7))
+                -->(28,'&self',['UntypedC',[['curry-a',+,2],8],[fmap,['curry-a',+,2],['Null']]],depth(6))
+                    -->(29,'&self',['curry-a',+,2],depth(8))
+                    -->(30,'&self',[['curry-a',+,2],8],depth(8))
+                      -->(31,'&self',[+,2,8],depth(9))
+                      <--(31,retval(10))
+                    -->(32,'&self',[fmap,['curry-a',+,2],['Null']],depth(8))
+                        -->(33,'&self',['curry-a',+,2],depth(10))
+                      -->(34,'&self',['Null'],depth(9))
+                    <--(32,retval(['Null']))
+                    <--(30,retval([+,2,8]))
+                    -->(35,'&self',[['curry-a',+,2],8],depth(8))
+                      -->(36,'&self',[+,2,8],depth(9))
+                      <--(36,retval(10))
+                    -->(37,'&self',[fmap,['curry-a',+,2],['Null']],depth(8))
+                        -->(38,'&self',['curry-a',+,2],depth(10))
+                      -->(39,'&self',['Null'],depth(9))
+                  -->(40,'&self',['UntypedC',10,['Null']],depth(7))
+                      -->(41,'&self',['Null'],depth(9))
+                      -->(42,'&self',['Null'],depth(9))
+                      -->(43,'&self',['Null'],depth(9))
+            -->(44,'&self',['UntypedC',7,['UntypedC',10,['Null']]],depth(4))
+                -->(45,'&self',['Null'],depth(6))
+                -->(46,'&self',['UntypedC',10,['Null']],depth(6))
+                    -->(47,'&self',['Null'],depth(8))
+                    -->(48,'&self',['Null'],depth(8))
+                    -->(49,'&self',['Null'],depth(8))
+                -->(50,'&self',['UntypedC',10,['Null']],depth(6))
+                    -->(51,'&self',['Null'],depth(8))
+                    -->(52,'&self',['Null'],depth(8))
+                    -->(53,'&self',['Null'],depth(8))
+                    <--(37,retval(['Null']))
+                    <--(35,retval([+,2,8]))
+                <--(28,retval(['UntypedC',10,['Null']]))
+              <--(26,retval(['UntypedC',[['curry-a',+,2],8],[fmap,['curry-a',+,2],['Null']]]))
+              <--(24,retval([+,2,5]))
+          <--(2,retval(['UntypedC',7,['UntypedC',10,['Null']]]))
+        <--(0,retval(['UntypedC',[['curry-a',+,2],5],[fmap,['curry-a',+,2],['UntypedC',8,['Null']]]]))
+        -->(54,'&self',['UntypedC',7,['UntypedC',10,['Null']]],depth(2))
+            -->(55,'&self',['Null'],depth(4))
+            -->(56,'&self',['UntypedC',10,['Null']],depth(4))
+                -->(57,'&self',['Null'],depth(6))
+                -->(58,'&self',['Null'],depth(6))
+                -->(59,'&self',['Null'],depth(6))
+            -->(60,'&self',['UntypedC',10,['Null']],depth(4))
+                -->(61,'&self',['Null'],depth(6))
+                -->(62,'&self',['Null'],depth(6))
+                -->(63,'&self',['Null'],depth(6))
+<span class="ansi33"> True
 
 </span>; Type mismatches are detected:
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (Left "5"))) ())
@@ -543,21 +741,27 @@
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.20">;; TEST-SCRIPTS.D2-HIGHERFUNC.20</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['Left',"5"]]],depth(2))
+        <--(0,retval(fail))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5"))) ())
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.21">;; TEST-SCRIPTS.D2-HIGHERFUNC.21</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',"5"]]],depth(2))
+        <--(0,retval(fail))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
 
 </span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.22">;; TEST-SCRIPTS.D2-HIGHERFUNC.22</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],depth(2))
+        <--(0,retval(fail))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -597,7 +801,20 @@
   (equal_enough  
     ( (Right 4)) 
     ( (Right 4))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['fmap-i',['curry-a',-,7],['Right',3]],depth(2))
+            -->(1,'&self',['curry-a',-,7],depth(4))
+          -->(2,'&self',['Right',[['curry-a',-,7],3]],depth(3))
+              -->(3,'&self',['curry-a',-,7],depth(5))
+              -->(4,'&self',['curry-a',-,7],depth(5))
+              -->(5,'&self',[['curry-a',-,7],3],depth(5))
+                -->(6,'&self',[-,7,3],depth(6))
+                <--(6,retval(4))
+            -->(7,'&self',['Right',4],depth(4))
+              <--(5,retval([-,7,3]))
+          <--(2,retval(['Right',4]))
+        <--(0,retval(['Right',[['curry-a',-,7],3]]))
+        -->(8,'&self',['Right',4],depth(2))
+<span class="ansi33"> True
 
 </span>; More examples
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List',[->,A,'Type']])
@@ -640,7 +857,33 @@
         (Cons 8 False))) 
     ( (Cons 6 
         (Cons 8 ())))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,[]]]],depth(2))
+            -->(1,'&self',['curry-a',*,2],depth(4))
+          -->(2,'&self',['Cons',[['curry-a',*,2],3],['fmap-i',['curry-a',*,2],['Cons',4,[]]]],depth(3))
+              -->(3,'&self',[['curry-a',*,2],3],depth(5))
+                -->(4,'&self',[*,2,3],depth(6))
+                <--(4,retval(6))
+              -->(5,'&self',['fmap-i',['curry-a',*,2],['Cons',4,[]]],depth(5))
+                  -->(6,'&self',['curry-a',*,2],depth(7))
+                -->(7,'&self',['Cons',[['curry-a',*,2],4],['fmap-i',['curry-a',*,2],[]]],depth(6))
+                    -->(8,'&self',[['curry-a',*,2],4],depth(8))
+                      -->(9,'&self',[*,2,4],depth(9))
+                      <--(9,retval(8))
+                    -->(10,'&self',['fmap-i',['curry-a',*,2],[]],depth(8))
+                        -->(11,'&self',['curry-a',*,2],depth(10))
+                  -->(12,'&self',['Cons',8,'False'],depth(7))
+            -->(13,'&self',['Cons',6,['Cons',8,'False']],depth(4))
+                -->(14,'&self',['Cons',8,'False'],depth(6))
+                    <--(10,retval('False'))
+                    <--(8,retval([*,2,4]))
+                <--(7,retval(['Cons',8,'False']))
+              <--(5,retval(['Cons',[['curry-a',*,2],4],['fmap-i',['curry-a',*,2],[]]]))
+              <--(3,retval([*,2,3]))
+          <--(2,retval(['Cons',6,['Cons',8,'False']]))
+        <--(0,retval(['Cons',[['curry-a',*,2],3],['fmap-i',['curry-a',*,2],['Cons',4,[]]]]))
+        -->(15,'&self',['Cons',6,['Cons',8,[]]],depth(2))
+            -->(16,'&self',['Cons',8,[]],depth(4))
+<span class="ansi33"> False
 
 </span>; Thus, there is no problem in having different implementations
 ; of the same function for different types. But it will not
@@ -656,7 +899,13 @@
     ( (fmap-i 
         (curry-a + 2) 
         (Untyped 5)))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['fmap-i',['curry-a',+,2],['Untyped',5]],depth(2))
+            -->(1,'&self',['curry-a',+,2],depth(4))
+            -->(2,'&self',['curry-a',+,2],depth(4))
+            -->(3,'&self',['Untyped',5],depth(4))
+            -->(4,'&self',['curry-a',+,2],depth(4))
+            -->(5,'&self',['Untyped',5],depth(4))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -734,7 +983,153 @@
     ( (Cons 1 
         (Cons 2 
           (Cons 3 ()))))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[insert,3,[insert,2,[insert,1,[]]]],depth(2))
+            -->(1,'&self',[insert,1,[]],depth(4))
+              -->(2,'&self',['Cons',1,[]],depth(5))
+            -->(3,'&self',[insert,3,[insert,2,['Cons',1,[]]]],depth(4))
+                -->(4,'&self',['Cons',1,[]],depth(6))
+                -->(5,'&self',[insert,2,['Cons',1,[]]],depth(6))
+                    -->(6,'&self',['Cons',1,[]],depth(8))
+                  -->(7,'&self',[case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]],depth(7))
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
+                      -->(8,'&self',[<,2,1],depth(9))
+                      <--(8,retval('False'))
+ switch='False'
+                      -->(9,'&self',['Cons',1,[insert,2,[]]],depth(9))
+                          -->(10,'&self',[insert,2,[]],depth(11))
+                            -->(11,'&self',['Cons',2,[]],depth(12))
+                        -->(12,'&self',['Cons',1,['Cons',2,[]]],depth(10))
+                            -->(13,'&self',['Cons',2,[]],depth(12))
+                    -->(14,'&self',['Cons',1,['Cons',2,[]]],depth(8))
+                        -->(15,'&self',['Cons',2,[]],depth(10))
+              -->(16,'&self',[case,[<,3,1],[['True',['Cons',3,['Cons',1,['Cons',2,[]]]]],['False',['Cons',1,[insert,3,['Cons',2,[]]]]]]],depth(5))
+ c(0,'True')=['Cons',3,['Cons',1,['Cons',2,[]]]]
+ c(1,'False')=['Cons',1,[insert,3,['Cons',2,[]]]]
+                  -->(17,'&self',[<,3,1],depth(7))
+                  <--(17,retval('False'))
+ switch='False'
+                  -->(18,'&self',['Cons',1,[insert,3,['Cons',2,[]]]],depth(7))
+                      -->(19,'&self',[insert,3,['Cons',2,[]]],depth(9))
+                          -->(20,'&self',['Cons',2,[]],depth(11))
+                        -->(21,'&self',[case,[<,3,2],[['True',['Cons',3,['Cons',2,[]]]],['False',['Cons',2,[insert,3,[]]]]]],depth(10))
+ c(0,'True')=['Cons',3,['Cons',2,[]]]
+ c(1,'False')=['Cons',2,[insert,3,[]]]
+                            -->(22,'&self',[<,3,2],depth(12))
+                            <--(22,retval('False'))
+ switch='False'
+                            -->(23,'&self',['Cons',2,[insert,3,[]]],depth(12))
+                                -->(24,'&self',[insert,3,[]],depth(14))
+                                  -->(25,'&self',['Cons',3,[]],depth(15))
+                              -->(26,'&self',['Cons',2,['Cons',3,[]]],depth(13))
+                                  -->(27,'&self',['Cons',3,[]],depth(15))
+                          -->(28,'&self',['Cons',2,['Cons',3,[]]],depth(11))
+                              -->(29,'&self',['Cons',3,[]],depth(13))
+                    -->(30,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(8))
+                        -->(31,'&self',['Cons',2,['Cons',3,[]]],depth(10))
+                            -->(32,'&self',['Cons',3,[]],depth(12))
+                -->(33,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(6))
+                    -->(34,'&self',['Cons',2,['Cons',3,[]]],depth(8))
+                        -->(35,'&self',['Cons',3,[]],depth(10))
+          -->(36,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(3))
+              -->(37,'&self',['Cons',2,['Cons',3,[]]],depth(5))
+                  -->(38,'&self',['Cons',3,[]],depth(7))
+                                <--(24,retval(['Cons',3,[]]))
+                            <--(23,retval(['Cons',2,['Cons',3,[]]]))
+                        <--(21,retval(['Cons',2,['Cons',3,[]]]))
+                      <--(19,retval([case,[<,3,2],[['True',['Cons',3,['Cons',2,[]]]],['False',['Cons',2,[insert,3,[]]]]]]))
+                  <--(18,retval(['Cons',1,['Cons',2,['Cons',3,[]]]]))
+              <--(16,retval(['Cons',1,['Cons',2,['Cons',3,[]]]]))
+                          <--(10,retval(['Cons',2,[]]))
+                      <--(9,retval(['Cons',1,['Cons',2,[]]]))
+                  <--(7,retval(['Cons',1,['Cons',2,[]]]))
+                <--(5,retval([case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]]))
+            <--(3,retval([case,[<,3,1],[['True',['Cons',3,['Cons',1,['Cons',2,[]]]]],['False',['Cons',1,[insert,3,['Cons',2,[]]]]]]]))
+            <--(1,retval(['Cons',1,[]]))
+            -->(39,'&self',[insert,2,[insert,1,[]]],depth(4))
+                -->(40,'&self',[insert,1,[]],depth(6))
+                  -->(41,'&self',['Cons',1,[]],depth(7))
+                -->(42,'&self',[insert,2,['Cons',1,[]]],depth(6))
+                    -->(43,'&self',['Cons',1,[]],depth(8))
+                  -->(44,'&self',[case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]],depth(7))
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
+                      -->(45,'&self',[<,2,1],depth(9))
+                      <--(45,retval('False'))
+ switch='False'
+                      -->(46,'&self',['Cons',1,[insert,2,[]]],depth(9))
+                          -->(47,'&self',[insert,2,[]],depth(11))
+                            -->(48,'&self',['Cons',2,[]],depth(12))
+                        -->(49,'&self',['Cons',1,['Cons',2,[]]],depth(10))
+                            -->(50,'&self',['Cons',2,[]],depth(12))
+                    -->(51,'&self',['Cons',1,['Cons',2,[]]],depth(8))
+                        -->(52,'&self',['Cons',2,[]],depth(10))
+              -->(53,'&self',['Cons',1,['Cons',2,[]]],depth(5))
+                  -->(54,'&self',['Cons',2,[]],depth(7))
+          -->(55,'&self',[case,[<,3,1],[['True',['Cons',3,['Cons',1,['Cons',2,[]]]]],['False',['Cons',1,[insert,3,['Cons',2,[]]]]]]],depth(3))
+ c(0,'True')=['Cons',3,['Cons',1,['Cons',2,[]]]]
+ c(1,'False')=['Cons',1,[insert,3,['Cons',2,[]]]]
+              -->(56,'&self',[<,3,1],depth(5))
+              <--(56,retval('False'))
+ switch='False'
+              -->(57,'&self',['Cons',1,[insert,3,['Cons',2,[]]]],depth(5))
+                  -->(58,'&self',[insert,3,['Cons',2,[]]],depth(7))
+                      -->(59,'&self',['Cons',2,[]],depth(9))
+                    -->(60,'&self',[case,[<,3,2],[['True',['Cons',3,['Cons',2,[]]]],['False',['Cons',2,[insert,3,[]]]]]],depth(8))
+ c(0,'True')=['Cons',3,['Cons',2,[]]]
+ c(1,'False')=['Cons',2,[insert,3,[]]]
+                        -->(61,'&self',[<,3,2],depth(10))
+                        <--(61,retval('False'))
+ switch='False'
+                        -->(62,'&self',['Cons',2,[insert,3,[]]],depth(10))
+                            -->(63,'&self',[insert,3,[]],depth(12))
+                              -->(64,'&self',['Cons',3,[]],depth(13))
+                          -->(65,'&self',['Cons',2,['Cons',3,[]]],depth(11))
+                              -->(66,'&self',['Cons',3,[]],depth(13))
+                      -->(67,'&self',['Cons',2,['Cons',3,[]]],depth(9))
+                          -->(68,'&self',['Cons',3,[]],depth(11))
+                -->(69,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(6))
+                    -->(70,'&self',['Cons',2,['Cons',3,[]]],depth(8))
+                        -->(71,'&self',['Cons',3,[]],depth(10))
+            -->(72,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(4))
+                -->(73,'&self',['Cons',2,['Cons',3,[]]],depth(6))
+                    -->(74,'&self',['Cons',3,[]],depth(8))
+                            <--(63,retval(['Cons',3,[]]))
+                        <--(62,retval(['Cons',2,['Cons',3,[]]]))
+                    <--(60,retval(['Cons',2,['Cons',3,[]]]))
+                  <--(58,retval([case,[<,3,2],[['True',['Cons',3,['Cons',2,[]]]],['False',['Cons',2,[insert,3,[]]]]]]))
+              <--(57,retval(['Cons',1,['Cons',2,['Cons',3,[]]]]))
+          <--(55,retval(['Cons',1,['Cons',2,['Cons',3,[]]]]))
+                          <--(47,retval(['Cons',2,[]]))
+                      <--(46,retval(['Cons',1,['Cons',2,[]]]))
+                  <--(44,retval(['Cons',1,['Cons',2,[]]]))
+                <--(42,retval([case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]]))
+                <--(40,retval(['Cons',1,[]]))
+                -->(75,'&self',[insert,1,[]],depth(6))
+                  -->(76,'&self',['Cons',1,[]],depth(7))
+              -->(77,'&self',[case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]],depth(5))
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
+                  -->(78,'&self',[<,2,1],depth(7))
+                  <--(78,retval('False'))
+ switch='False'
+                  -->(79,'&self',['Cons',1,[insert,2,[]]],depth(7))
+                      -->(80,'&self',[insert,2,[]],depth(9))
+                        -->(81,'&self',['Cons',2,[]],depth(10))
+                    -->(82,'&self',['Cons',1,['Cons',2,[]]],depth(8))
+                        -->(83,'&self',['Cons',2,[]],depth(10))
+                -->(84,'&self',['Cons',1,['Cons',2,[]]],depth(6))
+                    -->(85,'&self',['Cons',2,[]],depth(8))
+                      <--(80,retval(['Cons',2,[]]))
+                  <--(79,retval(['Cons',1,['Cons',2,[]]]))
+              <--(77,retval(['Cons',1,['Cons',2,[]]]))
+                <--(75,retval(['Cons',1,[]]))
+            <--(39,retval([case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]]))
+        <--(0,retval([case,[<,3,1],[['True',['Cons',3,['Cons',1,['Cons',2,[]]]]],['False',['Cons',1,[insert,3,['Cons',2,[]]]]]]]))
+        -->(86,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
+            -->(87,'&self',['Cons',2,['Cons',3,[]]],depth(4))
+                -->(88,'&self',['Cons',3,[]],depth(6))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (sort (Cons 3 (Cons 1 (Cons 2 ())))) (Cons 1 (Cons 2 (Cons 3 ()))))
 
@@ -747,9 +1142,51 @@
     ( (Cons 1 
         (Cons 2 
           (Cons 3 ()))))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[sort,['Cons',3,['Cons',1,['Cons',2,[]]]]],depth(2))
+            -->(1,'&self',['Cons',2,[]],depth(4))
+          -->(2,'&self',[insert,3,[sort,['Cons',1,['Cons',2,[]]]]],depth(3))
+              -->(3,'&self',['Cons',2,[]],depth(5))
+              -->(4,'&self',['Cons',2,[]],depth(5))
+              -->(5,'&self',[sort,['Cons',1,['Cons',2,[]]]],depth(5))
+                  -->(6,'&self',['Cons',2,[]],depth(7))
+                -->(7,'&self',[insert,1,[sort,['Cons',2,[]]]],depth(6))
+                    -->(8,'&self',['Cons',2,[]],depth(8))
+                    -->(9,'&self',['Cons',2,[]],depth(8))
+                    -->(10,'&self',[sort,['Cons',2,[]]],depth(8))
+                        -->(11,'&self',['Cons',2,[]],depth(10))
+                      -->(12,'&self',[insert,2,[sort,[]]],depth(9))
+                          -->(13,'&self',[sort,[]],depth(11))
+                          -->(14,'&self',[insert,2,'False'],depth(11))
+                        -->(15,'&self',[insert,2,'False'],depth(10))
+                  -->(16,'&self',[insert,1,[insert,2,'False']],depth(7))
+                      -->(17,'&self',[insert,2,'False'],depth(9))
+                      -->(18,'&self',[insert,2,'False'],depth(9))
+                      -->(19,'&self',[insert,2,'False'],depth(9))
+            -->(20,'&self',[insert,3,[insert,1,[insert,2,'False']]],depth(4))
+                -->(21,'&self',[insert,2,'False'],depth(6))
+                -->(22,'&self',[insert,1,[insert,2,'False']],depth(6))
+                    -->(23,'&self',[insert,2,'False'],depth(8))
+                    -->(24,'&self',[insert,2,'False'],depth(8))
+                    -->(25,'&self',[insert,2,'False'],depth(8))
+                -->(26,'&self',[insert,1,[insert,2,'False']],depth(6))
+                    -->(27,'&self',[insert,2,'False'],depth(8))
+                    -->(28,'&self',[insert,2,'False'],depth(8))
+                    -->(29,'&self',[insert,2,'False'],depth(8))
+                          <--(13,retval('False'))
+                          -->(30,'&self',[sort,[]],depth(11))
+                          <--(30,retval('False'))
+                      <--(12,retval([insert,2,'False']))
+                    <--(10,retval([insert,2,[sort,[]]]))
+                <--(7,retval([insert,1,[insert,2,'False']]))
+              <--(5,retval([insert,1,[sort,['Cons',2,[]]]]))
+          <--(2,retval([insert,3,[insert,1,[insert,2,'False']]]))
+        <--(0,retval([insert,3,[sort,['Cons',1,['Cons',2,[]]]]]))
+        -->(31,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
+            -->(32,'&self',['Cons',2,['Cons',3,[]]],depth(4))
+                -->(33,'&self',['Cons',3,[]],depth(6))
+<span class="ansi33"> False
 
-</span><span class="ansi32">% 711,928 inferences, 0.909 CPU in 0.909 seconds (100% CPU, 783033 Lips)
+</span><span class="ansi32">% 810,168 inferences, 0.883 CPU in 0.883 seconds (100% CPU, 917468 Lips)
 </span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

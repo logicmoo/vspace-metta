@@ -63,7 +63,7 @@
       (__g)))
 </span>
 
-<span class="ansi32">% 16,473 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 5832802 Lips)
+<span class="ansi32">% 16,473 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 5322972 Lips)
 </span> (@ = f1_moduleC.metta 0)
 <span class="ansi33"> &self
 
@@ -76,7 +76,7 @@
       (+ $X 10)))
 </span>
 
-<span class="ansi32">% 31,507 inferences, 0.006 CPU in 0.008 seconds (77% CPU, 5406514 Lips)
+<span class="ansi32">% 31,523 inferences, 0.007 CPU in 0.008 seconds (77% CPU, 4828669 Lips)
 </span> (@ = f1_moduleB.metta 0)
 <span class="ansi33"> &self
 
@@ -87,7 +87,17 @@
   (equal_enough  
     (102) 
     (102)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[g,2],depth(2))
+          -->(1,'&self',[+,2,['__g']],depth(3))
+              -->(2,'&self',['__g'],depth(5))
+              -->(3,'&self',[+,2,100],depth(5))
+              <--(3,retval(102))
+              <--(2,retval(100))
+              -->(4,'&self',['__g'],depth(5))
+              <--(4,retval(100))
+          <--(1,retval(102))
+        <--(0,retval([+,2,['__g']]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
 
@@ -96,7 +106,8 @@
   (equal_enough  
     ( (f 2)) 
     (103)))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[f,2],depth(2))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
 
@@ -105,9 +116,17 @@
   (equal_enough  
     (12) 
     (12 102)))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[dup,2],depth(2))
+          -->(1,'&self',[if,[==,2,0],[g,2],[+,2,10]],depth(3))
+              -->(2,'&self',[==,2,0],depth(5))
+              <--(2,retval('False'))
+              -->(3,'&self',[+,2,10],depth(5))
+              <--(3,retval(12))
+          <--(1,retval(12))
+        <--(0,retval([if,[==,2,0],[g,2],[+,2,10]]))
+<span class="ansi33"> False
 
-</span><span class="ansi32">% 427,126 inferences, 0.245 CPU in 0.383 seconds (64% CPU, 1741893 Lips)
+</span><span class="ansi32">% 463,225 inferences, 0.278 CPU in 0.417 seconds (67% CPU, 1666706 Lips)
 </span> (@ = "examples/compat/test_scripts/f1_imports.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

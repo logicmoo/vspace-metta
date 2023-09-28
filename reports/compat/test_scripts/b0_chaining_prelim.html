@@ -82,7 +82,13 @@
         (K x))) 
     ( (K x 
         (K x)))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_370352],_370352],depth(2))
+          -->(1,'&self',['K',x,['K',x]],depth(3))
+              -->(2,'&self',['K',x],depth(5))
+              -->(3,'&self',['K',x],depth(5))
+              -->(4,'&self',['K',x],depth(5))
+        <--(0,retval(['K',x,['K',x]]))
+<span class="ansi33"> True
 
 </span>; A second matching step; the result of the previous
 ; step is manually used as input for the next query
@@ -93,7 +99,9 @@
   (equal_enough  
     (x) 
     (x)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_406850],_406850],depth(2))
+        <--(0,retval(x))
+<span class="ansi33"> True
 
 </span>; Combined reduction via matching in two steps
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2)) (x))
@@ -103,7 +111,11 @@
   (equal_enough  
     (x) 
     (x)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_441780],[match,'&self',[:=,_441780,_442404],_442404]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_442404],_442404],depth(3))
+          <--(1,retval(x))
+        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_450774],_450774]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -134,7 +146,19 @@
     ( (Add 
         (S 
           (S Z)) Z))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_493038],_493038],depth(2))
+          -->(1,'&self',['Add',['S',['S','Z']],'Z'],depth(3))
+              -->(2,'&self',['S','Z'],depth(5))
+              -->(3,'&self',['S',['S','Z']],depth(5))
+                  -->(4,'&self',['S','Z'],depth(7))
+                  -->(5,'&self',['S','Z'],depth(7))
+                  -->(6,'&self',['S','Z'],depth(7))
+              -->(7,'&self',['S',['S','Z']],depth(5))
+                  -->(8,'&self',['S','Z'],depth(7))
+                  -->(9,'&self',['S','Z'],depth(7))
+                  -->(10,'&self',['S','Z'],depth(7))
+        <--(0,retval(['Add',['S',['S','Z']],'Z']))
+<span class="ansi33"> True
 
 </span>; Two steps together
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2)) ((S (S Z))))
@@ -146,9 +170,17 @@
         (S Z))) 
     ( (S 
         (S Z)))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_11274],[match,'&self',[:=,_11274,_11898],_11898]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_11898],_11898],depth(3))
+            -->(2,'&self',['S',['S','Z']],depth(4))
+                -->(3,'&self',['S','Z'],depth(6))
+                -->(4,'&self',['S','Z'],depth(6))
+                -->(5,'&self',['S','Z'],depth(6))
+          <--(1,retval(['S',['S','Z']]))
+        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_22416],_22416]))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 124,943 inferences, 0.042 CPU in 0.042 seconds (100% CPU, 2993184 Lips)
+</span><span class="ansi32">% 132,522 inferences, 0.043 CPU in 0.043 seconds (100% CPU, 3099857 Lips)
 </span> (@ = "examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

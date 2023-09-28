@@ -92,7 +92,12 @@
   (equal_enough  
     (x) 
     (x)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['S','K','K',x],depth(2))
+          -->(1,'&self',['K',x,['K',x]],depth(3))
+              -->(2,'&self',['K',x],depth(5))
+          <--(1,retval(x))
+        <--(0,retval(['K',x,['K',x]]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -106,7 +111,8 @@
   (equal_enough  
     ( (expression without known equalities)) 
     ( (expression without known equalities))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[expression,without,known,equalities],depth(2))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -134,7 +140,21 @@
         (S Z))) 
     ( (S 
         (S Z)))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['Add',['S','Z'],['S','Z']],depth(2))
+            -->(1,'&self',['S','Z'],depth(4))
+          -->(2,'&self',['Add',['S',['S','Z']],'Z'],depth(3))
+              -->(3,'&self',['S','Z'],depth(5))
+            -->(4,'&self',['S',['S','Z']],depth(4))
+                -->(5,'&self',['S','Z'],depth(6))
+                -->(6,'&self',['S','Z'],depth(6))
+                -->(7,'&self',['S','Z'],depth(6))
+          <--(2,retval(['S',['S','Z']]))
+        <--(0,retval(['Add',['S',['S','Z']],'Z']))
+        -->(8,'&self',['S',['S','Z']],depth(2))
+            -->(9,'&self',['S','Z'],depth(4))
+            -->(10,'&self',['S','Z'],depth(4))
+            -->(11,'&self',['S','Z'],depth(4))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -152,7 +172,50 @@
     ( (Something? 
         (S 
           (S Z))))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['Something?',['Add',['S','Z'],['S','Z']]],depth(2))
+            -->(1,'&self',['S','Z'],depth(4))
+            -->(2,'&self',['Add',['S','Z'],['S','Z']],depth(4))
+                -->(3,'&self',['S','Z'],depth(6))
+              -->(4,'&self',['Add',['S',['S','Z']],'Z'],depth(5))
+                  -->(5,'&self',['S','Z'],depth(7))
+                -->(6,'&self',['S',['S','Z']],depth(6))
+                    -->(7,'&self',['S','Z'],depth(8))
+                    -->(8,'&self',['S','Z'],depth(8))
+                    -->(9,'&self',['S','Z'],depth(8))
+              <--(4,retval(['S',['S','Z']]))
+            <--(2,retval(['Add',['S',['S','Z']],'Z']))
+            -->(10,'&self',['Add',['S','Z'],['S','Z']],depth(4))
+                -->(11,'&self',['S','Z'],depth(6))
+              -->(12,'&self',['Add',['S',['S','Z']],'Z'],depth(5))
+                  -->(13,'&self',['S','Z'],depth(7))
+                -->(14,'&self',['S',['S','Z']],depth(6))
+                    -->(15,'&self',['S','Z'],depth(8))
+                    -->(16,'&self',['S','Z'],depth(8))
+                    -->(17,'&self',['S','Z'],depth(8))
+          -->(18,'&self',['Something?',['S',['S','Z']]],depth(3))
+              -->(19,'&self',['S','Z'],depth(5))
+              -->(20,'&self',['S',['S','Z']],depth(5))
+                  -->(21,'&self',['S','Z'],depth(7))
+                  -->(22,'&self',['S','Z'],depth(7))
+                  -->(23,'&self',['S','Z'],depth(7))
+              -->(24,'&self',['S',['S','Z']],depth(5))
+                  -->(25,'&self',['S','Z'],depth(7))
+                  -->(26,'&self',['S','Z'],depth(7))
+                  -->(27,'&self',['S','Z'],depth(7))
+              <--(12,retval(['S',['S','Z']]))
+            <--(10,retval(['Add',['S',['S','Z']],'Z']))
+        <--(0,retval(['Something?',['S',['S','Z']]]))
+        -->(28,'&self',['Something?',['S',['S','Z']]],depth(2))
+            -->(29,'&self',['S','Z'],depth(4))
+            -->(30,'&self',['S',['S','Z']],depth(4))
+                -->(31,'&self',['S','Z'],depth(6))
+                -->(32,'&self',['S','Z'],depth(6))
+                -->(33,'&self',['S','Z'],depth(6))
+            -->(34,'&self',['S',['S','Z']],depth(4))
+                -->(35,'&self',['S','Z'],depth(6))
+                -->(36,'&self',['S','Z'],depth(6))
+                -->(37,'&self',['S','Z'],depth(6))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -172,7 +235,21 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[eq,['S','K','K',x],x],depth(2))
+            -->(1,'&self',['S','K','K',x],depth(4))
+              -->(2,'&self',['K',x,['K',x]],depth(5))
+                  -->(3,'&self',['K',x],depth(7))
+            -->(4,'&self',[eq,x,x],depth(4))
+            <--(4,retval('True'))
+              <--(2,retval(x))
+            <--(1,retval(['K',x,['K',x]]))
+            -->(5,'&self',['S','K','K',x],depth(4))
+              -->(6,'&self',['K',x,['K',x]],depth(5))
+                  -->(7,'&self',['K',x],depth(7))
+              <--(6,retval(x))
+            <--(5,retval(['K',x,['K',x]]))
+        <--(0,retval('True'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (eq Green Blue) ((eq Green Blue)))
 
@@ -181,9 +258,10 @@
   (equal_enough  
     ( (eq Green Blue)) 
     ( (eq Green Blue))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[eq,'Green','Blue'],depth(2))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 142,017 inferences, 0.089 CPU in 0.089 seconds (100% CPU, 1594187 Lips)
+</span><span class="ansi32">% 162,174 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 1642721 Lips)
 </span> (@ = "examples/compat/test_scripts/b1_equal_chain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

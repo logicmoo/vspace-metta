@@ -116,7 +116,16 @@
     ( (Vec Number 
         (S 
           (S Z))))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['Cons',0,['Cons',1,[]]]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['Vec','Number',['S',['S','Z']]],depth(2))
+            -->(2,'&self',['S','Z'],depth(4))
+            -->(3,'&self',['S','Z'],depth(4))
+            -->(4,'&self',['S',['S','Z']],depth(4))
+                -->(5,'&self',['S','Z'],depth(6))
+                -->(6,'&self',['S','Z'],depth(6))
+                -->(7,'&self',['S','Z'],depth(6))
+<span class="ansi33"> False
 
 </span>; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,drop,[->,['Vec',True,['S',X]],['Vec',True,X]]])
@@ -140,7 +149,10 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (Vec Number Z))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[drop,['Cons',1,[]]]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['Vec','Number','Z'],depth(2))
+<span class="ansi33"> False
 
 </span>; Check length after dropping
 <span class="ansi38-000068000">!(assertEqual (drop (Cons 2 (Cons 1 ()))) (Cons 1 ()))
@@ -150,7 +162,12 @@
   (equal_enough  
     ( (Cons 1 ())) 
     ( (Cons 1 ()))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[drop,['Cons',2,['Cons',1,[]]]],depth(2))
+            -->(1,'&self',['Cons',1,[]],depth(4))
+          -->(2,'&self',['Cons',1,[]],depth(3))
+        <--(0,retval(['Cons',1,[]]))
+        -->(3,'&self',['Cons',1,[]],depth(2))
+<span class="ansi33"> True
 
 </span>; Types can protect against misuse, like dropping from empty Vec
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (drop ())) ())
@@ -158,7 +175,9 @@
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.04">;; TEST-SCRIPTS.D3-DEPTYPES.04</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[drop,[]]],depth(2))
+        <--(0,retval(fail))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -193,7 +212,10 @@
   (equal_enough  
     (1) 
     ( (VecN String 2))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['ConsN',"1",['ConsN',"2",'NilN']]],depth(2))
+        <--(0,retval(1))
+        -->(1,'&self',['VecN','String',2],depth(2))
+<span class="ansi33"> False
 
 </span>; Similarly, `-` reduces the length in `dropN` type.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,dropN,[->,['VecN',True,X],['VecN',True,[-,X,1]]]])
@@ -217,7 +239,10 @@
   (equal_enough  
     (1) 
     ( (VecN String 0))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[dropN,['ConsN',"1",'NilN']]],depth(2))
+        <--(0,retval(1))
+        -->(1,'&self',['VecN','String',0],depth(2))
+<span class="ansi33"> False
 
 </span>; TODO: doesn't work after type checking fixes
 ; However, without any validation, invalid lengths like -1 can be derived.
@@ -239,9 +264,10 @@
   (equal_enough  
     ( (dropN NilN)) 
     ( (dropN NilN))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[dropN,'NilN'],depth(2))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 176,105 inferences, 0.112 CPU in 0.112 seconds (100% CPU, 1568111 Lips)
+</span><span class="ansi32">% 182,846 inferences, 0.105 CPU in 0.105 seconds (100% CPU, 1733773 Lips)
 </span> (@ = "examples/compat/test_scripts/d3_deptypes.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

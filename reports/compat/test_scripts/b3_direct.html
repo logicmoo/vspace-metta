@@ -84,7 +84,31 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[green,'Fritz'],depth(2))
+          -->(1,'&self',[frog,'Fritz'],depth(3))
+            -->(2,'&self',['And',[croaks,'Fritz'],[eat_flies,'Fritz']],depth(4))
+                -->(3,'&self',[croaks,'Fritz'],depth(6))
+                -->(4,'&self',['And','True',[eat_flies,'Fritz']],depth(6))
+                    -->(5,'&self',[eat_flies,'Fritz'],depth(8))
+                    -->(6,'&self',['And','True','True'],depth(8))
+                    <--(6,retval('True'))
+                    <--(5,retval('True'))
+                    -->(7,'&self',[eat_flies,'Fritz'],depth(8))
+                    <--(7,retval('True'))
+                <--(4,retval('True'))
+                <--(3,retval('True'))
+                -->(8,'&self',[croaks,'Fritz'],depth(6))
+                -->(9,'&self',[eat_flies,'Fritz'],depth(6))
+                <--(9,retval('True'))
+                <--(8,retval('True'))
+                -->(10,'&self',[eat_flies,'Fritz'],depth(6))
+                -->(11,'&self',[croaks,'Fritz'],depth(6))
+                <--(11,retval('True'))
+                <--(10,retval('True'))
+            <--(2,retval('True'))
+          <--(1,retval(['And',[croaks,'Fritz'],[eat_flies,'Fritz']]))
+        <--(0,retval([frog,'Fritz']))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -103,7 +127,23 @@
   (equal_enough  
     (Fritz) 
     (Fritz)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[ift,[green,_423636],_423636],depth(2))
+            -->(1,'&self',[green,_423636],depth(4))
+              -->(2,'&self',[frog,_423636],depth(5))
+                -->(3,'&self',['And',[croaks,_423636],[eat_flies,_423636]],depth(6))
+                    -->(4,'&self',[croaks,_423636],depth(8))
+                    -->(5,'&self',[eat_flies,'Fritz'],depth(8))
+                  -->(6,'&self',['And','True','True'],depth(7))
+          -->(7,'&self',[ift,'True','Fritz'],depth(3))
+          <--(7,retval('Fritz'))
+                  <--(6,retval('True'))
+                    <--(5,retval('True'))
+                    <--(4,retval('True'))
+                <--(3,retval(['And','True','True']))
+              <--(2,retval(['And',[croaks,_433748],[eat_flies,_433748]]))
+            <--(1,retval([frog,_433280]))
+        <--(0,retval([ift,'True','Fritz']))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -118,9 +158,11 @@
   (equal_enough  
     (croaks eat_flies) 
     (croaks eat_flies)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[=,[_449400,'Fritz'],'True'],_449400],depth(2))
+        <--(0,retval(eat_flies))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 70,398 inferences, 0.034 CPU in 0.034 seconds (100% CPU, 2101213 Lips)
+</span><span class="ansi32">% 77,242 inferences, 0.031 CPU in 0.031 seconds (100% CPU, 2492465 Lips)
 </span> (@ = "examples/compat/test_scripts/b3_direct.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

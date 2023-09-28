@@ -138,7 +138,9 @@
   (equal_enough  
     (Type) 
     (Type)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',['Mortal','Plato']],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> True
 
 </span>; A function type as an implication
 ; `HumansAreMortal` represents the implication:
@@ -176,7 +178,10 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (Mortal Socrates))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['HumansAreMortal','SocratesIsHuman']],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['Mortal','Socrates'],depth(2))
+<span class="ansi33"> False
 
 </span>; Bad typing
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (HumansAreMortal (Human Socrates))) ())
@@ -184,7 +189,9 @@
 </span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.03">;; TEST-SCRIPTS.D4-TYPE-PROP.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',['HumansAreMortal',['Human','Socrates']]],depth(2))
+        <--(0,retval(fail))
+<span class="ansi33"> True
 
 </span>; We can write this code, but it will make not too much
 ; difference for the assertion that "all humans are mortal"
@@ -215,7 +222,9 @@
   (equal_enough  
     (Type) 
     (Type)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']]],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> True
 
 </span>; This equality is well-typed, because both its arguments are of `Type`.
 ; It doesn't mean they are both inhabited (true propositions), and
@@ -227,7 +236,9 @@
   (equal_enough  
     (Type) 
     (Type)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[=,['Mortal','Socrates'],['Mortal','Plato']]],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> True
 
 </span>; Wrong proof
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsMortal (HumansAreMortal PlatoIsHuman))) ())
@@ -236,7 +247,9 @@
 (@ loonit_failureR 
   (equal_enough  
     (Type) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[=,'SocratesIsMortal',['HumansAreMortal','PlatoIsHuman']]],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> False
 
 </span>; Wrong equalities
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman PlatoIsHuman)) ())
@@ -245,7 +258,9 @@
 (@ loonit_failureR 
   (equal_enough  
     (Type) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[=,'SocratesIsHuman','PlatoIsHuman']],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman SocratesIsMortal)) ())
 
@@ -253,7 +268,9 @@
 (@ loonit_failureR 
   (equal_enough  
     (Type) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[=,'SocratesIsHuman','SocratesIsMortal']],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -287,7 +304,15 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],depth(2))
+            -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
+            -->(2,'&self',[=,'SocratesIsMortal','SocratesIsMortal'],depth(4))
+            <--(2,retval('True'))
+            <--(1,retval('SocratesIsMortal'))
+            -->(3,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
+            <--(3,retval('SocratesIsMortal'))
+        <--(0,retval('True'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (= (+ 1 1) (- 3 1)) True)
 
@@ -296,7 +321,27 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[=,[+,1,1],[-,3,1]],depth(2))
+            -->(1,'&self',[+,1,1],depth(4))
+            <--(1,retval(2))
+            -->(2,'&self',[=,2,[-,3,1]],depth(4))
+                -->(3,'&self',[-,3,1],depth(6))
+                <--(3,retval(2))
+                -->(4,'&self',[=,2,2],depth(6))
+                <--(4,retval('True'))
+                -->(5,'&self',[-,3,1],depth(6))
+                <--(5,retval(2))
+            <--(2,retval('True'))
+            -->(6,'&self',[+,1,1],depth(4))
+            <--(6,retval(2))
+            -->(7,'&self',[-,3,1],depth(4))
+            <--(7,retval(2))
+            -->(8,'&self',[-,3,1],depth(4))
+            <--(8,retval(2))
+            -->(9,'&self',[+,1,1],depth(4))
+            <--(9,retval(2))
+        <--(0,retval('True'))
+<span class="ansi33"> True
 
 </span>; One can also define an equality for directly inhabited types
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[=,Type,'True'],[match,'&self',[:,X,Type],'True'])
@@ -313,7 +358,12 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[=,['Mortal','Socrates'],'True'],depth(2))
+            -->(1,'&self',['Mortal','Socrates'],depth(4))
+          -->(2,'&self',[match,'&self',[:,_207118,['Mortal','Socrates']],'True'],depth(3))
+          <--(2,retval('True'))
+        <--(0,retval([match,'&self',[:,_207256,['Mortal','Socrates']],'True']))
+<span class="ansi33"> True
 
 </span>; It will not immediately work for implications
 <span class="ansi38-000068000">!(assertEqualToResult (= (Mortal Plato) True) ())
@@ -321,7 +371,12 @@
 </span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.12">;; TEST-SCRIPTS.D4-TYPE-PROP.12</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[=,['Mortal','Plato'],'True'],depth(2))
+            -->(1,'&self',['Mortal','Plato'],depth(4))
+          -->(2,'&self',[match,'&self',[:,_237302,['Mortal','Plato']],'True'],depth(3))
+          <--(2,retval(fail))
+        <--(0,retval([match,'&self',[:,_237440,['Mortal','Plato']],'True']))
+<span class="ansi33"> True
 
 </span>; But we can add 'reasoning'
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[=,Type,'True'],[match,'&self',[:,Impl,[->,Cause,Type]],[=,Cause,'True']])
@@ -340,7 +395,21 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[=,['Mortal','Plato'],'True'],depth(2))
+            -->(1,'&self',['Mortal','Plato'],depth(4))
+          -->(2,'&self',[match,'&self',[:,_285624,['Mortal','Plato']],'True'],depth(3))
+          <--(2,retval(fail))
+          -->(3,'&self',[match,'&self',[:,_285816,[->,_285834,['Mortal','Plato']]],[=,_285834,'True']],depth(3))
+            -->(4,'&self',[=,['Human','Plato'],'True'],depth(4))
+                -->(5,'&self',['Human','Plato'],depth(6))
+              -->(6,'&self',[match,'&self',[:,_287530,['Human','Plato']],'True'],depth(5))
+              <--(6,retval('True'))
+              -->(7,'&self',[match,'&self',[:,_288062,[->,_288080,['Human','Plato']]],[=,_288080,'True']],depth(5))
+              <--(7,retval(fail))
+            <--(4,retval([match,'&self',[:,_288332,[->,_288350,['Human','Plato']]],[=,_288350,'True']]))
+          <--(3,retval([=,['Human','Plato'],'True']))
+        <--(0,retval([match,'&self',[:,_286086,[->,_286104,['Mortal','Plato']]],[=,_286104,'True']]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Sam','Entity'])
 </span><span class="ansi38-255165000">  (: Sam Entity)
@@ -351,7 +420,14 @@
 </span><h3 id="TEST-SCRIPTS.D4-TYPE-PROP.14">;; TEST-SCRIPTS.D4-TYPE-PROP.14</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[=,['Human','Sam'],'True'],depth(2))
+            -->(1,'&self',['Human','Sam'],depth(4))
+          -->(2,'&self',[match,'&self',[:,_327922,['Human','Sam']],'True'],depth(3))
+          <--(2,retval(fail))
+          -->(3,'&self',[match,'&self',[:,_328114,[->,_328132,['Human','Sam']]],[=,_328132,'True']],depth(3))
+          <--(3,retval(fail))
+        <--(0,retval([match,'&self',[:,_328384,[->,_328402,['Human','Sam']]],[=,_328402,'True']]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -364,7 +440,8 @@
   (equal_enough  
     ( (Mortal Plato)) 
     ( (Mortal Plato))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['Mortal','Plato'],depth(2))
+<span class="ansi33"> True
 
 </span>; Refl rule itself equals to True
 <span class="ansi38-000068000">!(assertEqual (= (= $X $X) True) True)
@@ -373,7 +450,13 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (True)))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[=,[=,_368132,_368132],'True'],depth(2))
+          -->(1,'&self',[match,'&self',[:,_376186,[=,_368132,_368132]],'True'],depth(3))
+          <--(1,retval(fail))
+          -->(2,'&self',[match,'&self',[:,_376390,[->,_376408,[=,_368132,_368132]]],[=,_376408,'True']],depth(3))
+          <--(2,retval(fail))
+        <--(0,retval([match,'&self',[:,_376672,[->,_376690,[=,_376708,_376708]]],[=,_376690,'True']]))
+<span class="ansi33"> False
 
 </span>; We can also add direct equalities
 ; (= (Human Socrates) T)
@@ -401,7 +484,11 @@
   (equal_enough  
     (True) 
     (True)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['Mortal','Plato'],depth(2))
+          -->(1,'&self',['Human','Plato'],depth(3))
+          <--(1,retval('True'))
+        <--(0,retval(['Human','Plato']))
+<span class="ansi33"> True
 
 </span>; We can even try backward chaining
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ift,[->,'Type',True,True]])
@@ -421,9 +508,17 @@
   (equal_enough  
     (Socrates) 
     (Plato Socrates)))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[ift,['Mortal',_456048],_456048],depth(2))
+            -->(1,'&self',['Mortal',_456048],depth(4))
+          -->(2,'&self',[ift,'True','Socrates'],depth(3))
+          <--(2,retval('Socrates'))
+              -->(3,'&self',['Human',_456048],depth(5))
+              <--(3,retval('True'))
+            <--(1,retval(['Human',_465776]))
+        <--(0,retval([ift,'True','Socrates']))
+<span class="ansi33"> False
 
-</span><span class="ansi32">% 319,928 inferences, 0.381 CPU in 0.381 seconds (100% CPU, 839992 Lips)
+</span><span class="ansi32">% 337,321 inferences, 0.357 CPU in 0.357 seconds (100% CPU, 944984 Lips)
 </span> (@ = "examples/compat/test_scripts/d4_type_prop.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

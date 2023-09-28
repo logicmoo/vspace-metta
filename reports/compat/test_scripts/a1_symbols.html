@@ -96,7 +96,10 @@
       (leaf0 leaf1)) 
     (leaf1 
       (leaf0 leaf1))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[[_374344,leaf2],leaf3],_374344],depth(2))
+          -->(1,'&self',[leaf0,leaf1],depth(3))
+        <--(0,retval([leaf0,leaf1]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -126,7 +129,12 @@
     ( (Sam the frog) 
       (Sophia the robot) 
       (Tom the cat))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[_464588,is,a,_464910],[_464588,the,_464910]],depth(2))
+          -->(1,'&self',['Sam',the,frog],depth(3))
+          -->(2,'&self',['Tom',the,cat],depth(3))
+          -->(3,'&self',['Sophia',the,robot],depth(3))
+        <--(0,retval(['Sophia',the,robot]))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -155,7 +163,10 @@
   (equal_enough  
     ( (Sam is really green)) 
     ( (Sam is really green))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['Green',_19550],'True'],[_19550,is,really,green]],depth(2))
+          -->(1,'&self',['Sam',is,really,green],depth(3))
+        <--(0,retval(['Sam',is,really,green]))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
 
@@ -166,7 +177,11 @@
       (Tom is really White)) 
     ( (Sam is really Green) 
       (Tom is really White))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,[_56544,_56862],'True'],[_56862,is,really,_56544]],depth(2))
+          -->(1,'&self',['Sam',is,really,'Green'],depth(3))
+          -->(2,'&self',['Tom',is,really,'White'],depth(3))
+        <--(0,retval(['Tom',is,really,'White']))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) $Tv) (It (quote s) $Tv that $Who is $Color)) ((It (quote s) True that Sam is Green) (It (quote s) True that Tom is White) (It (quote s) False that Tom is Green)))
 
@@ -185,7 +200,21 @@
         (quote s) True that Sam is Green) 
       (It 
         (quote s) True that Tom is White))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,[_103982,_104300],_104606],['It',[quote,s],_104606,that,_104300,is,_103982]],depth(2))
+          -->(1,'&self',['It',[quote,s],'True',that,'Sam',is,'Green'],depth(3))
+              -->(2,'&self',[quote,s],depth(5))
+              -->(3,'&self',[quote,s],depth(5))
+              -->(4,'&self',[quote,s],depth(5))
+          -->(5,'&self',['It',[quote,s],'True',that,'Tom',is,'White'],depth(3))
+              -->(6,'&self',[quote,s],depth(5))
+              -->(7,'&self',[quote,s],depth(5))
+              -->(8,'&self',[quote,s],depth(5))
+          -->(9,'&self',['It',[quote,s],'False',that,'Tom',is,'Green'],depth(3))
+              -->(10,'&self',[quote,s],depth(5))
+              -->(11,'&self',[quote,s],depth(5))
+              -->(12,'&self',[quote,s],depth(5))
+        <--(0,retval(['It',[quote,s],'False',that,'Tom',is,'Green']))
+<span class="ansi33"> True
 
 </span>; This type of query works as a sort of evaluation/reduction
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv) (False))
@@ -195,7 +224,9 @@
   (equal_enough  
     (False) 
     (False)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_156882],_156882],depth(2))
+        <--(0,retval('False'))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -220,9 +251,11 @@
   (equal_enough  
     (blue green red) 
     (blue green red)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[match,'&self',[isa,_196394,color],_196394],depth(2))
+        <--(0,retval(blue))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 184,199 inferences, 0.096 CPU in 0.096 seconds (100% CPU, 1918324 Lips)
+</span><span class="ansi32">% 193,765 inferences, 0.106 CPU in 0.106 seconds (100% CPU, 1827193 Lips)
 </span> (@ = "examples/compat/test_scripts/a1_symbols.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -66,7 +66,16 @@
   (equal_enough  
     ( (A B)) 
     ( (A B))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-state',['get-token']],depth(2))
+            -->(1,'&self',['get-token'],depth(4))
+              -->(2,'&self','&state-token',depth(5))
+              <--(2,retval('State'(['A','B'],['Symbol','Symbol'])))
+                -->(3,'&self','State'(['A','B'],['Symbol','Symbol']),depth(6))
+          -->(4,'&self',['A','B'],depth(3))
+            <--(1,retval('&state-token'))
+        <--(0,retval(['A','B']))
+        -->(5,'&self',['A','B'],depth(2))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -83,7 +92,16 @@
     ( (State  
         (A B) 
         (Symbol Symbol)))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-token'],depth(2))
+          -->(1,'&self','&state-token',depth(3))
+          <--(1,retval('State'(['A','B'],['Symbol','Symbol'])))
+            -->(2,'&self','State'(['A','B'],['Symbol','Symbol']),depth(4))
+        <--(0,retval('&state-token'))
+        -->(3,'&self',['new-state',['A','B']],depth(2))
+            -->(4,'&self',['A','B'],depth(4))
+        <--(3,retval('State'(['A','B'],['Symbol','Symbol'])))
+          -->(5,'&self','State'(['A','B'],['Symbol','Symbol']),depth(3))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -98,7 +116,15 @@
     ( (StateMonad Number) 
       (Symbol Number)) 
     ( (StateMonad Number))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['new-state',2]],depth(2))
+          -->(1,'&self',['Symbol','Number'],depth(3))
+              -->(2,'&self',['new-state',2],depth(5))
+              <--(2,retval('State'(2,'Number')))
+                -->(3,'&self','State'(2,'Number'),depth(6))
+          -->(4,'&self',['StateMonad','Number'],depth(3))
+        <--(0,retval(['StateMonad','Number']))
+        -->(5,'&self',['StateMonad','Number'],depth(2))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 
@@ -111,7 +137,45 @@
       (Symbol 
         (Symbol String) String)) 
     ( (StateMonad String))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['change-state!',['new-state',"S"],"V"]],depth(2))
+                  -->(1,'&self',"S",depth(7))
+                -->(2,'&self',"V",depth(6))
+          -->(3,'&self',['Symbol',['Symbol','String'],'String'],depth(3))
+              -->(4,'&self',['Symbol','String'],depth(5))
+              -->(5,'&self',['Symbol','String'],depth(5))
+              -->(6,'&self',['Symbol','String'],depth(5))
+                -->(7,'&self',['new-state',"S"],depth(6))
+                    -->(8,'&self',"S",depth(8))
+                      -->(9,'&self',"S",depth(9))
+                <--(7,retval('State'("S",'String')))
+                  -->(10,'&self','State'("S",'String'),depth(7))
+                  -->(11,'&self',"S",depth(7))
+                -->(12,'&self',"V",depth(6))
+          -->(13,'&self',['Symbol',['StateMonad','String'],'String'],depth(3))
+              -->(14,'&self',['StateMonad','String'],depth(5))
+              -->(15,'&self',['StateMonad','String'],depth(5))
+              -->(16,'&self',['StateMonad','String'],depth(5))
+                  -->(17,'&self',"S",depth(7))
+              -->(18,'&self',['change-state!',['new-state',"S"],"V"],depth(5))
+                  -->(19,'&self',['new-state',"S"],depth(7))
+                      -->(20,'&self',"S",depth(9))
+                        -->(21,'&self',"S",depth(10))
+                  <--(19,retval('State'("S",'String')))
+                    -->(22,'&self','State'("S",'String'),depth(8))
+                  -->(23,'&self',"V",depth(7))
+              <--(18,retval('State'("V",'String')))
+                -->(24,'&self','State'("V",'String'),depth(6))
+                -->(25,'&self',"V",depth(6))
+          -->(26,'&self',['StateMonad','String'],depth(3))
+                -->(27,'&self',['new-state',"S"],depth(6))
+                    -->(28,'&self',"S",depth(8))
+                      -->(29,'&self',"S",depth(9))
+                <--(27,retval('State'("S",'String')))
+                  -->(30,'&self','State'("S",'String'),depth(7))
+                  -->(31,'&self','State'("S",'String'),depth(7))
+        <--(0,retval(['StateMonad','String']))
+        -->(32,'&self',['StateMonad','String'],depth(2))
+<span class="ansi33"> False
 
 </span>; These are the types of State grounded atom
 <span class="ansi38-000068000">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
@@ -121,7 +185,17 @@
   (equal_enough  
     ( (StateMonad Number)) 
     ( (StateMonad Number))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[let,_90402,['new-state',1],['get-type',_90402]],depth(2))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,'Number')))
+              -->(2,'&self','State'(1,'Number'),depth(5))
+            -->(3,'&self',['get-type','State'(1,'Number')],depth(4))
+            <--(3,retval(['StateMonad','Number']))
+              -->(4,'&self',['StateMonad','Number'],depth(5))
+        <--(0,retval(['StateMonad','Number']))
+          -->(5,'&self',['StateMonad','Number'],depth(3))
+        -->(6,'&self',['StateMonad','Number'],depth(2))
+<span class="ansi33"> True
 
 </span>; atm, meta-types for states of non-grounded types are used
 <span class="ansi38-000068000">!(assertEqual (get-type &state-token) (StateMonad Expression))
@@ -135,7 +209,22 @@
       (StateMonad 
         (Symbol Symbol))) 
     ( (StateMonad Expression))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type','&state-token'],depth(2))
+              -->(1,'&self','&state-token',depth(5))
+              <--(1,retval('State'(['A','B'],['Symbol','Symbol'])))
+                -->(2,'&self','State'(['A','B'],['Symbol','Symbol']),depth(6))
+          -->(3,'&self',['StateMonad',['Symbol','Symbol']],depth(3))
+              -->(4,'&self',['Symbol','Symbol'],depth(5))
+              -->(5,'&self',['Symbol','Symbol'],depth(5))
+              -->(6,'&self',['Symbol','Symbol'],depth(5))
+                -->(7,'&self',['A','B'],depth(6))
+          -->(8,'&self',['StateMonad',['List','Symbol']],depth(3))
+              -->(9,'&self',['List','Symbol'],depth(5))
+              -->(10,'&self',['List','Symbol'],depth(5))
+              -->(11,'&self',['List','Symbol'],depth(5))
+        <--(0,retval('Symbol'))
+        -->(12,'&self',['StateMonad','Expression'],depth(2))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -151,7 +240,14 @@
     ( (State  1 
         (Symbol Symbol))) 
     ( (Error 1 BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['change-state!','&state-token',1],depth(2))
+            -->(1,'&self','&state-token',depth(4))
+            <--(1,retval('State'(1,['Symbol','Symbol'])))
+              -->(2,'&self','State'(1,['Symbol','Symbol']),depth(5))
+        <--(0,retval('State'(1,['Symbol','Symbol'])))
+          -->(3,'&self','State'(1,['Symbol','Symbol']),depth(3))
+        -->(4,'&self',['Error',1,'BadType'],depth(2))
+<span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
@@ -161,7 +257,17 @@
   (equal_enough  
     ( (State  "S" Number)) 
     ( (Error "S" BadType))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['change-state!',['new-state',1],"S"],depth(2))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,'Number')))
+              -->(2,'&self','State'(1,'Number'),depth(5))
+            -->(3,'&self',"S",depth(4))
+        <--(0,retval('State'("S",'Number')))
+          -->(4,'&self','State'("S",'Number'),depth(3))
+        -->(5,'&self',['Error',"S",'BadType'],depth(2))
+            -->(6,'&self',"S",depth(4))
+            -->(7,'&self',"S",depth(4))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -181,7 +287,16 @@
   (equal_enough  
     ( (C D)) 
     ( (C D))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-state',['get-token']],depth(2))
+            -->(1,'&self',['get-token'],depth(4))
+              -->(2,'&self','&state-token',depth(5))
+              <--(2,retval('State'(['C','D'],['Symbol','Symbol'])))
+                -->(3,'&self','State'(['C','D'],['Symbol','Symbol']),depth(6))
+          -->(4,'&self',['C','D'],depth(3))
+            <--(1,retval('&state-token'))
+        <--(0,retval(['C','D']))
+        -->(5,'&self',['C','D'],depth(2))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -195,7 +310,25 @@
   (equal_enough  
     ( (State  2 Number)) 
     ( (State  2 Number))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[let,_310834,['new-state',1],['change-state!',_310834,[+,['get-state',_310834],1]]],depth(2))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,'Number')))
+              -->(2,'&self','State'(1,'Number'),depth(5))
+            -->(3,'&self',['change-state!','State'(1,'Number'),[+,['get-state','State'(1,'Number')],1]],depth(4))
+                -->(4,'&self','State'(1,'Number'),depth(6))
+                -->(5,'&self',[+,['get-state','State'(1,'Number')],1],depth(6))
+                    -->(6,'&self',['get-state','State'(1,'Number')],depth(8))
+                        -->(7,'&self','State'(1,'Number'),depth(10))
+                    <--(6,retval(1))
+                <--(5,retval(2))
+            <--(3,retval('State'(2,'Number')))
+              -->(8,'&self','State'(2,'Number'),depth(5))
+        <--(0,retval('State'(2,'Number')))
+          -->(9,'&self','State'(2,'Number'),depth(3))
+        -->(10,'&self',['new-state',2],depth(2))
+        <--(10,retval('State'(2,'Number')))
+          -->(11,'&self','State'(2,'Number'),depth(3))
+<span class="ansi33"> True
 
 </span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
@@ -206,9 +339,19 @@
   (equal_enough  
     ( (State  1 Number)) 
     ( (State  1 Number))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',[let,_340644,['new-state',1],_340644],depth(2))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,'Number')))
+              -->(2,'&self','State'(1,'Number'),depth(5))
+            -->(3,'&self','State'(1,'Number'),depth(4))
+        <--(0,retval('State'(1,'Number')))
+          -->(4,'&self','State'(1,'Number'),depth(3))
+        -->(5,'&self',['new-state',1],depth(2))
+        <--(5,retval('State'(1,'Number')))
+          -->(6,'&self','State'(1,'Number'),depth(3))
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 188,173 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 1235281 Lips)
+</span><span class="ansi32">% 215,060 inferences, 0.163 CPU in 0.163 seconds (100% CPU, 1316533 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

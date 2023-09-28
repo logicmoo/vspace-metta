@@ -119,7 +119,9 @@
   (equal_enough  
     (Number) 
     (Number)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',5],depth(2))
+        <--(0,retval('Number'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
 
@@ -128,7 +130,9 @@
   (equal_enough  
     (Number) 
     (Number)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[+,5,7]],depth(2))
+        <--(0,retval('Number'))
+<span class="ansi33"> True
 
 </span>; It works for built-in symbols too
 <span class="ansi38-000068000">!(assertEqual (get-type +) (-> Number Number Number))
@@ -138,7 +142,11 @@
   (equal_enough  
     ( (-> Number Number Number)) 
     ( (-> Number Number Number))))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',+],depth(2))
+        <--(0,retval([->,'Number','Number','Number']))
+          -->(1,'&self',[->,'Number','Number','Number'],depth(3))
+        -->(2,'&self',[->,'Number','Number','Number'],depth(2))
+<span class="ansi33"> True
 
 </span>; If its argument is a badly typed expression,
 ; `get-type` returns the empty set
@@ -148,7 +156,9 @@
 (@ loonit_failureR 
   (equal_enough  
     (Number) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[+,5,"4"]],depth(2))
+        <--(0,retval('Number'))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
 
@@ -156,7 +166,9 @@
 (@ loonit_failureR 
   (equal_enough  
     (Number) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[+,-]],depth(2))
+        <--(0,retval('Number'))
+<span class="ansi33"> False
 
 </span>; Also works for custom types
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Either','Type'])
@@ -170,7 +182,9 @@
   (equal_enough  
     (Type) 
     (Type)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type','Either'],depth(2))
+        <--(0,retval('Type'))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -193,7 +207,9 @@
   (equal_enough  
     (Either) 
     (Either)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',['Left',5]],depth(2))
+        <--(0,retval('Either'))
+<span class="ansi33"> True
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
 </span><span class="ansi38-255165000">  (: isLeft 
@@ -219,7 +235,9 @@
   (equal_enough  
     (Bool) 
     (Bool)))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',[isLeft,['Right',5]]],depth(2))
+        <--(0,retval('Bool'))
+<span class="ansi33"> True
 
 </span>; Badly typed expression
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (isLeft 5)) ())
@@ -228,7 +246,9 @@
 (@ loonit_failureR 
   (equal_enough  
     (Bool) ()))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[isLeft,5]],depth(2))
+        <--(0,retval('Bool'))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -257,7 +277,10 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (EitherP Number))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['LeftP',5]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['EitherP','Number'],depth(2))
+<span class="ansi33"> False
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Pair',[->,A,B,'Type']])
 </span><span class="ansi38-255165000">  (: Pair 
@@ -277,7 +300,13 @@
   (equal_enough  () 
     ( (Pair 
         (EitherP Number) String))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',[pair,['LeftP',5],"String"]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['Pair',['EitherP','Number'],'String'],depth(2))
+            -->(2,'&self',['EitherP','Number'],depth(4))
+            -->(3,'&self',['EitherP','Number'],depth(4))
+            -->(4,'&self',['EitherP','Number'],depth(4))
+<span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -306,14 +335,19 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (List Number))))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',['get-type',['Cons',5,['Cons',6,[]]]],depth(2))
+        <--(0,retval(fail))
+        -->(1,'&self',['List','Number'],depth(2))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (Cons 5 (Cons "6" ()))) ())
 
 </span><h3 id="TEST-SCRIPTS.D1-GADT.13">;; TEST-SCRIPTS.D1-GADT.13</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span><span class="ansi33"> True
+</span>        -->(0,'&self',['get-type',['Cons',5,['Cons',"6",[]]]],depth(2))
+        <--(0,retval(fail))
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -325,9 +359,13 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (Number)))
-</span><span class="ansi33"> False
+</span>        -->(0,'&self',[let,['List',_25894],['get-type',['Cons',5,['Cons',6,[]]]],_25894],depth(2))
+            -->(1,'&self',['get-type',['Cons',5,['Cons',6,[]]]],depth(4))
+            <--(1,retval(fail))
+        <--(0,retval(fail))
+<span class="ansi33"> False
 
-</span><span class="ansi32">% 240,993 inferences, 0.147 CPU in 0.147 seconds (100% CPU, 1635864 Lips)
+</span><span class="ansi32">% 249,073 inferences, 0.152 CPU in 0.152 seconds (100% CPU, 1639949 Lips)
 </span> (@ = "examples/compat/test_scripts/d1_gadt.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
