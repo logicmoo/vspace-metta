@@ -42,6 +42,7 @@
 !(assertEqual
   (let $v (new-state 1) (get-type $v))
   (StateMonad Number))
+
 ; atm, meta-types for states of non-grounded types are used
 !(assertEqual
   (get-type &state-token)

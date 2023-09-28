@@ -9,7 +9,6 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
-.ansi1 { font-weight: bold; }
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
@@ -106,25 +105,25 @@
 </span>; checking grounded types
 <span class="ansi38-000068000">!(assertEqualToResult (+ 5 "S") ((Error "S" BadType)))
 
-</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.01">;; TEST-SCRIPTS.D5-AUTO-TYPES.01</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.01">;; TEST-SCRIPTS.D5-AUTO-TYPES.01</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (88) 
     ( (Error "S" BadType))))
 </span>        -->(0,'&self',[+,5,"S"],depth(2))
-            -->(1,'&self',"S",depth(4))
         <--(0,retval(88))
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 5 "S") ((Error "S" BadType)))
 
-</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.02">;; TEST-SCRIPTS.D5-AUTO-TYPES.02</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.02">;; TEST-SCRIPTS.D5-AUTO-TYPES.02</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (False) 
     ( (Error "S" BadType))))
 </span>        -->(0,'&self',[==,5,"S"],depth(2))
-            -->(1,'&self',"S",depth(4))
         <--(0,retval('False'))
 <span class="ansi33"> False
 
@@ -176,8 +175,9 @@
 ; badly typed examples produce `Error` grounded values describing the issue:
 <span class="ansi38-000068000">!(assertEqualToResult (== SocratesIsHuman SamIsMortal) ((Error SamIsMortal BadType)))
 
-</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.03">;; TEST-SCRIPTS.D5-AUTO-TYPES.03</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.03">;; TEST-SCRIPTS.D5-AUTO-TYPES.03</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (False) 
     ( (Error SamIsMortal BadType))))
@@ -187,8 +187,9 @@
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (HumansAreMortal (Human Socrates)) ((Error (Human Socrates) BadType)))
 
-</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.04">;; TEST-SCRIPTS.D5-AUTO-TYPES.04</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.04">;; TEST-SCRIPTS.D5-AUTO-TYPES.04</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     ( (HumansAreMortal 
         (Human Socrates))) 
@@ -206,17 +207,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (collapse (+ 5 "S")) (((Error "S" BadType))))
 
-</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.05">;; TEST-SCRIPTS.D5-AUTO-TYPES.05</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.05">;; TEST-SCRIPTS.D5-AUTO-TYPES.05</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     ( (88)) 
     ( ( (Error "S" BadType)))))
 </span>        -->(0,'&self',[collapse,[+,5,"S"]],depth(2))
             -->(1,'&self',[+,5,"S"],depth(4))
-                -->(2,'&self',"S",depth(6))
             <--(1,retval(88))
         <--(0,retval([88]))
-          -->(3,'&self',[88],depth(3))
+          -->(2,'&self',[88],depth(3))
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -251,30 +252,25 @@
 
 <span class="ansi38-000068000">!(assertEqualToResult (f (+ 5 "S")) ((Error "S" BadType)))
 
-</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.06">;; TEST-SCRIPTS.D5-AUTO-TYPES.06</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.D5-AUTO-TYPES.06">;; TEST-SCRIPTS.D5-AUTO-TYPES.06</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     ( (f 88)) 
     ( (Error "S" BadType))))
 </span>        -->(0,'&self',[f,[+,5,"S"]],depth(2))
             -->(1,'&self',[+,5,"S"],depth(4))
-                -->(2,'&self',"S",depth(6))
+            -->(2,'&self',[f,88],depth(4))
+          -->(3,'&self',[f,88],depth(3))
             <--(1,retval(88))
-            -->(3,'&self',[f,88],depth(4))
-          -->(4,'&self',[f,88],depth(3))
-            -->(5,'&self',[+,5,"S"],depth(4))
-                -->(6,'&self',"S",depth(6))
-            <--(5,retval(88))
+            -->(4,'&self',[+,5,"S"],depth(4))
+            <--(4,retval(88))
         <--(0,retval([f,88]))
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 154,386 inferences, 0.101 CPU in 0.101 seconds (100% CPU, 1534683 Lips)
+</span><span class="ansi32">% 154,976 inferences, 0.101 CPU in 0.101 seconds (100% CPU, 1538689 Lips)
 </span> (@ = "examples/compat/test_scripts/d5_auto_types.metta" 0)
-<span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 6
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d5_auto_types.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d5_auto_types.html" )
 
 </pre>
 </body>

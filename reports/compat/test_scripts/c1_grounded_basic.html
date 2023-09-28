@@ -81,10 +81,12 @@
 </span>        -->(0,'&self',[+,2,[*,3,5.5]],depth(2))
             -->(1,'&self',[*,3,5.5],depth(4))
             <--(1,retval(16.5))
-            -->(2,'&self',[+,2,16.5],depth(4))
-            <--(2,retval(18.5))
-            -->(3,'&self',[*,3,5.5],depth(4))
-            <--(3,retval(16.5))
+            -->(2,'&self',[*,3,5.5],depth(4))
+            <--(2,retval(16.5))
+            -->(3,'&self',[+,2,16.5],depth(4))
+            <--(3,retval(18.5))
+            -->(4,'&self',[*,3,5.5],depth(4))
+            <--(4,retval(16.5))
         <--(0,retval(18.5))
 <span class="ansi33"> True
 
@@ -98,10 +100,12 @@
 </span>        -->(0,'&self',[-,8,[/,4,6.4]],depth(2))
             -->(1,'&self',[/,4,6.4],depth(4))
             <--(1,retval(0.625))
-            -->(2,'&self',[-,8,0.625],depth(4))
-            <--(2,retval(7.375))
-            -->(3,'&self',[/,4,6.4],depth(4))
-            <--(3,retval(0.625))
+            -->(2,'&self',[/,4,6.4],depth(4))
+            <--(2,retval(0.625))
+            -->(3,'&self',[-,8,0.625],depth(4))
+            <--(3,retval(7.375))
+            -->(4,'&self',[/,4,6.4],depth(4))
+            <--(4,retval(0.625))
         <--(0,retval(7.375))
 <span class="ansi33"> True
 
@@ -128,19 +132,21 @@
             <--(1,retval(15))
             -->(2,'&self',[<,4,[+,2,15]],depth(4))
                 -->(3,'&self',[+,2,15],depth(6))
-                <--(3,retval(17))
                 -->(4,'&self',[<,4,17],depth(6))
                 <--(4,retval('True'))
+                <--(3,retval(17))
                 -->(5,'&self',[+,2,15],depth(6))
                 <--(5,retval(17))
             <--(2,retval('True'))
             -->(6,'&self',[+,2,[*,3,5]],depth(4))
                 -->(7,'&self',[*,3,5],depth(6))
                 <--(7,retval(15))
-                -->(8,'&self',[+,2,15],depth(6))
-                <--(8,retval(17))
-                -->(9,'&self',[*,3,5],depth(6))
-                <--(9,retval(15))
+                -->(8,'&self',[*,3,5],depth(6))
+                <--(8,retval(15))
+                -->(9,'&self',[+,2,15],depth(6))
+                <--(9,retval(17))
+                -->(10,'&self',[*,3,5],depth(6))
+                <--(10,retval(15))
             <--(6,retval(17))
         <--(0,retval('True'))
 <span class="ansi33"> True
@@ -186,9 +192,9 @@
     ( (ln 4))))
 </span>        -->(0,'&self',[ln,[+,2,2]],depth(2))
             -->(1,'&self',[+,2,2],depth(4))
-            <--(1,retval(4))
             -->(2,'&self',[ln,4],depth(4))
           -->(3,'&self',[ln,4],depth(3))
+            <--(1,retval(4))
             -->(4,'&self',[+,2,2],depth(4))
             <--(4,retval(4))
         <--(0,retval([ln,4]))
@@ -226,12 +232,12 @@
 (@ loonit_success 
   (equal_enough  
     ( (> 4 
-        (+ $_398254 2))) 
+        (+ $_442606 2))) 
     ( (> 4 
-        (+ $_393302 2)))))
-</span>        -->(0,'&self',[>,4,[+,_393302,2]],depth(2))
-            -->(1,'&self',[+,_393302,2],depth(4))
-            -->(2,'&self',[+,_393302,2],depth(4))
+        (+ $_437638 2)))))
+</span>        -->(0,'&self',[>,4,[+,_437638,2]],depth(2))
+            -->(1,'&self',[+,_437638,2],depth(4))
+            -->(2,'&self',[+,_437638,2],depth(4))
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -248,9 +254,9 @@
     (True)))
 </span>        -->(0,'&self',[==,4,[+,2,2]],depth(2))
             -->(1,'&self',[+,2,2],depth(4))
-            <--(1,retval(4))
             -->(2,'&self',[==,4,4],depth(4))
             <--(2,retval('True'))
+            <--(1,retval(4))
             -->(3,'&self',[+,2,2],depth(4))
             <--(3,retval(4))
         <--(0,retval('True'))
@@ -324,14 +330,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (+ 2 "String") ((Error "String" BadType)))
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.14">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.14</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.14">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.14</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     ( (+ 2 "String")) 
     ( (Error "String" BadType))))
 </span>        -->(0,'&self',[+,2,"String"],depth(2))
-            -->(1,'&self',"String",depth(4))
-            -->(2,'&self',"String",depth(4))
 <span class="ansi33"> False
 
 </span>; Custom symbols as arguments of grounded operations
@@ -342,8 +347,9 @@
 
 <span class="ansi38-000068000">!(assertEqualToResult (== 4 (+ ln 2)) ((Error ln BadType)))
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.15">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.15</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.15">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.15</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (False) 
     ( (Error ln BadType))))
@@ -430,13 +436,15 @@
     (1 2)))
 </span>        -->(0,'&self',[+,1,[bin]],depth(2))
             -->(1,'&self',[bin],depth(4))
-            -->(2,'&self',[+,1,0],depth(4))
-            <--(2,retval(1))
-            -->(3,'&self',[+,1,1],depth(4))
-            <--(3,retval(2))
             <--(1,retval(1))
-            -->(4,'&self',[bin],depth(4))
-            <--(4,retval(1))
+            -->(2,'&self',[bin],depth(4))
+            -->(3,'&self',[+,1,0],depth(4))
+            <--(3,retval(1))
+            -->(4,'&self',[+,1,1],depth(4))
+            <--(4,retval(2))
+            <--(2,retval(1))
+            -->(5,'&self',[bin],depth(4))
+            <--(5,retval(1))
         <--(0,retval(2))
 <span class="ansi33"> True
 
@@ -447,11 +455,11 @@
   (equal_enough  
     (25) 
     (25)))
-</span>        -->(0,'&self',[let,_36260,[+,2,3],[*,_36260,_36260]],depth(2))
+</span>        -->(0,'&self',[let,_98022,[+,2,3],[*,_98022,_98022]],depth(2))
             -->(1,'&self',[+,2,3],depth(4))
-            <--(1,retval(5))
             -->(2,'&self',[*,5,5],depth(4))
             <--(2,retval(25))
+            <--(1,retval(5))
         <--(0,retval(25))
 <span class="ansi33"> True
 
@@ -482,7 +490,6 @@
               <--(2,retval('False'))
               -->(3,'&self',[*,[fact,[-,5,1]],5],depth(5))
                   -->(4,'&self',[-,5,1],depth(7))
-                  <--(4,retval(4))
                   -->(5,'&self',[*,[fact,4],5],depth(7))
                       -->(6,'&self',[fact,4],depth(9))
                         -->(7,'&self',[if,[==,4,0],1,[*,[fact,[-,4,1]],4]],depth(10))
@@ -490,7 +497,6 @@
                             <--(8,retval('False'))
                             -->(9,'&self',[*,[fact,[-,4,1]],4],depth(12))
                                 -->(10,'&self',[-,4,1],depth(14))
-                                <--(10,retval(3))
                                 -->(11,'&self',[*,[fact,3],4],depth(14))
                                     -->(12,'&self',[fact,3],depth(16))
                                       -->(13,'&self',[if,[==,3,0],1,[*,[fact,[-,3,1]],3]],depth(17))
@@ -498,7 +504,6 @@
                                           <--(14,retval('False'))
                                           -->(15,'&self',[*,[fact,[-,3,1]],3],depth(19))
                                               -->(16,'&self',[-,3,1],depth(21))
-                                              <--(16,retval(2))
                                               -->(17,'&self',[*,[fact,2],3],depth(21))
                                                   -->(18,'&self',[fact,2],depth(23))
                                                     -->(19,'&self',[if,[==,2,0],1,[*,[fact,[-,2,1]],2]],depth(24))
@@ -506,7 +511,6 @@
                                                         <--(20,retval('False'))
                                                         -->(21,'&self',[*,[fact,[-,2,1]],2],depth(26))
                                                             -->(22,'&self',[-,2,1],depth(28))
-                                                            <--(22,retval(1))
                                                             -->(23,'&self',[*,[fact,1],2],depth(28))
                                                                 -->(24,'&self',[fact,1],depth(30))
                                                                   -->(25,'&self',[if,[==,1,0],1,[*,[fact,[-,1,1]],1]],depth(31))
@@ -514,7 +518,6 @@
                                                                       <--(26,retval('False'))
                                                                       -->(27,'&self',[*,[fact,[-,1,1]],1],depth(33))
                                                                           -->(28,'&self',[-,1,1],depth(35))
-                                                                          <--(28,retval(0))
                                                                           -->(29,'&self',[*,[fact,0],1],depth(35))
                                                                               -->(30,'&self',[fact,0],depth(37))
                                                                                 -->(31,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
@@ -539,21 +542,22 @@
                                                                                 <--(39,retval(1))
                                                                               <--(38,retval([if,[==,0,0],1,[*,[fact,[-,0,1]],0]]))
                                                                           <--(29,retval(1))
+                                                                          <--(28,retval(0))
                                                                           -->(41,'&self',[fact,[-,1,1]],depth(35))
                                                                               -->(42,'&self',[-,1,1],depth(37))
-                                                                              <--(42,retval(0))
                                                                               -->(43,'&self',[fact,0],depth(37))
                                                                                 -->(44,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
                                                                                     -->(45,'&self',[==,0,0],depth(40))
                                                                                     <--(45,retval('True'))
                                                                                 <--(44,retval(1))
                                                                               <--(43,retval([if,[==,0,0],1,[*,[fact,[-,0,1]],0]]))
+                                                                              <--(42,retval(0))
                                                                             -->(46,'&self',[if,[==,[-,1,1],0],1,[*,[fact,[-,[-,1,1],1]],[-,1,1]]],depth(36))
                                                                                 -->(47,'&self',[==,[-,1,1],0],depth(38))
                                                                                     -->(48,'&self',[-,1,1],depth(40))
-                                                                                    <--(48,retval(0))
                                                                                     -->(49,'&self',[==,0,0],depth(40))
                                                                                     <--(49,retval('True'))
+                                                                                    <--(48,retval(0))
                                                                                     -->(50,'&self',[-,1,1],depth(40))
                                                                                     <--(50,retval(0))
                                                                                 <--(47,retval('True'))
@@ -568,7 +572,6 @@
                                                                       <--(53,retval('False'))
                                                                       -->(54,'&self',[*,[fact,[-,1,1]],1],depth(33))
                                                                           -->(55,'&self',[-,1,1],depth(35))
-                                                                          <--(55,retval(0))
                                                                           -->(56,'&self',[*,[fact,0],1],depth(35))
                                                                               -->(57,'&self',[fact,0],depth(37))
                                                                                 -->(58,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
@@ -585,21 +588,22 @@
                                                                                 <--(62,retval(1))
                                                                               <--(61,retval([if,[==,0,0],1,[*,[fact,[-,0,1]],0]]))
                                                                           <--(56,retval(1))
+                                                                          <--(55,retval(0))
                                                                           -->(64,'&self',[fact,[-,1,1]],depth(35))
                                                                               -->(65,'&self',[-,1,1],depth(37))
-                                                                              <--(65,retval(0))
                                                                               -->(66,'&self',[fact,0],depth(37))
                                                                                 -->(67,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
                                                                                     -->(68,'&self',[==,0,0],depth(40))
                                                                                     <--(68,retval('True'))
                                                                                 <--(67,retval(1))
                                                                               <--(66,retval([if,[==,0,0],1,[*,[fact,[-,0,1]],0]]))
+                                                                              <--(65,retval(0))
                                                                             -->(69,'&self',[if,[==,[-,1,1],0],1,[*,[fact,[-,[-,1,1],1]],[-,1,1]]],depth(36))
                                                                                 -->(70,'&self',[==,[-,1,1],0],depth(38))
                                                                                     -->(71,'&self',[-,1,1],depth(40))
-                                                                                    <--(71,retval(0))
                                                                                     -->(72,'&self',[==,0,0],depth(40))
                                                                                     <--(72,retval('True'))
+                                                                                    <--(71,retval(0))
                                                                                     -->(73,'&self',[-,1,1],depth(40))
                                                                                     <--(73,retval(0))
                                                                                 <--(70,retval('True'))
@@ -609,16 +613,15 @@
                                                                   <--(52,retval(1))
                                                                 <--(51,retval([if,[==,1,0],1,[*,[fact,[-,1,1]],1]]))
                                                             <--(23,retval(2))
+                                                            <--(22,retval(1))
                                                             -->(74,'&self',[fact,[-,2,1]],depth(28))
                                                                 -->(75,'&self',[-,2,1],depth(30))
-                                                                <--(75,retval(1))
                                                                 -->(76,'&self',[fact,1],depth(30))
                                                                   -->(77,'&self',[if,[==,1,0],1,[*,[fact,[-,1,1]],1]],depth(31))
                                                                       -->(78,'&self',[==,1,0],depth(33))
                                                                       <--(78,retval('False'))
                                                                       -->(79,'&self',[*,[fact,[-,1,1]],1],depth(33))
                                                                           -->(80,'&self',[-,1,1],depth(35))
-                                                                          <--(80,retval(0))
                                                                           -->(81,'&self',[*,[fact,0],1],depth(35))
                                                                               -->(82,'&self',[fact,0],depth(37))
                                                                                 -->(83,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
@@ -635,21 +638,22 @@
                                                                                 <--(87,retval(1))
                                                                               <--(86,retval([if,[==,0,0],1,[*,[fact,[-,0,1]],0]]))
                                                                           <--(81,retval(1))
+                                                                          <--(80,retval(0))
                                                                           -->(89,'&self',[fact,[-,1,1]],depth(35))
                                                                               -->(90,'&self',[-,1,1],depth(37))
-                                                                              <--(90,retval(0))
                                                                               -->(91,'&self',[fact,0],depth(37))
                                                                                 -->(92,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
                                                                                     -->(93,'&self',[==,0,0],depth(40))
                                                                                     <--(93,retval('True'))
                                                                                 <--(92,retval(1))
                                                                               <--(91,retval([if,[==,0,0],1,[*,[fact,[-,0,1]],0]]))
+                                                                              <--(90,retval(0))
                                                                             -->(94,'&self',[if,[==,[-,1,1],0],1,[*,[fact,[-,[-,1,1],1]],[-,1,1]]],depth(36))
                                                                                 -->(95,'&self',[==,[-,1,1],0],depth(38))
                                                                                     -->(96,'&self',[-,1,1],depth(40))
-                                                                                    <--(96,retval(0))
                                                                                     -->(97,'&self',[==,0,0],depth(40))
                                                                                     <--(97,retval('True'))
+                                                                                    <--(96,retval(0))
                                                                                     -->(98,'&self',[-,1,1],depth(40))
                                                                                     <--(98,retval(0))
                                                                                 <--(95,retval('True'))
@@ -658,6 +662,7 @@
                                                                       <--(79,retval(1))
                                                                   <--(77,retval(1))
                                                                 <--(76,retval([if,[==,1,0],1,[*,[fact,[-,1,1]],1]]))
+                                                                <--(75,retval(1))
                                                               -->(99,'&self',[if,[==,[-,2,1],0],1,[*,[fact,[-,[-,2,1],1]],[-,2,1]]],depth(29))
                                                                   -->(100,'&self',[==,[-,2,1],0],depth(31))
 Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
@@ -708,7 +713,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
 </span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.22">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.22</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
-    ($_474992 $_474998 $_475064 $_475070 $_475076 $_475082 $_475088 
+    ($_103190 $_103196 $_103262 $_103268 $_103274 $_103280 $_103286 
       (:: 1 
         (:: 0 
           (:: 1 nil)))) 
@@ -724,7 +729,6 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
                       -->(5,'&self',[bin],depth(9))
                       -->(6,'&self',[::,0,[gen,[-,3,1]]],depth(9))
                           -->(7,'&self',[-,3,1],depth(11))
-                          <--(7,retval(2))
                           -->(8,'&self',[::,0,[gen,2]],depth(11))
                               -->(9,'&self',[gen,2],depth(13))
                                 -->(10,'&self',[if,[>,2,0],[::,[bin],[gen,[-,2,1]]],nil],depth(14))
@@ -734,7 +738,6 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
                                         -->(13,'&self',[bin],depth(18))
                                         -->(14,'&self',[::,0,[gen,[-,2,1]]],depth(18))
                                             -->(15,'&self',[-,2,1],depth(20))
-                                            <--(15,retval(1))
                                             -->(16,'&self',[::,0,[gen,1]],depth(20))
                                                 -->(17,'&self',[gen,1],depth(22))
                                                   -->(18,'&self',[if,[>,1,0],[::,[bin],[gen,[-,1,1]]],nil],depth(23))
@@ -744,7 +747,6 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
                                                           -->(21,'&self',[bin],depth(27))
                                                           -->(22,'&self',[::,0,[gen,[-,1,1]]],depth(27))
                                                               -->(23,'&self',[-,1,1],depth(29))
-                                                              <--(23,retval(0))
                                                               -->(24,'&self',[::,0,[gen,0]],depth(29))
                                                                   -->(25,'&self',[gen,0],depth(31))
                                                                     -->(26,'&self',[if,[>,0,0],[::,[bin],[gen,[-,0,1]]],nil],depth(32))
@@ -827,12 +829,12 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
 Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
  False
 
-</span><span class="ansi32">% 32,136,538 inferences, 4.435 CPU in 4.437 seconds (100% CPU, 7246332 Lips)
+</span><span class="ansi32">% 35,708,694 inferences, 4.665 CPU in 4.665 seconds (100% CPU, 7654665 Lips)
 </span> (@ = "examples/compat/test_scripts/c1_grounded_basic.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 19
-</span><span class="ansi31">Failures: 3
+</span><span class="ansi31">Failures: 1
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/c1_grounded_basic.html" )
 
 </pre>

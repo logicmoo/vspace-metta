@@ -24,12 +24,27 @@ function delete_html_files() {
 
 function run_tests() {
 
-    delete_html_files
+    #delete_html_files
+    #rsync -avm --include='*.html' -f 'hide,! */' reports/ examples/
 
     cd "$SCRIPT_DIR"
     cat /dev/null > TEE.ansi.UNITS
 
     mapfile -t files < <(grep -rl 'assertEq' "${UNITS_DIR}" --include="*.metta")
+
+
+   # Define a temporary array
+   temp_array=()
+
+   # Loop through the original array and prepend each element to the temporary array
+   for file in "${files[@]}"; do
+       temp_array=("$file" "${temp_array[@]}")
+   done
+
+   # Set the original array with the reversed array
+   files=("${temp_array[@]}")
+
+    echo "FILES=${files[@]}"
 
     for file in "${files[@]}"; do
         cd "$SCRIPT_DIR"
@@ -189,6 +204,8 @@ function compare_test_files() {
 
     sort -u Results.md -o Results.md
 
+
+
     echo "-----------------------------------------"
     grep 'PASSING' Results.md
     echo "-----------------------------------------"
@@ -213,7 +230,6 @@ function compare_test_files() {
    then
        run_tests
    else
-       rsync -avm --include='*.html' -f 'hide,! */' reports/ examples/
        echo "You chose not to run all tests."
    fi
 

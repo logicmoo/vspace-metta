@@ -17,7 +17,9 @@
                             (atom-exists $y (position middle green-disk))))
 
 ; Check if a disk is smaller than the top disk on a peg
-(= (smaller-than-top $y $disk) ; Youd need to define the logic for this
+; GPT4: Youd need to define the logic for this
+; USER: Will use prolog''s "standard-order"
+(= (smaller-than-top $y $disk) (and (@< $y $disk)))
 
 ; Towers of Hanoi test
 (= (hanoi $n $src $aux $dest)

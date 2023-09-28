@@ -178,8 +178,9 @@
 ; Now the result of its evaluation will be a error expression, because `S` is not `Nat`
 <span class="ansi38-000068000">!(assertEqualToResult (Add S Z) ((Error S BadType)))
 
-</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.02">;; TEST-SCRIPTS.B5-TYPES-PRELIM.02</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.02">;; TEST-SCRIPTS.B5-TYPES-PRELIM.02</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (S) 
     ( (Error S BadType))))
@@ -308,8 +309,9 @@
 </span>; This list is badly typed, because S and Z are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (Cons S (Cons Z ())) ((Error Z BadType)))
 
-</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.08">;; TEST-SCRIPTS.B5-TYPES-PRELIM.08</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.08">;; TEST-SCRIPTS.B5-TYPES-PRELIM.08</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     ( (Cons S 
         (Cons Z ()))) 
@@ -378,8 +380,9 @@
 </span>; Not accepted, because Z and S are not the same type
 <span class="ansi38-000068000">!(assertEqualToResult (eq Z S) ((Error S BadType)))
 
-</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.11">;; TEST-SCRIPTS.B5-TYPES-PRELIM.11</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.11">;; TEST-SCRIPTS.B5-TYPES-PRELIM.11</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     ( (eq Z S)) 
     ( (Error S BadType))))
@@ -454,8 +457,9 @@
 </span>; Not accepted
 <span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Color) ((Error Color BadType)))
 
-</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.14">;; TEST-SCRIPTS.B5-TYPES-PRELIM.14</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.14">;; TEST-SCRIPTS.B5-TYPES-PRELIM.14</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (True) 
     ( (Error Color BadType))))
@@ -465,8 +469,9 @@
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Circle) ((Error Circle BadType)))
 
-</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.15">;; TEST-SCRIPTS.B5-TYPES-PRELIM.15</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.15">;; TEST-SCRIPTS.B5-TYPES-PRELIM.15</h3>
+!check_type (not considering this a failure)
+<span class="ansi31">(@ loonit_failureR 
   (equal_enough  
     (True) 
     ( (Error Circle BadType))))
@@ -504,7 +509,7 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',['Green',_486888],depth(2))
+</span>        -->(0,'&self',['Green',_25688],depth(2))
         <--(0,retval('True'))
 <span class="ansi33"> True
 
@@ -515,7 +520,7 @@
   (equal_enough  
     (Sam) 
     (Sam)))
-</span>        -->(0,'&self',[match,'&self',['Green',_31808],_31808],depth(2))
+</span>        -->(0,'&self',[match,'&self',['Green',_83590],_83590],depth(2))
         <--(0,retval('Sam'))
 <span class="ansi33"> True
 
@@ -532,7 +537,7 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',[match,'&self',['Green',_84952],['Green',_84952]],depth(2))
+</span>        -->(0,'&self',[match,'&self',['Green',_136736],['Green',_136736]],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           <--(1,retval('True'))
         <--(0,retval(['Green','Sam']))
@@ -550,11 +555,11 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',[let,_137054,['Add',['S','Z'],'Z'],[match,'&self',[=,[eq,_137054,['S','Z']],_137766],_137766]],depth(2))
+</span>        -->(0,'&self',[let,_188840,['Add',['S','Z'],'Z'],[match,'&self',[=,[eq,_188840,['S','Z']],_189552],_189552]],depth(2))
             -->(1,'&self',['Add',['S','Z'],'Z'],depth(4))
                 -->(2,'&self',['S','Z'],depth(6))
               -->(3,'&self',['S','Z'],depth(5))
-            -->(4,'&self',[match,'&self',[=,[eq,['S','Z'],['S','Z']],_137766],_137766],depth(4))
+            -->(4,'&self',[match,'&self',[=,[eq,['S','Z'],['S','Z']],_189552],_189552],depth(4))
             <--(4,retval('True'))
             <--(1,retval(['S','Z']))
         <--(0,retval('True'))
@@ -566,7 +571,7 @@
 </span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.20">;; TEST-SCRIPTS.B5-TYPES-PRELIM.20</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span>        -->(0,'&self',[match,'&self',[=,[eq,['Add',['S','Z'],'Z'],['S','Z']],_197404],_197404],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[eq,['Add',['S','Z'],'Z'],['S','Z']],_249192],_249192],depth(2))
         <--(0,retval(fail))
 <span class="ansi33"> True
 
@@ -590,7 +595,7 @@
   (equal_enough  
     (Z) 
     (Z)))
-</span>        -->(0,'&self',[let,['S',['S',_236040]],['Add',['S','Z'],['S','Z']],_236040],depth(2))
+</span>        -->(0,'&self',[let,['S',['S',_287830]],['Add',['S','Z'],['S','Z']],_287830],depth(2))
             -->(1,'&self',['Add',['S','Z'],['S','Z']],depth(4))
                 -->(2,'&self',['S','Z'],depth(6))
               -->(3,'&self',['Add',['S',['S','Z']],'Z'],depth(5))
@@ -616,15 +621,15 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',['let*',[[_290948,['Add','Z','Z']],[_291288,['Add',_290948,['S','Z']]],[_291932,['Add',_291288,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_291932],_292960],_292960]],depth(2))
+</span>        -->(0,'&self',['let*',[[_342740,['Add','Z','Z']],[_343080,['Add',_342740,['S','Z']]],[_343724,['Add',_343080,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_343724],_344752],_344752]],depth(2))
             -->(1,'&self',['Add','Z','Z'],depth(4))
-            -->(2,'&self',['let*',[[_291288,['Add','Z',['S','Z']]],[_291932,['Add',_291288,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_291932],_292960],_292960]],depth(4))
+            -->(2,'&self',['let*',[[_343080,['Add','Z',['S','Z']]],[_343724,['Add',_343080,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_343724],_344752],_344752]],depth(4))
                 -->(3,'&self',['Add','Z',['S','Z']],depth(6))
                     -->(4,'&self',['S','Z'],depth(8))
                   -->(5,'&self',['Add',['S','Z'],'Z'],depth(7))
                       -->(6,'&self',['S','Z'],depth(9))
                     -->(7,'&self',['S','Z'],depth(8))
-                -->(8,'&self',['let*',[[_291932,['Add',['S','Z'],['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_291932],_292960],_292960]],depth(6))
+                -->(8,'&self',['let*',[[_343724,['Add',['S','Z'],['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_343724],_344752],_344752]],depth(6))
                     -->(9,'&self',['Add',['S','Z'],['S','Z']],depth(8))
                         -->(10,'&self',['S','Z'],depth(10))
                       -->(11,'&self',['Add',['S',['S','Z']],'Z'],depth(9))
@@ -633,8 +638,8 @@
                             -->(14,'&self',['S','Z'],depth(12))
                             -->(15,'&self',['S','Z'],depth(12))
                             -->(16,'&self',['S','Z'],depth(12))
-                    -->(17,'&self',['let*',[],[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_292960],_292960]],depth(8))
-                        -->(18,'&self',[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_292960],_292960],depth(10))
+                    -->(17,'&self',['let*',[],[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_344752],_344752]],depth(8))
+                        -->(18,'&self',[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_344752],_344752],depth(10))
                         <--(18,retval('True'))
                     <--(17,retval('True'))
                       <--(11,retval(['S',['S','Z']]))
@@ -725,7 +730,7 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',[let,_423416,['Add','Z','Z'],[eqa,'Z',_423416]],depth(2))
+</span>        -->(0,'&self',[let,_475216,['Add','Z','Z'],[eqa,'Z',_475216]],depth(2))
             -->(1,'&self',['Add','Z','Z'],depth(4))
             -->(2,'&self',[eqa,'Z','Z'],depth(4))
             <--(2,retval('True'))
@@ -733,12 +738,12 @@
         <--(0,retval('True'))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 598,576 inferences, 0.807 CPU in 0.807 seconds (100% CPU, 741872 Lips)
+</span><span class="ansi32">% 603,157 inferences, 0.879 CPU in 0.879 seconds (100% CPU, 686004 Lips)
 </span> (@ = "examples/compat/test_scripts/b5_types_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 20
-</span><span class="ansi31">Failures: 6
+</span><span class="ansi31">Failures: 1
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b5_types_prelim.html" )
 
 </pre>

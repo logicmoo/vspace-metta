@@ -1,20 +1,24 @@
 !(import! &self NARS.metta)
 
+
+!(pragma! trace-on-pass False)
+!(pragma! trace-on-fail True)
+!(pragma! trace-on-overflow True)
+!(pragma! trace-on-error True)
+!(pragma! tracelen 20)
+
 ; debug
 !(assertEqual (TupleCount (get-atoms &belief_events)) 0)
-
-; breaks into repl
-!(repl!)
 
 
 ;;NARS test
 !(AddBeliefEvent ((({ garfield }) --> cat) (1.0 0.9)))
-!(rtrace (AddBeliefEvent (((cat * sky) --> like) (1.0 0.9))))
+!(AddBeliefEvent (((cat * sky) --> like) (1.0 0.9)))
 !(AddBeliefEvent ((sky --> ([ blue ])) (1.0 0.9)))
 
 
 ; debug
-!(print (get-atoms &belief_events))
+!("(get-atoms &belief_events)="  (get-atoms &belief_events))
 !(assertEqual (TupleCount (get-atoms &belief_events)) 3)
 
 ;The following question needs both a deduction and abduction step:
