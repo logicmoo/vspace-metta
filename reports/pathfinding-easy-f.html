@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/pathfinding-easy-f.metta")
+;; Pathfinding using a simple graph
+;; Graph is represented as one-way edge functions
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,edge,[->,'Symbol','Symbol']])
+</span><span class="ansi38-255165000">  (: edge 
+    (-> Symbol Symbol))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,a],b)
+</span><span class="ansi38-255165000">  (= 
+    (edge a) b)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,b],c)
+</span><span class="ansi38-255165000">  (= 
+    (edge b) c)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,c],d)
+</span><span class="ansi38-255165000">  (= 
+    (edge c) d)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,e],f)
+</span><span class="ansi38-255165000">  (= 
+    (edge e) f)
+</span>
+
+; Epathfinding rule
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,path,[->,'Symbol','Symbol']])
+</span><span class="ansi38-255165000">  (: path 
+    (-> Symbol Symbol))
+</span>
+
+; was base case, node to itself
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[path,X],X)
+</span><span class="ansi38-255165000">  (= 
+    (path $X) $X)
+</span>
+
+; recursive case
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[path,X],[edge,[epath,X]])
+</span><span class="ansi38-255165000">  (= 
+    (path $X) 
+    (edge 
+      (epath $X)))
+</span>
+
+; Pathfinding rule
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,epath,[->,'Symbol','Symbol']])
+</span><span class="ansi38-255165000">  (: epath 
+    (-> Symbol Symbol))
+</span>
+
+; recursive case
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[epath,X],[epath,[edge,X]])
+</span><span class="ansi38-255165000">  (= 
+    (epath $X) 
+    (epath 
+      (edge $X)))
+</span>
+
+; was base case, node to itself
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[epath,X],X)
+</span><span class="ansi38-255165000">  (= 
+    (epath $X) $X)
+</span>
+
+; Present
+<span class="ansi38-000068000">!(assertTrue (== (edge a) b))
+
+</span>; Not present
+<span class="ansi38-000068000">!(assertFalse (== (edge a) d))
+
+</span><span class="ansi32">% 68,750 inferences, 0.036 CPU in 0.036 seconds (100% CPU, 1890258 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/pathfinding-easy-f.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/pathfinding-easy-f.html" )
+
+</pre>
+</body>
+
+</html>

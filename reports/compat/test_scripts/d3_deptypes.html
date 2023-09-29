@@ -117,14 +117,17 @@
         (S 
           (S Z))))))
 </span>        -->(0,'&self',['get-type',['Cons',0,['Cons',1,[]]]],depth(2))
+                -->(1,'&self',['Cons',1,[]],depth(6))
+              -->(2,'&self',['Cons',0,['Cons',1,[]]],depth(5))
+                  -->(3,'&self',['Cons',1,[]],depth(7))
         <--(0,retval(fail))
-        -->(1,'&self',['Vec','Number',['S',['S','Z']]],depth(2))
-            -->(2,'&self',['S','Z'],depth(4))
-            -->(3,'&self',['S','Z'],depth(4))
-            -->(4,'&self',['S',['S','Z']],depth(4))
-                -->(5,'&self',['S','Z'],depth(6))
-                -->(6,'&self',['S','Z'],depth(6))
-                -->(7,'&self',['S','Z'],depth(6))
+        -->(4,'&self',['Vec','Number',['S',['S','Z']]],depth(2))
+            -->(5,'&self',['S','Z'],depth(4))
+            -->(6,'&self',['S','Z'],depth(4))
+            -->(7,'&self',['S',['S','Z']],depth(4))
+                -->(8,'&self',['S','Z'],depth(6))
+                -->(9,'&self',['S','Z'],depth(6))
+                -->(10,'&self',['S','Z'],depth(6))
 <span class="ansi33"> False
 
 </span>; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
@@ -147,11 +150,16 @@
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.02">;; TEST-SCRIPTS.D3-DEPTYPES.02</h3><span class="ansi31">
 (@ loonit_failureR 
-  (equal_enough  () 
+  (equal_enough  
+    (Z) 
     ( (Vec Number Z))))
 </span>        -->(0,'&self',['get-type',[drop,['Cons',1,[]]]],depth(2))
-        <--(0,retval(fail))
-        -->(1,'&self',['Vec','Number','Z'],depth(2))
+                -->(1,'&self',['Cons',1,[]],depth(6))
+              -->(2,'&self',[drop,['Cons',1,[]]],depth(5))
+                  -->(3,'&self',['Cons',1,[]],depth(7))
+              <--(2,retval([]))
+        <--(0,retval('Z'))
+        -->(4,'&self',['Vec','Number','Z'],depth(2))
 <span class="ansi33"> False
 
 </span>; Check length after dropping
@@ -176,6 +184,7 @@
 (@ loonit_success 
   (equal_enough  () ()))
 </span>        -->(0,'&self',['get-type',[drop,[]]],depth(2))
+              -->(1,'&self',[drop,[]],depth(5))
         <--(0,retval(fail))
 <span class="ansi33"> True
 
@@ -209,12 +218,16 @@
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.05">;; TEST-SCRIPTS.D3-DEPTYPES.05</h3><span class="ansi31">
 (@ loonit_failureR 
-  (equal_enough  
-    (1) 
+  (equal_enough  () 
     ( (VecN String 2))))
 </span>        -->(0,'&self',['get-type',['ConsN',"1",['ConsN',"2",'NilN']]],depth(2))
-        <--(0,retval(1))
-        -->(1,'&self',['VecN','String',2],depth(2))
+                -->(1,'&self',['ConsN',"2",'NilN'],depth(6))
+              -->(2,'&self',['ConsN',"1",['ConsN',"2",'NilN']],depth(5))
+                  -->(3,'&self',['ConsN',"2",'NilN'],depth(7))
+                  -->(4,'&self',['ConsN',"2",'NilN'],depth(7))
+                  -->(5,'&self',['ConsN',"2",'NilN'],depth(7))
+        <--(0,retval(fail))
+        -->(6,'&self',['VecN','String',2],depth(2))
 <span class="ansi33"> False
 
 </span>; Similarly, `-` reduces the length in `dropN` type.
@@ -236,12 +249,15 @@
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.06">;; TEST-SCRIPTS.D3-DEPTYPES.06</h3><span class="ansi31">
 (@ loonit_failureR 
-  (equal_enough  
-    (1) 
+  (equal_enough  () 
     ( (VecN String 0))))
 </span>        -->(0,'&self',['get-type',[dropN,['ConsN',"1",'NilN']]],depth(2))
-        <--(0,retval(1))
-        -->(1,'&self',['VecN','String',0],depth(2))
+                -->(1,'&self',['ConsN',"1",'NilN'],depth(6))
+              -->(2,'&self',[dropN,['ConsN',"1",'NilN']],depth(5))
+                  -->(3,'&self',['ConsN',"1",'NilN'],depth(7))
+              <--(2,retval('NilN'))
+        <--(0,retval(fail))
+        -->(4,'&self',['VecN','String',0],depth(2))
 <span class="ansi33"> False
 
 </span>; TODO: doesn't work after type checking fixes
@@ -267,7 +283,7 @@
 </span>        -->(0,'&self',[dropN,'NilN'],depth(2))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 184,064 inferences, 0.110 CPU in 0.110 seconds (100% CPU, 1673598 Lips)
+</span><span class="ansi32">% 196,922 inferences, 0.382 CPU in 0.383 seconds (100% CPU, 515063 Lips)
 </span> (@ = "examples/compat/test_scripts/d3_deptypes.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -11,10 +11,10 @@ factorial_standard(N, Result) :-
 % Basic Tail Recursive Approach with Accumulator
 % Pros: Tail recursive, efficient in stack frame usage for large N.
 % Cons: Requires understanding of accumulators and tail recursion.
-factorial_tail_basic(N, Result) :-
-    factorial_tail_basic(N, 1, Result).
-factorial_tail_basic(0, Accumulator, Accumulator).
-factorial_tail_basic(N, Accumulator, Result) :-
+factorial_tail_basic2(N, Result) :-
+    factorial_tail_basic3(N, 1, Result).
+factorial_tail_basic3(0, Accumulator, Accumulator).
+factorial_tail_basic3(N, Accumulator, Result) :-
     N > 0,
     NewAccumulator is N * Accumulator,
     M is N - 1,
@@ -126,7 +126,7 @@ factorials([
     factorial_standard,
     factorial_between,
     factorial_findall,
-    factorial_tail_basic,
+    factorial_tail_basic2,
     factorial_tail_between,
     factorial_tabled,
     factorial_memo,

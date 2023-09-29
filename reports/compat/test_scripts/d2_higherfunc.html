@@ -189,10 +189,11 @@
     ( (-> Number 
         (-> Number Number)))))
 </span>        -->(0,'&self',['get-type',[curry,+]],depth(2))
+              -->(1,'&self',[curry,+],depth(5))
         <--(0,retval(fail))
-        -->(1,'&self',[->,'Number',[->,'Number','Number']],depth(2))
-            -->(2,'&self',[->,'Number','Number'],depth(4))
+        -->(2,'&self',[->,'Number',[->,'Number','Number']],depth(2))
             -->(3,'&self',[->,'Number','Number'],depth(4))
+            -->(4,'&self',[->,'Number','Number'],depth(4))
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry +) 2)) (-> Number Number))
@@ -202,10 +203,11 @@
   (equal_enough  () 
     ( (-> Number Number))))
 </span>        -->(0,'&self',['get-type',[[curry,+],2]],depth(2))
-              -->(1,'&self',[[curry,+],2],depth(5))
-                  -->(2,'&self',[curry,+],depth(7))
+                -->(1,'&self',[curry,+],depth(6))
+              -->(2,'&self',[[curry,+],2],depth(5))
+                  -->(3,'&self',[curry,+],depth(7))
         <--(0,retval(fail))
-        -->(3,'&self',[->,'Number','Number'],depth(2))
+        -->(4,'&self',[->,'Number','Number'],depth(2))
 <span class="ansi33"> False
 
 </span>; Partial application is not reduced, basically
@@ -259,8 +261,9 @@
   (equal_enough  () 
     ( (-> Number Number))))
 </span>        -->(0,'&self',['get-type',['curry-a',+,2]],depth(2))
+              -->(1,'&self',['curry-a',+,2],depth(5))
         <--(0,retval(fail))
-        -->(1,'&self',[->,'Number','Number'],depth(2))
+        -->(2,'&self',[->,'Number','Number'],depth(2))
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
@@ -271,10 +274,11 @@
     (Number) 
     (Number)))
 </span>        -->(0,'&self',['get-type',[['curry-a',+,2],3]],depth(2))
-              -->(1,'&self',[['curry-a',+,2],3],depth(5))
-                -->(2,'&self',[+,2,3],depth(6))
-                <--(2,retval(5))
-              <--(1,retval([+,2,3]))
+                -->(1,'&self',['curry-a',+,2],depth(6))
+              -->(2,'&self',[['curry-a',+,2],3],depth(5))
+                -->(3,'&self',[+,2,3],depth(6))
+                <--(3,retval(5))
+              <--(2,retval([+,2,3]))
         <--(0,retval('Number'))
 <span class="ansi33"> True
 
@@ -286,10 +290,11 @@
   (equal_enough  
     (Number) ()))
 </span>        -->(0,'&self',['get-type',[['curry-a',+,2],"S"]],depth(2))
-              -->(1,'&self',[['curry-a',+,2],"S"],depth(5))
-                -->(2,'&self',[+,2,"S"],depth(6))
-                <--(2,retval(85))
-              <--(1,retval([+,2,"S"]))
+                -->(1,'&self',['curry-a',+,2],depth(6))
+              -->(2,'&self',[['curry-a',+,2],"S"],depth(5))
+                -->(3,'&self',[+,2,"S"],depth(6))
+                <--(3,retval(85))
+              <--(2,retval([+,2,"S"]))
         <--(0,retval('Number'))
 <span class="ansi33"> False
 
@@ -409,12 +414,12 @@
   (equal_enough  
     (3) 
     (3)))
-</span>        -->(0,'&self',[[lambda,_359058,[+,_359058,1]],2],depth(2))
-          -->(1,'&self',[let,_359058,2,[+,_359058,1]],depth(3))
+</span>        -->(0,'&self',[[lambda,_490990,[+,_490990,1]],2],depth(2))
+          -->(1,'&self',[let,_490990,2,[+,_490990,1]],depth(3))
               -->(2,'&self',[+,2,1],depth(5))
               <--(2,retval(3))
           <--(1,retval(3))
-        <--(0,retval([let,_367940,2,[+,_367940,1]]))
+        <--(0,retval([let,_498122,2,[+,_498122,1]]))
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
@@ -424,14 +429,14 @@
   (equal_enough  
     (9) 
     (9)))
-</span>        -->(0,'&self',[[lambda,[_437586,_437880],[+,_437586,_437880]],[2,7]],depth(2))
+</span>        -->(0,'&self',[[lambda,[_76868,_76874],[+,_76868,_76874]],[2,7]],depth(2))
             -->(1,'&self',[2,7],depth(4))
-          -->(2,'&self',[let,[_437586,_437880],[2,7],[+,_437586,_437880]],depth(3))
+          -->(2,'&self',[let,[_76868,_76874],[2,7],[+,_76868,_76874]],depth(3))
               -->(3,'&self',[2,7],depth(5))
               -->(4,'&self',[+,2,7],depth(5))
               <--(4,retval(9))
           <--(2,retval(9))
-        <--(0,retval([let,[_447820,_447826],[2,7],[+,_447820,_447826]]))
+        <--(0,retval([let,[_84754,_84760],[2,7],[+,_84754,_84760]]))
 <span class="ansi33"> True
 
 </span>; Another example
@@ -457,12 +462,12 @@
     (6)))
 </span>        -->(0,'&self',[[inc],5],depth(2))
             -->(1,'&self',[['part-appl',+,1],5],depth(4))
-                -->(2,'&self',[[lambda,_77454,[+,1,_77454]],5],depth(6))
-                  -->(3,'&self',[let,_77454,5,[+,1,_77454]],depth(7))
+                -->(2,'&self',[[lambda,_240714,[+,1,_240714]],5],depth(6))
+                  -->(3,'&self',[let,_240714,5,[+,1,_240714]],depth(7))
                       -->(4,'&self',[+,1,5],depth(9))
                       <--(4,retval(6))
                   <--(3,retval(6))
-                <--(2,retval([let,_77966,5,[+,1,_77966]]))
+                <--(2,retval([let,_241226,5,[+,1,_241226]]))
             <--(1,retval(6))
         <--(0,retval(6))
 <span class="ansi33"> True
@@ -603,8 +608,23 @@
   (equal_enough  () 
     ( (Either Number))))
 </span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],depth(2))
+                -->(1,'&self',['Left',5],depth(6))
+                -->(2,'&self',['curry-a',+,1],depth(6))
+              -->(3,'&self',[fmap,['curry-a',+,1],['Left',5]],depth(5))
+                  -->(4,'&self',['curry-a',+,1],depth(7))
+                -->(5,'&self',['Left',[['curry-a',+,1],5]],depth(6))
+                    -->(6,'&self',['curry-a',+,1],depth(8))
+                    -->(7,'&self',['curry-a',+,1],depth(8))
+                    -->(8,'&self',[['curry-a',+,1],5],depth(8))
+                      -->(9,'&self',[+,1,5],depth(9))
+                  -->(10,'&self',['Left',6],depth(7))
+                -->(11,'&self',['Left',6],depth(6))
+                      <--(9,retval(6))
+                    <--(8,retval([+,1,5]))
+                <--(5,retval(['Left',6]))
+              <--(3,retval(['Left',[['curry-a',+,1],5]]))
         <--(0,retval(fail))
-        -->(1,'&self',['Either','Number'],depth(2))
+        -->(12,'&self',['Either','Number'],depth(2))
 <span class="ansi33"> False
 
 </span>; It works for untyped constructors as well, if they
@@ -740,17 +760,51 @@
 (@ loonit_success 
   (equal_enough  () ()))
 </span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['Left',"5"]]],depth(2))
+                -->(1,'&self',['Left',"5"],depth(6))
+                -->(2,'&self',['curry-a',+,2],depth(6))
+              -->(3,'&self',[fmap,['curry-a',+,2],['Left',"5"]],depth(5))
+                  -->(4,'&self',['curry-a',+,2],depth(7))
+                -->(5,'&self',['Left',[['curry-a',+,2],"5"]],depth(6))
+                    -->(6,'&self',['curry-a',+,2],depth(8))
+                    -->(7,'&self',['curry-a',+,2],depth(8))
+                    -->(8,'&self',[['curry-a',+,2],"5"],depth(8))
+                      -->(9,'&self',[+,2,"5"],depth(9))
+                  -->(10,'&self',['Left',55],depth(7))
+                -->(11,'&self',['Left',55],depth(6))
+                      <--(9,retval(55))
+                    <--(8,retval([+,2,"5"]))
+                <--(5,retval(['Left',55]))
+              <--(3,retval(['Left',[['curry-a',+,2],"5"]]))
         <--(0,retval(fail))
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5"))) ())
 
-</span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.21">;; TEST-SCRIPTS.D2-HIGHERFUNC.21</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  () ()))
+</span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.21">;; TEST-SCRIPTS.D2-HIGHERFUNC.21</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (Symbol Number)) ()))
 </span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',"5"]]],depth(2))
-        <--(0,retval(fail))
-<span class="ansi33"> True
+                -->(1,'&self',['UntypedC',"5"],depth(6))
+                -->(2,'&self',['curry-a',+,2],depth(6))
+              -->(3,'&self',[fmap,['curry-a',+,2],['UntypedC',"5"]],depth(5))
+                  -->(4,'&self',['curry-a',+,2],depth(7))
+                -->(5,'&self',['UntypedC',[['curry-a',+,2],"5"]],depth(6))
+                    -->(6,'&self',['curry-a',+,2],depth(8))
+                    -->(7,'&self',[['curry-a',+,2],"5"],depth(8))
+                      -->(8,'&self',[+,2,"5"],depth(9))
+                      <--(8,retval(55))
+                    <--(7,retval([+,2,"5"]))
+                    -->(9,'&self',[['curry-a',+,2],"5"],depth(8))
+                      -->(10,'&self',[+,2,"5"],depth(9))
+                  -->(11,'&self',['UntypedC',55],depth(7))
+                      <--(10,retval(55))
+                    <--(9,retval([+,2,"5"]))
+                <--(5,retval(['UntypedC',55]))
+              <--(3,retval(['UntypedC',[['curry-a',+,2],"5"]]))
+        <--(0,retval(['Symbol','Number']))
+          -->(12,'&self',['Symbol','Number'],depth(3))
+<span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
 
@@ -758,8 +812,109 @@
 (@ loonit_success 
   (equal_enough  () ()))
 </span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],depth(2))
-        <--(0,retval(fail))
-<span class="ansi33"> True
+                  -->(1,'&self',['Null'],depth(7))
+                -->(2,'&self',['UntypedC',['Null'],5],depth(6))
+                    -->(3,'&self',['Null'],depth(8))
+                    -->(4,'&self',['Null'],depth(8))
+                    -->(5,'&self',['Null'],depth(8))
+                -->(6,'&self',['curry-a',+,2],depth(6))
+              -->(7,'&self',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]],depth(5))
+                  -->(8,'&self',['curry-a',+,2],depth(7))
+                -->(9,'&self',['UntypedC',[['curry-a',+,2],['Null']],[fmap,['curry-a',+,2],5]],depth(6))
+                    -->(10,'&self',['curry-a',+,2],depth(8))
+                    -->(11,'&self',[['curry-a',+,2],['Null']],depth(8))
+                        -->(12,'&self',['Null'],depth(10))
+                      -->(13,'&self',[+,2,['Null']],depth(9))
+                          -->(14,'&self',['Null'],depth(11))
+                          -->(15,'&self',['Null'],depth(11))
+                          -->(16,'&self',['Null'],depth(11))
+                          -->(17,'&self',['Null'],depth(11))
+                    -->(18,'&self',[fmap,['curry-a',+,2],5],depth(8))
+                        -->(19,'&self',['curry-a',+,2],depth(10))
+                        -->(20,'&self',['curry-a',+,2],depth(10))
+                        -->(21,'&self',['curry-a',+,2],depth(10))
+                    <--(11,retval([+,2,['Null']]))
+                    -->(22,'&self',[['curry-a',+,2],['Null']],depth(8))
+                        -->(23,'&self',['Null'],depth(10))
+                      -->(24,'&self',[+,2,['Null']],depth(9))
+                          -->(25,'&self',['Null'],depth(11))
+                          -->(26,'&self',['Null'],depth(11))
+                          -->(27,'&self',['Null'],depth(11))
+                          -->(28,'&self',['Null'],depth(11))
+                    -->(29,'&self',[fmap,['curry-a',+,2],5],depth(8))
+                        -->(30,'&self',['curry-a',+,2],depth(10))
+                        -->(31,'&self',['curry-a',+,2],depth(10))
+                        -->(32,'&self',['curry-a',+,2],depth(10))
+                  -->(33,'&self',['UntypedC',[+,2,['Null']],[fmap,['curry-a',+,2],5]],depth(7))
+                      -->(34,'&self',['Null'],depth(9))
+                      -->(35,'&self',[+,2,['Null']],depth(9))
+                          -->(36,'&self',['Null'],depth(11))
+                          -->(37,'&self',['Null'],depth(11))
+                          -->(38,'&self',['Null'],depth(11))
+                          -->(39,'&self',['Null'],depth(11))
+                      -->(40,'&self',[fmap,['curry-a',+,2],5],depth(9))
+                          -->(41,'&self',['curry-a',+,2],depth(11))
+                          -->(42,'&self',['curry-a',+,2],depth(11))
+                          -->(43,'&self',['curry-a',+,2],depth(11))
+                      -->(44,'&self',[+,2,['Null']],depth(9))
+                          -->(45,'&self',['Null'],depth(11))
+                          -->(46,'&self',['Null'],depth(11))
+                          -->(47,'&self',['Null'],depth(11))
+                          -->(48,'&self',['Null'],depth(11))
+                      -->(49,'&self',[fmap,['curry-a',+,2],5],depth(9))
+                          -->(50,'&self',['curry-a',+,2],depth(11))
+                          -->(51,'&self',['curry-a',+,2],depth(11))
+                          -->(52,'&self',['curry-a',+,2],depth(11))
+                    -->(53,'&self',['curry-a',+,2],depth(8))
+                  -->(54,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(55,'&self',['curry-a',+,2],depth(9))
+                      -->(56,'&self',['curry-a',+,2],depth(9))
+                      -->(57,'&self',['curry-a',+,2],depth(9))
+                    -->(58,'&self',['curry-a',+,2],depth(8))
+                  -->(59,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(60,'&self',['curry-a',+,2],depth(9))
+                      -->(61,'&self',['curry-a',+,2],depth(9))
+                      -->(62,'&self',['curry-a',+,2],depth(9))
+                    -->(63,'&self',['curry-a',+,2],depth(8))
+                  -->(64,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(65,'&self',['curry-a',+,2],depth(9))
+                      -->(66,'&self',['curry-a',+,2],depth(9))
+                      -->(67,'&self',['curry-a',+,2],depth(9))
+                    -->(68,'&self',['curry-a',+,2],depth(8))
+                  -->(69,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(70,'&self',['curry-a',+,2],depth(9))
+                      -->(71,'&self',['curry-a',+,2],depth(9))
+                      -->(72,'&self',['curry-a',+,2],depth(9))
+                    -->(73,'&self',['curry-a',+,2],depth(8))
+                  -->(74,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(75,'&self',['curry-a',+,2],depth(9))
+                      -->(76,'&self',['curry-a',+,2],depth(9))
+                      -->(77,'&self',['curry-a',+,2],depth(9))
+                    -->(78,'&self',['curry-a',+,2],depth(8))
+                  -->(79,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(80,'&self',['curry-a',+,2],depth(9))
+                      -->(81,'&self',['curry-a',+,2],depth(9))
+                      -->(82,'&self',['curry-a',+,2],depth(9))
+                    -->(83,'&self',['curry-a',+,2],depth(8))
+                  -->(84,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(85,'&self',['curry-a',+,2],depth(9))
+                      -->(86,'&self',['curry-a',+,2],depth(9))
+                      -->(87,'&self',['curry-a',+,2],depth(9))
+                    -->(88,'&self',['curry-a',+,2],depth(8))
+                  -->(89,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(90,'&self',['curry-a',+,2],depth(9))
+                      -->(91,'&self',['curry-a',+,2],depth(9))
+                      -->(92,'&self',['curry-a',+,2],depth(9))
+                    -->(93,'&self',['curry-a',+,2],depth(8))
+                  -->(94,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(95,'&self',['curry-a',+,2],depth(9))
+                      -->(96,'&self',['curry-a',+,2],depth(9))
+                      -->(97,'&self',['curry-a',+,2],depth(9))
+                    -->(98,'&self',['curry-a',+,2],depth(8))
+                  -->(99,'&self',[fmap,['curry-a',+,2],5],depth(7))
+                      -->(100,'&self',['curry-a',+,2],depth(9))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
+ True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1184,12 +1339,12 @@
                 -->(33,'&self',['Cons',3,[]],depth(6))
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 821,374 inferences, 0.861 CPU in 0.861 seconds (100% CPU, 953780 Lips)
+</span><span class="ansi32">% 1,018,055 inferences, 1.897 CPU in 1.897 seconds (100% CPU, 536721 Lips)
 </span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 19
-</span><span class="ansi31">Failures: 8
+<span class="ansi32">Successes: 18
+</span><span class="ansi31">Failures: 9
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d2_higherfunc.html" )
 
 </pre>

@@ -137,15 +137,15 @@
 </span>; we can use variables as cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
 
-</span> c(0,_515972)=[+,1,_515972]
+</span> c(0,_50678)=[+,1,_50678]
  switch=6
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (7) 
     (7)))
-</span>        -->(0,'&self',[case,[+,1,5],[[_2132,[+,1,_2132]]]],depth(2))
- c(0,_2132)=[+,1,_2132]
+</span>        -->(0,'&self',[case,[+,1,5],[[_52448,[+,1,_52448]]]],depth(2))
+ c(0,_52448)=[+,1,_52448]
             -->(1,'&self',[+,1,5],depth(4))
  switch=6
             -->(2,'&self',[+,1,6],depth(4))
@@ -206,7 +206,7 @@
 </span>; one case can produce multiple results
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
 
-</span> c(0,_94492)=[+,1,_94492]
+</span> c(0,_166696)=[+,1,_166696]
  switch=2
  switch=3
  switch=4
@@ -215,8 +215,8 @@
   (equal_enough  
     (3 4 5) 
     (3 4 5)))
-</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_94492,[+,1,_94492]]]],depth(2))
- c(0,_94492)=[+,1,_94492]
+</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_168506,[+,1,_168506]]]],depth(2))
+ c(0,_168506)=[+,1,_168506]
             -->(1,'&self',[+,1,[superpose,[1,2,3]]],depth(4))
                 -->(2,'&self',[+,1,1],depth(6))
  switch=2
@@ -257,7 +257,7 @@
       (Rel-Q C)) 
     ( (Rel-P B) 
       (Rel-Q C))))
-</span>        -->(0,'&self',[match,'&self',[_152094,'A',_152408],[_152094,_152408]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[_232056,'A',_232068],[_232056,_232068]],depth(2))
           -->(1,'&self',['Rel-P','B'],depth(3))
           -->(2,'&self',['Rel-Q','C'],depth(3))
         <--(0,retval(['Rel-Q','C']))
@@ -272,8 +272,8 @@
 </span>; cases can be used for deconstruction
 <span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
 
-</span> c(0,['Rel-P',_196642])=['P',_196642]
- c(1,['Rel-Q',_196642])=['Q',_196642]
+</span> c(0,['Rel-P',_279422])=['P',_279422]
+ c(1,['Rel-Q',_279422])=['Q',_279422]
  switch=['Rel-P','B']
  switch=['Rel-Q','C']
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
@@ -289,10 +289,10 @@
             -->(3,'&self',['Q','C'],depth(4))
         <--(0,retval(['Q','C']))
           -->(4,'&self',['Q','C'],depth(3))
-        -->(5,'&self',[case,[match,'&self',[_195402,'A',_195716],[_195402,_195716]],[[['Rel-P',_196642],['P',_196642]],[['Rel-Q',_196642],['Q',_196642]]]],depth(2))
- c(0,['Rel-P',_196642])=['P',_196642]
- c(1,['Rel-Q',_196642])=['Q',_196642]
-            -->(6,'&self',[match,'&self',[_195402,'A',_195716],[_195402,_195716]],depth(4))
+        -->(5,'&self',[case,[match,'&self',[_281848,'A',_281860],[_281848,_281860]],[[['Rel-P',_281908],['P',_281908]],[['Rel-Q',_281908],['Q',_281908]]]],depth(2))
+ c(0,['Rel-P',_281908])=['P',_281908]
+ c(1,['Rel-Q',_281908])=['Q',_281908]
+            -->(6,'&self',[match,'&self',[_281848,'A',_281860],[_281848,_281860]],depth(4))
               -->(7,'&self',['Rel-P','B'],depth(5))
  switch=['Rel-P','B']
             -->(8,'&self',['P','B'],depth(4))
@@ -308,24 +308,24 @@
 </span>; %void% can be used to capture empty results
 <span class="ansi38-000068000">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
 
-</span> c(0,['Rel-P',_243786])=['P',_243786]
- c(1,['Rel-Q',_243786])=['Q',_243786]
+</span> c(0,['Rel-P',_331932])=['P',_331932]
+ c(1,['Rel-Q',_331932])=['Q',_331932]
  c(2,'%void%')='no-match'
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (no-match) 
     (no-match)))
-</span>        -->(0,'&self',[case,[match,'&self',[_242546,'B',_242860],[_242546,_242860]],[[['Rel-P',_243786],['P',_243786]],[['Rel-Q',_243786],['Q',_243786]],['%void%','no-match']]],depth(2))
- c(0,['Rel-P',_243786])=['P',_243786]
- c(1,['Rel-Q',_243786])=['Q',_243786]
+</span>        -->(0,'&self',[case,[match,'&self',[_334380,'B',_334392],[_334380,_334392]],[[['Rel-P',_334440],['P',_334440]],[['Rel-Q',_334440],['Q',_334440]],['%void%','no-match']]],depth(2))
+ c(0,['Rel-P',_334440])=['P',_334440]
+ c(1,['Rel-Q',_334440])=['Q',_334440]
  c(2,'%void%')='no-match'
-            -->(1,'&self',[match,'&self',[_242546,'B',_242860],[_242546,_242860]],depth(4))
+            -->(1,'&self',[match,'&self',[_334380,'B',_334392],[_334380,_334392]],depth(4))
             <--(1,retval(fail))
         <--(0,retval('no-match'))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 230,517 inferences, 0.105 CPU in 0.105 seconds (100% CPU, 2189649 Lips)
+</span><span class="ansi32">% 232,697 inferences, 0.511 CPU in 0.511 seconds (100% CPU, 455759 Lips)
 </span> (@ = "examples/compat/test_scripts/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
