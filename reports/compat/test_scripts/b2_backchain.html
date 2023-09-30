@@ -17,53 +17,73 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -75,19 +95,41 @@
 ;; used for querying and reasoning over declarative knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Fact
+%~ [ convert=('Frog'('Sam')='True'),
+%~   join_into_body(('Frog'('Sam','True'),true),true,'Frog'('Sam','True'),true)]
+%~ [convert=('Frog'('Sam')='True'),join_into_body(('Frog'('Sam','True'),true),true,'Frog'('Sam','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
 </span><span class="ansi38-255165000">  (Frog Sam)
+</span><span class="ansi38-000082136"> Compiled(&self): 'Frog'('Sam', 'True').
+
 </span>
 
+%~ [ ( convert  =
+%~     frog(X) =
+%~     match('&self','Frog'(X),'True')),
+%~   join_into_body( frog(X,Frog_X),true,
+%~     'Frog'(X,Frog_Self_X),match('&self',Frog_Self_X,'True'),
+%~     frog(X,_2544),
+%~     'Frog'(X,_2568),match('&self',_2568,'True'))]
+%~ [convert=(frog(X)=match('&self','Frog'(X),'True')),join_into_body((frog(X,_2544),true),('Frog'(X,_2568),match('&self',_2568,'True')),frog(X,_2544),('Frog'(X,_2568),match('&self',_2568,'True')))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[frog,X],[match,'&self',['Frog',X],'True'])
 </span><span class="ansi38-255165000">  (= 
     (frog $X) 
     (match &self 
       (Frog $X) True))
+</span><span class="ansi38-000082136"> Compiled(&self): frog(X, HeadRes) :-
+    'Frog'(X, A),
+    match('&self', A, 'True').
+
 </span>
 
 ; `(Frog Sam)` is not reduced; it is just a declaration
 <span class="ansi38-000068000">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
+
+</span><span class="ansi38-017068017">exec(A) :-
+    'Frog'('Sam', B),
+    assertEqualToResult(B, [B], A),
+    true.
 
 </span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.01">;; TEST-SCRIPTS.B2-BACKCHAIN.01</h3><span class="ansi31">
 (@ loonit_failureR 
@@ -101,6 +143,11 @@
 </span>; `frog` uses this declaration
 <span class="ansi38-000068000">!(assertEqual (frog Sam) True)
 
+</span><span class="ansi38-017068017">exec(A) :-
+    frog('Sam', B),
+    assertEqual(B, 'True', A),
+    true.
+
 </span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.02">;; TEST-SCRIPTS.B2-BACKCHAIN.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -113,6 +160,11 @@
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
+
+</span><span class="ansi38-017068017">exec(A) :-
+    frog('Fritz', B),
+    assertEqualToResult(B, [], A),
+    true.
 
 </span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.03">;; TEST-SCRIPTS.B2-BACKCHAIN.03</h3><span class="ansi36">
 (@ loonit_success 
@@ -131,17 +183,61 @@
 ; to avoid mixing them up with symbols from common lib)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts in the knowledge base
+%~ [ convert=('Evaluation'(philosopher('Plato'))='True'),
+%~   join_into_body( (/*2*/
+%~                     philosopher('Plato',Philosopher_True_Plato) ,
+%~                     'Evaluation'(Philosopher_True_Plato,'True')),
+%~     true, philosopher('Plato',_237758),'Evaluation'(_237758,'True'))]
+%~ [convert=('Evaluation'(philosopher('Plato'))='True'),join_into_body((philosopher('Plato',_237758),'Evaluation'(_237758,'True'),true),true,philosopher('Plato',_237758),'Evaluation'(_237758,'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Evaluation',[philosopher,'Plato']])
 </span><span class="ansi38-255165000">  (Evaluation 
     (philosopher Plato))
+</span><span class="ansi38-000082136"> Compiled(&self): philosopher('Plato', A) :-
+    'Evaluation'(A, 'True').
+
 </span>
 
+%~ [ convert=('Evaluation'('likes-to-wrestle'('Plato'))='True'),
+%~   join_into_body( (/*2*/
+%~                     'likes-to-wrestle'('Plato',Likes_to_wrestle_True_Plato) ,
+%~                     'Evaluation'(Likes_to_wrestle_True_Plato,'True')),
+%~     true,
+%~     'likes-to-wrestle'('Plato',_321532),
+%~     'Evaluation'(_321532,'True'))]
+%~ [convert=('Evaluation'('likes-to-wrestle'('Plato'))='True'),join_into_body(('likes-to-wrestle'('Plato',_321532),'Evaluation'(_321532,'True'),true),true,'likes-to-wrestle'('Plato',_321532),'Evaluation'(_321532,'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Evaluation',['likes-to-wrestle','Plato']])
 </span><span class="ansi38-255165000">  (Evaluation 
     (likes-to-wrestle Plato))
+</span><span class="ansi38-000082136"> Compiled(&self): 'likes-to-wrestle'('Plato', A) :-
+    'Evaluation'(A, 'True').
+
 </span>
 
 ; An implication rule
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:733 
+%~ [ ( convert  =
+%~     'Implication'(
+%~        'And'('Evaluation'(philosopher(X)),'Evaluation'('likes-to-wrestle'(X))),
+%~        'Evaluation'(human(X))) =
+%~     'True'),
+%~   join_into_body( ( human(X,Human_X)  ,
+%~                     'Evaluation'(Human_X,Evaluation_True) ,
+%~                     'likes-to-wrestle'(X,Likes_to_wrestle_X1) ,
+%~                     'Evaluation'(Likes_to_wrestle_X1,Evaluation_And) ,
+%~                     philosopher(X,Philosopher_X2) ,
+%~                     'Evaluation'(Philosopher_X2,Evaluation_And4) ,
+%~                     'And'(Evaluation_And4,Evaluation_And,And_Implication) ,
+%~                     'Implication'(And_Implication,Evaluation_True,'True')),
+%~     true,
+%~     human(X,_2454),
+%~     ( 'Evaluation'(Evaluation,Evaluation1)  ,
+%~       'likes-to-wrestle'(X,_2486) ,
+%~       'Evaluation'(_2486,_2500) ,
+%~       philosopher(X,_2518) ,
+%~       'Evaluation'(_2518,_2532) ,
+%~       'And'(_2532,_2500,_2546) ,
+%~       'Implication'(_2546,_2468,'True')))]
+%~ [convert=('Implication'('And'('Evaluation'(philosopher(X)),'Evaluation'('likes-to-wrestle'(X))),'Evaluation'(human(X)))='True'),join_into_body((human(X,_2454),'Evaluation'(_2454,_2468),'likes-to-wrestle'(X,_2486),'Evaluation'(_2486,_2500),philosopher(X,_2518),'Evaluation'(_2518,_2532),'And'(_2532,_2500,_2546),'Implication'(_2546,_2468,'True'),true),true,human(X,_2454),('Evaluation'(_2454,_2468),'likes-to-wrestle'(X,_2486),'Evaluation'(_2486,_2500),philosopher(X,_2518),'Evaluation'(_2518,_2532),'And'(_2532,_2500,_2546),'Implication'(_2546,_2468,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Implication',['And',['Evaluation',[philosopher,X]],['Evaluation',['likes-to-wrestle',X]]],['Evaluation',[human,X]]])
 </span><span class="ansi38-255165000">  (Implication 
     (And 
@@ -151,19 +247,64 @@
         (likes-to-wrestle $X))) 
     (Evaluation 
       (human $X)))
+</span><span class="ansi38-000082136"> Compiled(&self): human(X, A) :-
+    'Evaluation'(A, B),
+    'likes-to-wrestle'(X, C),
+    'Evaluation'(C, D),
+    philosopher(X, E),
+    'Evaluation'(E, F),
+    'And'(F, D, G),
+    'Implication'(G, B, 'True'),
+    true.
+
 </span>
 
 ; Another implication rule
+%~ [ ( convert  =
+%~     'Implication'('Evaluation'(human(X)),'Evaluation'(mortal(X))) =
+%~     'True'),
+%~   join_into_body( ( mortal(X,Mortal_X)  ,
+%~                     'Evaluation'(Mortal_X,Evaluation_True) ,
+%~                     human(X,Human_X1) ,
+%~                     'Evaluation'(Human_X1,Evaluation_Implication) ,
+%~                     'Implication'(Evaluation_Implication,Evaluation_True,'True')),
+%~     true,
+%~     mortal(X,_103104),
+%~     ( 'Evaluation'(Evaluation,Evaluation1)  ,
+%~       human(X,_105060) ,
+%~       'Evaluation'(_105060,_105878) ,
+%~       'Implication'(_105878,_104108,'True')))]
+%~ [convert=('Implication'('Evaluation'(human(X)),'Evaluation'(mortal(X)))='True'),join_into_body((mortal(X,_103104),'Evaluation'(_103104,_104108),human(X,_105060),'Evaluation'(_105060,_105878),'Implication'(_105878,_104108,'True'),true),true,mortal(X,_103104),('Evaluation'(_103104,_104108),human(X,_105060),'Evaluation'(_105060,_105878),'Implication'(_105878,_104108,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Implication',['Evaluation',[human,X]],['Evaluation',[mortal,X]]])
 </span><span class="ansi38-255165000">  (Implication 
     (Evaluation 
       (human $X)) 
     (Evaluation 
       (mortal $X)))
+</span><span class="ansi38-000082136"> Compiled(&self): mortal(X, A) :-
+    'Evaluation'(A, B),
+    human(X, C),
+    'Evaluation'(C, D),
+    'Implication'(D, B, 'True'),
+    true.
+
 </span>
 
 ; Deduction case when the desired evaluation is present in
 ; the knowledge base
+%~ [ ( convert  =
+%~     deduce('Evaluation'([P,X])) =
+%~     match('&self','Evaluation'([P,X]),'True')),
+%~   join_into_body(
+%~      (/*2*/
+%~        'Evaluation'([P,X],Evaluation_Deduce) ,
+%~        deduce(Evaluation_Deduce,Deduce2)),
+%~      'Evaluation'([P,X],_263960),match('&self',_263960,'True'),
+%~      'Evaluation'([P,X],_260938),
+%~      ( deduce(Deduce,Deduce1)  ,
+%~        'Evaluation'([P,X],_263960) ,
+%~        match('&self',_263960,'True')))]
+%~ [convert=(deduce('Evaluation'([P,X]))=match('&self','Evaluation'([P,X]),'True')),join_into_body(('Evaluation'([P,X],_260938),deduce(_260938,_260668),true),('Evaluation'([P,X],_263960),match('&self',_263960,'True')),'Evaluation'([P,X],_260938),((deduce(_260938,_260668),true),'Evaluation'([P,X],_263960),match('&self',_263960,'True')))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[deduce,['Evaluation',[P,X]]],[match,'&self',['Evaluation',[P,X]],'True'])
 </span><span class="ansi38-255165000">  (= 
     (deduce 
@@ -172,10 +313,34 @@
     (match &self 
       (Evaluation 
         ($P $X)) True))
+</span><span class="ansi38-000082136"> Compiled(&self): 'Evaluation'([P, X], A) :-
+    deduce(A, HeadRes),
+    true,
+    'Evaluation'([P, X], B),
+    match('&self', B, 'True').
+
 </span>
 
 ; Deduction case when the desired evaluation is the result
 ; of an implication, which implies a recursion
+%~ [ ( convert  =
+%~     deduce('Evaluation'([P,X])) =
+%~     match('&self','Implication'(A,'Evaluation'([P,X])),deduce(A))),
+%~   join_into_body(
+%~      (/*2*/
+%~        'Evaluation'([P,X],Evaluation_Deduce) ,
+%~        deduce(Evaluation_Deduce,Deduce2)),
+%~      ( deduce(A,Deduce_A)  ,
+%~        'Evaluation'([P,X],_386368) ,
+%~        'Implication'(A,_386368,_387282) ,
+%~        match('&self',_387282,_385100)),
+%~      'Evaluation'([P,X],_382086),
+%~      ( deduce(Deduce,Deduce1)  ,
+%~        deduce(A,_385100) ,
+%~        'Evaluation'([P,X],_386368) ,
+%~        'Implication'(A,_386368,_387282) ,
+%~        match('&self',_387282,_385100)))]
+%~ [convert=(deduce('Evaluation'([P,X]))=match('&self','Implication'(A,'Evaluation'([P,X])),deduce(A))),join_into_body(('Evaluation'([P,X],_382086),deduce(_382086,_381816),true),(deduce(A,_385100),'Evaluation'([P,X],_386368),'Implication'(A,_386368,_387282),match('&self',_387282,_385100)),'Evaluation'([P,X],_382086),((deduce(_382086,_381816),true),deduce(A,_385100),'Evaluation'([P,X],_386368),'Implication'(A,_386368,_387282),match('&self',_387282,_385100)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[deduce,['Evaluation',[P,X]]],[match,'&self',['Implication',A,['Evaluation',[P,X]]],[deduce,A]])
 </span><span class="ansi38-255165000">  (= 
     (deduce 
@@ -186,10 +351,31 @@
         (Evaluation 
           ($P $X))) 
       (deduce $A)))
+</span><span class="ansi38-000082136"> Compiled(&self): 'Evaluation'([P, X], A) :-
+    deduce(A, HeadRes),
+    true,
+    deduce(A, B),
+    'Evaluation'([P, X], C),
+    'Implication'(A, C, D),
+    match('&self', D, B).
+
 </span>
 
 ; Deduction case for generic "And" expressions;
 ; also recursive
+%~ [ ( convert  =
+%~     deduce('And'(A,B)) =
+%~     'And'(deduce(A),deduce(B))),
+%~   join_into_body( 'And'(A,B,And_B),deduce(And_B,Deduce),true,
+%~     ( deduce(B,Deduce_B)  ,
+%~       deduce(A,Deduce_A) ,
+%~       'And'(Deduce_A,Deduce_B,And)),
+%~     'And'(A,B,_2572),
+%~     ( deduce(Deduce,Deduce1)  ,
+%~       deduce(B,_2604) ,
+%~       deduce(A,_2622) ,
+%~       'And'(_2622,_2604,_2570)))]
+%~ [convert=(deduce('And'(A,B))='And'(deduce(A),deduce(B))),join_into_body(('And'(A,B,_2572),deduce(_2572,_2570),true),(deduce(B,_2604),deduce(A,_2622),'And'(_2622,_2604,_2570),true),'And'(A,B,_2572),((deduce(_2572,_2570),true),deduce(B,_2604),deduce(A,_2622),'And'(_2622,_2604,_2570),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[deduce,['And',A,B]],['And',[deduce,A],[deduce,B]])
 </span><span class="ansi38-255165000">  (= 
     (deduce 
@@ -197,16 +383,36 @@
     (And 
       (deduce $A) 
       (deduce $B)))
+</span><span class="ansi38-000082136"> Compiled(&self): 'And'(A, B, A) :-
+    deduce(A, HeadRes),
+    true,
+    deduce(B, B),
+    deduce(A, C),
+    'And'(C, B, HeadRes),
+    true.
+
 </span>
 
 ; True & True = True
+%~ [ convert=('And'('True','True')='True'),
+%~   join_into_body(('And'('True','True','True'),true),true,'And'('True','True','True'),true)]
+%~ [convert=('And'('True','True')='True'),join_into_body(('And'('True','True','True'),true),true,'And'('True','True','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['And','True','True'],'True')
 </span><span class="ansi38-255165000">  (= 
     (And True True) True)
+</span><span class="ansi38-000082136"> Compiled(&self): 'And'('True', 'True', 'True').
+
 </span>
 
 ; Test deduction that Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (deduce (Evaluation (mortal Plato))) True)
+
+</span><span class="ansi38-017068017">exec(A) :-
+    mortal('Plato', B),
+    'Evaluation'(B, C),
+    deduce(C, D),
+    assertEqual(D, 'True', A),
+    true.
 
 </span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.04">;; TEST-SCRIPTS.B2-BACKCHAIN.04</h3><span class="ansi36">
 (@ loonit_success 
@@ -217,12 +423,12 @@
             -->(1,'&self',[mortal,'Plato'],depth(4))
           -->(2,'&self',[match,'&self',['Evaluation',[mortal,'Plato']],'True'],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',['Implication',_244026,['Evaluation',[mortal,'Plato']]],[deduce,_244026]],depth(3))
+          -->(3,'&self',[match,'&self',['Implication',_182756,['Evaluation',[mortal,'Plato']]],[deduce,_182756]],depth(3))
             -->(4,'&self',[deduce,['Evaluation',[human,'Plato']]],depth(4))
                 -->(5,'&self',[human,'Plato'],depth(6))
               -->(6,'&self',[match,'&self',['Evaluation',[human,'Plato']],'True'],depth(5))
               <--(6,retval(fail))
-              -->(7,'&self',[match,'&self',['Implication',_246066,['Evaluation',[human,'Plato']]],[deduce,_246066]],depth(5))
+              -->(7,'&self',[match,'&self',['Implication',_184796,['Evaluation',[human,'Plato']]],[deduce,_184796]],depth(5))
                 -->(8,'&self',[deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]],depth(6))
                     -->(9,'&self',[philosopher,'Plato'],depth(8))
                   -->(10,'&self',['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]],depth(7))
@@ -235,32 +441,55 @@
                           -->(17,'&self',['likes-to-wrestle','Plato'],depth(11))
                         -->(18,'&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],'True'],depth(10))
                         <--(18,retval('True'))
-                        -->(19,'&self',[match,'&self',['Implication',_253666,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_253666]],depth(10))
+                        -->(19,'&self',[match,'&self',['Implication',_192396,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_192396]],depth(10))
                         <--(19,retval(fail))
-                      <--(16,retval([match,'&self',['Implication',_253918,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_253918]]))
+                      <--(16,retval([match,'&self',['Implication',_192648,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_192648]]))
                         <--(14,retval('True'))
-                        -->(20,'&self',[match,'&self',['Implication',_253996,['Evaluation',[philosopher,'Plato']]],[deduce,_253996]],depth(10))
+                        -->(20,'&self',[match,'&self',['Implication',_192726,['Evaluation',[philosopher,'Plato']]],[deduce,_192726]],depth(10))
                         <--(20,retval(fail))
-                      <--(12,retval([match,'&self',['Implication',_254248,['Evaluation',[philosopher,'Plato']]],[deduce,_254248]]))
+                      <--(12,retval([match,'&self',['Implication',_192978,['Evaluation',[philosopher,'Plato']]],[deduce,_192978]]))
                   <--(10,retval('True'))
                 <--(8,retval(['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]]))
               <--(7,retval([deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]))
-            <--(4,retval([match,'&self',['Implication',_246318,['Evaluation',[human,'Plato']]],[deduce,_246318]]))
+            <--(4,retval([match,'&self',['Implication',_185048,['Evaluation',[human,'Plato']]],[deduce,_185048]]))
           <--(3,retval([deduce,['Evaluation',[human,'Plato']]]))
-        <--(0,retval([match,'&self',['Implication',_244278,['Evaluation',[mortal,'Plato']]],[deduce,_244278]]))
+        <--(0,retval([match,'&self',['Implication',_183008,['Evaluation',[mortal,'Plato']]],[deduce,_183008]]))
 <span class="ansi33"> True
 
 </span>; TODO : Some variables are not substituted
+%~ [ convert=(ift('True',Then)=Then),
+%~   join_into_body( ift('True',Then,Then),true,
+%~     true, ift('True',Then,Then),true)]
+%~ [convert=(ift('True',Then)=Then),join_into_body((ift('True',Then,Then),true),true,ift('True',Then,Then),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[ift,'True',Then],Then)
 </span><span class="ansi38-255165000">  (= 
     (ift True $Then) $Then)
+</span><span class="ansi38-000082136"> Compiled(&self): ift('True', Then, Then).
+
 </span>
 
+%~ [ ( convert  =
+%~     ift(deduce('Evaluation'(mortal(X))),X) =
+%~     'True'),
+%~   join_into_body( ( mortal(X,Mortal_X)  ,
+%~                     'Evaluation'(Mortal_X,Evaluation_Deduce) ,
+%~                     deduce(Evaluation_Deduce,Deduce_X2) ,
+%~                     ift(Deduce_X2,X,'True')),
+%~     true,
+%~     mortal(X,_281786),
+%~     'Evaluation'(_281786,_282738),deduce(_282738,_283618),ift(_283618,X,'True'),true)]
+%~ [convert=(ift(deduce('Evaluation'(mortal(X))),X)='True'),join_into_body((mortal(X,_281786),'Evaluation'(_281786,_282738),deduce(_282738,_283618),ift(_283618,X,'True'),true),true,mortal(X,_281786),('Evaluation'(_281786,_282738),deduce(_282738,_283618),ift(_283618,X,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[ift,[deduce,['Evaluation',[mortal,X]]],X])
 </span><span class="ansi38-255165000">  (ift 
     (deduce 
       (Evaluation 
         (mortal $X))) $X)
+</span><span class="ansi38-000082136"> Compiled(&self): mortal(X, A) :-
+    'Evaluation'(A, B),
+    deduce(B, C),
+    ift(C, X, 'True'),
+    true.
+
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -269,6 +498,21 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Definition of explain when the desired Evaluation is
 ; in the knowledge base
+%~ [ ( convert  =
+%~     explain('Evaluation'([P,X])) =
+%~     match('&self','Evaluation'([P,X]),[P,X])),
+%~   join_into_body(
+%~      (/*2*/
+%~        'Evaluation'([P,X],Evaluation_Explain) ,
+%~        explain(Evaluation_Explain,Explain2)),
+%~      (/*2*/
+%~        'Evaluation'([P,X],_420602) ,
+%~        match('&self',_420602,[P,X])),
+%~      'Evaluation'([P,X],_417580),
+%~      ( explain(Explain,Explain1)  ,
+%~        'Evaluation'([P,X],_420602) ,
+%~        match('&self',_420602,[P,X])))]
+%~ [convert=(explain('Evaluation'([P,X]))=match('&self','Evaluation'([P,X]),[P,X])),join_into_body(('Evaluation'([P,X],_417580),explain(_417580,_417310),true),('Evaluation'([P,X],_420602),match('&self',_420602,[P,X])),'Evaluation'([P,X],_417580),((explain(_417580,_417310),true),'Evaluation'([P,X],_420602),match('&self',_420602,[P,X])))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[explain,['Evaluation',[P,X]]],[match,'&self',['Evaluation',[P,X]],[P,X]])
 </span><span class="ansi38-255165000">  (= 
     (explain 
@@ -278,10 +522,36 @@
       (Evaluation 
         ($P $X)) 
       ($P $X)))
+</span><span class="ansi38-000082136"> Compiled(&self): 'Evaluation'([P, X], A) :-
+    explain(A, HeadRes),
+    true,
+    'Evaluation'([P, X], B),
+    match('&self', B, [P, X]).
+
 </span>
 
 ; Definition of explain when the desired Evaluation is
 ; the result of an implication
+%~ [ ( convert  =
+%~     explain('Evaluation'([P,X])) =
+%~     match( '&self',
+%~       'Implication'(A,'Evaluation'([P,X])),
+%~       [ [P,X], proven,by,explain(A)])),
+%~   join_into_body(
+%~      (/*2*/
+%~        'Evaluation'([P,X],Evaluation_Explain) ,
+%~        explain(Evaluation_Explain,Explain2)),
+%~      ( explain(A,A)  ,
+%~        'Evaluation'([P,X],_53594) ,
+%~        'Implication'(A,_53594,_55088) ,
+%~        match('&self',_55088,[[P,X],proven,by,_51746])),
+%~      'Evaluation'([P,X],_48730),
+%~      ( explain(Explain,Explain1)  ,
+%~        explain(A,_51746) ,
+%~        'Evaluation'([P,X],_53594) ,
+%~        'Implication'(A,_53594,_55088) ,
+%~        match('&self',_55088,[[P,X],proven,by,_51746])))]
+%~ [convert=(explain('Evaluation'([P,X]))=match('&self','Implication'(A,'Evaluation'([P,X])),[[P,X],proven,by,explain(A)])),join_into_body(('Evaluation'([P,X],_48730),explain(_48730,_48460),true),(explain(A,_51746),'Evaluation'([P,X],_53594),'Implication'(A,_53594,_55088),match('&self',_55088,[[P,X],proven,by,_51746])),'Evaluation'([P,X],_48730),((explain(_48730,_48460),true),explain(A,_51746),'Evaluation'([P,X],_53594),'Implication'(A,_53594,_55088),match('&self',_55088,[[P,X],proven,by,_51746])))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[explain,['Evaluation',[P,X]]],[match,'&self',['Implication',A,['Evaluation',[P,X]]],[[P,X],proven,by,[explain,A]]])
 </span><span class="ansi38-255165000">  (= 
     (explain 
@@ -293,9 +563,30 @@
           ($P $X))) 
       ( ($P $X) proven by 
         (explain $A))))
+</span><span class="ansi38-000082136"> Compiled(&self): 'Evaluation'([P, X], A) :-
+    explain(A, HeadRes),
+    true,
+    explain(A, B),
+    'Evaluation'([P, X], C),
+    'Implication'(A, C, D),
+    match('&self', D, [[P, X], proven, by, B]).
+
 </span>
 
 ; Definition of explain for And
+%~ [ ( convert  =
+%~     explain('And'(A,B)) =
+%~     'And'(explain(A),explain(B))),
+%~   join_into_body( 'And'(A,B,And_B),explain(And_B,Explain),true,
+%~     ( explain(B,Explain_B)  ,
+%~       explain(A,A) ,
+%~       'And'(A,Explain_B,And)),
+%~     'And'(A,B,_269284),
+%~     ( explain(Explain,Explain1)  ,
+%~       explain(B,_272306) ,
+%~       explain(A,_273186) ,
+%~       'And'(_273186,_272306,_269014)))]
+%~ [convert=(explain('And'(A,B))='And'(explain(A),explain(B))),join_into_body(('And'(A,B,_269284),explain(_269284,_269014),true),(explain(B,_272306),explain(A,_273186),'And'(_273186,_272306,_269014),true),'And'(A,B,_269284),((explain(_269284,_269014),true),explain(B,_272306),explain(A,_273186),'And'(_273186,_272306,_269014),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[explain,['And',A,B]],['And',[explain,A],[explain,B]])
 </span><span class="ansi38-255165000">  (= 
     (explain 
@@ -303,10 +594,31 @@
     (And 
       (explain $A) 
       (explain $B)))
+</span><span class="ansi38-000082136"> Compiled(&self): 'And'(A, B, A) :-
+    explain(A, HeadRes),
+    true,
+    explain(B, B),
+    explain(A, C),
+    'And'(C, B, HeadRes),
+    true.
+
 </span>
 
 ; Example of explain why Plato is mortal
 <span class="ansi38-000068000">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
+
+</span><span class="ansi38-017068017">exec(A) :-
+    'likes-to-wrestle'('Plato', B),
+    philosopher('Plato', C),
+    'And'(C, B, D),
+    human('Plato', E),
+    mortal('Plato', F),
+    'Evaluation'(F, G),
+    explain(G, H),
+    assertEqual(H,
+                [F, proven, by, [E, proven, by, D]],
+                A),
+    true.
 
 </span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.05">;; TEST-SCRIPTS.B2-BACKCHAIN.05</h3><span class="ansi36">
 (@ loonit_success 
@@ -319,7 +631,7 @@
             -->(1,'&self',[mortal,'Plato'],depth(4))
           -->(2,'&self',[match,'&self',['Evaluation',[mortal,'Plato']],[mortal,'Plato']],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',['Implication',_392876,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_392876]]],depth(3))
+          -->(3,'&self',[match,'&self',['Implication',_437704,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_437704]]],depth(3))
             -->(4,'&self',[[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]],depth(4))
                 -->(5,'&self',[human,'Plato'],depth(6))
                 -->(6,'&self',[mortal,'Plato'],depth(6))
@@ -327,7 +639,7 @@
                     -->(8,'&self',[human,'Plato'],depth(8))
                   -->(9,'&self',[match,'&self',['Evaluation',[human,'Plato']],[human,'Plato']],depth(7))
                   <--(9,retval(fail))
-                  -->(10,'&self',[match,'&self',['Implication',_397170,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_397170]]],depth(7))
+                  -->(10,'&self',[match,'&self',['Implication',_441998,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_441998]]],depth(7))
                     -->(11,'&self',[[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]],depth(8))
                         -->(12,'&self',[philosopher,'Plato'],depth(10))
                         -->(13,'&self',[human,'Plato'],depth(10))
@@ -352,21 +664,21 @@
                   -->(32,'&self',[[human,'Plato'],proven,by,'True'],depth(7))
                       -->(33,'&self',[human,'Plato'],depth(9))
                                 <--(25,retval(['likes-to-wrestle','Plato']))
-                                -->(34,'&self',[match,'&self',['Implication',_413996,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_413996]]],depth(14))
+                                -->(34,'&self',[match,'&self',['Implication',_458824,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_458824]]],depth(14))
                                 <--(34,retval(fail))
-                              <--(23,retval([match,'&self',['Implication',_414332,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_414332]]]))
+                              <--(23,retval([match,'&self',['Implication',_459160,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_459160]]]))
                                 <--(20,retval([philosopher,'Plato']))
-                                -->(35,'&self',[match,'&self',['Implication',_414446,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_414446]]],depth(14))
+                                -->(35,'&self',[match,'&self',['Implication',_459274,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_459274]]],depth(14))
                                 <--(35,retval(fail))
-                              <--(18,retval([match,'&self',['Implication',_414782,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_414782]]]))
+                              <--(18,retval([match,'&self',['Implication',_459610,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_459610]]]))
                           <--(16,retval('True'))
                         <--(14,retval(['And',[explain,['Evaluation',[philosopher,'Plato']]],[explain,['Evaluation',['likes-to-wrestle','Plato']]]]))
                     <--(11,retval([[human,'Plato'],proven,by,'True']))
                   <--(10,retval([[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]]))
-                <--(7,retval([match,'&self',['Implication',_397506,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_397506]]]))
+                <--(7,retval([match,'&self',['Implication',_442334,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_442334]]]))
             <--(4,retval([[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']]))
           <--(3,retval([[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]]))
-        <--(0,retval([match,'&self',['Implication',_393212,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_393212]]]))
+        <--(0,retval([match,'&self',['Implication',_438040,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_438040]]]))
         -->(36,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]],depth(2))
             -->(37,'&self',[human,'Plato'],depth(4))
             -->(38,'&self',[mortal,'Plato'],depth(4))
@@ -390,7 +702,7 @@
                   -->(53,'&self',[human,'Plato'],depth(7))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 218,714 inferences, 0.352 CPU in 0.352 seconds (100% CPU, 620879 Lips)
+</span><span class="ansi32">% 5,047,003 inferences, 0.942 CPU in 0.942 seconds (100% CPU, 5357832 Lips)
 </span> (@ = "examples/compat/test_scripts/b2_backchain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

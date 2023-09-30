@@ -17,19 +17,27 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -39,16 +47,46 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables can appear in knowledge base entries
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%~ [ ( convert  =
+%~     implies('Frog'(X),'Green'(X)) =
+%~     'True'),
+%~   join_into_body( ( 'Green'(X,Green_True_X)  ,
+%~                     'Frog'(X,Frog_X1) ,
+%~                     implies(Frog_X1,Green_True_X,'True')),
+%~     true,
+%~     'Green'(X,_415186),
+%~     'Frog'(X,_416074),implies(_416074,_415186,'True'),true)]
+%~ [convert=(implies('Frog'(X),'Green'(X))='True'),join_into_body(('Green'(X,_415186),'Frog'(X,_416074),implies(_416074,_415186,'True'),true),true,'Green'(X,_415186),('Frog'(X,_416074),implies(_416074,_415186,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Green',X]])
 </span><span class="ansi38-255165000">  (implies 
     (Frog $X) 
     (Green $X))
+</span><span class="ansi38-000082136"> Compiled(&self): 'Green'(X, A) :-
+    'Frog'(X, B),
+    implies(B, A, 'True'),
+    true.
+
 </span>
 
+%~ [ ( convert  =
+%~     implies('Frog'(X),'Eats-flies'(X)) =
+%~     'True'),
+%~   join_into_body( ( 'Eats-flies'(X,Eats_flies_True_X)  ,
+%~                     'Frog'(X,Frog_X1) ,
+%~                     implies(Frog_X1,Eats_flies_True_X,'True')),
+%~     true,
+%~     'Eats-flies'(X,_39806),
+%~     'Frog'(X,_40686),implies(_40686,_39806,'True'),true)]
+%~ [convert=(implies('Frog'(X),'Eats-flies'(X))='True'),join_into_body(('Eats-flies'(X,_39806),'Frog'(X,_40686),implies(_40686,_39806,'True'),true),true,'Eats-flies'(X,_39806),('Frog'(X,_40686),implies(_40686,_39806,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Eats-flies',X]])
 </span><span class="ansi38-255165000">  (implies 
     (Frog $X) 
     (Eats-flies $X))
+</span><span class="ansi38-000082136"> Compiled(&self): 'Eats-flies'(X, A) :-
+    'Frog'(X, B),
+    implies(B, A, 'True'),
+    true.
+
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -57,6 +95,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
 
+</span><span class="ansi38-017068017">exec(A) :-
+    'Eats-flies'('Sam', B),
+    'Green'('Sam', C),
+    'Frog'('Sam', D),
+    implies(D, What, E),
+    assertEqualToResult(match('&self', E, What),
+                        [C, B],
+                        A),
+    true.
+
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.01">;; TEST-SCRIPTS.A3-TWOSIDE.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -64,7 +112,7 @@
       (Green Sam)) 
     ( (Eats-flies Sam) 
       (Green Sam))))
-</span>        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_417404],_417404],depth(2))
+</span>        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_187438],_187438],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           -->(2,'&self',['Eats-flies','Sam'],depth(3))
         <--(0,retval(['Eats-flies','Sam']))
@@ -72,12 +120,21 @@
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
 
+</span><span class="ansi38-017068017">exec(A) :-
+    'Sam'(might, be, 'Frog', B),
+    'Green'('Sam', C),
+    implies([P, X], C, D),
+    assertEqualToResult(match('&self', D, [X, might, be, P]),
+                        [B],
+                        A),
+    true.
+
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.02">;; TEST-SCRIPTS.A3-TWOSIDE.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (Sam might be Frog)) 
     ( (Sam might be Frog))))
-</span>        -->(0,'&self',[match,'&self',[implies,[_466838,_466844],['Green','Sam']],[_466844,might,be,_466838]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[implies,[_245334,_245340],['Green','Sam']],[_245340,might,be,_245334]],depth(2))
           -->(1,'&self',['Sam',might,be,'Frog'],depth(3))
         <--(0,retval(['Sam',might,be,'Frog']))
 <span class="ansi33"> True
@@ -89,15 +146,35 @@
 ; variables, which should be satisfied simultaneously.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts
+%~ [ convert=('Frog'('Sam')='True'),
+%~   join_into_body(('Frog'('Sam','True'),true),true,'Frog'('Sam','True'),true)]
+%~ [convert=('Frog'('Sam')='True'),join_into_body(('Frog'('Sam','True'),true),true,'Frog'('Sam','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
 </span><span class="ansi38-255165000">  (Frog Sam)
+</span><span class="ansi38-000082136"> Compiled(&self): 'Frog'('Sam', 'True').
+
 </span>
 
+%~ [ convert=('Robot'('Sophia')='True'),
+%~   join_into_body(('Robot'('Sophia','True'),true),true,'Robot'('Sophia','True'),true)]
+%~ [convert=('Robot'('Sophia')='True'),join_into_body(('Robot'('Sophia','True'),true),true,'Robot'('Sophia','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Robot','Sophia'])
 </span><span class="ansi38-255165000">  (Robot Sophia)
+</span><span class="ansi38-000082136"> Compiled(&self): 'Robot'('Sophia', 'True').
+
 </span>
 
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
+
+</span><span class="ansi38-017068017">exec(A) :-
+    'Eats-flies'('Sam', B),
+    'Green'('Sam', C),
+    'Frog'(X, D),
+    implies(D, Y, E),
+    assertEqualToResult(match('&self', (D, E), Y),
+                        [C, B],
+                        A),
+    true.
 
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.03">;; TEST-SCRIPTS.A3-TWOSIDE.03</h3><span class="ansi36">
 (@ loonit_success 
@@ -106,7 +183,7 @@
       (Green Sam)) 
     ( (Eats-flies Sam) 
       (Green Sam))))
-</span>        -->(0,'&self',[match,'&self',[',',['Frog',_5014],[implies,['Frog',_5014],_5050]],_5050],depth(2))
+</span>        -->(0,'&self',[match,'&self',[',',['Frog',_361152],[implies,['Frog',_361152],_361188]],_361188],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           -->(2,'&self',['Eats-flies','Sam'],depth(3))
         <--(0,retval(['Eats-flies','Sam']))
@@ -118,17 +195,29 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
 
+</span><span class="ansi38-017068017">exec(A) :-
+    'Then'(it, is, definitely, 'Frog', B),
+    'Then'(it, is, definitely, P, C),
+    'Eats-flies'(X, D),
+    implies([P, X], D, E),
+    'Green'(X, F),
+    implies([P, X], F, G),
+    assertEqualToResult(match('&self', (G, E), C),
+                        [B],
+                        A),
+    true.
+
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.04">;; TEST-SCRIPTS.A3-TWOSIDE.04</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (Then it is definitely Frog)) 
     ( (Then it is definitely Frog))))
-</span>        -->(0,'&self',[match,'&self',[',',[implies,[_46840,_46846],['Green',_46846]],[implies,[_46840,_46846],['Eats-flies',_46846]]],['Then',it,is,definitely,_46840]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[',',[implies,[_416906,_416912],['Green',_416912]],[implies,[_416906,_416912],['Eats-flies',_416912]]],['Then',it,is,definitely,_416906]],depth(2))
           -->(1,'&self',['Then',it,is,definitely,'Frog'],depth(3))
         <--(0,retval(['Then',it,is,definitely,'Frog']))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 105,046 inferences, 0.186 CPU in 0.186 seconds (100% CPU, 564584 Lips)
+</span><span class="ansi32">% 692,293 inferences, 0.271 CPU in 0.271 seconds (100% CPU, 2556977 Lips)
 </span> (@ = "examples/compat/test_scripts/a3_twoside.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

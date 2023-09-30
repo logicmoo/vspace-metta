@@ -1,51 +1,51 @@
 ; Pathfinding using a simple graph
-; Graph is represented as one-way edge functions
+; Graph is represented as one-way edge-f functions
 
-(: edge (-> Symbol Symbol))
-(= (edge a) b)
-(= (edge b) c)
-(= (edge c) d)
-(= (edge e) f)
+(: edge-f (-> Symbol Symbol))
+(= (edge-f a) b)
+(= (edge-f b) c)
+(= (edge-f c) d)
+(= (edge-f e) f)
 
-
-
-; Epathfinding rule
-(: path (-> Symbol Symbol))
-; was base case, node to itself
-(= (path $x) $x)
-; recursive case
-(= (path $x) (edge (epath $x)))
 
 
 ; Pathfinding rule
-(: epath (-> Symbol Symbol))
+(: epath-f (-> Symbol Symbol))
 ; recursive case
-(= (epath $x) (epath (edge $x)))
+(= (epath-f $x) (epath-f (edge-f $x)))
 ; was base case, node to itself
-(= (epath $x) $x)
+(= (epath-f $x) $x)
+
+
+; Pathfinding rule
+(: path-f (-> Symbol Symbol))
+; was base case, node to itself
+(= (path-f $x) $x)
+; recursive case
+(= (path-f $x) (edge-f (path-f $x)))
 
 
 ; Present
-!(assertTrue (== (edge a) b))
+!(assertTrue (== (edge-f a) b))
 ; Not present
-!(assertFalse (== (edge a) d))
+!(assertFalse (== (edge-f a) d))
 
 ; Pathfinding tests
-;!(assertTrue (== (path e) e))
-;!(assertTrue (== (path a) b))
-;!(assertTrue (== (path a) d))
+;!(assertTrue (== (path-f e) e))
+;!(assertTrue (== (path-f a) b))
+;!(assertTrue (== (path-f a) d))
 ; Should be only one dirrection
-;!(assertFalse (== (path c) a))
+;!(assertFalse (== (path-f c) a))
 ; Not Connected
-;!(assertFalse (== (path a) f))
+;!(assertFalse (== (path-f a) f))
 
 
 ; Pathfinding tests
-;!(assertTrue (== (epath e) e))
-;!(assertTrue (== (epath a) b))
-;!(assertTrue (== (epath a) d))
+;!(assertTrue (== (epath-f e) e))
+;!(assertTrue (== (epath-f a) b))
+;!(assertTrue (== (epath-f a) d))
 ; Should be only one dirrection
-;!(assertFalse (== (path c) a))
+;!(assertFalse (== (epath-f c) a))
 ; Not Connected
-;!(assertFalse (== (epath a) f))
+;!(assertFalse (== (epath-f a) f))
 
