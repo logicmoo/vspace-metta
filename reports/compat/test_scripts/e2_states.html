@@ -15,35 +15,21 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -58,38 +44,21 @@
 ;; which is replaced by the corresponding atom at parse-time.
 <span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'A'('B', B),
-    'new-state'(B, C),
-    'bind!'('&state-token', C, A),
-    true.
-
 </span><span class="ansi33"> (@ State 
-  (A B) $_471838)
- % 'State'(['A','B'],_471838)
+  (A B) $_71414)
+ % 'State'(['A','B'],_71414)
 
 </span>; &state-token is replaced by the state atom in the code below its creation
 ; we wrap it into a function to show that it''s not the token that changes, but
 ; the content of the state atom
-%~ [ convert=('get-token'='&state-token'),
-%~   join_into_body('get-token'('&state-token'),true,'get-token'('&state-token'),true)]
-%~ [convert=('get-token'='&state-token'),join_into_body('get-token'('&state-token'),true,'get-token'('&state-token'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['get-token'],'&state-token')
 </span><span class="ansi38-255165000">  (= 
     (get-token) &state-token)
-</span><span class="ansi38-000082136"> Compiled(&self): 'get-token'('&state-token').
-
 </span>
 
 ; `new-state $x` creates a `(State $x)` structure,
 ; and `get-token` will show its content
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (A B))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'A'('B', B),
-    'get-state'('get-token', C),
-    assertEqual(C, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.01">;; TEST-SCRIPTS.E2-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -99,7 +68,7 @@
 </span>        -->(0,'&self',['get-state',['get-token']],depth(2))
             -->(1,'&self',['get-token'],depth(4))
               -->(2,'&self','&state-token',depth(5))
-              <--(2,retval('State'(['A','B'],_74912)))
+              <--(2,retval('State'(['A','B'],_154130)))
           -->(3,'&self',['A','B'],depth(3))
             <--(1,retval('&state-token'))
         <--(0,retval(['A','B']))
@@ -112,26 +81,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-token) (new-state (A B)))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'A'('B', B),
-    'new-state'(B, C),
-    assertEqual('get-token', C, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.02">;; TEST-SCRIPTS.E2-STATES.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (State  
-        (A B) $_128438)) 
+        (A B) $_203230)) 
     ( (State  
-        (A B) $_129036))))
+        (A B) $_203828))))
 </span>        -->(0,'&self',['get-token'],depth(2))
           -->(1,'&self','&state-token',depth(3))
-          <--(1,retval('State'(['A','B'],_136140)))
+          <--(1,retval('State'(['A','B'],_210980)))
         <--(0,retval('&state-token'))
         -->(2,'&self',['new-state',['A','B']],depth(2))
             -->(3,'&self',['A','B'],depth(4))
-        <--(2,retval('State'(['A','B'],_137418)))
+        <--(2,retval('State'(['A','B'],_212258)))
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -140,13 +103,6 @@
 ; These are inferred types based on new-state and change-state! signatures
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'StateMonad'('Number', B),
-    'new-state'(2, C),
-    'get-type'(C, D),
-    assertEqual(D, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.03">;; TEST-SCRIPTS.E2-STATES.03</h3><span class="ansi31">
 (@ loonit_failureR 
@@ -160,14 +116,6 @@
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'StateMonad'('String', B),
-    'new-state'("S", C),
-    'change-state!'(C, "V", D),
-    'get-type'(D, E),
-    assertEqual(E, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.04">;; TEST-SCRIPTS.E2-STATES.04</h3><span class="ansi31">
 (@ loonit_failureR 
@@ -187,23 +135,15 @@
 </span>; These are the types of State grounded atom
 <span class="ansi38-000068000">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'StateMonad'('Number', B),
-    'get-type'(V, C),
-    'new-state'(1, D),
-    let(V, D, C, E),
-    assertEqual(E, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.05">;; TEST-SCRIPTS.E2-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (StateMonad Number)) 
     ( (StateMonad Number))))
-</span>        -->(0,'&self',[let,_303052,['new-state',1],['get-type',_303052]],depth(2))
+</span>        -->(0,'&self',[let,_359398,['new-state',1],['get-type',_359398]],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_311614)))
-            -->(2,'&self',['get-type','State'(1,_311560)],depth(4))
+            <--(1,retval('State'(1,_368008)))
+            -->(2,'&self',['get-type','State'(1,_367954)],depth(4))
             <--(2,retval(['StateMonad','Number']))
               -->(3,'&self',['StateMonad','Number'],depth(5))
         <--(0,retval(['StateMonad','Number']))
@@ -214,12 +154,6 @@
 </span>; atm, meta-types for states of non-grounded types are used
 <span class="ansi38-000068000">!(assertEqual (get-type &state-token) (StateMonad Expression))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'StateMonad'('Expression', B),
-    'get-type'('&state-token', C),
-    assertEqual(C, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.06">;; TEST-SCRIPTS.E2-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
@@ -228,7 +162,7 @@
     ( (StateMonad Expression))))
 </span>        -->(0,'&self',['get-type','&state-token'],depth(2))
               -->(1,'&self','&state-token',depth(5))
-              <--(1,retval('State'(['A','B'],_367814)))
+              <--(1,retval('State'(['A','B'],_419856)))
         <--(0,retval(['StateMonad',['Symbol','Symbol']]))
           -->(2,'&self',['StateMonad',['Symbol','Symbol']],depth(3))
               -->(3,'&self',['Symbol','Symbol'],depth(5))
@@ -245,45 +179,32 @@
 ; it cannot be changed to int
 <span class="ansi38-000068000">!(assertEqual (change-state! &state-token 1) (Error 1 BadType))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Error'(1, 'BadType', B),
-    'change-state!'('&state-token', 1, C),
-    assertEqual(C, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.07">;; TEST-SCRIPTS.E2-STATES.07</h3>
 !check_type (not considering this a failure)
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough  
-    ( (State  1 $_408950)) 
+    ( (State  1 $_456526)) 
     ( (Error 1 BadType))))
 </span>        -->(0,'&self',['change-state!','&state-token',1],depth(2))
             -->(1,'&self','&state-token',depth(4))
-            <--(1,retval('State'(1,_416428)))
-        <--(0,retval('State'(1,_416686)))
+            <--(1,retval('State'(1,_464052)))
+        <--(0,retval('State'(1,_464310)))
         -->(2,'&self',['Error',1,'BadType'],depth(2))
 <span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Error'("S", 'BadType', B),
-    'new-state'(1, C),
-    'change-state!'(C, "S", D),
-    assertEqual(D, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3>
 !check_type (not considering this a failure)
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough  
-    ( (State  "S" $_459256)) 
+    ( (State  "S" $_501468)) 
     ( (Error "S" BadType))))
 </span>        -->(0,'&self',['change-state!',['new-state',1],"S"],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_466850)))
-        <--(0,retval('State'("S",_467108)))
+            <--(1,retval('State'(1,_509110)))
+        <--(0,retval('State'("S",_509368)))
         -->(2,'&self',['Error',"S",'BadType'],depth(2))
 <span class="ansi33"> False
 
@@ -295,23 +216,10 @@
 ; while ignoring unwanted return values.
 <span class="ansi38-000068000">!(nop (change-state! &state-token (C D)))
 
-</span><span class="ansi38-017068017">exec(_) :-
-    'C'('D', A, _),
-    true,
-    'change-state!'('&state-token', A, B),
-    nop(B).
-
 </span><span class="ansi33"> ()
 
 </span>; The same state atom has different content now
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'C'('D', B, _),
-    true,
-    'get-state'('get-token', C),
-    assertEqual(C, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.09">;; TEST-SCRIPTS.E2-STATES.09</h3><span class="ansi36">
 (@ loonit_success 
@@ -321,7 +229,7 @@
 </span>        -->(0,'&self',['get-state',['get-token']],depth(2))
             -->(1,'&self',['get-token'],depth(4))
               -->(2,'&self','&state-token',depth(5))
-              <--(2,retval('State'(['C','D'],_18460)))
+              <--(2,retval('State'(['C','D'],_55154)))
           -->(3,'&self',['C','D'],depth(3))
             <--(1,retval('&state-token'))
         <--(0,retval(['C','D']))
@@ -335,59 +243,43 @@
 ; scoping doesn''t conflict between let bound variables and state atom types.
 <span class="ansi38-000068000">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'new-state'(2, B),
-    'get-state'(X, C),
-    +(C, 1, D),
-    'change-state!'(X, D, E),
-    'new-state'(1, F),
-    let(X, F, E, G),
-    assertEqual(G, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  2 $_59128)) 
-    ( (State  2 $_59386))))
-</span>        -->(0,'&self',[let,_57758,['new-state',1],['change-state!',_57758,[+,['get-state',_57758],1]]],depth(2))
+    ( (State  2 $_86286)) 
+    ( (State  2 $_86544))))
+</span>        -->(0,'&self',[let,_84842,['new-state',1],['change-state!',_84842,[+,['get-state',_84842],1]]],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_66228)))
-            -->(2,'&self',['change-state!','State'(1,_66174),[+,['get-state','State'(1,_66174)],1]],depth(4))
-                -->(3,'&self',[+,['get-state','State'(1,_66174)],1],depth(6))
-                    -->(4,'&self',['get-state','State'(1,_66174)],depth(8))
+            <--(1,retval('State'(1,_93434)))
+            -->(2,'&self',['change-state!','State'(1,_93380),[+,['get-state','State'(1,_93380)],1]],depth(4))
+                -->(3,'&self',[+,['get-state','State'(1,_93380)],1],depth(6))
+                    -->(4,'&self',['get-state','State'(1,_93380)],depth(8))
                     <--(4,retval(1))
                 <--(3,retval(2))
-            <--(2,retval('State'(2,_68062)))
-        <--(0,retval('State'(2,_68222)))
+            <--(2,retval('State'(2,_95342)))
+        <--(0,retval('State'(2,_95502)))
         -->(5,'&self',['new-state',2],depth(2))
-        <--(5,retval('State'(2,_68822)))
+        <--(5,retval('State'(2,_96102)))
 <span class="ansi33"> True
 
 </span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
 <span class="ansi38-000068000">!(assertEqual (let $Tnso (new-state 1) $Tnso) (new-state 1))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'new-state'(1, B),
-    let(Tnso, B, Tnso, C),
-    assertEqual(C, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E2-STATES.11">;; TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  1 $_95980)) 
-    ( (State  1 $_96238))))
-</span>        -->(0,'&self',[let,_95430,['new-state',1],_95430],depth(2))
+    ( (State  1 $_118528)) 
+    ( (State  1 $_118786))))
+</span>        -->(0,'&self',[let,_117978,['new-state',1],_117978],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_103080)))
-        <--(0,retval('State'(1,_103340)))
+            <--(1,retval('State'(1,_125676)))
+        <--(0,retval('State'(1,_125936)))
         -->(2,'&self',['new-state',1],depth(2))
-        <--(2,retval('State'(1,_103940)))
+        <--(2,retval('State'(1,_126536)))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 281,776 inferences, 0.645 CPU in 0.645 seconds (100% CPU, 437165 Lips)
+</span><span class="ansi32">% 205,386 inferences, 0.306 CPU in 0.306 seconds (100% CPU, 672253 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -1,3 +1,6 @@
+
+!(pragma! compiler full)
+
 (= (edge a b 2) True)
 (= (edge b a 2) True)
 (= (edge b c 3) True)

@@ -15,35 +15,22 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -51,12 +38,6 @@
  (@ track_load_into_file "examples/compat/test_scripts/00_lang_case.metta")
 ; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 2 3))))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    superpose([1, 2, 3], B),
-    +(1, B, C),
-    assertEqual(C, C, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -82,15 +63,6 @@
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    superpose([2, 3], B),
-    superpose([1, B], C),
-    +(1, C, D),
-    superpose([1, 2, 3], E),
-    +(1, E, F),
-    assertEqual(F, D, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
 (@ loonit_success 
@@ -119,14 +91,6 @@
 
 </span><span class="ansi38-000068000">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    +(1, 1, B),
-    superpose([B, 3], C),
-    superpose([1, C], D),
-    superpose([1, 2, 3], E),
-    assertEqual([E], [D], A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -151,12 +115,6 @@
 </span>; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) ((5 Error) (6 OK) (6 Error))) OK)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    +(1, 5, B),
-    case(B, [[5, 'Error'], [6, 'OK'], [6, 'Error']], C),
-    assertEqual(C, 'OK', A),
-    true.
-
 </span> c(0,5)='Error'
  c(1,6)='OK'
  c(2,6)='Error'
@@ -179,22 +137,15 @@
 </span>; we can use variables as cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    +(1, X, B),
-    +(1, 5, C),
-    case(C, [[X, B]], D),
-    assertEqual(D, 7, A),
-    true.
-
-</span> c(0,_152690)=[+,1,_152690]
+</span> c(0,_245034)=[+,1,_245034]
  switch=6
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (7) 
     (7)))
-</span>        -->(0,'&self',[case,[+,1,5],[[_154460,[+,1,_154460]]]],depth(2))
- c(0,_154460)=[+,1,_154460]
+</span>        -->(0,'&self',[case,[+,1,5],[[_246804,[+,1,_246804]]]],depth(2))
+ c(0,_246804)=[+,1,_246804]
             -->(1,'&self',[+,1,5],depth(4))
  switch=6
             -->(2,'&self',[+,1,6],depth(4))
@@ -206,12 +157,6 @@
 </span>; cases are not necessarily exhaustive,
 ; and the result can be empty
 <span class="ansi38-000068000">!(assertEqual (case 5 ((6 OK))) (superpose ()))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    superpose([], B),
-    case(5, [[6, 'OK']], C),
-    assertEqual(C, B, A),
-    true.
 
 </span> c(0,6)='OK'
  switch=5
@@ -228,15 +173,6 @@
 
 </span>; it is non-deterministic: each value is matched against all cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) ((3 OK-3) (4 OK-4))) (superpose (OK-3 OK-4)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'OK-3'('OK-4', B),
-    superpose(B, C),
-    superpose([1, 2, 3], D),
-    +(1, D, E),
-    case(E, [[3, 'OK-3'], [4, 'OK-4']], F),
-    assertEqual(F, C, A),
-    true.
 
 </span> c(0,3)='OK-3'
  c(1,4)='OK-4'
@@ -270,16 +206,7 @@
 </span>; one case can produce multiple results
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    superpose([3, 4, 5], B),
-    +(1, X, C),
-    superpose([1, 2, 3], D),
-    +(1, D, E),
-    case(E, [[X, C]], F),
-    assertEqual(F, B, A),
-    true.
-
-</span> c(0,_293548)=[+,1,_293548]
+</span> c(0,_361662)=[+,1,_361662]
  switch=2
  switch=3
  switch=4
@@ -288,8 +215,8 @@
   (equal_enough  
     (3 4 5) 
     (3 4 5)))
-</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_295358,[+,1,_295358]]]],depth(2))
- c(0,_295358)=[+,1,_295358]
+</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_363472,[+,1,_363472]]]],depth(2))
+ c(0,_363472)=[+,1,_363472]
             -->(1,'&self',[+,1,[superpose,[1,2,3]]],depth(4))
                 -->(2,'&self',[+,1,1],depth(6))
  switch=2
@@ -312,38 +239,16 @@
         <--(8,retval(5))
 <span class="ansi33"> True
 
-</span>%~ [ convert=('Rel-P'('A','B')='True'),
-%~   join_into_body(('Rel-P'('A','B','True'),true),true,'Rel-P'('A','B','True'),true)]
-%~ [convert=('Rel-P'('A','B')='True'),join_into_body(('Rel-P'('A','B','True'),true),true,'Rel-P'('A','B','True'),true)]
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
 </span><span class="ansi38-255165000">  (Rel-P A B)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Rel-P'('A', 'B', 'True').
-
 </span>
 
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:733 
-%~ [ convert=('Rel-Q'('A','C')='True'),
-%~   join_into_body(('Rel-Q'('A','C','True'),true),true,'Rel-Q'('A','C','True'),true)]
-%~ [convert=('Rel-Q'('A','C')='True'),join_into_body(('Rel-Q'('A','C','True'),true),true,'Rel-Q'('A','C','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-Q','A','C'])
 </span><span class="ansi38-255165000">  (Rel-Q A C)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Rel-Q'('A', 'C', 'True').
-
 </span>
 
 ; Basic Match
 <span class="ansi38-000068000">!(assertEqual (match &self ($Rel A $X) ($Rel $X)) (superpose ((Rel-P B) (Rel-Q C))))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Rel-Q'('C', B, _),
-    true,
-    'Rel-P'('B', C, _),
-    true,
-    superpose([C, B], D),
-    assertEqual(match('&self', [Rel, 'A', X], [Rel, X]),
-                D,
-                A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
 (@ loonit_success 
@@ -352,7 +257,7 @@
       (Rel-Q C)) 
     ( (Rel-P B) 
       (Rel-Q C))))
-</span>        -->(0,'&self',[match,'&self',[_425982,'A',_425994],[_425982,_425994]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[_427348,'A',_427360],[_427348,_427360]],depth(2))
           -->(1,'&self',['Rel-P','B'],depth(3))
           -->(2,'&self',['Rel-Q','C'],depth(3))
         <--(0,retval(['Rel-Q','C']))
@@ -367,24 +272,8 @@
 </span>; cases can be used for deconstruction
 <span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Q'(Y, B),
-    'Rel-Q'(Y, C, _),
-    true,
-    'P'(Y, D),
-    'Rel-P'(Y, E, _),
-    true,
-    case(match('&self', [Rel, 'A', X], [Rel, X]),
-         [[E, D], [C, B]],
-         F),
-    'Q'('C', G),
-    'P'('B', H),
-    superpose([H, G], I),
-    assertEqual(I, F, A),
-    true.
-
-</span> c(0,['Rel-P',_494098])=['P',_494098]
- c(1,['Rel-Q',_494098])=['Q',_494098]
+</span> c(0,['Rel-P',_474764])=['P',_474764]
+ c(1,['Rel-Q',_474764])=['Q',_474764]
  switch=['Rel-P','B']
  switch=['Rel-Q','C']
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
@@ -400,10 +289,10 @@
             -->(3,'&self',['Q','C'],depth(4))
         <--(0,retval(['Q','C']))
           -->(4,'&self',['Q','C'],depth(3))
-        -->(5,'&self',[case,[match,'&self',[_496524,'A',_496536],[_496524,_496536]],[[['Rel-P',_496584],['P',_496584]],[['Rel-Q',_496584],['Q',_496584]]]],depth(2))
- c(0,['Rel-P',_496584])=['P',_496584]
- c(1,['Rel-Q',_496584])=['Q',_496584]
-            -->(6,'&self',[match,'&self',[_496524,'A',_496536],[_496524,_496536]],depth(4))
+        -->(5,'&self',[case,[match,'&self',[_477190,'A',_477202],[_477190,_477202]],[[['Rel-P',_477250],['P',_477250]],[['Rel-Q',_477250],['Q',_477250]]]],depth(2))
+ c(0,['Rel-P',_477250])=['P',_477250]
+ c(1,['Rel-Q',_477250])=['Q',_477250]
+            -->(6,'&self',[match,'&self',[_477190,'A',_477202],[_477190,_477202]],depth(4))
               -->(7,'&self',['Rel-P','B'],depth(5))
  switch=['Rel-P','B']
             -->(8,'&self',['P','B'],depth(4))
@@ -419,38 +308,24 @@
 </span>; %void% can be used to capture empty results
 <span class="ansi38-000068000">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    '%void%'('no-match', B),
-    'Q'(Y, C),
-    'Rel-Q'(Y, D, _),
-    true,
-    'P'(Y, E),
-    'Rel-P'(Y, F, _),
-    true,
-    case(match('&self', [Rel, 'B', X], [Rel, X]),
-         [[F, E], [D, C], B],
-         G),
-    assertEqual(G, 'no-match', A),
-    true.
-
-</span> c(0,['Rel-P',_45084])=['P',_45084]
- c(1,['Rel-Q',_45084])=['Q',_45084]
+</span> c(0,['Rel-P',_6932])=['P',_6932]
+ c(1,['Rel-Q',_6932])=['Q',_6932]
  c(2,'%void%')='no-match'
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (no-match) 
     (no-match)))
-</span>        -->(0,'&self',[case,[match,'&self',[_47532,'B',_47544],[_47532,_47544]],[[['Rel-P',_47592],['P',_47592]],[['Rel-Q',_47592],['Q',_47592]],['%void%','no-match']]],depth(2))
- c(0,['Rel-P',_47592])=['P',_47592]
- c(1,['Rel-Q',_47592])=['Q',_47592]
+</span>        -->(0,'&self',[case,[match,'&self',[_9380,'B',_9392],[_9380,_9392]],[[['Rel-P',_9440],['P',_9440]],[['Rel-Q',_9440],['Q',_9440]],['%void%','no-match']]],depth(2))
+ c(0,['Rel-P',_9440])=['P',_9440]
+ c(1,['Rel-Q',_9440])=['Q',_9440]
  c(2,'%void%')='no-match'
-            -->(1,'&self',[match,'&self',[_47532,'B',_47544],[_47532,_47544]],depth(4))
+            -->(1,'&self',[match,'&self',[_9380,'B',_9392],[_9380,_9392]],depth(4))
             <--(1,retval(fail))
         <--(0,retval('no-match'))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 400,434 inferences, 0.541 CPU in 0.541 seconds (100% CPU, 740228 Lips)
+</span><span class="ansi32">% 233,188 inferences, 0.195 CPU in 0.195 seconds (100% CPU, 1193539 Lips)
 </span> (@ = "examples/compat/test_scripts/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

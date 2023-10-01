@@ -17,39 +17,24 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -62,25 +47,6 @@
 ;; This is a way to address particular state atoms without creating
 ;; unique tokens for them (it can be used for any grounded atom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%~ [ ( convert  =
-%~     'new-goal-status!'(Goal,Status) =
-%~     let( New_state,
-%~       'new-state'(Status),
-%~       'add-atom'('&self',status('Goal'(Goal))=New_state))),
-%~   join_into_body( 'new-goal-status!'(Goal,Status,Status),true,
-%~     ( 'Goal'(Goal,Goal)  ,
-%~       status(Goal,VAR_New_state) ,
-%~       'new-state'(Status,New_state_Status) ,
-%~       let( New_state,
-%~         New_state_Status,
-%~         'add-atom'('&self',VAR_New_state=New_state),
-%~         Let_Add_atom)),
-%~     'new-goal-status!'(Goal,Status,_2750),
-%~     ( 'Goal'(Goal,Goal)  ,
-%~       status(_2776,_2790) ,
-%~       'new-state'(Status,_2808) ,
-%~       let(New_state,_2808,'add-atom'('&self',_2790=New_state),_2750)))]
-%~ [convert=('new-goal-status!'(Goal,Status)=let(New_state,'new-state'(Status),'add-atom'('&self',status('Goal'(Goal))=New_state))),join_into_body(('new-goal-status!'(Goal,Status,_2750),true),('Goal'(Goal,_2776),status(_2776,_2790),'new-state'(Status,_2808),let(New_state,_2808,'add-atom'('&self',_2790=New_state),_2750),true),'new-goal-status!'(Goal,Status,_2750),('Goal'(Goal,_2776),status(_2776,_2790),'new-state'(Status,_2808),let(New_state,_2808,'add-atom'('&self',_2790=New_state),_2750),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['new-goal-status!',Goal,Status],[let,New_state,['new-state',Status],['add-atom','&self',[=,[status,['Goal',Goal]],New_state]]])
 </span><span class="ansi38-255165000">  (= 
     (new-goal-status! $Goal $Status) 
@@ -90,77 +56,32 @@
         (= 
           (status 
             (Goal $Goal)) $New_state))))
-</span><span class="ansi38-000082136"> Compiled(&self): 'new-goal-status!'(Goal, Status, HeadRes) :-
-    'Goal'(Goal, A),
-    status(A, B),
-    'new-state'(Status, C),
-    let(New_state,
-        C,
-        'add-atom'('&self', B=New_state),
-        HeadRes),
-    true.
-
 </span>
 
 <span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'new-goal-status!'('lunch-order', inactive, A),
-    true.
-
-</span>%~ [ convert=(status('Goal'('lunch-order'))='State'(inactive,State_Inactive)),
-%~   join_into_body(
-%~      (/*2*/
-%~        'Goal'('lunch-order',State_Lunch_order) ,
-%~        status(State_Lunch_order,'State'(inactive,State_Inactive))), true,'Goal'('lunch-order',_206900),
-%~      status(_206900,'State'(inactive,_209638)))]
-%~ [convert=(status('Goal'('lunch-order'))='State'(inactive,_209638)),join_into_body(('Goal'('lunch-order',_206900),status(_206900,'State'(inactive,_209638)),true),true,'Goal'('lunch-order',_206900),status(_206900,'State'(inactive,_209638)))]
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_200394))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_87878))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal lunch-order)) 
-    (State  inactive $_200394))
-</span><span class="ansi38-000082136"> Compiled(&self): 'Goal'('lunch-order', A) :-
-    status(A, 'State'(inactive, _)).
-
+    (State  inactive $_87878))
 </span>
 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'new-goal-status!'(meditation, inactive, A),
-    true.
-
-</span>%~ [ convert=(status('Goal'(meditation))='State'(inactive,State_Inactive)),
-%~   join_into_body(
-%~      (/*2*/
-%~        'Goal'(meditation,Goal_State_Meditation) ,
-%~        status(Goal_State_Meditation,'State'(inactive,State_Inactive))), true,'Goal'(meditation,_318072),
-%~      status(_318072,'State'(inactive,_320810)))]
-%~ [convert=(status('Goal'(meditation))='State'(inactive,_320810)),join_into_body(('Goal'(meditation,_318072),status(_318072,'State'(inactive,_320810)),true),true,'Goal'(meditation,_318072),status(_318072,'State'(inactive,_320810)))]
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_311566))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_132982))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal meditation)) 
-    (State  inactive $_311566))
-</span><span class="ansi38-000082136"> Compiled(&self): 'Goal'(meditation, A) :-
-    status(A, 'State'(inactive, _)).
-
+    (State  inactive $_132982))
 </span>
 
 <span class="ansi33"> True
 
 </span>; We can use `status` as a function to access corresponding state
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Goal'('lunch-order', B),
-    status(B, C),
-    'get-state'(C, D),
-    assertEqual(D, inactive, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.01">;; TEST-SCRIPTS.E3-MATCH-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -170,7 +91,7 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_436518)))
+            <--(1,retval('State'(inactive,_189514)))
         <--(0,retval(inactive))
 <span class="ansi33"> True
 
@@ -181,12 +102,6 @@
 ; `nop` is used only to get () for passing unit tests
 <span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
 
-</span><span class="ansi38-017068017">exec(_) :-
-    'Goal'('lunch-order', A),
-    status(A, B),
-    'change-state!'(B, active, C),
-    nop(C).
-
 </span><span class="ansi33"> ()
 
 </span>; The result is now different. This might be surprising, since
@@ -196,13 +111,6 @@
 ; (even if it is inside equality).
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) active)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Goal'('lunch-order', B),
-    status(B, C),
-    'get-state'(C, D),
-    assertEqual(D, active, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.02">;; TEST-SCRIPTS.E3-MATCH-STATES.02</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
@@ -211,7 +119,7 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_3340)))
+            <--(1,retval('State'(inactive,_269044)))
         <--(0,retval(inactive))
 <span class="ansi33"> False
 
@@ -221,19 +129,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(bind! &state-active (new-state active))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'new-state'(active, B),
-    'bind!'('&state-active', B, A),
-    true.
-
-</span><span class="ansi33"> (@ State active $_31286)
- % 'State'(active,_31286)
+</span><span class="ansi33"> (@ State active $_293450)
+ % 'State'(active,_293450)
 
 </span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
-
-</span><span class="ansi38-017068017">exec(_) :-
-    'change-state!'('&state-active', inactive, A),
-    nop(A).
 
 </span><span class="ansi33"> ()
 
@@ -242,12 +141,6 @@
 ; `(let $state-active (new-state active)) ...) here.   `
 <span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'StateMonad'('Symbol', B),
-    'get-type'('&state-active', C),
-    assertEqual(C, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">;; TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -255,18 +148,13 @@
     ( (StateMonad Symbol))))
 </span>        -->(0,'&self',['get-type','&state-active'],depth(2))
               -->(1,'&self','&state-active',depth(5))
-              <--(1,retval('State'(inactive,_95062)))
+              <--(1,retval('State'(inactive,_350554)))
         <--(0,retval(['StateMonad','Symbol']))
           -->(2,'&self',['StateMonad','Symbol'],depth(3))
         -->(3,'&self',['StateMonad','Symbol'],depth(2))
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'get-state'('&state-active', B),
-    assertEqual(B, inactive, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.04">;; TEST-SCRIPTS.E3-MATCH-STATES.04</h3><span class="ansi36">
 (@ loonit_success 
@@ -275,44 +163,31 @@
     (inactive)))
 </span>        -->(0,'&self',['get-state','&state-active'],depth(2))
             -->(1,'&self','&state-active',depth(4))
-            <--(1,retval('State'(inactive,_127300)))
+            <--(1,retval('State'(inactive,_379300)))
         <--(0,retval(inactive))
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'new-state'(inactive, B),
-    assertEqual('&state-active', B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  inactive $_151764)) 
-    ( (State  inactive $_152022))))
+    ( (State  inactive $_400230)) 
+    ( (State  inactive $_400488))))
 </span>        -->(0,'&self','&state-active',depth(2))
-        <--(0,retval('State'(inactive,_158494)))
+        <--(0,retval('State'(inactive,_407008)))
         -->(1,'&self',['new-state',inactive],depth(2))
-        <--(1,retval('State'(inactive,_159094)))
+        <--(1,retval('State'(inactive,_407608)))
 <span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
 <span class="ansi38-000068000">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Goal'(Goal, B),
-    status(B, C),
-    assertEqual(match('&self', C='&state-active', Goal),
-                meditation,
-                A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.06">;; TEST-SCRIPTS.E3-MATCH-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  () 
     (meditation)))
-</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_189548]],'&state-active'],_189548],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_432886]],'&state-active'],_432886],depth(2))
         <--(0,retval(fail))
 <span class="ansi33"> False
 
@@ -320,25 +195,15 @@
 ; and compare to the desirable result
 <span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    superpose([], B),
-    'Goal'(Goal, C),
-    status(C, D),
-    'get-state'(D, E),
-    ==(E, active, F),
-    if(F, Goal, B, G),
-    assertEqual(G, 'lunch-order', A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">;; TEST-SCRIPTS.E3-MATCH-STATES.07</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  () 
     (lunch-order)))
-</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_228302]]],active],_228302,[superpose,[]]],depth(2))
+</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_462254]]],active],_462254,[superpose,[]]],depth(2))
         <--(0,retval(fail))
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 1,229,468 inferences, 0.643 CPU in 0.643 seconds (100% CPU, 1911693 Lips)
+</span><span class="ansi32">% 152,573 inferences, 0.180 CPU in 0.180 seconds (100% CPU, 849633 Lips)
 </span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

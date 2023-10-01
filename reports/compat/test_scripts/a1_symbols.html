@@ -17,65 +17,46 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -88,68 +69,25 @@
 ;; It doesn''t search in subexpressions.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some expressions to be matched
-%~ [ ( convert  =
-%~     [ leaf1(leaf2),
-%~       leaf3] =
-%~     'True'),
-%~   join_into_body( leaf1(leaf2,Leaf1_Leaf2),[Leaf1_Leaf2,leaf3],
-%~     true,
-%~     leaf1(leaf2,_416020),
-%~     [_416020,leaf3])]
-%~ [convert=([leaf1(leaf2),leaf3]='True'),join_into_body((leaf1(leaf2,_416020),[_416020,leaf3]),true,leaf1(leaf2,_416020),[_416020,leaf3])]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[[leaf1,leaf2],leaf3])
 </span><span class="ansi38-255165000">  ( (leaf1 leaf2) leaf3)
-</span><span class="ansi38-000082136"> Compiled(&self): leaf1(leaf2, A) :-
-    [A, leaf3].
-
 </span>
 
-%~ [ ( convert  =
-%~     [ [ leaf0(leaf1),
-%~         leaf2],
-%~       leaf3] =
-%~     'True'),
-%~   join_into_body(
-%~      leaf0(leaf1,Leaf0_Leaf1),[[Leaf0_Leaf1,leaf2],leaf3], true,leaf0(leaf1,_35668),
-%~      [ [_136638,leaf2],
-%~        leaf3])]
-%~ [convert=([[leaf0(leaf1),leaf2],leaf3]='True'),join_into_body((leaf0(leaf1,_35668),[[_35668,leaf2],leaf3]),true,leaf0(leaf1,_35668),[[_35668,leaf2],leaf3])]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[[[leaf0,leaf1],leaf2],leaf3])
 </span><span class="ansi38-255165000">  ( ( (leaf0 leaf1) leaf2) leaf3)
-</span><span class="ansi38-000082136"> Compiled(&self): leaf0(leaf1, A) :-
-    [[A, leaf2], leaf3].
-
 </span>
 
 ; This one contains `((leaf1 leaf2) leaf3)` as a subexpression
 ; and thus will not be matched
-%~ [ ( convert  =
-%~     top([leaf1(leaf2),leaf3]) =
-%~     'True'),
-%~   join_into_body(
-%~      leaf1(leaf2,Leaf1_Leaf2),top([Leaf1_Leaf2,leaf3],'True'),true, true,leaf1(leaf2,_169756),
-%~      top([_169756,leaf3],'True'))]
-%~ [convert=(top([leaf1(leaf2),leaf3])='True'),join_into_body((leaf1(leaf2,_169756),top([_169756,leaf3],'True'),true),true,leaf1(leaf2,_169756),top([_169756,leaf3],'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[top,[[leaf1,leaf2],leaf3]])
 </span><span class="ansi38-255165000">  (top 
     ( (leaf1 leaf2) leaf3))
-</span><span class="ansi38-000082136"> Compiled(&self): leaf1(leaf2, A) :-
-    top([A, leaf3], 'True').
-
 </span>
 
 ; `assertEqualToResult` checks all the results of the first
 ; expression; it doesn''t evaluate the second expression,
 ; which is treated as a set of expected results.
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    leaf0(leaf1, B),
-    leaf1(B, C),
-    assertEqualToResult(match('&self', [[X, leaf2], leaf3], X),
-                        C,
-                        A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.01">;; TEST-SCRIPTS.A1-SYMBOLS.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -158,7 +96,7 @@
       (leaf0 leaf1)) 
     (leaf1 
       (leaf0 leaf1))))
-</span>        -->(0,'&self',[match,'&self',[[_299740,leaf2],leaf3],_299740],depth(2))
+</span>        -->(0,'&self',[match,'&self',[[_118904,leaf2],leaf3],_118904],depth(2))
           -->(1,'&self',[leaf0,leaf1],depth(3))
         <--(0,retval([leaf0,leaf1]))
 <span class="ansi33"> True
@@ -167,49 +105,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Symbols can be arranged in arbitrary expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%~ [ convert=('Sam'(is,a,frog)='True'),
-%~   join_into_body(('Sam'(is,a,frog,'True'),true),true,'Sam'(is,a,frog,'True'),true)]
-%~ [convert=('Sam'(is,a,frog)='True'),join_into_body(('Sam'(is,a,frog,'True'),true),true,'Sam'(is,a,frog,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Sam',is,a,frog])
 </span><span class="ansi38-255165000">  (Sam is a frog)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Sam'(is, a, frog, 'True').
-
 </span>
 
-%~ [ convert=('Tom'(is,a,cat)='True'),
-%~   join_into_body(('Tom'(is,a,cat,'True'),true),true,'Tom'(is,a,cat,'True'),true)]
-%~ [convert=('Tom'(is,a,cat)='True'),join_into_body(('Tom'(is,a,cat,'True'),true),true,'Tom'(is,a,cat,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Tom',is,a,cat])
 </span><span class="ansi38-255165000">  (Tom is a cat)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Tom'(is, a, cat, 'True').
-
 </span>
 
-%~ [ convert=('Sophia'(is,a,robot)='True'),
-%~   join_into_body(('Sophia'(is,a,robot,'True'),true),true,'Sophia'(is,a,robot,'True'),true)]
-%~ [convert=('Sophia'(is,a,robot)='True'),join_into_body(('Sophia'(is,a,robot,'True'),true),true,'Sophia'(is,a,robot,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Sophia',is,a,robot])
 </span><span class="ansi38-255165000">  (Sophia is a robot)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Sophia'(is, a, robot, 'True').
-
 </span>
 
 ; `match` can bind more that one variable
 <span class="ansi38-000068000">!(assertEqualToResult (match &self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Sophia'(the, robot, B, _),
-    true,
-    'Tom'(the, cat, C, _),
-    true,
-    'Sam'(the, frog, D, _),
-    true,
-    assertEqualToResult(match('&self',
-                              [Who, is, a, What],
-                              [Who, the, What]),
-                        [D, C, B],
-                        A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.02">;; TEST-SCRIPTS.A1-SYMBOLS.02</h3><span class="ansi36">
 (@ loonit_success 
@@ -220,7 +129,7 @@
     ( (Sam the frog) 
       (Sophia the robot) 
       (Tom the cat))))
-</span>        -->(0,'&self',[match,'&self',[_481140,is,a,_481158],[_481140,the,_481158]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[_215272,is,a,_215290],[_215272,the,_215290]],depth(2))
           -->(1,'&self',['Sam',the,frog],depth(3))
           -->(2,'&self',['Tom',the,cat],depth(3))
           -->(3,'&self',['Sophia',the,robot],depth(3))
@@ -232,74 +141,34 @@
 ; More examples of pattern matching
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `:=` is a custom symbol. These are still purely symbolic expressions
-%~ [ convert=(('Green'('Sam'):='True')='True'),
-%~   join_into_body( 'Green'('Sam',Green_True_Sam),:=(Green_True_Sam,'True','True'),true,
-%~     true, 'Green'('Sam',_2440),:=(_2440,'True','True'))]
-%~ [convert=(('Green'('Sam'):='True')='True'),join_into_body(('Green'('Sam',_2440),:=(_2440,'True','True'),true),true,'Green'('Sam',_2440),:=(_2440,'True','True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Green','Sam'],'True'])
 </span><span class="ansi38-255165000">  (:= 
     (Green Sam) True)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Green'('Sam', A) :-
-    :=(A, 'True', 'True').
-
 </span>
 
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:733 
-%~ [ convert=(('White'('Tom'):='True')='True'),
-%~   join_into_body( 'White'('Tom',White_True_Tom),:=(White_True_Tom,'True','True'),true,
-%~     true, 'White'('Tom',_64506),:=(_64506,'True','True'))]
-%~ [convert=(('White'('Tom'):='True')='True'),join_into_body(('White'('Tom',_64506),:=(_64506,'True','True'),true),true,'White'('Tom',_64506),:=(_64506,'True','True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['White','Tom'],'True'])
 </span><span class="ansi38-255165000">  (:= 
     (White Tom) True)
-</span><span class="ansi38-000082136"> Compiled(&self): 'White'('Tom', A) :-
-    :=(A, 'True', 'True').
-
 </span>
 
-%~ [ convert=(('Green'('Tom'):='False')='True'),
-%~   join_into_body( 'Green'('Tom',Green_False_Tom),:=(Green_False_Tom,'False','True'),true,
-%~     true, 'Green'('Tom',_140964),:=(_140964,'False','True'))]
-%~ [convert=(('Green'('Tom'):='False')='True'),join_into_body(('Green'('Tom',_140964),:=(_140964,'False','True'),true),true,'Green'('Tom',_140964),:=(_140964,'False','True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Green','Tom'],'False'])
 </span><span class="ansi38-255165000">  (:= 
     (Green Tom) False)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Green'('Tom', A) :-
-    :=(A, 'False', 'True').
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green $Who) True) ($Who is really green)) ((Sam is really green)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Sam'(is, really, green, B),
-    'Green'(Who, C),
-    :=(C, 'True', D),
-    assertEqualToResult(match('&self', D, [Who, is, really, green]),
-                        [B],
-                        A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.03">;; TEST-SCRIPTS.A1-SYMBOLS.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (Sam is really green)) 
     ( (Sam is really green))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Green',_243178],'True'],[_243178,is,really,green]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Green',_295666],'True'],[_295666,is,really,green]],depth(2))
           -->(1,'&self',['Sam',is,really,green],depth(3))
         <--(0,retval(['Sam',is,really,green]))
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Tom'(is, really, 'White', B),
-    'Sam'(is, really, 'Green', C),
-    :=([Color, Who], 'True', D),
-    assertEqualToResult(match('&self', D, [Who, is, really, Color]),
-                        [C, B],
-                        A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.04">;; TEST-SCRIPTS.A1-SYMBOLS.04</h3><span class="ansi36">
 (@ loonit_success 
@@ -308,25 +177,13 @@
       (Tom is really White)) 
     ( (Sam is really Green) 
       (Tom is really White))))
-</span>        -->(0,'&self',[match,'&self',[:=,[_294946,_294952],'True'],[_294952,is,really,_294946]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,[_338730,_338736],'True'],[_338736,is,really,_338730]],depth(2))
           -->(1,'&self',['Sam',is,really,'Green'],depth(3))
           -->(2,'&self',['Tom',is,really,'White'],depth(3))
         <--(0,retval(['Tom',is,really,'White']))
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) $Tv) (It (quote s) $Tv that $Who is $Color)) ((It (quote s) True that Sam is Green) (It (quote s) True that Tom is White) (It (quote s) False that Tom is Green)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    quote(s, B),
-    'It'(B, 'False', that, 'Tom', is, 'Green', C),
-    'It'(B, 'True', that, 'Tom', is, 'White', D),
-    'It'(B, 'True', that, 'Sam', is, 'Green', E),
-    'It'(B, Tv, that, Who, is, Color, F),
-    :=([Color, Who], Tv, G),
-    assertEqualToResult(match('&self', G, F),
-                        [E, D, C],
-                        A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.05">;; TEST-SCRIPTS.A1-SYMBOLS.05</h3><span class="ansi36">
 (@ loonit_success 
@@ -343,7 +200,7 @@
         (quote s) True that Sam is Green) 
       (It 
         (quote s) True that Tom is White))))
-</span>        -->(0,'&self',[match,'&self',[:=,[_363412,_363418],_363424],['It',[quote,s],_363424,that,_363418,is,_363412]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,[_392366,_392372],_392378],['It',[quote,s],_392378,that,_392372,is,_392366]],depth(2))
           -->(1,'&self',['It',[quote,s],'True',that,'Sam',is,'Green'],depth(3))
               -->(2,'&self',[quote,s],depth(5))
               -->(3,'&self',[quote,s],depth(5))
@@ -362,18 +219,12 @@
 </span>; This type of query works as a sort of evaluation/reduction
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv) (False))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Green'('Tom', B),
-    :=(B, Tv, C),
-    assertEqualToResult(match('&self', C, Tv), 'False', A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.06">;; TEST-SCRIPTS.A1-SYMBOLS.06</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (False) 
     (False)))
-</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_425240],_425240],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_449180],_449180],depth(2))
         <--(0,retval('False'))
 <span class="ansi33"> True
 
@@ -381,57 +232,30 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; One more example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%~ [ ( convert  =
-%~     isa(red,color) =
-%~     'True'),
-%~   join_into_body((isa(red,color,'True'),true),true,isa(red,color,'True'),true)]
-%~ [convert=(isa(red,color)='True'),join_into_body((isa(red,color,'True'),true),true,isa(red,color,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[isa,red,color])
 </span><span class="ansi38-255165000">  (isa red color)
-</span><span class="ansi38-000082136"> Compiled(&self): isa(red, color, 'True').
-
 </span>
 
-%~ [ ( convert  =
-%~     isa(green,color) =
-%~     'True'),
-%~   join_into_body((isa(green,color,'True'),true),true,isa(green,color,'True'),true)]
-%~ [convert=(isa(green,color)='True'),join_into_body((isa(green,color,'True'),true),true,isa(green,color,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[isa,green,color])
 </span><span class="ansi38-255165000">  (isa green color)
-</span><span class="ansi38-000082136"> Compiled(&self): isa(green, color, 'True').
-
 </span>
 
-%~ [ ( convert  =
-%~     isa(blue,color) =
-%~     'True'),
-%~   join_into_body((isa(blue,color,'True'),true),true,isa(blue,color,'True'),true)]
-%~ [convert=(isa(blue,color)='True'),join_into_body((isa(blue,color,'True'),true),true,isa(blue,color,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[isa,blue,color])
 </span><span class="ansi38-255165000">  (isa blue color)
-</span><span class="ansi38-000082136"> Compiled(&self): isa(blue, color, 'True').
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (isa $Color color) $Color) (red green blue))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    red(green, blue, B),
-    isa(Color, color, C),
-    assertEqualToResult(match('&self', C, Color), B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.07">;; TEST-SCRIPTS.A1-SYMBOLS.07</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (blue green red) 
     (blue green red)))
-</span>        -->(0,'&self',[match,'&self',[isa,_93248,color],_93248],depth(2))
+</span>        -->(0,'&self',[match,'&self',[isa,_494152,color],_494152],depth(2))
         <--(0,retval(blue))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 1,564,414 inferences, 0.516 CPU in 0.516 seconds (100% CPU, 3032217 Lips)
+</span><span class="ansi32">% 200,399 inferences, 0.174 CPU in 0.174 seconds (100% CPU, 1152544 Lips)
 </span> (@ = "examples/compat/test_scripts/a1_symbols.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

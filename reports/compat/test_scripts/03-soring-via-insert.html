@@ -29,32 +29,23 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -85,30 +76,14 @@
     (-> bool Any Any) Any)
 </span>
 
-%~ [ convert=(if('True',Then,Else)=Then),
-%~   join_into_body( if('True',Then,Else,Then),true,
-%~     true,
-%~     if('True',Then,Else,Then),
-%~     true)]
-%~ [convert=(if('True',Then,Else)=Then),join_into_body((if('True',Then,Else,Then),true),true,if('True',Then,Else,Then),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[if,'True',Then,Else],Then)
 </span><span class="ansi38-255165000">  (= 
     (if True $Then $Else) $Then)
-</span><span class="ansi38-000082136"> Compiled(&self): if('True', Then, Else, Then).
-
 </span>
 
-%~ [ convert=(if('False',Then,Else)=Else),
-%~   join_into_body( if('False',Then,Else,Else),true,
-%~     true,
-%~     if('False',Then,Else,Else),
-%~     true)]
-%~ [convert=(if('False',Then,Else)=Else),join_into_body((if('False',Then,Else,Else),true),true,if('False',Then,Else,Else),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[if,'False',Then,Else],Else)
 </span><span class="ansi38-255165000">  (= 
     (if False $Then $Else) $Else)
-</span><span class="ansi38-000082136"> Compiled(&self): if('False', Then, Else, Else).
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,insert,[->,A,['List',A],['List',A]]])
@@ -118,42 +93,12 @@
       (List $A)))
 </span>
 
-%~ [ convert=(insert(X,[])='Cons'(X,[])),
-%~   join_into_body( insert(X,[],Insert),true,
-%~     'Cons'(X,[],Cons),true,
-%~     insert(X,[],_127542),
-%~     'Cons'(X,[],_127542))]
-%~ [convert=(insert(X,[])='Cons'(X,[])),join_into_body((insert(X,[],_127542),true),('Cons'(X,[],_127542),true),insert(X,[],_127542),'Cons'(X,[],_127542))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[insert,X,[]],['Cons',X,[]])
 </span><span class="ansi38-255165000">  (= 
     (insert $X ()) 
     (Cons $X ()))
-</span><span class="ansi38-000082136"> Compiled(&self): insert(X, [], HeadRes) :-
-    'Cons'(X, [], HeadRes).
-
 </span>
 
-%~ [ ( convert  =
-%~     insert(X,'Cons'(Head,Tail)) =
-%~     if( X<Head,
-%~       'Cons'(X,'Cons'(Head,Tail)),
-%~       'Cons'(Head,insert(X,Tail)))),
-%~   join_into_body( (/*2*/
-%~                     'Cons'(Head,Tail,Cons_Tail) ,
-%~                     insert(X,Cons_Tail,Insert)),
-%~     ( insert(X,Tail,Insert_Head_Tail)  ,
-%~       'Cons'(Head,Insert_Head_Tail,Cons_If) ,
-%~       'Cons'(Head,Tail,Cons_Tail2) ,
-%~       'Cons'(X,Cons_Tail2,Cons) ,
-%~       if(X<Head,Cons,Cons_If,If8)),
-%~     'Cons'(Head,Tail,_210408),
-%~     ( insert(X,X,Insert)  ,
-%~       insert(X,Tail,_213682) ,
-%~       'Cons'(Head,_213682,_215218) ,
-%~       'Cons'(Head,Tail,_216632) ,
-%~       'Cons'(X,_216632,_217830) ,
-%~       if(X<Head,_217830,_215218,_210062)))]
-%~ [convert=(insert(X,'Cons'(Head,Tail))=if(X<Head,'Cons'(X,'Cons'(Head,Tail)),'Cons'(Head,insert(X,Tail)))),join_into_body(('Cons'(Head,Tail,_210408),insert(X,_210408,_210062),true),(insert(X,Tail,_213682),'Cons'(Head,_213682,_215218),'Cons'(Head,Tail,_216632),'Cons'(X,_216632,_217830),if(X<Head,_217830,_215218,_210062),true),'Cons'(Head,Tail,_210408),((insert(X,_210408,_210062),true),insert(X,Tail,_213682),'Cons'(Head,_213682,_215218),'Cons'(Head,Tail,_216632),'Cons'(X,_216632,_217830),if(X<Head,_217830,_215218,_210062),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[insert,X,['Cons',Head,Tail]],[if,[<,X,Head],['Cons',X,['Cons',Head,Tail]],['Cons',Head,[insert,X,Tail]]])
 </span><span class="ansi38-255165000">  (= 
     (insert $X 
@@ -164,24 +109,9 @@
         (Cons $Head $Tail)) 
       (Cons $Head 
         (insert $X $Tail))))
-</span><span class="ansi38-000082136"> Compiled(&self): 'Cons'(Head, Tail, A) :-
-    insert(X, A, HeadRes),
-    true,
-    insert(X, Tail, B),
-    'Cons'(Head, B, C),
-    'Cons'(Head, Tail, D),
-    'Cons'(X, D, E),
-    if(X<Head, E, C, HeadRes),
-    true.
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqual (Cons 1 ()) (Cons 1 ()))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Cons'(1, [], B),
-    assertEqual(B, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.01">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -193,12 +123,6 @@
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 1 ()) (Cons 1 ()))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Cons'(1, [], B),
-    insert(1, [], C),
-    assertEqual(C, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.02">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.02</h3><span class="ansi36">
 (@ loonit_success 
@@ -212,14 +136,6 @@
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 2 (insert 1 ())) (Cons 1 (Cons 2 ())))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Cons'(2, [], B),
-    'Cons'(1, B, C),
-    insert(1, [], D),
-    insert(2, D, E),
-    assertEqual(E, C, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.03">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.03</h3><span class="ansi36">
 (@ loonit_success 
@@ -273,14 +189,6 @@
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 1 (insert 2 ())) (Cons 1 (Cons 2 ())))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Cons'(2, [], B),
-    'Cons'(1, B, C),
-    insert(2, [], D),
-    insert(1, D, E),
-    assertEqual(E, C, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.04">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.04</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -322,16 +230,6 @@
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 ()))) (Cons 1 (Cons 2 (Cons 3 ()))))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Cons'(3, [], B),
-    'Cons'(2, B, C),
-    'Cons'(1, C, D),
-    insert(1, [], E),
-    insert(2, E, F),
-    insert(3, F, G),
-    assertEqual(G, D, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.05">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.05</h3><span class="ansi36">
 (@ loonit_success 
@@ -469,7 +367,7 @@
                 -->(88,'&self',['Cons',3,[]],depth(6))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 1,205,868 inferences, 0.357 CPU in 0.357 seconds (100% CPU, 3382320 Lips)
+</span><span class="ansi32">% 197,302 inferences, 0.086 CPU in 0.086 seconds (100% CPU, 2302294 Lips)
 </span> (@ = "examples/compat/test_scripts/03-soring-via-insert.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

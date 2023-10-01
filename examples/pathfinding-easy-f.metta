@@ -1,6 +1,9 @@
 ; Pathfinding using a simple graph
 ; Graph is represented as one-way edge-f functions
 
+!(pragma! compiler full)
+
+
 (: edge-f (-> Symbol Symbol))
 (= (edge-f a) b)
 (= (edge-f b) c)

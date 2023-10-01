@@ -17,37 +17,26 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -61,77 +50,30 @@
 ;; Some knowledge base entries
 ;; `:=` is a custom symbol
 ;; Combinatory logic rules
-%~ [ convert=(('I'(X):=X)='True'),
-%~   join_into_body( 'I'(X,I_X),:=(I_X,X,'True'),true,
-%~     true, 'I'(X,_412568),:=(_412568,X,'True'))]
-%~ [convert=(('I'(X):=X)='True'),join_into_body(('I'(X,_412568),:=(_412568,X,'True'),true),true,'I'(X,_412568),:=(_412568,X,'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['I',X],X])
 </span><span class="ansi38-255165000">  (:= 
     (I $X) $X)
-</span><span class="ansi38-000082136"> Compiled(&self): 'I'(X, A) :-
-    :=(A, X, 'True').
-
 </span>
 
-%~ [ ( convert  =
-%~     ['K'(X),Y]:=X =
-%~     'True'),
-%~   join_into_body(
-%~      'K'(X,K_X),:=([K_X,Y],X,'True'),true, true,'K'(X,_2286),
-%~      :=([_2286,Y],X,'True'))]
-%~ [convert=((['K'(X),Y]:=X)='True'),join_into_body(('K'(X,_2286),:=([_2286,Y],X,'True'),true),true,'K'(X,_2286),:=([_2286,Y],X,'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,[['K',X],Y],X])
 </span><span class="ansi38-255165000">  (:= 
     ( (K $X) $Y) $X)
-</span><span class="ansi38-000082136"> Compiled(&self): 'K'(X, A) :-
-    :=([A, Y], X, 'True').
-
 </span>
 
-%~ [ convert=(('K'(X,Y):=X)='True'),
-%~   join_into_body(
-%~      :=('K'(X,Y),X,'True'),true,
-%~      true, :=('K'(X,Y),X,'True'),true)]
-%~ [convert=(('K'(X,Y):=X)='True'),join_into_body((:=('K'(X,Y),X,'True'),true),true,:=('K'(X,Y),X,'True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['K',X,Y],X])
 </span><span class="ansi38-255165000">  (:= 
     (K $X $Y) $X)
-</span><span class="ansi38-000082136"> Compiled(&self): :=('K'(X, Y), X, 'True').
-
 </span>
 
-%~ [ ( convert  =
-%~     (/*2*/
-%~       'S'(X,Y,Z) :=
-%~       [ X,
-%~         Z,
-%~         [Y,Z]]) =
-%~     'True'),
-%~   join_into_body(
-%~      (/*2*/
-%~        'S'(X,Y,Z,S_Z) ,
-%~        :=(S_Z,[X,Z,[Y,Z]],'True')), true,'S'(X,Y,Z,_163994),
-%~      :=(_163994,[X,Z,[Y,Z]],'True'))]
-%~ [convert=(('S'(X,Y,Z):=[X,Z,[Y,Z]])='True'),join_into_body(('S'(X,Y,Z,_163994),:=(_163994,[X,Z,[Y,Z]],'True'),true),true,'S'(X,Y,Z,_163994),:=(_163994,[X,Z,[Y,Z]],'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['S',X,Y,Z],[X,Z,[Y,Z]]])
 </span><span class="ansi38-255165000">  (:= 
     (S $X $Y $Z) 
     ($X $Z 
       ($Y $Z)))
-</span><span class="ansi38-000082136"> Compiled(&self): 'S'(X, Y, Z, A) :-
-    :=(A, [X, Z, [Y, Z]], 'True').
-
 </span>
 
 ; A single matching step
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) $R) ((K x (K x))))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'K'(x, B),
-    'S'('K', 'K', x, C),
-    :=(C, R, D),
-    assertEqualToResult(match('&self', D, R), ['K'(x, B)], A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.01">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -140,7 +82,7 @@
         (K x))) 
     ( (K x 
         (K x)))))
-</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_310046],_310046],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_114822],_114822],depth(2))
           -->(1,'&self',['K',x,['K',x]],depth(3))
               -->(2,'&self',['K',x],depth(5))
               -->(3,'&self',['K',x],depth(5))
@@ -152,104 +94,48 @@
 ; step is manually used as input for the next query
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (K x (K x)) $R) $R) (x))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'K'(x, B),
-    :=('K'(x, B), R, C),
-    assertEqualToResult(match('&self', C, R), x, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.02">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (x) 
     (x)))
-</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_357056],_357056],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_156686],_156686],depth(2))
         <--(0,retval(x))
 <span class="ansi33"> True
 
 </span>; Combined reduction via matching in two steps
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2)) (x))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    :=(R, R2, B),
-    'S'('K', 'K', x, C),
-    :=(C, R, D),
-    assertEqualToResult(match('&self', D, match('&self', B, R2)),
-                        x,
-                        A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.03">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (x) 
     (x)))
-</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_404762],[match,'&self',[:=,_404762,_404804],_404804]],depth(2))
-          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_404804],_404804],depth(3))
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_197652],[match,'&self',[:=,_197652,_197694],_197694]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_197694],_197694],depth(3))
           <--(1,retval(x))
-        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_411442],_411442]))
+        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_204380],_204380]))
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Another example (Peano summation)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%~ [ convert=(('Add'(X,'Z'):=X)='True'),
-%~   join_into_body( 'Add'(X,'Z',Add_X_Z),:=(Add_X_Z,X,'True'),true,
-%~     true,
-%~     'Add'(X,'Z',_424086),
-%~     :=(_424086,X,'True'))]
-%~ [convert=(('Add'(X,'Z'):=X)='True'),join_into_body(('Add'(X,'Z',_424086),:=(_424086,X,'True'),true),true,'Add'(X,'Z',_424086),:=(_424086,X,'True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Add',X,'Z'],X])
 </span><span class="ansi38-255165000">  (:= 
     (Add $X Z) $X)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Add'(X, 'Z', A) :-
-    :=(A, X, 'True').
-
 </span>
 
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:733 
-%~ [ ( convert  =
-%~     'Add'(X,'S'(Y)):='Add'('S'(X),Y) =
-%~     'True'),
-%~   join_into_body( ( 'S'(X,S_Y_X)  ,
-%~                     'Add'(S_Y_X,Y,Add_True) ,
-%~                     'S'(Y,S_X_Y) ,
-%~                     'Add'(X,S_X_Y,Add) ,
-%~                     :=(Add,Add_True,'True')),
-%~     true,
-%~     'S'(X,_2594),
-%~     ( 'Add'(Y,Y,Add)  ,
-%~       'S'(Y,_2632) ,
-%~       'Add'(X,_2632,_2650) ,
-%~       :=(_2650,_2612,'True')))]
-%~ [convert=(('Add'(X,'S'(Y)):='Add'('S'(X),Y))='True'),join_into_body(('S'(X,_2594),'Add'(_2594,Y,_2612),'S'(Y,_2632),'Add'(X,_2632,_2650),:=(_2650,_2612,'True'),true),true,'S'(X,_2594),('Add'(_2594,Y,_2612),'S'(Y,_2632),'Add'(X,_2632,_2650),:=(_2650,_2612,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Add',X,['S',Y]],['Add',['S',X],Y]])
 </span><span class="ansi38-255165000">  (:= 
     (Add $X 
       (S $Y)) 
     (Add 
       (S $X) $Y))
-</span><span class="ansi38-000082136"> Compiled(&self): 'S'(X, A) :-
-    'Add'(A, Y, B),
-    'S'(Y, C),
-    'Add'(X, C, D),
-    :=(D, B, 'True'),
-    true.
-
 </span>
 
 ; First step
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) $R) ((Add (S (S Z)) Z)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'S'('Z', B),
-    'S'(B, C),
-    'Add'(C, 'Z', D),
-    'Add'(B, B, E),
-    :=(E, R, F),
-    assertEqualToResult(match('&self', F, R), [D], A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.04">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.04</h3><span class="ansi36">
 (@ loonit_success 
@@ -260,7 +146,7 @@
     ( (Add 
         (S 
           (S Z)) Z))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_141054],_141054],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_253724],_253724],depth(2))
           -->(1,'&self',['Add',['S',['S','Z']],'Z'],depth(3))
               -->(2,'&self',['S','Z'],depth(5))
               -->(3,'&self',['S',['S','Z']],depth(5))
@@ -277,17 +163,6 @@
 </span>; Two steps together
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2)) ((S (S Z))))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'S'('Z', B),
-    'S'(B, C),
-    :=(R, R2, D),
-    'Add'(B, B, E),
-    :=(E, R, F),
-    assertEqualToResult(match('&self', F, match('&self', D, R2)),
-                        [C],
-                        A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.05">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -295,17 +170,17 @@
         (S Z))) 
     ( (S 
         (S Z)))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_197702],[match,'&self',[:=,_197702,_197744],_197744]],depth(2))
-          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_197744],_197744],depth(3))
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_300204],[match,'&self',[:=,_300204,_300246],_300246]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_300246],_300246],depth(3))
             -->(2,'&self',['S',['S','Z']],depth(4))
                 -->(3,'&self',['S','Z'],depth(6))
                 -->(4,'&self',['S','Z'],depth(6))
                 -->(5,'&self',['S','Z'],depth(6))
           <--(1,retval(['S',['S','Z']]))
-        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_206498],_206498]))
+        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_309048],_309048]))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 1,575,382 inferences, 0.409 CPU in 0.409 seconds (100% CPU, 3854421 Lips)
+</span><span class="ansi32">% 134,963 inferences, 0.075 CPU in 0.075 seconds (100% CPU, 1796094 Lips)
 </span> (@ = "examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

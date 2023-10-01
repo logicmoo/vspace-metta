@@ -1,3 +1,6 @@
+
+!(pragma! compiler true)
+
 !(import! &self NARS.metta)
 
 

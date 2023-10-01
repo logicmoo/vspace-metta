@@ -14,6 +14,7 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -40,8 +41,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file f1_moduleC.metta)
-; FIXME? stdlib space is not available at importing time -
+ (@ track_load_into_file "examples/compat/test_scripts/f1_moduleA.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
+
+</span>; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
@@ -71,14 +78,11 @@
       (__g)))
 </span>
 
-<span class="ansi32">% 16,679 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 5485431 Lips)
-</span> (@ = f1_moduleC.metta 0)
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "f1_moduleC.html" )
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 
-</span><h3 id=".F1-MODULEA.06">;; .F1-MODULEA.06</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (3) 
@@ -112,13 +116,13 @@ doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/v
         (+ 1 $X))))
 </span>
 
-<span class="ansi32">% 58,445 inferences, 0.014 CPU in 0.079 seconds (17% CPU, 4257947 Lips)
-</span> (@ = f1_moduleA.metta 0)
+<span class="ansi32">% 58,163 inferences, 0.022 CPU in 0.022 seconds (100% CPU, 2646383 Lips)
+</span> (@ = "examples/compat/test_scripts/f1_moduleA.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "f1_moduleA.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/f1_moduleA.html" )
 
 </pre>
 </body>

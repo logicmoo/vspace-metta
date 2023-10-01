@@ -33,20 +33,15 @@
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -57,22 +52,17 @@
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -120,16 +110,6 @@
 ; We can query the derived type
 <span class="ansi38-000068000">!(assertEqual (get-type (Cons 0 (Cons 1 ()))) (Vec Number (S (S Z))))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'S'('Z', B),
-    'S'(B, C),
-    'Vec'('Number', C, D),
-    'Cons'(1, [], E),
-    'Cons'(0, E, F),
-    'get-type'(F, G),
-    assertEqual(G, D, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.01">;; TEST-SCRIPTS.D3-DEPTYPES.01</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  () 
@@ -159,31 +139,14 @@
       (Vec $True $X)))
 </span>
 
-%~ [ convert=(drop('Cons'(X,Xs))=Xs),
-%~   join_into_body( 'Cons'(X,Xs,Cons_Xs),drop(Cons_Xs,Xs),true,
-%~     true,
-%~     'Cons'(X,Xs,_128768),
-%~     drop(_128768,Xs))]
-%~ [convert=(drop('Cons'(X,Xs))=Xs),join_into_body(('Cons'(X,Xs,_128768),drop(_128768,Xs),true),true,'Cons'(X,Xs,_128768),drop(_128768,Xs))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[drop,['Cons',X,Xs]],Xs)
 </span><span class="ansi38-255165000">  (= 
     (drop 
       (Cons $X $Xs)) $Xs)
-</span><span class="ansi38-000082136"> Compiled(&self): 'Cons'(X, Xs, A) :-
-    drop(A, Xs).
-
 </span>
 
 ; Query type
 <span class="ansi38-000068000">!(assertEqual (get-type (drop (Cons 1 ()))) (Vec Number Z))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'Vec'('Number', 'Z', B),
-    'Cons'(1, [], C),
-    drop(C, D),
-    'get-type'(D, E),
-    assertEqual(E, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.02">;; TEST-SCRIPTS.D3-DEPTYPES.02</h3><span class="ansi31">
 (@ loonit_failureR 
@@ -202,13 +165,6 @@
 </span>; Check length after dropping
 <span class="ansi38-000068000">!(assertEqual (drop (Cons 2 (Cons 1 ()))) (Cons 1 ()))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'Cons'(1, [], B),
-    'Cons'(2, B, C),
-    drop(C, D),
-    assertEqual(D, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.03">;; TEST-SCRIPTS.D3-DEPTYPES.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -223,12 +179,6 @@
 
 </span>; Types can protect against misuse, like dropping from empty Vec
 <span class="ansi38-000068000">!(assertEqualToResult (get-type (drop ())) ())
-
-</span><span class="ansi38-017068017">exec(A) :-
-    drop([], B),
-    'get-type'(B, C),
-    assertEqualToResult(C, [], A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.04">;; TEST-SCRIPTS.D3-DEPTYPES.04</h3><span class="ansi36">
 (@ loonit_success 
@@ -266,14 +216,6 @@
 ; When querying types, grounded ops are reduced
 <span class="ansi38-000068000">!(assertEqual (get-type (ConsN "1" (ConsN "2" NilN))) (VecN String 2))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    'VecN'('String', 2, B),
-    'ConsN'("2", 'NilN', C),
-    'ConsN'("1", C, D),
-    'get-type'(D, E),
-    assertEqual(E, B, A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.05">;; TEST-SCRIPTS.D3-DEPTYPES.05</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  () 
@@ -297,30 +239,13 @@
         (- $X 1))))
 </span>
 
-%~ [ convert=(dropN('ConsN'(X,Xs))=Xs),
-%~   join_into_body( 'ConsN'(X,Xs,ConsN_Xs),dropN(ConsN_Xs,Xs),true,
-%~     true,
-%~     'ConsN'(X,Xs,_2990),
-%~     dropN(_2990,Xs))]
-%~ [convert=(dropN('ConsN'(X,Xs))=Xs),join_into_body(('ConsN'(X,Xs,_2990),dropN(_2990,Xs),true),true,'ConsN'(X,Xs,_2990),dropN(_2990,Xs))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dropN,['ConsN',X,Xs]],Xs)
 </span><span class="ansi38-255165000">  (= 
     (dropN 
       (ConsN $X $Xs)) $Xs)
-</span><span class="ansi38-000082136"> Compiled(&self): 'ConsN'(X, Xs, A) :-
-    dropN(A, Xs).
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqual (get-type (dropN (ConsN "1" NilN))) (VecN String 0))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    'VecN'('String', 0, B),
-    'ConsN'("1", 'NilN', C),
-    dropN(C, D),
-    'get-type'(D, E),
-    assertEqual(E, B, A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.06">;; TEST-SCRIPTS.D3-DEPTYPES.06</h3><span class="ansi31">
 (@ loonit_failureR 
@@ -337,22 +262,6 @@
 
 </span>; TODO: doesn't work after type checking fixes
 ; However, without any validation, invalid lengths like -1 can be derived.
-%~ [ ( convert  =
-%~     assertEqual(['get-type'(dropN(dropN('ConsN'("1",'NilN'))))],'VecN'('String',-1)) =
-%~     'True'),
-%~   join_into_body(
-%~      ( 'VecN'('String',-1,VecN_Num_1)  ,
-%~        'ConsN'("1",'NilN',ConsN_NilN) ,
-%~        dropN(ConsN_NilN,DropN) ,
-%~        dropN(DropN,DropN_Get_type) ,
-%~        'get-type'(DropN_Get_type,Get_type7) ,
-%~        assertEqual([Get_type7],VecN_Num_1,'True')), true,'VecN'('String',-1,_80078),
-%~      ( 'ConsN'("1",'NilN',ConsN_NilN)  ,
-%~        dropN(_81318,_82466) ,
-%~        dropN(_82466,_83528) ,
-%~        'get-type'(_83528,_84424) ,
-%~        assertEqual([_84424],_80078,'True')))]
-%~ [convert=(assertEqual(['get-type'(dropN(dropN('ConsN'("1",'NilN'))))],'VecN'('String',-1))='True'),join_into_body(('VecN'('String',-1,_80078),'ConsN'("1",'NilN',_81318),dropN(_81318,_82466),dropN(_82466,_83528),'get-type'(_83528,_84424),assertEqual([_84424],_80078,'True'),true),true,'VecN'('String',-1,_80078),('ConsN'("1",'NilN',_81318),dropN(_81318,_82466),dropN(_82466,_83528),'get-type'(_83528,_84424),assertEqual([_84424],_80078,'True'),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[assertEqual,[['get-type',[dropN,[dropN,['ConsN',"1",'NilN']]]]],['VecN','String',-1]])
 </span><span class="ansi38-255165000">  (assertEqual 
     ( (get-type 
@@ -360,24 +269,11 @@
           (dropN 
             (ConsN "1" NilN))))) 
     (VecN String -1))
-</span><span class="ansi38-000082136"> Compiled(&self): 'VecN'('String', -1, A) :-
-    'ConsN'("1", 'NilN', B),
-    dropN(B, C),
-    dropN(C, D),
-    'get-type'(D, E),
-    assertEqual([E], A, 'True'),
-    true.
-
 </span>
 
 ; Applying `dropN` to `NilN` is not badly typed, but it
 ; doesn't reduce, since there are no definitions for this case.
 <span class="ansi38-000068000">!(assertEqualToResult (dropN NilN) ((dropN NilN)))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    dropN('NilN', B),
-    assertEqualToResult(B, [B], A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.07">;; TEST-SCRIPTS.D3-DEPTYPES.07</h3><span class="ansi36">
 (@ loonit_success 
@@ -387,7 +283,7 @@
 </span>        -->(0,'&self',[dropN,'NilN'],depth(2))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 1,216,157 inferences, 0.501 CPU in 0.501 seconds (100% CPU, 2425749 Lips)
+</span><span class="ansi32">% 198,526 inferences, 0.191 CPU in 0.191 seconds (100% CPU, 1041011 Lips)
 </span> (@ = "examples/compat/test_scripts/d3_deptypes.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

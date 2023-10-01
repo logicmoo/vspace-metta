@@ -332,7 +332,9 @@
 (= (ConclusionPriority $EPrio $CPrio $ConcTV) (* (* $EPrio $CPrio) (Truth_Expectation $ConcTV)))
 
 ;making declarative inferences on two events (task from PQ and belief from concept)
-(= (Conclude (Event $S1 ($time1 $ev1 $prio1)) (Event $S2 ($time2 $ev2 $prio2)) $CPrio $t)
+(= (Conclude (Event $S1 ($time1 $ev1 $prio1))
+             (Event $S2 ($time2 $ev2 $prio2))
+	                                       $CPrio $t)
    (let $ConclusionStamp (TupleConcat $ev1 $ev2)
         (If (StampDisjoint $ConclusionStamp)
             (let ($ConcTerm $ConcTV) (superpose ((|- $S1 $S2) (|- $S2 $S1)))

@@ -17,33 +17,24 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -55,82 +46,38 @@
 ;; No explicit backward chaining is needed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; facts
-%~ [ convert=(croaks('Fritz')='True'),
-%~   join_into_body((croaks('Fritz','True'),true),true,croaks('Fritz','True'),true)]
-%~ [convert=(croaks('Fritz')='True'),join_into_body((croaks('Fritz','True'),true),true,croaks('Fritz','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[croaks,'Fritz'],'True')
 </span><span class="ansi38-255165000">  (= 
     (croaks Fritz) True)
-</span><span class="ansi38-000082136"> Compiled(&self): croaks('Fritz', 'True').
-
 </span>
 
-%~ [ convert=(eat_flies('Fritz')='True'),
-%~   join_into_body((eat_flies('Fritz','True'),true),true,eat_flies('Fritz','True'),true)]
-%~ [convert=(eat_flies('Fritz')='True'),join_into_body((eat_flies('Fritz','True'),true),true,eat_flies('Fritz','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[eat_flies,'Fritz'],'True')
 </span><span class="ansi38-255165000">  (= 
     (eat_flies Fritz) True)
-</span><span class="ansi38-000082136"> Compiled(&self): eat_flies('Fritz', 'True').
-
 </span>
 
 ; Rules
-%~ [ convert=('And'('True','True')='True'),
-%~   join_into_body(('And'('True','True','True'),true),true,'And'('True','True','True'),true)]
-%~ [convert=('And'('True','True')='True'),join_into_body(('And'('True','True','True'),true),true,'And'('True','True','True'),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['And','True','True'],'True')
 </span><span class="ansi38-255165000">  (= 
     (And True True) True)
-</span><span class="ansi38-000082136"> Compiled(&self): 'And'('True', 'True', 'True').
-
 </span>
 
-%~ [ ( convert  =
-%~     frog(X) =
-%~     'And'(croaks(X),eat_flies(X))),
-%~   join_into_body( frog(X,Frog_X),true,
-%~     ( eat_flies(X,Flies_X)  ,
-%~       croaks(X,Croaks_X1) ,
-%~       'And'(Croaks_X1,Flies_X,And)),
-%~     frog(X,_33948),
-%~     eat_flies(X,_36498),croaks(X,_37378),'And'(_37378,_36498,_33948),true)]
-%~ [convert=(frog(X)='And'(croaks(X),eat_flies(X))),join_into_body((frog(X,_33948),true),(eat_flies(X,_36498),croaks(X,_37378),'And'(_37378,_36498,_33948),true),frog(X,_33948),(eat_flies(X,_36498),croaks(X,_37378),'And'(_37378,_36498,_33948),true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[frog,X],['And',[croaks,X],[eat_flies,X]])
 </span><span class="ansi38-255165000">  (= 
     (frog $X) 
     (And 
       (croaks $X) 
       (eat_flies $X)))
-</span><span class="ansi38-000082136"> Compiled(&self): frog(X, HeadRes) :-
-    eat_flies(X, A),
-    croaks(X, B),
-    'And'(B, A, HeadRes),
-    true.
-
 </span>
 
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:733 
-%~ [ convert=(green(X)=frog(X)),
-%~   join_into_body( green(X,Green_X),true,
-%~     frog(X,Frog_X),true, green(X,_144176),frog(X,_144176))]
-%~ [convert=(green(X)=frog(X)),join_into_body((green(X,_144176),true),(frog(X,_144176),true),green(X,_144176),frog(X,_144176))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[green,X],[frog,X])
 </span><span class="ansi38-255165000">  (= 
     (green $X) 
     (frog $X))
-</span><span class="ansi38-000082136"> Compiled(&self): green(X, HeadRes) :-
-    frog(X, HeadRes).
-
 </span>
 
 ; Conclusion from facts and rules
 <span class="ansi38-000068000">!(assertEqual (green Fritz) True)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    green('Fritz', B),
-    assertEqual(B, 'True', A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.B3-DIRECT.01">;; TEST-SCRIPTS.B3-DIRECT.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -172,35 +119,23 @@
 ; This is not just functional programming,
 ; because we can do inference
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%~ [ convert=(ift('True',Then)=Then),
-%~   join_into_body( ift('True',Then,Then),true,
-%~     true, ift('True',Then,Then),true)]
-%~ [convert=(ift('True',Then)=Then),join_into_body((ift('True',Then,Then),true),true,ift('True',Then,Then),true)]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[ift,'True',Then],Then)
 </span><span class="ansi38-255165000">  (= 
     (ift True $Then) $Then)
-</span><span class="ansi38-000082136"> Compiled(&self): ift('True', Then, Then).
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqual (ift (green $X) $X) Fritz)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    green(X, B),
-    ift(B, X, C),
-    assertEqual(C, 'Fritz', A),
-    true.
 
 </span><h3 id="TEST-SCRIPTS.B3-DIRECT.02">;; TEST-SCRIPTS.B3-DIRECT.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (Fritz) 
     (Fritz)))
-</span>        -->(0,'&self',[ift,[green,_343446],_343446],depth(2))
-            -->(1,'&self',[green,_343446],depth(4))
-              -->(2,'&self',[frog,_343446],depth(5))
-                -->(3,'&self',['And',[croaks,_343446],[eat_flies,_343446]],depth(6))
-                    -->(4,'&self',[croaks,_343446],depth(8))
+</span>        -->(0,'&self',[ift,[green,_174078],_174078],depth(2))
+            -->(1,'&self',[green,_174078],depth(4))
+              -->(2,'&self',[frog,_174078],depth(5))
+                -->(3,'&self',['And',[croaks,_174078],[eat_flies,_174078]],depth(6))
+                    -->(4,'&self',[croaks,_174078],depth(8))
                     -->(5,'&self',[eat_flies,'Fritz'],depth(8))
                     -->(6,'&self',['And','True'],depth(8))
                     <--(6,retval('True'))
@@ -211,8 +146,8 @@
                     <--(8,retval('True'))
                     <--(4,retval('True'))
                 <--(3,retval('True'))
-              <--(2,retval(['And',[croaks,_352276],[eat_flies,_352276]]))
-            <--(1,retval([frog,_351808]))
+              <--(2,retval(['And',[croaks,_182956],[eat_flies,_182956]]))
+            <--(1,retval([frog,_182488]))
         <--(0,retval([ift,'True','Fritz']))
 <span class="ansi33"> True
 
@@ -224,23 +159,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (= ($P Fritz) True) $P) (croaks eat_flies))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    croaks(eat_flies, B),
-    assertEqualToResult(match('&self', [P, 'Fritz']='True', P),
-                        B,
-                        A),
-    true.
-
 </span><h3 id="TEST-SCRIPTS.B3-DIRECT.03">;; TEST-SCRIPTS.B3-DIRECT.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (croaks eat_flies) 
     (croaks eat_flies)))
-</span>        -->(0,'&self',[match,'&self',[=,[_380070,'Fritz'],'True'],_380070],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[_206428,'Fritz'],'True'],_206428],depth(2))
         <--(0,retval(eat_flies))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 627,903 inferences, 0.229 CPU in 0.229 seconds (100% CPU, 2739614 Lips)
+</span><span class="ansi32">% 79,237 inferences, 0.053 CPU in 0.053 seconds (100% CPU, 1502214 Lips)
 </span> (@ = "examples/compat/test_scripts/b3_direct.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
