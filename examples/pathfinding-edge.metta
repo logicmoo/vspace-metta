@@ -15,15 +15,18 @@
 
 ; The following code is commented-out and relates to node connectivity checks.
 ;(= (at $x) (assertTrue $x))
-;(= (at-a-b) (at (== (edge-f a) b)))
+;(= (at-a-b) (at (is-same (edge-f a) b)))
 ;!(at-a-b)
-;(= (a-t-a-b) (assertTrue (== (edge-f a) b)))
+;(= (a-t-a-b) (assertTrue (is-same (edge-f a) b)))
 ;!(a-t-a-b)
 
+(= (is-same $x $x) True)
+
+
 ; Testing the presence of nodes in the graph.
-!(assertTrue (== (edge-f a) b)) ; Node 'a' is connected to 'b'
+!(assertTrue (is-same (edge-f a) b)) ; Node 'a' is connected to 'b'
 ; Not present
-!(assertFalse (== (edge-f a) d)) ; Node 'a' is not connected to 'd'
+!(assertFalse (is-same (edge-f a) d)) ; Node 'a' is not connected to 'd'
 
 ; Define the path-f function for pathfinding.
 ; This function utilizes recursive calls to the edge-f function.
@@ -34,13 +37,13 @@
 (= (path-f $x) (edge-f (path-f $x)))
 
 ; The following unit tests for the path-f function are currently commented out.
-;!(assertTrue (== (path-f e) e))
-;!(assertTrue (== (path-f a) b))
-;!(assertTrue (== (path-f a) d))
+;!(assertTrue (is-same (path-f e) e))
+;!(assertTrue (is-same (path-f a) b))
+;!(assertTrue (is-same (path-f a) d))
 ; There should be only one direction
-;!(assertFalse (== (path-f c) a))
+;!(assertFalse (is-same (path-f c) a))
 ; Not connected
-;!(assertFalse (== (path-f a) f))
+;!(assertFalse (is-same (path-f a) f))
 
 ; Define the epath-f function for pathfinding using edges.
 ; This function also employs recursive calls to the edge-f function.
@@ -54,22 +57,22 @@
 
 ; The following unit tests for the epath-f function are currently commented out.
 ; Uncomment these unit tests as needed.
-;!(assertTrue (== (epath-f e) e))
-;!(assertTrue (== (epath-f a) b))
-;!(assertTrue (== (epath-f a) d))
+;!(assertTrue (is-same (epath-f e) e))
+;!(assertTrue (is-same (epath-f a) b))
+;!(assertTrue (is-same (epath-f a) d))
 ; There should be only one direction
-;!(assertFalse (== (epath-f c) a))
+;!(assertFalse (is-same (epath-f c) a))
 ; Not connected
-;!(assertFalse (== (epath-f a) f))
+;!(assertFalse (is-same (epath-f a) f))
 
 ; Pathfinding with nondeterministic epath-f
-!(assertEqual (epath-f a) (superpose (a b c d)))
+!(assertEqualToResult (epath-f a) (collapse (superpose (a b c d))))
 
 ; Define the epath-f-p predicate for pathfinding using edges
-(= (epath-f-p ?x ?y) (== (epath-f $x) ?y))
+(= (epath-f-p $x $y) (is-same (epath-f $x) $y))
 
-; Running epath-f in reverse directly via '=='
-!(assertEqual (match &self (== (epath-f $x) c) ?x) (superpose (a b c)))
+; Running epath-f in reverse directly via 'is-same'
+!(assertEqual (match &self (is-same (epath-f $x) c) $x) (superpose (a b c)))
 
 ; Running epath-f in reverse via the truth predicate
 !(assertEqual (match &self (epath-f-p $x c) $x) (superpose (a b c)))

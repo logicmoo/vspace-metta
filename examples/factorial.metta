@@ -256,7 +256,7 @@
 ;; Compiled Logical Tail-Recursive Factorial
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (= (fact-p-t-c $f $Out) (fact-p-t-c-helper $f 1 $Out))
-(= (fact-p-t-c-helper 0 $h $h) True)  ; Base case
+(= (fact-p-t-c-helper 0 $h $h    ) True)  ; Base case
 (= (fact-p-t-c-helper $n1 $f $Out)
    (and (> $n1 0)
       (is $x (* $f $n1))

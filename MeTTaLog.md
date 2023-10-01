@@ -813,8 +813,8 @@ add(X, Y, ResVal) :- ResVal is X + Y.
 |  0  |  0  | NARS_listing.metta                |[reports/nars_extras/NARS_listing.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/nars_extras/NARS_listing.html)|
 
 </details>
- 
- 
+
+
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|
 | PASS | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/InTest.html#COMMON.INTEST.01) | (assertEqual (synthesize (: $Proof (∉ Z ∅)) Z kb rb)) | ((: NotInEmpty (∉ Z ∅))) | ((: NotInEmpty (∉ Z ∅))) |
@@ -1141,7 +1141,7 @@ Test Results:
 71 Failed,
 315 Total,
 77.46% Passed
- 
+
 ## Installation Guide
 
 ### Prerequisites
@@ -1586,8 +1586,8 @@ add(X, Y, ResVal) :- ResVal is X + Y.
 |  0  |  0  | d5_auto_types.metta               |[reports/compat/test_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/test_scripts/d5_auto_types.html)|
 
 </details>
- 
- 
+
+
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|
 | PASS | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/InTest.html#COMMON.INTEST.01) | (assertEqual (synthesize (: $Proof (∉ Z ∅)) Z kb rb)) | ((: NotInEmpty (∉ Z ∅))) | ((: NotInEmpty (∉ Z ∅))) |
@@ -1914,7 +1914,7 @@ Test Results:
 71 Failed,
 315 Total,
 77.46% Passed
- 
+
 ## Installation Guide
 
 ### Prerequisites
@@ -2305,6 +2305,22 @@ Transpiles to a Prolog predicate as:
 add(X, Y, ResVal) :- ResVal is X + Y.
 ```
 
+More example translations:
 
+```MeTTa
+(= (factorial 0) 1)
+(= (factorial $N)
+   (* $N
+     (factorial
+       (- $N 1))))
+```
 
-
+```prolog
+:- dynamic(factorial/2).
+:- table(factorial/2).
+factorial(0, 1).
+factorial(N, A) :-
+    -(N, 1, B),
+    factorial(B, C),
+    *(N, C, A).
+```
