@@ -1,5 +1,5 @@
 
-!(pragma! compiler full)
+!(pragma! compile full)
 ;!(memoize fibonacci)
 
 (= (equals $X $X) True)

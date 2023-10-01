@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/factorial.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Summary:
+;;;
+;;; 1. Functional Recursive Factorial:
+;;; - Approach: Standard Recursion
+;;; - Description: This method calculates the factorial of a number 'n'
+;;;   by recursively multiplying 'n' by the factorial of (n-1) until it
+;;;   reaches the base case of factorial(0) = 1. It''s straightforward but
+;;;   can be less efficient due to the creation of multiple stack frames.
+;;;
+;;; 2. Functional Tail-Recursive Factorial:
+;;; - Approach: Tail Recursion with Helper Function
+;;; - Description: This method uses a helper function with an accumulator to
+;;;   store the interim results. It is tail-recursive, making the recursive
+;;;   call the last thing executed by the function. This approach is more
+;;;   memory-efficient in languages and interpreters that support tail call
+;;;   optimization, as it reuses the stack frame of the current function call.
+;;;
+;;; 3. Functional Factorial using Accumulators:
+;;; - Approach: Accumulator-Based Recursion
+;;; - Description: This approach is similar to the tail-recursive one but
+;;;   emphasizes the use of an accumulator to keep track of the intermediate
+;;;   product. This is also a form of tail recursion and benefits from stack
+;;;   frame reuse in systems that support it.
+;;;
+;;; All three methods are functional approaches to calculate the factorial
+;;; of a number, each with its nuances regarding efficiency and readability.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; these examples actually need the compiler!
+<span class="ansi38-000068000">!(pragma! compiler full)
+
+</span><span class="ansi33"> full
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 1. Functional Recursive Factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[factorial,0],1)
+</span><span class="ansi38-255165000">  (= 
+    (factorial 0) 1)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[factorial,N],[*,N,[factorial,[-,N,1]]])
+</span><span class="ansi38-255165000">  (= 
+    (factorial $N) 
+    (* $N 
+      (factorial 
+        (- $N 1))))
+</span>
+
+;; Approach: Standard recursion
+;; How it Works: It calculates the factorial of a number n
+;; by recursively multiplying n by the factorial of (n-1)
+;; until it reaches the base case of factorial(0) = 1.
+;;!(assertEqual (factorial 0) 1)
+;;!(assertEqual (factorial 1) 1)
+;;!(assertEqual (factorial 4) 24)
+;;!(assertEqual (factorial 5) 120)
+;;!(assertEqual (factorial 10) 3628800)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 2. Functional Tail-Recursive Factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['factorial-tr',N],['factorial-tr-helper',N,1])
+</span><span class="ansi38-255165000">  (= 
+    (factorial-tr $N) 
+    (factorial-tr-helper $N 1))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['factorial-tr-helper',0,Ac],Ac)
+</span><span class="ansi38-255165000">  (= 
+    (factorial-tr-helper 0 $Ac) $Ac)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['factorial-tr-helper',N,Ac],['factorial-tr-helper',[-,N,1],[*,N,Ac]])
+</span><span class="ansi38-255165000">  (= 
+    (factorial-tr-helper $N $Ac) 
+    (factorial-tr-helper 
+      (- $N 1) 
+      (* $N $Ac)))
+</span>
+
+;; Approach: Tail recursion with helper function
+;; How it Works: It uses a helper function with an accumulator to store the interim results.
+;; This method is tail-recursive, meaning the recursive call is the last thing executed
+;; by the function, which is more memory-efficient in languages and interpreters that
+;; support tail call optimization.
+;;!(assertEqual (factorial-tr 0) 1)
+;;!(assertEqual (factorial-tr 1) 1)
+;;!(assertEqual (factorial-tr 4) 24)
+;;!(assertEqual (factorial-tr 5) 120)
+;;!(assertEqual (factorial-tr 10) 3628800)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 3. Functional Factorial using Accumulators
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['factorial-ac',N],['factorial-ac-helper',N,1])
+</span><span class="ansi38-255165000">  (= 
+    (factorial-ac $N) 
+    (factorial-ac-helper $N 1))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['factorial-ac-helper',0,Ac],Ac)
+</span><span class="ansi38-255165000">  (= 
+    (factorial-ac-helper 0 $Ac) $Ac)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['factorial-ac-helper',N,Ac],['factorial-ac-helper',[-,N,1],[*,N,Ac]])
+</span><span class="ansi38-255165000">  (= 
+    (factorial-ac-helper $N $Ac) 
+    (factorial-ac-helper 
+      (- $N 1) 
+      (* $N $Ac)))
+</span>
+
+;; Approach: Accumulator-based recursion
+;; How it Works: This approach is very similar to the tail-recursive one.
+;; It uses an accumulator to keep track of the intermediate product.
+;; It is also a form of tail recursion.
+;;!(assertEqual (factorial-ac 0) 1)
+;;!(assertEqual (factorial-ac 1) 1)
+;;!(assertEqual (factorial-ac 4) 24)
+;;!(assertEqual (factorial-ac 5) 120)
+;;!(assertEqual (factorial-ac 10) 3628800)
+<span class="ansi38-000068000">!(bind! &factorialstate (new-state 1))
+
+</span><span class="ansi33"> (@ State 1 $_397274)
+ % 'State'(1,_397274)
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fast-factorial',K],['If',[>,K,1],[do,[sequential,[['change-state!','&factorialstate',[*,K,['get-state','&factorialstate']]],['fast-factorial',[-,K,1]]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (fast-factorial $K) 
+    (If 
+      (> $K 1) 
+      (do 
+        (sequential 
+          ( (change-state! &factorialstate 
+              (* $K 
+                (get-state &factorialstate))) 
+            (fast-factorial 
+              (- $K 1)))))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[factorial,N],[sequential,[[do,['change-state!','&factorialstate',1]],['fast-factorial',N],['get-state','&factorialstate']]])
+</span><span class="ansi38-255165000">  (= 
+    (factorial $N) 
+    (sequential 
+      ( (do 
+          (change-state! &factorialstate 1)) 
+        (fast-factorial $N) 
+        (get-state &factorialstate))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[is,X,X],'True')
+</span><span class="ansi38-255165000">  (= 
+    (is $X $X) True)
+</span>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; logical recursive factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[practorial,0,1],'True')
+</span><span class="ansi38-255165000">  (= 
+    (practorial 0 1) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[practorial,N,Out],[and,[>,N,0],[is,F2,[-,N,1]],[practorial,F2,R],[is,Out,[*,N,R]]])
+</span><span class="ansi38-255165000">  (= 
+    (practorial $N $Out) 
+    (and 
+      (> $N 0) 
+      (is $F2 
+        (- $N 1)) 
+      (practorial $F2 $R) 
+      (is $Out 
+        (* $N $R))))
+</span>
+
+;;!(assertTrue (practorial 0 1))
+;;!(assertTrue (practorial 1 1))
+<span class="ansi38-000068000">!(assertTrue (practorial 4 24))
+
+</span>;;!(assertTrue (practorial 5 120))
+;;!(assertTrue (practorial 10) 3628800)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; logical tail-recursive factorial
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['practorial-tr',False,Out],['practorial-tr-helper',False,1,Out])
+</span><span class="ansi38-255165000">  (= 
+    (practorial-tr $False $Out) 
+    (practorial-tr-helper $False 1 $Out))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['practorial-tr-helper',0,H,H],'True')
+</span><span class="ansi38-255165000">  (= 
+    (practorial-tr-helper 0 $H $H) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['practorial-tr-helper',N1,False,Out],[and,[>,N1,0],[is,X,[*,False,N1]],[is,F2,[-,N1,1]],['practorial-tr-helper',F2,X,Out]])
+</span><span class="ansi38-255165000">  (= 
+    (practorial-tr-helper $N1 $False $Out) 
+    (and 
+      (> $N1 0) 
+      (is $X 
+        (* $False $N1)) 
+      (is $F2 
+        (- $N1 1)) 
+      (practorial-tr-helper $F2 $X $Out)))
+</span>
+
+;;!(assertTrue (practorial-tr 0 1))
+;;!(assertTrue (practorial-tr 1 1))
+;;!(assertTrue (practorial-tr 4 24))
+;;!(assertTrue (practorial-tr 5 120))
+;;!(assertTrue (practorial-tr 10) 3628800)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; logical factorial using accumulators
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['practorial-ac',False,Out],['practorial-ac-helper',False,1,Out])
+</span><span class="ansi38-255165000">  (= 
+    (practorial-ac $False $Out) 
+    (practorial-ac-helper $False 1 $Out))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['practorial-ac-helper',0,Out,Out],'True')
+</span><span class="ansi38-255165000">  (= 
+    (practorial-ac-helper 0 $Out $Out) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['practorial-ac-helper',N,False,Out],[and,[>,N,0],[is,X,[*,False,N]],[is,F1,[-,N,1]],['practorial-ac-helper',F1,X,Out]])
+</span><span class="ansi38-255165000">  (= 
+    (practorial-ac-helper $N $False $Out) 
+    (and 
+      (> $N 0) 
+      (is $X 
+        (* $False $N)) 
+      (is $F1 
+        (- $N 1)) 
+      (practorial-ac-helper $F1 $X $Out)))
+</span>
+
+<span class="ansi32">% 278,592 inferences, 0.473 CPU in 0.473 seconds (100% CPU, 589422 Lips)
+</span> (@ = "examples/factorial.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/factorial.html" )
+
+</pre>
+</body>
+
+</html>

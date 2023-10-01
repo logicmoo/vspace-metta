@@ -1,7 +1,7 @@
 ; Pathfinding using a simple graph
 ; Graph is represented as facts: (= (edge A B) True) means there''s an one-way edge from A to B.
 
-!(pragma! compiler full)
+!(pragma! compile full)
 
 (: edge (-> Symbol Symbol Bool))
 (= (edge a b) True)

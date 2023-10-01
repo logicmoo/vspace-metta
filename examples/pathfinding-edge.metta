@@ -1,7 +1,7 @@
 ; Metta Pathfinding Example
 
 ; these examples actually need the compiler!
-!(pragma! compiler full)
+!(pragma! compile full)
 
 ; Define the edge-f function, which represents one-way edges in the graph.
 ; This function is crucial for specifying connections between nodes.

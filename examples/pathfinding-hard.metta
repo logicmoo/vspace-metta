@@ -1,5 +1,5 @@
 
-!(pragma! compiler full)
+!(pragma! compile full)
 
 (= (edge a b 2) True)
 (= (edge b a 2) True)

@@ -1,7 +1,7 @@
 ;!(extend-py! metta_learner)
 
 ; these examples actually need the compiler!
-!(pragma! compiler full)
+!(pragma! compile full)
 
 ; Recursive Fibonacci
 (= (fib 0) 0)
