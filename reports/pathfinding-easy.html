@@ -38,6 +38,7 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
 </style>
 </head>
@@ -48,7 +49,7 @@
 ;; Graph is represented as facts: (= (edge A B) True) means there''s an one-way edge from A to B.
 <span class="ansi38-000068000">!(pragma! compile full)
 
-</span>; Evaluation took 0.084 ms. (84.50 microseconds) 
+</span>; Evaluation took 0.106 ms. (106.30 microseconds) 
 <span class="ansi33"> full
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,edge,[->,'Symbol','Symbol','Bool']])
@@ -101,7 +102,13 @@
 
 ; recursive case
 ; Not asserted
-<span class="ansi38-000068000">!(assertEqual (edge a c) False)
+%~ [ convert(exec=assertEqual(edge(a,c),'False')),
+%~   head_preconds_into_body((exec(_137024):-edge(a,c,_138920),assertEqual(_138920,'False',_137024)))]
+<span class="ansi38-017068017">exec(A) :-
+    edge(a, c, B),
+    assertEqual(B, 'False', A).
+
+</span><span class="ansi38-000068000">!(assertEqual (edge a c) False)
 
 </span><h3 id="EXAMPLES.PATHFINDING-EASY.01">;; EXAMPLES.PATHFINDING-EASY.01</h3><span class="ansi31">
 (@ loonit_failureR 
@@ -109,10 +116,10 @@
     ( (edge a c)) 
     (False)))
 </span>        -->(0,'&self',[edge,a,c],depth(2))
-; Evaluation took 1.73 ms.
+; Evaluation took 1.29 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 54,956 inferences, 0.030 CPU in 0.030 seconds (100% CPU, 1810354 Lips)
+</span><span class="ansi32">% 152,756 inferences, 0.050 CPU in 0.050 seconds (100% CPU, 3050928 Lips)
 </span> (@ = "examples/pathfinding-easy.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -121,7 +121,7 @@
     (Number)))
 </span>        -->(0,'&self',['get-type',5],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.11 ms.
+; Evaluation took 1.34 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
@@ -133,7 +133,7 @@
     (Number)))
 </span>        -->(0,'&self',['get-type',[+,5,7]],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.11 ms.
+; Evaluation took 1.25 ms.
 <span class="ansi33"> True
 
 </span>; It works for built-in symbols too
@@ -148,7 +148,7 @@
         <--(0,retval([->,'Number','Number','Number']))
           -->(1,'&self',[->,'Number','Number','Number'],depth(3))
         -->(2,'&self',[->,'Number','Number','Number'],depth(2))
-; Evaluation took 1.99 ms.
+; Evaluation took 1.77 ms.
 <span class="ansi33"> True
 
 </span>; If its argument is a badly typed expression,
@@ -161,7 +161,7 @@
     (Number) ()))
 </span>        -->(0,'&self',['get-type',[+,5,"4"]],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.13 ms.
+; Evaluation took 1.20 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
@@ -172,7 +172,7 @@
     (Number) ()))
 </span>        -->(0,'&self',['get-type',[+,-]],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.16 ms.
+; Evaluation took 1.10 ms.
 <span class="ansi33"> False
 
 </span>; Also works for custom types
@@ -189,7 +189,7 @@
     (Type)))
 </span>        -->(0,'&self',['get-type','Either'],depth(2))
         <--(0,retval('Type'))
-; Evaluation took 1.54 ms.
+; Evaluation took 1.06 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -215,7 +215,7 @@
     (Either)))
 </span>        -->(0,'&self',['get-type',['Left',5]],depth(2))
         <--(0,retval('Either'))
-; Evaluation took 1.32 ms.
+; Evaluation took 1.55 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
@@ -244,7 +244,7 @@
     (Bool)))
 </span>        -->(0,'&self',['get-type',[isLeft,['Right',5]]],depth(2))
         <--(0,retval('Bool'))
-; Evaluation took 2.47 ms.
+; Evaluation took 1.34 ms.
 <span class="ansi33"> True
 
 </span>; Badly typed expression
@@ -256,7 +256,7 @@
     (Bool) ()))
 </span>        -->(0,'&self',['get-type',[isLeft,5]],depth(2))
         <--(0,retval('Bool'))
-; Evaluation took 1.66 ms.
+; Evaluation took 1.24 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -290,7 +290,7 @@
               -->(1,'&self',['LeftP',5],depth(5))
         <--(0,retval(fail))
         -->(2,'&self',['EitherP','Number'],depth(2))
-; Evaluation took 2.01 ms.
+; Evaluation took 1.57 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Pair',[->,A,B,'Type']])
@@ -322,7 +322,7 @@
             -->(7,'&self',['EitherP','Number'],depth(4))
             -->(8,'&self',['EitherP','Number'],depth(4))
             -->(9,'&self',['EitherP','Number'],depth(4))
-; Evaluation took 3.58 ms.
+; Evaluation took 3.27 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -358,7 +358,7 @@
                   -->(3,'&self',['Cons',6,[]],depth(7))
         <--(0,retval(fail))
         -->(4,'&self',['List','Number'],depth(2))
-; Evaluation took 1.92 ms.
+; Evaluation took 1.87 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (Cons 5 (Cons "6" ()))) ())
@@ -371,7 +371,7 @@
               -->(2,'&self',['Cons',5,['Cons',"6",[]]],depth(5))
                   -->(3,'&self',['Cons',"6",[]],depth(7))
         <--(0,retval(fail))
-; Evaluation took 1.50 ms.
+; Evaluation took 1.52 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -384,17 +384,17 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (Number)))
-</span>        -->(0,'&self',[let,['List',_262308],['get-type',['Cons',5,['Cons',6,[]]]],_262308],depth(2))
+</span>        -->(0,'&self',[let,['List',_455006],['get-type',['Cons',5,['Cons',6,[]]]],_455006],depth(2))
             -->(1,'&self',['get-type',['Cons',5,['Cons',6,[]]]],depth(4))
                     -->(2,'&self',['Cons',6,[]],depth(8))
                   -->(3,'&self',['Cons',5,['Cons',6,[]]],depth(7))
                       -->(4,'&self',['Cons',6,[]],depth(9))
             <--(1,retval(fail))
         <--(0,retval(fail))
-; Evaluation took 2.20 ms.
+; Evaluation took 1.84 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 266,122 inferences, 0.303 CPU in 0.303 seconds (100% CPU, 877675 Lips)
+</span><span class="ansi32">% 267,696 inferences, 0.290 CPU in 0.290 seconds (100% CPU, 922639 Lips)
 </span> (@ = "examples/compat/test_scripts/d1_gadt.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
