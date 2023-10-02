@@ -44,7 +44,7 @@
 ;; which is replaced by the corresponding atom at parse-time.
 <span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
 
-</span>; Evaluation took 0.249 ms. (248.90 microseconds) 
+</span>; Evaluation took 0.316 ms. (315.50 microseconds) 
 <span class="ansi33"> (@ State 
   (A B) $_151850)
  % 'State'(['A','B'],_151850)
@@ -74,7 +74,7 @@
             <--(1,retval('&state-token'))
         <--(0,retval(['A','B']))
         -->(4,'&self',['A','B'],depth(2))
-; Evaluation took 1.70 ms.
+; Evaluation took 1.82 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -97,7 +97,7 @@
         -->(2,'&self',['new-state',['A','B']],depth(2))
             -->(3,'&self',['A','B'],depth(4))
         <--(2,retval('State'(['A','B'],_293418)))
-; Evaluation took 1.47 ms.
+; Evaluation took 1.78 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -116,7 +116,7 @@
         <--(0,retval(['Symbol','Number']))
           -->(1,'&self',['Symbol','Number'],depth(3))
         -->(2,'&self',['StateMonad','Number'],depth(2))
-; Evaluation took 1.59 ms.
+; Evaluation took 2.07 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
@@ -134,7 +134,7 @@
               -->(3,'&self',['Symbol','String'],depth(5))
               -->(4,'&self',['Symbol','String'],depth(5))
         -->(5,'&self',['StateMonad','String'],depth(2))
-; Evaluation took 2.21 ms.
+; Evaluation took 2.62 ms.
 <span class="ansi33"> False
 
 </span>; These are the types of State grounded atom
@@ -154,7 +154,7 @@
         <--(0,retval(['StateMonad','Number']))
           -->(4,'&self',['StateMonad','Number'],depth(3))
         -->(5,'&self',['StateMonad','Number'],depth(2))
-; Evaluation took 2.11 ms.
+; Evaluation took 2.19 ms.
 <span class="ansi33"> True
 
 </span>; atm, meta-types for states of non-grounded types are used
@@ -175,7 +175,7 @@
               -->(4,'&self',['Symbol','Symbol'],depth(5))
               -->(5,'&self',['Symbol','Symbol'],depth(5))
         -->(6,'&self',['StateMonad','Expression'],depth(2))
-; Evaluation took 2.37 ms.
+; Evaluation took 2.54 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -197,7 +197,7 @@
             <--(1,retval('State'(1,_32276)))
         <--(0,retval('State'(1,_32534)))
         -->(2,'&self',['Error',1,'BadType'],depth(2))
-; Evaluation took 1.57 ms.
+; Evaluation took 1.72 ms.
 <span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
@@ -214,7 +214,7 @@
             <--(1,retval('State'(1,_77686)))
         <--(0,retval('State'("S",_77944)))
         -->(2,'&self',['Error',"S",'BadType'],depth(2))
-; Evaluation took 1.69 ms.
+; Evaluation took 1.66 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -225,7 +225,7 @@
 ; while ignoring unwanted return values.
 <span class="ansi38-000068000">!(nop (change-state! &state-token (C D)))
 
-</span>; Evaluation took 0.301 ms. (300.60 microseconds) 
+</span>; Evaluation took 0.250 ms. (250.30 microseconds) 
 <span class="ansi33"> ()
 
 </span>; The same state atom has different content now
@@ -244,7 +244,7 @@
             <--(1,retval('&state-token'))
         <--(0,retval(['C','D']))
         -->(4,'&self',['C','D'],depth(2))
-; Evaluation took 2.25 ms.
+; Evaluation took 1.84 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -271,7 +271,7 @@
         <--(0,retval('State'(2,_182038)))
         -->(5,'&self',['new-state',2],depth(2))
         <--(5,retval('State'(2,_182638)))
-; Evaluation took 2.56 ms.
+; Evaluation took 2.28 ms.
 <span class="ansi33"> True
 
 </span>; Checking that there is no conflict between variable names in
@@ -289,16 +289,17 @@
         <--(0,retval('State'(1,_212824)))
         -->(2,'&self',['new-state',1],depth(2))
         <--(2,retval('State'(1,_213424)))
-; Evaluation took 1.47 ms.
+; Evaluation took 1.97 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 207,257 inferences, 0.278 CPU in 0.278 seconds (100% CPU, 744264 Lips)
+</span><span class="ansi32">% 207,257 inferences, 0.289 CPU in 0.289 seconds (100% CPU, 717222 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 6
 </span><span class="ansi31">Failures: 3
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e2_states.html" )
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e2_states.html" )
 
 </pre>
 </body>
