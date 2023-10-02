@@ -60,24 +60,26 @@
 
 <span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_87878))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_497536))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal lunch-order)) 
-    (State  inactive $_87878))
+    (State  inactive $_497536))
 </span>
 
+; Evaluation took 0.940 ms. (940.10 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_132982))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_25656))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal meditation)) 
-    (State  inactive $_132982))
+    (State  inactive $_25656))
 </span>
 
+; Evaluation took 0.772 ms. (771.70 microseconds) 
 <span class="ansi33"> True
 
 </span>; We can use `status` as a function to access corresponding state
@@ -91,8 +93,9 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_189514)))
+            <--(1,retval('State'(inactive,_82168)))
         <--(0,retval(inactive))
+; Evaluation took 1.50 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -102,7 +105,8 @@
 ; `nop` is used only to get () for passing unit tests
 <span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
 
-</span><span class="ansi33"> ()
+</span>; Evaluation took 0.282 ms. (282.30 microseconds) 
+<span class="ansi33"> ()
 
 </span>; The result is now different. This might be surprising, since
 ; the content of Space is not changed. However, this is the whole
@@ -119,8 +123,9 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_269044)))
+            <--(1,retval('State'(inactive,_161774)))
         <--(0,retval(inactive))
+; Evaluation took 1.70 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -129,12 +134,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(bind! &state-active (new-state active))
 
-</span><span class="ansi33"> (@ State active $_293450)
- % 'State'(active,_293450)
+</span>; Evaluation took 0.178 ms. (178.30 microseconds) 
+<span class="ansi33"> (@ State active $_186228)
+ % 'State'(active,_186228)
 
 </span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
 
-</span><span class="ansi33"> ()
+</span>; Evaluation took 0.157 ms. (157.00 microseconds) 
+<span class="ansi33"> ()
 
 </span>; We cannot put `(new-state active)` inside `match`, because it doesn''t
 ; reduce the input pattern expression. Instead, we should use
@@ -148,10 +155,11 @@
     ( (StateMonad Symbol))))
 </span>        -->(0,'&self',['get-type','&state-active'],depth(2))
               -->(1,'&self','&state-active',depth(5))
-              <--(1,retval('State'(inactive,_350554)))
+              <--(1,retval('State'(inactive,_243428)))
         <--(0,retval(['StateMonad','Symbol']))
           -->(2,'&self',['StateMonad','Symbol'],depth(3))
         -->(3,'&self',['StateMonad','Symbol'],depth(2))
+; Evaluation took 1.86 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
@@ -163,8 +171,9 @@
     (inactive)))
 </span>        -->(0,'&self',['get-state','&state-active'],depth(2))
             -->(1,'&self','&state-active',depth(4))
-            <--(1,retval('State'(inactive,_379300)))
+            <--(1,retval('State'(inactive,_272182)))
         <--(0,retval(inactive))
+; Evaluation took 1.35 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
@@ -172,12 +181,13 @@
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  inactive $_400230)) 
-    ( (State  inactive $_400488))))
+    ( (State  inactive $_293160)) 
+    ( (State  inactive $_293418))))
 </span>        -->(0,'&self','&state-active',depth(2))
-        <--(0,retval('State'(inactive,_407008)))
+        <--(0,retval('State'(inactive,_299898)))
         -->(1,'&self',['new-state',inactive],depth(2))
-        <--(1,retval('State'(inactive,_407608)))
+        <--(1,retval('State'(inactive,_300498)))
+; Evaluation took 1.42 ms.
 <span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
@@ -187,8 +197,9 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (meditation)))
-</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_432886]],'&state-active'],_432886],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_325824]],'&state-active'],_325824],depth(2))
         <--(0,retval(fail))
+; Evaluation took 1.44 ms.
 <span class="ansi33"> False
 
 </span>; But we can also find all goal statuses, unwrap them from State,
@@ -199,11 +210,12 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (lunch-order)))
-</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_462254]]],active],_462254,[superpose,[]]],depth(2))
+</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_355200]]],active],_355200,[superpose,[]]],depth(2))
         <--(0,retval(fail))
+; Evaluation took 1.71 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 152,573 inferences, 0.180 CPU in 0.180 seconds (100% CPU, 849633 Lips)
+</span><span class="ansi32">% 153,344 inferences, 0.163 CPU in 0.163 seconds (100% CPU, 942730 Lips)
 </span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

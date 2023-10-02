@@ -15,6 +15,8 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -677,7 +679,17 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/nars/tests0.metta")
-<span class="ansi38-000068000">!(import! &self NARS.metta)
+<span class="ansi38-000068000">!(pragma! trace-on-False True)
+
+</span>; Evaluation took 0.084 ms. (84.00 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(pragma! trace-on-pass True)
+
+</span>; Evaluation took 0.058 ms. (58.00 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(import! &self NARS.metta)
 
 </span>;;NAL tests
 ;;; stdlib extension
@@ -2207,22 +2219,26 @@
 ;spaces
 <span class="ansi38-000068000">!(bind! &belief_events (new-space))
 
-</span><span class="ansi33">  (new-space)
+</span>; Evaluation took 0.194 ms. (194.30 microseconds) 
+<span class="ansi33">  (new-space)
 
 </span><span class="ansi38-000068000">!(bind! &goal_events (new-space))
 
-</span><span class="ansi33">  (new-space)
+</span>; Evaluation took 0.182 ms. (182.20 microseconds) 
+<span class="ansi33">  (new-space)
 
 </span>;states
 <span class="ansi38-000068000">!(bind! &currentTime (new-state 1))
 
-</span><span class="ansi33"> (@ State 1 $_415716)
- % 'State'(1,_415716)
+</span>; Evaluation took 0.180 ms. (180.10 microseconds) 
+<span class="ansi33"> (@ State 1 $_415798)
+ % 'State'(1,_415798)
 
 </span><span class="ansi38-000068000">!(bind! &evidentialBase (new-state 1))
 
-</span><span class="ansi33"> (@ State 1 $_109660)
- % 'State'(1,_109660)
+</span>; Evaluation took 0.153 ms. (153.40 microseconds) 
+<span class="ansi33"> (@ State 1 $_109674)
+ % 'State'(1,_109674)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[increment,Atom],['change-state!',Atom,[+,1,['get-state',Atom]]])
 </span><span class="ansi38-255165000">  (= 
@@ -2260,13 +2276,15 @@
 ;retrieve the best candidate (allows to use tuples / collapse results / spaces as a PQ)
 <span class="ansi38-000068000">!(bind! &tempbest (new-state ()))
 
-</span><span class="ansi33"> (@ State () $_307748)
- % 'State'([],_307748)
+</span>; Evaluation took 0.179 ms. (178.70 microseconds) 
+<span class="ansi33"> (@ State () $_307762)
+ % 'State'([],_307762)
 
 </span><span class="ansi38-000068000">!(bind! &tempbestscore (new-state 0))
 
-</span><span class="ansi33"> (@ State 0 $_509310)
- % 'State'(0,_509310)
+</span>; Evaluation took 0.155 ms. (154.60 microseconds) 
+<span class="ansi33"> (@ State 0 $_509392)
+ % 'State'(0,_509392)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['BestCandidate',Tuple,EvaluateCandidateFunction,True],[sequential,[[do,['change-state!','&tempbestscore',0]],[do,['change-state!','&tempbest',[]]],[do,['let*',[[X,[superpose,Tuple]],[Fx,[EvaluateCandidateFunction,X,True]]],[superpose,[['If',[>,Fx,['get-state','&tempbestscore']],[sequential,[['change-state!','&tempbest',X],['change-state!','&tempbestscore',Fx]]]]]]]],['get-state','&tempbest']]])
 </span><span class="ansi38-255165000">  (= 
@@ -2351,11 +2369,13 @@
 ;spaces
 <span class="ansi38-000068000">!(bind! &concepts (new-space))
 
-</span><span class="ansi33">  (new-space)
+</span>; Evaluation took 0.180 ms. (180.30 microseconds) 
+<span class="ansi33">  (new-space)
 
 </span><span class="ansi38-000068000">!(bind! &attentional_focus (new-space))
 
-</span><span class="ansi33">  (new-space)
+</span>; Evaluation took 0.205 ms. (205.00 microseconds) 
+<span class="ansi33">  (new-space)
 
 </span>;priority of concepts
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ConceptPriorityNow',[True,P],True],[*,P,[/,1,[+,1,[-,True,True]]]])
@@ -2371,12 +2391,14 @@
 ;whether evidence was just counted once
 <span class="ansi38-000068000">!(bind! &tempstate (new-state False))
 
-</span><span class="ansi33"> (@ State False $_367666)
- % 'State'('False',_367666)
+</span>; Evaluation took 0.152 ms. (152.30 microseconds) 
+<span class="ansi33"> (@ State False $_367748)
+ % 'State'('False',_367748)
 
 </span><span class="ansi38-000068000">!(bind! &tempset (new-space))
 
-</span><span class="ansi33">  (new-space)
+</span>; Evaluation took 0.177 ms. (177.30 microseconds) 
+<span class="ansi33">  (new-space)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['StampDisjoint',X],[not,[sequential,[[do,['change-state!','&tempstate','False']],[do,[case,['get-atoms','&tempset'],[[Y,['remove-atom','&tempset',Y]]]]],[do,[let,Z,[superpose,X],[case,[match,'&tempset',Z,Z],[[W,['change-state!','&tempstate','True']],['%void%',['add-atom','&tempset',Z]]]]]],['get-state','&tempstate']]]])
 </span><span class="ansi38-255165000">  (= 
@@ -2690,8 +2712,9 @@
 ;FIFO max. size bound
 <span class="ansi38-000068000">!(bind! &FIFO (new-state ()))
 
-</span><span class="ansi33"> (@ State () $_51368)
- % 'State'([],_51368)
+</span>; Evaluation took 0.183 ms. (182.60 microseconds) 
+<span class="ansi33"> (@ State () $_51382)
+ % 'State'([],_51382)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ListFirstK',C,[]],'False')
 </span><span class="ansi38-255165000">  (= 
@@ -3024,6 +3047,7 @@
           (GoalCycle $True)))))
 </span>
 
+; Evaluation took 9.20 seconds.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) (((animal --> Garfield) (1.0 0.44751381215469616)) ((Garfield --> animal) (1.0 0.81))))
@@ -3205,6 +3229,7 @@
               <--(40,retval([1.0,['Truth_w2c',[*,[*,1.0,1.0],[*,0.9,0.9]]]]))
           <--(35,retval([[animal,-->,'Garfield'],[1.0,0.44751381215469616]]))
         <--(0,retval([[animal,-->,'Garfield'],['Truth_Exemplification',[1.0,0.9],[1.0,0.9]]]))
+; Evaluation took 26.66 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- ((Garfield --> carnivore) (1.0 0.9)) (((Garfield --> cat) ==> (Garfield --> carnivore)) (1.0 0.9))) (((Garfield --> cat) (1.0 0.44751381215469616))))
@@ -3293,6 +3318,7 @@
               <--(7,retval([1.0,['Truth_w2c',[*,[*,1.0,0.9],0.9]]]))
           <--(2,retval([['Garfield',-->,cat],[1.0,0.44751381215469616]]))
         <--(0,retval([['Garfield',-->,cat],['Truth_Abduction',[1.0,0.9],[1.0,0.9]]]))
+; Evaluation took 14.07 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- ((({ a b }) --> mwawa) (1.0 0.9))) (((({} a) --> mwawa) (1.0 0.81)) ((({} b) --> mwawa) (1.0 0.81))))
@@ -3423,6 +3449,7 @@
               <--(43,retval(['Truth_Deduction',[1.0,0.9],[1.0,0.9]]))
           <--(38,retval([[[{},b],-->,mwawa],[1.0,0.81]]))
         <--(0,retval([[[{},b],-->,mwawa],['Truth_StructuralDeduction',[1.0,0.9]]]))
+; Evaluation took 20.16 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- (((a * b) --> R) (1.0 0.9))) (((a --> (R /1 b)) (1.0 0.81)) ((b --> (R /2 a)) (1.0 0.81))))
@@ -3513,6 +3540,7 @@
               <--(35,retval(['Truth_Intersection',[1.0,0.9],[1.0,0.9]]))
           <--(28,retval([[b,-->,['R','/2',a]],[1.0,0.81]]))
         <--(0,retval([[b,-->,['R','/2',a]],['Truth_StructuralIntersection',[1.0,0.9]]]))
+; Evaluation took 12.69 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- ((R --> (a * b)) (1.0 0.9))) ((((R \1 b) --> a) (1.0 0.81)) (((R \2 a) --> b) (1.0 0.81))))
@@ -3591,6 +3619,7 @@
               <--(29,retval(['Truth_Intersection',[1.0,0.9],[1.0,0.9]]))
           <--(24,retval([[['R','\\2',a],-->,b],[1.0,0.81]]))
         <--(0,retval([[['R','\\2',a],-->,b],['Truth_StructuralIntersection',[1.0,0.9]]]))
+; Evaluation took 10.90 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- ((A --> cat) (1.0 0.9)) ((B --> cat) (1.0 0.9))) (((B --> A) (1.0 0.44751381215469616)) (((A ~ B) --> cat) (0.0 0.81)) (((A | B) --> cat) (1.0 0.81)) ((B <-> A) (1.0 0.44751381215469616)) (((A & B) --> cat) (1.0 0.81))))
@@ -3701,7 +3730,7 @@
               -->(50,'&self',['B',<->,'A'],depth(5))
               -->(51,'&self',['Truth_Comparison',[1.0,0.9],[1.0,0.9]],depth(5))
                   -->(52,'&self',[1.0,0.9],depth(7))
-                -->(53,'&self',[let,_261968,['Truth_or',1.0,1.0],[['If',[==,_261968,0.0],0.0,[/,[*,1.0,1.0],_261968]],['Truth_w2c',[*,_261968,[*,0.9,0.9]]]]],depth(6))
+                -->(53,'&self',[let,_241390,['Truth_or',1.0,1.0],[['If',[==,_241390,0.0],0.0,[/,[*,1.0,1.0],_241390]],['Truth_w2c',[*,_241390,[*,0.9,0.9]]]]],depth(6))
                     -->(54,'&self',['Truth_or',1.0,1.0],depth(8))
                       -->(55,'&self',[-,1,[*,[-,1,1.0],[-,1,1.0]]],depth(9))
                           -->(56,'&self',[*,[-,1,1.0],[-,1,1.0]],depth(11))
@@ -3769,8 +3798,8 @@
                                                 <--(98,retval(1.0))
                                       -->(99,'&self',[1.0,0.44751381215469616],depth(17))
                                   -->(100,'&self',[1.0,0.44751381215469616],depth(15))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
- True
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 77.47 ms.
+<span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (|- (|- ((Garfield --> cat) (1.0 0.9)) ((cat --> animal) (1.0 0.9))) ((animal --> being) (1.0 0.9))) (((animal --> (Garfield | being)) (1.0 0.40276243093922653)) ((animal --> (Garfield & being)) (1.0 0.40276243093922653)) ((animal --> (Garfield - being)) (0.0 0.40276243093922653)) ((being <-> Garfield) (1.0 0.28712091374556914)) ((being --> Garfield) (1.0 0.28712091374556914)) ((being --> Garfield) (1.0 0.42163100057836905)) ((Garfield --> being) (1.0 0.7290000000000001))))
 
@@ -3957,10 +3986,10 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
                               <--(97,retval(0.42163100057836905))
                             <--(96,retval([/,0.7290000000000001,[+,0.7290000000000001,1]]))
                         <--(72,retval([1.0,0.42163100057836905]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
- True
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 107.67 ms.
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 7,501,755 inferences, 9.285 CPU in 9.285 seconds (100% CPU, 807939 Lips)
+</span><span class="ansi32">% 7,522,355 inferences, 9.689 CPU in 9.690 seconds (100% CPU, 776360 Lips)
 </span> (@ = "examples/nars/tests0.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -44,9 +44,10 @@
 ;; which is replaced by the corresponding atom at parse-time.
 <span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
 
-</span><span class="ansi33"> (@ State 
-  (A B) $_71414)
- % 'State'(['A','B'],_71414)
+</span>; Evaluation took 0.374 ms. (374.40 microseconds) 
+<span class="ansi33"> (@ State 
+  (A B) $_481072)
+ % 'State'(['A','B'],_481072)
 
 </span>; &state-token is replaced by the state atom in the code below its creation
 ; we wrap it into a function to show that it''s not the token that changes, but
@@ -68,11 +69,12 @@
 </span>        -->(0,'&self',['get-state',['get-token']],depth(2))
             -->(1,'&self',['get-token'],depth(4))
               -->(2,'&self','&state-token',depth(5))
-              <--(2,retval('State'(['A','B'],_154130)))
+              <--(2,retval('State'(['A','B'],_41726)))
           -->(3,'&self',['A','B'],depth(3))
             <--(1,retval('&state-token'))
         <--(0,retval(['A','B']))
         -->(4,'&self',['A','B'],depth(2))
+; Evaluation took 2.45 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,16 +87,17 @@
 (@ loonit_success 
   (equal_enough  
     ( (State  
-        (A B) $_203230)) 
+        (A B) $_90874)) 
     ( (State  
-        (A B) $_203828))))
+        (A B) $_91472))))
 </span>        -->(0,'&self',['get-token'],depth(2))
           -->(1,'&self','&state-token',depth(3))
-          <--(1,retval('State'(['A','B'],_210980)))
+          <--(1,retval('State'(['A','B'],_98582)))
         <--(0,retval('&state-token'))
         -->(2,'&self',['new-state',['A','B']],depth(2))
             -->(3,'&self',['A','B'],depth(4))
-        <--(2,retval('State'(['A','B'],_212258)))
+        <--(2,retval('State'(['A','B'],_99860)))
+; Evaluation took 1.71 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -113,6 +116,7 @@
         <--(0,retval(['Symbol','Number']))
           -->(1,'&self',['Symbol','Number'],depth(3))
         -->(2,'&self',['StateMonad','Number'],depth(2))
+; Evaluation took 1.76 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
@@ -130,6 +134,7 @@
               -->(3,'&self',['Symbol','String'],depth(5))
               -->(4,'&self',['Symbol','String'],depth(5))
         -->(5,'&self',['StateMonad','String'],depth(2))
+; Evaluation took 2.14 ms.
 <span class="ansi33"> False
 
 </span>; These are the types of State grounded atom
@@ -140,15 +145,16 @@
   (equal_enough  
     ( (StateMonad Number)) 
     ( (StateMonad Number))))
-</span>        -->(0,'&self',[let,_359398,['new-state',1],['get-type',_359398]],depth(2))
+</span>        -->(0,'&self',[let,_247064,['new-state',1],['get-type',_247064]],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_368008)))
-            -->(2,'&self',['get-type','State'(1,_367954)],depth(4))
+            <--(1,retval('State'(1,_255634)))
+            -->(2,'&self',['get-type','State'(1,_255580)],depth(4))
             <--(2,retval(['StateMonad','Number']))
               -->(3,'&self',['StateMonad','Number'],depth(5))
         <--(0,retval(['StateMonad','Number']))
           -->(4,'&self',['StateMonad','Number'],depth(3))
         -->(5,'&self',['StateMonad','Number'],depth(2))
+; Evaluation took 2.02 ms.
 <span class="ansi33"> True
 
 </span>; atm, meta-types for states of non-grounded types are used
@@ -162,13 +168,14 @@
     ( (StateMonad Expression))))
 </span>        -->(0,'&self',['get-type','&state-token'],depth(2))
               -->(1,'&self','&state-token',depth(5))
-              <--(1,retval('State'(['A','B'],_419856)))
+              <--(1,retval('State'(['A','B'],_307490)))
         <--(0,retval(['StateMonad',['Symbol','Symbol']]))
           -->(2,'&self',['StateMonad',['Symbol','Symbol']],depth(3))
               -->(3,'&self',['Symbol','Symbol'],depth(5))
               -->(4,'&self',['Symbol','Symbol'],depth(5))
               -->(5,'&self',['Symbol','Symbol'],depth(5))
         -->(6,'&self',['StateMonad','Expression'],depth(2))
+; Evaluation took 2.24 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -183,13 +190,14 @@
 !check_type (not considering this a failure)
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough  
-    ( (State  1 $_456526)) 
+    ( (State  1 $_344208)) 
     ( (Error 1 BadType))))
 </span>        -->(0,'&self',['change-state!','&state-token',1],depth(2))
             -->(1,'&self','&state-token',depth(4))
-            <--(1,retval('State'(1,_464052)))
-        <--(0,retval('State'(1,_464310)))
+            <--(1,retval('State'(1,_351694)))
+        <--(0,retval('State'(1,_351952)))
         -->(2,'&self',['Error',1,'BadType'],depth(2))
+; Evaluation took 1.51 ms.
 <span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
@@ -199,13 +207,14 @@
 !check_type (not considering this a failure)
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough  
-    ( (State  "S" $_501468)) 
+    ( (State  "S" $_389158)) 
     ( (Error "S" BadType))))
 </span>        -->(0,'&self',['change-state!',['new-state',1],"S"],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_509110)))
-        <--(0,retval('State'("S",_509368)))
+            <--(1,retval('State'(1,_396760)))
+        <--(0,retval('State'("S",_397018)))
         -->(2,'&self',['Error',"S",'BadType'],depth(2))
+; Evaluation took 2.14 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -216,7 +225,8 @@
 ; while ignoring unwanted return values.
 <span class="ansi38-000068000">!(nop (change-state! &state-token (C D)))
 
-</span><span class="ansi33"> ()
+</span>; Evaluation took 0.356 ms. (356.00 microseconds) 
+<span class="ansi33"> ()
 
 </span>; The same state atom has different content now
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
@@ -229,11 +239,12 @@
 </span>        -->(0,'&self',['get-state',['get-token']],depth(2))
             -->(1,'&self',['get-token'],depth(4))
               -->(2,'&self','&state-token',depth(5))
-              <--(2,retval('State'(['C','D'],_55154)))
+              <--(2,retval('State'(['C','D'],_459852)))
           -->(3,'&self',['C','D'],depth(3))
             <--(1,retval('&state-token'))
         <--(0,retval(['C','D']))
         -->(4,'&self',['C','D'],depth(2))
+; Evaluation took 1.95 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -246,20 +257,21 @@
 </span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  2 $_86286)) 
-    ( (State  2 $_86544))))
-</span>        -->(0,'&self',[let,_84842,['new-state',1],['change-state!',_84842,[+,['get-state',_84842],1]]],depth(2))
+    ( (State  2 $_490958)) 
+    ( (State  2 $_491216))))
+</span>        -->(0,'&self',[let,_489588,['new-state',1],['change-state!',_489588,[+,['get-state',_489588],1]]],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_93434)))
-            -->(2,'&self',['change-state!','State'(1,_93380),[+,['get-state','State'(1,_93380)],1]],depth(4))
-                -->(3,'&self',[+,['get-state','State'(1,_93380)],1],depth(6))
-                    -->(4,'&self',['get-state','State'(1,_93380)],depth(8))
+            <--(1,retval('State'(1,_498066)))
+            -->(2,'&self',['change-state!','State'(1,_498012),[+,['get-state','State'(1,_498012)],1]],depth(4))
+                -->(3,'&self',[+,['get-state','State'(1,_498012)],1],depth(6))
+                    -->(4,'&self',['get-state','State'(1,_498012)],depth(8))
                     <--(4,retval(1))
                 <--(3,retval(2))
-            <--(2,retval('State'(2,_95342)))
-        <--(0,retval('State'(2,_95502)))
+            <--(2,retval('State'(2,_499900)))
+        <--(0,retval('State'(2,_500060)))
         -->(5,'&self',['new-state',2],depth(2))
-        <--(5,retval('State'(2,_96102)))
+        <--(5,retval('State'(2,_500660)))
+; Evaluation took 3.30 ms.
 <span class="ansi33"> True
 
 </span>; Checking that there is no conflict between variable names in
@@ -269,17 +281,18 @@
 </span><h3 id="TEST-SCRIPTS.E2-STATES.11">;; TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  1 $_118528)) 
-    ( (State  1 $_118786))))
-</span>        -->(0,'&self',[let,_117978,['new-state',1],_117978],depth(2))
+    ( (State  1 $_2540)) 
+    ( (State  1 $_2556))))
+</span>        -->(0,'&self',[let,_2502,['new-state',1],_2502],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_125676)))
-        <--(0,retval('State'(1,_125936)))
+            <--(1,retval('State'(1,_8568)))
+        <--(0,retval('State'(1,_8828)))
         -->(2,'&self',['new-state',1],depth(2))
-        <--(2,retval('State'(1,_126536)))
+        <--(2,retval('State'(1,_9428)))
+; Evaluation took 1.87 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 205,386 inferences, 0.306 CPU in 0.306 seconds (100% CPU, 672253 Lips)
+</span><span class="ansi32">% 205,815 inferences, 0.289 CPU in 0.289 seconds (100% CPU, 711619 Lips)
 </span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

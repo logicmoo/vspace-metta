@@ -11,7 +11,6 @@
 .inv_background { background-color: #AAAAAA; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
-.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -76,6 +75,7 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/factorial.metta")
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Summary:
 ;;;
@@ -104,12 +104,7 @@
 ;;; All three methods are functional approaches to calculate the factorial
 ;;; of a number, each with its nuances regarding efficiency and readability.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; these examples actually need the compiler!
-<span class="ansi38-000068000">!(pragma! compiler full)
-
-</span><span class="ansi33"> full
-
-</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; 1. Functional Recursive Factorial
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[factorial,0],1)
@@ -199,8 +194,8 @@
 ;;!(assertEqual (factorial-ac 10) 3628800)
 <span class="ansi38-000068000">!(bind! &factorialstate (new-state 1))
 
-</span><span class="ansi33"> (@ State 1 $_397274)
- % 'State'(1,_397274)
+</span><span class="ansi33"> (@ State 1 $_332878)
+ % 'State'(1,_332878)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['fast-factorial',K],['If',[>,K,1],[do,[sequential,[['change-state!','&factorialstate',[*,K,['get-state','&factorialstate']]],['fast-factorial',[-,K,1]]]]]])
 </span><span class="ansi38-255165000">  (= 
@@ -314,7 +309,7 @@
       (practorial-ac-helper $F1 $X $Out)))
 </span>
 
-<span class="ansi32">% 278,592 inferences, 0.473 CPU in 0.473 seconds (100% CPU, 589422 Lips)
+<span class="ansi32">% 272,691 inferences, 0.469 CPU in 0.469 seconds (100% CPU, 581537 Lips)
 </span> (@ = "examples/factorial.metta" 0)
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/factorial.html" )
 

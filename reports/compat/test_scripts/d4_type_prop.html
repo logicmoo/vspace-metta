@@ -140,6 +140,7 @@
     (Type)))
 </span>        -->(0,'&self',['get-type',['Mortal','Plato']],depth(2))
         <--(0,retval('Type'))
+; Evaluation took 1.26 ms.
 <span class="ansi33"> True
 
 </span>; A function type as an implication
@@ -182,6 +183,7 @@
               -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(5))
         <--(0,retval(fail))
         -->(2,'&self',['Mortal','Socrates'],depth(2))
+; Evaluation took 1.61 ms.
 <span class="ansi33"> False
 
 </span>; Bad typing
@@ -197,6 +199,7 @@
                   -->(4,'&self',['Human','Socrates'],depth(7))
                   -->(5,'&self',['Human','Socrates'],depth(7))
         <--(0,retval(fail))
+; Evaluation took 2.99 ms.
 <span class="ansi33"> True
 
 </span>; We can write this code, but it will make not too much
@@ -230,6 +233,7 @@
     (Type)))
 </span>        -->(0,'&self',['get-type',[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']]],depth(2))
         <--(0,retval('Type'))
+; Evaluation took 1.27 ms.
 <span class="ansi33"> True
 
 </span>; This equality is well-typed, because both its arguments are of `Type`.
@@ -244,6 +248,7 @@
     (Type)))
 </span>        -->(0,'&self',['get-type',[=,['Mortal','Socrates'],['Mortal','Plato']]],depth(2))
         <--(0,retval('Type'))
+; Evaluation took 1.76 ms.
 <span class="ansi33"> True
 
 </span>; Wrong proof
@@ -255,6 +260,7 @@
     (Type) ()))
 </span>        -->(0,'&self',['get-type',[=,'SocratesIsMortal',['HumansAreMortal','PlatoIsHuman']]],depth(2))
         <--(0,retval('Type'))
+; Evaluation took 0.999 ms. (998.90 microseconds) 
 <span class="ansi33"> False
 
 </span>; Wrong equalities
@@ -266,6 +272,7 @@
     (Type) ()))
 </span>        -->(0,'&self',['get-type',[=,'SocratesIsHuman','PlatoIsHuman']],depth(2))
         <--(0,retval('Type'))
+; Evaluation took 1.71 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (= SocratesIsHuman SocratesIsMortal)) ())
@@ -276,6 +283,7 @@
     (Type) ()))
 </span>        -->(0,'&self',['get-type',[=,'SocratesIsHuman','SocratesIsMortal']],depth(2))
         <--(0,retval('Type'))
+; Evaluation took 1.11 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -318,6 +326,7 @@
             -->(3,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
             <--(3,retval('SocratesIsMortal'))
         <--(0,retval('True'))
+; Evaluation took 2.02 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (= (+ 1 1) (- 3 1)) True)
@@ -347,6 +356,7 @@
             <--(9,retval(2))
             <--(8,retval(2))
         <--(0,retval('True'))
+; Evaluation took 4.60 ms.
 <span class="ansi33"> True
 
 </span>; One can also define an equality for directly inhabited types
@@ -366,9 +376,10 @@
     (True)))
 </span>        -->(0,'&self',[=,['Mortal','Socrates'],'True'],depth(2))
             -->(1,'&self',['Mortal','Socrates'],depth(4))
-          -->(2,'&self',[match,'&self',[:,_29296,['Mortal','Socrates']],'True'],depth(3))
+          -->(2,'&self',[match,'&self',[:,_443614,['Mortal','Socrates']],'True'],depth(3))
           <--(2,retval('True'))
-        <--(0,retval([match,'&self',[:,_29434,['Mortal','Socrates']],'True']))
+        <--(0,retval([match,'&self',[:,_443752,['Mortal','Socrates']],'True']))
+; Evaluation took 1.62 ms.
 <span class="ansi33"> True
 
 </span>; It will not immediately work for implications
@@ -379,9 +390,10 @@
   (equal_enough  () ()))
 </span>        -->(0,'&self',[=,['Mortal','Plato'],'True'],depth(2))
             -->(1,'&self',['Mortal','Plato'],depth(4))
-          -->(2,'&self',[match,'&self',[:,_64868,['Mortal','Plato']],'True'],depth(3))
+          -->(2,'&self',[match,'&self',[:,_479194,['Mortal','Plato']],'True'],depth(3))
           <--(2,retval(fail))
-        <--(0,retval([match,'&self',[:,_65006,['Mortal','Plato']],'True']))
+        <--(0,retval([match,'&self',[:,_479332,['Mortal','Plato']],'True']))
+; Evaluation took 1.62 ms.
 <span class="ansi33"> True
 
 </span>; But we can add 'reasoning'
@@ -403,18 +415,19 @@
     (True)))
 </span>        -->(0,'&self',[=,['Mortal','Plato'],'True'],depth(2))
             -->(1,'&self',['Mortal','Plato'],depth(4))
-          -->(2,'&self',[match,'&self',[:,_118518,['Mortal','Plato']],'True'],depth(3))
+          -->(2,'&self',[match,'&self',[:,_10610,['Mortal','Plato']],'True'],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:,_118710,[->,_118728,['Mortal','Plato']]],[=,_118728,'True']],depth(3))
+          -->(3,'&self',[match,'&self',[:,_10802,[->,_10820,['Mortal','Plato']]],[=,_10820,'True']],depth(3))
             -->(4,'&self',[=,['Human','Plato'],'True'],depth(4))
                 -->(5,'&self',['Human','Plato'],depth(6))
-              -->(6,'&self',[match,'&self',[:,_120424,['Human','Plato']],'True'],depth(5))
+              -->(6,'&self',[match,'&self',[:,_12516,['Human','Plato']],'True'],depth(5))
               <--(6,retval('True'))
-              -->(7,'&self',[match,'&self',[:,_120956,[->,_120974,['Human','Plato']]],[=,_120974,'True']],depth(5))
+              -->(7,'&self',[match,'&self',[:,_13048,[->,_13066,['Human','Plato']]],[=,_13066,'True']],depth(5))
               <--(7,retval(fail))
-            <--(4,retval([match,'&self',[:,_121226,[->,_121244,['Human','Plato']]],[=,_121244,'True']]))
+            <--(4,retval([match,'&self',[:,_13318,[->,_13336,['Human','Plato']]],[=,_13336,'True']]))
           <--(3,retval([=,['Human','Plato'],'True']))
-        <--(0,retval([match,'&self',[:,_118980,[->,_118998,['Mortal','Plato']]],[=,_118998,'True']]))
+        <--(0,retval([match,'&self',[:,_11072,[->,_11090,['Mortal','Plato']]],[=,_11090,'True']]))
+; Evaluation took 2.25 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Sam','Entity'])
@@ -428,11 +441,12 @@
   (equal_enough  () ()))
 </span>        -->(0,'&self',[=,['Human','Sam'],'True'],depth(2))
             -->(1,'&self',['Human','Sam'],depth(4))
-          -->(2,'&self',[match,'&self',[:,_166204,['Human','Sam']],'True'],depth(3))
+          -->(2,'&self',[match,'&self',[:,_58304,['Human','Sam']],'True'],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:,_166396,[->,_166414,['Human','Sam']]],[=,_166414,'True']],depth(3))
+          -->(3,'&self',[match,'&self',[:,_58496,[->,_58514,['Human','Sam']]],[=,_58514,'True']],depth(3))
           <--(3,retval(fail))
-        <--(0,retval([match,'&self',[:,_166666,[->,_166684,['Human','Sam']]],[=,_166684,'True']]))
+        <--(0,retval([match,'&self',[:,_58766,[->,_58784,['Human','Sam']]],[=,_58784,'True']]))
+; Evaluation took 1.35 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -447,6 +461,7 @@
     ( (Mortal Plato)) 
     ( (Mortal Plato))))
 </span>        -->(0,'&self',['Mortal','Plato'],depth(2))
+; Evaluation took 1.34 ms.
 <span class="ansi33"> True
 
 </span>; Refl rule itself equals to True
@@ -456,12 +471,13 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (True)))
-</span>        -->(0,'&self',[=,[=,_218854,_218854],'True'],depth(2))
-          -->(1,'&self',[match,'&self',[:,_225220,[=,_218854,_218854]],'True'],depth(3))
+</span>        -->(0,'&self',[=,[=,_111010,_111010],'True'],depth(2))
+          -->(1,'&self',[match,'&self',[:,_117336,[=,_111010,_111010]],'True'],depth(3))
           <--(1,retval(fail))
-          -->(2,'&self',[match,'&self',[:,_225424,[->,_225442,[=,_218854,_218854]]],[=,_225442,'True']],depth(3))
+          -->(2,'&self',[match,'&self',[:,_117540,[->,_117558,[=,_111010,_111010]]],[=,_117558,'True']],depth(3))
           <--(2,retval(fail))
-        <--(0,retval([match,'&self',[:,_225706,[->,_225724,[=,_225742,_225742]]],[=,_225724,'True']]))
+        <--(0,retval([match,'&self',[:,_117822,[->,_117840,[=,_117858,_117858]]],[=,_117840,'True']]))
+; Evaluation took 1.60 ms.
 <span class="ansi33"> False
 
 </span>; We can also add direct equalities
@@ -494,6 +510,7 @@
           -->(1,'&self',['Human','Plato'],depth(3))
           <--(1,retval('True'))
         <--(0,retval(['Human','Plato']))
+; Evaluation took 1.69 ms.
 <span class="ansi33"> True
 
 </span>; We can even try backward chaining
@@ -514,17 +531,18 @@
   (equal_enough  
     (Socrates) 
     (Plato Socrates)))
-</span>        -->(0,'&self',[ift,['Mortal',_317460],_317460],depth(2))
-            -->(1,'&self',['Mortal',_317460],depth(4))
+</span>        -->(0,'&self',[ift,['Mortal',_209632],_209632],depth(2))
+            -->(1,'&self',['Mortal',_209632],depth(4))
           -->(2,'&self',[ift,'True','Socrates'],depth(3))
           <--(2,retval('Socrates'))
-              -->(3,'&self',['Human',_317460],depth(5))
+              -->(3,'&self',['Human',_209632],depth(5))
               <--(3,retval('True'))
-            <--(1,retval(['Human',_325526]))
+            <--(1,retval(['Human',_217658]))
         <--(0,retval([ift,'True','Socrates']))
+; Evaluation took 1.75 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 350,360 inferences, 0.625 CPU in 0.625 seconds (100% CPU, 560951 Lips)
+</span><span class="ansi32">% 351,264 inferences, 0.652 CPU in 0.652 seconds (100% CPU, 538485 Lips)
 </span> (@ = "examples/compat/test_scripts/d4_type_prop.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

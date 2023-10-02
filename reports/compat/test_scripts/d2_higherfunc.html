@@ -194,6 +194,7 @@
         -->(2,'&self',[->,'Number',[->,'Number','Number']],depth(2))
             -->(3,'&self',[->,'Number','Number'],depth(4))
             -->(4,'&self',[->,'Number','Number'],depth(4))
+; Evaluation took 4.52 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry +) 2)) (-> Number Number))
@@ -208,6 +209,7 @@
                   -->(3,'&self',[curry,+],depth(7))
         <--(0,retval(fail))
         -->(4,'&self',[->,'Number','Number'],depth(2))
+; Evaluation took 2.88 ms.
 <span class="ansi33"> False
 
 </span>; Partial application is not reduced, basically
@@ -220,6 +222,7 @@
     ( ( (curry +) 2))))
 </span>        -->(0,'&self',[[curry,+],2],depth(2))
             -->(1,'&self',[curry,+],depth(4))
+; Evaluation took 2.31 ms.
 <span class="ansi33"> True
 
 </span>; Full application will be reduced
@@ -233,6 +236,7 @@
 </span>        -->(0,'&self',[[[curry,+],2],3],depth(2))
             -->(1,'&self',[[curry,+],2],depth(4))
                 -->(2,'&self',[curry,+],depth(6))
+; Evaluation took 1.88 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -264,6 +268,7 @@
               -->(1,'&self',['curry-a',+,2],depth(5))
         <--(0,retval(fail))
         -->(2,'&self',[->,'Number','Number'],depth(2))
+; Evaluation took 1.59 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
@@ -280,6 +285,7 @@
                 <--(3,retval(5))
               <--(2,retval([+,2,3]))
         <--(0,retval('Number'))
+; Evaluation took 3.41 ms.
 <span class="ansi33"> True
 
 </span>; Badly typed
@@ -296,6 +302,7 @@
                 <--(3,retval(85))
               <--(2,retval([+,2,"S"]))
         <--(0,retval('Number'))
+; Evaluation took 1.73 ms.
 <span class="ansi33"> False
 
 </span>; Full application works
@@ -310,6 +317,7 @@
           -->(1,'&self',[+,2,3],depth(3))
           <--(1,retval(5))
         <--(0,retval([+,2,3]))
+; Evaluation took 1.46 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -353,6 +361,7 @@
 </span>        -->(0,'&self',['is-socrates'],depth(2))
           -->(1,'&self',['curry-a',is,'Socrates'],depth(3))
         <--(0,retval(['curry-a',is,'Socrates']))
+; Evaluation took 1.48 ms.
 <span class="ansi33"> True
 
 </span>; not reduced
@@ -369,6 +378,7 @@
         <--(0,retval([is,'Socrates','Human']))
         -->(2,'&self',[is,'Socrates','Human'],depth(2))
         <--(2,retval('True'))
+; Evaluation took 1.42 ms.
 <span class="ansi33"> True
 
 </span>; reduced
@@ -385,6 +395,7 @@
               <--(2,retval('True'))
             <--(1,retval([is,'Socrates','Human']))
         <--(0,retval('True'))
+; Evaluation took 1.77 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -414,12 +425,13 @@
   (equal_enough  
     (3) 
     (3)))
-</span>        -->(0,'&self',[[lambda,_115642,[+,_115642,1]],2],depth(2))
-          -->(1,'&self',[let,_115642,2,[+,_115642,1]],depth(3))
+</span>        -->(0,'&self',[[lambda,_73930,[+,_73930,1]],2],depth(2))
+          -->(1,'&self',[let,_73930,2,[+,_73930,1]],depth(3))
               -->(2,'&self',[+,2,1],depth(5))
               <--(2,retval(3))
           <--(1,retval(3))
-        <--(0,retval([let,_122822,2,[+,_122822,1]]))
+        <--(0,retval([let,_81070,2,[+,_81070,1]]))
+; Evaluation took 1.91 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
@@ -429,14 +441,15 @@
   (equal_enough  
     (9) 
     (9)))
-</span>        -->(0,'&self',[[lambda,[_200130,_200136],[+,_200130,_200136]],[2,7]],depth(2))
+</span>        -->(0,'&self',[[lambda,[_158426,_158432],[+,_158426,_158432]],[2,7]],depth(2))
             -->(1,'&self',[2,7],depth(4))
-          -->(2,'&self',[let,[_200130,_200136],[2,7],[+,_200130,_200136]],depth(3))
+          -->(2,'&self',[let,[_158426,_158432],[2,7],[+,_158426,_158432]],depth(3))
               -->(3,'&self',[2,7],depth(5))
               -->(4,'&self',[+,2,7],depth(5))
               <--(4,retval(9))
           <--(2,retval(9))
-        <--(0,retval([let,[_208064,_208070],[2,7],[+,_208064,_208070]]))
+        <--(0,retval([let,[_166320,_166326],[2,7],[+,_166320,_166326]]))
+; Evaluation took 2.01 ms.
 <span class="ansi33"> True
 
 </span>; Another example
@@ -462,14 +475,15 @@
     (6)))
 </span>        -->(0,'&self',[[inc],5],depth(2))
             -->(1,'&self',[['part-appl',+,1],5],depth(4))
-                -->(2,'&self',[[lambda,_364074,[+,1,_364074]],5],depth(6))
-                  -->(3,'&self',[let,_364074,5,[+,1,_364074]],depth(7))
+                -->(2,'&self',[[lambda,_322338,[+,1,_322338]],5],depth(6))
+                  -->(3,'&self',[let,_322338,5,[+,1,_322338]],depth(7))
                       -->(4,'&self',[+,1,5],depth(9))
                       <--(4,retval(6))
                   <--(3,retval(6))
-                <--(2,retval([let,_364586,5,[+,1,_364586]]))
+                <--(2,retval([let,_322850,5,[+,1,_322850]]))
             <--(1,retval(6))
         <--(0,retval(6))
+; Evaluation took 3.05 ms.
 <span class="ansi33"> True
 
 </span>; REM:
@@ -584,6 +598,7 @@
           <--(2,retval(['Something',7]))
         <--(0,retval(['Something',[['curry-a',+,2],5]]))
         -->(8,'&self',['Something',7],depth(2))
+; Evaluation took 2.76 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Nothing)) (Nothing))
@@ -598,6 +613,7 @@
           -->(2,'&self',['Nothing'],depth(3))
         <--(0,retval(['Nothing']))
         -->(3,'&self',['Nothing'],depth(2))
+; Evaluation took 1.71 ms.
 <span class="ansi33"> True
 
 </span>; Type inference works
@@ -625,6 +641,7 @@
               <--(3,retval(['Left',[['curry-a',+,1],5]]))
         <--(0,retval(fail))
         -->(12,'&self',['Either','Number'],depth(2))
+; Evaluation took 5.55 ms.
 <span class="ansi33"> False
 
 </span>; It works for untyped constructors as well, if they
@@ -652,6 +669,7 @@
           <--(2,retval(['UntypedC',7]))
         <--(0,retval(['UntypedC',[['curry-a',+,2],5]]))
         -->(9,'&self',['UntypedC',7],depth(2))
+; Evaluation took 3.58 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null)))) (UntypedC 7 (UntypedC 10 (Null))))
@@ -751,6 +769,7 @@
                 -->(61,'&self',['Null'],depth(6))
                 -->(62,'&self',['Null'],depth(6))
                 -->(63,'&self',['Null'],depth(6))
+; Evaluation took 16.14 ms.
 <span class="ansi33"> True
 
 </span>; Type mismatches are detected:
@@ -776,6 +795,7 @@
                 <--(5,retval(['Left',55]))
               <--(3,retval(['Left',[['curry-a',+,2],"5"]]))
         <--(0,retval(fail))
+; Evaluation took 3.29 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5"))) ())
@@ -804,6 +824,7 @@
               <--(3,retval(['UntypedC',[['curry-a',+,2],"5"]]))
         <--(0,retval(['Symbol','Number']))
           -->(12,'&self',['Symbol','Number'],depth(3))
+; Evaluation took 3.77 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
@@ -913,8 +934,8 @@
                     -->(98,'&self',['curry-a',+,2],depth(8))
                   -->(99,'&self',[fmap,['curry-a',+,2],5],depth(7))
                       -->(100,'&self',['curry-a',+,2],depth(9))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi33">
- True
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 42.97 ms.
+<span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -967,6 +988,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
           <--(2,retval(['Right',4]))
         <--(0,retval(['Right',[['curry-a',-,7],3]]))
         -->(8,'&self',['Right',4],depth(2))
+; Evaluation took 3.44 ms.
 <span class="ansi33"> True
 
 </span>; More examples
@@ -1036,6 +1058,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
         <--(0,retval(['Cons',[['curry-a',*,2],3],['fmap-i',['curry-a',*,2],['Cons',4,[]]]]))
         -->(15,'&self',['Cons',6,['Cons',8,[]]],depth(2))
             -->(16,'&self',['Cons',8,[]],depth(4))
+; Evaluation took 5.12 ms.
 <span class="ansi33"> False
 
 </span>; Thus, there is no problem in having different implementations
@@ -1058,6 +1081,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
             -->(3,'&self',['Untyped',5],depth(4))
             -->(4,'&self',['curry-a',+,2],depth(4))
             -->(5,'&self',['Untyped',5],depth(4))
+; Evaluation took 2.64 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1282,6 +1306,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
         -->(86,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
             -->(87,'&self',['Cons',2,['Cons',3,[]]],depth(4))
                 -->(88,'&self',['Cons',3,[]],depth(6))
+; Evaluation took 16.28 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (sort (Cons 3 (Cons 1 (Cons 2 ())))) (Cons 1 (Cons 2 (Cons 3 ()))))
@@ -1337,9 +1362,10 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="an
         -->(31,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
             -->(32,'&self',['Cons',2,['Cons',3,[]]],depth(4))
                 -->(33,'&self',['Cons',3,[]],depth(6))
+; Evaluation took 7.19 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 1,032,440 inferences, 1.550 CPU in 1.550 seconds (100% CPU, 666236 Lips)
+</span><span class="ansi32">% 1,021,838 inferences, 1.632 CPU in 1.632 seconds (100% CPU, 626150 Lips)
 </span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

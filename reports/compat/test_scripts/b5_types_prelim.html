@@ -153,6 +153,7 @@
     (S)))
 </span>        -->(0,'&self',['Add','S','Z'],depth(2))
         <--(0,retval('S'))
+; Evaluation took 1.25 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -186,6 +187,7 @@
     ( (Error S BadType))))
 </span>        -->(0,'&self',['Add','S','Z'],depth(2))
         <--(0,retval('S'))
+; Evaluation took 1.37 ms.
 <span class="ansi33"> False
 
 </span>; But these other examples works normally
@@ -201,6 +203,7 @@
           -->(2,'&self',['S','Z'],depth(3))
         <--(0,retval(['S','Z']))
         -->(3,'&self',['S','Z'],depth(2))
+; Evaluation took 1.69 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (Add Z (S Z)) (S Z))
@@ -218,6 +221,7 @@
           <--(2,retval(['S','Z']))
         <--(0,retval(['Add',['S','Z'],'Z']))
         -->(5,'&self',['S','Z'],depth(2))
+; Evaluation took 1.97 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -234,6 +238,7 @@
     (Something)))
 </span>        -->(0,'&self',['Add','Something','Z'],depth(2))
         <--(0,retval('Something'))
+; Evaluation took 1.02 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -257,6 +262,7 @@
     ( (Add Z Ten)) 
     ( (Add Z Ten))))
 </span>        -->(0,'&self',['Add','Z','Ten'],depth(2))
+; Evaluation took 1.10 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -304,6 +310,7 @@
 </span>        -->(0,'&self',['Cons',['S','Z'],['Cons','Z',[]]],depth(2))
             -->(1,'&self',['S','Z'],depth(4))
             -->(2,'&self',['Cons','Z',[]],depth(4))
+; Evaluation took 2.13 ms.
 <span class="ansi33"> True
 
 </span>; This list is badly typed, because S and Z are not the same type
@@ -318,6 +325,7 @@
     ( (Error Z BadType))))
 </span>        -->(0,'&self',['Cons','S',['Cons','Z',[]]],depth(2))
             -->(1,'&self',['Cons','Z',[]],depth(4))
+; Evaluation took 1.52 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -358,6 +366,7 @@
             -->(3,'&self',['Add','Z','Z'],depth(4))
             <--(3,retval('Z'))
         <--(0,retval('True'))
+; Evaluation took 2.41 ms.
 <span class="ansi33"> True
 
 </span>; Accepted, not reduced because no definition is known
@@ -375,6 +384,7 @@
             -->(1,'&self',['S','Z'],depth(4))
             -->(2,'&self',['S','Z'],depth(4))
             -->(3,'&self',['S','Z'],depth(4))
+; Evaluation took 1.94 ms.
 <span class="ansi33"> True
 
 </span>; Not accepted, because Z and S are not the same type
@@ -387,6 +397,7 @@
     ( (eq Z S)) 
     ( (Error S BadType))))
 </span>        -->(0,'&self',[eq,'Z','S'],depth(2))
+; Evaluation took 1.44 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -441,6 +452,7 @@
     (True)))
 </span>        -->(0,'&self',['of-same-type','Color','Shape'],depth(2))
         <--(0,retval('True'))
+; Evaluation took 1.59 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (of-same-type Green Red) True)
@@ -452,6 +464,7 @@
     (True)))
 </span>        -->(0,'&self',['of-same-type','Green','Red'],depth(2))
         <--(0,retval('True'))
+; Evaluation took 1.21 ms.
 <span class="ansi33"> True
 
 </span>; Not accepted
@@ -465,6 +478,7 @@
     ( (Error Color BadType))))
 </span>        -->(0,'&self',['of-same-type','Green','Color'],depth(2))
         <--(0,retval('True'))
+; Evaluation took 1.39 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (of-same-type Green Circle) ((Error Circle BadType)))
@@ -477,6 +491,7 @@
     ( (Error Circle BadType))))
 </span>        -->(0,'&self',['of-same-type','Green','Circle'],depth(2))
         <--(0,retval('True'))
+; Evaluation took 2.08 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -509,8 +524,9 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',['Green',_287842],depth(2))
+</span>        -->(0,'&self',['Green',_192980],depth(2))
         <--(0,retval('True'))
+; Evaluation took 1.12 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (match &self (Green $Who) $Who) Sam)
@@ -520,8 +536,9 @@
   (equal_enough  
     (Sam) 
     (Sam)))
-</span>        -->(0,'&self',[match,'&self',['Green',_351408],_351408],depth(2))
+</span>        -->(0,'&self',[match,'&self',['Green',_256554],_256554],depth(2))
         <--(0,retval('Sam'))
+; Evaluation took 1.63 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -537,10 +554,11 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',[match,'&self',['Green',_409938],['Green',_409938]],depth(2))
+</span>        -->(0,'&self',[match,'&self',['Green',_315092],['Green',_315092]],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           <--(1,retval('True'))
         <--(0,retval(['Green','Sam']))
+; Evaluation took 1.95 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -555,14 +573,15 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',[let,_468082,['Add',['S','Z'],'Z'],[match,'&self',[=,[eq,_468082,['S','Z']],_468142],_468142]],depth(2))
+</span>        -->(0,'&self',[let,_373244,['Add',['S','Z'],'Z'],[match,'&self',[=,[eq,_373244,['S','Z']],_373304],_373304]],depth(2))
             -->(1,'&self',['Add',['S','Z'],'Z'],depth(4))
                 -->(2,'&self',['S','Z'],depth(6))
               -->(3,'&self',['S','Z'],depth(5))
-            -->(4,'&self',[match,'&self',[=,[eq,['S','Z'],['S','Z']],_468142],_468142],depth(4))
+            -->(4,'&self',[match,'&self',[=,[eq,['S','Z'],['S','Z']],_373304],_373304],depth(4))
             <--(4,retval('True'))
             <--(1,retval(['S','Z']))
         <--(0,retval('True'))
+; Evaluation took 2.37 ms.
 <span class="ansi33"> True
 
 </span>; but it will not work inside `match`:
@@ -571,8 +590,9 @@
 </span><h3 id="TEST-SCRIPTS.B5-TYPES-PRELIM.20">;; TEST-SCRIPTS.B5-TYPES-PRELIM.20</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span>        -->(0,'&self',[match,'&self',[=,[eq,['Add',['S','Z'],'Z'],['S','Z']],_11282],_11282],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[eq,['Add',['S','Z'],'Z'],['S','Z']],_438304],_438304],depth(2))
         <--(0,retval(fail))
+; Evaluation took 3.51 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -595,7 +615,7 @@
   (equal_enough  
     (Z) 
     (Z)))
-</span>        -->(0,'&self',[let,['S',['S',_55380]],['Add',['S','Z'],['S','Z']],_55380],depth(2))
+</span>        -->(0,'&self',[let,['S',['S',_482410]],['Add',['S','Z'],['S','Z']],_482410],depth(2))
             -->(1,'&self',['Add',['S','Z'],['S','Z']],depth(4))
                 -->(2,'&self',['S','Z'],depth(6))
               -->(3,'&self',['Add',['S',['S','Z']],'Z'],depth(5))
@@ -607,6 +627,7 @@
               <--(3,retval(['S',['S','Z']]))
             <--(1,retval(['Add',['S',['S','Z']],'Z']))
         <--(0,retval('Z'))
+; Evaluation took 2.52 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -621,15 +642,15 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',['let*',[[_117600,['Add','Z','Z']],[_117612,['Add',_117600,['S','Z']]],[_117642,['Add',_117612,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_117642],_117720],_117720]],depth(2))
+</span>        -->(0,'&self',['let*',[[_22720,['Add','Z','Z']],[_22732,['Add',_22720,['S','Z']]],[_22762,['Add',_22732,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_22762],_22840],_22840]],depth(2))
             -->(1,'&self',['Add','Z','Z'],depth(4))
-            -->(2,'&self',['let*',[[_117612,['Add','Z',['S','Z']]],[_117642,['Add',_117612,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_117642],_117720],_117720]],depth(4))
+            -->(2,'&self',['let*',[[_22732,['Add','Z',['S','Z']]],[_22762,['Add',_22732,['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_22762],_22840],_22840]],depth(4))
                 -->(3,'&self',['Add','Z',['S','Z']],depth(6))
                     -->(4,'&self',['S','Z'],depth(8))
                   -->(5,'&self',['Add',['S','Z'],'Z'],depth(7))
                       -->(6,'&self',['S','Z'],depth(9))
                     -->(7,'&self',['S','Z'],depth(8))
-                -->(8,'&self',['let*',[[_117642,['Add',['S','Z'],['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_117642],_117720],_117720]],depth(6))
+                -->(8,'&self',['let*',[[_22762,['Add',['S','Z'],['S','Z']]]],[match,'&self',[=,[eq,['S',['S','Z']],_22762],_22840],_22840]],depth(6))
                     -->(9,'&self',['Add',['S','Z'],['S','Z']],depth(8))
                         -->(10,'&self',['S','Z'],depth(10))
                       -->(11,'&self',['Add',['S',['S','Z']],'Z'],depth(9))
@@ -638,8 +659,8 @@
                             -->(14,'&self',['S','Z'],depth(12))
                             -->(15,'&self',['S','Z'],depth(12))
                             -->(16,'&self',['S','Z'],depth(12))
-                    -->(17,'&self',['let*',[],[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_117720],_117720]],depth(8))
-                        -->(18,'&self',[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_117720],_117720],depth(10))
+                    -->(17,'&self',['let*',[],[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_22840],_22840]],depth(8))
+                        -->(18,'&self',[match,'&self',[=,[eq,['S',['S','Z']],['S',['S','Z']]],_22840],_22840],depth(10))
                         <--(18,retval('True'))
                     <--(17,retval('True'))
                       <--(11,retval(['S',['S','Z']]))
@@ -650,6 +671,7 @@
             <--(2,retval('True'))
             <--(1,retval('Z'))
         <--(0,retval('True'))
+; Evaluation took 6.15 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -681,6 +703,7 @@
             <--(2,retval('True'))
             <--(1,retval('Z'))
         <--(0,retval('True'))
+; Evaluation took 2.03 ms.
 <span class="ansi33"> True
 
 </span>; while this will not be reduced because the expressions
@@ -702,6 +725,7 @@
             -->(3,'&self',['Add','Z','Z'],depth(4))
             <--(3,retval('Z'))
         <--(0,retval('True'))
+; Evaluation took 2.12 ms.
 <span class="ansi33"> False
 
 </span>; In contrast to this:
@@ -720,6 +744,7 @@
             -->(3,'&self',['Add','Z','Z'],depth(4))
             <--(3,retval('Z'))
         <--(0,retval('True'))
+; Evaluation took 1.81 ms.
 <span class="ansi33"> True
 
 </span>; Or this:
@@ -730,15 +755,16 @@
   (equal_enough  
     (True) 
     (True)))
-</span>        -->(0,'&self',[let,_269610,['Add','Z','Z'],[eqa,'Z',_269610]],depth(2))
+</span>        -->(0,'&self',[let,_174762,['Add','Z','Z'],[eqa,'Z',_174762]],depth(2))
             -->(1,'&self',['Add','Z','Z'],depth(4))
             -->(2,'&self',[eqa,'Z','Z'],depth(4))
             <--(2,retval('True'))
             <--(1,retval('Z'))
         <--(0,retval('True'))
+; Evaluation took 1.71 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 614,174 inferences, 1.370 CPU in 1.371 seconds (100% CPU, 448172 Lips)
+</span><span class="ansi32">% 615,156 inferences, 1.403 CPU in 1.403 seconds (100% CPU, 438531 Lips)
 </span> (@ = "examples/compat/test_scripts/b5_types_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
