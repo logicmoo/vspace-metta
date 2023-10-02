@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/nars_extras/nars_test03.metta")
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',!)
+</span><span class="ansi38-255165000">!
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['import!','&self','NARS.metta'])
+</span><span class="ansi38-255165000">  (import! &self NARS.metta)
+</span>
+
+<span class="ansi38-000068000">!(AddBeliefEvent (((corridorIn &/ (^ forward)) =/> doorAt) (1.0 0.9)))
+
+</span>; Evaluation took 1.03 ms.
+<span class="ansi33">  (AddBeliefEvent 
+    ( ( (corridorIn &/ 
+          (^ forward)) =/> doorAt) 
+      (1.0 0.9)))
+
+</span><span class="ansi38-000068000">!(AddBeliefEvent (((windowAt &/ (^ open)) =/> Outside) (1.0 0.9)))
+
+</span>; Evaluation took 1.04 ms.
+<span class="ansi33">  (AddBeliefEvent 
+    ( ( (windowAt &/ 
+          (^ open)) =/> Outside) 
+      (1.0 0.9)))
+
+</span><span class="ansi38-000068000">!(AddBeliefEvent (((doorAt &/ (^ open)) =/> Outside) (1.0 0.9)))
+
+</span>; Evaluation took 1.00 ms.
+<span class="ansi33">  (AddBeliefEvent 
+    ( ( (doorAt &/ 
+          (^ open)) =/> Outside) 
+      (1.0 0.9)))
+
+</span><span class="ansi38-000068000">!(AddBeliefEvent (corridorIn (1.0 0.9)))
+
+</span>; Evaluation took 0.286 ms. (286.40 microseconds) 
+<span class="ansi33">  (AddBeliefEvent 
+    (corridorIn 
+      (1.0 0.9)))
+
+</span><span class="ansi38-000068000">!(assertEqual (AddGoalEvent (Outside (1.0 0.9))) None)
+
+</span>; Evaluation took 0.292 ms. (291.90 microseconds) 
+<h3 id="NARS-EXTRAS.NARS-TEST03.01">;; NARS-EXTRAS.NARS-TEST03.01</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (AddGoalEvent 
+        (Outside 
+          (1.0 0.9)))) 
+    (None)))
+</span>; Evaluation took 1.28 ms.
+<span class="ansi33"> False
+
+</span>;expected:
+;needs one more goal cycle for planning 2 steps
+<span class="ansi38-000068000">!(GoalCycle (get-state &currentTime))
+
+</span>; Evaluation took 0.226 ms. (226.10 microseconds) 
+<span class="ansi33">  (GoalCycle $_208156)
+
+</span><span class="ansi38-000068000">!(assertEqual (GoalCycle (get-state &currentTime)) (^ forward))
+
+</span>; Evaluation took 0.276 ms. (276.00 microseconds) 
+<h3 id="NARS-EXTRAS.NARS-TEST03.02">;; NARS-EXTRAS.NARS-TEST03.02</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (GoalCycle $_219176)) 
+    ( (^ forward))))
+</span>; Evaluation took 1.21 ms.
+<span class="ansi33"> False
+
+</span>;expected:
+<span class="ansi38-000068000">!(AddBeliefEvent (doorAt (1.0 0.9)))
+
+</span>; Evaluation took 0.299 ms. (298.90 microseconds) 
+<span class="ansi33">  (AddBeliefEvent 
+    (doorAt 
+      (1.0 0.9)))
+
+</span><span class="ansi38-000068000">!(assertEqual (AddGoalEvent (Outside (1.0 0.9))) (^ open))
+
+</span>; Evaluation took 0.606 ms. (606.40 microseconds) 
+<h3 id="NARS-EXTRAS.NARS-TEST03.03">;; NARS-EXTRAS.NARS-TEST03.03</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (AddGoalEvent 
+        (Outside 
+          (1.0 0.9)))) 
+    ( (^ open))))
+</span>; Evaluation took 1.82 ms.
+<span class="ansi33"> False
+
+</span><span class="ansi32">% 88,175 inferences, 0.042 CPU in 0.042 seconds (100% CPU, 2107680 Lips)
+</span> (@ = "examples/nars_extras/nars_test03.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/nars_extras/nars_test03.html" )
+
+</pre>
+</body>
+
+</html>

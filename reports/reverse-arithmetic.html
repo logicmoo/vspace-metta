@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/reverse-arithmetic.metta")
+;; probes whether functions can be executed in reverse. This involves inferring the
+;; input values from given output values through inverse operations or pattern matching,
+;; a feature that can enhance the flexibility and capability of our system.
+<span class="ansi38-000068000">!(pragma! compile full)
+
+</span>; Evaluation took 0.081 ms. (81.20 microseconds) 
+<span class="ansi33"> full
+
+</span><span class="ansi38-000068000">!(pragma! table False)
+
+</span>%~ [ convert(exec='pragma!'(table,'False')),
+%~   head_preconds_into_body((exec(_115596):-'pragma!'(table,'False',_115596)))]
+
+subst_vars('pragma!'(table,'False',L38),[],[L38])
+; Evaluation took 0.083 ms. (82.80 microseconds) 
+<span class="ansi33"> False
+
+</span>%~ [ convert(f(X)=2*X),
+%~   head_preconds_into_body((f(X,_157486):- *(2,X,_157486)))]
+%~ [convert(f(X)=2*X),head_preconds_into_body((f(X,_157486):- *(2,X,_157486)))]
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f,X],[*,2,X])
+</span><span class="ansi38-255165000">  (= 
+    (f $X) 
+    (* 2 $X))
+</span><span class="ansi38-000082136">  :- dynamic(f,2).
+
+  f(X, A) :-
+    *(2, X, A).
+
+</span>
+
+<span class="ansi38-000068000">!(print (match &self (= (f 1) $Y) $Y))
+
+</span>%~ [ convert(exec=print(match('&self',f(1)=Y,Y))),
+%~   head_preconds_into_body( exec(Exec) :-
+%~                              f(1,VAR_Y) ,
+%~                              match('&self',VAR_Y=Y,Y,Print_Match_Y) ,
+%~                              print(Print_Match_Y))]
+
+subst_vars((f(1,L38),match('&self',L38=M38,M38,N38),print(N38)),['Y'=M38],[L38,M38,N38])
+2; Evaluation took 0.129 ms. (129.00 microseconds) 
+<span class="ansi33"> $_221000
+</span><span class="ansi32">['Y'=2]
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (match &self (= (f 1) $Y) $Y) (superpose (2)))
+
+</span>%~ [ convert(exec=assertEqual(match('&self',f(1)=Y,Y),superpose([2]))),
+%~   head_preconds_into_body( exec(AssertEqual_Exec) :-
+%~                              superpose([2],Superpose_AssertEqualY) ,
+%~                              f(1,VAR_Y) ,
+%~                              match('&self',VAR_Y=Y,Y,Match_Y) ,
+%~                              assertEqual(Match_Y,Superpose_AssertEqualY,AssertEqual_Exec))]
+
+subst_vars((superpose([2],L38),f(1,M38),match('&self',M38=N38,N38,O38),assertEqual(O38,L38,P38)),['Y'=N38],[ L38, M38,N38,O38, 
+                                                                                                             P38])
+; Evaluation took 0.019 ms. (18.80 microseconds) 
+<h3 id="EXAMPLES.REVERSE-ARITHMETIC.01">;; EXAMPLES.REVERSE-ARITHMETIC.01</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (2) 
+    (2)))
+</span>; Evaluation took 1.18 ms.
+<span class="ansi33"> True
+</span><span class="ansi32">['Y'=2]
+</span>
+
+; Expected Output: [2]
+<span class="ansi38-000068000">!(print (match &self (= (f $X) 2) $X))
+
+</span>%~ [ convert(exec=print(match('&self',f(X)=2,X))),
+%~   head_preconds_into_body( exec(Exec) :-
+%~                              f(X,X) ,
+%~                              match('&self',X=2,X,Print_Match_X1) ,
+%~                              print(Print_Match_X1))]
+
+subst_vars((f(L38,M38),match('&self',M38=2,L38,N38),print(N38)),['X'=L38],[L38,M38,N38])
+1; Evaluation took 0.177 ms. (177.00 microseconds) 
+<span class="ansi33"> $_379326
+</span><span class="ansi32">['X'=1]
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (match &self (= (f $X) 2) $X) (superpose (1)))
+
+</span>%~ [ convert(exec=assertEqual(match('&self',f(X)=2,X),superpose([1]))),
+%~   head_preconds_into_body( exec(AssertEqual_Exec) :-
+%~                              superpose([1],Superpose_AssertEqualX1) ,
+%~                              f(X,X) ,
+%~                              match('&self',X=2,X,Match_X1) ,
+%~                              assertEqual(Match_X1,Superpose_AssertEqualX1,AssertEqual_Exec))]
+
+subst_vars((superpose([1],L38),f(M38,N38),match('&self',N38=2,M38,O38),assertEqual(O38,L38,P38)),['X'=M38],[ L38, M38,N38,O38, 
+                                                                                                             P38])
+; Evaluation took 0.023 ms. (23.40 microseconds) 
+<h3 id="EXAMPLES.REVERSE-ARITHMETIC.02">;; EXAMPLES.REVERSE-ARITHMETIC.02</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (1) 
+    (1)))
+</span>; Evaluation took 1.66 ms.
+<span class="ansi33"> True
+</span><span class="ansi32">['X'=1]
+</span>
+
+<span class="ansi32">% 1,291,287 inferences, 0.259 CPU in 0.259 seconds (100% CPU, 4986723 Lips)
+</span> (@ = "examples/reverse-arithmetic.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 2
+</span><span class="ansi31">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/reverse-arithmetic.html" )
+
+</pre>
+</body>
+
+</html>

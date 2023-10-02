@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/hanoi-peg-space.metta")
+;; Move a disk from peg X to peg Y.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['move-disk',Disk,X,Y],[if,[and,['can-remove',X,Disk],['can-place',Y,Disk]],[seq,['remove-atom','&$x',[position,bottom,Disk]],['add-atom','&$y',[position,middle,Disk]]],nop])
+</span><span class="ansi38-255165000">  (= 
+    (move-disk $Disk $X $Y) 
+    (if 
+      (and 
+        (can-remove $X $Disk) 
+        (can-place $Y $Disk)) 
+      (seq 
+        (remove-atom &$x 
+          (position bottom $Disk)) 
+        (add-atom &$y 
+          (position middle $Disk))) nop))
+</span>
+
+; Check if a disk can be removed from a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['can-remove',X,Disk],['atom-exists',X,[position,bottom,Disk]])
+</span><span class="ansi38-255165000">  (= 
+    (can-remove $X $Disk) 
+    (atom-exists $X 
+      (position bottom $Disk)))
+</span>
+
+; Check if a disk can be placed on a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['can-place',Y,Disk],[or,[not,['any-disk-exists',Y]],['smaller-than-top',Y,Disk]])
+</span><span class="ansi38-255165000">  (= 
+    (can-place $Y $Disk) 
+    (or 
+      (not 
+        (any-disk-exists $Y)) 
+      (smaller-than-top $Y $Disk)))
+</span>
+
+; Check if any disk exists on a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['any-disk-exists',Y],[or,['atom-exists',Y,[position,middle,'red-disk']],['atom-exists',Y,[position,middle,'blue-disk']],['atom-exists',Y,[position,middle,'green-disk']]])
+</span><span class="ansi38-255165000">  (= 
+    (any-disk-exists $Y) 
+    (or 
+      (atom-exists $Y 
+        (position middle red-disk)) 
+      (atom-exists $Y 
+        (position middle blue-disk)) 
+      (atom-exists $Y 
+        (position middle green-disk))))
+</span>
+
+; Check if a disk is smaller than the top disk on a peg
+; GPT4: Youd need to define the logic for this
+; USER: Will use prolog''s "standard-order"
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['smaller-than-top',Y,Disk],[and,[@<,Y,Disk]])
+</span><span class="ansi38-255165000">  (= 
+    (smaller-than-top $Y $Disk) 
+    (and 
+      (@< $Y $Disk)))
+</span>
+
+; Towers of Hanoi test
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],['move-disk','red-disk',Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],['move-disk','red-disk',Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]])
+</span><span class="ansi38-255165000">  (= 
+    (hanoi $N $Src $Aux $Dest) 
+    (if 
+      (eq $N 1) 
+      (move-disk red-disk $Src $Dest) 
+      (seq 
+        (hanoi 
+          (- $N 1) $Src $Dest $Aux) 
+        (move-disk red-disk $Src $Dest) 
+        (hanoi 
+          (- $N 1) $Aux $Src $Dest))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[hanoi_test],[let,[[src,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']],[aux,[]],[dest,[]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']]])
+</span><span class="ansi38-255165000">  (= 
+    (hanoi_test) 
+    (let 
+      ( (src 
+          (position bottom red-disk) 
+          (position middle blue-disk) 
+          (position top green-disk)) 
+        (aux ()) 
+        (dest ())) 
+      (hanoi 3 src aux dest) 
+      (assertEqual dest 
+        (position bottom red-disk) 
+        (position middle blue-disk) 
+        (position top green-disk))))
+</span>
+
+<span class="ansi38-000068000">!(hanoi_test)
+
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,or),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,or]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `or' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'red-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'blue-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
+</span>%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816 
+%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'green-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000">  (position bottom red-disk)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&$y',[position,middle,'red-disk'])
+</span><span class="ansi38-255165000">  (position middle red-disk)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000">  (position bottom red-disk)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&$y',[position,middle,'red-disk'])
+</span><span class="ansi38-255165000">  (position middle red-disk)
+</span>
+
+%~ user: message_hook(
+%~          error(existence_error(source_sink,or),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,or]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `or' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'red-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'blue-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'green-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,'any-disk-exists'),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,'any-disk-exists']]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `'any-disk-exists'' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,dest),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,dest]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `dest' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,or),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,or]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `or' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'red-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'blue-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'green-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,or),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,or]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `or' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'red-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'blue-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'green-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,'any-disk-exists'),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,'any-disk-exists']]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `'any-disk-exists'' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,dest),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,dest]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:816:
+ERROR:    source_sink `dest' does not exist
+</span><span class="ansi32">% 1,622,699 inferences, 0.462 CPU in 2.464 seconds (19% CPU, 3514580 Lips)
+</span> (@ = "examples/hanoi-peg-space.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/hanoi-peg-space.html" )
+
+</pre>
+</body>
+
+</html>
