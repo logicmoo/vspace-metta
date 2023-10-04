@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta")
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Concat',['Cons',Head1,[]],List2],['Cons',Head1,List2])
+</span><span class="ansi38-255165000">  (= 
+    (Concat 
+      (Cons $Head1 ()) $List2) 
+    (Cons $Head1 $List2))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Concat',['Cons',Head1,['Cons',T1,T11]],List2],['Cons',Head1,['Concat',['Cons',T1,T11],List2]])
+</span><span class="ansi38-255165000">  (= 
+    (Concat 
+      (Cons $Head1 
+        (Cons $T1 $T11)) $List2) 
+    (Cons $Head1 
+      (Concat 
+        (Cons $T1 $T11) $List2)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[lst1],['Cons',a1,['Cons',a2,[]]])
+</span><span class="ansi38-255165000">  (= 
+    (lst1) 
+    (Cons a1 
+      (Cons a2 ())))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[lst2],['Cons',b1,['Cons',b2,[]]])
+</span><span class="ansi38-255165000">  (= 
+    (lst2) 
+    (Cons b1 
+      (Cons b2 ())))
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (Concat (lst1) (lst2)) (Cons a1 (Cons a2 (Cons b1 (Cons b2 ())))))
+
+</span><h3 id="EXAMPLES.TEST-LIST-CONCATENATION.01">;; EXAMPLES.TEST-LIST-CONCATENATION.01</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 ()))))) 
+    ( (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 ())))))))
+</span>        -->(0,'&self',['Concat',[lst1],[lst2]],depth(2))
+            -->(1,'&self',[lst1],depth(4))
+              -->(2,'&self',['Cons',a1,['Cons',a2,[]]],depth(5))
+                  -->(3,'&self',['Cons',a2,[]],depth(7))
+            -->(4,'&self',['Concat',['Cons',a1,['Cons',a2,[]]],[lst2]],depth(4))
+                -->(5,'&self',['Cons',a2,[]],depth(6))
+              -->(6,'&self',['Cons',a1,['Concat',['Cons',a2,[]],[lst2]]],depth(5))
+                  -->(7,'&self',['Concat',['Cons',a2,[]],[lst2]],depth(7))
+                      -->(8,'&self',['Cons',a2,[]],depth(9))
+                    -->(9,'&self',['Cons',a2,[lst2]],depth(8))
+                        -->(10,'&self',[lst2],depth(10))
+                          -->(11,'&self',['Cons',b1,['Cons',b2,[]]],depth(11))
+                              -->(12,'&self',['Cons',b2,[]],depth(13))
+                      -->(13,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(9))
+                          -->(14,'&self',['Cons',b1,['Cons',b2,[]]],depth(11))
+                              -->(15,'&self',['Cons',b2,[]],depth(13))
+                -->(16,'&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]],depth(6))
+                    -->(17,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(8))
+                        -->(18,'&self',['Cons',b1,['Cons',b2,[]]],depth(10))
+                            -->(19,'&self',['Cons',b2,[]],depth(12))
+          -->(20,'&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]],depth(3))
+              -->(21,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(5))
+                  -->(22,'&self',['Cons',b1,['Cons',b2,[]]],depth(7))
+                      -->(23,'&self',['Cons',b2,[]],depth(9))
+                        <--(10,retval(['Cons',b1,['Cons',b2,[]]]))
+                    <--(9,retval(['Cons',a2,['Cons',b1,['Cons',b2,[]]]]))
+                  <--(7,retval(['Cons',a2,[lst2]]))
+              <--(6,retval(['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]]))
+            <--(4,retval(['Cons',a1,['Concat',['Cons',a2,[]],[lst2]]]))
+            <--(1,retval(['Cons',a1,['Cons',a2,[]]]))
+            -->(24,'&self',[lst1],depth(4))
+              -->(25,'&self',['Cons',a1,['Cons',a2,[]]],depth(5))
+                  -->(26,'&self',['Cons',a2,[]],depth(7))
+          -->(27,'&self',['Cons',a1,['Concat',['Cons',a2,[]],[lst2]]],depth(3))
+              -->(28,'&self',['Concat',['Cons',a2,[]],[lst2]],depth(5))
+                  -->(29,'&self',['Cons',a2,[]],depth(7))
+                -->(30,'&self',['Cons',a2,[lst2]],depth(6))
+                    -->(31,'&self',[lst2],depth(8))
+                      -->(32,'&self',['Cons',b1,['Cons',b2,[]]],depth(9))
+                          -->(33,'&self',['Cons',b2,[]],depth(11))
+                  -->(34,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(7))
+                      -->(35,'&self',['Cons',b1,['Cons',b2,[]]],depth(9))
+                          -->(36,'&self',['Cons',b2,[]],depth(11))
+            -->(37,'&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]],depth(4))
+                -->(38,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(6))
+                    -->(39,'&self',['Cons',b1,['Cons',b2,[]]],depth(8))
+                        -->(40,'&self',['Cons',b2,[]],depth(10))
+                    <--(31,retval(['Cons',b1,['Cons',b2,[]]]))
+                <--(30,retval(['Cons',a2,['Cons',b1,['Cons',b2,[]]]]))
+              <--(28,retval(['Cons',a2,[lst2]]))
+          <--(27,retval(['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]]))
+            <--(24,retval(['Cons',a1,['Cons',a2,[]]]))
+            -->(41,'&self',[lst2],depth(4))
+              -->(42,'&self',['Cons',b1,['Cons',b2,[]]],depth(5))
+                  -->(43,'&self',['Cons',b2,[]],depth(7))
+            -->(44,'&self',[lst1],depth(4))
+              -->(45,'&self',['Cons',a1,['Cons',a2,[]]],depth(5))
+                  -->(46,'&self',['Cons',a2,[]],depth(7))
+          -->(47,'&self',['Cons',a1,['Concat',['Cons',a2,[]],['Cons',b1,['Cons',b2,[]]]]],depth(3))
+              -->(48,'&self',['Concat',['Cons',a2,[]],['Cons',b1,['Cons',b2,[]]]],depth(5))
+                  -->(49,'&self',['Cons',a2,[]],depth(7))
+                -->(50,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(6))
+                    -->(51,'&self',['Cons',b1,['Cons',b2,[]]],depth(8))
+                        -->(52,'&self',['Cons',b2,[]],depth(10))
+            -->(53,'&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]],depth(4))
+                -->(54,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(6))
+                    -->(55,'&self',['Cons',b1,['Cons',b2,[]]],depth(8))
+                        -->(56,'&self',['Cons',b2,[]],depth(10))
+              <--(48,retval(['Cons',a2,['Cons',b1,['Cons',b2,[]]]]))
+          <--(47,retval(['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]]))
+            <--(44,retval(['Cons',a1,['Cons',a2,[]]]))
+            -->(57,'&self',['Cons',b2,[]],depth(4))
+            <--(41,retval(['Cons',b1,['Cons',b2,[]]]))
+        <--(0,retval(['Cons',a1,['Concat',['Cons',a2,[]],['Cons',b1,['Cons',b2,[]]]]]))
+        -->(58,'&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,[]]]]],depth(2))
+            -->(59,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(4))
+                -->(60,'&self',['Cons',b1,['Cons',b2,[]]],depth(6))
+                    -->(61,'&self',['Cons',b2,[]],depth(8))
+; Evaluation took 6.87 ms.
+<span class="ansi33"> True
+
+</span><span class="ansi32">% 79,493 inferences, 0.015 CPU in 0.015 seconds (100% CPU, 5339795 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.html" )
+
+</pre>
+</body>
+
+</html>

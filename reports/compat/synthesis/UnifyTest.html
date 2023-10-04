@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta")
+;; Import module
+<span class="ansi38-000068000">!(import! &self Unify.metta)
+
+</span>;; Test unify.
+;; Should output (Link A B)
+;; Implement a unifier.  Like with `let` the left term must be an
+;; Atom, so if it is function it will not be evaluated.  The
+;; implementation however uses `case`, not `let`, that way it filters
+;; out terms which have not been fully rewritten.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,unify,[->,'Atom',A,A,A]])
+</span><span class="ansi38-255165000">  (: unify 
+    (-> Atom $A $A $A))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[unify,Lterm,Rterm,Rewrite],[case,Rterm,[[Lterm,Rewrite]]])
+</span><span class="ansi38-255165000">  (= 
+    (unify $Lterm $Rterm $Rewrite) 
+    (case $Rterm 
+      ( ($Lterm $Rewrite))))
+</span>
+
+;; Definition of `unify*`
+;; Similar to `unify`, but it takes a tuple containing pairs of terms to unify,
+;; and a rewrite term.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'unify*',[->,'Atom',A,A]])
+</span><span class="ansi38-255165000">  (: unify* 
+    (-> Atom $A $A))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['unify*',Pairs,Rewrite],[case,Pairs,[[[],Rewrite],[Pairs,['let*',[[Head,['car-atom',Pairs]],[Tail,['cdr-atom',Pairs]]],[case,Head,[[[Lterm,Rterm],[unify,Lterm,Rterm,['unify*',Tail,Rewrite]]]]]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (unify* $Pairs $Rewrite) 
+    (case $Pairs 
+      ( (() $Rewrite) 
+        ($Pairs 
+          (let* 
+            ( ($Head 
+                (car-atom $Pairs)) 
+              ($Tail 
+                (cdr-atom $Pairs))) 
+            (case $Head 
+              ( ( ($Lterm $Rterm) 
+                  (unify $Lterm $Rterm 
+                    (unify* $Tail $Rewrite))))))))))
+</span>
+
+; Evaluation took 17.14 ms.
+<span class="ansi33"> &self
+
+</span>;; Base case
+;; Recursive case
+; By using a case we guaranty
+; that ill-formed inputs (non
+; tuple of pairs) will be
+; discarded
+<span class="ansi38-000068000">!(unify (Link $X B) (Link A $Y) (Link $X $Y))
+
+</span>; Evaluation took 0.336 ms. (336.10 microseconds) 
+<span class="ansi33">  (Link A $_303224)
+</span><span class="ansi32">['Y'='B','X'=_300438]
+</span>
+
+;; Test unify*.
+;; Unify `Link $x B $z` with `Link A $y $z`, and `$z` with `C`
+;; Should output (Link A B C)
+<span class="ansi38-000068000">!(unify* (((Link $X B $Z) (Link A $Y $Z)) ($Z C)) (Link $X $Y $Z))
+
+</span>;; Test complex unify* query
+;; After a series of unifications, it should define the function composition `(. g f)`
+;; having type `(-> Number Bool)`
+<span class="ansi38-000068000">!(unify* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) (: -> (-> $B $C) (-> $A $B) (-> $A $C))) ((: ($Ructor $Proof1 $Proof2) $Conclusion) (: $Term (-> Number Bool))) ((: $Proof1 $Premise1) (: g (-> String Bool))) ((: $Proof2 $Premise2) (: f (-> Number String)))) (: $Term (-> Number Bool)))
+
+</span>                                                                                                                                                                                                          -->(0,'&self',[unify,_448496,_448502,['unify*',_448538,_448544]],depth(99))
+                                                                                                                                                                                                          <--(0,retval([unify|'False']))
+                                                                                                                                                                                                        -->(0,'&self',[unify|'False'],depth(98))
+                                                                                                                                                                                                      -->(0,'&self',[unify|'False'],depth(97))
+                                                                                                                                                                                                    -->(1,'&self',[unify|'False'],depth(96))
+                                                                                                                                                                                                -->(2,'&self',[unify|'False'],depth(94))
+                                                                                                                                                                                            -->(3,'&self',[unify|'False'],depth(92))
+                                                                                                                                                                                          -->(4,'&self',[unify|'False'],depth(91))
+                                                                                                                                                                                        -->(5,'&self',[unify|'False'],depth(90))
+                                                                                                                                                                                      -->(6,'&self',[unify|'False'],depth(89))
+                                                                                                                                                                                    -->(7,'&self',[unify|'False'],depth(88))
+                                                                                                                                                                                -->(8,'&self',[unify|'False'],depth(86))
+                                                                                                                                                                            -->(9,'&self',[unify|'False'],depth(84))
+                                                                                                                                                                          -->(10,'&self',[unify|'False'],depth(83))
+                                                                                                                                                                        -->(11,'&self',[unify|'False'],depth(82))
+                                                                                                                                                                      -->(12,'&self',[unify|'False'],depth(81))
+                                                                                                                                                                    -->(13,'&self',[unify|'False'],depth(80))
+                                                                                                                                                                -->(14,'&self',[unify|'False'],depth(78))
+                                                                                                                                                            -->(15,'&self',[unify|'False'],depth(76))
+                                                                                                                                                          -->(16,'&self',[unify|'False'],depth(75))
+                                                                                                                                                        -->(17,'&self',[unify|'False'],depth(74))
+                                                                                                                                                      -->(18,'&self',[unify|'False'],depth(73))
+                                                                                                                                                    -->(19,'&self',[unify|'False'],depth(72))
+                                                                                                                                                -->(20,'&self',[unify|'False'],depth(70))
+                                                                                                                                            -->(21,'&self',[unify|'False'],depth(68))
+                                                                                                                                          -->(22,'&self',[unify|'False'],depth(67))
+                                                                                                                                        -->(23,'&self',[unify|'False'],depth(66))
+                                                                                                                                      -->(24,'&self',[unify|'False'],depth(65))
+                                                                                                                                    -->(25,'&self',[unify|'False'],depth(64))
+                                                                                                                                -->(26,'&self',[unify|'False'],depth(62))
+                                                                                                                            -->(27,'&self',[unify|'False'],depth(60))
+                                                                                                                          -->(28,'&self',[unify|'False'],depth(59))
+                                                                                                                        -->(29,'&self',[unify|'False'],depth(58))
+                                                                                                                      -->(30,'&self',[unify|'False'],depth(57))
+                                                                                                                    -->(31,'&self',[unify|'False'],depth(56))
+                                                                                                                -->(32,'&self',[unify|'False'],depth(54))
+                                                                                                            -->(33,'&self',[unify|'False'],depth(52))
+                                                                                                          -->(34,'&self',[unify|'False'],depth(51))
+                                                                                                        -->(35,'&self',[unify|'False'],depth(50))
+                                                                                                      -->(36,'&self',[unify|'False'],depth(49))
+                                                                                                    -->(37,'&self',[unify|'False'],depth(48))
+                                                                                                -->(38,'&self',[unify|'False'],depth(46))
+                                                                                            -->(39,'&self',[unify|'False'],depth(44))
+                                                                                          -->(40,'&self',[unify|'False'],depth(43))
+                                                                                        -->(41,'&self',[unify|'False'],depth(42))
+                                                                                      -->(42,'&self',[unify|'False'],depth(41))
+                                                                                    -->(43,'&self',[unify|'False'],depth(40))
+                                                                                -->(44,'&self',[unify|'False'],depth(38))
+                                                                            -->(45,'&self',[unify|'False'],depth(36))
+                                                                          -->(46,'&self',[unify|'False'],depth(35))
+                                                                        -->(47,'&self',[unify|'False'],depth(34))
+                                                                      -->(48,'&self',[unify|'False'],depth(33))
+                                                                    -->(49,'&self',[unify|'False'],depth(32))
+                                                                -->(50,'&self',[unify|'False'],depth(30))
+                                                            -->(51,'&self',[unify|'False'],depth(28))
+                                                          -->(52,'&self',[unify|'False'],depth(27))
+                                                        -->(53,'&self',[unify|'False'],depth(26))
+                                                      -->(54,'&self',[unify|'False'],depth(25))
+                                                    -->(55,'&self',[unify|'False'],depth(24))
+                                                -->(56,'&self',[unify|'False'],depth(22))
+                                            -->(57,'&self',[unify|'False'],depth(20))
+                                          -->(58,'&self',[unify|'False'],depth(19))
+                                        -->(59,'&self',[unify|'False'],depth(18))
+                                      -->(60,'&self',[unify|'False'],depth(17))
+                                    -->(61,'&self',[unify|'False'],depth(16))
+                                -->(62,'&self',[unify|'False'],depth(14))
+                            -->(63,'&self',[unify|'False'],depth(12))
+                          -->(64,'&self',[unify|'False'],depth(11))
+                        -->(65,'&self',[unify|'False'],depth(10))
+                      -->(66,'&self',[unify|'False'],depth(9))
+                    -->(67,'&self',[unify|'False'],depth(8))
+                -->(68,'&self',[:,[unify|'False'],_411932],depth(6))
+                    -->(69,'&self',[unify|'False'],depth(8))
+              -->(70,'&self',[:,_415800,[->,'Number','Bool']],depth(5))
+                  -->(71,'&self',[->,'Number','Bool'],depth(7))
+                  -->(72,'&self',[->,'Number','Bool'],depth(7))
+                  -->(73,'&self',[->,'Number','Bool'],depth(7))
+              -->(74,'&self',[[:,[unify|'False'],_411932],[:,_415800,[->,'Number','Bool']]],depth(5))
+                  -->(75,'&self',[->,'Number','Bool'],depth(7))
+                  -->(76,'&self',[->,'Number','Bool'],depth(7))
+                  -->(77,'&self',[:,[unify|'False'],_411932],depth(7))
+                      -->(78,'&self',[unify|'False'],depth(9))
+                  -->(79,'&self',[:,_415800,[->,'Number','Bool']],depth(7))
+                      -->(80,'&self',[->,'Number','Bool'],depth(9))
+                      -->(81,'&self',[->,'Number','Bool'],depth(9))
+                      -->(82,'&self',[->,'Number','Bool'],depth(9))
+            -->(83,'&self',[[:,_414792,'Atom'],[:,g,[->,'String','Bool']]],depth(4))
+                -->(84,'&self',[->,'String','Bool'],depth(6))
+                -->(85,'&self',[->,'String','Bool'],depth(6))
+                -->(86,'&self',[:,_414792,'Atom'],depth(6))
+                -->(87,'&self',[:,g,[->,'String','Bool']],depth(6))
+                    -->(88,'&self',[->,'String','Bool'],depth(8))
+                    -->(89,'&self',[->,'String','Bool'],depth(8))
+                    -->(90,'&self',[->,'String','Bool'],depth(8))
+            -->(91,'&self',[[:,_415116,_411932],[:,f,[->,'Number','String']]],depth(4))
+                -->(92,'&self',[->,'Number','String'],depth(6))
+                -->(93,'&self',[->,'Number','String'],depth(6))
+                -->(94,'&self',[:,_415116,_411932],depth(6))
+                -->(95,'&self',[:,f,[->,'Number','String']],depth(6))
+                    -->(96,'&self',[->,'Number','String'],depth(8))
+                    -->(97,'&self',[->,'Number','String'],depth(8))
+                    -->(98,'&self',[->,'Number','String'],depth(8))
+              -->(99,'&self',['True',[:,f,[->,'Number','String']]],depth(5))
+                  -->(100,'&self',[->,'Number','String'],depth(7))
+Switched off tracing. For a longer trace !(pragma! trace-length 101))<span class="ansi32">
+% 600,013 inferences, 0.096 CPU in 0.096 seconds (100% CPU, 6278480 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.html" )
+
+</pre>
+</body>
+
+</html>

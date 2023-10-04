@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta")
+<span class="ansi38-000068000">!(import! &self Maybe.metta)
+
+</span>;; Test Maybe
+;; Define Maybe type
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Maybe',[->,A,'Type']])
+</span><span class="ansi38-255165000">  (: Maybe 
+    (-> $A Type))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nothing',['Maybe',A]])
+</span><span class="ansi38-255165000">  (: Nothing 
+    (Maybe $A))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Just',[->,A,['Maybe',A]]])
+</span><span class="ansi38-255165000">  (: Just 
+    (-> $A 
+      (Maybe $A)))
+</span>
+
+;; Define greater than operator for Maybe (overloading is not
+;; supported at this point).
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Maybe<',['Just',X],['Just',Y]],[<,X,Y])
+</span><span class="ansi38-255165000">  (= 
+    (Maybe< 
+      (Just $X) 
+      (Just $Y)) 
+    (< $X $Y))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Maybe<',['Just',X],'Nothing'],'False')
+</span><span class="ansi38-255165000">  (= 
+    (Maybe< 
+      (Just $X) Nothing) False)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Maybe<','Nothing',['Just',X]],'True')
+</span><span class="ansi38-255165000">  (= 
+    (Maybe< Nothing 
+      (Just $X)) True)
+</span>
+
+; Evaluation took 6.58 ms.
+<span class="ansi33"> &self
+
+</span><span class="ansi38-000068000">!(Maybe< (Just 10) (Just 20))
+
+</span>; Evaluation took 0.138 ms. (138.10 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(Maybe< (Just 10) Nothing)
+
+</span>; Evaluation took 0.082 ms. (82.50 microseconds) 
+<span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(Maybe< Nothing (Just 10))
+
+</span>; Evaluation took 0.076 ms. (75.90 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi32">% 58,309 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 4677480 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.html" )
+
+</pre>
+</body>
+
+</html>

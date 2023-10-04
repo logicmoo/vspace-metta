@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/DeductionMatchTest.metta")
+;; Test Deduction match Rule
+<span class="ansi38-000068000">!(import! &self DeductionMatch.metta)
+
+</span>;; MeTTa port for deduction PLN rule
+;; using match
+;;
+;; (â P ptv)
+;; (â Q qtv)
+;; (â R rtv)
+;; (â (â P Q) tv1)
+;; (â (â Q R) tv2)
+;; â¢
+;; (â (â P R) TV)
+;;
+;; where ptv, qtv, rtv, tv1 and tv2 are truth values of the
+;; premises P, Q, R, (â P Q) and (â Q R) respectively.
+;; TV represents the resulting truth value of the conclusion.
+;; Import formula functions
+<span class="ansi38-000068000">!(import! &self "../common/DeductionFormula.metta")
+
+</span>; Evaluation took 0.076 ms. (76.00 microseconds) 
+<span class="ansi33">  (import! &self "../common/DeductionFormula.metta")
+
+</span>;;;;;;;;;;;;;;;;;;;;;
+;; Rule Definition ;;
+;;;;;;;;;;;;;;;;;;;;;
+;; Deduction rule represented as a function.
+;;
+;; P â PTV
+;; Q â QTV
+;; R â RTV
+;; P â Q â PQTV
+;; Q â R â RQTV
+;; â¢
+;; P â R â TV
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[deduction,['â\x89\\x9E\',P,Ptv],['â\x89\\x9E\',Q,Qtv],['â\x89\\x9E\',R,Rtv],['â\x89\\x9E\',['â\x86\\x92\',P,Q],Pqtv],['â\x89\\x9E\',['â\x86\\x92\',Q,R],Qrtv]],['â\x89\\x9E\',['â\x86\\x92\',P,R],[ded_formula,Ptv,Qtv,Rtv,Pqtv,Qrtv]])
+</span><span class="ansi38-255165000">  (= 
+    (deduction 
+      (â $P $Ptv) 
+      (â $Q $Qtv) 
+      (â $R $Rtv) 
+      (â 
+        (â $P $Q) $Pqtv) 
+      (â 
+        (â $Q $R) $Qrtv)) 
+    (â 
+      (â $P $R) 
+      (ded_formula $Ptv $Qtv $Rtv $Pqtv $Qrtv)))
+</span>
+
+;; Corresponding matching query of that rule
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,deduction_match,[->,Kb,'Atom']])
+</span><span class="ansi38-255165000">  (: deduction_match 
+    (-> $Kb Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[deduction_match,Kb],['let*',[[Prem1,['â\x89\\x9E\',P,Ptv]],[Prem2,['â\x89\\x9E\',Q,Qtv]],[Prem3,['â\x89\\x9E\',R,Rtv]],[Prem4,['â\x89\\x9E\',['â\x86\\x92\',P,Q],Pqtv]],[Prem5,['â\x89\\x9E\',['â\x86\\x92\',Q,R],Qrtv]]],[match,Kb,[',',Prem1,Prem2,Prem3,Prem4,Prem5],[deduction,Prem1,Prem2,Prem3,Prem4,Prem5]]])
+</span><span class="ansi38-255165000">  (= 
+    (deduction_match $Kb) 
+    (let* 
+      ( ($Prem1 
+          (â $P $Ptv)) 
+        ($Prem2 
+          (â $Q $Qtv)) 
+        ($Prem3 
+          (â $R $Rtv)) 
+        ($Prem4 
+          (â 
+            (â $P $Q) $Pqtv)) 
+        ($Prem5 
+          (â 
+            (â $Q $R) $Qrtv))) 
+      (match $Kb 
+        (and $Prem1 $Prem2 $Prem3 $Prem4 $Prem5) 
+        (deduction $Prem1 $Prem2 $Prem3 $Prem4 $Prem5))))
+</span>
+
+; Evaluation took 23.38 ms.
+<span class="ansi33"> &self
+
+</span>;; Premises
+;; Conclusion
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x89\\x9E\','P',['PrCnt',1,0.1]])
+</span><span class="ansi38-255165000">  (â P 
+    (PrCnt 1 0.1))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x89\\x9E\','Q',['PrCnt',1,0.1]])
+</span><span class="ansi38-255165000">  (â Q 
+    (PrCnt 1 0.1))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x89\\x9E\','R',['PrCnt',1,0.1]])
+</span><span class="ansi38-255165000">  (â R 
+    (PrCnt 1 0.1))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]])
+</span><span class="ansi38-255165000">  (â 
+    (â P Q) 
+    (PrCnt 1 0.5))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]])
+</span><span class="ansi38-255165000">  (â 
+    (â Q R) 
+    (PrCnt 1 0.5))
+</span>
+
+<span class="ansi38-000068000">!(deduction_match &self)
+
+</span><span class="ansi32">% 113,806 inferences, 0.032 CPU in 0.032 seconds (100% CPU, 3609039 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/DeductionMatchTest.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/DeductionMatchTest.html" )
+
+</pre>
+</body>
+
+</html>

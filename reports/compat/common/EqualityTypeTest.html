@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta")
+;; Import ===
+<span class="ansi38-000068000">!(import! &self EqualityType.metta)
+
+</span>;; Define various subterms
+;; Define (homogeneous) equality type, also called propositional equality
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,===,[->,A,A,'Type']])
+</span><span class="ansi38-255165000">  (: === 
+    (-> $A $A Type))
+</span>
+
+;; Define Refl, the reflexivity constructor of ===
+;;
+;; Note that to define Refl properly we'd need
+;;
+;; (: Refl (-> (: $x $a) (=== $x $x)))
+;;
+;; which is not possible as inlining (: $x $a) is not supported yet.
+;; Instead we define it as
+;;
+;; (: Refl (-> $x (=== $x $x)))
+;;
+;; However that requires to use a workaround consisting of assigning
+;; to each term a subterm.  Such as
+;;
+;; (: Term42 42)
+;;
+;; allowing us to use Refl as follows
+;;
+;; (Refl Term42)
+;;
+;; the proof by reflexivity of
+;;
+;; (=== 42 42)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Refl',[->,X,[===,X,X]]])
+</span><span class="ansi38-255165000">  (: Refl 
+    (-> $X 
+      (=== $X $X)))
+</span>
+
+; Evaluation took 7.52 ms.
+<span class="ansi33"> &self
+
+</span>;; What about
+;;
+;; (: Refl (=== $x $x))
+;;
+;; ?
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'TTrue','True'])
+</span><span class="ansi38-255165000">  (: TTrue True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'T42',42])
+</span><span class="ansi38-255165000">  (: T42 42)
+</span>
+
+;; Define dummy functions to type check equality type
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foo,[->,[===,42,42],'Bool']])
+</span><span class="ansi38-255165000">  (: foo 
+    (-> 
+      (=== 42 42) Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[foo,Prf],'True')
+</span><span class="ansi38-255165000">  (= 
+    (foo $Prf) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,bar,[->,[===,'True','True'],'Bool']])
+</span><span class="ansi38-255165000">  (: bar 
+    (-> 
+      (=== True True) Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[bar,Prf],'True')
+</span><span class="ansi38-255165000">  (= 
+    (bar $Prf) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,baz,[->,[===,42,'True'],'Bool']])
+</span><span class="ansi38-255165000">  (: baz 
+    (-> 
+      (=== 42 True) Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[baz,Prf],'False')
+</span><span class="ansi38-255165000">  (= 
+    (baz $Prf) False)
+</span>
+
+;; Test equality type
+<span class="ansi38-000068000">!(foo (Refl T42))
+
+</span>; Evaluation took 0.102 ms. (101.60 microseconds) 
+<span class="ansi33"> True
+
+</span>; Should succeed
+<span class="ansi38-000068000">!(bar (Refl T42))
+
+</span>; Evaluation took 0.096 ms. (95.60 microseconds) 
+<span class="ansi33"> True
+
+</span>; Should fail
+<span class="ansi38-000068000">!(bar (Refl TTrue))
+
+</span>; Evaluation took 0.070 ms. (70.40 microseconds) 
+<span class="ansi33"> True
+
+</span>; Should succeed
+<span class="ansi38-000068000">!(baz (Refl T42))
+
+</span>; Evaluation took 0.071 ms. (70.70 microseconds) 
+<span class="ansi33"> False
+
+</span><span class="ansi32">% 88,294 inferences, 0.026 CPU in 0.026 seconds (100% CPU, 3375179 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.html" )
+
+</pre>
+</body>
+
+</html>

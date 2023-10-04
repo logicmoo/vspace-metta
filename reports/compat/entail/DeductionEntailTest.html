@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta")
+;; Test Deduction Entail Rule
+<span class="ansi38-000068000">!(import! &self DeductionEntail.metta)
+
+</span>;; MeTTa port for deduction PLN rule
+;; as the entail relationship, â¢
+;;
+;; (â P ptv)
+;; (â Q qtv)
+;; (â R rtv)
+;; (â (â P Q) tv1)
+;; (â (â Q R) tv2)
+;; â¢
+;; (â (â P R) TV)
+;;
+;; where ptv, qtv, rtv, tv1 and tv2 are truth values of the
+;; premises P, Q, R, (â P Q) and (â Q R) respectively.
+;; TV represents the resulting truth value of the conclusion.
+;; Import formula functions
+<span class="ansi38-000068000">!(import! &self "../common/DeductionFormula.metta")
+
+</span>; Evaluation took 0.083 ms. (83.10 microseconds) 
+<span class="ansi33">  (import! &self "../common/DeductionFormula.metta")
+
+</span>;;;;;;;;;;;;;;;;;;;;;
+;; Rule Definition ;;
+;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x8A\¢',['â\x89\\x9E\',P,Ptv],['â\x89\\x9E\',Q,Qtv],['â\x89\\x9E\',R,Rtv],['â\x89\\x9E\',['â\x86\\x92\',P,Q],Pqtv],['â\x89\\x9E\',['â\x86\\x92\',Q,R],Qrtv],['â\x89\\x9E\',['â\x86\\x92\',P,R],[ded_formula,Ptv,Qtv,Rtv,Pqtv,Qrtv]]])
+</span><span class="ansi38-255165000">  (â¢ 
+    (â $P $Ptv) 
+    (â $Q $Qtv) 
+    (â $R $Rtv) 
+    (â 
+      (â $P $Q) $Pqtv) 
+    (â 
+      (â $Q $R) $Qrtv) 
+    (â 
+      (â $P $R) 
+      (ded_formula $Ptv $Qtv $Rtv $Pqtv $Qrtv)))
+</span>
+
+; Evaluation took 5.49 ms.
+<span class="ansi33"> &self
+
+</span>;; premises
+;; conclusion
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['P'],['â\x89\\x9E\','P',['PrCnt',1,0.1]])
+</span><span class="ansi38-255165000">  (= 
+    (P) 
+    (â P 
+      (PrCnt 1 0.1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Q'],['â\x89\\x9E\','Q',['PrCnt',1,0.1]])
+</span><span class="ansi38-255165000">  (= 
+    (Q) 
+    (â Q 
+      (PrCnt 1 0.1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['R'],['â\x89\\x9E\','R',['PrCnt',1,0.1]])
+</span><span class="ansi38-255165000">  (= 
+    (R) 
+    (â R 
+      (PrCnt 1 0.1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['PQ'],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]])
+</span><span class="ansi38-255165000">  (= 
+    (PQ) 
+    (â 
+      (â P Q) 
+      (PrCnt 1 0.5)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['QR'],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]])
+</span><span class="ansi38-255165000">  (= 
+    (QR) 
+    (â 
+      (â Q R) 
+      (PrCnt 1 0.5)))
+</span>
+
+;; Forward chain
+<span class="ansi38-000068000">!(let* (($P (P)) ($Q (Q)) ($R (R)) ($Pq (PQ)) ($Qr (QR))) (match &self (â¢ $P $Q $R $Pq $Qr $Res) $Res))
+
+</span>; Evaluation took 12.09 ms.
+<span class="ansi33">  (â 
+    (â P R) 
+    (ded_formula 
+      (PrCnt 1 0.1) 
+      (PrCnt 1 0.1) 
+      (PrCnt 1 0.1) 
+      (PrCnt 1 0.5) 
+      (PrCnt 1 0.5)))
+</span><span class="ansi32">['Res'=['â\x89\\x9E\',['â\x86\\x92\','P','R'],[ded_formula,['PrCnt',1,0.1],['PrCnt',1,0.1],['PrCnt',1,0.1],['PrCnt',1,0.5],['PrCnt',1,0.5]]],'Qr'=['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]],'Pq'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]],'R'=['â\x89\\x9E\','R',['PrCnt',1,0.1]],'Q'=['â\x89\\x9E\','Q',['PrCnt',1,0.1]],'P'=['â\x89\\x9E\','P',['PrCnt',1,0.1]]]
+</span>
+
+<span class="ansi32">% 186,796 inferences, 0.032 CPU in 0.032 seconds (100% CPU, 5765042 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.html" )
+
+</pre>
+</body>
+
+</html>

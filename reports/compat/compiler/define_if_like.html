@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/compiler/define_if_like.metta")
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['if-like','True',Then,Else],Then)
+</span><span class="ansi38-255165000">  (= 
+    (if-like True $Then $Else) $Then)
+</span><span class="ansi38-000082136">  :- dynamic('[|]',3).
+
+  '[|]'(A, B, C) :-
+    ( D='if-like',
+      D=A
+    ),
+    ( E=F,
+      E=B
+    ),
+    call_fr('True'(Then, Else), G, 'True'/3),
+    G=C,
+    F=Then.
+
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['if-like','False',Then,Else],Else)
+</span><span class="ansi38-255165000">  (= 
+    (if-like False $Then $Else) $Else)
+</span><span class="ansi38-000082136">
+  '[|]'(A, B, C) :-
+    ( D='if-like',
+      D=A
+    ),
+    ( call_fr('False'(Then, Else), E, 'False'/3),
+      E=B
+    ),
+    F=G,
+    F=C,
+    G=Else.
+
+</span>
+
+<span class="ansi38-000068000">!(bind! &pass (new-state :uncalled))
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  call_fr('new-state'(':uncalled',_240294),_240524,tt/0) , 
+  'bind!'('&pass',_240294,_239684)
+</span>
+; Evaluation took 0.067 ms. (67.20 microseconds) 
+<span class="ansi33"> $_239666
+
+</span><span class="ansi38-000068000">!(bind! &fail (new-state :uncalled))
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  call_fr('new-state'(':uncalled',_272038),_272268,tt/0) , 
+  'bind!'('&fail',_272038,_271428)
+</span>
+; Evaluation took 0.050 ms. (49.90 microseconds) 
+<span class="ansi33"> $_271410
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['set-pass'],[let,__,['update-state!','&pass',':called'],':pass'])
+</span><span class="ansi38-255165000">  (= 
+    (set-pass) 
+    (let $__ 
+      (update-state! &pass :called) :pass))
+</span><span class="ansi38-000082136">
+  '[|]'(A, B, C) :-
+    ( D='set-pass',
+      D=A
+    ),
+    ( true,
+      []=E,
+      E=B
+    ),
+    F=G,
+    F=C,
+    call_fr('update-state!'('&pass', ':called'), H, 'update-state!'/3),
+    __=H,
+    G=':pass'.
+
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['set-pass'],[let,__,['update-state!','&fail',':called'],':fail'])
+</span><span class="ansi38-255165000">  (= 
+    (set-pass) 
+    (let $__ 
+      (update-state! &fail :called) :fail))
+</span><span class="ansi38-000082136">
+  '[|]'(A, B, C) :-
+    ( D='set-pass',
+      D=A
+    ),
+    ( true,
+      []=E,
+      E=B
+    ),
+    F=G,
+    F=C,
+    call_fr('update-state!'('&fail', ':called'), H, 'update-state!'/3),
+    __=H,
+    G=':fail'.
+
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['is-true'],'True')
+</span><span class="ansi38-255165000">  (= 
+    (is-True) True)
+</span><span class="ansi38-000082136">
+  '[|]'(A, B, C) :-
+    ( D='is-true',
+      D=A
+    ),
+    ( true,
+      []=E,
+      E=B
+    ),
+    F=G,
+    F=C,
+    G='True'.
+
+</span>
+
+<span class="ansi38-000068000">!(bind! pass-or-False (if-like (is-True) (set-pass) (set-False)))
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  call_fr('set-fail'(_375570),_375880,'set-fail'/2) , 
+  call_fr('set-pass'(_376464),_376772,'set-pass'/2) , 
+  call_fr('is-true'(_377356),_377662,'is-true'/2) , 
+  'bind!'('pass-or-fail','if-like'(_377356,_376464,_375570),_374920)
+</span>
+; Evaluation took 0.085 ms. (85.00 microseconds) 
+<span class="ansi33"> (@ if-like $_377356 $_376464 $_375570)
+ % 'if-like'(_377356,_376464,_375570)
+
+</span><span class="ansi38-000068000">!(assertEqual pass-or-False :pass)
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_1=assertEqual('pass-or-fail',':pass') , 
+  loonit_assert_source_tf( Src_1, 
+      ((
+       (findall(FA_1,FA_1='pass-or-fail',FARL_1)),
+       (findall(FA_2,FA_2=':pass',FARL_2))  )), equal_enough(FARL_1,FARL_2),_403866)
+</span>
+<h3 id="COMPILER.DEFINE-IF-LIKE.01">;; COMPILER.DEFINE-IF-LIKE.01</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (pass-or-False) 
+    (:pass)))
+</span>equal_enough(['pass-or-fail'],[':pass'])
+; Evaluation took 0.637 ms. (637.20 microseconds) 
+<span class="ansi33"> False
+</span><span class="ansi32">['FARL_2'=[':pass'],'FA_2'=_407080,'FARL_1'=['pass-or-fail'],'FA_1'=_406056,'Src_1'=assertEqual('pass-or-fail',':pass')]
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (get-state &pass) :called)
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_2 =  
+    assertEqual('get-state'('&pass'),':called') , 
+  loonit_assert_source_tf( Src_2, 
+      ((
+       (findall(FA_3,'get-state'('&pass',FA_3),FARL_3)),
+       (findall(FA_4,FA_4=':called',FARL_4))  )), equal_enough(FARL_3,FARL_4),_447438)
+</span>
+<h3 id="COMPILER.DEFINE-IF-LIKE.02">;; COMPILER.DEFINE-IF-LIKE.02</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ($_468270) 
+    (:called)))
+</span>equal_enough([_468270],[':called'])
+; Evaluation took 0.534 ms. (533.70 microseconds) 
+<span class="ansi33"> False
+</span><span class="ansi32">['FARL_4'=[':called'],'FA_4'=_450468,'FARL_3'=[_468270],'FA_3'=_449444,'Src_2'=assertEqual('get-state'('&pass'),':called')]
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (get-state &fail) :uncalled)
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_3 =  
+    assertEqual('get-state'('&fail'),':uncalled') , 
+  loonit_assert_source_tf( Src_3, 
+      ((
+       (findall(FA_5,'get-state'('&fail',FA_5),FARL_5)),
+       (findall(FA_6,FA_6=':uncalled',FARL_6))  )), equal_enough(FARL_5,FARL_6),_492594)
+</span>
+<h3 id="COMPILER.DEFINE-IF-LIKE.03">;; COMPILER.DEFINE-IF-LIKE.03</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ($_513428) 
+    (:uncalled)))
+</span>equal_enough([_513428],[':uncalled'])
+; Evaluation took 0.604 ms. (604.00 microseconds) 
+<span class="ansi33"> False
+</span><span class="ansi32">['FARL_6'=[':uncalled'],'FA_6'=_495624,'FARL_5'=[_513428],'FA_5'=_494600,'Src_3'=assertEqual('get-state'('&fail'),':uncalled')]
+</span>
+
+;; we need to not be too eager to eval arguements
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self','pass-or-fail-f',['if-like',['is-true'],['set-pass'],[superpose,['set-fail']]])
+</span><span class="ansi38-255165000">  (= pass-or-False-f 
+    (if-like 
+      (is-True) 
+      (set-pass) 
+      (superpose 
+        (set-False))))
+</span><span class="ansi38-000082136">  :- dynamic('pass-or-fail-f',1).
+
+  'pass-or-fail-f'(A) :-
+    B=C,
+    B=A,
+    D='set-fail',
+    D=E,
+    call_fr('set-pass'(F), _, 'set-pass'/2),
+    call_fr('is-true'(G), _, 'is-true'/2),
+    call_fr('if-like'(G, F, E), C, tt/0).
+
+</span>
+
+<span class="ansi38-000068000">!(update-state! &pass :uncalled)
+
+</span><span class="ansi38-017068017">exec(_33184) :-  
+  call_fr('update-state!'('&pass',':uncalled'),Update_state,'update-state!'/3)
+</span>
+; Evaluation took 0.002 ms. (2.20 microseconds) 
+<span class="ansi33"> (@ update-state! &pass :uncalled)
+ % 'update-state!'('&pass',':uncalled')
+
+</span><span class="ansi38-000068000">!(update-state! &fail :uncalled)
+
+</span><span class="ansi38-017068017">exec(_53938) :-  
+  call_fr('update-state!'('&fail',':uncalled'),Update_state,'update-state!'/3)
+</span>
+; Evaluation took 0.002 ms. (1.80 microseconds) 
+<span class="ansi33"> (@ update-state! &fail :uncalled)
+ % 'update-state!'('&fail',':uncalled')
+
+</span><span class="ansi38-000068000">!(assertEqual (pass-or-False-f) :pass)
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_4=assertEqual('pass-or-fail-f'(),':pass') , 
+  loonit_assert_source_tf( Src_4, 
+      ((
+       (findall(FA_7,'pass-or-fail-f'(FA_7),FARL_7)),
+       (findall(FA_8,FA_8=':pass',FARL_8))  )), equal_enough(FARL_7,FARL_8),_74606)
+</span>
+<h3 id="COMPILER.DEFINE-IF-LIKE.04">;; COMPILER.DEFINE-IF-LIKE.04</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (if-like  $_94262 $_94264 set-False)) 
+    (:pass)))
+</span>equal_enough(['if-like'(_94262,_94264,'set-fail')],[':pass'])
+; Evaluation took 0.557 ms. (556.80 microseconds) 
+<span class="ansi33"> False
+</span><span class="ansi32">['FARL_8'=[':pass'],'FA_8'=_78040,'FARL_7'=['if-like'(_94262,_94264,'set-fail')],'FA_7'=_77032,'Src_4'=assertEqual('pass-or-fail-f'(),':pass')]
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (get-state &pass) :called)
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_5 =  
+    assertEqual('get-state'('&pass'),':called') , 
+  loonit_assert_source_tf( Src_5, 
+      ((
+       (findall(FA_9,'get-state'('&pass',FA_9),FARL_9)),
+       (findall(FA_10,FA_10=':called',FARL_10))  )), equal_enough(FARL_9,FARL_10),_109714)
+</span>
+<h3 id="COMPILER.DEFINE-IF-LIKE.05">;; COMPILER.DEFINE-IF-LIKE.05</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ($_130548) 
+    (:called)))
+</span>equal_enough([_130548],[':called'])
+; Evaluation took 0.554 ms. (554.50 microseconds) 
+<span class="ansi33"> False
+</span><span class="ansi32">['FARL_10'=[':called'],'FA_10'=_112744,'FARL_9'=[_130548],'FA_9'=_111720,'Src_5'=assertEqual('get-state'('&pass'),':called')]
+</span>
+
+<span class="ansi38-000068000">!(assertEqual (get-state &fail) :uncalled)
+
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_6 =  
+    assertEqual('get-state'('&fail'),':uncalled') , 
+  loonit_assert_source_tf( Src_6, 
+      ((
+       (findall(FA_11,'get-state'('&fail',FA_11),FARL_11)),
+       (findall(FA_12,FA_12=':uncalled',FARL_12))  )), equal_enough(FARL_11,FARL_12),_145308)
+</span>
+<h3 id="COMPILER.DEFINE-IF-LIKE.06">;; COMPILER.DEFINE-IF-LIKE.06</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ($_166172) 
+    (:uncalled)))
+</span>equal_enough([_166172],[':uncalled'])
+; Evaluation took 0.571 ms. (570.80 microseconds) 
+<span class="ansi33"> False
+</span><span class="ansi32">['FARL_12'=[':uncalled'],'FA_12'=_148356,'FARL_11'=[_166172],'FA_11'=_147314,'Src_6'=assertEqual('get-state'('&fail'),':uncalled')]
+</span>
+
+<span class="ansi32">% 468,002 inferences, 0.089 CPU in 0.089 seconds (100% CPU, 5286922 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/compiler/define_if_like.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 6
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/compiler/define_if_like.html" )
+
+</pre>
+</body>
+
+</html>
