@@ -1,5 +1,4 @@
 ;; stdlib extension
-
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
 (= (If False $then) ())
@@ -13,21 +12,17 @@
 (= (sequential $1) (superpose $1))
 (: do (-> Expression %Undefined% ))
 (= (do $1) (case $1 ()))
-
-;(= (TupleCount ()) 0)
-;(= (TupleCount (1)) 1)
-;(= (BuildTupleCounts $TOld $C $N)
-;   (let $T (collapse (superpose (1 (superpose $TOld))))
-;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
-
-(= (TupleCount $list) (length $list))
+(= (TupleCount ()) 0)
+(= (TupleCount (1)) 1)
+(= (BuildTupleCounts $TOld $C $N)
+   (let $T (collapse (superpose (1 (superpose $TOld))))
+        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
+                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
+;(= (TupleCount $list) (length $list))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
-
 ;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-;!(BuildTupleCounts (1) 0 100)
-
+!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
 ;; Truth functions
@@ -332,9 +327,7 @@
 (= (ConclusionPriority $EPrio $CPrio $ConcTV) (* (* $EPrio $CPrio) (Truth_Expectation $ConcTV)))
 
 ;making declarative inferences on two events (task from PQ and belief from concept)
-(= (Conclude (Event $S1 ($time1 $ev1 $prio1))
-             (Event $S2 ($time2 $ev2 $prio2))
-	                                       $CPrio $t)
+(= (Conclude (Event $S1 ($time1 $ev1 $prio1)) (Event $S2 ($time2 $ev2 $prio2)) $CPrio $t)
    (let $ConclusionStamp (TupleConcat $ev1 $ev2)
         (If (StampDisjoint $ConclusionStamp)
             (let ($ConcTerm $ConcTV) (superpose ((|- $S1 $S2) (|- $S2 $S1)))
@@ -363,7 +356,7 @@
                                      (BoundAttention 0.0 0.1 (AttentionalFocusConceptsMax) $t)))))
 ;;Temporal inference (sequence and implication formation based on FIFO)
 
-;use the event''s evidence to induce a time-independent belief which can be used in the future
+;use the event's evidence to induce a time-independent belief which can be used in the future
 (= (Eternalize $Ev) (let (Event ($Term $TV) ($Time $Evidence $EPrio)) $Ev
                          (If (== $Time eternal) $Ev
                          (Event ($Term (Truth_Eternalize $TV)) (eternal $Evidence (0 0.0))))))
@@ -372,7 +365,7 @@
 (= (Projection (Event ($Term ($f $c)) ($Time $Evidence $EPrio)) $TargetTime)
    (Event ($Term ($f (* $c (min 1 (/ 1 (abs (- $Time $TargetTime))))))) ($TargetTime $Evidence $EPrio)))
 
-;make the belief occurrence time compatible with the task''s
+;make the belief occurrence time compatible with the task's
 (= (TemporallyAlignedBelief $TaskTime $Belief) (If (== $TaskTime eternal)
                                                    (Eternalize $Belief)
                                                    (Projection $Belief $TaskTime)))
@@ -400,7 +393,7 @@
    (let (Event ($Term1 $Truth1) ($Time1 $Evidence1 $EPrio1)) (Projection $Ev1 $Time2)
         (Event (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)) ($Time2 (TupleConcat $Evidence1 $Evidence2) (0 0.0)))))
 
-;Whether an event''s term is an operation
+;Whether an event's term is an operation
 (= (IsOp (Event ($Term $Truth) $Metadata))
    (case $Term (((^ $Opname) True)
                 ($Otherwise False))))
@@ -422,7 +415,7 @@
         (If (not (== $ObservedCons $PredictedCons))
             (UpdateConcept (Event (($PrecTerm =/> $PredictedCons) (0.0 0.1)) ($t () (0 0.0))) $t))))
 
-;Check if the implication''s preconditions are met to anticipate the by the implication predicted outcome
+;Check if the implication's preconditions are met to anticipate the by the implication predicted outcome
 (= (Anticipate (Cons $Pos Nil) $t))
 (= (Anticipate (Cons $Pos (Cons $Pre Nil)) $t)
    (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)

@@ -1,4 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enhanced Unit Test File in MeTTa Language
 ;;
 ;; This file encompasses a set of tests designed to compare various
@@ -13,12 +13,12 @@
 ;;
 ;;   Below are the comparisons found in this file:
 ;;
-;; 1.  Functional Recursive Factorial:
+;; 1. Functional Recursive Factorial:
 ;;    - A standard recursive approach, showcasing the impact of compilation on
 ;;      performance and efficiency, particularly focusing on stack frame creation
 ;;      for each recursive call.
 ;;
-;; 2.  Functional Tail-Recursive Factorial:
+;; 2. Functional Tail-Recursive Factorial:
 ;;    - Utilizes a tail-recursive approach with a helper function and accumulator,
 ;;      highlighting the memory efficiency in environments supporting tail call optimization.
 ;;

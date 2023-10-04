@@ -86,11 +86,11 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/d1_gadt.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Basic types of grounded symbols
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Basic types of grounded symbols
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,+,[->,'Number','Number','Number']])
 </span><span class="ansi38-255165000">  (: + 
     (-> Number Number Number))
@@ -121,7 +121,7 @@
     (Number)))
 </span>        -->(0,'&self',['get-type',5],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.15 ms.
+; Evaluation took 0.717 ms. (716.50 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (+ 5 7)) Number)
@@ -133,7 +133,7 @@
     (Number)))
 </span>        -->(0,'&self',['get-type',[+,5,7]],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.22 ms.
+; Evaluation took 0.723 ms. (722.60 microseconds) 
 <span class="ansi33"> True
 
 </span>; It works for built-in symbols too
@@ -148,7 +148,7 @@
         <--(0,retval([->,'Number','Number','Number']))
           -->(1,'&self',[->,'Number','Number','Number'],depth(3))
         -->(2,'&self',[->,'Number','Number','Number'],depth(2))
-; Evaluation took 1.83 ms.
+; Evaluation took 1.20 ms.
 <span class="ansi33"> True
 
 </span>; If its argument is a badly typed expression,
@@ -159,9 +159,10 @@
 (@ loonit_failureR 
   (equal_enough  
     (Number) ()))
-</span>        -->(0,'&self',['get-type',[+,5,"4"]],depth(2))
+</span>equal_enough(['Number'],[])
+        -->(0,'&self',['get-type',[+,5,"4"]],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.47 ms.
+; Evaluation took 0.756 ms. (755.60 microseconds) 
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (+ -)) ())
@@ -170,9 +171,10 @@
 (@ loonit_failureR 
   (equal_enough  
     (Number) ()))
-</span>        -->(0,'&self',['get-type',[+,-]],depth(2))
+</span>equal_enough(['Number'],[])
+        -->(0,'&self',['get-type',[+,-]],depth(2))
         <--(0,retval('Number'))
-; Evaluation took 1.77 ms.
+; Evaluation took 1.11 ms.
 <span class="ansi33"> False
 
 </span>; Also works for custom types
@@ -189,7 +191,7 @@
     (Type)))
 </span>        -->(0,'&self',['get-type','Either'],depth(2))
         <--(0,retval('Type'))
-; Evaluation took 1.06 ms.
+; Evaluation took 0.914 ms. (914.00 microseconds) 
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -215,7 +217,7 @@
     (Either)))
 </span>        -->(0,'&self',['get-type',['Left',5]],depth(2))
         <--(0,retval('Either'))
-; Evaluation took 1.22 ms.
+; Evaluation took 0.853 ms. (853.50 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
@@ -244,7 +246,7 @@
     (Bool)))
 </span>        -->(0,'&self',['get-type',[isLeft,['Right',5]]],depth(2))
         <--(0,retval('Bool'))
-; Evaluation took 1.38 ms.
+; Evaluation took 0.969 ms. (969.00 microseconds) 
 <span class="ansi33"> True
 
 </span>; Badly typed expression
@@ -254,9 +256,10 @@
 (@ loonit_failureR 
   (equal_enough  
     (Bool) ()))
-</span>        -->(0,'&self',['get-type',[isLeft,5]],depth(2))
+</span>equal_enough(['Bool'],[])
+        -->(0,'&self',['get-type',[isLeft,5]],depth(2))
         <--(0,retval('Bool'))
-; Evaluation took 1.27 ms.
+; Evaluation took 0.866 ms. (866.10 microseconds) 
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -286,11 +289,12 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (EitherP Number))))
-</span>        -->(0,'&self',['get-type',['LeftP',5]],depth(2))
+</span>equal_enough([],[['EitherP','Number']])
+        -->(0,'&self',['get-type',['LeftP',5]],depth(2))
               -->(1,'&self',['LeftP',5],depth(5))
         <--(0,retval(fail))
         -->(2,'&self',['EitherP','Number'],depth(2))
-; Evaluation took 1.73 ms.
+; Evaluation took 0.934 ms. (934.30 microseconds) 
 <span class="ansi33"> False
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Pair',[->,A,B,'Type']])
@@ -311,7 +315,8 @@
   (equal_enough  () 
     ( (Pair 
         (EitherP Number) String))))
-</span>        -->(0,'&self',['get-type',[pair,['LeftP',5],"String"]],depth(2))
+</span>equal_enough([],[['Pair',['EitherP','Number'],'String']])
+        -->(0,'&self',['get-type',[pair,['LeftP',5],"String"]],depth(2))
                 -->(1,'&self',['LeftP',5],depth(6))
               -->(2,'&self',[pair,['LeftP',5],"String"],depth(5))
                   -->(3,'&self',['LeftP',5],depth(7))
@@ -322,7 +327,7 @@
             -->(7,'&self',['EitherP','Number'],depth(4))
             -->(8,'&self',['EitherP','Number'],depth(4))
             -->(9,'&self',['EitherP','Number'],depth(4))
-; Evaluation took 3.40 ms.
+; Evaluation took 1.87 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -352,13 +357,14 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (List Number))))
-</span>        -->(0,'&self',['get-type',['Cons',5,['Cons',6,[]]]],depth(2))
+</span>equal_enough([],[['List','Number']])
+        -->(0,'&self',['get-type',['Cons',5,['Cons',6,[]]]],depth(2))
                 -->(1,'&self',['Cons',6,[]],depth(6))
               -->(2,'&self',['Cons',5,['Cons',6,[]]],depth(5))
                   -->(3,'&self',['Cons',6,[]],depth(7))
         <--(0,retval(fail))
         -->(4,'&self',['List','Number'],depth(2))
-; Evaluation took 1.90 ms.
+; Evaluation took 1.26 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (Cons 5 (Cons "6" ()))) ())
@@ -371,7 +377,7 @@
               -->(2,'&self',['Cons',5,['Cons',"6",[]]],depth(5))
                   -->(3,'&self',['Cons',"6",[]],depth(7))
         <--(0,retval(fail))
-; Evaluation took 1.63 ms.
+; Evaluation took 1.15 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -384,24 +390,25 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (Number)))
-</span>        -->(0,'&self',[let,['List',_455006],['get-type',['Cons',5,['Cons',6,[]]]],_455006],depth(2))
+</span>equal_enough([],['Number'])
+        -->(0,'&self',[let,['List',_494154],['get-type',['Cons',5,['Cons',6,[]]]],_494154],depth(2))
             -->(1,'&self',['get-type',['Cons',5,['Cons',6,[]]]],depth(4))
                     -->(2,'&self',['Cons',6,[]],depth(8))
                   -->(3,'&self',['Cons',5,['Cons',6,[]]],depth(7))
                       -->(4,'&self',['Cons',6,[]],depth(9))
             <--(1,retval(fail))
         <--(0,retval(fail))
-; Evaluation took 2.24 ms.
+; Evaluation took 1.22 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 267,696 inferences, 0.301 CPU in 0.301 seconds (100% CPU, 889272 Lips)
-</span> (@ = "examples/compat/test_scripts/d1_gadt.metta" 0)
+</span><span class="ansi32">% 275,115 inferences, 0.194 CPU in 0.194 seconds (100% CPU, 1419564 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 7
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d1_gadt.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d1_gadt.html" )
 
 </pre>
 </body>

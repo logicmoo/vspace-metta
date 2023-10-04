@@ -178,12 +178,12 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/common/OrderedSetTest.metta")
-;;; Import OrderedSet
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/OrderedSetTest.metta")
+;; Import OrderedSet
 <span class="ansi38-000068000">!(import! &self OrderedSet.metta)
 
 </span>;; Test elem
-;;; Import modules
+;; Import modules
 <span class="ansi38-000068000">!(import! &self Num.metta)
 
 </span>;; Definition of a set data structure.  Under the hood it is a sorted
@@ -195,7 +195,7 @@
 ;; constructor :: would need to take an additional argument encoding a
 ;; proof that the element to prepend is less than the head of the set
 ;; to be prepended to.
-;;; Collection of functions operating on numbers
+;; Collection of functions operating on numbers
 ;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
 </span><span class="ansi38-255165000">  (: max 
@@ -222,7 +222,7 @@
       (< $X $Y) $X $Y))
 </span>
 
-;; Clamp an number to be within a certain range
+;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
 </span><span class="ansi38-255165000">  (: clamp 
     (-> $A $A $A $A))
@@ -277,7 +277,7 @@
       (== $X $Y)))
 </span>
 
-;; Define approximatively equal
+;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
 </span><span class="ansi38-255165000">  (: approxEq 
     (-> $A $A $A Bool))
@@ -462,7 +462,7 @@
           (S $Y)))))
 </span>
 
-; Evaluation took 255.28 ms.
+; Evaluation took 154.77 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'OrderedSet',[->,A,'Type']])
@@ -535,7 +535,7 @@
           (insert $X $True)))))
 </span>
 
-; Evaluation took 324.29 ms.
+; Evaluation took 194.45 ms.
 <span class="ansi33"> &self
 
 </span>; Recursive case
@@ -552,7 +552,7 @@
     (False)))
 </span>        -->(0,'&self',[elem,1,'â\x88\\x85\'],depth(2))
         <--(0,retval('False'))
-; Evaluation took 1.15 ms.
+; Evaluation took 0.739 ms. (738.90 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 1 â)) True)
@@ -581,7 +581,7 @@
           <--(9,retval('True'))
             <--(7,retval([::,1,'â\x88\\x85\']))
         <--(0,retval([if,[==,1,1],'True',[elem,1,'â\x88\\x85\']]))
-; Evaluation took 3.11 ms.
+; Evaluation took 1.94 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 2 â)) False)
@@ -614,7 +614,7 @@
           <--(10,retval('False'))
             <--(8,retval([::,2,'â\x88\\x85\']))
         <--(0,retval([if,[==,1,2],'True',[elem,1,'â\x88\\x85\']]))
-; Evaluation took 4.01 ms.
+; Evaluation took 2.23 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 1 (insert 2 â))) True)
@@ -669,7 +669,7 @@
             -->(31,'&self',[::,2,'â\x88\\x85\'],depth(4))
             <--(29,retval([::,2,'â\x88\\x85\']))
         <--(0,retval('True'))
-; Evaluation took 8.52 ms.
+; Evaluation took 4.84 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (elem 1 (insert 2 (insert 3 â))) False)
@@ -733,7 +733,7 @@
             -->(36,'&self',[::,3,'â\x88\\x85\'],depth(4))
             <--(34,retval([::,3,'â\x88\\x85\']))
         <--(0,retval('False'))
-; Evaluation took 9.41 ms.
+; Evaluation took 5.37 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (elem 2 (insert 1 (insert 2 (insert 3 â)))) True)
@@ -838,7 +838,7 @@
             -->(72,'&self',[::,3,'â\x88\\x85\'],depth(4))
             <--(70,retval([::,3,'â\x88\\x85\']))
         <--(0,retval('True'))
-; Evaluation took 19.97 ms.
+; Evaluation took 10.27 ms.
 <span class="ansi33"> True
 
 </span>;; Test insert
@@ -853,7 +853,7 @@
           -->(1,'&self',[::,1,'â\x88\\x85\'],depth(3))
         <--(0,retval([::,1,'â\x88\\x85\']))
         -->(2,'&self',[::,1,'â\x88\\x85\'],depth(2))
-; Evaluation took 1.54 ms.
+; Evaluation took 0.945 ms. (944.70 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 2 (insert 1 â)) (:: 1 (:: 2 â)))
@@ -954,7 +954,7 @@
             -->(66,'&self',[::,2,'â\x88\\x85\'],depth(4))
             -->(67,'&self',[::,2,'â\x88\\x85\'],depth(4))
             -->(68,'&self',[::,2,'â\x88\\x85\'],depth(4))
-; Evaluation took 15.41 ms.
+; Evaluation took 9.43 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 â))) (:: 1 (:: 2 (:: 3 â))))
@@ -1075,7 +1075,7 @@
                   -->(98,'&self',[::,3,'â\x88\\x85\'],depth(7))
                   -->(99,'&self',[::,3,'â\x88\\x85\'],depth(7))
                   -->(100,'&self',[::,3,'â\x88\\x85\'],depth(7))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 38.38 ms.
+Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluation took 25.15 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert 2 (insert 3 (insert 2 (insert 1 â)))) (:: 1 (:: 2 (:: 3 â))))
@@ -1197,7 +1197,7 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation to
                   <--(98,retval('False'))
                   -->(99,'&self',[if,['â©»',2,1],[::,2,[::,1,[::,2,[::,3,'â\x88\\x85\']]]],[::,1,[insert,2,[::,2,[::,3,'â\x88\\x85\']]]]],depth(7))
                       -->(100,'&self',['â©»',2,1],depth(9))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 65.28 ms.
+Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluation took 43.11 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z â)))) (:: Z (:: (S Z) (:: (S (S Z)) â))))
@@ -1269,7 +1269,8 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation to
           (:: 
             (S 
               (S Z)) â))))))
-</span>        -->(0,'&self',[insert,['S','Z'],[insert,['S',['S','Z']],[insert,['S','Z'],[insert,'Z','â\x88\\x85\']]]],depth(2))
+</span>equal_enough([[::,'Z',[::,['S','Z'],[::,['S',['S','Z']],'â\x88\\x85\']]],[::,'Z',[::,['S','Z'],[::,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']]]],[::,['S','Z'],[::,'Z',[::,['S','Z'],[::,['S',['S','Z']],'â\x88\\x85\']]]],[::,['S','Z'],[::,'Z',[::,['S',['S','Z']],'â\x88\\x85\']]],[::,['S','Z'],[::,'Z',[::,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']]]],[::,['S','Z'],[::,['S',['S','Z']],[::,'Z','â\x88\\x85\']]],[::,['S','Z'],[::,['S',['S','Z']],[::,'Z',[::,['S','Z'],'â\x88\\x85\']]]],[::,['S','Z'],[::,['S',['S','Z']],[::,['S','Z'],[::,'Z','â\x88\\x85\']]]]],[[::,'Z',[::,['S','Z'],[::,['S',['S','Z']],'â\x88\\x85\']]]])
+        -->(0,'&self',[insert,['S','Z'],[insert,['S',['S','Z']],[insert,['S','Z'],[insert,'Z','â\x88\\x85\']]]],depth(2))
             -->(1,'&self',['S','Z'],depth(4))
             -->(2,'&self',[insert,['S',['S','Z']],[insert,['S','Z'],[insert,'Z','â\x88\\x85\']]],depth(4))
                 -->(3,'&self',['S','Z'],depth(6))
@@ -1373,17 +1374,17 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation to
                                           -->(98,'&self',['S','Z'],depth(19))
                                           -->(99,'&self',[::,['S',['S','Z']],'â\x88\\x85\'],depth(19))
                                               -->(100,'&self',['S','Z'],depth(21))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 315.11 ms.
+Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluation took 213.30 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 2,613,507 inferences, 0.872 CPU in 0.872 seconds (100% CPU, 2998105 Lips)
-</span> (@ = "examples/compat/common/OrderedSetTest.metta" 0)
+</span><span class="ansi32">% 2,833,105 inferences, 0.550 CPU in 0.550 seconds (100% CPU, 5151530 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/OrderedSetTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 10
 </span><span class="ansi31">Failures: 1
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/common/OrderedSetTest.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/OrderedSetTest.html" )
 
 </pre>
 </body>

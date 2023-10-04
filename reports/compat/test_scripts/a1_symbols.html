@@ -61,14 +61,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/a1_symbols.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; `match` searches for all expressions corresponding to
-;; the given pattern and produces the output pattern.
-;; It doesn''t search in subexpressions.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Some expressions to be matched
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; `match` searches for all expressions corresponding to
+; the given pattern and produces the output pattern.
+; It doesn''t search in subexpressions.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Some expressions to be matched
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[[leaf1,leaf2],leaf3])
 </span><span class="ansi38-255165000">  ( (leaf1 leaf2) leaf3)
 </span>
@@ -96,10 +96,10 @@
       (leaf0 leaf1)) 
     (leaf1 
       (leaf0 leaf1))))
-</span>        -->(0,'&self',[match,'&self',[[_199334,leaf2],leaf3],_199334],depth(2))
+</span>        -->(0,'&self',[match,'&self',[[_248012,leaf2],leaf3],_248012],depth(2))
           -->(1,'&self',[leaf0,leaf1],depth(3))
         <--(0,retval([leaf0,leaf1]))
-; Evaluation took 1.49 ms.
+; Evaluation took 1.05 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -128,14 +128,14 @@
       (Sophia the robot) 
       (Tom the cat)) 
     ( (Sam the frog) 
-      (Sophia the robot) 
-      (Tom the cat))))
-</span>        -->(0,'&self',[match,'&self',[_296054,is,a,_296072],[_296054,the,_296072]],depth(2))
+      (Tom the cat) 
+      (Sophia the robot))))
+</span>        -->(0,'&self',[match,'&self',[_344308,is,a,_344326],[_344308,the,_344326]],depth(2))
           -->(1,'&self',['Sam',the,frog],depth(3))
           -->(2,'&self',['Tom',the,cat],depth(3))
           -->(3,'&self',['Sophia',the,robot],depth(3))
         <--(0,retval(['Sophia',the,robot]))
-; Evaluation took 2.41 ms.
+; Evaluation took 1.61 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -165,10 +165,10 @@
   (equal_enough  
     ( (Sam is really green)) 
     ( (Sam is really green))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Green',_376800],'True'],[_376800,is,really,green]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Green',_424344],'True'],[_424344,is,really,green]],depth(2))
           -->(1,'&self',['Sam',is,really,green],depth(3))
         <--(0,retval(['Sam',is,really,green]))
-; Evaluation took 1.68 ms.
+; Evaluation took 1.70 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
@@ -180,11 +180,11 @@
       (Tom is really White)) 
     ( (Sam is really Green) 
       (Tom is really White))))
-</span>        -->(0,'&self',[match,'&self',[:=,[_420216,_420222],'True'],[_420222,is,really,_420216]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,[_467316,_467322],'True'],[_467322,is,really,_467316]],depth(2))
           -->(1,'&self',['Sam',is,really,'Green'],depth(3))
           -->(2,'&self',['Tom',is,really,'White'],depth(3))
         <--(0,retval(['Tom',is,really,'White']))
-; Evaluation took 2.06 ms.
+; Evaluation took 2.10 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) $Tv) (It (quote s) $Tv that $Who is $Color)) ((It (quote s) True that Sam is Green) (It (quote s) True that Tom is White) (It (quote s) False that Tom is Green)))
@@ -199,12 +199,12 @@
       (It 
         (quote s) True that Tom is White)) 
     ( (It 
-        (quote s) False that Tom is Green) 
-      (It 
         (quote s) True that Sam is Green) 
       (It 
-        (quote s) True that Tom is White))))
-</span>        -->(0,'&self',[match,'&self',[:=,[_474204,_474210],_474216],['It',[quote,s],_474216,that,_474210,is,_474204]],depth(2))
+        (quote s) True that Tom is White) 
+      (It 
+        (quote s) False that Tom is Green))))
+</span>        -->(0,'&self',[match,'&self',[:=,[_2848,_2854],_2860],['It',[quote,s],_2860,that,_2854,is,_2848]],depth(2))
           -->(1,'&self',['It',[quote,s],'True',that,'Sam',is,'Green'],depth(3))
               -->(2,'&self',[quote,s],depth(5))
               -->(3,'&self',[quote,s],depth(5))
@@ -218,7 +218,7 @@
               -->(11,'&self',[quote,s],depth(5))
               -->(12,'&self',[quote,s],depth(5))
         <--(0,retval(['It',[quote,s],'False',that,'Tom',is,'Green']))
-; Evaluation took 4.89 ms.
+; Evaluation took 5.84 ms.
 <span class="ansi33"> True
 
 </span>; This type of query works as a sort of evaluation/reduction
@@ -229,9 +229,9 @@
   (equal_enough  
     (False) 
     (False)))
-</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_10168],_10168],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_55238],_55238],depth(2))
         <--(0,retval('False'))
-; Evaluation took 0.999 ms. (999.30 microseconds) 
+; Evaluation took 0.858 ms. (858.30 microseconds) 
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -256,20 +256,20 @@
 (@ loonit_success 
   (equal_enough  
     (blue green red) 
-    (blue green red)))
-</span>        -->(0,'&self',[match,'&self',[isa,_55512,color],_55512],depth(2))
+    (red green blue)))
+</span>        -->(0,'&self',[match,'&self',[isa,_100258,color],_100258],depth(2))
         <--(0,retval(blue))
-; Evaluation took 1.14 ms.
+; Evaluation took 0.892 ms. (892.10 microseconds) 
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 200,848 inferences, 0.172 CPU in 0.172 seconds (100% CPU, 1164814 Lips)
-</span> (@ = "examples/compat/test_scripts/a1_symbols.metta" 0)
+</span><span class="ansi32">% 208,850 inferences, 0.133 CPU in 0.133 seconds (100% CPU, 1571077 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
 </span><span class="ansi31">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a1_symbols.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.html" )
 
 </pre>
 </body>

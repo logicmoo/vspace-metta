@@ -64,13 +64,13 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/c1_grounded_basic.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; The standard library contains a few basic grounded operations
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Implementation of grounded arithmetics may change location,
-;; but these examples should work
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; The standard library contains a few basic grounded operations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Implementation of grounded arithmetics may change location,
+; but these examples should work
 <span class="ansi38-000068000">!(assertEqualToResult (+ 2 (* 3 5.5)) (18.5))
 
 </span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.01">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.01</h3><span class="ansi36">
@@ -88,7 +88,7 @@
             -->(4,'&self',[*,3,5.5],depth(4))
             <--(4,retval(16.5))
         <--(0,retval(18.5))
-; Evaluation took 2.47 ms.
+; Evaluation took 2.27 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (- 8 (/ 4 6.4)) (7.375))
@@ -108,7 +108,7 @@
             -->(4,'&self',[/,4,6.4],depth(4))
             <--(4,retval(0.625))
         <--(0,retval(7.375))
-; Evaluation took 2.61 ms.
+; Evaluation took 1.52 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (% 21 17) (4))
@@ -120,7 +120,7 @@
     (4)))
 </span>        -->(0,'&self',['%',21,17],depth(2))
         <--(0,retval(4))
-; Evaluation took 1.76 ms.
+; Evaluation took 0.796 ms. (796.30 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (< 4 (+ 2 (* 3 5))) (True))
@@ -146,7 +146,7 @@
                 <--(7,retval(15))
             <--(6,retval(17))
         <--(0,retval('True'))
-; Evaluation took 3.04 ms.
+; Evaluation took 1.96 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (and (> 4 2) (< 4 3)) (False))
@@ -172,7 +172,7 @@
             -->(7,'&self',[<,4,3],depth(4))
             <--(7,retval('False'))
         <--(0,retval('False'))
-; Evaluation took 3.75 ms.
+; Evaluation took 1.84 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -197,7 +197,7 @@
             -->(4,'&self',[+,2,2],depth(4))
             <--(4,retval(4))
         <--(0,retval([ln,4]))
-; Evaluation took 2.44 ms.
+; Evaluation took 1.42 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -219,7 +219,7 @@
             -->(1,'&self',[+,ln,2],depth(4))
             -->(2,'&self',[+,ln,2],depth(4))
             -->(3,'&self',[+,ln,2],depth(4))
-; Evaluation took 3.93 ms.
+; Evaluation took 2.30 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -233,13 +233,13 @@
 (@ loonit_success 
   (equal_enough  
     ( (> 4 
-        (+ $_252576 2))) 
+        (+ $_303244 2))) 
     ( (> 4 
-        (+ $_247026 2)))))
-</span>        -->(0,'&self',[>,4,[+,_249082,2]],depth(2))
-            -->(1,'&self',[+,_249082,2],depth(4))
-            -->(2,'&self',[+,_249082,2],depth(4))
-; Evaluation took 3.24 ms.
+        (+ $_297812 2)))))
+</span>        -->(0,'&self',[>,4,[+,_299840,2]],depth(2))
+            -->(1,'&self',[+,_299840,2],depth(4))
+            -->(2,'&self',[+,_299840,2],depth(4))
+; Evaluation took 1.58 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -262,7 +262,7 @@
             -->(3,'&self',[+,2,2],depth(4))
             <--(3,retval(4))
         <--(0,retval('True'))
-; Evaluation took 3.05 ms.
+; Evaluation took 1.47 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 2 3) (False))
@@ -274,7 +274,7 @@
     (False)))
 </span>        -->(0,'&self',[==,2,3],depth(2))
         <--(0,retval('False'))
-; Evaluation took 1.48 ms.
+; Evaluation took 0.817 ms. (816.60 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A B)) (True))
@@ -289,7 +289,7 @@
             -->(2,'&self',['A','B'],depth(4))
             -->(3,'&self',['A','B'],depth(4))
         <--(0,retval('True'))
-; Evaluation took 2.67 ms.
+; Evaluation took 1.26 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== (A B) (A (B C))) (False))
@@ -307,7 +307,7 @@
                 -->(5,'&self',['B','C'],depth(6))
                 -->(6,'&self',['B','C'],depth(6))
         <--(0,retval('False'))
-; Evaluation took 3.09 ms.
+; Evaluation took 1.61 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -326,7 +326,7 @@
             -->(1,'&self',[+,ln,2],depth(4))
             -->(2,'&self',[+,ln,2],depth(4))
         <--(0,retval('False'))
-; Evaluation took 2.69 ms.
+; Evaluation took 1.38 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -343,8 +343,9 @@
   (equal_enough  
     ( (+ 2 "String")) 
     ( (Error "String" BadType))))
-</span>        -->(0,'&self',[+,2,"String"],depth(2))
-; Evaluation took 2.53 ms.
+</span>equal_enough([[+,2,"String"]],[['Error',"String",'BadType']])
+        -->(0,'&self',[+,2,"String"],depth(2))
+; Evaluation took 0.947 ms. (947.20 microseconds) 
 <span class="ansi33"> False
 
 </span>; Custom symbols as arguments of grounded operations
@@ -361,11 +362,12 @@
   (equal_enough  
     (False) 
     ( (Error ln BadType))))
-</span>        -->(0,'&self',[==,4,[+,ln,2]],depth(2))
+</span>equal_enough(['False'],[['Error',ln,'BadType']])
+        -->(0,'&self',[==,4,[+,ln,2]],depth(2))
             -->(1,'&self',[+,ln,2],depth(4))
             -->(2,'&self',[+,ln,2],depth(4))
         <--(0,retval('False'))
-; Evaluation took 2.64 ms.
+; Evaluation took 2.61 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -389,7 +391,7 @@
           -->(1,'&self',[*,4,4],depth(3))
           <--(1,retval(16))
         <--(0,retval([*,4,4]))
-; Evaluation took 2.14 ms.
+; Evaluation took 0.976 ms. (976.20 microseconds) 
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -402,22 +404,79 @@
 </span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.17">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.17</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    (2 3 4) 
-    (2 3 4)))
-</span>        -->(0,'&self',[+,[superpose,[1,2,3]],1],depth(2))
-            -->(1,'&self',[+,1,1],depth(4))
-            <--(1,retval(2))
-            -->(2,'&self',[+,2,1],depth(4))
-            <--(2,retval(3))
-            -->(3,'&self',[+,3,1],depth(4))
-            <--(3,retval(4))
-        <--(0,retval(4))
-        -->(4,'&self',[superpose,[2,3,4]],depth(2))
-        <--(4,retval(4))
-; Evaluation took 2.83 ms.
+    (2) 
+    (2)))
+</span>            -->(0,'&self',[+,1,1],depth(4))
+            <--(0,retval(2))
+; Evaluation took 0.932 ms. (931.90 microseconds) 
 <span class="ansi33"> True
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[bin],0)
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.18">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.18</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (2) 
+    (3)))
+</span>equal_enough([2],[3])
+            -->(0,'&self',[+,1,1],depth(4))
+            <--(0,retval(2))
+; Evaluation took 1.79 ms.
+<span class="ansi33"> False
+
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.19">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.19</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (2) 
+    (4)))
+</span>equal_enough([2],[4])
+            -->(0,'&self',[+,1,1],depth(4))
+            <--(0,retval(2))
+<h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.20">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.20</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (3) 
+    (2)))
+</span>equal_enough([3],[2])
+            -->(0,'&self',[+,2,1],depth(4))
+            <--(0,retval(3))
+<h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.21">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.21</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (3) 
+    (3)))
+</span>            -->(0,'&self',[+,2,1],depth(4))
+            <--(0,retval(3))
+<h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.22">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.22</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (3) 
+    (4)))
+</span>equal_enough([3],[4])
+            -->(0,'&self',[+,2,1],depth(4))
+            <--(0,retval(3))
+<h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.23">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.23</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (4) 
+    (2)))
+</span>equal_enough([4],[2])
+            -->(0,'&self',[+,3,1],depth(4))
+            <--(0,retval(4))
+<h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.24">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.24</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (4) 
+    (3)))
+</span>equal_enough([4],[3])
+            -->(0,'&self',[+,3,1],depth(4))
+            <--(0,retval(4))
+<h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.25">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.25</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (4) 
+    (4)))
+</span>            -->(0,'&self',[+,3,1],depth(4))
+            <--(0,retval(4))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[bin],0)
 </span><span class="ansi38-255165000">  (= 
     (bin) 0)
 </span>
@@ -429,19 +488,19 @@
 
 <span class="ansi38-000068000">!(assertEqualToResult (bin) (0 1))
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.18">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.18</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.26">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.26</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (0 1) 
     (0 1)))
 </span>        -->(0,'&self',[bin],depth(2))
         <--(0,retval(1))
-; Evaluation took 1.78 ms.
+; Evaluation took 0.758 ms. (757.90 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (+ 1 (bin)) (1 2))
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.19">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.19</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.27">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.27</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (1 2) 
@@ -457,24 +516,24 @@
             <--(2,retval(1))
             -->(5,'&self',[bin],depth(4))
             <--(5,retval(0))
-        <--(0,retval(2))
-; Evaluation took 3.93 ms.
+        <--(0,retval(1))
+; Evaluation took 1.66 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (let $X (+ 2 3) (* $X $X)) (25))
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.20">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.20</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.28">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.28</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (25) 
     (25)))
-</span>        -->(0,'&self',[let,_483290,[+,2,3],[*,_483290,_483290]],depth(2))
+</span>        -->(0,'&self',[let,_63942,[+,2,3],[*,_63942,_63942]],depth(2))
             -->(1,'&self',[+,2,3],depth(4))
             -->(2,'&self',[*,5,5],depth(4))
             <--(2,retval(25))
             <--(1,retval(5))
         <--(0,retval(25))
-; Evaluation took 1.93 ms.
+; Evaluation took 1.66 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -493,7 +552,7 @@
 
 <span class="ansi38-000068000">!(assertEqual (fact 5) 120)
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.21">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.21</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.29">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.29</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (120) 
@@ -673,7 +732,7 @@
                                                                           -->(98,'&self',[*,[fact,0],1],depth(35))
                                                                               -->(99,'&self',[fact,0],depth(37))
                                                                                 -->(100,'&self',[if,[==,0,0],1,[*,[fact,[-,0,1]],0]],depth(38))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 34.12 ms.
+Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluation took 34.31 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -718,17 +777,18 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation to
 ; (`nop` is a grounded function that consumes its arguments and returns nothing)
 <span class="ansi38-000068000">!(assertEqualToResult (let $True (gen 3) (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $True) 8) $True (nop))) ((:: 1 (:: 0 (:: 1 nil)))))
 
-</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.22">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.22</h3><span class="ansi31">
+</span><h3 id="TEST-SCRIPTS.C1-GROUNDED-BASIC.30">;; TEST-SCRIPTS.C1-GROUNDED-BASIC.30</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
-    ($_492842 $_492848 $_492914 $_492920 $_492926 $_492932 $_492938 
+    ($_72424 $_72430 $_72496 $_72502 $_72508 $_72514 $_72520 
       (:: 1 
         (:: 0 
           (:: 1 nil)))) 
     ( (:: 1 
         (:: 0 
           (:: 1 nil))))))
-</span>        -->(0,'&self',[let,_3992,[gen,3],[if,[==,[subsum,[::,3,[::,7,[::,5,nil]]],_3992],8],_3992,[nop]]],depth(2))
+</span>equal_enough([_72424,_72430,_72496,_72502,_72508,_72514,_72520,[::,1,[::,0,[::,1,nil]]]],[[::,1,[::,0,[::,1,nil]]]])
+        -->(0,'&self',[let,_2284,[gen,3],[if,[==,[subsum,[::,3,[::,7,[::,5,nil]]],_2284],8],_2284,[nop]]],depth(2))
             -->(1,'&self',[gen,3],depth(4))
               -->(2,'&self',[if,[>,3,0],[::,[bin],[gen,[-,3,1]]],nil],depth(5))
                   -->(3,'&self',[>,3,0],depth(7))
@@ -834,17 +894,17 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation to
                         -->(98,'&self',[::,0,nil],depth(10))
                     -->(99,'&self',[::,0,[::,0,nil]],depth(8))
                         -->(100,'&self',[::,0,nil],depth(10))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 200.48 ms.
+Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluation took 124.84 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 1,537,765 inferences, 1.182 CPU in 1.182 seconds (100% CPU, 1300741 Lips)
-</span> (@ = "examples/compat/test_scripts/c1_grounded_basic.metta" 0)
+</span><span class="ansi32">% 1,652,958 inferences, 0.736 CPU in 0.736 seconds (100% CPU, 2245515 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 19
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 21
+</span><span class="ansi31">Failures: 7
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/c1_grounded_basic.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c1_grounded_basic.html" )
 
 </pre>
 </body>

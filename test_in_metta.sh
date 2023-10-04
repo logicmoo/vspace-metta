@@ -4,16 +4,13 @@
 #set -e
 
 # One-liner to check if the script is being sourced or run
-IS_SOURCED=$( [[ "${BASH_SOURCE[0]}" != "${0}" ]] && echo 1 || echo 0)
+export IS_SOURCED=$( [[ "${BASH_SOURCE[0]}" != "${0}" ]] && echo 1 || echo 0)
 
 export RUST_BACKTRACE=full
 export PYTHONPATH=./metta_vspace
 
 # Save the directory where this script resides
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# Define maximum execution time in seconds
-MAX_TIME=10
+export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 export UNITS_DIR="${1:-examples/}"
 
@@ -22,48 +19,79 @@ function delete_html_files() {
     find "${UNITS_DIR}" -name "*.html" -type f -delete
 }
 
+export MAX_TIME=10
+export METTA_MAX_TIME=120
+
 function run_tests() {
 
     #delete_html_files
     #rsync -avm --include='*.html' -f 'hide,! */' reports/ examples/
 
+    # Initial setup
     cd "$SCRIPT_DIR"
+    #find -name "*.answers" -size 0 -delete
     cat /dev/null > TEE.ansi.UNITS
 
-    mapfile -t files < <(grep -rl 'assertEq' "${UNITS_DIR}" --include="*.metta")
+    # Get files
+    mapfile -t assert_files < <(grep -rl 'assert' "${UNITS_DIR}" --include="*.metta")
+    mapfile -t test_files < <(find "${UNITS_DIR}" -type f -iname "*test*.metta")
 
+    # Filtering test_files
+    for afile in "${assert_files[@]}"; do
+        test_files=("${test_files[@]/$afile}")
+    done
 
-   # Define a temporary array
-   temp_array=()
+    # Shared logic across both file types
+    process_file() {
+        local file=$1
 
-   # Loop through the original array and prepend each element to the temporary array
-   for file in "${files[@]}"; do
-       temp_array=("$file" "${temp_array[@]}")
-   done
-
-   # Set the original array with the reversed array
-   files=("${temp_array[@]}")
-
-    echo "FILES=${files[@]}"
-
-    for file in "${files[@]}"; do
         cd "$SCRIPT_DIR"
+        echo ""
 
-        TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false --html \"$file\""
-
+        local TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false --html \"$file\" --halt=true"
         echo "Running command: $TEST_CMD"
 
         set +e
-        $TEST_CMD
-        #set -e
+        time $TEST_CMD
+        local TEST_EXIT_CODE=$?
+        set -e
+        echo ""
 
-        if [ $? -eq 124 ]; then
-            echo "Killed after $MAX_TIME seconds: ${TEST_CMD}"
+        if [ $TEST_EXIT_CODE -eq 0 ]; then
+            echo "Killed possibly due to timeout (EXITCODE=0) after $MAX_TIME seconds: ${TEST_CMD}"
+        elif [ $TEST_EXIT_CODE -eq 124 ]; then
+            echo "Killed (definitely due to timeout) after $MAX_TIME seconds: ${TEST_CMD}"
         else
-            echo "Completed under $MAX_TIME seconds: ${TEST_CMD}"
+            echo "Completed (EXITCODE=$TEST_EXIT_CODE) under $MAX_TIME seconds: ${TEST_CMD}"
         fi
+    }
+
+    # Process assert_files
+    for file in "${assert_files[@]}"; do
+       echo ""
+       echo ""
+       echo "Testing:  $file"
+       [ -f "${file}" ] && process_file "$file"
     done
+
+    # Process test_files
+    for file in "${test_files[@]}"; do
+
+       echo ""
+       echo ""
+       echo "Testing:  $file"
+
+        if [ ! -f "${file}.answers" ]; then
+            set +e
+            timeout --foreground $METTA_MAX_TIME time metta "$file" 2>&1 | tee "${file}.answers"
+            set -e
+            echo ""
+        fi
+        [ -f "${file}" ] && process_file "$file"
+    done
+
 }
+
 
 
 function generate_final_MeTTaLog() {

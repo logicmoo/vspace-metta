@@ -41,15 +41,15 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b0_chaining_prelim.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; From matching to evaluation of expressions via equality queries chaining
-;; It's possible to chain together matching queries
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Some knowledge base entries
-;; `:=` is a custom symbol
-;; Combinatory logic rules
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; From matching to evaluation of expressions via equality queries chaining
+; It's possible to chain together matching queries
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Some knowledge base entries
+; `:=` is a custom symbol
+; Combinatory logic rules
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['I',X],X])
 </span><span class="ansi38-255165000">  (:= 
     (I $X) $X)
@@ -82,13 +82,13 @@
         (K x))) 
     ( (K x 
         (K x)))))
-</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_195258],_195258],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_243948],_243948],depth(2))
           -->(1,'&self',['K',x,['K',x]],depth(3))
               -->(2,'&self',['K',x],depth(5))
               -->(3,'&self',['K',x],depth(5))
               -->(4,'&self',['K',x],depth(5))
         <--(0,retval(['K',x,['K',x]]))
-; Evaluation took 2.22 ms.
+; Evaluation took 1.66 ms.
 <span class="ansi33"> True
 
 </span>; A second matching step; the result of the previous
@@ -100,9 +100,9 @@
   (equal_enough  
     (x) 
     (x)))
-</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_237474],_237474],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_285510],_285510],depth(2))
         <--(0,retval(x))
-; Evaluation took 1.14 ms.
+; Evaluation took 0.796 ms. (796.00 microseconds) 
 <span class="ansi33"> True
 
 </span>; Combined reduction via matching in two steps
@@ -113,11 +113,11 @@
   (equal_enough  
     (x) 
     (x)))
-</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_278792],[match,'&self',[:=,_278792,_278834],_278834]],depth(2))
-          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_278834],_278834],depth(3))
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_326506],[match,'&self',[:=,_326506,_326548],_326548]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_326548],_326548],depth(3))
           <--(1,retval(x))
-        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_285528],_285528]))
-; Evaluation took 1.25 ms.
+        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_333106],_333106]))
+; Evaluation took 1.04 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -149,7 +149,7 @@
     ( (Add 
         (S 
           (S Z)) Z))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_335216],_335216],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_382474],_382474],depth(2))
           -->(1,'&self',['Add',['S',['S','Z']],'Z'],depth(3))
               -->(2,'&self',['S','Z'],depth(5))
               -->(3,'&self',['S',['S','Z']],depth(5))
@@ -161,7 +161,7 @@
                   -->(9,'&self',['S','Z'],depth(7))
                   -->(10,'&self',['S','Z'],depth(7))
         <--(0,retval(['Add',['S',['S','Z']],'Z']))
-; Evaluation took 3.12 ms.
+; Evaluation took 2.31 ms.
 <span class="ansi33"> True
 
 </span>; Two steps together
@@ -174,25 +174,25 @@
         (S Z))) 
     ( (S 
         (S Z)))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_382048],[match,'&self',[:=,_382048,_382090],_382090]],depth(2))
-          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_382090],_382090],depth(3))
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_428208],[match,'&self',[:=,_428208,_428250],_428250]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_428250],_428250],depth(3))
             -->(2,'&self',['S',['S','Z']],depth(4))
                 -->(3,'&self',['S','Z'],depth(6))
                 -->(4,'&self',['S','Z'],depth(6))
                 -->(5,'&self',['S','Z'],depth(6))
           <--(1,retval(['S',['S','Z']]))
-        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_390900],_390900]))
-; Evaluation took 2.30 ms.
+        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_436912],_436912]))
+; Evaluation took 1.57 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 135,303 inferences, 0.080 CPU in 0.080 seconds (100% CPU, 1693105 Lips)
-</span> (@ = "examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
+</span><span class="ansi32">% 143,263 inferences, 0.055 CPU in 0.055 seconds (100% CPU, 2619839 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi31">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b0_chaining_prelim.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.html" )
 
 </pre>
 </body>

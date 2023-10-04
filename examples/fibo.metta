@@ -1,7 +1,14 @@
 ;!(extend-py! metta_learner)
 
+
 ; these examples actually need the compiler!
 !(pragma! compile full)
+
+!(pragma! trace-on-pass False)
+!(pragma! trace-on-fail True)
+!(pragma! trace-on-overflow True)
+!(pragma! trace-on-error True)
+!(pragma! trace-length 2)
 
 ; Recursive Fibonacci
 (= (fib 0) 0)

@@ -1,6 +1,7 @@
 ;; probes whether functions can be executed in reverse. This involves inferring the
 ;; input values from given output values through inverse operations or pattern matching,
 ;; a feature that can enhance the flexibility and capability of our system.
+
 !(pragma! compile full)
 !(pragma! table false)
 
