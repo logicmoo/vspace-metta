@@ -115,26 +115,25 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta")
-; NOTE: this behavior can change in the future
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Even at the very beginning of the main script `(get-atoms &self)`
-; returns one atom, which wraps the space of stdlib.
-; The type of this atom is the same as of `&self`
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "examples/compat/test_scripts/f1_imports.metta")
+;; NOTE: this behavior can change in the future
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Even at the very beginning of the main script `(get-atoms &self)`
+;; returns one atom, which wraps the space of stdlib.
+;; The type of this atom is the same as of `&self`
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual ((let $X (get-atoms &self) (get-type $X))) ((get-type &self)))
 
 </span><h3 id="TEST-SCRIPTS.F1-IMPORTS.01">;; TEST-SCRIPTS.F1-IMPORTS.01</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
-    ( ( (let $_207380 
+    ( ( (let $_158698 
           (get-atoms &self) 
-          (get-type $_207380)))) 
+          (get-type $_158698)))) 
     ( (Symbol))))
-</span>equal_enough([[[let,_207380,['get-atoms','&self'],['get-type',_207380]]]],[['Symbol']])
-        -->(0,'&self',[[let,_206754,['get-atoms','&self'],['get-type',_206754]]],depth(2))
-            -->(1,'&self',[let,_206754,['get-atoms','&self'],['get-type',_206754]],depth(4))
+</span>        -->(0,'&self',[[let,_158072,['get-atoms','&self'],['get-type',_158072]]],depth(2))
+            -->(1,'&self',[let,_158072,['get-atoms','&self'],['get-type',_158072]],depth(4))
                 -->(2,'&self',['get-atoms','&self'],depth(6))
                 <--(2,retval([]))
                 -->(3,'&self',['get-type',[]],depth(6))
@@ -145,7 +144,7 @@
             <--(5,retval('Symbol'))
         <--(4,retval(['Symbol']))
           -->(6,'&self',['Symbol'],depth(3))
-; Evaluation took 1.69 ms.
+; Evaluation took 2.55 ms.
 <span class="ansi33"> False
 
 </span>; stdlib is already loaded
@@ -160,7 +159,7 @@
             -->(1,'&self',[>,1,2],depth(4))
             <--(1,retval('False'))
         <--(0,retval(2))
-; Evaluation took 0.975 ms. (974.90 microseconds) 
+; Evaluation took 1.19 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -170,20 +169,20 @@
 <span class="ansi38-000068000">!(import! &m f1_moduleA.metta)
 
 </span>; It''s first atom is a space
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
 
 </span>; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&m',[:,'__g',[->,'Number']])
 </span><span class="ansi38-255165000">  (: __g 
     (-> Number))
@@ -206,7 +205,7 @@
       (__g)))
 </span>
 
-; Evaluation took 3.07 ms.
+; Evaluation took 4.87 ms.
 <span class="ansi33"> &m
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
@@ -218,7 +217,7 @@
     (3)))
 </span>        -->(0,'&m',[+,1,2],depth(2))
         <--(0,retval(3))
-; Evaluation took 0.929 ms. (928.70 microseconds) 
+; Evaluation took 1.36 ms.
 <span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
@@ -246,7 +245,7 @@
         (+ 1 $X))))
 </span>
 
-; Evaluation took 16.39 ms.
+; Evaluation took 21.81 ms.
 <span class="ansi33"> &m
 
 </span><span class="ansi38-000068000">!(assertEqual (let* (($X (collapse (get-atoms &m))) ($Y (car-atom $X))) (get-type $Y)) (get-type &self))
@@ -255,21 +254,24 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (Symbol)))
-</span>equal_enough([],['Symbol'])
-          -->(0,'&self',['let*',[[_516490,[[]]],[_516502,['car-atom',_516490]]],['get-type',_516502]],depth(3))
-              -->(1,'&self',[[]],depth(5))
-              -->(2,'&self',['let*',[[_516502,['car-atom',[[]]]]],['get-type',_516502]],depth(5))
-                  -->(3,'&self',['car-atom',[[]]],depth(7))
-                  <--(3,retval([]))
-                  -->(4,'&self',['let*',[],['get-type',[]]],depth(7))
-                      -->(5,'&self',['get-type',[]],depth(9))
-                      <--(5,retval(fail))
-                  <--(4,retval(fail))
-              <--(2,retval(fail))
-          <--(0,retval(fail))
-          -->(6,'&self',['get-type','&self'],depth(3))
-          <--(6,retval('Symbol'))
-; Evaluation took 1.97 ms.
+</span>        -->(0,'&self',['let*',[[_469258,[collapse,['get-atoms','&m']]],[_469270,['car-atom',_469258]]],['get-type',_469270]],depth(2))
+            -->(1,'&self',['get-atoms','&m'],depth(4))
+            <--(1,retval([]))
+            -->(2,'&self',['let*',[[_469258,[[]]],[_469270,['car-atom',_469258]]],['get-type',_469270]],depth(4))
+                -->(3,'&self',[[]],depth(6))
+                -->(4,'&self',['let*',[[_469270,['car-atom',[[]]]]],['get-type',_469270]],depth(6))
+                    -->(5,'&self',['car-atom',[[]]],depth(8))
+                    <--(5,retval([]))
+                    -->(6,'&self',['let*',[],['get-type',[]]],depth(8))
+                        -->(7,'&self',['get-type',[]],depth(10))
+                        <--(7,retval(fail))
+                    <--(6,retval(fail))
+                <--(4,retval(fail))
+            <--(2,retval(fail))
+        <--(0,retval(fail))
+        -->(8,'&self',['get-type','&self'],depth(2))
+        <--(8,retval('Symbol'))
+; Evaluation took 2.70 ms.
 <span class="ansi33"> False
 
 </span>; FIXME? Now, it is moduleC space.
@@ -291,7 +293,7 @@
   (equal_enough  
     ( (g 3)) 
     ( (g 3))))
-</span>        -->(0,'&self',[match,'&m',[=,[f,2],_50422],_50422],depth(2))
+</span>        -->(0,'&self',[match,'&m',[=,[f,2],_4750],_4750],depth(2))
         <--(0,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
           -->(1,'&self',[if,[<,2,0],[-,0,2],[g,[+,1,2]]],depth(3))
               -->(2,'&self',[<,2,0],depth(5))
@@ -307,7 +309,7 @@
               <--(3,retval([g,3]))
           <--(1,retval([g,3]))
         -->(9,'&self',[g,3],depth(2))
-; Evaluation took 3.32 ms.
+; Evaluation took 3.26 ms.
 <span class="ansi33"> True
 
 </span>; Importing the same space into `&self` should break nothing
@@ -316,20 +318,20 @@
 <span class="ansi38-000068000">!(import! &self f1_moduleA.metta)
 
 </span>; Now indirectly imported `g` works and `f` fully works
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
 
 </span>; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'__g',[->,'Number']])
 </span><span class="ansi38-255165000">  (: __g 
     (-> Number))
@@ -352,7 +354,7 @@
       (__g)))
 </span>
 
-; Evaluation took 3.06 ms.
+; Evaluation took 4.64 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
@@ -364,7 +366,7 @@
     (3)))
 </span>        -->(0,'&self',[+,1,2],depth(2))
         <--(0,retval(3))
-; Evaluation took 0.810 ms. (810.00 microseconds) 
+; Evaluation took 1.22 ms.
 <span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
@@ -392,7 +394,7 @@
         (+ 1 $X))))
 </span>
 
-; Evaluation took 12.69 ms.
+; Evaluation took 18.85 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
@@ -414,7 +416,7 @@
               <--(5,retval(100))
           <--(1,retval(102))
         <--(0,retval([+,2,['__g']]))
-; Evaluation took 1.44 ms.
+; Evaluation took 2.35 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
@@ -464,7 +466,7 @@
               <--(3,retval([+,[+,1,2],['__g']]))
           <--(1,retval(103))
         <--(0,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
-; Evaluation took 3.24 ms.
+; Evaluation took 5.04 ms.
 <span class="ansi33"> True
 
 </span>; `&self` contains 3 atoms-spaces now:
@@ -477,19 +479,22 @@
 (@ loonit_failureR 
   (equal_enough  
     (&m) ()))
-</span>equal_enough(['&m'],[])
-          -->(0,'&self',['let*',[[_356230,[[]]],[_356242,['cdr-atom',_356230]],[_356272,['cdr-atom',_356242]]],['car-atom',_356272]],depth(3))
-              -->(1,'&self',[[]],depth(5))
-              -->(2,'&self',['let*',[[_356242,['cdr-atom',[[]]]],[_356272,['cdr-atom',_356242]]],['car-atom',_356272]],depth(5))
-                  -->(3,'&self',['cdr-atom',[[]]],depth(7))
-                  <--(3,retval([]))
-                  -->(4,'&self',['let*',[[_356272,['cdr-atom',[]]]],['car-atom',_356272]],depth(7))
-                      -->(5,'&self',['cdr-atom',[]],depth(9))
-                      <--(5,retval(fail))
-                  <--(4,retval(fail))
-              <--(2,retval(fail))
-          <--(0,retval(fail))
-; Evaluation took 1.55 ms.
+</span>        -->(0,'&self',['let*',[[_314130,[collapse,['get-atoms','&self']]],[_314142,['cdr-atom',_314130]],[_314172,['cdr-atom',_314142]]],['car-atom',_314172]],depth(2))
+            -->(1,'&self',['get-atoms','&self'],depth(4))
+            <--(1,retval([]))
+            -->(2,'&self',['let*',[[_314130,[[]]],[_314142,['cdr-atom',_314130]],[_314172,['cdr-atom',_314142]]],['car-atom',_314172]],depth(4))
+                -->(3,'&self',[[]],depth(6))
+                -->(4,'&self',['let*',[[_314142,['cdr-atom',[[]]]],[_314172,['cdr-atom',_314142]]],['car-atom',_314172]],depth(6))
+                    -->(5,'&self',['cdr-atom',[[]]],depth(8))
+                    <--(5,retval([]))
+                    -->(6,'&self',['let*',[[_314172,['cdr-atom',[]]]],['car-atom',_314172]],depth(8))
+                        -->(7,'&self',['cdr-atom',[]],depth(10))
+                        <--(7,retval(fail))
+                    <--(6,retval(fail))
+                <--(4,retval(fail))
+            <--(2,retval(fail))
+        <--(0,retval(fail))
+; Evaluation took 2.63 ms.
 <span class="ansi33"> False
 
 </span>; NOTE: now the first atom, which was a space, is removed from `&m`,
@@ -502,21 +507,25 @@
   (equal_enough  
     (False) 
     (False)))
-</span>          -->(0,'&self',[==,['let*',[[_405648,[[]]],[_405660,['car-atom',_405648]]],['get-type',_405660]],['get-type','&self']],depth(3))
-              -->(1,'&self',[[]],depth(5))
-              -->(2,'&self',['let*',[[_405648,[[]]],[_405660,['car-atom',_405648]]],['get-type',_405660]],depth(5))
-                  -->(3,'&self',[[]],depth(7))
-                  -->(4,'&self',['let*',[[_405660,['car-atom',[[]]]]],['get-type',_405660]],depth(7))
-                      -->(5,'&self',['car-atom',[[]]],depth(9))
-                      <--(5,retval([]))
-                      -->(6,'&self',['let*',[],['get-type',[]]],depth(9))
-                          -->(7,'&self',['get-type',[]],depth(11))
-                          <--(7,retval(fail))
-                      <--(6,retval(fail))
-                  <--(4,retval(fail))
-              <--(2,retval(fail))
-          <--(0,retval('False'))
-; Evaluation took 2.30 ms.
+</span>        -->(0,'&self',[==,['let*',[[_364754,[collapse,['get-atoms','&m']]],[_364766,['car-atom',_364754]]],['get-type',_364766]],['get-type','&self']],depth(2))
+            -->(1,'&self',['get-atoms','&m'],depth(4))
+            <--(1,retval([]))
+            -->(2,'&self',[==,['let*',[[_364754,[[]]],[_364766,['car-atom',_364754]]],['get-type',_364766]],['get-type','&self']],depth(4))
+                -->(3,'&self',[[]],depth(6))
+                -->(4,'&self',['let*',[[_364754,[[]]],[_364766,['car-atom',_364754]]],['get-type',_364766]],depth(6))
+                    -->(5,'&self',[[]],depth(8))
+                    -->(6,'&self',['let*',[[_364766,['car-atom',[[]]]]],['get-type',_364766]],depth(8))
+                        -->(7,'&self',['car-atom',[[]]],depth(10))
+                        <--(7,retval([]))
+                        -->(8,'&self',['let*',[],['get-type',[]]],depth(10))
+                            -->(9,'&self',['get-type',[]],depth(12))
+                            <--(9,retval(fail))
+                        <--(8,retval(fail))
+                    <--(6,retval(fail))
+                <--(4,retval(fail))
+            <--(2,retval('False'))
+        <--(0,retval('False'))
+; Evaluation took 3.93 ms.
 <span class="ansi33"> True
 
 </span>; Let''s check that `if` from stdlib is not duplicated and gives only one result
@@ -531,7 +540,7 @@
             -->(1,'&self',[>,1,2],depth(4))
             <--(1,retval('False'))
         <--(0,retval(2))
-; Evaluation took 0.964 ms. (963.80 microseconds) 
+; Evaluation took 1.42 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -542,16 +551,16 @@
 
 </span>; `g` from moduleC imported via two paths as well as `f`, which uses `g`,
 ; are not duplicated and produce deterministic results
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
 
-</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'__g',[->,'Number']])
 </span><span class="ansi38-255165000">  (: __g 
     (-> Number))
@@ -574,7 +583,7 @@
       (__g)))
 </span>
 
-; Evaluation took 3.96 ms.
+; Evaluation took 4.65 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dup,X],[if,[==,X,0],[g,X],[+,X,10]])
@@ -586,7 +595,7 @@
       (+ $X 10)))
 </span>
 
-; Evaluation took 7.11 ms.
+; Evaluation took 8.35 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
@@ -608,7 +617,7 @@
               <--(5,retval(100))
           <--(1,retval(102))
         <--(0,retval([+,2,['__g']]))
-; Evaluation took 1.72 ms.
+; Evaluation took 1.94 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
@@ -658,7 +667,7 @@
               <--(3,retval([+,[+,1,2],['__g']]))
           <--(1,retval(103))
         <--(0,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
-; Evaluation took 3.90 ms.
+; Evaluation took 5.46 ms.
 <span class="ansi33"> True
 
 </span>; Function declared in different imported modules will still produce
@@ -694,7 +703,7 @@
               <--(11,retval(12))
           <--(9,retval(12))
         <--(0,retval([if,[==,2,0],[g,2],[+,2,10]]))
-; Evaluation took 2.13 ms.
+; Evaluation took 3.73 ms.
 <span class="ansi33"> True
 
 </span>; Let''s import f1_moduleB.metta once more using a different path.
@@ -702,16 +711,16 @@
 ; unchanged.
 <span class="ansi38-000068000">!(import! &self f1_moduleB.metta)
 
-</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
 
-</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'__g',[->,'Number']])
 </span><span class="ansi38-255165000">  (: __g 
     (-> Number))
@@ -734,7 +743,7 @@
       (__g)))
 </span>
 
-; Evaluation took 2.74 ms.
+; Evaluation took 4.77 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dup,X],[if,[==,X,0],[g,X],[+,X,10]])
@@ -746,7 +755,7 @@
       (+ $X 10)))
 </span>
 
-; Evaluation took 4.74 ms.
+; Evaluation took 8.24 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (g 2) 102)
@@ -768,7 +777,7 @@
               <--(5,retval(100))
           <--(1,retval(102))
         <--(0,retval([+,2,['__g']]))
-; Evaluation took 1.32 ms.
+; Evaluation took 2.16 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (f 2) 103)
@@ -818,7 +827,7 @@
               <--(3,retval([+,[+,1,2],['__g']]))
           <--(1,retval(103))
         <--(0,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
-; Evaluation took 3.42 ms.
+; Evaluation took 5.87 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (dup 2) (12 102))
@@ -852,17 +861,16 @@
               <--(11,retval(12))
           <--(9,retval(12))
         <--(0,retval([if,[==,2,0],[g,2],[+,2,10]]))
-; Evaluation took 2.35 ms.
+; Evaluation took 3.81 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 506,675 inferences, 0.300 CPU in 0.300 seconds (100% CPU, 1688168 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.metta" 0)
+</span><span class="ansi32">% 494,622 inferences, 0.438 CPU in 0.438 seconds (100% CPU, 1128139 Lips)
+</span> (@ = "examples/compat/test_scripts/f1_imports.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 14
 </span><span class="ansi31">Failures: 3
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_imports.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/f1_imports.html" )
 
 </pre>
 </body>

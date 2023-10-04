@@ -13,24 +13,18 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
-.ansi36 { color: #00aaaa; }
-.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 </style>
@@ -38,71 +32,22 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (@ track_load_into_file "examples/fibo-as-pred.metta")
-<span class="ansi38-000068000">!(pragma! compile full)
-
-</span>; Evaluation took 0.113 ms. (112.80 microseconds) 
-<span class="ansi33"> full
-
-</span>;!(memoize fibonacci)
-%~ [ convert(equals(X,X)='True'),
-%~   head_preconds_into_body((equals(X,X,'True'):-true))]
-%~ [convert(equals(X,X)='True'),head_preconds_into_body((equals(X,X,'True'):-true))]
+;!(memoize fibonacci)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[equals,X,X],'True')
 </span><span class="ansi38-255165000">  (= 
     (equals $X $X) True)
-</span><span class="ansi38-000082136">  :- dynamic(equals,3).
-
-  equals(X, X, 'True').
-
 </span>
 
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1012 
-%~ [ convert(fibonacci(0,0)='True'),
-%~   head_preconds_into_body((fibonacci(0,0,'True'):-true))]
-%~ [convert(fibonacci(0,0)='True'),head_preconds_into_body((fibonacci(0,0,'True'):-true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fibonacci,0,0],'True')
 </span><span class="ansi38-255165000">  (= 
     (fibonacci 0 0) True)
-</span><span class="ansi38-000082136">  :- dynamic(fibonacci,3).
-
-  fibonacci(0, 0, 'True').
-
 </span>
 
-%~ [ convert(fibonacci(1,1)='True'),
-%~   head_preconds_into_body((fibonacci(1,1,'True'):-true))]
-%~ [convert(fibonacci(1,1)='True'),head_preconds_into_body((fibonacci(1,1,'True'):-true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fibonacci,1,1],'True')
 </span><span class="ansi38-255165000">  (= 
     (fibonacci 1 1) True)
-</span><span class="ansi38-000082136">
-  fibonacci(1, 1, 'True').
-
 </span>
 
-%~ [ convert( fibonacci(N1,N4) =
-%~              and( N1>1,
-%~                equals(N2,N1+ -1),
-%~                equals(N3,N1+ -2),
-%~                fibonacci(N2,N5),
-%~                fibonacci(N3,N6),
-%~                equals(N4,N5+N6))),
-%~   head_preconds_into_body( fibonacci(N1,N4,Equals_Fibonacci_N4) :-
-%~                              N1>1 ,
-%~                              True='True' ,
-%~                              +(N1,-1,N2_Num_1) ,
-%~                              equals(N2,N2_Num_1,Equals_True4) ,
-%~                              Equals_True4='True' ,
-%~                              +(N1,-2,N3_Num_2) ,
-%~                              equals(N3,N3_Num_2,Equals_True7) ,
-%~                              Equals_True7='True' ,
-%~                              fibonacci(N2,N5,Fibonacci_True_N5) ,
-%~                              Fibonacci_True_N5='True' ,
-%~                              fibonacci(N3,N6,Fibonacci_True_N6) ,
-%~                              Fibonacci_True_N6='True' ,
-%~                              +(N5,N6,N4_N612) ,
-%~                              equals(N4,N4_N612,Equals_Fibonacci_N4))]
-%~ [convert(fibonacci(N1,N4)=and(N1>1,equals(N2,N1+ -1),equals(N3,N1+ -2),fibonacci(N2,N5),fibonacci(N3,N6),equals(N4,N5+N6))),head_preconds_into_body((fibonacci(N1,N4,_274834):-N1>1,_276294='True',(+(N1,-1,_276412),equals(N2,_276412,_276384)),_276384='True',(+(N1,-2,_277392),equals(N3,_277392,_277364)),_277364='True',fibonacci(N2,N5,_278336),_278336='True',fibonacci(N3,N6,_278420),_278420='True',+(N5,N6,_278510),equals(N4,_278510,_274834)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fibonacci,N1,N4],[and,[>,N1,1],[equals,N2,[+,N1,-1]],[equals,N3,[+,N1,-2]],[fibonacci,N2,N5],[fibonacci,N3,N6],[equals,N4,[+,N5,N6]]])
 </span><span class="ansi38-255165000">  (= 
     (fibonacci $N1 $N4) 
@@ -116,60 +61,409 @@
       (fibonacci $N3 $N6) 
       (equals $N4 
         (+ $N5 $N6))))
-</span><span class="ansi38-000082136">
-  fibonacci(N1, N4, A) :-
-    N1>1,
-    _='True',
-    +(N1, -1, B),
-    equals(N2, B, C),
-    C='True',
-    +(N1, -2, D),
-    equals(N3, D, E),
-    E='True',
-    fibonacci(N2, N5, F),
-    F='True',
-    fibonacci(N3, N6, G),
-    G='True',
-    +(N5, N6, H),
-    equals(N4, H, A).
-
 </span>
 
 <span class="ansi38-000068000">!(match &self (fibonacci 10 $W) $W)
 
-</span>%~ [ convert(exec=match('&self',fibonacci(10,W),W)),
-%~   head_preconds_into_body((exec(_1678):-fibonacci(10,W,_1692),match('&self',_1692,W,_1678)))]
+</span><span class="ansi38-000068000">!(assertEqual (fibonacci 1 $W) True)
 
-subst_vars((fibonacci(10,L38,M38),match('&self',M38,L38,N38)),['W'=L38],[L38,M38,N38])
-; Evaluation took 0.117 ms. (117.00 microseconds) 
-<span class="ansi33"> 55
-</span><span class="ansi32">['W'=55]
-</span>
-
-<span class="ansi38-000068000">!(assertEqual (fibonacci 1 $W) True)
-
-</span>%~ [ convert(exec=assertEqual(fibonacci(1,W),'True')),
-%~   head_preconds_into_body((exec(_39158):-fibonacci(1,W,_41008),assertEqual(_41008,'True',_39158)))]
-
-subst_vars((fibonacci(1,L38,M38),assertEqual(M38,'True',N38)),['W'=L38],[L38,M38,N38])
-<h3 id="EXAMPLES.FIBO-AS-PRED.01">;; EXAMPLES.FIBO-AS-PRED.01</h3><span class="ansi36">
-(@ loonit_success 
+</span><h3 id="EXAMPLES.FIBO-AS-PRED.01">;; EXAMPLES.FIBO-AS-PRED.01</h3><span class="ansi31">
+(@ loonit_failureR 
   (equal_enough  
-    (True) 
+    (True 
+      (and False True True True 
+        (and False True True 
+          (and False True True 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_850046 -6) 
+                  (equals $_850070 -7) 
+                  (fibonacci $_850046 $_850100) 
+                  (fibonacci $_850070 $_850124) 
+                  (equals $_850142 
+                    (+ $_850100 $_850124))) 
+                (and False 
+                  (equals $_850202 -7) 
+                  (equals $_850226 -8) 
+                  (fibonacci $_850202 $_850256) 
+                  (fibonacci $_850226 $_850280) 
+                  (equals $_850298 
+                    (+ $_850256 $_850280))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_850394 -7) 
+                  (equals $_850418 -8) 
+                  (fibonacci $_850394 $_850448) 
+                  (fibonacci $_850418 $_850472) 
+                  (equals $_850490 
+                    (+ $_850448 $_850472))) 
+                (and False 
+                  (equals $_850550 -8) 
+                  (equals $_850574 -9) 
+                  (fibonacci $_850550 $_850604) 
+                  (fibonacci $_850574 $_850628) 
+                  (equals $_850646 
+                    (+ $_850604 $_850628))) True) True) 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_850778 -7) 
+                  (equals $_850802 -8) 
+                  (fibonacci $_850778 $_850832) 
+                  (fibonacci $_850802 $_850856) 
+                  (equals $_850874 
+                    (+ $_850832 $_850856))) 
+                (and False 
+                  (equals $_850934 -8) 
+                  (equals $_850958 -9) 
+                  (fibonacci $_850934 $_850988) 
+                  (fibonacci $_850958 $_851012) 
+                  (equals $_851030 
+                    (+ $_850988 $_851012))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_851126 -8) 
+                  (equals $_851150 -9) 
+                  (fibonacci $_851126 $_851180) 
+                  (fibonacci $_851150 $_851204) 
+                  (equals $_851222 
+                    (+ $_851180 $_851204))) 
+                (and False 
+                  (equals $_851282 -9) 
+                  (equals $_851306 -10) 
+                  (fibonacci $_851282 $_851336) 
+                  (fibonacci $_851306 $_851360) 
+                  (equals $_851378 
+                    (+ $_851336 $_851360))) True) True) True) 
+          (and False True True 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_851546 -7) 
+                  (equals $_851570 -8) 
+                  (fibonacci $_851546 $_851600) 
+                  (fibonacci $_851570 $_851624) 
+                  (equals $_851642 
+                    (+ $_851600 $_851624))) 
+                (and False 
+                  (equals $_851702 -8) 
+                  (equals $_851726 -9) 
+                  (fibonacci $_851702 $_851756) 
+                  (fibonacci $_851726 $_851780) 
+                  (equals $_851798 
+                    (+ $_851756 $_851780))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_851894 -8) 
+                  (equals $_851918 -9) 
+                  (fibonacci $_851894 $_851948) 
+                  (fibonacci $_851918 $_851972) 
+                  (equals $_851990 
+                    (+ $_851948 $_851972))) 
+                (and False 
+                  (equals $_852050 -9) 
+                  (equals $_852074 -10) 
+                  (fibonacci $_852050 $_852104) 
+                  (fibonacci $_852074 $_852128) 
+                  (equals $_852146 
+                    (+ $_852104 $_852128))) True) True) 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_852278 -8) 
+                  (equals $_852302 -9) 
+                  (fibonacci $_852278 $_852332) 
+                  (fibonacci $_852302 $_852356) 
+                  (equals $_852374 
+                    (+ $_852332 $_852356))) 
+                (and False 
+                  (equals $_852434 -9) 
+                  (equals $_852458 -10) 
+                  (fibonacci $_852434 $_852488) 
+                  (fibonacci $_852458 $_852512) 
+                  (equals $_852530 
+                    (+ $_852488 $_852512))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_852626 -9) 
+                  (equals $_852650 -10) 
+                  (fibonacci $_852626 $_852680) 
+                  (fibonacci $_852650 $_852704) 
+                  (equals $_852722 
+                    (+ $_852680 $_852704))) 
+                (and False 
+                  (equals $_852782 -10) 
+                  (equals $_852806 -11) 
+                  (fibonacci $_852782 $_852836) 
+                  (fibonacci $_852806 $_852860) 
+                  (equals $_852878 
+                    (+ $_852836 $_852860))) True) True) True) True) True) 
+      (and False True True 
+        (and False True True 
+          (and False True True 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_843932 -5) 
+                  (equals $_843956 -6) 
+                  (fibonacci $_843932 $_843986) 
+                  (fibonacci $_843956 $_844010) 
+                  (equals $_844028 
+                    (+ $_843986 $_844010))) 
+                (and False 
+                  (equals $_844088 -6) 
+                  (equals $_844112 -7) 
+                  (fibonacci $_844088 $_844142) 
+                  (fibonacci $_844112 $_844166) 
+                  (equals $_844184 
+                    (+ $_844142 $_844166))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_844280 -6) 
+                  (equals $_844304 -7) 
+                  (fibonacci $_844280 $_844334) 
+                  (fibonacci $_844304 $_844358) 
+                  (equals $_844376 
+                    (+ $_844334 $_844358))) 
+                (and False 
+                  (equals $_844436 -7) 
+                  (equals $_844460 -8) 
+                  (fibonacci $_844436 $_844490) 
+                  (fibonacci $_844460 $_844514) 
+                  (equals $_844532 
+                    (+ $_844490 $_844514))) True) True) 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_844664 -6) 
+                  (equals $_844688 -7) 
+                  (fibonacci $_844664 $_844718) 
+                  (fibonacci $_844688 $_844742) 
+                  (equals $_844760 
+                    (+ $_844718 $_844742))) 
+                (and False 
+                  (equals $_844820 -7) 
+                  (equals $_844844 -8) 
+                  (fibonacci $_844820 $_844874) 
+                  (fibonacci $_844844 $_844898) 
+                  (equals $_844916 
+                    (+ $_844874 $_844898))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_845012 -7) 
+                  (equals $_845036 -8) 
+                  (fibonacci $_845012 $_845066) 
+                  (fibonacci $_845036 $_845090) 
+                  (equals $_845108 
+                    (+ $_845066 $_845090))) 
+                (and False 
+                  (equals $_845168 -8) 
+                  (equals $_845192 -9) 
+                  (fibonacci $_845168 $_845222) 
+                  (fibonacci $_845192 $_845246) 
+                  (equals $_845264 
+                    (+ $_845222 $_845246))) True) True) True) 
+          (and False True True 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_845432 -6) 
+                  (equals $_845456 -7) 
+                  (fibonacci $_845432 $_845486) 
+                  (fibonacci $_845456 $_845510) 
+                  (equals $_845528 
+                    (+ $_845486 $_845510))) 
+                (and False 
+                  (equals $_845588 -7) 
+                  (equals $_845612 -8) 
+                  (fibonacci $_845588 $_845642) 
+                  (fibonacci $_845612 $_845666) 
+                  (equals $_845684 
+                    (+ $_845642 $_845666))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_845780 -7) 
+                  (equals $_845804 -8) 
+                  (fibonacci $_845780 $_845834) 
+                  (fibonacci $_845804 $_845858) 
+                  (equals $_845876 
+                    (+ $_845834 $_845858))) 
+                (and False 
+                  (equals $_845936 -8) 
+                  (equals $_845960 -9) 
+                  (fibonacci $_845936 $_845990) 
+                  (fibonacci $_845960 $_846014) 
+                  (equals $_846032 
+                    (+ $_845990 $_846014))) True) True) 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_846164 -7) 
+                  (equals $_846188 -8) 
+                  (fibonacci $_846164 $_846218) 
+                  (fibonacci $_846188 $_846242) 
+                  (equals $_846260 
+                    (+ $_846218 $_846242))) 
+                (and False 
+                  (equals $_846320 -8) 
+                  (equals $_846344 -9) 
+                  (fibonacci $_846320 $_846374) 
+                  (fibonacci $_846344 $_846398) 
+                  (equals $_846416 
+                    (+ $_846374 $_846398))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_846512 -8) 
+                  (equals $_846536 -9) 
+                  (fibonacci $_846512 $_846566) 
+                  (fibonacci $_846536 $_846590) 
+                  (equals $_846608 
+                    (+ $_846566 $_846590))) 
+                (and False 
+                  (equals $_846668 -9) 
+                  (equals $_846692 -10) 
+                  (fibonacci $_846668 $_846722) 
+                  (fibonacci $_846692 $_846746) 
+                  (equals $_846764 
+                    (+ $_846722 $_846746))) True) True) True) True) 
+        (and False True True 
+          (and False True True 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_846968 -6) 
+                  (equals $_846992 -7) 
+                  (fibonacci $_846968 $_847022) 
+                  (fibonacci $_846992 $_847046) 
+                  (equals $_847064 
+                    (+ $_847022 $_847046))) 
+                (and False 
+                  (equals $_847124 -7) 
+                  (equals $_847148 -8) 
+                  (fibonacci $_847124 $_847178) 
+                  (fibonacci $_847148 $_847202) 
+                  (equals $_847220 
+                    (+ $_847178 $_847202))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_847316 -7) 
+                  (equals $_847340 -8) 
+                  (fibonacci $_847316 $_847370) 
+                  (fibonacci $_847340 $_847394) 
+                  (equals $_847412 
+                    (+ $_847370 $_847394))) 
+                (and False 
+                  (equals $_847472 -8) 
+                  (equals $_847496 -9) 
+                  (fibonacci $_847472 $_847526) 
+                  (fibonacci $_847496 $_847550) 
+                  (equals $_847568 
+                    (+ $_847526 $_847550))) True) True) 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_847700 -7) 
+                  (equals $_847724 -8) 
+                  (fibonacci $_847700 $_847754) 
+                  (fibonacci $_847724 $_847778) 
+                  (equals $_847796 
+                    (+ $_847754 $_847778))) 
+                (and False 
+                  (equals $_847856 -8) 
+                  (equals $_847880 -9) 
+                  (fibonacci $_847856 $_847910) 
+                  (fibonacci $_847880 $_847934) 
+                  (equals $_847952 
+                    (+ $_847910 $_847934))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_848048 -8) 
+                  (equals $_848072 -9) 
+                  (fibonacci $_848048 $_848102) 
+                  (fibonacci $_848072 $_848126) 
+                  (equals $_848144 
+                    (+ $_848102 $_848126))) 
+                (and False 
+                  (equals $_848204 -9) 
+                  (equals $_848228 -10) 
+                  (fibonacci $_848204 $_848258) 
+                  (fibonacci $_848228 $_848282) 
+                  (equals $_848300 
+                    (+ $_848258 $_848282))) True) True) True) 
+          (and False True True 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_848468 -7) 
+                  (equals $_848492 -8) 
+                  (fibonacci $_848468 $_848522) 
+                  (fibonacci $_848492 $_848546) 
+                  (equals $_848564 
+                    (+ $_848522 $_848546))) 
+                (and False 
+                  (equals $_848624 -8) 
+                  (equals $_848648 -9) 
+                  (fibonacci $_848624 $_848678) 
+                  (fibonacci $_848648 $_848702) 
+                  (equals $_848720 
+                    (+ $_848678 $_848702))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_848816 -8) 
+                  (equals $_848840 -9) 
+                  (fibonacci $_848816 $_848870) 
+                  (fibonacci $_848840 $_848894) 
+                  (equals $_848912 
+                    (+ $_848870 $_848894))) 
+                (and False 
+                  (equals $_848972 -9) 
+                  (equals $_848996 -10) 
+                  (fibonacci $_848972 $_849026) 
+                  (fibonacci $_848996 $_849050) 
+                  (equals $_849068 
+                    (+ $_849026 $_849050))) True) True) 
+            (and False True True 
+              (and False True True 
+                (and False 
+                  (equals $_849200 -8) 
+                  (equals $_849224 -9) 
+                  (fibonacci $_849200 $_849254) 
+                  (fibonacci $_849224 $_849278) 
+                  (equals $_849296 
+                    (+ $_849254 $_849278))) 
+                (and False 
+                  (equals $_849356 -9) 
+                  (equals $_849380 -10) 
+                  (fibonacci $_849356 $_849410) 
+                  (fibonacci $_849380 $_849434) 
+                  (equals $_849452 
+                    (+ $_849410 $_849434))) True) 
+              (and False True True 
+                (and False 
+                  (equals $_849548 -9) 
+                  (equals $_849572 -10) 
+                  (fibonacci $_849548 $_849602) 
+                  (fibonacci $_849572 $_849626) 
+                  (equals $_849644 
+                    (+ $_849602 $_849626))) 
+                (and False 
+                  (equals $_849704 -10) 
+                  (equals $_849728 -11) 
+                  (fibonacci $_849704 $_849758) 
+                  (fibonacci $_849728 $_849782) 
+                  (equals $_849800 
+                    (+ $_849758 $_849782))) True) True) True) True) True)) 
     (True)))
-</span>; Evaluation took 0.900 ms. (900.20 microseconds) 
-<span class="ansi33"> True
-</span><span class="ansi32">['W'=1]
-</span>
+</span><span class="ansi33"> False
 
-<span class="ansi32">% 1,135,246 inferences, 0.249 CPU in 0.249 seconds (100% CPU, 4559239 Lips)
+</span><span class="ansi32">% 3,776,144 inferences, 0.427 CPU in 0.427 seconds (100% CPU, 8839953 Lips)
 </span> (@ = "examples/fibo-as-pred.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/fibo-as-pred.html" )
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/fibo-as-pred.html" )
 
 </pre>
 </body>

@@ -74,9 +74,9 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "examples/compat/test_scripts/d5_auto_types.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self','Auto')
 </span><span class="ansi38-255165000">Auto
 </span>
@@ -100,7 +100,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(pragma! type-check auto)
 
-</span>; Evaluation took 0.064 ms. (63.70 microseconds) 
+</span>; Evaluation took 0.086 ms. (86.20 microseconds) 
 <span class="ansi33"> auto
 
 </span>; checking grounded types
@@ -112,10 +112,9 @@
   (equal_enough  
     (88) 
     ( (Error "S" BadType))))
-</span>equal_enough([88],[['Error',"S",'BadType']])
-        -->(0,'&self',[+,5,"S"],depth(2))
+</span>        -->(0,'&self',[+,5,"S"],depth(2))
         <--(0,retval(88))
-; Evaluation took 0.847 ms. (847.00 microseconds) 
+; Evaluation took 1.55 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (== 5 "S") ((Error "S" BadType)))
@@ -126,10 +125,9 @@
   (equal_enough  
     (False) 
     ( (Error "S" BadType))))
-</span>equal_enough(['False'],[['Error',"S",'BadType']])
-        -->(0,'&self',[==,5,"S"],depth(2))
+</span>        -->(0,'&self',[==,5,"S"],depth(2))
         <--(0,retval('False'))
-; Evaluation took 0.895 ms. (895.20 microseconds) 
+; Evaluation took 1.31 ms.
 <span class="ansi33"> False
 
 </span>; declaring some custom types
@@ -186,10 +184,9 @@
   (equal_enough  
     (False) 
     ( (Error SamIsMortal BadType))))
-</span>equal_enough(['False'],[['Error','SamIsMortal','BadType']])
-        -->(0,'&self',[==,'SocratesIsHuman','SamIsMortal'],depth(2))
+</span>        -->(0,'&self',[==,'SocratesIsHuman','SamIsMortal'],depth(2))
         <--(0,retval('False'))
-; Evaluation took 1.29 ms.
+; Evaluation took 2.11 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (HumansAreMortal (Human Socrates)) ((Error (Human Socrates) BadType)))
@@ -202,12 +199,11 @@
         (Human Socrates))) 
     ( (Error 
         (Human Socrates) BadType))))
-</span>equal_enough([['HumansAreMortal',['Human','Socrates']]],[['Error',['Human','Socrates'],'BadType']])
-        -->(0,'&self',['HumansAreMortal',['Human','Socrates']],depth(2))
+</span>        -->(0,'&self',['HumansAreMortal',['Human','Socrates']],depth(2))
             -->(1,'&self',['Human','Socrates'],depth(4))
             -->(2,'&self',['Human','Socrates'],depth(4))
             -->(3,'&self',['Human','Socrates'],depth(4))
-; Evaluation took 1.25 ms.
+; Evaluation took 1.77 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -222,8 +218,12 @@
   (equal_enough  
     ( (88)) 
     ( ( (Error "S" BadType)))))
-</span>equal_enough([[88]],[[['Error',"S",'BadType']]])
-; Evaluation took 0.753 ms. (753.30 microseconds) 
+</span>        -->(0,'&self',[collapse,[+,5,"S"]],depth(2))
+            -->(1,'&self',[+,5,"S"],depth(4))
+            <--(1,retval(88))
+        <--(0,retval([88]))
+          -->(2,'&self',[88],depth(3))
+; Evaluation took 1.46 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -264,8 +264,7 @@
   (equal_enough  
     ( (f 88)) 
     ( (Error "S" BadType))))
-</span>equal_enough([[f,88]],[['Error',"S",'BadType']])
-        -->(0,'&self',[f,[+,5,"S"]],depth(2))
+</span>        -->(0,'&self',[f,[+,5,"S"]],depth(2))
             -->(1,'&self',[+,5,"S"],depth(4))
             -->(2,'&self',[f,88],depth(4))
           -->(3,'&self',[f,88],depth(3))
@@ -273,13 +272,12 @@
             -->(4,'&self',[+,5,"S"],depth(4))
             <--(4,retval(88))
         <--(0,retval([f,88]))
-; Evaluation took 1.47 ms.
+; Evaluation took 2.34 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 161,717 inferences, 0.115 CPU in 0.115 seconds (100% CPU, 1404997 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d5_auto_types.html" )
+</span><span class="ansi32">% 158,935 inferences, 0.173 CPU in 0.173 seconds (100% CPU, 917968 Lips)
+</span> (@ = "examples/compat/test_scripts/d5_auto_types.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d5_auto_types.html" )
 
 </pre>
 </body>

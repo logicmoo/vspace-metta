@@ -153,12 +153,12 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Higher-order functions
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Type definition for `curry` function
+ (@ track_load_into_file "examples/compat/test_scripts/d2_higherfunc.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Higher-order functions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Type definition for `curry` function
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,curry,[->,[->,A,B,C],[->,A,[->,B,C]]]])
 </span><span class="ansi38-255165000">  (: curry 
     (-> 
@@ -188,14 +188,13 @@
   (equal_enough  () 
     ( (-> Number 
         (-> Number Number)))))
-</span>equal_enough([],[[->,'Number',[->,'Number','Number']]])
-        -->(0,'&self',['get-type',[curry,+]],depth(2))
+</span>        -->(0,'&self',['get-type',[curry,+]],depth(2))
               -->(1,'&self',[curry,+],depth(5))
         <--(0,retval(fail))
         -->(2,'&self',[->,'Number',[->,'Number','Number']],depth(2))
             -->(3,'&self',[->,'Number','Number'],depth(4))
             -->(4,'&self',[->,'Number','Number'],depth(4))
-; Evaluation took 2.16 ms.
+; Evaluation took 1.95 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry +) 2)) (-> Number Number))
@@ -204,14 +203,13 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (-> Number Number))))
-</span>equal_enough([],[[->,'Number','Number']])
-        -->(0,'&self',['get-type',[[curry,+],2]],depth(2))
+</span>        -->(0,'&self',['get-type',[[curry,+],2]],depth(2))
                 -->(1,'&self',[curry,+],depth(6))
               -->(2,'&self',[[curry,+],2],depth(5))
                   -->(3,'&self',[curry,+],depth(7))
         <--(0,retval(fail))
         -->(4,'&self',[->,'Number','Number'],depth(2))
-; Evaluation took 1.37 ms.
+; Evaluation took 1.81 ms.
 <span class="ansi33"> False
 
 </span>; Partial application is not reduced, basically
@@ -224,7 +222,7 @@
     ( ( (curry +) 2))))
 </span>        -->(0,'&self',[[curry,+],2],depth(2))
             -->(1,'&self',[curry,+],depth(4))
-; Evaluation took 0.946 ms. (945.90 microseconds) 
+; Evaluation took 1.35 ms.
 <span class="ansi33"> True
 
 </span>; Full application will be reduced
@@ -235,11 +233,10 @@
   (equal_enough  
     ( ( ( (curry +) 2) 3)) 
     (5)))
-</span>equal_enough([[[[curry,+],2],3]],[5])
-        -->(0,'&self',[[[curry,+],2],3],depth(2))
+</span>        -->(0,'&self',[[[curry,+],2],3],depth(2))
             -->(1,'&self',[[curry,+],2],depth(4))
                 -->(2,'&self',[curry,+],depth(6))
-; Evaluation took 1.05 ms.
+; Evaluation took 1.61 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -267,12 +264,11 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (-> Number Number))))
-</span>equal_enough([],[[->,'Number','Number']])
-        -->(0,'&self',['get-type',['curry-a',+,2]],depth(2))
+</span>        -->(0,'&self',['get-type',['curry-a',+,2]],depth(2))
               -->(1,'&self',['curry-a',+,2],depth(5))
         <--(0,retval(fail))
         -->(2,'&self',[->,'Number','Number'],depth(2))
-; Evaluation took 1.43 ms.
+; Evaluation took 2.31 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
@@ -289,7 +285,7 @@
                 <--(3,retval(5))
               <--(2,retval([+,2,3]))
         <--(0,retval('Number'))
-; Evaluation took 1.55 ms.
+; Evaluation took 2.33 ms.
 <span class="ansi33"> True
 
 </span>; Badly typed
@@ -299,15 +295,14 @@
 (@ loonit_failureR 
   (equal_enough  
     (Number) ()))
-</span>equal_enough(['Number'],[])
-        -->(0,'&self',['get-type',[['curry-a',+,2],"S"]],depth(2))
+</span>        -->(0,'&self',['get-type',[['curry-a',+,2],"S"]],depth(2))
                 -->(1,'&self',['curry-a',+,2],depth(6))
               -->(2,'&self',[['curry-a',+,2],"S"],depth(5))
                 -->(3,'&self',[+,2,"S"],depth(6))
                 <--(3,retval(85))
               <--(2,retval([+,2,"S"]))
         <--(0,retval('Number'))
-; Evaluation took 1.04 ms.
+; Evaluation took 2.14 ms.
 <span class="ansi33"> False
 
 </span>; Full application works
@@ -322,7 +317,7 @@
           -->(1,'&self',[+,2,3],depth(3))
           <--(1,retval(5))
         <--(0,retval([+,2,3]))
-; Evaluation took 0.920 ms. (920.20 microseconds) 
+; Evaluation took 2.17 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -366,7 +361,7 @@
 </span>        -->(0,'&self',['is-socrates'],depth(2))
           -->(1,'&self',['curry-a',is,'Socrates'],depth(3))
         <--(0,retval(['curry-a',is,'Socrates']))
-; Evaluation took 1.02 ms.
+; Evaluation took 1.53 ms.
 <span class="ansi33"> True
 
 </span>; not reduced
@@ -383,7 +378,7 @@
         <--(0,retval([is,'Socrates','Human']))
         -->(2,'&self',[is,'Socrates','Human'],depth(2))
         <--(2,retval('True'))
-; Evaluation took 1.39 ms.
+; Evaluation took 1.87 ms.
 <span class="ansi33"> True
 
 </span>; reduced
@@ -400,7 +395,7 @@
               <--(2,retval('True'))
             <--(1,retval([is,'Socrates','Human']))
         <--(0,retval('True'))
-; Evaluation took 1.02 ms.
+; Evaluation took 1.52 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -430,13 +425,13 @@
   (equal_enough  
     (3) 
     (3)))
-</span>        -->(0,'&self',[[lambda,_296274,[+,_296274,1]],2],depth(2))
-          -->(1,'&self',[let,_296274,2,[+,_296274,1]],depth(3))
+</span>        -->(0,'&self',[[lambda,_243244,[+,_243244,1]],2],depth(2))
+          -->(1,'&self',[let,_243244,2,[+,_243244,1]],depth(3))
               -->(2,'&self',[+,2,1],depth(5))
               <--(2,retval(3))
           <--(1,retval(3))
-        <--(0,retval([let,_303374,2,[+,_303374,1]]))
-; Evaluation took 1.09 ms.
+        <--(0,retval([let,_250432,2,[+,_250432,1]]))
+; Evaluation took 2.29 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
@@ -446,15 +441,15 @@
   (equal_enough  
     (9) 
     (9)))
-</span>        -->(0,'&self',[[lambda,[_380658,_380664],[+,_380658,_380664]],[2,7]],depth(2))
+</span>        -->(0,'&self',[[lambda,[_328084,_328090],[+,_328084,_328090]],[2,7]],depth(2))
             -->(1,'&self',[2,7],depth(4))
-          -->(2,'&self',[let,[_380658,_380664],[2,7],[+,_380658,_380664]],depth(3))
+          -->(2,'&self',[let,[_328084,_328090],[2,7],[+,_328084,_328090]],depth(3))
               -->(3,'&self',[2,7],depth(5))
               -->(4,'&self',[+,2,7],depth(5))
               <--(4,retval(9))
           <--(2,retval(9))
-        <--(0,retval([let,[_388422,_388428],[2,7],[+,_388422,_388428]]))
-; Evaluation took 1.21 ms.
+        <--(0,retval([let,[_336026,_336032],[2,7],[+,_336026,_336032]]))
+; Evaluation took 1.68 ms.
 <span class="ansi33"> True
 
 </span>; Another example
@@ -480,15 +475,15 @@
     (6)))
 </span>        -->(0,'&self',[[inc],5],depth(2))
             -->(1,'&self',[['part-appl',+,1],5],depth(4))
-                -->(2,'&self',[[lambda,_46848,[+,1,_46848]],5],depth(6))
-                  -->(3,'&self',[let,_46848,5,[+,1,_46848]],depth(7))
+                -->(2,'&self',[[lambda,_492388,[+,1,_492388]],5],depth(6))
+                  -->(3,'&self',[let,_492388,5,[+,1,_492388]],depth(7))
                       -->(4,'&self',[+,1,5],depth(9))
                       <--(4,retval(6))
                   <--(3,retval(6))
-                <--(2,retval([let,_47264,5,[+,1,_47264]]))
+                <--(2,retval([let,_492900,5,[+,1,_492900]]))
             <--(1,retval(6))
         <--(0,retval(6))
-; Evaluation took 1.29 ms.
+; Evaluation took 1.98 ms.
 <span class="ansi33"> True
 
 </span>; REM:
@@ -603,7 +598,7 @@
           <--(2,retval(['Something',7]))
         <--(0,retval(['Something',[['curry-a',+,2],5]]))
         -->(8,'&self',['Something',7],depth(2))
-; Evaluation took 1.95 ms.
+; Evaluation took 2.76 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (Nothing)) (Nothing))
@@ -618,7 +613,7 @@
           -->(2,'&self',['Nothing'],depth(3))
         <--(0,retval(['Nothing']))
         -->(3,'&self',['Nothing'],depth(2))
-; Evaluation took 1.06 ms.
+; Evaluation took 1.57 ms.
 <span class="ansi33"> True
 
 </span>; Type inference works
@@ -628,8 +623,7 @@
 (@ loonit_failureR 
   (equal_enough  () 
     ( (Either Number))))
-</span>equal_enough([],[['Either','Number']])
-        -->(0,'&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],depth(2))
+</span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],depth(2))
                 -->(1,'&self',['Left',5],depth(6))
                 -->(2,'&self',['curry-a',+,1],depth(6))
               -->(3,'&self',[fmap,['curry-a',+,1],['Left',5]],depth(5))
@@ -647,7 +641,7 @@
               <--(3,retval(['Left',[['curry-a',+,1],5]]))
         <--(0,retval(fail))
         -->(12,'&self',['Either','Number'],depth(2))
-; Evaluation took 2.99 ms.
+; Evaluation took 3.30 ms.
 <span class="ansi33"> False
 
 </span>; It works for untyped constructors as well, if they
@@ -675,7 +669,7 @@
           <--(2,retval(['UntypedC',7]))
         <--(0,retval(['UntypedC',[['curry-a',+,2],5]]))
         -->(9,'&self',['UntypedC',7],depth(2))
-; Evaluation took 2.10 ms.
+; Evaluation took 3.11 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null)))) (UntypedC 7 (UntypedC 10 (Null))))
@@ -775,7 +769,7 @@
                 -->(61,'&self',['Null'],depth(6))
                 -->(62,'&self',['Null'],depth(6))
                 -->(63,'&self',['Null'],depth(6))
-; Evaluation took 8.36 ms.
+; Evaluation took 19.06 ms.
 <span class="ansi33"> True
 
 </span>; Type mismatches are detected:
@@ -801,7 +795,7 @@
                 <--(5,retval(['Left',55]))
               <--(3,retval(['Left',[['curry-a',+,2],"5"]]))
         <--(0,retval(fail))
-; Evaluation took 2.24 ms.
+; Evaluation took 3.83 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5"))) ())
@@ -810,8 +804,7 @@
 (@ loonit_failureR 
   (equal_enough  
     ( (Symbol Number)) ()))
-</span>equal_enough([['Symbol','Number']],[])
-        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',"5"]]],depth(2))
+</span>        -->(0,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',"5"]]],depth(2))
                 -->(1,'&self',['UntypedC',"5"],depth(6))
                 -->(2,'&self',['curry-a',+,2],depth(6))
               -->(3,'&self',[fmap,['curry-a',+,2],['UntypedC',"5"]],depth(5))
@@ -831,7 +824,7 @@
               <--(3,retval(['UntypedC',[['curry-a',+,2],"5"]]))
         <--(0,retval(['Symbol','Number']))
           -->(12,'&self',['Symbol','Number'],depth(3))
-; Evaluation took 2.25 ms.
+; Evaluation took 4.13 ms.
 <span class="ansi33"> False
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
@@ -941,7 +934,7 @@
                     -->(98,'&self',['curry-a',+,2],depth(8))
                   -->(99,'&self',[fmap,['curry-a',+,2],5],depth(7))
                       -->(100,'&self',['curry-a',+,2],depth(9))
-Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluation took 28.39 ms.
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); Evaluation took 58.04 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -995,7 +988,7 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
           <--(2,retval(['Right',4]))
         <--(0,retval(['Right',[['curry-a',-,7],3]]))
         -->(8,'&self',['Right',4],depth(2))
-; Evaluation took 1.73 ms.
+; Evaluation took 3.03 ms.
 <span class="ansi33"> True
 
 </span>; More examples
@@ -1039,8 +1032,7 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
         (Cons 8 False))) 
     ( (Cons 6 
         (Cons 8 ())))))
-</span>equal_enough([['Cons',6,['Cons',8,'False']]],[['Cons',6,['Cons',8,[]]]])
-        -->(0,'&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,[]]]],depth(2))
+</span>        -->(0,'&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,[]]]],depth(2))
             -->(1,'&self',['curry-a',*,2],depth(4))
           -->(2,'&self',['Cons',[['curry-a',*,2],3],['fmap-i',['curry-a',*,2],['Cons',4,[]]]],depth(3))
               -->(3,'&self',[['curry-a',*,2],3],depth(5))
@@ -1066,7 +1058,7 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
         <--(0,retval(['Cons',[['curry-a',*,2],3],['fmap-i',['curry-a',*,2],['Cons',4,[]]]]))
         -->(15,'&self',['Cons',6,['Cons',8,[]]],depth(2))
             -->(16,'&self',['Cons',8,[]],depth(4))
-; Evaluation took 2.82 ms.
+; Evaluation took 7.49 ms.
 <span class="ansi33"> False
 
 </span>; Thus, there is no problem in having different implementations
@@ -1089,7 +1081,7 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
             -->(3,'&self',['Untyped',5],depth(4))
             -->(4,'&self',['curry-a',+,2],depth(4))
             -->(5,'&self',['Untyped',5],depth(4))
-; Evaluation took 1.66 ms.
+; Evaluation took 4.36 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1138,7 +1130,28 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
 
 <span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 ()))) (Cons 1 (Cons 2 (Cons 3 ()))))
 
-</span><h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.26">;; TEST-SCRIPTS.D2-HIGHERFUNC.26</h3><span class="ansi36">
+</span> c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
+ switch='False'
+ c(0,'True')=['Cons',3,['Cons',1,['Cons',2,[]]]]
+ c(1,'False')=['Cons',1,[insert,3,['Cons',2,[]]]]
+ switch='False'
+ c(0,'True')=['Cons',3,['Cons',2,[]]]
+ c(1,'False')=['Cons',2,[insert,3,[]]]
+ switch='False'
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
+ switch='False'
+ c(0,'True')=['Cons',3,['Cons',1,['Cons',2,[]]]]
+ c(1,'False')=['Cons',1,[insert,3,['Cons',2,[]]]]
+ switch='False'
+ c(0,'True')=['Cons',3,['Cons',2,[]]]
+ c(1,'False')=['Cons',2,[insert,3,[]]]
+ switch='False'
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
+ switch='False'
+<h3 id="TEST-SCRIPTS.D2-HIGHERFUNC.26">;; TEST-SCRIPTS.D2-HIGHERFUNC.26</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (Cons 1 
@@ -1155,8 +1168,11 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
                 -->(5,'&self',[insert,2,['Cons',1,[]]],depth(6))
                     -->(6,'&self',['Cons',1,[]],depth(8))
                   -->(7,'&self',[case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]],depth(7))
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
                       -->(8,'&self',[<,2,1],depth(9))
                       <--(8,retval('False'))
+ switch='False'
                       -->(9,'&self',['Cons',1,[insert,2,[]]],depth(9))
                           -->(10,'&self',[insert,2,[]],depth(11))
                             -->(11,'&self',['Cons',2,[]],depth(12))
@@ -1165,14 +1181,20 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
                     -->(14,'&self',['Cons',1,['Cons',2,[]]],depth(8))
                         -->(15,'&self',['Cons',2,[]],depth(10))
               -->(16,'&self',[case,[<,3,1],[['True',['Cons',3,['Cons',1,['Cons',2,[]]]]],['False',['Cons',1,[insert,3,['Cons',2,[]]]]]]],depth(5))
+ c(0,'True')=['Cons',3,['Cons',1,['Cons',2,[]]]]
+ c(1,'False')=['Cons',1,[insert,3,['Cons',2,[]]]]
                   -->(17,'&self',[<,3,1],depth(7))
                   <--(17,retval('False'))
+ switch='False'
                   -->(18,'&self',['Cons',1,[insert,3,['Cons',2,[]]]],depth(7))
                       -->(19,'&self',[insert,3,['Cons',2,[]]],depth(9))
                           -->(20,'&self',['Cons',2,[]],depth(11))
                         -->(21,'&self',[case,[<,3,2],[['True',['Cons',3,['Cons',2,[]]]],['False',['Cons',2,[insert,3,[]]]]]],depth(10))
+ c(0,'True')=['Cons',3,['Cons',2,[]]]
+ c(1,'False')=['Cons',2,[insert,3,[]]]
                             -->(22,'&self',[<,3,2],depth(12))
                             <--(22,retval('False'))
+ switch='False'
                             -->(23,'&self',['Cons',2,[insert,3,[]]],depth(12))
                                 -->(24,'&self',[insert,3,[]],depth(14))
                                   -->(25,'&self',['Cons',3,[]],depth(15))
@@ -1207,8 +1229,11 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
                 -->(42,'&self',[insert,2,['Cons',1,[]]],depth(6))
                     -->(43,'&self',['Cons',1,[]],depth(8))
                   -->(44,'&self',[case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]],depth(7))
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
                       -->(45,'&self',[<,2,1],depth(9))
                       <--(45,retval('False'))
+ switch='False'
                       -->(46,'&self',['Cons',1,[insert,2,[]]],depth(9))
                           -->(47,'&self',[insert,2,[]],depth(11))
                             -->(48,'&self',['Cons',2,[]],depth(12))
@@ -1219,14 +1244,20 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
               -->(53,'&self',['Cons',1,['Cons',2,[]]],depth(5))
                   -->(54,'&self',['Cons',2,[]],depth(7))
           -->(55,'&self',[case,[<,3,1],[['True',['Cons',3,['Cons',1,['Cons',2,[]]]]],['False',['Cons',1,[insert,3,['Cons',2,[]]]]]]],depth(3))
+ c(0,'True')=['Cons',3,['Cons',1,['Cons',2,[]]]]
+ c(1,'False')=['Cons',1,[insert,3,['Cons',2,[]]]]
               -->(56,'&self',[<,3,1],depth(5))
               <--(56,retval('False'))
+ switch='False'
               -->(57,'&self',['Cons',1,[insert,3,['Cons',2,[]]]],depth(5))
                   -->(58,'&self',[insert,3,['Cons',2,[]]],depth(7))
                       -->(59,'&self',['Cons',2,[]],depth(9))
                     -->(60,'&self',[case,[<,3,2],[['True',['Cons',3,['Cons',2,[]]]],['False',['Cons',2,[insert,3,[]]]]]],depth(8))
+ c(0,'True')=['Cons',3,['Cons',2,[]]]
+ c(1,'False')=['Cons',2,[insert,3,[]]]
                         -->(61,'&self',[<,3,2],depth(10))
                         <--(61,retval('False'))
+ switch='False'
                         -->(62,'&self',['Cons',2,[insert,3,[]]],depth(10))
                             -->(63,'&self',[insert,3,[]],depth(12))
                               -->(64,'&self',['Cons',3,[]],depth(13))
@@ -1254,8 +1285,11 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
                 -->(75,'&self',[insert,1,[]],depth(6))
                   -->(76,'&self',['Cons',1,[]],depth(7))
               -->(77,'&self',[case,[<,2,1],[['True',['Cons',2,['Cons',1,[]]]],['False',['Cons',1,[insert,2,[]]]]]],depth(5))
+ c(0,'True')=['Cons',2,['Cons',1,[]]]
+ c(1,'False')=['Cons',1,[insert,2,[]]]
                   -->(78,'&self',[<,2,1],depth(7))
                   <--(78,retval('False'))
+ switch='False'
                   -->(79,'&self',['Cons',1,[insert,2,[]]],depth(7))
                       -->(80,'&self',[insert,2,[]],depth(9))
                         -->(81,'&self',['Cons',2,[]],depth(10))
@@ -1272,7 +1306,7 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
         -->(86,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
             -->(87,'&self',['Cons',2,['Cons',3,[]]],depth(4))
                 -->(88,'&self',['Cons',3,[]],depth(6))
-; Evaluation took 12.82 ms.
+; Evaluation took 24.63 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (sort (Cons 3 (Cons 1 (Cons 2 ())))) (Cons 1 (Cons 2 (Cons 3 ()))))
@@ -1286,8 +1320,7 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
     ( (Cons 1 
         (Cons 2 
           (Cons 3 ()))))))
-</span>equal_enough([[insert,3,[insert,1,[insert,2,'False']]]],[['Cons',1,['Cons',2,['Cons',3,[]]]]])
-        -->(0,'&self',[sort,['Cons',3,['Cons',1,['Cons',2,[]]]]],depth(2))
+</span>        -->(0,'&self',[sort,['Cons',3,['Cons',1,['Cons',2,[]]]]],depth(2))
             -->(1,'&self',['Cons',2,[]],depth(4))
           -->(2,'&self',[insert,3,[sort,['Cons',1,['Cons',2,[]]]]],depth(3))
               -->(3,'&self',['Cons',2,[]],depth(5))
@@ -1329,17 +1362,16 @@ Switched off tracing. For a longer trace !(pragma! trace-length 101)); Evaluatio
         -->(31,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
             -->(32,'&self',['Cons',2,['Cons',3,[]]],depth(4))
                 -->(33,'&self',['Cons',3,[]],depth(6))
-; Evaluation took 5.00 ms.
+; Evaluation took 8.55 ms.
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 1,069,676 inferences, 0.987 CPU in 0.987 seconds (100% CPU, 1084089 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.metta" 0)
+</span><span class="ansi32">% 1,025,668 inferences, 1.593 CPU in 1.594 seconds (100% CPU, 643763 Lips)
+</span> (@ = "examples/compat/test_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 18
 </span><span class="ansi31">Failures: 9
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d2_higherfunc.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d2_higherfunc.html" )
 
 </pre>
 </body>

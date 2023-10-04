@@ -15,55 +15,47 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "examples/compat/test_scripts/f1_moduleA.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
 
-</span><span class="ansi38-017068017">exec(_172846):-'import!'('&self','f1_moduleC.metta',_172846)
-</span>
-; FIXME? stdlib space is not available at importing time -
+</span>; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'__g',[->,'Number']])
 </span><span class="ansi38-255165000">  (: __g 
     (-> Number))
@@ -72,21 +64,6 @@
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['__g'],100)
 </span><span class="ansi38-255165000">  (= 
     (__g) 100)
-</span><span class="ansi38-000082136">  :- dynamic('[|]',3).
-
-  '[|]'(A, B, C) :-
-    ( '__g'(D),
-      D=A
-    ),
-    ( E=F,
-      E=B
-    ),
-    ( true,
-      []=G
-    ),
-    G=C,
-    F=100.
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,g,[->,'Number','Numer']])
@@ -99,46 +76,24 @@
     (g $X) 
     (+ $X 
       (__g)))
-</span><span class="ansi38-000082136">
-  '[|]'(A, B, C) :-
-    ( D=g,
-      D=A
-    ),
-    ( E=X,
-      F=[E],
-      F=B
-    ),
-    G=H,
-    G=C,
-    call_fr('__g'(I), _, tt/0),
-    +(X, I, H).
-
 </span>
 
-; Evaluation took 9.23 ms.
+; Evaluation took 4.91 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_1 =  
-    assertEqual(1+2,3) , 
-  loonit_assert_source_tf( Src_1, 
-      ((
-       (findall(FA_1,+(1,2,FA_1),FARL_1)),
-       (findall(FA_2,FA_2=3,FARL_2))  )), equal_enough(FARL_1,FARL_2),_263822)
-</span>
-<h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (3) 
     (3)))
-</span>; Evaluation took 0.521 ms. (521.00 microseconds) 
+</span>        -->(0,'&self',[+,1,2],depth(2))
+        <--(0,retval(3))
+; Evaluation took 1.40 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_2'=[3],'FA_2'=_267186,'FARL_1'=[3],'FA_1'=_266146,'Src_1'=assertEqual(1+2,3)]
-</span>
 
-; !(assertEqual (if True "S" "F") "S")
+</span>; !(assertEqual (if True "S" "F") "S")
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dup,X],[if,[==,X,0],[+,X,10],[g,X]])
 </span><span class="ansi38-255165000">  (= 
     (dup $X) 
@@ -146,25 +101,6 @@
       (== $X 0) 
       (+ $X 10) 
       (g $X)))
-</span><span class="ansi38-000082136">
-  '[|]'(A, B, C) :-
-    ( D=dup,
-      D=A
-    ),
-    ( E=X,
-      F=[E],
-      F=B
-    ),
-    G=H,
-    G=C,
-    (   call_fr(X==0, I, tt/0),
-        is_True(I)
-    *-> +(X, 10, J),
-        J=H
-    ;   call_fr(g(X), K, g/2),
-        K=H
-    ).
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,f,[->,'Number','Number']])
@@ -180,36 +116,15 @@
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi38-000082136">
-  '[|]'(A, B, C) :-
-    ( D=f,
-      D=A
-    ),
-    ( E=X,
-      F=[E],
-      F=B
-    ),
-    G=H,
-    G=C,
-    (   call_fr(X<0, I, tt/0),
-        is_True(I)
-    *-> -(0, X, J),
-        J=H
-    ;   call_fr(+(1, X, K), _, tt/0),
-        call_fr(g(K), L, g/2),
-        L=H
-    ).
-
 </span>
 
-<span class="ansi32">% 160,412 inferences, 0.035 CPU in 0.035 seconds (100% CPU, 4545511 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta" 0)
+<span class="ansi32">% 58,244 inferences, 0.023 CPU in 0.023 seconds (100% CPU, 2586208 Lips)
+</span> (@ = "examples/compat/test_scripts/f1_moduleA.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/f1_moduleA.html" )
 
 </pre>
 </body>

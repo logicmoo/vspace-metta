@@ -39,14 +39,14 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This function creates a symbolic expression, which wraps a novel state,
-; and puts it into &self.
-; This is a way to address particular state atoms without creating
-; unique tokens for them (it can be used for any grounded atom)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "examples/compat/test_scripts/e3_match_states.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This function creates a symbolic expression, which wraps a novel state,
+;; and puts it into &self.
+;; This is a way to address particular state atoms without creating
+;; unique tokens for them (it can be used for any grounded atom)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['new-goal-status!',Goal,Status],[let,New_state,['new-state',Status],['add-atom','&self',[=,[status,['Goal',Goal]],New_state]]])
 </span><span class="ansi38-255165000">  (= 
     (new-goal-status! $Goal $Status) 
@@ -60,26 +60,26 @@
 
 <span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_217000))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_168320))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal lunch-order)) 
-    (State  inactive $_217000))
+    (State  inactive $_168320))
 </span>
 
-; Evaluation took 0.607 ms. (606.60 microseconds) 
+; Evaluation took 1.01 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_262216))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_213770))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal meditation)) 
-    (State  inactive $_262216))
+    (State  inactive $_213770))
 </span>
 
-; Evaluation took 0.510 ms. (510.00 microseconds) 
+; Evaluation took 0.874 ms. (873.70 microseconds) 
 <span class="ansi33"> True
 
 </span>; We can use `status` as a function to access corresponding state
@@ -93,9 +93,9 @@
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_318734)))
+            <--(1,retval('State'(inactive,_270674)))
         <--(0,retval(inactive))
-; Evaluation took 1.01 ms.
+; Evaluation took 1.82 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -105,7 +105,7 @@
 ; `nop` is used only to get () for passing unit tests
 <span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
 
-</span>; Evaluation took 0.198 ms. (198.50 microseconds) 
+</span>; Evaluation took 0.324 ms. (323.90 microseconds) 
 <span class="ansi33"> ()
 
 </span>; The result is now different. This might be surprising, since
@@ -120,13 +120,12 @@
   (equal_enough  
     (inactive) 
     (active)))
-</span>equal_enough([inactive],[active])
-        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
+</span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_398280)))
+            <--(1,retval('State'(inactive,_350920)))
         <--(0,retval(inactive))
-; Evaluation took 0.909 ms. (908.90 microseconds) 
+; Evaluation took 1.71 ms.
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -135,13 +134,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(bind! &state-active (new-state active))
 
-</span>; Evaluation took 0.124 ms. (124.20 microseconds) 
-<span class="ansi33"> (@ State active $_422750)
- % 'State'(active,_422750)
+</span>; Evaluation took 0.177 ms. (176.90 microseconds) 
+<span class="ansi33"> (@ State active $_375670)
+ % 'State'(active,_375670)
 
 </span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
 
-</span>; Evaluation took 0.112 ms. (112.30 microseconds) 
+</span>; Evaluation took 0.246 ms. (246.40 microseconds) 
 <span class="ansi33"> ()
 
 </span>; We cannot put `(new-state active)` inside `match`, because it doesn''t
@@ -156,11 +155,11 @@
     ( (StateMonad Symbol))))
 </span>        -->(0,'&self',['get-type','&state-active'],depth(2))
               -->(1,'&self','&state-active',depth(5))
-              <--(1,retval('State'(inactive,_480004)))
+              <--(1,retval('State'(inactive,_433510)))
         <--(0,retval(['StateMonad','Symbol']))
           -->(2,'&self',['StateMonad','Symbol'],depth(3))
         -->(3,'&self',['StateMonad','Symbol'],depth(2))
-; Evaluation took 0.931 ms. (931.40 microseconds) 
+; Evaluation took 1.66 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
@@ -172,9 +171,9 @@
     (inactive)))
 </span>        -->(0,'&self',['get-state','&state-active'],depth(2))
             -->(1,'&self','&state-active',depth(4))
-            <--(1,retval('State'(inactive,_508612)))
+            <--(1,retval('State'(inactive,_462608)))
         <--(0,retval(inactive))
-; Evaluation took 0.722 ms. (722.00 microseconds) 
+; Evaluation took 1.21 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
@@ -182,13 +181,13 @@
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  inactive $_7846)) 
-    ( (State  inactive $_8104))))
+    ( (State  inactive $_483882)) 
+    ( (State  inactive $_484140))))
 </span>        -->(0,'&self','&state-active',depth(2))
-        <--(0,retval('State'(inactive,_14580)))
+        <--(0,retval('State'(inactive,_490668)))
         -->(1,'&self',['new-state',inactive],depth(2))
-        <--(1,retval('State'(inactive,_15120)))
-; Evaluation took 0.815 ms. (815.30 microseconds) 
+        <--(1,retval('State'(inactive,_491268)))
+; Evaluation took 1.24 ms.
 <span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
@@ -198,24 +197,31 @@
 (@ loonit_failureR 
   (equal_enough  () 
     (meditation)))
-</span>equal_enough([],[meditation])
-        -->(0,'&self',[match,'&self',[=,[status,['Goal',_40502]],'&state-active'],_40502],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_516890]],'&state-active'],_516890],depth(2))
         <--(0,retval(fail))
-; Evaluation took 0.776 ms. (776.40 microseconds) 
+; Evaluation took 1.01 ms.
 <span class="ansi33"> False
 
 </span>; But we can also find all goal statuses, unwrap them from State,
 ; and compare to the desirable result
 <span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
 
-</span><span class="ansi32">% 154,095 inferences, 0.111 CPU in 0.111 seconds (100% CPU, 1388288 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta" 0)
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">;; TEST-SCRIPTS.E3-MATCH-STATES.07</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  () 
+    (lunch-order)))
+</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_25448]]],active],_25448,[superpose,[]]],depth(2))
+        <--(0,retval(fail))
+; Evaluation took 1.20 ms.
+<span class="ansi33"> False
+
+</span><span class="ansi32">% 154,642 inferences, 0.166 CPU in 0.166 seconds (100% CPU, 930034 Lips)
+</span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
-</span><span class="ansi31">Failures: 2
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.html" )
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e3_match_states.html" )
 
 </pre>
 </body>

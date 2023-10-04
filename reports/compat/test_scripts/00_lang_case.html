@@ -15,132 +15,85 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
+ (@ track_load_into_file "examples/compat/test_scripts/00_lang_case.metta")
 ; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 2 3))))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_1 =  
-    assertEqual(1+superpose([1,2,3]),1+superpose([1,2,3])) , 
-  loonit_assert_source_tf( Src_1, 
-      ((
-       (findall( FA_1, 
-            ((
-             (( _264402=1,_264402=_264410  ;
-                _258350=2,_258350=_258334 ; 
-                _258368=3,_258368=_258334)),
-             (+(1,_258334,FA_1))  )), 
-          FARL_1)),
-       (findall( FA_2, 
-            ((
-             (( _286512=1,_286512=_286520  ;
-                _280460=2,_280460=_280444 ; 
-                _280478=3,_280478=_280444)),
-             (+(1,_280444,FA_2))  )), 
-          FARL_2))  )), equal_enough(FARL_1,FARL_2),_195306)
-</span>
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (2 3 4) 
     (2 3 4)))
-</span>; Evaluation took 0.565 ms. (565.50 microseconds) 
+</span>        -->(0,'&self',[+,1,[superpose,[1,2,3]]],depth(2))
+            -->(1,'&self',[+,1,1],depth(4))
+            <--(1,retval(2))
+            -->(2,'&self',[+,1,2],depth(4))
+            <--(2,retval(3))
+            -->(3,'&self',[+,1,3],depth(4))
+            <--(3,retval(4))
+        <--(0,retval(4))
+        -->(4,'&self',[+,1,[superpose,[1,2,3]]],depth(2))
+            -->(5,'&self',[+,1,1],depth(4))
+            <--(5,retval(2))
+            -->(6,'&self',[+,1,2],depth(4))
+            <--(6,retval(3))
+            -->(7,'&self',[+,1,3],depth(4))
+            <--(7,retval(4))
+        <--(4,retval(4))
+; Evaluation took 3.01 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_2'=[2,3,4],'FA_2'=_199684,'FARL_1'=[2,3,4],'FA_1'=_198164,'Src_1'=assertEqual(1+superpose([1,2,3]),1+superpose([1,2,3]))]
-</span>
 
-<span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
+</span><span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_2 =  
-    assertEqual( 1+superpose([1,2,3]), 
-      1+superpose([1,superpose([2,3])])) , 
-  loonit_assert_source_tf( Src_2, 
-      ((
-       (findall( FA_3, 
-            ((
-             (( _406476=1,_406476=_406484  ;
-                _400424=2,_400424=_400408 ; 
-                _400442=3,_400442=_400408)),
-             (+(1,_400408,FA_3))  )), 
-          FARL_3)),
-       (findall( FA_4, 
-            ((
-             (  ((
-                 (_423712=1,_423712=_423720);
-                 ((_423742=2,_423742=_423750;_423760=3,_423760=_423750),_423750=_423720)  ))),
-             (+(1,_423720,FA_4))  )), 
-          FARL_4))  )), equal_enough(FARL_3,FARL_4),_331314)
-</span>
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (2 3 4) 
     (2 3 4)))
-</span>; Evaluation took 0.557 ms. (556.60 microseconds) 
+</span>        -->(0,'&self',[+,1,[superpose,[1,2,3]]],depth(2))
+            -->(1,'&self',[+,1,1],depth(4))
+            <--(1,retval(2))
+            -->(2,'&self',[+,1,2],depth(4))
+            <--(2,retval(3))
+            -->(3,'&self',[+,1,3],depth(4))
+            <--(3,retval(4))
+        <--(0,retval(4))
+        -->(4,'&self',[+,1,[superpose,[1,[superpose,[2,3]]]]],depth(2))
+            -->(5,'&self',[+,1,1],depth(4))
+            <--(5,retval(2))
+            -->(6,'&self',[+,1,[superpose,[2,3]]],depth(4))
+                -->(7,'&self',[+,1,2],depth(6))
+                <--(7,retval(3))
+                -->(8,'&self',[+,1,3],depth(6))
+                <--(8,retval(4))
+            <--(6,retval(4))
+        <--(4,retval(4))
+; Evaluation took 2.96 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_4'=[2,3,4],'FA_4'=_335502,'FARL_3'=[2,3,4],'FA_3'=_333982,'Src_2'=assertEqual(1+superpose([1,2,3]),1+superpose([1,superpose([2,3])]))]
-</span>
 
-<span class="ansi38-000068000">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
+</span><span class="ansi38-000068000">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_3 =  
-    assertEqual( 
-       [ [ superpose, 
-           [1,2,3]]], 
-       [ [ superpose, 
-           [ 1, 
-             superpose([1+1,3])]]]) , 
-  loonit_assert_source_tf( Src_3, 
-      ((
-       (findall( FA_5, 
-            ((
-             (_38626=1,_38626=_38634;_38650=2,_38650=_38634;_38668=3,_38668=_38634),
-             (FA_5=[_38634])  )), 
-          FARL_5)),
-       (findall( FA_6, 
-            ((
-             (  ((
-                 (_52980=1,_52980=_52988);
-                 ((+(1,1,_53014),_53014=_53020;_53030=3,_53030=_53020),_53020=_52988)  ))),
-             (FA_6=[_52988])  )), 
-          FARL_6))  )), equal_enough(FARL_5,FARL_6),_1824)
-</span>
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (1) 
@@ -149,345 +102,247 @@
     ( (1) 
       (2) 
       (3))))
-</span>; Evaluation took 0.623 ms. (623.00 microseconds) 
+</span>        -->(0,'&self',[[superpose,[1,2,3]]],depth(2))
+        -->(1,'&self',[[superpose,[1,[superpose,[[+,1,1],3]]]]],depth(2))
+            -->(2,'&self',[[superpose,[[+,1,1],3]]],depth(4))
+                -->(3,'&self',[[+,1,1]],depth(6))
+                    -->(4,'&self',[+,1,1],depth(8))
+                  -->(5,'&self',[2],depth(7))
+              -->(6,'&self',[2],depth(5))
+          -->(7,'&self',[2],depth(3))
+                    <--(4,retval(2))
+                <--(3,retval([2]))
+; Evaluation took 2.14 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_6'=[[1],[2],[3]],'FA_6'=_2424,'FARL_5'=[[1],[2],[3]],'FA_5'=_2304,'Src_3'=assertEqual([[superpose,[1,2,3]]],[[superpose,[1,superpose([1+1,3])]]])]
-</span>
 
-; cases are processed sequentially
+</span>; cases are processed sequentially
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) ((5 Error) (6 OK) (6 Error))) OK)
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_4 =  
-    assertEqual( 
-       case(1+5,[[5,'Error'],[6,'OK'],[6,'Error']]), 
-       'OK') , 
-  loonit_assert_source_tf( Src_4, 
-      ((
-       (findall( FA_7, 
-            ((
-             (+(1,5,CASE_EVAL_1)),
-             (( CASE_EVAL_1=5,unify_enough(CASE_EVAL_1,CASE_EVAL_1)->FA_7='Error'  ;
-                CASE_EVAL_11=6,unify_enough(CASE_EVAL_1,CASE_EVAL_11) ->  
-                  FA_7='OK' ; 
-                CASE_EVAL_12=6,unify_enough(CASE_EVAL_1,CASE_EVAL_12) ->  
-                  FA_7='Error' ; 
-                fail))  )), 
-          FARL_7)),
-       (findall(FA_8,FA_8='OK',FARL_8))  )), equal_enough(FARL_7,FARL_8),_89472)
-</span>
+</span> c(0,5)='Error'
+ c(1,6)='OK'
+ c(2,6)='Error'
+ switch=6
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.04">;; TEST-SCRIPTS.00-LANG-CASE.04</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (OK) 
     (OK)))
-</span>; Evaluation took 0.547 ms. (547.10 microseconds) 
+</span>        -->(0,'&self',[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],depth(2))
+ c(0,5)='Error'
+ c(1,6)='OK'
+ c(2,6)='Error'
+            -->(1,'&self',[+,1,5],depth(4))
+ switch=6
+            <--(1,retval(6))
+        <--(0,retval('OK'))
+; Evaluation took 1.73 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_8'=['OK'],'FA_8'=_99014,'FARL_7'=['OK'],'CASE_EVAL_1'=_95628,'FA_7'=_95242,'Src_4'=assertEqual(case(1+5,[[5,'Error'],[6,'OK'],[6,'Error']]),'OK')]
-</span>
 
-; we can use variables as cases
+</span>; we can use variables as cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_5 =  
-    assertEqual(case(1+5,[[X,1+X]]),7) , 
-  loonit_assert_source_tf( Src_5, 
-      ((
-       (findall( FA_9, 
-            ((
-             (+(1,5,CASE_EVAL_2)),
-             (  ((
-                 (VAR_X=X,unify_enough(CASE_EVAL_2,VAR_X) ->  
-                    +(1,X,FA_9));
-                 (fail)  )))  )), 
-          FARL_9)),
-       (findall(FA_10,FA_10=7,FARL_10))  )), equal_enough(FARL_9,FARL_10),_199312)
-</span>
+</span> c(0,_326626)=[+,1,_326626]
+ switch=6
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (7) 
     (7)))
-</span>; Evaluation took 0.494 ms. (493.90 microseconds) 
+</span>        -->(0,'&self',[case,[+,1,5],[[_328654,[+,1,_328654]]]],depth(2))
+ c(0,_328654)=[+,1,_328654]
+            -->(1,'&self',[+,1,5],depth(4))
+ switch=6
+            -->(2,'&self',[+,1,6],depth(4))
+            <--(2,retval(7))
+            <--(1,retval(6))
+        <--(0,retval(7))
+; Evaluation took 1.95 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_10'=[7],'FA_10'=_206172,'FARL_9'=[7],'CASE_EVAL_2'=_203970,'FA_9'=_203584,'X'=_202524,'Src_5'=assertEqual(case(1+5,[[_202524,1+_202524]]),7)]
-</span>
 
-; cases are not necessarily exhaustive,
+</span>; cases are not necessarily exhaustive,
 ; and the result can be empty
 <span class="ansi38-000068000">!(assertEqual (case 5 ((6 OK))) (superpose ()))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_6 =  
-    assertEqual(case(5,[[6,'OK']]),superpose([])) , 
-  loonit_assert_source_tf( Src_6, 
-      ((
-       (findall( FA_11, 
-            ((
-             (CASE_EVAL_3=5),
-             (  ((
-                 (CASE_EVAL_3=6,unify_enough(CASE_EVAL_3,CASE_EVAL_3) ->  
-                    FA_11='OK');
-                 (fail)  )))  )), 
-          FARL_11)),
-       (findall(FA_12,false,FARL_12))  )), equal_enough(FARL_11,FARL_12),_280750)
-</span>
+</span> c(0,6)='OK'
+ switch=5
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.06">;; TEST-SCRIPTS.00-LANG-CASE.06</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  () ()))
-</span>; Evaluation took 0.485 ms. (485.40 microseconds) 
+</span>        -->(0,'&self',[case,5,[[6,'OK']]],depth(2))
+ c(0,6)='OK'
+ switch=5
+        <--(0,retval(fail))
+        -->(1,'&self',[superpose,[]],depth(2))
+        <--(1,retval(fail))
+; Evaluation took 1.23 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_12'=[],'FA_12'=_286074,'FARL_11'=[],'CASE_EVAL_3'=_284434,'FA_11'=_284064,'Src_6'=assertEqual(case(5,[[6,'OK']]),superpose([]))]
-</span>
 
-; it is non-deterministic: each value is matched against all cases
+</span>; it is non-deterministic: each value is matched against all cases
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) ((3 OK-3) (4 OK-4))) (superpose (OK-3 OK-4)))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_7 =  
-    assertEqual( 
-       case( 1+superpose([1,2,3]),  [ [   3   ,'OK-3'],
-                                      [   4   ,'OK-4']]), 
-       superpose(['OK-3','OK-4'])) , 
-  loonit_assert_source_tf( Src_7, 
-      ((
-       (findall( FA_13, 
-          ( _466708=1,_466708=_466716;_466732=2,_466732=_466716;_466750=3,_466750=_466716  ,
-            +(1,_455148,CASE_EVAL_4) , 
-            ( CASE_EVAL_4=3,unify_enough(CASE_EVAL_4,CASE_EVAL_4)->FA_13='OK-3'  ;
-              CASE_EVAL_41=4,unify_enough(CASE_EVAL_4,CASE_EVAL_41) ->  
-                FA_13='OK-4' ; 
-              fail)), 
-          FARL_13)),
-       (findall( FA_14, 
-            ((
-             (VAR_FA_14_OK_3='OK-3',VAR_FA_14_OK_3=FA_14);
-             (VAR_FA_14_OK_4='OK-4',VAR_FA_14_OK_4=FA_14)  )), 
-          FARL_14))  )), equal_enough(FARL_13,FARL_14),_361320)
-</span>
+</span> c(0,3)='OK-3'
+ c(1,4)='OK-4'
+ switch=2
+ switch=3
+ switch=4
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.07">;; TEST-SCRIPTS.00-LANG-CASE.07</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (OK-3 OK-4) 
     (OK-3 OK-4)))
-</span>; Evaluation took 0.640 ms. (640.50 microseconds) 
+</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],depth(2))
+ c(0,3)='OK-3'
+ c(1,4)='OK-4'
+            -->(1,'&self',[+,1,[superpose,[1,2,3]]],depth(4))
+                -->(2,'&self',[+,1,1],depth(6))
+ switch=2
+                <--(2,retval(2))
+                -->(3,'&self',[+,1,2],depth(6))
+ switch=3
+                <--(3,retval(3))
+                -->(4,'&self',[+,1,3],depth(6))
+ switch=4
+                <--(4,retval(4))
+            <--(1,retval(4))
+        <--(0,retval('OK-4'))
+        -->(5,'&self',[superpose,['OK-3','OK-4']],depth(2))
+        <--(5,retval('OK-4'))
+; Evaluation took 3.01 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_14'=['OK-3','OK-4'],'FA_14'=_369640,'FARL_13'=['OK-3','OK-4'],'CASE_EVAL_4'=_367112,'FA_13'=_366246,'Src_7'=assertEqual(case(1+superpose([1,2,3]),[[3,'OK-3'],[4,'OK-4']]),superpose(['OK-3','OK-4']))]
-</span>
 
-; one case can produce multiple results
+</span>; one case can produce multiple results
 <span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_8 =  
-    assertEqual( 
-       case(1+superpose([1,2,3]),[[X,1+X]]), 
-       superpose([3,4,5])) , 
-  loonit_assert_source_tf( Src_8, 
-      ((
-       (findall( FA_15, 
-          ( _90302=1,_90302=_90310;_90326=2,_90326=_90310;_90344=3,_90344=_90310  ,
-            +(1,_78742,CASE_EVAL_5) , 
-              ((
-               (VAR_X=X,unify_enough(CASE_EVAL_5,VAR_X) ->  
-                  +(1,X,FA_15));
-               (fail)  ))), 
-          FARL_15)),
-       (findall( FA_16, 
-          ( VAR_FA_16=3,VAR_FA_16=FA_16  ;
-            VAR_FA_162=4,VAR_FA_162=FA_16 ; 
-            VAR_FA_163=5,VAR_FA_163=FA_16), 
-          FARL_16))  )), equal_enough(FARL_15,FARL_16),_1846)
-</span>
+</span> c(0,_444310)=[+,1,_444310]
+ switch=2
+ switch=3
+ switch=4
 <h3 id="TEST-SCRIPTS.00-LANG-CASE.08">;; TEST-SCRIPTS.00-LANG-CASE.08</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (3 4 5) 
     (3 4 5)))
-</span>; Evaluation took 0.582 ms. (582.00 microseconds) 
+</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_446378,[+,1,_446378]]]],depth(2))
+ c(0,_446378)=[+,1,_446378]
+            -->(1,'&self',[+,1,[superpose,[1,2,3]]],depth(4))
+                -->(2,'&self',[+,1,1],depth(6))
+ switch=2
+            -->(3,'&self',[+,1,2],depth(4))
+            <--(3,retval(3))
+                <--(2,retval(2))
+                -->(4,'&self',[+,1,2],depth(6))
+ switch=3
+            -->(5,'&self',[+,1,3],depth(4))
+            <--(5,retval(4))
+                <--(4,retval(3))
+                -->(6,'&self',[+,1,3],depth(6))
+ switch=4
+            -->(7,'&self',[+,1,4],depth(4))
+            <--(7,retval(5))
+                <--(6,retval(4))
+            <--(1,retval(4))
+        <--(0,retval(5))
+        -->(8,'&self',[superpose,[3,4,5]],depth(2))
+        <--(8,retval(5))
+; Evaluation took 3.60 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_16'=[3,4,5],'FA_16'=_3616,'FARL_15'=[3,4,5],'CASE_EVAL_5'=_2790,'FA_15'=_2690,'X'=_2554,'Src_8'=assertEqual(case(1+superpose([1,2,3]),[[_2554,1+_2554]]),superpose([3,4,5]))]
-</span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
 </span><span class="ansi38-255165000">  (Rel-P A B)
-</span><span class="ansi38-000082136">  :- dynamic('[|]',3).
-
-  '[|]'(A, B, C) :-
-    ( D='Rel-P',
-      D=A
-    ),
-    ( E=F,
-      E=B
-    ),
-    call_fr('A'('B'), G, 'A'/2),
-    G=C,
-    F='True'.
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-Q','A','C'])
 </span><span class="ansi38-255165000">  (Rel-Q A C)
-</span><span class="ansi38-000082136">
-  '[|]'(A, B, C) :-
-    ( D='Rel-Q',
-      D=A
-    ),
-    ( call_fr('A'('C'), E, 'A'/2),
-      E=B
-    ),
-    F=G,
-    F=C,
-    G='True'.
-
 </span>
 
 ; Basic Match
 <span class="ansi38-000068000">!(assertEqual (match &self ($Rel A $X) ($Rel $X)) (superpose ((Rel-P B) (Rel-Q C))))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_9 =  
-    assertEqual( 
-       match('&self',[Rel,'A',X],[Rel,X]), 
-       superpose(['Rel-P'('B'),'Rel-Q'('C')])) , 
-  loonit_assert_source_tf( Src_9, 
-      ((
-       (findall( FA_17, 
-          match( '&self', 
-            [Rel,'A',X], 
-            [Rel,X], 
-            FA_17), 
-          FARL_17)),
-       (findall( FA_18, 
-            ((
-             (call_fr('Rel-P'('B'),VAR_FA_18_Rel_P,'Rel-P'/2),VAR_FA_18_Rel_P=FA_18);
-             (call_fr('Rel-Q'('C'),VAR_FA_18_Rel_Q,'Rel-Q'/2),VAR_FA_18_Rel_Q=FA_18)  )), 
-          FARL_18))  )), equal_enough(FARL_17,FARL_18),_193656)
-</span>
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (Rel-P B) 
       (Rel-Q C)) 
-    ( (Rel-P  B) 
-      (Rel-Q  C))))
-</span>                                                                                                                                                                                        -->(0,'&self',[match,'&self',[_263544,'A',_263556],[_263544,_263556]],depth(90))
-                                                                                                                                                                                          -->(1,'&self',['Rel-P','B'],depth(91))
-                                                                                                                                                                                          -->(2,'&self',['Rel-Q','C'],depth(91))
-                                                                                                                                                                                        <--(0,retval(['Rel-Q','C']))
-; Evaluation took 1.17 ms.
+    ( (Rel-P B) 
+      (Rel-Q C))))
+</span>        -->(0,'&self',[match,'&self',[_510606,'A',_510618],[_510606,_510618]],depth(2))
+          -->(1,'&self',['Rel-P','B'],depth(3))
+          -->(2,'&self',['Rel-Q','C'],depth(3))
+        <--(0,retval(['Rel-Q','C']))
+        -->(3,'&self',[superpose,[['Rel-P','B'],['Rel-Q','C']]],depth(2))
+            -->(4,'&self',['Rel-P','B'],depth(4))
+          -->(5,'&self',['Rel-P','B'],depth(3))
+            -->(6,'&self',['Rel-Q','C'],depth(4))
+        <--(3,retval(['Rel-Q','C']))
+          -->(7,'&self',['Rel-Q','C'],depth(3))
+; Evaluation took 3.03 ms.
 <span class="ansi33"> True
-</span><span class="ansi32">['FARL_18'=['Rel-P'('B'),'Rel-Q'('C')],'FA_18'=_199980,'FARL_17'=[['Rel-P','B'],['Rel-Q','C']],'FA_17'=_197714,'X'=_196294,'Rel'=_195980,'Src_9'=assertEqual(match('&self',[_195980,'A',_196294],[_195980,_196294]),superpose(['Rel-P'('B'),'Rel-Q'('C')]))]
-</span>
 
-; cases can be used for deconstruction
+</span>; cases can be used for deconstruction
 <span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_10 =  
-    assertEqual( 
-       superpose(['P'('B'),'Q'('C')]), 
-       case( 
-          match('&self',[Rel,'A',X],[Rel,X]), 
-          [ [ 'Rel-P'(Y), 
-              'P'(Y)], 
-            [ ['Rel-Q',Y], 
-              'Q'(Y)]])) , 
-  loonit_assert_source_tf( Src_10, 
-      ((
-       (findall( FA_19, 
-            ((
-             (call_fr('P'('B'),VAR_FA_19_P,'P'/2),VAR_FA_19_P=FA_19);
-             (call_fr('Q'('C'),VAR_FA_19_Q,'Q'/2),VAR_FA_19_Q=FA_19)  )), 
-          FARL_19)),
-       (findall( FA_20, 
-            ((
-             (match( '&self', 
-                [Rel,'A',X], 
-                [Rel,X], 
-                CASE_EVAL_6)),
-             ((   ((
-                   (call_fr('Rel-P'(Y),CASE_EVAL_6_Rel_P,'Rel-P'/2)),
-                   (unify_enough(CASE_EVAL_6,CASE_EVAL_6_Rel_P))  )) ->  
-                  call_fr('P'(Y),FA_20,'P'/2)  ;
-                  ((
-                   (call_fr('Rel-Q'(Y),CASE_EVAL_6_Rel_Q,'Rel-Q'/2)),
-                   (unify_enough(CASE_EVAL_6,CASE_EVAL_6_Rel_Q))  )) ->  
-                  call_fr('Q'(Y),FA_20,'Q'/2) ; 
-                fail))  )), 
-          FARL_20))  )), equal_enough(FARL_19,FARL_20),_306076)
-</span>
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi31">
-(@ loonit_failureR 
+</span> c(0,['Rel-P',_36626])=['P',_36626]
+ c(1,['Rel-Q',_36626])=['Q',_36626]
+ switch=['Rel-P','B']
+ switch=['Rel-Q','C']
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
+(@ loonit_success 
   (equal_enough  
-    ( (P  B) 
-      (Q  C)) ()))
-</span>equal_enough(['P'('B'),'Q'('C')],[])
-                                                                                                                                                                                        -->(0,'&self',[match,'&self',[_422790,'A',_422802],[_422790,_422802]],depth(90))
-                                                                                                                                                                                          -->(1,'&self',['Rel-P','B'],depth(91))
-                                                                                                                                                                                          -->(2,'&self',['Rel-Q','C'],depth(91))
-                                                                                                                                                                                        <--(0,retval(['Rel-Q','C']))
-; Evaluation took 1.09 ms.
-<span class="ansi33"> False
-</span><span class="ansi32">['FARL_20'=[],'CASE_EVAL_6'=_318010,'FA_20'=_316412,'FARL_19'=['P'('B'),'Q'('C')],'FA_19'=_314664,'Y'=_312990,'X'=_312052,'Rel'=_311738,'Src_10'=assertEqual(superpose(['P'('B'),'Q'('C')]),case(match('&self',[_311738,'A',_312052],[_311738,_312052]),[['Rel-P'(_312990),'P'(_312990)],[['Rel-Q',_312990],'Q'(_312990)]]))]
-</span>
+    ( (P B) 
+      (Q C)) 
+    ( (P B) 
+      (Q C))))
+</span>        -->(0,'&self',[superpose,[['P','B'],['Q','C']]],depth(2))
+            -->(1,'&self',['P','B'],depth(4))
+          -->(2,'&self',['P','B'],depth(3))
+            -->(3,'&self',['Q','C'],depth(4))
+        <--(0,retval(['Q','C']))
+          -->(4,'&self',['Q','C'],depth(3))
+        -->(5,'&self',[case,[match,'&self',[_39310,'A',_39322],[_39310,_39322]],[[['Rel-P',_39370],['P',_39370]],[['Rel-Q',_39370],['Q',_39370]]]],depth(2))
+ c(0,['Rel-P',_39370])=['P',_39370]
+ c(1,['Rel-Q',_39370])=['Q',_39370]
+            -->(6,'&self',[match,'&self',[_39310,'A',_39322],[_39310,_39322]],depth(4))
+              -->(7,'&self',['Rel-P','B'],depth(5))
+ switch=['Rel-P','B']
+            -->(8,'&self',['P','B'],depth(4))
+          -->(9,'&self',['P','B'],depth(3))
+              -->(10,'&self',['Rel-Q','C'],depth(5))
+ switch=['Rel-Q','C']
+            -->(11,'&self',['Q','C'],depth(4))
+          -->(12,'&self',['Q','C'],depth(3))
+            <--(6,retval(['Rel-Q','C']))
+        <--(5,retval(['Q','C']))
+; Evaluation took 6.48 ms.
+<span class="ansi33"> True
 
-; %void% can be used to capture empty results
+</span>; %void% can be used to capture empty results
 <span class="ansi38-000068000">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
 
-</span><span class="ansi38-017068017">exec(Exec) :- 
-  Src_11 =  
-    assertEqual( 
-       case( 
-          match('&self',[Rel,'B',X],[Rel,X]), 
-          [ [ 'Rel-P'(Y), 
-              'P'(Y)], 
-            [ ['Rel-Q',Y], 
-              'Q'(Y)], 
-            '%void%'('no-match')]), 
-       'no-match') , 
-  loonit_assert_source_tf( Src_11, 
-      ((
-       (findall( FA_21, 
-            ((
-             (match( '&self', 
-                [Rel,'B',X], 
-                [Rel,X], 
-                CASE_EVAL_7)),
-             ((   ((
-                   (call_fr('Rel-P'(Y),CASE_EVAL_7_Rel_P,'Rel-P'/2)),
-                   (unify_enough(CASE_EVAL_7,CASE_EVAL_7_Rel_P))  )) ->  
-                  call_fr('P'(Y),FA_21,'P'/2)  ;
-                  ((
-                   (call_fr('Rel-Q'(Y),CASE_EVAL_7_Rel_Q,'Rel-Q'/2)),
-                   (unify_enough(CASE_EVAL_7,CASE_EVAL_7_Rel_Q))  )) ->  
-                  call_fr('Q'(Y),FA_21,'Q'/2) ; 
-                true->FA_21='no-match' ; 
-                fail))  )), 
-          FARL_21)),
-       (findall(FA_22,FA_22='no-match',FARL_22))  )), equal_enough(FARL_21,FARL_22),_1982)
-</span>
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span> c(0,['Rel-P',_89722])=['P',_89722]
+ c(1,['Rel-Q',_89722])=['Q',_89722]
+ c(2,'%void%')='no-match'
+<h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (no-match) 
     (no-match)))
-</span>equal_enough([],['no-match'])
-                                                                                                                                                                                        -->(0,'&self',[match,'&self',[_45858,'B',_45870],[_45858,_45870]],depth(90))
-                                                                                                                                                                                        <--(0,retval(fail))
-; Evaluation took 0.827 ms. (826.90 microseconds) 
-<span class="ansi33"> False
-</span><span class="ansi32">['FARL_22'=['no-match'],'FA_22'=_2746,'FARL_21'=[],'CASE_EVAL_7'=_2556,'FA_21'=_2512,'Y'=_2422,'X'=_2374,'Rel'=_2350,'Src_11'=assertEqual(case(match('&self',[_2350,'B',_2374],[_2350,_2374]),[['Rel-P'(_2422),'P'(_2422)],[['Rel-Q',_2422],'Q'(_2422)],'%void%'('no-match')]),'no-match')]
-</span>
+</span>        -->(0,'&self',[case,[match,'&self',[_92428,'B',_92440],[_92428,_92440]],[[['Rel-P',_92488],['P',_92488]],[['Rel-Q',_92488],['Q',_92488]],['%void%','no-match']]],depth(2))
+ c(0,['Rel-P',_92488])=['P',_92488]
+ c(1,['Rel-Q',_92488])=['Q',_92488]
+ c(2,'%void%')='no-match'
+            -->(1,'&self',[match,'&self',[_92428,'B',_92440],[_92428,_92440]],depth(4))
+            <--(1,retval(fail))
+        <--(0,retval('no-match'))
+; Evaluation took 2.60 ms.
+<span class="ansi33"> True
 
-<span class="ansi32">% 5,616,557 inferences, 0.776 CPU in 0.776 seconds (100% CPU, 7234881 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta" 0)
+</span><span class="ansi32">% 234,697 inferences, 0.190 CPU in 0.190 seconds (100% CPU, 1233503 Lips)
+</span> (@ = "examples/compat/test_scripts/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 9
-</span><span class="ansi31">Failures: 2
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.html" )
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/00_lang_case.html" )
 
 </pre>
 </body>

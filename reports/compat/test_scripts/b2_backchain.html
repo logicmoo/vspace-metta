@@ -68,13 +68,13 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; `match` can be used inside equalities, which is typically
-; used for querying and reasoning over declarative knowledge
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Fact
+ (@ track_load_into_file "examples/compat/test_scripts/b2_backchain.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; `match` can be used inside equalities, which is typically
+;; used for querying and reasoning over declarative knowledge
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Fact
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
 </span><span class="ansi38-255165000">  (Frog Sam)
 </span>
@@ -94,10 +94,9 @@
   (equal_enough  
     (True) 
     ( (Frog Sam))))
-</span>equal_enough(['True'],[['Frog','Sam']])
-        -->(0,'&self',['Frog','Sam'],depth(2))
+</span>        -->(0,'&self',['Frog','Sam'],depth(2))
         <--(0,retval('True'))
-; Evaluation took 0.792 ms. (791.90 microseconds) 
+; Evaluation took 1.46 ms.
 <span class="ansi33"> False
 
 </span>; `frog` uses this declaration
@@ -112,7 +111,7 @@
           -->(1,'&self',[match,'&self',['Frog','Sam'],'True'],depth(3))
           <--(1,retval('True'))
         <--(0,retval([match,'&self',['Frog','Sam'],'True']))
-; Evaluation took 0.861 ms. (860.60 microseconds) 
+; Evaluation took 1.32 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
@@ -124,7 +123,7 @@
           -->(1,'&self',[match,'&self',['Frog','Fritz'],'True'],depth(3))
           <--(1,retval(fail))
         <--(0,retval([match,'&self',['Frog','Fritz'],'True']))
-; Evaluation took 0.737 ms. (736.50 microseconds) 
+; Evaluation took 1.22 ms.
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -221,12 +220,12 @@
             -->(1,'&self',[mortal,'Plato'],depth(4))
           -->(2,'&self',[match,'&self',['Evaluation',[mortal,'Plato']],'True'],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',['Implication',_41954,['Evaluation',[mortal,'Plato']]],[deduce,_41954]],depth(3))
+          -->(3,'&self',[match,'&self',['Implication',_510632,['Evaluation',[mortal,'Plato']]],[deduce,_510632]],depth(3))
             -->(4,'&self',[deduce,['Evaluation',[human,'Plato']]],depth(4))
                 -->(5,'&self',[human,'Plato'],depth(6))
               -->(6,'&self',[match,'&self',['Evaluation',[human,'Plato']],'True'],depth(5))
               <--(6,retval(fail))
-              -->(7,'&self',[match,'&self',['Implication',_43564,['Evaluation',[human,'Plato']]],[deduce,_43564]],depth(5))
+              -->(7,'&self',[match,'&self',['Implication',_512672,['Evaluation',[human,'Plato']]],[deduce,_512672]],depth(5))
                 -->(8,'&self',[deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]],depth(6))
                     -->(9,'&self',[philosopher,'Plato'],depth(8))
                   -->(10,'&self',['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]],depth(7))
@@ -239,20 +238,20 @@
                           -->(17,'&self',['likes-to-wrestle','Plato'],depth(11))
                         -->(18,'&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],'True'],depth(10))
                         <--(18,retval('True'))
-                        -->(19,'&self',[match,'&self',['Implication',_50020,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_50020]],depth(10))
+                        -->(19,'&self',[match,'&self',['Implication',_520272,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_520272]],depth(10))
                         <--(19,retval(fail))
-                      <--(16,retval([match,'&self',['Implication',_50100,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_50100]]))
+                      <--(16,retval([match,'&self',['Implication',_520524,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_520524]]))
                         <--(14,retval('True'))
-                        -->(20,'&self',[match,'&self',['Implication',_50178,['Evaluation',[philosopher,'Plato']]],[deduce,_50178]],depth(10))
+                        -->(20,'&self',[match,'&self',['Implication',_520602,['Evaluation',[philosopher,'Plato']]],[deduce,_520602]],depth(10))
                         <--(20,retval(fail))
-                      <--(12,retval([match,'&self',['Implication',_50258,['Evaluation',[philosopher,'Plato']]],[deduce,_50258]]))
+                      <--(12,retval([match,'&self',['Implication',_520854,['Evaluation',[philosopher,'Plato']]],[deduce,_520854]]))
                   <--(10,retval('True'))
                 <--(8,retval(['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]]))
               <--(7,retval([deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]))
-            <--(4,retval([match,'&self',['Implication',_43644,['Evaluation',[human,'Plato']]],[deduce,_43644]]))
+            <--(4,retval([match,'&self',['Implication',_512924,['Evaluation',[human,'Plato']]],[deduce,_512924]]))
           <--(3,retval([deduce,['Evaluation',[human,'Plato']]]))
-        <--(0,retval([match,'&self',['Implication',_42034,['Evaluation',[mortal,'Plato']]],[deduce,_42034]]))
-; Evaluation took 3.30 ms.
+        <--(0,retval([match,'&self',['Implication',_510884,['Evaluation',[mortal,'Plato']]],[deduce,_510884]]))
+; Evaluation took 5.11 ms.
 <span class="ansi33"> True
 
 </span>; TODO : Some variables are not substituted
@@ -324,7 +323,7 @@
             -->(1,'&self',[mortal,'Plato'],depth(4))
           -->(2,'&self',[match,'&self',['Evaluation',[mortal,'Plato']],[mortal,'Plato']],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',['Implication',_188886,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_188886]]],depth(3))
+          -->(3,'&self',[match,'&self',['Implication',_139626,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_139626]]],depth(3))
             -->(4,'&self',[[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]],depth(4))
                 -->(5,'&self',[human,'Plato'],depth(6))
                 -->(6,'&self',[mortal,'Plato'],depth(6))
@@ -332,7 +331,7 @@
                     -->(8,'&self',[human,'Plato'],depth(8))
                   -->(9,'&self',[match,'&self',['Evaluation',[human,'Plato']],[human,'Plato']],depth(7))
                   <--(9,retval(fail))
-                  -->(10,'&self',[match,'&self',['Implication',_192508,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_192508]]],depth(7))
+                  -->(10,'&self',[match,'&self',['Implication',_143920,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_143920]]],depth(7))
                     -->(11,'&self',[[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]],depth(8))
                         -->(12,'&self',[philosopher,'Plato'],depth(10))
                         -->(13,'&self',[human,'Plato'],depth(10))
@@ -357,21 +356,21 @@
                   -->(32,'&self',[[human,'Plato'],proven,by,'True'],depth(7))
                       -->(33,'&self',[human,'Plato'],depth(9))
                                 <--(25,retval(['likes-to-wrestle','Plato']))
-                                -->(34,'&self',[match,'&self',['Implication',_207022,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_207022]]],depth(14))
+                                -->(34,'&self',[match,'&self',['Implication',_160746,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_160746]]],depth(14))
                                 <--(34,retval(fail))
-                              <--(23,retval([match,'&self',['Implication',_207138,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_207138]]]))
+                              <--(23,retval([match,'&self',['Implication',_161082,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_161082]]]))
                                 <--(20,retval([philosopher,'Plato']))
-                                -->(35,'&self',[match,'&self',['Implication',_207252,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_207252]]],depth(14))
+                                -->(35,'&self',[match,'&self',['Implication',_161196,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_161196]]],depth(14))
                                 <--(35,retval(fail))
-                              <--(18,retval([match,'&self',['Implication',_207368,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_207368]]]))
+                              <--(18,retval([match,'&self',['Implication',_161532,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_161532]]]))
                           <--(16,retval('True'))
                         <--(14,retval(['And',[explain,['Evaluation',[philosopher,'Plato']]],[explain,['Evaluation',['likes-to-wrestle','Plato']]]]))
                     <--(11,retval([[human,'Plato'],proven,by,'True']))
                   <--(10,retval([[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]]))
-                <--(7,retval([match,'&self',['Implication',_192624,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_192624]]]))
+                <--(7,retval([match,'&self',['Implication',_144256,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_144256]]]))
             <--(4,retval([[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']]))
           <--(3,retval([[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]]))
-        <--(0,retval([match,'&self',['Implication',_189002,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_189002]]]))
+        <--(0,retval([match,'&self',['Implication',_139962,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_139962]]]))
         -->(36,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]],depth(2))
             -->(37,'&self',[human,'Plato'],depth(4))
             -->(38,'&self',[mortal,'Plato'],depth(4))
@@ -393,17 +392,16 @@
               -->(51,'&self',[mortal,'Plato'],depth(5))
               -->(52,'&self',[[human,'Plato'],proven,by,'True'],depth(5))
                   -->(53,'&self',[human,'Plato'],depth(7))
-; Evaluation took 8.75 ms.
+; Evaluation took 15.87 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 232,969 inferences, 0.157 CPU in 0.157 seconds (100% CPU, 1482102 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 0)
+</span><span class="ansi32">% 220,063 inferences, 0.256 CPU in 0.256 seconds (100% CPU, 860655 Lips)
+</span> (@ = "examples/compat/test_scripts/b2_backchain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
 </span><span class="ansi31">Failures: 1
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b2_backchain.html" )
 
 </pre>
 </body>
