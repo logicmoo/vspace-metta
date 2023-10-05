@@ -20,6 +20,14 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
@@ -28,17 +36,36 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/a3_twoside.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables can appear in knowledge base entries
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Variables can appear in knowledge base entries
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Green',X]])
+</span><span class="ansi38-255165000">  (implies 
+    (Frog $X) 
+    (Green $X))
+</span>
+
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Green',X]])
 </span><span class="ansi38-255165000">  (implies 
     (Frog $X) 
@@ -55,7 +82,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bound variables on both sides will be substituted
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Eats-flies',X]])
+</span><span class="ansi38-255165000">  (implies 
+    (Frog $X) 
+    (Eats-flies $X))
+</span>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Bound variables on both sides will be substituted
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
 
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.01">;; TEST-SCRIPTS.A3-TWOSIDE.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -64,12 +103,26 @@
       (Green Sam)) 
     ( (Eats-flies Sam) 
       (Green Sam))))
-</span>        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_169586],_169586],depth(2))
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.01">;; TEST-SCRIPTS.A3-TWOSIDE.01</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (Eats-flies Sam) 
+      (Green Sam)) 
+    ( (Eats-flies Sam) 
+      (Green Sam))))
+</span>        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_379232],_379232],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           -->(2,'&self',['Eats-flies','Sam'],depth(3))
         <--(0,retval(['Eats-flies','Sam']))
-; Evaluation took 1.89 ms.
+        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_379232],_379232],depth(2))
+          -->(1,'&self',['Green','Sam'],depth(3))
+          -->(2,'&self',['Eats-flies','Sam'],depth(3))
+        <--(0,retval(['Eats-flies','Sam']))
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
 
 </span><span class="ansi38-000068000">!(assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
 
@@ -78,19 +131,39 @@
   (equal_enough  
     ( (Sam might be Frog)) 
     ( (Sam might be Frog))))
-</span>        -->(0,'&self',[match,'&self',[implies,[_219422,_219428],['Green','Sam']],[_219428,might,be,_219422]],depth(2))
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.02">;; TEST-SCRIPTS.A3-TWOSIDE.02</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (Sam might be Frog)) 
+    ( (Sam might be Frog))))
+</span>        -->(0,'&self',[match,'&self',[implies,[_422718,_423012],['Green','Sam']],[_423012,might,be,_422718]],depth(2))
+          -->(1,'&self',['Sam',might,be,'Frog'],depth(3))
+        -->(0,'&self',[match,'&self',[implies,[_422718,_423012],['Green','Sam']],[_423012,might,be,_422718]],depth(2))
           -->(1,'&self',['Sam',might,be,'Frog'],depth(3))
         <--(0,retval(['Sam',might,be,'Frog']))
-; Evaluation took 1.63 ms.
+<span class="ansi33"> True
+
+</span>        <--(0,retval(['Sam',might,be,'Frog']))
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Composite queries
 ; Composite queries
 ; The comma is used to form a conjunction of queries with shared
 ; variables, which should be satisfied simultaneously.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; The comma is used to form a conjunction of queries with shared
+; variables, which should be satisfied simultaneously.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts
+; Some facts
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
+</span><span class="ansi38-255165000">  (Frog Sam)
+</span>
+
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
 </span><span class="ansi38-255165000">  (Frog Sam)
 </span>
@@ -99,7 +172,13 @@
 </span><span class="ansi38-255165000">  (Robot Sophia)
 </span>
 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Robot','Sophia'])
+</span><span class="ansi38-255165000">  (Robot Sophia)
+</span>
+
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
 
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.03">;; TEST-SCRIPTS.A3-TWOSIDE.03</h3><span class="ansi36">
 (@ loonit_success 
@@ -108,37 +187,71 @@
       (Green Sam)) 
     ( (Eats-flies Sam) 
       (Green Sam))))
-</span>        -->(0,'&self',[match,'&self',[',',['Frog',_279088],[implies,['Frog',_279088],_279124]],_279124],depth(2))
+<h3 id="TEST-SCRIPTS.A3-TWOSIDE.03">;; TEST-SCRIPTS.A3-TWOSIDE.03</h3></span><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (Eats-flies Sam) 
+      (Green Sam)) 
+    ( (Eats-flies Sam) 
+      (Green Sam))))
+</span>        -->(0,'&self',[match,'&self',[',',['Frog',_476624],[implies,['Frog',_476624],_477240]],_477240],depth(2))
+          -->(1,'&self',['Green','Sam'],depth(3))
+        -->(0,'&self',[match,'&self',[',',['Frog',_476624],[implies,['Frog',_476624],_477240]],_477240],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           -->(2,'&self',['Eats-flies','Sam'],depth(3))
+          -->(2,'&self',['Eats-flies','Sam'],depth(3))
         <--(0,retval(['Eats-flies','Sam']))
-; Evaluation took 1.80 ms.
+        <--(0,retval(['Eats-flies','Sam']))
+<span class="ansi33"> True
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Variables in queries can remain unbound
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Variables in queries can remain unbound
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
 
 </span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.04">;; TEST-SCRIPTS.A3-TWOSIDE.04</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (Then it is definitely Frog)) 
     ( (Then it is definitely Frog))))
-</span>        -->(0,'&self',[match,'&self',[',',[implies,[_321316,_321322],['Green',_321322]],[implies,[_321316,_321322],['Eats-flies',_321322]]],['Then',it,is,definitely,_321316]],depth(2))
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.04">;; TEST-SCRIPTS.A3-TWOSIDE.04</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (Then it is definitely Frog)) 
+    ( (Then it is definitely Frog))))
+</span>        -->(0,'&self',[match,'&self',[',',[implies,[_512162,_512456],['Green',_512456]],[implies,[_512162,_512456],['Eats-flies',_512456]]],['Then',it,is,definitely,_512162]],depth(2))
+          -->(1,'&self',['Then',it,is,definitely,'Frog'],depth(3))
+        -->(0,'&self',[match,'&self',[',',[implies,[_512162,_512456],['Green',_512456]],[implies,[_512162,_512456],['Eats-flies',_512456]]],['Then',it,is,definitely,_512162]],depth(2))
           -->(1,'&self',['Then',it,is,definitely,'Frog'],depth(3))
         <--(0,retval(['Then',it,is,definitely,'Frog']))
-; Evaluation took 1.87 ms.
+        <--(0,retval(['Then',it,is,definitely,'Frog']))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 106,034 inferences, 0.082 CPU in 0.083 seconds (100% CPU, 1285272 Lips)
-</span> (@ = "examples/compat/test_scripts/a3_twoside.metta" 0)
+</span><span class="ansi33"> True
+
+</span><span class="ansi32">% 104,212 inferences, 0.045 CPU in 0.045 seconds (100% CPU, 2340969 Lips)
+</span><span class="ansi32">% 104,212 inferences, 0.045 CPU in 0.045 seconds (100% CPU, 2340969 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta" 0)
+ (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a3_twoside.html" )
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.html" )
 
 </pre>
 </body>

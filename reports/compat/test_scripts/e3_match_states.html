@@ -17,14 +17,35 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -39,12 +60,20 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/e3_match_states.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This function creates a symbolic expression, which wraps a novel state,
+;; and puts it into &self.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This function creates a symbolic expression, which wraps a novel state,
 ;; and puts it into &self.
 ;; This is a way to address particular state atoms without creating
+;; This is a way to address particular state atoms without creating
+;; unique tokens for them (it can be used for any grounded atom)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; unique tokens for them (it can be used for any grounded atom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['new-goal-status!',Goal,Status],[let,New_state,['new-state',Status],['add-atom','&self',[=,[status,['Goal',Goal]],New_state]]])
@@ -58,33 +87,75 @@
             (Goal $Goal)) $New_state))))
 </span>
 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['new-goal-status!',Goal,Status],[let,New_state,['new-state',Status],['add-atom','&self',[=,[status,['Goal',Goal]],New_state]]])
+</span><span class="ansi38-255165000">  (= 
+    (new-goal-status! $Goal $Status) 
+    (let $New_state 
+      (new-state $Status) 
+      (add-atom &self 
+        (= 
+          (status 
+            (Goal $Goal)) $New_state))))
+</span>
+
 <span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_168320))
+</span><span class="ansi38-000068000">!(new-goal-status! lunch-order inactive)
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_379780))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal lunch-order)) 
-    (State  inactive $_168320))
+    (State  inactive $_379780))
 </span>
 
-; Evaluation took 1.01 ms.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal','lunch-order']],'State'(inactive,_379780))
+</span><span class="ansi38-255165000">  (= 
+    (status 
+      (Goal lunch-order)) 
+    (State  inactive $_379780))
+</span>
+
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_213770))
+</span><span class="ansi38-000068000">!(new-goal-status! meditation inactive)
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_419510))
 </span><span class="ansi38-255165000">  (= 
     (status 
       (Goal meditation)) 
-    (State  inactive $_213770))
+    (State  inactive $_419510))
 </span>
 
-; Evaluation took 0.874 ms. (873.70 microseconds) 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[status,['Goal',meditation]],'State'(inactive,_419510))
+</span><span class="ansi38-255165000">  (= 
+    (status 
+      (Goal meditation)) 
+    (State  inactive $_419510))
+</span>
+
 <span class="ansi33"> True
 
 </span>; We can use `status` as a function to access corresponding state
+<span class="ansi33"> True
+
+</span>; We can use `status` as a function to access corresponding state
+                                                                                                                                                                                                    -->(1,'&self',['BoundAttention',5.299999999999997,0.1,10,1],depth(96))
+                                                                                                                                                                                                      -->(2,'&self',[sequential,[[do,['let*',[[_3604166,['get-atoms','&attentional_focus']],[['Concept',_3604208,['Event',_3604226,_3604232],_3604238,_3604244],_3604166]],['If',[<,['ConceptPriorityNow',_3604244,1],5.299999999999997],[sequential,[['remove-atom','&attentional_focus',_3604166],['add-atom','&concepts',_3604166]]]]]],[let,_3604388,['CollapseCardinality',['get-atoms','&attentional_focus']],['If',[>,_3604388,10],['BoundAttention',[+,5.299999999999997,0.1],0.1,10,1]]]]],depth(97))
+                                                                                                                                                                                                          -->(3,'&self',[[do,['let*',[[_3604166,['get-atoms','&attentional_focus']],[['Concept',_3604208,['Event',_3604226,_3604232],_3604238,_3604244],_3604166]],['If',[<,['ConceptPriorityNow',_3604244,1],5.299999999999997],[sequential,[['remove-atom','&attentional_focus',_3604166],['add-atom','&concepts',_3604166]]]]]],[let,_3604388,['CollapseCardinality',['get-atoms','&attentional_focus']],['If',[>,_3604388,10],['BoundAttention',[+,5.299999999999997,0.1],0.1,10,1]]]],depth(99))
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
 
+</span><span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
+
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.01">;; TEST-SCRIPTS.E3-MATCH-STATES.01</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (inactive) 
+    (inactive)))
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.01">;; TEST-SCRIPTS.E3-MATCH-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -92,10 +163,17 @@
     (inactive)))
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
+        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
+            -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_270674)))
+            <--(1,retval('State'(inactive,_470638)))
         <--(0,retval(inactive))
-; Evaluation took 1.82 ms.
+                -->(2,'&self',['Goal','lunch-order'],depth(6))
+            <--(1,retval('State'(inactive,_470638)))
+        <--(0,retval(inactive))
+<span class="ansi33"> True
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -103,9 +181,21 @@
 ; `status` returns a `State`, which can be altered
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `nop` is used only to get () for passing unit tests
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; `status` returns a `State`, which can be altered
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; `nop` is used only to get () for passing unit tests
 <span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
 
-</span>; Evaluation took 0.324 ms. (323.90 microseconds) 
+</span><span class="ansi38-000068000">!(nop (change-state! (status (Goal lunch-order)) active))
+
+</span><span class="ansi33"> ()
+
+</span>; The result is now different. This might be surprising, since
+; the content of Space is not changed. However, this is the whole
+; intention behind states: the atom remains the same, and we don''t
+; need to reinsert it into Space, but the state it wraps changes
+; (even if it is inside equality).
 <span class="ansi33"> ()
 
 </span>; The result is now different. This might be surprising, since
@@ -115,6 +205,13 @@
 ; (even if it is inside equality).
 <span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) active)
 
+</span><span class="ansi38-000068000">!(assertEqual (get-state (status (Goal lunch-order))) active)
+
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.02">;; TEST-SCRIPTS.E3-MATCH-STATES.02</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    (inactive) 
+    (active)))
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.02">;; TEST-SCRIPTS.E3-MATCH-STATES.02</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
@@ -122,32 +219,61 @@
     (active)))
 </span>        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
             -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
+        -->(0,'&self',['get-state',[status,['Goal','lunch-order']]],depth(2))
+            -->(1,'&self',[status,['Goal','lunch-order']],depth(4))
                 -->(2,'&self',['Goal','lunch-order'],depth(6))
-            <--(1,retval('State'(inactive,_350920)))
+                -->(2,'&self',['Goal','lunch-order'],depth(6))
+            <--(1,retval('State'(inactive,_24346)))
         <--(0,retval(inactive))
-; Evaluation took 1.71 ms.
+            <--(1,retval('State'(inactive,_24346)))
+        <--(0,retval(inactive))
 <span class="ansi33"> False
+
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Introducing tokens for states is not recommended, because these states are mutable
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Introducing tokens for states is not recommended, because these states are mutable
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(bind! &state-active (new-state active))
 
-</span>; Evaluation took 0.177 ms. (176.90 microseconds) 
-<span class="ansi33"> (@ State active $_375670)
- % 'State'(active,_375670)
+</span><span class="ansi38-000068000">!(bind! &state-active (new-state active))
+
+</span><span class="ansi33"> (@ State active $_43424)
+ % 'State'(active,_43424)
+
+</span><span class="ansi33"> (@ State active $_43424)
+ % 'State'(active,_43424)
+
+</span>                                                                                                                                                                                                    -->(0,'&self',['get-atoms','&attentional_focus'],depth(96))
+                                                                                                                                                                                                    <--(0,retval([]))
+<span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
 
 </span><span class="ansi38-000068000">!(nop (change-state! &state-active inactive))
 
-</span>; Evaluation took 0.246 ms. (246.40 microseconds) 
-<span class="ansi33"> ()
+</span><span class="ansi33"> ()
+
+</span><span class="ansi33"> ()
 
 </span>; We cannot put `(new-state active)` inside `match`, because it doesn''t
 ; reduce the input pattern expression. Instead, we should use
 ; `(let $state-active (new-state active)) ...) here.   `
+; We cannot put `(new-state active)` inside `match`, because it doesn''t
+; reduce the input pattern expression. Instead, we should use
+; `(let $state-active (new-state active)) ...) here.   `
 <span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
 
+</span><span class="ansi38-000068000">!(assertEqual (get-type &state-active) (StateMonad Symbol))
+
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">;; TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (StateMonad Symbol)) 
+    ( (StateMonad Symbol))))
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.03">;; TEST-SCRIPTS.E3-MATCH-STATES.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -155,12 +281,21 @@
     ( (StateMonad Symbol))))
 </span>        -->(0,'&self',['get-type','&state-active'],depth(2))
               -->(1,'&self','&state-active',depth(5))
-              <--(1,retval('State'(inactive,_433510)))
+              <--(1,retval('State'(inactive,_89844)))
+        <--(0,retval(['StateMonad','Symbol']))
+        -->(0,'&self',['get-type','&state-active'],depth(2))
+              -->(1,'&self','&state-active',depth(5))
+              <--(1,retval('State'(inactive,_89844)))
         <--(0,retval(['StateMonad','Symbol']))
           -->(2,'&self',['StateMonad','Symbol'],depth(3))
         -->(3,'&self',['StateMonad','Symbol'],depth(2))
-; Evaluation took 1.66 ms.
+          -->(2,'&self',['StateMonad','Symbol'],depth(3))
+        -->(3,'&self',['StateMonad','Symbol'],depth(2))
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
 
 </span><span class="ansi38-000068000">!(assertEqual (get-state &state-active) inactive)
 
@@ -169,59 +304,114 @@
   (equal_enough  
     (inactive) 
     (inactive)))
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.04">;; TEST-SCRIPTS.E3-MATCH-STATES.04</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (inactive) 
+    (inactive)))
 </span>        -->(0,'&self',['get-state','&state-active'],depth(2))
             -->(1,'&self','&state-active',depth(4))
-            <--(1,retval('State'(inactive,_462608)))
+            <--(1,retval('State'(inactive,_113234)))
+        -->(0,'&self',['get-state','&state-active'],depth(2))
+            -->(1,'&self','&state-active',depth(4))
+            <--(1,retval('State'(inactive,_113234)))
         <--(0,retval(inactive))
-; Evaluation took 1.21 ms.
+        <--(0,retval(inactive))
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
 
 </span><span class="ansi38-000068000">!(assertEqual &state-active (new-state inactive))
 
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  inactive $_483882)) 
-    ( (State  inactive $_484140))))
+    ( (State  inactive $_128818)) 
+    ( (State  inactive $_129076))))
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.05">;; TEST-SCRIPTS.E3-MATCH-STATES.05</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (State  inactive $_128818)) 
+    ( (State  inactive $_129076))))
 </span>        -->(0,'&self','&state-active',depth(2))
-        <--(0,retval('State'(inactive,_490668)))
+        <--(0,retval('State'(inactive,_135586)))
         -->(1,'&self',['new-state',inactive],depth(2))
-        <--(1,retval('State'(inactive,_491268)))
-; Evaluation took 1.24 ms.
+        -->(0,'&self','&state-active',depth(2))
+        <--(0,retval('State'(inactive,_135586)))
+        -->(1,'&self',['new-state',inactive],depth(2))
+        <--(1,retval('State'(inactive,_136186)))
+        <--(1,retval('State'(inactive,_136186)))
+<span class="ansi33"> True
+
+</span>; In any case, direct matching against expressions with states work:
 <span class="ansi33"> True
 
 </span>; In any case, direct matching against expressions with states work:
 <span class="ansi38-000068000">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
 
+</span><span class="ansi38-000068000">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
+
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.06">;; TEST-SCRIPTS.E3-MATCH-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  () 
     (meditation)))
-</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_516890]],'&state-active'],_516890],depth(2))
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.06">;; TEST-SCRIPTS.E3-MATCH-STATES.06</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  () 
+    (meditation)))
+</span>        -->(0,'&self',[match,'&self',[=,[status,['Goal',_154346]],'&state-active'],_154346],depth(2))
         <--(0,retval(fail))
-; Evaluation took 1.01 ms.
+        -->(0,'&self',[match,'&self',[=,[status,['Goal',_154346]],'&state-active'],_154346],depth(2))
+        <--(0,retval(fail))
 <span class="ansi33"> False
+
+</span><span class="ansi33"> False
 
 </span>; But we can also find all goal statuses, unwrap them from State,
 ; and compare to the desirable result
+; But we can also find all goal statuses, unwrap them from State,
+; and compare to the desirable result
 <span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
+
+</span><span class="ansi38-000068000">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
 
 </span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">;; TEST-SCRIPTS.E3-MATCH-STATES.07</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  () 
     (lunch-order)))
-</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_25448]]],active],_25448,[superpose,[]]],depth(2))
+</span><h3 id="TEST-SCRIPTS.E3-MATCH-STATES.07">;; TEST-SCRIPTS.E3-MATCH-STATES.07</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  () 
+    (lunch-order)))
+</span>        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_178292]]],active],_178292,[superpose,[]]],depth(2))
         <--(0,retval(fail))
-; Evaluation took 1.20 ms.
+        -->(0,'&self',[if,[==,['get-state',[status,['Goal',_178292]]],active],_178292,[superpose,[]]],depth(2))
+        <--(0,retval(fail))
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 154,642 inferences, 0.166 CPU in 0.166 seconds (100% CPU, 930034 Lips)
-</span> (@ = "examples/compat/test_scripts/e3_match_states.metta" 0)
+</span><span class="ansi33"> False
+
+</span><span class="ansi32">% 148,395 inferences, 0.089 CPU in 0.089 seconds (100% CPU, 1670951 Lips)
+</span><span class="ansi32">% 148,395 inferences, 0.089 CPU in 0.089 seconds (100% CPU, 1670951 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta" 0)
+ (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
 </span><span class="ansi31">Failures: 3
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e3_match_states.html" )
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e3_match_states.html" )
+                                                                                                                                                                                                    -->(1,'&self',['CollapseCardinality',[]],depth(96))
+                                                                                                                                                                                                      -->(2,'&self',['TupleCount',[collapse,['CountElement',[]]]],depth(97))
+                                                                                                                                                                                                          -->(3,'&self',['CountElement',[]],depth(99))
+                                                                                                                                                                                                          <--(3,retval(0))
+                                                                                                                                                                                                          -->(0,'&self',['TupleCount',[0]],depth(99))
 
 </pre>
 </body>

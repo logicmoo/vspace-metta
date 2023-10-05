@@ -13,37 +13,61 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/hanoi-one-space.metta")
-;; Move a disk from peg X to peg Y.
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/hanoi-one-space.metta")
+; Move a disk from peg X to peg Y.
+%~ [ convert(Convert),
+%~   head_preconds_into_body( move(X,Y,Assign_Move_Y) :-
+%~                              u_assign(['not-empty',X],Assign_True) ,
+%~                              Assign_True='True' ,
+%~                              u_assign(['can-place',Y,X],Assign) ,
+%~                              Assign=_334074 ,
+%~                              u_assign(['remove-top',X],Assign5) ,
+%~                              Assign5=_334110 ,
+%~                              u_assign(['place-top',Y,X],Assign6) ,
+%~                              Assign6=_334128 ,
+%~                              u_assign([seq,_334110,_334128],Assign7) ,
+%~                              Assign7=_334158 ,
+%~                              u_assign([if,_334074,_334158,nop],Assign_Move_Y))]
+%~ [convert(_198336),head_preconds_into_body((move(X,Y,_197100):-(((u_assign(['not-empty',X],_198676),_198676='True',u_assign(['can-place',Y,X],_198642)),_198642=_198632),(((u_assign(['remove-top',X],_199048),_199048=_199038),u_assign(['place-top',Y,X],_199182),_199182=_199172),u_assign([seq,_199038,_199172],_199006)),_199006=_198996),u_assign([if,_198632,_198996,nop],_197100)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[move,X,Y],[if,[and,['not-empty',X],['can-place',Y,X]],[seq,['remove-top',X],['place-top',Y,X]],nop])
 </span><span class="ansi38-255165000">  (= 
     (move $X $Y) 
@@ -54,17 +78,62 @@
       (seq 
         (remove-top $X) 
         (place-top $Y $X)) nop))
+</span><span class="ansi38-000082136">  :- dynamic(move,3).
+
+  move(X, Y, A) :-
+    ( u_assign(['not-empty', X], B),
+      B='True',
+      u_assign(['can-place', Y, X], C),
+      C=D
+    ),
+    ( ( u_assign(['remove-top', X], E),
+        E=F
+      ),
+      u_assign(['place-top', Y, X], G),
+      G=H,
+      u_assign([seq, F, H], I)
+    ),
+    I=J,
+    u_assign([if, D, J, nop], A).
+
 </span>
 
 ; Check if peg is not empty
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'not-empty'(X,Not_empty_X) :-
+%~                              u_assign([top,X],Assign) ,
+%~                              Assign=_447362 ,
+%~                              u_assign([neq,_447362,'None'],Not_empty_X))]
+%~ [convert(_388690),head_preconds_into_body(('not-empty'(X,_387524):-(u_assign([top,X],_388996),_388996=_388986),u_assign([neq,_388986,'None'],_387524)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['not-empty',X],[neq,[top,X],'None'])
 </span><span class="ansi38-255165000">  (= 
     (not-empty $X) 
     (neq 
       (top $X) None))
+</span><span class="ansi38-000082136">  :- dynamic('not-empty',2).
+
+  'not-empty'(X, A) :-
+    u_assign([top, X], B),
+    B=C,
+    u_assign([neq, C, 'None'], A).
+
 </span>
 
 ; Check if a disk can be placed on a peg
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'can-place'(Y,X,Can_place_X) :-
+%~                              u_assign([top,Y],Assign) ,
+%~                              Assign=_105900 ,
+%~                              u_assign([eq,_105900,'None'],Assign3) ,
+%~                              Assign3=_105924 ,
+%~                              u_assign([top,X],Assign4) ,
+%~                              Assign4=_105960 ,
+%~                              u_assign([top,Y],Assign5) ,
+%~                              Assign5=_105978 ,
+%~                              u_assign([<,_105960,_105978],Assign6) ,
+%~                              Assign6=_106008 ,
+%~                              u_assign([or,_105924,_106008],Can_place_X))]
+%~ [convert(_2344),head_preconds_into_body(('can-place'(Y,X,_2302):-((((u_assign([top,Y],_2408),_2408=_2404),u_assign([eq,_2404,'None'],_2382)),_2382=_2378),(((u_assign([top,X],_2502),_2502=_2498),u_assign([top,Y],_2546),_2546=_2542),u_assign([<,_2498,_2542],_2476)),_2476=_2472),u_assign([or,_2378,_2472],_2302)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['can-place',Y,X],[or,[eq,[top,Y],'None'],[<,[top,X],[top,Y]]])
 </span><span class="ansi38-255165000">  (= 
     (can-place $Y $X) 
@@ -74,18 +143,69 @@
       (< 
         (top $X) 
         (top $Y))))
+</span><span class="ansi38-000082136">  :- dynamic('can-place',3).
+
+  'can-place'(Y, X, A) :-
+    ( ( u_assign([top, Y], B),
+        B=C
+      ),
+      u_assign([eq, C, 'None'], D),
+      D=E
+    ),
+    ( ( u_assign([top, X], F),
+        F=G
+      ),
+      u_assign([top, Y], H),
+      H=I,
+      u_assign([<, G, I], J)
+    ),
+    J=K,
+    u_assign([or, E, K], A).
+
 </span>
 
 ; Remove the top disk from a peg
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'remove-top'(X,Remove_top_X) :-
+%~                              u_assign([rest,X],Assign) ,
+%~                              Assign=_229574 ,
+%~                              u_assign([assign,X,_229574],Assign3) ,
+%~                              Assign3=_229604 ,
+%~                              is_True(True) ,
+%~                              u_assign([',',_229604,True],Remove_top_X))]
+%~ [convert(_138036),head_preconds_into_body(('remove-top'(X,_136870):-((((u_assign([rest,X],_138440),_138440=_138430),u_assign([assign,X,_138430],_138342)),_138342=_138332),is_True(_138604)),u_assign([',',_138332,_138604],_136870)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['remove-top',X],[',',[assign,X,[rest,X]],'True'])
 </span><span class="ansi38-255165000">  (= 
     (remove-top $X) 
     (and 
       (assign $X 
         (rest $X)) True))
+</span><span class="ansi38-000082136">  :- dynamic('remove-top',2).
+
+  'remove-top'(X, A) :-
+    ( ( u_assign([rest, X], B),
+        B=C
+      ),
+      u_assign([assign, X, C], D),
+      D=E
+    ),
+    is_True(F),
+    u_assign([',', E, F], A).
+
 </span>
 
 ; Place the top disk from peg X onto peg Y
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'place-top'(Y,X,Place_top_X) :-
+%~                              u_assign([top,X],Assign) ,
+%~                              Assign=_378374 ,
+%~                              u_assign([cons,_378374,Y],Assign3) ,
+%~                              Assign3=_378398 ,
+%~                              u_assign([assign,Y,_378398],Assign4) ,
+%~                              Assign4=_378428 ,
+%~                              is_True(True) ,
+%~                              u_assign([',',_378428,True],Place_top_X))]
+%~ [convert(_261886),head_preconds_into_body(('place-top'(Y,X,_260650):-((((((u_assign([top,X],_262332),_262332=_262322),u_assign([cons,_262322,Y],_262290)),_262290=_262280),u_assign([assign,Y,_262280],_262192)),_262192=_262182),is_True(_262616)),u_assign([',',_262182,_262616],_260650)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['place-top',Y,X],[',',[assign,Y,[cons,[top,X],Y]],'True'])
 </span><span class="ansi38-255165000">  (= 
     (place-top $Y $X) 
@@ -93,23 +213,81 @@
       (assign $Y 
         (cons 
           (top $X) $Y)) True))
+</span><span class="ansi38-000082136">  :- dynamic('place-top',3).
+
+  'place-top'(Y, X, A) :-
+    ( ( ( u_assign([top, X], B),
+          B=C
+        ),
+        u_assign([cons, C, Y], D),
+        D=E
+      ),
+      u_assign([assign, Y, E], F),
+      F=G
+    ),
+    is_True(H),
+    u_assign([',', G, H], A).
+
 </span>
 
 ; Get the top of a peg
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((top(X,_405038):-u_assign([head,X],_405038)))]
+%~ [convert(_406204),head_preconds_into_body((top(X,_405038):-u_assign([head,X],_405038)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[top,X],[head,X])
 </span><span class="ansi38-255165000">  (= 
     (top $X) 
     (head $X))
+</span><span class="ansi38-000082136">  :- dynamic(top,2).
+
+  top(X, A) :-
+    u_assign([head, X], A).
+
 </span>
 
 ; Get the rest of a peg
+%~ [ convert(Convert),
+%~   head_preconds_into_body((rest(X,_454496):-u_assign([tail,X],_454496)))]
+%~ [convert(_455662),head_preconds_into_body((rest(X,_454496):-u_assign([tail,X],_454496)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[rest,X],[tail,X])
 </span><span class="ansi38-255165000">  (= 
     (rest $X) 
     (tail $X))
+</span><span class="ansi38-000082136">  :- dynamic(rest,2).
+
+  rest(X, A) :-
+    u_assign([tail, X], A).
+
 </span>
 
 ; Towers of Hanoi test
+%~ [ convert(Convert),
+%~   head_preconds_into_body( hanoi(N,Src,Aux,Dest,Assign_Hanoi_Dest) :-
+%~                              u_assign([eq,N,1],Assign) ,
+%~                              Assign=_266566 ,
+%~                              u_assign([move,Src,Dest],Assign3) ,
+%~                              Assign3=_266590 ,
+%~                              u_assign([-,N,1],Assign4) ,
+%~                              Assign4=_266638 ,
+%~                              u_assign(
+%~                                 [ hanoi, _281486,Src,
+%~                                   Dest,Aux],
+%~                                 Assign5) ,
+%~                              Assign5=_266662 ,
+%~                              u_assign([move,Src,Dest],Assign6) ,
+%~                              Assign6=_266686 ,
+%~                              u_assign([-,N,1],Assign7) ,
+%~                              Assign7=_266716 ,
+%~                              u_assign(
+%~                                 [ hanoi, _302300,Aux,Src,
+%~                                   Dest],
+%~                                 Assign8) ,
+%~                              Assign8=_266740 ,
+%~                              u_assign([seq,_266662,_266686,_266740],Assign9) ,
+%~                              Assign9=_266776 ,
+%~                              u_assign([if,_266566,_266590,_266776],Assign_Hanoi_Dest))]
+%~ [convert(_2460),head_preconds_into_body((hanoi(N,Src,Aux,Dest,_2408):-((u_assign([eq,N,1],_2764),_2764=_2754),(u_assign([move,Src,Dest],_2924),_2924=_2914),(((((u_assign([-,N,1],_3212),_3212=_3202),u_assign([hanoi,_3202,Src,Dest,Aux],_3170)),_3170=_3160),(u_assign([move,Src,Dest],_3632),_3632=_3622),((u_assign([-,N,1],_3878),_3878=_3868),u_assign([hanoi,_3868,Aux,Src,Dest],_3836)),_3836=_3826),u_assign([seq,_3160,_3622,_3826],_3128)),_3128=_3118),u_assign([if,_2754,_2914,_3118],_2408)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],[move,Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],[move,Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]])
 </span><span class="ansi38-255165000">  (= 
     (hanoi $N $Src $Aux $Dest) 
@@ -122,8 +300,59 @@
         (move $Src $Dest) 
         (hanoi 
           (- $N 1) $Aux $Src $Dest))))
+</span><span class="ansi38-000082136">  :- dynamic(hanoi,5).
+
+  hanoi(N, Src, Aux, Dest, A) :-
+    ( u_assign([eq, N, 1], B),
+      B=C
+    ),
+    ( u_assign([move, Src, Dest], D),
+      D=E
+    ),
+    ( ( ( u_assign([-, N, 1], F),
+          F=G
+        ),
+        u_assign([hanoi, G, Src, Dest, Aux], H),
+        H=I
+      ),
+      ( u_assign([move, Src, Dest], J),
+        J=K
+      ),
+      ( u_assign([-, N, 1], L),
+        L=M,
+        u_assign([hanoi, M, Aux, Src, Dest], N)
+      ),
+      N=O,
+      u_assign([seq, I, K, O], P)
+    ),
+    P=Q,
+    u_assign([if, C, E, Q], A).
+
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body( [hanoi_test,Tf_Equal_enough] :-
+%~                              u_assign([hanoi,3,src,aux,dest],Assign_List) ,
+%~                              [ [ src,
+%~                                  [ quote,
+%~                                    [3,2,1]]],
+%~                                [ aux,
+%~                                  [quote,[]]],
+%~                                [ dest,
+%~                                  [quote,[]]]] =
+%~                                Assign_List ,
+%~                              Src_1 =
+%~                                [ assertEqual,
+%~                                  dest,
+%~                                  [ quote,
+%~                                    [3,2,1]]] ,
+%~                              loonit_assert_source_tf( Src_1,
+%~                                  ((
+%~                                   (findall(FA_1,FA_1=dest,FARL_1)),
+%~                                   (findall(FA_2,call_fr(quote([3,2,1]),FA_2,quote/2),FARL_2))  )),
+%~                                equal_enough(FARL_1,FARL_2),
+%~                                Tf_Equal_enough))]
+%~ [convert(_343354),head_preconds_into_body(([hanoi_test,_341514]:-u_assign([hanoi,3,src,aux,dest],_343658),[[src,[quote,[3,2,1]]],[aux,[quote,[]]],[dest,[quote,[]]]]=_343658,Src_1=[assertEqual,dest,[quote,[3,2,1]]],loonit_assert_source_tf(Src_1,(findall(FA_1,FA_1=dest,FARL_1),findall(FA_2,call_fr(quote([3,2,1]),FA_2,quote/2),FARL_2)),equal_enough(FARL_1,FARL_2),_341514)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[hanoi_test],[let,[[src,[quote,[3,2,1]]],[aux,[quote,[]]],[dest,[quote,[]]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[quote,[3,2,1]]]])
 </span><span class="ansi38-255165000">  (= 
     (hanoi_test) 
@@ -139,13 +368,27 @@
       (assertEqual dest 
         (quote 
           (3 2 1)))))
+</span><span class="ansi38-000082136">
+  [hanoi_test, A] :-
+    u_assign([hanoi, 3, src, aux, dest], B),
+    [[src, [quote, [3, 2, 1]]], [aux, [quote, []]], [dest, [quote, []]]]=B,
+    Src_1=[assertEqual, dest, [quote, [3, 2, 1]]],
+    loonit_assert_source_tf(Src_1,
+                            (findall(FA_1, FA_1=dest, FARL_1), findall(FA_2, call_fr(quote([3, 2, 1]), FA_2, quote/2), FARL_2)),
+                            equal_enough(FARL_1, FARL_2),
+                            A).
+
 </span>
 
 <span class="ansi38-000068000">!(hanoi_test)
 
-</span><span class="ansi32">% 145,541 inferences, 0.061 CPU in 0.061 seconds (100% CPU, 2375908 Lips)
-</span> (@ = "examples/hanoi-one-space.metta" 0)
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/hanoi-one-space.html" )
+</span><span class="ansi38-017068017">exec(A) :-
+    [hanoi_test, A].
+
+</span><span class="ansi32">% 7,659,763 inferences, 1.037 CPU in 1.037 seconds (100% CPU, 7385744 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/hanoi-one-space.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/hanoi-one-space.html" )
 
 </pre>
 </body>

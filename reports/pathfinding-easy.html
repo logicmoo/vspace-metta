@@ -14,42 +14,53 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
 .ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/pathfinding-easy.metta")
-;; Pathfinding using a simple graph
-;; Graph is represented as facts: (= (edge A B) True) means there''s an one-way edge from A to B.
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/pathfinding-easy.metta")
+; Pathfinding using a simple graph
+; Graph is represented as facts: (= (edge A B) True) means there''s an one-way edge from A to B.
 <span class="ansi38-000068000">!(pragma! compile full)
 
-</span>; Evaluation took 0.106 ms. (106.30 microseconds) 
+</span><span class="ansi38-017068017">exec(A) :-
+    true,
+    u_assign(['pragma!', compile, full], A).
+
+</span>; Evaluation took 0.084 ms. (83.60 microseconds) 
 <span class="ansi33"> full
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,edge,[->,'Symbol','Symbol','Bool']])
@@ -57,24 +68,54 @@
     (-> Symbol Symbol Bool))
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((edge(a,b,_227458):-_227458='True'))]
+%~ [convert(_228606),head_preconds_into_body((edge(a,b,_227458):-_227458='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,a,b],'True')
 </span><span class="ansi38-255165000">  (= 
     (edge a b) True)
+</span><span class="ansi38-000082136">  :- dynamic(edge,3).
+
+  edge(a, b, A) :-
+    A='True'.
+
 </span>
 
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((edge(b,c,_279806):-_279806='True'))]
+%~ [convert(_280954),head_preconds_into_body((edge(b,c,_279806):-_279806='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,b,c],'True')
 </span><span class="ansi38-255165000">  (= 
     (edge b c) True)
+</span><span class="ansi38-000082136">
+  edge(b, c, A) :-
+    A='True'.
+
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((edge(c,d,_324708):-_324708='True'))]
+%~ [convert(_325856),head_preconds_into_body((edge(c,d,_324708):-_324708='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,c,d],'True')
 </span><span class="ansi38-255165000">  (= 
     (edge c d) True)
+</span><span class="ansi38-000082136">
+  edge(c, d, A) :-
+    A='True'.
+
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((edge(e,f,_370776):-_370776='True'))]
+%~ [convert(_371924),head_preconds_into_body((edge(e,f,_370776):-_370776='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[edge,e,f],'True')
 </span><span class="ansi38-255165000">  (= 
     (edge e f) True)
+</span><span class="ansi38-000082136">
+  edge(e, f, A) :-
+    A='True'.
+
 </span>
 
 ;a -> b -> c -> d
@@ -87,45 +128,71 @@
 </span>
 
 ; was base case, node to itself
+%~ [ convert(Convert),
+%~   head_preconds_into_body((path(X,X,_427434):-_427434='True'))]
+%~ [convert(_428670),head_preconds_into_body((path(X,X,_427434):-_427434='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[path,X,X],'True')
 </span><span class="ansi38-255165000">  (= 
     (path $X $X) True)
+</span><span class="ansi38-000082136">  :- dynamic(path,3).
+
+  path(X, X, A) :-
+    A='True'.
+
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body( path(X,Y,Assign_Path_Y) :-
+%~                              u_assign([edge,X,Z],Assign_True) ,
+%~                              Assign_True='True' ,
+%~                              u_assign([path,Z,Y],Assign_Path_Y))]
+%~ [convert(_2332),head_preconds_into_body((path(X,Y,_2290):-u_assign([edge,X,Z],_2346),_2346='True',u_assign([path,Z,Y],_2290)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[path,X,Y],[and,[edge,X,Z],[path,Z,Y]])
 </span><span class="ansi38-255165000">  (= 
     (path $X $Y) 
     (and 
       (edge $X $Z) 
       (path $Z $Y)))
+</span><span class="ansi38-000082136">
+  path(X, Y, A) :-
+    u_assign([edge, X, Z], B),
+    B='True',
+    u_assign([path, Z, Y], A).
+
 </span>
 
 ; recursive case
 ; Not asserted
-%~ [ convert(exec=assertEqual(edge(a,c),'False')),
-%~   head_preconds_into_body((exec(_137024):-edge(a,c,_138920),assertEqual(_138920,'False',_137024)))]
-<span class="ansi38-017068017">exec(A) :-
-    edge(a, c, B),
-    assertEqual(B, 'False', A).
+<span class="ansi38-000068000">!(assertEqual (edge a c) False)
 
-</span><span class="ansi38-000068000">!(assertEqual (edge a c) False)
-
-</span><h3 id="EXAMPLES.PATHFINDING-EASY.01">;; EXAMPLES.PATHFINDING-EASY.01</h3><span class="ansi31">
+</span><span class="ansi38-017068017">exec(Exec) :- 
+  Src_1 =  
+    [ assertEqual, 
+      [edge,a,c], 
+      'False'] , 
+  loonit_assert_source_tf( Src_1, 
+      ((
+       (findall(FA_1,(true,u_assign([edge,a,c],FA_1)),FARL_1)),
+       (findall(FA_2,FA_2='False',FARL_2))  )), equal_enough(FARL_1,FARL_2),_36326)
+</span>
+<h3 id="EXAMPLES.PATHFINDING-EASY.01">;; EXAMPLES.PATHFINDING-EASY.01</h3><span class="ansi31">
 (@ loonit_failureR 
-  (equal_enough  
-    ( (edge a c)) 
+  (equal_enough  () 
     (False)))
-</span>        -->(0,'&self',[edge,a,c],depth(2))
-; Evaluation took 1.29 ms.
+</span>equal_enough([],['False'])
+; Evaluation took 0.638 ms. (637.80 microseconds) 
 <span class="ansi33"> False
+</span><span class="ansi32">['FARL_2'=['False'],'FA_2'=_39822,'FARL_1'=[],'FA_1'=_38734,'Src_1'=[assertEqual,[edge,a,c],'False']]
+</span>
 
-</span><span class="ansi32">% 152,756 inferences, 0.050 CPU in 0.050 seconds (100% CPU, 3050928 Lips)
-</span> (@ = "examples/pathfinding-easy.metta" 0)
+<span class="ansi32">% 783,980 inferences, 0.123 CPU in 0.123 seconds (100% CPU, 6399006 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/pathfinding-easy.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 1
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/pathfinding-easy.html" )
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/pathfinding-easy.html" )
 
 </pre>
 </body>

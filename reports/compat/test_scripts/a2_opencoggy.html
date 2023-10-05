@@ -17,72 +17,182 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/a2_opencoggy.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; We can use Nodes and Links in the OpenCog Classic style,
-;; because these are also symbolic expressions,
-;; although Concept and List will not be turned into types
-;; and will remain just symbols in expressions
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; We can use Nodes and Links in the OpenCog Classic style,
+; because these are also symbolic expressions,
+; although Concept and List will not be turned into types
+; and will remain just symbols in expressions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'EvaluationLink'(EvaluationLink1,EvaluationLink,EvaluationLink_True) :-
+%~                              u_assign(['PredicateNode',"eats"],Assign) ,
+%~                              Assign=EvaluationLink1 ,
+%~                              u_assign(['ConceptNode',"Sam"],Assign5) ,
+%~                              Assign5=_298880 ,
+%~                              u_assign(['ConceptNode',"flies"],Assign6) ,
+%~                              Assign6=_298898 ,
+%~                              u_assign(['ListLink',_298880,_298898],Assign7) ,
+%~                              Assign7=EvaluationLink ,
+%~                              EvaluationLink_True='True')]
+%~ [convert(_187840),head_preconds_into_body(('EvaluationLink'(_186626,_186716,_186346):-((u_assign(['PredicateNode',"eats"],_186636),_186636=_186626),(((u_assign(['ConceptNode',"Sam"],_186768),_186768=_186758),u_assign(['ConceptNode',"flies"],_186858),_186858=_186848),u_assign(['ListLink',_186758,_186848],_186726)),_186726=_186716),_186346='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',['ConceptNode',"Sam"],['ConceptNode',"flies"]]])
 </span><span class="ansi38-255165000">  (EvaluationLink 
     (PredicateNode "eats") 
     (ListLink 
       (ConceptNode "Sam") 
       (ConceptNode "flies")))
+</span><span class="ansi38-000082136">  :- dynamic('EvaluationLink',3).
+
+  'EvaluationLink'(A, B, C) :-
+    ( u_assign(['PredicateNode', "eats"], D),
+      D=A
+    ),
+    ( ( u_assign(['ConceptNode', "Sam"], E),
+        E=F
+      ),
+      u_assign(['ConceptNode', "flies"], G),
+      G=H,
+      u_assign(['ListLink', F, H], I)
+    ),
+    I=B,
+    C='True'.
+
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'EvaluationLink'(EvaluationLink1,EvaluationLink,EvaluationLink_True) :-
+%~                              u_assign(['PredicateNode',"eats"],Assign) ,
+%~                              Assign=EvaluationLink1 ,
+%~                              u_assign(['ConceptNode',"Bill"],Assign5) ,
+%~                              Assign5=_454112 ,
+%~                              u_assign(['ConceptNode',"pizza"],Assign6) ,
+%~                              Assign6=_454130 ,
+%~                              u_assign(['ListLink',_454112,_454130],Assign7) ,
+%~                              Assign7=EvaluationLink ,
+%~                              EvaluationLink_True='True')]
+%~ [convert(_348240),head_preconds_into_body(('EvaluationLink'(_347026,_347116,_346746):-((u_assign(['PredicateNode',"eats"],_347036),_347036=_347026),(((u_assign(['ConceptNode',"Bill"],_347168),_347168=_347158),u_assign(['ConceptNode',"pizza"],_347258),_347258=_347248),u_assign(['ListLink',_347158,_347248],_347126)),_347126=_347116),_346746='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',['ConceptNode',"Bill"],['ConceptNode',"pizza"]]])
 </span><span class="ansi38-255165000">  (EvaluationLink 
     (PredicateNode "eats") 
     (ListLink 
       (ConceptNode "Bill") 
       (ConceptNode "pizza")))
+</span><span class="ansi38-000082136">  :- dynamic('EvaluationLink',3).
+
+  'EvaluationLink'(A, B, C) :-
+    ( u_assign(['PredicateNode', "eats"], D),
+      D=A
+    ),
+    ( ( u_assign(['ConceptNode', "Bill"], E),
+        E=F
+      ),
+      u_assign(['ConceptNode', "pizza"], G),
+      G=H,
+      u_assign(['ListLink', F, H], I)
+    ),
+    I=B,
+    C='True'.
+
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body( 'EvaluationLink'(EvaluationLink1,EvaluationLink,EvaluationLink_True) :-
+%~                              u_assign(['PredicateNode',"eats"],Assign) ,
+%~                              Assign=EvaluationLink1 ,
+%~                              u_assign(['ConceptNode',"Fritz"],Assign5) ,
+%~                              Assign5=_70626 ,
+%~                              u_assign(['ConceptNode',"flies"],Assign6) ,
+%~                              Assign6=_70644 ,
+%~                              u_assign(['ListLink',_70626,_70644],Assign7) ,
+%~                              Assign7=EvaluationLink ,
+%~                              EvaluationLink_True='True')]
+%~ [convert(_2204),head_preconds_into_body(('EvaluationLink'(_2016,_2060,_1992):-((u_assign(['PredicateNode',"eats"],_2020),_2020=_2016),(((u_assign(['ConceptNode',"Fritz"],_2090),_2090=_2086),u_assign(['ConceptNode',"flies"],_2134),_2134=_2130),u_assign(['ListLink',_2086,_2130],_2064)),_2064=_2060),_1992='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',['ConceptNode',"Fritz"],['ConceptNode',"flies"]]])
 </span><span class="ansi38-255165000">  (EvaluationLink 
     (PredicateNode "eats") 
     (ListLink 
       (ConceptNode "Fritz") 
       (ConceptNode "flies")))
+</span><span class="ansi38-000082136">  :- dynamic('EvaluationLink',3).
+
+  'EvaluationLink'(A, B, C) :-
+    ( u_assign(['PredicateNode', "eats"], D),
+      D=A
+    ),
+    ( ( u_assign(['ConceptNode', "Fritz"], E),
+        E=F
+      ),
+      u_assign(['ConceptNode', "flies"], G),
+      G=H,
+      u_assign(['ListLink', F, H], I)
+    ),
+    I=B,
+    C='True'.
+
 </span>
 
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (EvaluationLink (PredicateNode "eats") (ListLink $X (ConceptNode "flies"))) $X) ((ConceptNode "Sam") (ConceptNode "Fritz")))
+
+</span><span class="ansi38-017068017">exec(A) :-
+    loonit_assert_source_tf([ assertEqualToResult,
+                              [ match,
+                                '&self',
+                                [ 'EvaluationLink',
+                                  ['PredicateNode', "eats"],
+                                  ['ListLink', X, ['ConceptNode', "flies"]]
+                                ],
+                                X
+                              ],
+                              [['ConceptNode', "Sam"], ['ConceptNode', "Fritz"]]
+                            ],
+                            findall(B,
+                                    (((((((true, u_assign(['PredicateNode', "eats"], C)), C=D), (((true, u_assign(['ConceptNode', "flies"], E)), E=F), u_assign(['ListLink', X, F], G)), G=H), u_assign(['EvaluationLink', D, H], I)), I=J), true), u_assign([match, '&self', J, X], B)),
+                                    K),
+                            equal_enough(K,
+                                         [ ['ConceptNode', "Sam"],
+                                           ['ConceptNode', "Fritz"]
+                                         ]),
+                            A).
 
 </span><h3 id="TEST-SCRIPTS.A2-OPENCOGGY.01">;; TEST-SCRIPTS.A2-OPENCOGGY.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (ConceptNode "Fritz") 
       (ConceptNode "Sam")) 
-    ( (ConceptNode "Fritz") 
-      (ConceptNode "Sam"))))
-</span>        -->(0,'&self',[match,'&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',_162742,['ConceptNode',"flies"]]],_162742],depth(2))
+    ( (ConceptNode "Sam") 
+      (ConceptNode "Fritz"))))
+</span>        -->(0,'&self',[match,'&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',_113216,['ConceptNode',"flies"]]],_113216],depth(2))
           -->(1,'&self',['ConceptNode',"Sam"],depth(3))
           -->(2,'&self',['ConceptNode',"Fritz"],depth(3))
         <--(0,retval(['ConceptNode',"Fritz"]))
-; Evaluation took 1.95 ms.
+; Evaluation took 1.12 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 36,461 inferences, 0.018 CPU in 0.018 seconds (100% CPU, 2000691 Lips)
-</span> (@ = "examples/compat/test_scripts/a2_opencoggy.metta" 0)
+</span><span class="ansi32">% 2,853,378 inferences, 0.394 CPU in 0.394 seconds (100% CPU, 7241795 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a2_opencoggy.html" )
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.html" )
 
 </pre>
 </body>

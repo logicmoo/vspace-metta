@@ -15,9 +15,25 @@
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
@@ -34,22 +50,38 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/e2_states.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; State atoms
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; `new-state` creates a new state atom wrapping the initial value (A B).
 ;; State atoms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `new-state` creates a new state atom wrapping the initial value (A B).
 ;; Then it binds this state atom to the token `&state-token`,
 ;; which is replaced by the corresponding atom at parse-time.
+;; Then it binds this state atom to the token `&state-token`,
+;; which is replaced by the corresponding atom at parse-time.
 <span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
 
-</span>; Evaluation took 0.249 ms. (248.90 microseconds) 
-<span class="ansi33"> (@ State 
-  (A B) $_151850)
- % 'State'(['A','B'],_151850)
+</span><span class="ansi38-000068000">!(bind! &state-token (new-state (A B)))
+
+</span><span class="ansi33"> (@ State 
+  (A B) $_363280)
+ % 'State'(['A','B'],_363280)
+
+</span><span class="ansi33"> (@ State 
+  (A B) $_363280)
+ % 'State'(['A','B'],_363280)
 
 </span>; &state-token is replaced by the state atom in the code below its creation
+; we wrap it into a function to show that it''s not the token that changes, but
+; the content of the state atom
+; &state-token is replaced by the state atom in the code below its creation
 ; we wrap it into a function to show that it''s not the token that changes, but
 ; the content of the state atom
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['get-token'],'&state-token')
@@ -58,55 +90,111 @@
 </span>
 
 ; `new-state $x` creates a `(State $x)` structure,
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['get-token'],'&state-token')
+</span><span class="ansi38-255165000">  (= 
+    (get-token) &state-token)
+</span>
+
+; `new-state $x` creates a `(State $x)` structure,
+; and `get-token` will show its content
 ; and `get-token` will show its content
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (A B))
+
+</span><span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (A B))
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.01">;; TEST-SCRIPTS.E2-STATES.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (A B)) 
     ( (A B))))
+</span><h3 id="TEST-SCRIPTS.E2-STATES.01">;; TEST-SCRIPTS.E2-STATES.01</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (A B)) 
+    ( (A B))))
 </span>        -->(0,'&self',['get-state',['get-token']],depth(2))
+        -->(0,'&self',['get-state',['get-token']],depth(2))
+            -->(1,'&self',['get-token'],depth(4))
             -->(1,'&self',['get-token'],depth(4))
               -->(2,'&self','&state-token',depth(5))
-              <--(2,retval('State'(['A','B'],_234938)))
+              <--(2,retval('State'(['A','B'],_440640)))
+          -->(3,'&self',['A','B'],depth(3))
+              -->(2,'&self','&state-token',depth(5))
+              <--(2,retval('State'(['A','B'],_440640)))
           -->(3,'&self',['A','B'],depth(3))
             <--(1,retval('&state-token'))
         <--(0,retval(['A','B']))
+            <--(1,retval('&state-token'))
+        <--(0,retval(['A','B']))
         -->(4,'&self',['A','B'],depth(2))
-; Evaluation took 1.70 ms.
+        -->(4,'&self',['A','B'],depth(2))
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; States can be equal even if they are wrapped into different state atoms
 ; States can be equal even if they are wrapped into different state atoms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-token) (new-state (A B)))
+
+</span><span class="ansi38-000068000">!(assertEqual (get-token) (new-state (A B)))
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.02">;; TEST-SCRIPTS.E2-STATES.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (State  
-        (A B) $_284382)) 
+        (A B) $_484394)) 
     ( (State  
-        (A B) $_284980))))
+        (A B) $_484992))))
+</span><h3 id="TEST-SCRIPTS.E2-STATES.02">;; TEST-SCRIPTS.E2-STATES.02</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (State  
+        (A B) $_484394)) 
+    ( (State  
+        (A B) $_484992))))
 </span>        -->(0,'&self',['get-token'],depth(2))
           -->(1,'&self','&state-token',depth(3))
-          <--(1,retval('State'(['A','B'],_292140)))
+          <--(1,retval('State'(['A','B'],_492134)))
+        -->(0,'&self',['get-token'],depth(2))
+          -->(1,'&self','&state-token',depth(3))
+        <--(0,retval('&state-token'))
+          <--(1,retval('State'(['A','B'],_492134)))
         <--(0,retval('&state-token'))
         -->(2,'&self',['new-state',['A','B']],depth(2))
             -->(3,'&self',['A','B'],depth(4))
-        <--(2,retval('State'(['A','B'],_293418)))
-; Evaluation took 1.47 ms.
+        -->(2,'&self',['new-state',['A','B']],depth(2))
+            -->(3,'&self',['A','B'],depth(4))
+        <--(2,retval('State'(['A','B'],_493412)))
 <span class="ansi33"> True
+        <--(2,retval('State'(['A','B'],_493412)))
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; State atoms are of StateMonad type
 ; These are inferred types based on new-state and change-state! signatures
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; State atoms are of StateMonad type
+; These are inferred types based on new-state and change-state! signatures
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
 
+</span><span class="ansi38-000068000">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
+
+</span><h3 id="TEST-SCRIPTS.E2-STATES.03">;; TEST-SCRIPTS.E2-STATES.03</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (Symbol Number)) 
+    ( (StateMonad Number))))
 </span><h3 id="TEST-SCRIPTS.E2-STATES.03">;; TEST-SCRIPTS.E2-STATES.03</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
@@ -115,9 +203,16 @@
 </span>        -->(0,'&self',['get-type',['new-state',2]],depth(2))
         <--(0,retval(['Symbol','Number']))
           -->(1,'&self',['Symbol','Number'],depth(3))
+        -->(0,'&self',['get-type',['new-state',2]],depth(2))
+        <--(0,retval(['Symbol','Number']))
+          -->(1,'&self',['Symbol','Number'],depth(3))
         -->(2,'&self',['StateMonad','Number'],depth(2))
-; Evaluation took 1.59 ms.
+        -->(2,'&self',['StateMonad','Number'],depth(2))
 <span class="ansi33"> False
+
+</span><span class="ansi33"> False
+
+</span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 
 </span><span class="ansi38-000068000">!(assertEqual (get-type (change-state! (new-state "S") "V")) (StateMonad String))
 
@@ -127,39 +222,80 @@
     ( (Symbol 
         (Symbol String) String)) 
     ( (StateMonad String))))
+<h3 id="TEST-SCRIPTS.E2-STATES.04">;; TEST-SCRIPTS.E2-STATES.04</h3></span><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (Symbol 
+        (Symbol String) String)) 
+    ( (StateMonad String))))
 </span>        -->(0,'&self',['get-type',['change-state!',['new-state',"S"],"V"]],depth(2))
         <--(0,retval(['Symbol',['Symbol','String'],'String']))
           -->(1,'&self',['Symbol',['Symbol','String'],'String'],depth(3))
+        -->(0,'&self',['get-type',['change-state!',['new-state',"S"],"V"]],depth(2))
+        <--(0,retval(['Symbol',['Symbol','String'],'String']))
+          -->(1,'&self',['Symbol',['Symbol','String'],'String'],depth(3))
+              -->(2,'&self',['Symbol','String'],depth(5))
               -->(2,'&self',['Symbol','String'],depth(5))
               -->(3,'&self',['Symbol','String'],depth(5))
+              -->(3,'&self',['Symbol','String'],depth(5))
+              -->(4,'&self',['Symbol','String'],depth(5))
               -->(4,'&self',['Symbol','String'],depth(5))
         -->(5,'&self',['StateMonad','String'],depth(2))
-; Evaluation took 2.21 ms.
+        -->(5,'&self',['StateMonad','String'],depth(2))
 <span class="ansi33"> False
 
+</span><span class="ansi33"> False
+
 </span>; These are the types of State grounded atom
+; These are the types of State grounded atom
 <span class="ansi38-000068000">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
+
+</span><span class="ansi38-000068000">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.05">;; TEST-SCRIPTS.E2-STATES.05</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     ( (StateMonad Number)) 
     ( (StateMonad Number))))
-</span>        -->(0,'&self',[let,_441606,['new-state',1],['get-type',_441606]],depth(2))
+</span><h3 id="TEST-SCRIPTS.E2-STATES.05">;; TEST-SCRIPTS.E2-STATES.05</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (StateMonad Number)) 
+    ( (StateMonad Number))))
+</span>        -->(0,'&self',[let,_100152,['new-state',1],['get-type',_100152]],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_450224)))
-            -->(2,'&self',['get-type','State'(1,_450170)],depth(4))
+            <--(1,retval('State'(1,_110482)))
+        -->(0,'&self',[let,_100152,['new-state',1],['get-type',_100152]],depth(2))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,_110482)))
+            -->(2,'&self',['get-type','State'(1,_110428)],depth(4))
             <--(2,retval(['StateMonad','Number']))
+            -->(2,'&self',['get-type','State'(1,_110428)],depth(4))
+            <--(2,retval(['StateMonad','Number']))
+              -->(3,'&self',['StateMonad','Number'],depth(5))
               -->(3,'&self',['StateMonad','Number'],depth(5))
         <--(0,retval(['StateMonad','Number']))
           -->(4,'&self',['StateMonad','Number'],depth(3))
+        <--(0,retval(['StateMonad','Number']))
+          -->(4,'&self',['StateMonad','Number'],depth(3))
         -->(5,'&self',['StateMonad','Number'],depth(2))
-; Evaluation took 2.11 ms.
+        -->(5,'&self',['StateMonad','Number'],depth(2))
 <span class="ansi33"> True
 
+</span><span class="ansi33"> True
+
 </span>; atm, meta-types for states of non-grounded types are used
+; atm, meta-types for states of non-grounded types are used
 <span class="ansi38-000068000">!(assertEqual (get-type &state-token) (StateMonad Expression))
 
+</span><span class="ansi38-000068000">!(assertEqual (get-type &state-token) (StateMonad Expression))
+
+</span><h3 id="TEST-SCRIPTS.E2-STATES.06">;; TEST-SCRIPTS.E2-STATES.06</h3><span class="ansi31">
+(@ loonit_failureR 
+  (equal_enough  
+    ( (StateMonad 
+        (Symbol Symbol))) 
+    ( (StateMonad Expression))))
 </span><h3 id="TEST-SCRIPTS.E2-STATES.06">;; TEST-SCRIPTS.E2-STATES.06</h3><span class="ansi31">
 (@ loonit_failureR 
   (equal_enough  
@@ -168,69 +304,131 @@
     ( (StateMonad Expression))))
 </span>        -->(0,'&self',['get-type','&state-token'],depth(2))
               -->(1,'&self','&state-token',depth(5))
-              <--(1,retval('State'(['A','B'],_502424)))
+        -->(0,'&self',['get-type','&state-token'],depth(2))
+              -->(1,'&self','&state-token',depth(5))
+              <--(1,retval('State'(['A','B'],_156974)))
+              <--(1,retval('State'(['A','B'],_156974)))
+        <--(0,retval(['StateMonad',['Symbol','Symbol']]))
+          -->(2,'&self',['StateMonad',['Symbol','Symbol']],depth(3))
+              -->(3,'&self',['Symbol','Symbol'],depth(5))
         <--(0,retval(['StateMonad',['Symbol','Symbol']]))
           -->(2,'&self',['StateMonad',['Symbol','Symbol']],depth(3))
               -->(3,'&self',['Symbol','Symbol'],depth(5))
               -->(4,'&self',['Symbol','Symbol'],depth(5))
+              -->(4,'&self',['Symbol','Symbol'],depth(5))
+              -->(5,'&self',['Symbol','Symbol'],depth(5))
               -->(5,'&self',['Symbol','Symbol'],depth(5))
         -->(6,'&self',['StateMonad','Expression'],depth(2))
-; Evaluation took 2.37 ms.
+        -->(6,'&self',['StateMonad','Expression'],depth(2))
 <span class="ansi33"> False
+
+</span><span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; State atoms have a defined type based on initial state
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; &state-token was initialized with state of type (A B), so
+; it cannot be changed to int
 ; State atoms have a defined type based on initial state
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; &state-token was initialized with state of type (A B), so
 ; it cannot be changed to int
 <span class="ansi38-000068000">!(assertEqual (change-state! &state-token 1) (Error 1 BadType))
 
+</span><span class="ansi38-000068000">!(assertEqual (change-state! &state-token 1) (Error 1 BadType))
+
 </span><h3 id="TEST-SCRIPTS.E2-STATES.07">;; TEST-SCRIPTS.E2-STATES.07</h3>
+!check_type (not considering this a failure)
+<h3 id="TEST-SCRIPTS.E2-STATES.07">;; TEST-SCRIPTS.E2-STATES.07</h3>
 !check_type (not considering this a failure)
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough  
-    ( (State  1 $_24742)) 
+    ( (State  1 $_188298)) 
+    ( (Error 1 BadType))))
+</span><span class="ansi31">(@ loonit_failureR 
+  (equal_enough  
+    ( (State  1 $_188298)) 
     ( (Error 1 BadType))))
 </span>        -->(0,'&self',['change-state!','&state-token',1],depth(2))
+        -->(0,'&self',['change-state!','&state-token',1],depth(2))
             -->(1,'&self','&state-token',depth(4))
-            <--(1,retval('State'(1,_32276)))
-        <--(0,retval('State'(1,_32534)))
+            <--(1,retval('State'(1,_195814)))
+            -->(1,'&self','&state-token',depth(4))
+            <--(1,retval('State'(1,_195814)))
+        <--(0,retval('State'(1,_196072)))
+        <--(0,retval('State'(1,_196072)))
         -->(2,'&self',['Error',1,'BadType'],depth(2))
-; Evaluation took 1.57 ms.
+        -->(2,'&self',['Error',1,'BadType'],depth(2))
+<span class="ansi33"> False
+
+</span>; the new state here is int, so it cannot be changed to string
 <span class="ansi33"> False
 
 </span>; the new state here is int, so it cannot be changed to string
 <span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
 
+</span><span class="ansi38-000068000">!(assertEqual (change-state! (new-state 1) "S") (Error "S" BadType))
+
 </span><h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3>
+!check_type (not considering this a failure)
+<h3 id="TEST-SCRIPTS.E2-STATES.08">;; TEST-SCRIPTS.E2-STATES.08</h3>
 !check_type (not considering this a failure)
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough  
-    ( (State  "S" $_70036)) 
+    ( (State  "S" $_227884)) 
+    ( (Error "S" BadType))))
+</span><span class="ansi31">(@ loonit_failureR 
+  (equal_enough  
+    ( (State  "S" $_227884)) 
     ( (Error "S" BadType))))
 </span>        -->(0,'&self',['change-state!',['new-state',1],"S"],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_77686)))
-        <--(0,retval('State'("S",_77944)))
+            <--(1,retval('State'(1,_235516)))
+        -->(0,'&self',['change-state!',['new-state',1],"S"],depth(2))
+        <--(0,retval('State'("S",_235774)))
         -->(2,'&self',['Error',"S",'BadType'],depth(2))
-; Evaluation took 1.69 ms.
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,_235516)))
+        <--(0,retval('State'("S",_235774)))
+        -->(2,'&self',['Error',"S",'BadType'],depth(2))
+<span class="ansi33"> False
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi33"> False
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Changing the content of the state atom
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; (nop ...) provides a way to obtain side-effects of a statement
 ; Changing the content of the state atom
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; (nop ...) provides a way to obtain side-effects of a statement
 ; while ignoring unwanted return values.
+; while ignoring unwanted return values.
 <span class="ansi38-000068000">!(nop (change-state! &state-token (C D)))
 
-</span>; Evaluation took 0.301 ms. (300.60 microseconds) 
-<span class="ansi33"> ()
+</span><span class="ansi38-000068000">!(nop (change-state! &state-token (C D)))
+
+</span><span class="ansi33"> ()
+
+</span><span class="ansi33"> ()
 
 </span>; The same state atom has different content now
+; The same state atom has different content now
 <span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
 
+</span><span class="ansi38-000068000">!(assertEqual (get-state (get-token)) (C D))
+
+</span><h3 id="TEST-SCRIPTS.E2-STATES.09">;; TEST-SCRIPTS.E2-STATES.09</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (C D)) 
+    ( (C D))))
 </span><h3 id="TEST-SCRIPTS.E2-STATES.09">;; TEST-SCRIPTS.E2-STATES.09</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -238,67 +436,125 @@
     ( (C D))))
 </span>        -->(0,'&self',['get-state',['get-token']],depth(2))
             -->(1,'&self',['get-token'],depth(4))
+        -->(0,'&self',['get-state',['get-token']],depth(2))
+            -->(1,'&self',['get-token'],depth(4))
               -->(2,'&self','&state-token',depth(5))
-              <--(2,retval('State'(['C','D'],_141418)))
+              <--(2,retval('State'(['C','D'],_287848)))
+              -->(2,'&self','&state-token',depth(5))
+              <--(2,retval('State'(['C','D'],_287848)))
           -->(3,'&self',['C','D'],depth(3))
             <--(1,retval('&state-token'))
         <--(0,retval(['C','D']))
         -->(4,'&self',['C','D'],depth(2))
-; Evaluation took 2.25 ms.
+          -->(3,'&self',['C','D'],depth(3))
+            <--(1,retval('&state-token'))
+        <--(0,retval(['C','D']))
+        -->(4,'&self',['C','D'],depth(2))
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; MeTTa provides proper encapsulated state manipulation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; MeTTa provides proper encapsulated state manipulation
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; scoping doesn''t conflict between let bound variables and state atom types.
 ; scoping doesn''t conflict between let bound variables and state atom types.
 <span class="ansi38-000068000">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
+
+</span><span class="ansi38-000068000">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  2 $_172854)) 
-    ( (State  2 $_173112))))
-</span>        -->(0,'&self',[let,_171450,['new-state',1],['change-state!',_171450,[+,['get-state',_171450],1]]],depth(2))
+    ( (State  2 $_313530)) 
+    ( (State  2 $_313788))))
+</span><h3 id="TEST-SCRIPTS.E2-STATES.10">;; TEST-SCRIPTS.E2-STATES.10</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (State  2 $_313530)) 
+    ( (State  2 $_313788))))
+</span>        -->(0,'&self',[let,_310130,['new-state',1],['change-state!',_310130,[+,['get-state',_310130],1]]],depth(2))
+        -->(0,'&self',[let,_310130,['new-state',1],['change-state!',_310130,[+,['get-state',_310130],1]]],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_180010)))
-            -->(2,'&self',['change-state!','State'(1,_179956),[+,['get-state','State'(1,_179956)],1]],depth(4))
-                -->(3,'&self',[+,['get-state','State'(1,_179956)],1],depth(6))
-                    -->(4,'&self',['get-state','State'(1,_179956)],depth(8))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,_320668)))
+            <--(1,retval('State'(1,_320668)))
+            -->(2,'&self',['change-state!','State'(1,_320614),[+,['get-state','State'(1,_320614)],1]],depth(4))
+                -->(3,'&self',[+,['get-state','State'(1,_320614)],1],depth(6))
+                    -->(4,'&self',['get-state','State'(1,_320614)],depth(8))
+            -->(2,'&self',['change-state!','State'(1,_320614),[+,['get-state','State'(1,_320614)],1]],depth(4))
+                -->(3,'&self',[+,['get-state','State'(1,_320614)],1],depth(6))
+                    -->(4,'&self',['get-state','State'(1,_320614)],depth(8))
                     <--(4,retval(1))
                 <--(3,retval(2))
-            <--(2,retval('State'(2,_181878)))
-        <--(0,retval('State'(2,_182038)))
+            <--(2,retval('State'(2,_322502)))
+        <--(0,retval('State'(2,_322662)))
+                    <--(4,retval(1))
+                <--(3,retval(2))
+            <--(2,retval('State'(2,_322502)))
+        <--(0,retval('State'(2,_322662)))
         -->(5,'&self',['new-state',2],depth(2))
-        <--(5,retval('State'(2,_182638)))
-; Evaluation took 2.56 ms.
+        <--(5,retval('State'(2,_323262)))
+<span class="ansi33"> True
+
+</span>; Checking that there is no conflict between variable names in
+        -->(5,'&self',['new-state',2],depth(2))
+        <--(5,retval('State'(2,_323262)))
 <span class="ansi33"> True
 
 </span>; Checking that there is no conflict between variable names in
 ; let-expression and type definition of new-state
+; let-expression and type definition of new-state
 <span class="ansi38-000068000">!(assertEqual (let $Tnso (new-state 1) $Tnso) (new-state 1))
+
+</span><span class="ansi38-000068000">!(assertEqual (let $Tnso (new-state 1) $Tnso) (new-state 1))
 
 </span><h3 id="TEST-SCRIPTS.E2-STATES.11">;; TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
-    ( (State  1 $_205408)) 
-    ( (State  1 $_205666))))
-</span>        -->(0,'&self',[let,_204858,['new-state',1],_204858],depth(2))
+    ( (State  1 $_340342)) 
+    ( (State  1 $_340600))))
+</span><h3 id="TEST-SCRIPTS.E2-STATES.11">;; TEST-SCRIPTS.E2-STATES.11</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    ( (State  1 $_340342)) 
+    ( (State  1 $_340600))))
+</span>        -->(0,'&self',[let,_338030,['new-state',1],_338030],depth(2))
             -->(1,'&self',['new-state',1],depth(4))
-            <--(1,retval('State'(1,_212564)))
-        <--(0,retval('State'(1,_212824)))
+            <--(1,retval('State'(1,_347480)))
+        -->(0,'&self',[let,_338030,['new-state',1],_338030],depth(2))
+            -->(1,'&self',['new-state',1],depth(4))
+            <--(1,retval('State'(1,_347480)))
+        <--(0,retval('State'(1,_347740)))
         -->(2,'&self',['new-state',1],depth(2))
-        <--(2,retval('State'(1,_213424)))
-; Evaluation took 1.47 ms.
+        <--(2,retval('State'(1,_348340)))
+        <--(0,retval('State'(1,_347740)))
+        -->(2,'&self',['new-state',1],depth(2))
+        <--(2,retval('State'(1,_348340)))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 207,257 inferences, 0.278 CPU in 0.278 seconds (100% CPU, 744264 Lips)
-</span> (@ = "examples/compat/test_scripts/e2_states.metta" 0)
+</span><span class="ansi33"> True
+
+</span><span class="ansi32">% 198,649 inferences, 0.171 CPU in 0.171 seconds (100% CPU, 1160917 Lips)
+</span><span class="ansi32">% 198,649 inferences, 0.171 CPU in 0.171 seconds (100% CPU, 1160917 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 6
 </span><span class="ansi31">Failures: 3
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e2_states.html" )
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 6
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e2_states.html" )
+                                                                                                                                                                                                    -->(0,'&self',[+,10.29999999999998,0.1],depth(96))
 
 </pre>
 </body>

@@ -12,6 +12,7 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -30,22 +31,29 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -53,6 +61,10 @@
  (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta")
 ;; Import ===
 <span class="ansi38-000068000">!(import! &self EqualityType.metta)
+
+</span><span class="ansi38-017068017">exec(A) :-
+    true,
+    u_assign(['import!', '&self', 'EqualityType.metta'], A).
 
 </span>;; Define various subterms
 ;; Define (homogeneous) equality type, also called propositional equality
@@ -90,7 +102,7 @@
       (=== $X $X)))
 </span>
 
-; Evaluation took 7.52 ms.
+; Evaluation took 7.88 ms.
 <span class="ansi33"> &self
 
 </span>;; What about
@@ -113,9 +125,17 @@
       (=== 42 42) Bool))
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((foo(Prf,_280476):-_280476='True'))]
+%~ [convert(_281642),head_preconds_into_body((foo(Prf,_280476):-_280476='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[foo,Prf],'True')
 </span><span class="ansi38-255165000">  (= 
     (foo $Prf) True)
+</span><span class="ansi38-000082136">  :- dynamic(foo,2).
+
+  foo(Prf, A) :-
+    A='True'.
+
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,bar,[->,[===,'True','True'],'Bool']])
@@ -124,9 +144,17 @@
       (=== True True) Bool))
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((bar(Prf,_339720):-_339720='True'))]
+%~ [convert(_340886),head_preconds_into_body((bar(Prf,_339720):-_339720='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[bar,Prf],'True')
 </span><span class="ansi38-255165000">  (= 
     (bar $Prf) True)
+</span><span class="ansi38-000082136">  :- dynamic(bar,2).
+
+  bar(Prf, A) :-
+    A='True'.
+
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,baz,[->,[===,42,'True'],'Bool']])
@@ -135,36 +163,72 @@
       (=== 42 True) Bool))
 </span>
 
+%~ [ convert(Convert),
+%~   head_preconds_into_body((baz(Prf,_390236):-_390236='False'))]
+%~ [convert(_391402),head_preconds_into_body((baz(Prf,_390236):-_390236='False'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[baz,Prf],'False')
 </span><span class="ansi38-255165000">  (= 
     (baz $Prf) False)
+</span><span class="ansi38-000082136">  :- dynamic(baz,2).
+
+  baz(Prf, A) :-
+    A='False'.
+
 </span>
 
 ;; Test equality type
 <span class="ansi38-000068000">!(foo (Refl T42))
 
-</span>; Evaluation took 0.102 ms. (101.60 microseconds) 
+</span><span class="ansi38-017068017">exec(A) :-
+    ( true,
+      u_assign(['Refl', 'T42'], B)
+    ),
+    B=C,
+    u_assign([foo, C], A).
+
+</span>; Evaluation took 0.102 ms. (102.10 microseconds) 
 <span class="ansi33"> True
 
 </span>; Should succeed
 <span class="ansi38-000068000">!(bar (Refl T42))
 
-</span>; Evaluation took 0.096 ms. (95.60 microseconds) 
+</span><span class="ansi38-017068017">exec(A) :-
+    ( true,
+      u_assign(['Refl', 'T42'], B)
+    ),
+    B=C,
+    u_assign([bar, C], A).
+
+</span>; Evaluation took 0.202 ms. (201.50 microseconds) 
 <span class="ansi33"> True
 
 </span>; Should fail
 <span class="ansi38-000068000">!(bar (Refl TTrue))
 
-</span>; Evaluation took 0.070 ms. (70.40 microseconds) 
+</span><span class="ansi38-017068017">exec(A) :-
+    ( true,
+      u_assign(['Refl', 'TTrue'], B)
+    ),
+    B=C,
+    u_assign([bar, C], A).
+
+</span>; Evaluation took 0.082 ms. (81.80 microseconds) 
 <span class="ansi33"> True
 
 </span>; Should succeed
 <span class="ansi38-000068000">!(baz (Refl T42))
 
-</span>; Evaluation took 0.071 ms. (70.70 microseconds) 
+</span><span class="ansi38-017068017">exec(A) :-
+    ( true,
+      u_assign(['Refl', 'T42'], B)
+    ),
+    B=C,
+    u_assign([baz, C], A).
+
+</span>; Evaluation took 0.077 ms. (77.50 microseconds) 
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 88,294 inferences, 0.026 CPU in 0.026 seconds (100% CPU, 3375179 Lips)
+</span><span class="ansi32">% 340,327 inferences, 0.064 CPU in 0.064 seconds (100% CPU, 5286510 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.html" )

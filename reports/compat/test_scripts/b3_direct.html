@@ -29,17 +29,45 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b3_direct.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example from OpenCog Classic wiki on PLN Backward Chaining
+;; No explicit backward chaining is needed
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; facts
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example from OpenCog Classic wiki on PLN Backward Chaining
@@ -51,6 +79,17 @@
     (croaks Fritz) True)
 </span>
 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[croaks,'Fritz'],'True')
+</span><span class="ansi38-255165000">  (= 
+    (croaks Fritz) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[eat_flies,'Fritz'],'True')
+</span><span class="ansi38-255165000">  (= 
+    (eat_flies Fritz) True)
+</span>
+
+; Rules
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[eat_flies,'Fritz'],'True')
 </span><span class="ansi38-255165000">  (= 
     (eat_flies Fritz) True)
@@ -60,6 +99,19 @@
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['And','True','True'],'True')
 </span><span class="ansi38-255165000">  (= 
     (And True True) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['And','True','True'],'True')
+</span><span class="ansi38-255165000">  (= 
+    (And True True) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[frog,X],['And',[croaks,X],[eat_flies,X]])
+</span><span class="ansi38-255165000">  (= 
+    (frog $X) 
+    (And 
+      (croaks $X) 
+      (eat_flies $X)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[frog,X],['And',[croaks,X],[eat_flies,X]])
@@ -77,8 +129,22 @@
 </span>
 
 ; Conclusion from facts and rules
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[green,X],[frog,X])
+</span><span class="ansi38-255165000">  (= 
+    (green $X) 
+    (frog $X))
+</span>
+
+; Conclusion from facts and rules
 <span class="ansi38-000068000">!(assertEqual (green Fritz) True)
 
+</span><span class="ansi38-000068000">!(assertEqual (green Fritz) True)
+
+</span><h3 id="TEST-SCRIPTS.B3-DIRECT.01">;; TEST-SCRIPTS.B3-DIRECT.01</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (True) 
+    (True)))
 </span><h3 id="TEST-SCRIPTS.B3-DIRECT.01">;; TEST-SCRIPTS.B3-DIRECT.01</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
@@ -86,23 +152,47 @@
     (True)))
 </span>        -->(0,'&self',[green,'Fritz'],depth(2))
           -->(1,'&self',[frog,'Fritz'],depth(3))
+        -->(0,'&self',[green,'Fritz'],depth(2))
+          -->(1,'&self',[frog,'Fritz'],depth(3))
             -->(2,'&self',['And',[croaks,'Fritz'],[eat_flies,'Fritz']],depth(4))
+            -->(2,'&self',['And',[croaks,'Fritz'],[eat_flies,'Fritz']],depth(4))
+                -->(3,'&self',[croaks,'Fritz'],depth(6))
                 -->(3,'&self',[croaks,'Fritz'],depth(6))
                 -->(4,'&self',['And','True',[eat_flies,'Fritz']],depth(6))
                     -->(5,'&self',[eat_flies,'Fritz'],depth(8))
+                -->(4,'&self',['And','True',[eat_flies,'Fritz']],depth(6))
+                    -->(5,'&self',[eat_flies,'Fritz'],depth(8))
                     -->(6,'&self',['And','True','True'],depth(8))
+                    -->(6,'&self',['And','True','True'],depth(8))
+                    <--(6,retval('True'))
+                    <--(5,retval('True'))
+                    -->(7,'&self',[eat_flies,'Fritz'],depth(8))
                     <--(6,retval('True'))
                     <--(5,retval('True'))
                     -->(7,'&self',[eat_flies,'Fritz'],depth(8))
                     -->(8,'&self',['And','True'],depth(8))
                     <--(8,retval('True'))
+                    -->(8,'&self',['And','True'],depth(8))
+                    <--(8,retval('True'))
+                    <--(7,retval('True'))
+                    -->(9,'&self',[eat_flies,'Fritz'],depth(8))
                     <--(7,retval('True'))
                     -->(9,'&self',[eat_flies,'Fritz'],depth(8))
                     <--(9,retval('True'))
                 <--(4,retval('True'))
                 <--(3,retval('True'))
                 -->(10,'&self',[croaks,'Fritz'],depth(6))
+                    <--(9,retval('True'))
+                <--(4,retval('True'))
+                <--(3,retval('True'))
+                -->(10,'&self',[croaks,'Fritz'],depth(6))
                 -->(11,'&self',[eat_flies,'Fritz'],depth(6))
+                -->(12,'&self',['And','True'],depth(6))
+                -->(11,'&self',[eat_flies,'Fritz'],depth(6))
+                <--(12,retval('True'))
+                <--(11,retval('True'))
+                -->(13,'&self',[eat_flies,'Fritz'],depth(6))
+                <--(13,retval('True'))
                 -->(12,'&self',['And','True'],depth(6))
                 <--(12,retval('True'))
                 <--(11,retval('True'))
@@ -112,7 +202,15 @@
             <--(2,retval('True'))
           <--(1,retval(['And',[croaks,'Fritz'],[eat_flies,'Fritz']]))
         <--(0,retval([frog,'Fritz']))
-; Evaluation took 3.69 ms.
+                <--(10,retval('True'))
+            <--(2,retval('True'))
+          <--(1,retval(['And',[croaks,'Fritz'],[eat_flies,'Fritz']]))
+        <--(0,retval([frog,'Fritz']))
+<span class="ansi33"> True
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; This is not just functional programming,
 <span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -120,6 +218,13 @@
 ; This is not just functional programming,
 ; because we can do inference
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; because we can do inference
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[ift,'True',Then],Then)
+</span><span class="ansi38-255165000">  (= 
+    (ift True $Then) $Then)
+</span>
+
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[ift,'True',Then],Then)
 </span><span class="ansi38-255165000">  (= 
     (ift True $Then) $Then)
@@ -127,31 +232,57 @@
 
 <span class="ansi38-000068000">!(assertEqual (ift (green $X) $X) Fritz)
 
+</span><span class="ansi38-000068000">!(assertEqual (ift (green $X) $X) Fritz)
+
 </span><h3 id="TEST-SCRIPTS.B3-DIRECT.02">;; TEST-SCRIPTS.B3-DIRECT.02</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (Fritz) 
     (Fritz)))
-</span>        -->(0,'&self',[ift,[green,_254866],_254866],depth(2))
-            -->(1,'&self',[green,_254866],depth(4))
-              -->(2,'&self',[frog,_254866],depth(5))
-                -->(3,'&self',['And',[croaks,_254866],[eat_flies,_254866]],depth(6))
-                    -->(4,'&self',[croaks,_254866],depth(8))
+</span><h3 id="TEST-SCRIPTS.B3-DIRECT.02">;; TEST-SCRIPTS.B3-DIRECT.02</h3><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (Fritz) 
+    (Fritz)))
+</span>        -->(0,'&self',[ift,[green,_458914],_458914],depth(2))
+        -->(0,'&self',[ift,[green,_458914],_458914],depth(2))
+            -->(1,'&self',[green,_458914],depth(4))
+            -->(1,'&self',[green,_458914],depth(4))
+              -->(2,'&self',[frog,_458914],depth(5))
+              -->(2,'&self',[frog,_458914],depth(5))
+                -->(3,'&self',['And',[croaks,_458914],[eat_flies,_458914]],depth(6))
+                -->(3,'&self',['And',[croaks,_458914],[eat_flies,_458914]],depth(6))
+                    -->(4,'&self',[croaks,_458914],depth(8))
+                    -->(5,'&self',[eat_flies,'Fritz'],depth(8))
+                    -->(4,'&self',[croaks,_458914],depth(8))
                     -->(5,'&self',[eat_flies,'Fritz'],depth(8))
                     -->(6,'&self',['And','True'],depth(8))
                     <--(6,retval('True'))
+                    -->(6,'&self',['And','True'],depth(8))
+                    <--(6,retval('True'))
+          -->(7,'&self',[ift,'True','Fritz'],depth(3))
           -->(7,'&self',[ift,'True','Fritz'],depth(3))
           <--(7,retval('Fritz'))
                     <--(5,retval('True'))
+          <--(7,retval('Fritz'))
+                    <--(5,retval('True'))
+                    -->(8,'&self',[eat_flies,'Fritz'],depth(8))
                     -->(8,'&self',[eat_flies,'Fritz'],depth(8))
                     <--(8,retval('True'))
                     <--(4,retval('True'))
                 <--(3,retval('True'))
-              <--(2,retval(['And',[croaks,_263752],[eat_flies,_263752]]))
-            <--(1,retval([frog,_263284]))
+              <--(2,retval(['And',[croaks,_469474],[eat_flies,_469474]]))
+            <--(1,retval([frog,_469006]))
         <--(0,retval([ift,'True','Fritz']))
-; Evaluation took 2.32 ms.
+                    <--(8,retval('True'))
+                    <--(4,retval('True'))
+                <--(3,retval('True'))
+              <--(2,retval(['And',[croaks,_469474],[eat_flies,_469474]]))
+            <--(1,retval([frog,_469006]))
+        <--(0,retval([ift,'True','Fritz']))
 <span class="ansi33"> True
+
+</span><span class="ansi33"> True
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -159,25 +290,49 @@
 ; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
 ; with it may work differently from that over purely symbolic expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; We can also use expressions with `=` in `match`
+; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
+; with it may work differently from that over purely symbolic expressions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(assertEqualToResult (match &self (= ($P Fritz) True) $P) (croaks eat_flies))
+
+</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (= ($P Fritz) True) $P) (croaks eat_flies))
 
 </span><h3 id="TEST-SCRIPTS.B3-DIRECT.03">;; TEST-SCRIPTS.B3-DIRECT.03</h3><span class="ansi36">
 (@ loonit_success 
   (equal_enough  
     (croaks eat_flies) 
     (croaks eat_flies)))
-</span>        -->(0,'&self',[match,'&self',[=,[_287568,'Fritz'],'True'],_287568],depth(2))
+<h3 id="TEST-SCRIPTS.B3-DIRECT.03">;; TEST-SCRIPTS.B3-DIRECT.03</h3></span><span class="ansi36">
+(@ loonit_success 
+  (equal_enough  
+    (croaks eat_flies) 
+    (croaks eat_flies)))
+</span>        -->(0,'&self',[match,'&self',[=,[_485862,'Fritz'],'True'],_485862],depth(2))
+        -->(0,'&self',[match,'&self',[=,[_485862,'Fritz'],'True'],_485862],depth(2))
         <--(0,retval(eat_flies))
-; Evaluation took 1.08 ms.
+        <--(0,retval(eat_flies))
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 79,706 inferences, 0.052 CPU in 0.052 seconds (100% CPU, 1536806 Lips)
-</span> (@ = "examples/compat/test_scripts/b3_direct.metta" 0)
+</span><span class="ansi33"> True
+
+</span><span class="ansi32">% 78,673 inferences, 0.034 CPU in 0.034 seconds (100% CPU, 2330258 Lips)
+</span><span class="ansi32">% 78,673 inferences, 0.034 CPU in 0.034 seconds (100% CPU, 2330258 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta" 0)
+ (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
 </span><span class="ansi31">Failures: 0
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b3_direct.html" )
+</span><span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 0
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.html" )
+                                                                                                                                                                                                    -->(0,'&self',[+,9.89999999999998,0.1],depth(96))
 
 </pre>
 </body>
