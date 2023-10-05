@@ -45,6 +45,10 @@ function run_tests() {
     process_file() {
         local file=$1
 
+       echo ""
+       echo ""
+       echo "Testing:  $file"
+
         cd "$SCRIPT_DIR"
         echo ""
 
@@ -68,9 +72,6 @@ function run_tests() {
 
     # Process assert_files
     for file in "${assert_files[@]}"; do
-       echo ""
-       echo ""
-       echo "Testing:  $file"
        [ -f "${file}" ] && process_file "$file"
     done
 
@@ -79,12 +80,12 @@ function run_tests() {
 
        echo ""
        echo ""
-       echo "Testing:  $file"
+       echo "Checking for answers:  $file.answers"
 
         if [ ! -f "${file}.answers" ]; then
             set +e
             timeout --foreground $METTA_MAX_TIME time metta "$file" 2>&1 | tee "${file}.answers"
-            set -e
+            #set -e
             echo ""
         fi
         [ -f "${file}" ] && process_file "$file"
