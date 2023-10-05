@@ -103,8 +103,8 @@ MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succee
 |  0  |  0  | UnifyTest.metta                   |[reports/compat/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/synthesis/UnifyTest.html)|
 
 </details>
- 
- 
+
+
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|
 | PASS | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/compat/common/InTest.html#COMMON.INTEST.01) | (assertEqual (synthesize (: $Proof (∉ Z ∅)) kb rb Z)) | ((: NotInEmpty (∉ Z ∅))) | ((: NotInEmpty (∉ Z ∅))) |
@@ -467,49 +467,67 @@ Test Results:
 92 Failed,
 351 Total,
 73.79% Passed
- 
+
 ## Installation Guide
 
-### Prerequisites
+MeTTaLog provides an environment for managing and interacting with Prolog-based logic systems. To set up MeTTaLog on your system, follow the steps below:
 
-- SWI-Prolog
+### 1. Install SWI-Prolog
 
-### Optional SWI-Prolog Packages
-
-- **Janus (requires SWI-Prolog 9.1.12 or later)**
-  [Learn More](https://www.swi-prolog.org/pldoc/man?section=janus-python-package)
-  - This lets you call Python code you have written for MeTTa to use.
-
-### Required SWI-Prolog Packages
-
-1. Open your SWI-Prolog terminal.
-2. Install `logicmoo_utils` and `dictoo` packs:
+Begin by installing the SWI-Prolog system:
 
 ```bash
-Welcome to SWI-Prolog (threaded, 64 bits, version 9.1.15-49-g93d0c9ac6)
-SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
-Please run ?- license. for legal details.`
-
-For online help and background, visit https://www.swi-prolog.org
-For built-in help, use ?- help(Topic). or ?- apropos(Word).
-
-?- pack_install(logicmoo_utils).
-% Contacting server at https://www.swi-prolog.org/pack/query ... ok
-% Pack `logicmoo_utils' is installed @3.1.3
-
-% OO thru Prolog Dicts
-?- pack_install(dictoo).
-% Contacting server at https://www.swi-prolog.org/pack/query ... ok
-% Pack `dictoo' is installed @3.1.3
-
-?- halt.
+sudo apt install swi-prolog
 ```
 
-### Clone the MeTTaLog Repository
-(nothing needs built)
+This will install the core Prolog system and its accompanying packages.
+
+### 2. Clone the MeTTaLog Repository
+
+Once SWI-Prolog is installed, clone the MeTTaLog repository from GitHub:
+
 ```bash
-git clone https://github.com/logicmoo/metta-vspace.git
-cd metta-vspace
+git clone https://github.com/logicmoo/vspace-metta
+```
+
+After cloning, navigate to the `vspace-metta` directory:
+
+```bash
+cd vspace-metta
+```
+
+### 3. Build and Install Required Packages
+
+To install the required Prolog packs and compile the source, run:
+
+```bash
+make
+```
+
+This will install necessary Prolog packs like `predicate_streams`, `logicmoo_utils`, and `dictoo`. Additionally, it compiles the Prolog sources into a standalone executable named `MeTTaLog`.
+
+### 4. Running MeTTaLog
+
+Once the build process is complete, you can start the MeTTaLog REPL using:
+
+```bash
+./MeTTaLog -repl
+```
+
+In the REPL, you can now interact with the MeTTaLog system. For example:
+
+```prolog
+metta@&self: !(+ 1 1)
+!(+ 1 1)
+```
+
+The result `2` will be displayed, indicating the successful evaluation of the expression.
+
+You can exit by pressing ctrl-D
+
+Run your first unit test (LoonIt Test)
+
+```bash
 ./MeTTa examples/compat/test_scripts/00_lang_case.metta  # Run your first unit test (LoonIt Test)
 # The output will be saved as `examples/compat/test_scripts/00_lang_case.html`.
 ```

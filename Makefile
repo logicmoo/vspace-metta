@@ -13,7 +13,7 @@ PACKS = predicate_streams logicmoo_utils dictoo  # replace with the packs you wa
 all: install_packs $(TARGET)
 
 $(TARGET): $(SRC)
-	swipl $(SWIPL_FLAGS) -o $(TARGET) -c $(SRC)
+	swipl -l $(SRC) -g "qcompile_mettalog,halt."
 
 install_packs:
 	for pack in $(PACKS); do \
