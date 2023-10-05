@@ -10,15 +10,15 @@ SWIPL_FLAGS = --stand_alone=true -O
 # List of SWI-Prolog packs to install
 PACKS = predicate_streams logicmoo_utils dictoo  # replace with the packs you want
 
-all: $(TARGET)
+all: install_packs $(TARGET)
 
 $(TARGET): $(SRC)
-	swipl -l $(SRC) -g "qcompile_mettalog,halt." -t halt
+	swipl $(SWIPL_FLAGS) -o $(TARGET) -c $(SRC)
 
 install_packs:
 	for pack in $(PACKS); do \
 		echo "Installing $$pack..."; \
-		swipl -g "pack_install($$pack), halt."; \
+		swipl -g "pack_install($$pack, [upgrade(true),global(true)]),halt"; \
 	done
 
 clean:
