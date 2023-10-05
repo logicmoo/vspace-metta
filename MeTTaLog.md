@@ -510,33 +510,43 @@ This will install necessary Prolog packs like `predicate_streams`, `logicmoo_uti
 
 Once compiled, the resulting executable is named MeTTaLog. Additionally, there is a script named MeTTa included in the repository. This script serves as an interface that calls the compiled MeTTaLog executable.
 
-4. Running MeTTaLog
 
-Once the build process is complete, you can start the MeTTaLog REPL using:
+### 4. Running MeTTaLog
+
+After completing the build, you can start the MeTTaLog REPL (Read-Eval-Print Loop) with the following command:
 
 ```bash
 ./MeTTaLog --repl
 ```
 
-In the REPL, you can now interact with the MeTTaLog system. For example:
+Within the REPL, you can interact directly with the MeTTaLog system. For instance:
 
 ```prolog
 metta@&self: !(+ 1 1)
+```
+
+The REPL will echo the entered command in green, resembling:
+
+```diff
 !(+ 1 1)
 ```
 
-The result `2` will be displayed, indicating the successful evaluation of the expression.
+Subsequently, the result `2` will appear, showcasing the successful evaluation of the expression.
 
-You can exit by pressing ctrl-D
+To exit the REPL, press `ctrl-D`.
 
-Run your first unit test (LoonIt Test)
+#### Running Tests
+
+To run your first unit test (referred to as a LoonIt Test):
 
 ```bash
-./MeTTa examples/compat/test_scripts/00_lang_case.metta  # Run your first unit test (LoonIt Test)
-# The output will be saved as `examples/compat/test_scripts/00_lang_case.html`.
+./MeTTa --html examples/compat/test_scripts/00_lang_case.metta
 ```
 
-Note: The `MeTTa` script is case-sensitive and different from `metta` written in Rust.
+Upon execution, the output will be saved as `examples/compat/test_scripts/00_lang_case.html`.
+
+**Note:** Remember, the `MeTTa` script's name is case-sensitive. Do not confuse it with `metta`, which might refer to a different tool written in Rust.
+
 
 **To run a metta file normally:**
 
