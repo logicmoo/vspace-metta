@@ -506,14 +506,16 @@ To install the required Prolog packs and compile the source, run:
 make
 ```
 
-This will install necessary Prolog packs like `predicate_streams`, `logicmoo_utils`, and `dictoo`. Additionally, it compiles the Prolog sources into a standalone executable named `MeTTaLog`.
+This will install necessary Prolog packs like `predicate_streams`, `logicmoo_utils`, and `dictoo`. During the installation of these packs, you may be prompted with several questions. It's recommended to go with the default choices when prompted, as they are typically the best options for most users.
 
-### 4. Running MeTTaLog
+Once compiled, the resulting executable is named MeTTaLog. Additionally, there is a script named MeTTa included in the repository. This script serves as an interface that calls the compiled MeTTaLog executable.
+
+4. Running MeTTaLog
 
 Once the build process is complete, you can start the MeTTaLog REPL using:
 
 ```bash
-./MeTTaLog -repl
+./MeTTaLog --repl
 ```
 
 In the REPL, you can now interact with the MeTTaLog system. For example:
@@ -551,7 +553,7 @@ Note: The `MeTTa` script is case-sensitive and different from `metta` written in
 **To run the REPL:**
 
 ```bash
-./MeTTa
+./MeTTa --repl
 ```
 
 ## Familiarize Yourself with MeTTa`
