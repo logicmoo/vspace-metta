@@ -52,7 +52,7 @@ function run_tests() {
         cd "$SCRIPT_DIR"
         echo ""
 
-        local TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false --html \"$file\" --halt=true"
+        local TEST_CMD="./MeTTa --timeout=$MAX_TIME --v1 --repl=false --html \"$file\" --halt=true"
         echo "Running command: $TEST_CMD"
 
         set +e
