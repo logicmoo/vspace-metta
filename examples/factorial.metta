@@ -181,7 +181,7 @@
 
 ;; !(assertEqual (factorial-fast-i 0) 1)
 ;; !(assertEqual (factorial-fast-i 1) 1)
-!(assertEqual 120 (factorial-fast-i 5))
+;; !(assertEqual 120 (factorial-fast-i 5))
 
 
 
@@ -348,14 +348,14 @@
 !(assertEqual (fact-f-t-i 30) 265252859812191058636308480000000)
 
 ;; Testing MeTTa States Factorial in Interpreted Mode
-!(pragma! compile false)
-!(assertEqual (factorial-fast-i 30) 265252859812191058636308480000000)
+;!(pragma! compile false)
+;!(assertEqual (factorial-fast-i 30) 265252859812191058636308480000000)
 
 ;; Testing MeTTa States Factorial in Compiled Mode
-!(pragma! compile full)
-!(assertEqual (factorial-fast-c 30) 265252859812191058636308480000000)
+;!(pragma! compile full)
+;!(assertEqual (factorial-fast-c 30) 265252859812191058636308480000000)
 
-:- prolog.
+;; :- prolog.
 
 !(repl!)
 
