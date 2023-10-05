@@ -415,10 +415,8 @@ is_seo_f('State').
 is_seo_f('Event').
 is_seo_f(N):- number(N),!.
 
-eval_args1(Depth,Self,['+',N1,N2],N):- number(N1),
-   eval_args(Depth,Self,N2,N2Res), catch(N is N1+N2Res,_E,(set_last_error(['Error',N2Res,'Number']),fail)).
-eval_args1(Depth,Self,['-',N1,N2],N):- number(N1),
-   eval_args(Depth,Self,N2,N2Res), catch(N is N1-N2Res,_E,(set_last_error(['Error',N2Res,'Number']),fail)).
+eval_args1(Depth,Self,[NOp,N1,N2],N):- number(N1),atom(NOp),IS=..[NOp,N1,N2Res],is_math_op(NOp, 2, exists),!,
+   eval_args(Depth,Self,N2,N2Res), catch(N is IS,_E,(set_last_error(['Error',N2Res,'Number']),fail)).
 
 set_last_error(_).
 
