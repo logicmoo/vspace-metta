@@ -977,6 +977,8 @@ p2m(clause(H,B),'get-atoms'('&self',[=,H,B])).
 p2m(retract(X),'remove-atom'('&self',X)).
 p2m(assert(X),'add-atom'('&self',X)).
 % The catch-all case for the other compound terms.
+p2m(I,O):- I=..[F|II],maplist(p2m,[F|II],OO),O=..OO.
+
 % It will break down compound terms into their functor and arguments and apply p2m recursively
 p2m(I, O):-
     compound(I),
@@ -1193,6 +1195,7 @@ fb0:- show_mettalog_src((two_pi(R):-(pi(A), +(A, A, B), R is B))).
 fb0:- show_mettalog_src(factorial_tail_basic).
 fb0:- show_mettalog_src(funct).
 
+print_metta_src :-  show_mettalog_src.
 % 'show_mettalog_src' rule compiles the program and shows mettalog sources for each source file containing 'metta'.
 show_mettalog_src:- make,
   forall((source_file(AsPred,File),
