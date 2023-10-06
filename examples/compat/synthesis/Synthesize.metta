@@ -74,3 +74,5 @@
             ((: $proof4 $premise4) (synthesize (: $proof4 $premise4) $axiom $rule $k))
             ((: $proof5 $premise5) (synthesize (: $proof5 $premise5) $axiom $rule $k)))
            $query))
+
+

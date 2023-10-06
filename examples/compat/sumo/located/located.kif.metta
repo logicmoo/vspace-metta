@@ -25,12 +25,12 @@ for all $INST1, $INST2, and $INST3.")
 ;;             ($REL $INST2 $INST3))
 ;;          ($REL $INST1 $INST3))))
 
-(=>
- (and
+(⟹
+ (∧
      (instance $REL TransitiveRelation)
      ($REL $INST1 $INST2)
-     ($REL $INST2 $INST))
- ($REL $INST1 $INST3))))
+     ($REL $INST2 $INST3))
+ ($REL $INST1 $INST3))
 
 ;; In the meantime we manually instantiate the relation located.  We
 ;; remove the ∀ in the process to avoid ($INST1 $INST2 $INST3) which

@@ -56,3 +56,5 @@
        ($obj is-a Planet))
     (Color of Planet $obj is $prop))
   ((Color of Planet Mars is Red)))
+
+

@@ -32,6 +32,11 @@
 (: rb (-> Atom))
 (= (rb) (match &rb $x $x))
 
+
+!(pragma! trace-always true)
+!(repl!)
+
+
 ;; Call synthesizer on query (located John JohnsHouse)
 ;;
 ;; It should generate the following proof
