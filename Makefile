@@ -12,8 +12,11 @@ PACKS = predicate_streams logicmoo_utils dictoo  # replace with the packs you wa
 
 all: clean install_packs $(TARGET)
 
-$(TARGET): $(SRC)
-	swipl -l $(SRC) -g "qcompile_mettalog,halt."
+$(TARGET):
+	@echo "Creating standalone binary..."
+	swipl -l $(SRC) -g "qcompile_mettalog -> halt(0) ; halt(1)."  -- --repl
+	if [ $$? -eq 1 ]; then echo "Error creating binary."; exit 1; fi
+	@echo "Done."
 
 install_packs:
 	for pack in $(PACKS); do \

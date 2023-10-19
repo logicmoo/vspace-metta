@@ -31,8 +31,10 @@
 ; We don''t use it above, because the order of non-deterministic results
 ; is not guaranteed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-!(assertEqual (collapse (match &self (= (shape) $x) $x)) ())
+!(assertEqual
+  (collapse
+    (match &self (= (shape) $x) $x))
+  ())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

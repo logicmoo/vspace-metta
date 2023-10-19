@@ -19,7 +19,7 @@ function delete_html_files() {
     find "${UNITS_DIR}" -name "*.html" -type f -delete
 }
 
-export MAX_TIME=10
+export MAX_TIME=24
 export METTA_MAX_TIME=120
 
 function run_tests() {

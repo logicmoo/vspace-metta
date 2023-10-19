@@ -90,6 +90,6 @@ time_fibonaccis(_):-
 
 % Running the utility with an example, N=30.
 
-:- writeln(':- time_fibonaccis(30000)').
+%:- writeln(':- time_fibonaccis(30000)').
 
 

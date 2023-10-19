@@ -1,6 +1,6 @@
 !(import! &self Maybe.metta)
 
 ;; Test Maybe
-!(Maybe< (Just 10) (Just 20))
-!(Maybe< (Just 10) Nothing)
-!(Maybe< Nothing (Just 10))
+!(assertEqualToResult (Maybe< (Just 10) (Just 20)) (True))
+!(assertEqualToResult (Maybe< (Just 10) Nothing) (False))
+!(assertEqualToResult (Maybe< Nothing (Just 10)) (True))

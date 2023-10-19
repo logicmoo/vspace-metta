@@ -218,11 +218,15 @@
                                                    (case (superpose $x)
                                                          (((Sentence ($T $TV) $Ev) (case (== $T $term)
                                                                                          ((True ($TV $Ev)))))))))))
-;; How much evidence is there that garfield is an artist given the following input using up to 3 inference steps?
-!(assertEqual
-   (Question ((Sentence ((({ garfield }) --> cat) (1.0 0.9)) (1))
-              (Sentence (((cat * sky) --> like) (1.0 0.9)) (2))
-              (Sentence ((sky --> ([ blue ])) (1.0 0.9)) (3))
-              (Sentence ((((({ garfield }) * ([ blue ])) --> like) ==> (({ garfield }) --> artist)) (1.0 0.9)) (4)))
 
-          (({ garfield }) --> artist) 3))
+(= (debug-me)
+    (Question
+            ((Sentence ((({ garfield }) --> cat) (1.0 0.9)) (1))
+             (Sentence (((cat * sky) --> like) (1.0 0.9)) (2))
+             (Sentence ((sky --> ([ blue ])) (1.0 0.9)) (3))
+             (Sentence ((((({ garfield }) * ([ blue ])) --> like) ==> (({ garfield }) --> artist)) (1.0 0.9)) (4)))
+            (({ garfield }) --> artist) 3))
+
+
+;; How much evidence is there that garfield is an artist given the following input using up to 3 inference steps?
+!(assertEqual (debug-me) ((1.0 0.37946790052053214) (2 1 3 4)))

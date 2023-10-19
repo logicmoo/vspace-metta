@@ -154,7 +154,7 @@ time_factorials(_):-
     format('~N~n% =====================================================~n',[]),!.
 
 % Running the utility with an example, N=30.
-:- writeln(':- time_factorials(61111).').
+%:- writeln(':- time_factorials(61111).').
 
 
 

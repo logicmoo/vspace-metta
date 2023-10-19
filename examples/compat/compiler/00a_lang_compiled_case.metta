@@ -67,6 +67,12 @@
    (superpose ((Rel-P B) (Rel-Q C))))
 
 
+; Basic superpose
+!(assertEqualToResult
+   (superpose ((Rel-P B) (Rel-Q C)))
+   ((Rel-P B) (Rel-Q C)))
+
+
 ; cases can be used for deconstruction
 !(assertEqual
   (superpose ((P B) (Q C)))

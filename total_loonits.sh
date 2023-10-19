@@ -62,11 +62,52 @@ function accumulate_totals() {
 }
 
 function get_current_successes() {
+   local file="$1"
+
+   # First, try getting the successes count using get_current_successes1
+   local count_from_successes1=$(get_current_successes1 "$file")
+
+   # Check if the count from get_current_successes1 is greater than zero
+   if (( count_from_successes1 > 0 )); then
+       echo "$count_from_successes1"
+       return
+   fi
+
+   # If not, proceed with the original logic
+    relative_path=$(echo "$file" | sed 's/^\.\///' | sed -e 's/examples/reports/g')
+    basename=$(basename "$relative_path")
+    basename=${basename%.*}
+    echo $(grep "$basename" TEE.ansi.UNITS | grep -c "| PASS |")
+}
+
+
+
+function get_current_failures() {
+   local file="$1"
+
+   # First, try getting the failures count using get_current_failures1
+   local count_from_failures1=$(get_current_failures1 "$file")
+
+   # Check if the count from get_current_failures1 is greater than zero
+   if (( count_from_failures1 > 0 )); then
+       echo "$count_from_failures1"
+       return
+   fi
+
+   # If not, proceed with the original logic
+    local file="$1"
+    relative_path=$(echo "$file" | sed 's/^\.\///' | sed -e 's/examples/reports/g')
+    basename=$(basename "$relative_path")
+    basename=${basename%.*}
+    echo $(grep "$basename" TEE.ansi.UNITS | grep -c "| FAIL |")
+}
+
+function get_current_successes1() {
     local file="$1"
     cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Successes:' | awk -F: '{sum += $2} END {print sum}'
 }
 
-function get_current_failures() {
+function get_current_failures1() {
     local file="$1"
     cat "$file" | sed 's/\x1b\[[0-9;]*m//g' | grep 'Failures:' | awk -F: '{sum += $2} END {print sum}'
 }

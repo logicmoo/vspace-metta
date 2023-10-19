@@ -28,16 +28,16 @@
         ((%void% (add-atom (named-space Linkspace) $link)))))
 
 ;; Extract the valuation sets
-(= (extract_val_set $dbspace) 
+(= (extract_val_set $dbspace)
   (match $dbspace ($link $X $Y) (addValuation $link $X $Y)))
 
 ;; Get unique link types
 (= (getlinks) (match (named-space Linkspace) $link $link))
 
 ;; Specialize a pattern
-(= (specialization $link $Xvar $Yvar) 
+(= (specialization $link $Xvar $Yvar)
    ($link $Xvar (match (named-space Yspace) $y $y)))
-(= (specialization $link $Xvar $Yvar) 
+(= (specialization $link $Xvar $Yvar)
    ($link (match (named-space Xspace) $x $x) $Yvar))
 
 ;; Ignore non-strongly connected components
@@ -46,8 +46,8 @@
 (= (getvar ($link $a $b) $Xvar $Yvar)
     (if (== $link ,) (nop) 1))
 (= (getvar (, ($link $a $b) ($link $c $d)) $Xvar $Yvar)
-(if (and (== $a $c) (== $b $d)) None 
-    (if (and (== $a $Xvar) (== $c $Xvar)) $Xvar 
+(if (and (== $a $c) (== $b $d)) None
+    (if (and (== $a $Xvar) (== $c $Xvar)) $Xvar
         (if (and (== $b $Yvar) (== $d $Yvar)) $Yvar None))))
 (= (getvar (, ($link $a $b) ($link $c $d) ($link $e $f)) $Xvar $Yvar)
 (if (or (and (== $a $e) (== $b $f)) (and (== $c $e) (== $d $f))) None
@@ -57,8 +57,8 @@
 
 ;; Count the number of instances of a given pattern
 (= (count $pattern $dbspace $Xvar $Yvar)
-    (let $result 
-      (let $var (getvar $pattern $Xvar $Yvar) 
+    (let $result
+      (let $var (getvar $pattern $Xvar $Yvar)
         (if (== $var None) () (collapse (match $dbspace $pattern $var))))
       (TupleCount $result)))
 
@@ -73,9 +73,9 @@
   (let (candidate $pattern $cnt) $cnpattern $pattern))
 
 ;; Probability formula
-(= (getUniverseSize $dbspace) 
-    (add-atom &self 
-      (= (universe_size) 
+(= (getUniverseSize $dbspace)
+    (add-atom &self
+      (= (universe_size)
         (let $u (collapse (match $dbspace $x 1)) (TupleCount $u)))))
 (= (prob $count) (/ $count (universe_size)))
 
@@ -85,7 +85,7 @@
       ((candidate (, $p1 $p2) $cnt)
       (let* (($pp1 (prob (count $p1 $dbspace $Xvar $Yvar)))
           ($pp2 (prob (count $p2 $dbspace $Xvar $Yvar)))
-          ($p1p2 (* $pp1 $pp2)) ;; probability estimate 
+          ($p1p2 (* $pp1 $pp2)) ;; probability estimate
           ($p (prob $cnt))) ;; empirical
           (/ (max (- $p $p1p2) (- $p1p2 $p)) $p)))
       ((candidate (, $p1 $p2 $p3) $cnt)
