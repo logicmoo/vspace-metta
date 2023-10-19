@@ -35,11 +35,24 @@ function run_tests() {
     # Get files
     mapfile -t assert_files < <(grep -rl 'assert' "${UNITS_DIR}" --include="*.metta")
     mapfile -t test_files < <(find "${UNITS_DIR}" -type f -iname "*test*.metta")
+    mapfile -t has_tests < <(grep -rl '^!\([^!]*\)$' "${UNITS_DIR}" --include="*.metta")
+
+    # Filtering out the has_tests from assert_files and test_files
+    for htest in "${has_tests[@]}"; do
+        assert_files=("${assert_files[@]/$htest}")
+        test_files=("${test_files[@]/$htest}")
+    done
 
     # Filtering test_files
     for afile in "${assert_files[@]}"; do
         test_files=("${test_files[@]/$afile}")
     done
+
+    # Concatenate all three collections into a unified collection
+    all_files=( "${assert_files[@]}" "${test_files[@]}" "${has_tests[@]}" )
+
+    # Make the collection unique to avoid processing the same file more than once
+    readarray -t unique_files < <(printf "%s\n" "${all_files[@]}" | sort -u)
 
     # Shared logic across both file types
     process_file() {
@@ -71,24 +84,28 @@ function run_tests() {
     }
 
     # Process assert_files
-    for file in "${assert_files[@]}"; do
-       [ -f "${file}" ] && process_file "$file"
-    done
+    #for file in "${assert_files[@]}"; do
+    #   [ -f "${file}" ] && process_file "$file"
+    #done
 
     # Process test_files
-    for file in "${test_files[@]}"; do
+    for file in "${all_files[@]}"; do
+       if [ -f "${file}" ]; then
+          echo ""
+          echo ""
+          echo "Checking for answers:  $file.answers"
 
-       echo ""
-       echo ""
-       echo "Checking for answers:  $file.answers"
-
-        if [ ! -f "${file}.answers" ]; then
-            set +e
-            timeout --foreground $METTA_MAX_TIME time metta "$file" 2>&1 | tee "${file}.answers"
-            #set -e
-            echo ""
+           if [ ! -f "${file}.answers" ]; then
+               set +e
+               timeout --foreground $METTA_MAX_TIME time metta "$file" 2>&1 | tee "${file}.answers"
+               #set -e
+               echo ""
+               touch "${file}.answers"
+           else
+               cat "${file}.answers"
+           fi
+           [ -f "${file}" ] && process_file "$file"
         fi
-        [ -f "${file}" ] && process_file "$file"
     done
 
 }

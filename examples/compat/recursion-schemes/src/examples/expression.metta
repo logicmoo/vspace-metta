@@ -1,4 +1,4 @@
-!(transfer! "schemes.metta")
+!(transfer! "../schemes.metta")
 
 ; How to apply a function to the slots, a Functor's map
 (= (mapExpr $f (Plus $x $y)) (Plus ($f $x) ($f $y)))

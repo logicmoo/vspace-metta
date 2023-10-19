@@ -1,12 +1,14 @@
-!(import! &memory "memory.metta")
+; !(import! &memory "memory.metta")
+
+!(bind! &memory (new-space))
 
 (= (remove-state $var)
    (match &memory (state $var $y)
-         (call:remove_atom &memory (state $var $y))))
+         (remove-atom &memory (state $var $y))))
 
 (= (change-state $var $value)
    (, (remove-state $var)
-      (call:add_atom &memory (state $var $value))))
+      (add-atom &memory (state $var $value))))
 
 (= (get-state $var)
    (match &memory (state $var $value) $value))
@@ -48,4 +50,4 @@
 ;!(answer (listen (My name is "Ben")))
 
 ;!(println! (call:get_atoms &memory))
-
+(get-atoms &memory)

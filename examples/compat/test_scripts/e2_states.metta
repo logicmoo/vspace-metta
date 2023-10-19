@@ -93,4 +93,4 @@
    (new-state 1))
 
 ; FIXME: doesn't work as for 25 May 2023
-; !(get-state (let $x (new-state 1) $x))
+!(get-state (let $x (new-state 1) $x))
