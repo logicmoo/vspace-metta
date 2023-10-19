@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/python/sandbox/numpy/nm_test.metta")
+<span class="ansi38-000068000">!(extend-py! numme)
+
+</span>; Evaluation took 0.145 ms. (145.50 microseconds) 
+<span class="ansi33">  (extend-py! numme)
+
+</span>; bind a bunch of numpy objects to tokens for convenience
+<span class="ansi38-000068000">!(bind! &x (np.vector 1 2 3))
+
+</span>; Evaluation took 0.398 ms. (397.90 microseconds) 
+<span class="ansi33">  (np.vector 1 2 3)
+
+</span><span class="ansi38-000068000">!(bind! &y (np.array (3 2 3)))
+
+</span>; Evaluation took 0.295 ms. (295.00 microseconds) 
+<span class="ansi33">  (np.array 
+    (3 2 3))
+
+</span><span class="ansi38-000068000">!(bind! &m (np.array ((6 1) (7 2) (8 3))))
+
+</span>; Evaluation took 0.972 ms. (972.10 microseconds) 
+<span class="ansi33">  (np.array 
+    ( (6 1) 
+      (7 2) 
+      (8 3)))
+
+</span><span class="ansi38-000068000">!(bind! &mt (np.array ((1 0 0) (0 1 0))))
+
+</span>; Evaluation took 0.599 ms. (598.60 microseconds) 
+<span class="ansi33">  (np.array 
+    ( (1 0 0) 
+      (0 1 0)))
+
+</span>; FIXME: no exception?
+<span class="ansi38-000068000">!(np.vector 1 "S")
+
+</span>; Evaluation took 0.122 ms. (121.60 microseconds) 
+<span class="ansi33">  (np.vector 1 "S")
+
+</span>; !(np.array (1 (1 2))) ; exception because of bad shape
+; wrapping into a function should work
+; also works automatically with python numbers
+; (no need to turn 1 into np.array)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['np-add-1',X],['np.add',X,1])
+</span><span class="ansi38-255165000">  (= 
+    (np-add-1 $X) 
+    (np.add $X 1))
+</span>
+
+<span class="ansi38-000068000">!(np-add-1 (np-add-1 &x))
+
+</span>; Evaluation took 2.33 ms.
+<span class="ansi33">  (np.add 
+    (np.add 
+      (np.vector 1 2 3) 1) 1)
+
+</span>; [3 4 5] ; not a pattern
+; could work with untyped np objects,
+; although with some problems (the resulting type would be Number),
+; but doesn't work, because + expects Number
+; !(+ &x &y)
+<span class="ansi38-000068000">!(== (np.add &y &x) (np.add &x &y))
+
+</span>; Evaluation took 3.36 ms.
+<span class="ansi33"> False
+
+</span>; True
+<span class="ansi38-000068000">!(== &x &y)
+
+</span>; Evaluation took 0.300 ms. (300.00 microseconds) 
+<span class="ansi33"> False
+
+</span>; False
+<span class="ansi38-000068000">!(== &x (np.vector 1 2))
+
+</span>; Evaluation took 0.322 ms. (322.20 microseconds) 
+<span class="ansi33"> False
+
+</span>; False
+<span class="ansi38-000068000">!(np.add &m (np.vector 1 2))
+
+</span>; Evaluation took 1.72 ms.
+<span class="ansi33">  (np.add 
+    (np.array 
+      ( (6 1) 
+        (7 2) 
+        (8 3))) 
+    (np.vector 1 2))
+
+</span>; ((7 3) (8 4) (9 5))
+<span class="ansi38-000068000">!(np.matmul &mt &m)
+
+</span>; Evaluation took 2.35 ms.
+<span class="ansi33">  (np.matmul 
+    (np.array 
+      ( (1 0 0) 
+        (0 1 0))) 
+    (np.array 
+      ( (6 1) 
+        (7 2) 
+        (8 3))))
+
+</span>; ((6 1) (7 2))
+<span class="ansi38-000068000">!(np.add &m $X)
+
+</span>; Evaluation took 1.38 ms.
+<span class="ansi33">  (np.add 
+    (np.array 
+      ( (6 1) 
+        (7 2) 
+        (8 3))) $_277964)
+
+</span>; will be turned into pattern
+<span class="ansi38-000068000">!(case (np.array (((1 1) (2 2) (3 3)) ((2 3) (3 4) (4 5)))) ((($A $B $C) $B) (($X ($Y1 $Y2 $Y3)) (np.add $X $Y2))))
+
+</span> c(0,[_314796,_315090,_315384])=_315090
+ c(1,[_315984,[_316286,_316586,_316886]])=['np.add',_315984,_316586]
+ switch=['np.array',[[[1,1],[2,2],[3,3]],[[2,3],[3,4],[4,5]]]]
+<span class="ansi38-000068000">!(case (np.vector 1 2 3) ((&x "X")))
+
+</span> c(0,'&x')="X"
+ switch=['np.vector',1,2,3]
+; Evaluation took 0.358 ms. (358.50 microseconds) 
+<span class="ansi33"> "X"
+
+</span><span class="ansi32">% 224,208 inferences, 0.111 CPU in 0.111 seconds (100% CPU, 2015614 Lips)
+</span> (@ = "examples/python/sandbox/numpy/nm_test.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/python/sandbox/numpy/nm_test.html" )
+
+</pre>
+</body>
+
+</html>

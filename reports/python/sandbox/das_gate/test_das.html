@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "examples/python/sandbox/das_gate/test_das.metta")
+<span class="ansi38-000068000">!(extend-py! dasgate)
+
+</span>; Evaluation took 0.145 ms. (144.70 microseconds) 
+<span class="ansi33">  (extend-py! dasgate)
+
+</span><span class="ansi38-000068000">!(bind! &das (new-das))
+
+</span>; Evaluation took 0.206 ms. (205.90 microseconds) 
+<span class="ansi33">  (new-das)
+
+</span><span class="ansi38-000068000">!(add-atom &das (Test (Test 2)))
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&das',['Test',['Test',2]])
+</span><span class="ansi38-255165000">  (Test 
+    (Test 2))
+</span>
+
+; Evaluation took 0.545 ms. (545.00 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(add-atom &das (Best (Test 2)))
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&das',['Best',['Test',2]])
+</span><span class="ansi38-255165000">  (Best 
+    (Test 2))
+</span>
+
+; Evaluation took 0.527 ms. (526.50 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(add-atom &das Test)
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&das','Test')
+</span><span class="ansi38-255165000">Test
+</span>
+
+; Evaluation took 0.769 ms. (769.40 microseconds) 
+<span class="ansi33"> True
+
+</span>; The simplest match with grounding the variable in the node
+<span class="ansi38-000068000">!(match &das ($V1 (Test 2)) (This $V1 works))
+
+</span>; Evaluation took 0.127 ms. (127.30 microseconds) 
+<span class="ansi33">  (This Test works)
+</span><span class="ansi32">['V1'='Test']
+</span>
+
+; Evaluation took 0.594 ms. (593.80 microseconds) 
+<span class="ansi33">  (This Best works)
+</span><span class="ansi32">['V1'='Best']
+</span>
+
+; The simplest match with grounding the variable in the link
+<span class="ansi38-000068000">!(match &das (Test $V2) (This $V2 works))
+
+</span>; Evaluation took 0.312 ms. (312.40 microseconds) 
+<span class="ansi33">  (This 
+    (Test 2) works)
+</span><span class="ansi32">['V2'=['Test',2]]
+</span>
+
+<span class="ansi38-000068000">!(add-atom &das (Rest (Test 3)))
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&das',['Rest',['Test',3]])
+</span><span class="ansi38-255165000">  (Rest 
+    (Test 3))
+</span>
+
+; Evaluation took 0.582 ms. (581.80 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi38-000068000">!(add-atom &das (Test (Test 3)))
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&das',['Test',['Test',3]])
+</span><span class="ansi38-255165000">  (Test 
+    (Test 3))
+</span>
+
+; Evaluation took 0.532 ms. (532.40 microseconds) 
+<span class="ansi33"> True
+
+</span>; Compositional (And) query test
+<span class="ansi38-000068000">!(match &das (and (Best $X) ($V $X)) ($V $X))
+
+</span>; Evaluation took 0.326 ms. (326.10 microseconds) 
+<span class="ansi33">  (Test 
+    (Test 2))
+</span><span class="ansi32">['V'='Test','X'=['Test',2]]
+</span>
+
+; Evaluation took 0.961 ms. (960.60 microseconds) 
+<span class="ansi33">  (Best 
+    (Test 2))
+</span><span class="ansi32">['V'='Best','X'=['Test',2]]
+</span>
+
+<span class="ansi32">% 80,695 inferences, 0.035 CPU in 0.035 seconds (100% CPU, 2279133 Lips)
+</span> (@ = "examples/python/sandbox/das_gate/test_das.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/python/sandbox/das_gate/test_das.html" )
+
+</pre>
+</body>
+
+</html>
