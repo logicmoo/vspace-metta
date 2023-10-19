@@ -12,104 +12,57 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta")
-;; Test Deduction Entail Rule
+ (@ track_load_into_file "examples/compat/entail/DeductionEntailTest.metta")
+;;; Test Deduction Entail Rule
 <span class="ansi38-000068000">!(import! &self DeductionEntail.metta)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    true,
-    u_assign(['import!', '&self', 'DeductionEntail.metta'], A).
-
-</span>;; MeTTa port for deduction PLN rule
-;; as the entail relationship, â¢
-;;
-;; (â P ptv)
-;; (â Q qtv)
-;; (â R rtv)
-;; (â (â P Q) tv1)
-;; (â (â Q R) tv2)
-;; â¢
-;; (â (â P R) TV)
-;;
-;; where ptv, qtv, rtv, tv1 and tv2 are truth values of the
-;; premises P, Q, R, (â P Q) and (â Q R) respectively.
-;; TV represents the resulting truth value of the conclusion.
+</span>;;; MeTTa port for deduction PLN rule
+;;; as the entail relationship, â¢
+;;;
+;;; (â P ptv)
+;;; (â Q qtv)
+;;; (â R rtv)
+;;; (â (â P Q) tv1)
+;;; (â (â Q R) tv2)
+;;; â¢
+;;; (â (â P R) TV)
+;;;
+;;; where ptv, qtv, rtv, tv1 and tv2 are truth values of the
+;;; premises P, Q, R, (â P Q) and (â Q R) respectively.
+;;; TV represents the resulting truth value of the conclusion.
 ;; Import formula functions
 <span class="ansi38-000068000">!(import! &self "../common/DeductionFormula.metta")
 
-</span><span class="ansi38-017068017">exec(A) :-
-    true,
-    u_assign(['import!', '&self', '../common/DeductionFormula.metta'], A).
-
-</span>; Evaluation took 0.078 ms. (78.00 microseconds) 
+</span>; Evaluation took 0.100 ms. (100.20 microseconds) 
 <span class="ansi33">  (import! &self "../common/DeductionFormula.metta")
 
 </span>;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
 ;;;;;;;;;;;;;;;;;;;;;
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'â\x8A\¢'( Â_c92_x8A5,
-%~                              Â_c92_x8A4, Â_c92_x8A3,Â_c92_x8A2,
-%~                                 Â_c92_x8A1, Â_c92_x8A, True) :-
-%~                              u_assign(['â\x89\\x9E\',P,Ptv],Assign) ,
-%~                              Assign=Â_c92_x8A5 ,
-%~                              u_assign(['â\x89\\x9E\',Q,Qtv],Assign8) ,
-%~                              Assign8=Â_c92_x8A4 ,
-%~                              u_assign(['â\x89\\x9E\',R,Rtv],Assign9) ,
-%~                              Assign9=Â_c92_x8A3 ,
-%~                              u_assign(['â\x86\\x92\',P,Q],Assign10) ,
-%~                              Assign10=_9776 ,
-%~                              u_assign(['â\x89\\x9E\',_9776,Pqtv],Assign11) ,
-%~                              Assign11=Â_c92_x8A2 ,
-%~                              u_assign(['â\x86\\x92\',Q,R],Assign12) ,
-%~                              Assign12=_9836 ,
-%~                              u_assign(['â\x89\\x9E\',_9836,Qrtv],Assign13) ,
-%~                              Assign13=Â_c92_x8A1 ,
-%~                              u_assign(['â\x86\\x92\',P,R],Assign14) ,
-%~                              Assign14=_9896 ,
-%~                              u_assign(
-%~                                 [ ded_formula, Ptv,Qtv,Rtv,
-%~                                   Pqtv,Qrtv],
-%~                                 Assign15) ,
-%~                              Assign15=_9914 ,
-%~                              u_assign(['â\x89\\x9E\',_9896,_9914],Assign16) ,
-%~                              Assign16=Â_c92_x8A ,
-%~                              True='True')]
-%~ [convert(_3264),head_preconds_into_body(('â\x8A\¢'(_2716,_2766,_2816,_2866,_2966,_3066,_2692):-((u_assign(['â\x89\\x9E\',P,Ptv],_2720),_2720=_2716),(u_assign(['â\x89\\x9E\',Q,Qtv],_2770),_2770=_2766),(u_assign(['â\x89\\x9E\',R,Rtv],_2820),_2820=_2816),(((u_assign(['â\x86\\x92\',P,Q],_2896),_2896=_2892),u_assign(['â\x89\\x9E\',_2892,Pqtv],_2870)),_2870=_2866),(((u_assign(['â\x86\\x92\',Q,R],_2996),_2996=_2992),u_assign(['â\x89\\x9E\',_2992,Qrtv],_2970)),_2970=_2966),(((u_assign(['â\x86\\x92\',P,R],_3096),_3096=_3092),u_assign([ded_formula,Ptv,Qtv,Rtv,Pqtv,Qrtv],_3146),_3146=_3142),u_assign(['â\x89\\x9E\',_3092,_3142],_3070)),_3070=_3066),_2692='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x8A\¢',['â\x89\\x9E\',P,Ptv],['â\x89\\x9E\',Q,Qtv],['â\x89\\x9E\',R,Rtv],['â\x89\\x9E\',['â\x86\\x92\',P,Q],Pqtv],['â\x89\\x9E\',['â\x86\\x92\',Q,R],Qrtv],['â\x89\\x9E\',['â\x86\\x92\',P,R],[ded_formula,Ptv,Qtv,Rtv,Pqtv,Qrtv]]])
 </span><span class="ansi38-255165000">  (â¢ 
     (â $P $Ptv) 
@@ -122,206 +75,54 @@
     (â 
       (â $P $R) 
       (ded_formula $Ptv $Qtv $Rtv $Pqtv $Qrtv)))
-</span><span class="ansi38-000082136">  :- dynamic('â\x8A\¢',7).
-
-  'â\u008A¢'(A, B, C, D, E, F, G) :-
-    ( u_assign(['â\u0089\u009E', P, Ptv], H),
-      H=A
-    ),
-    ( u_assign(['â\u0089\u009E', Q, Qtv], I),
-      I=B
-    ),
-    ( u_assign(['â\u0089\u009E', R, Rtv], J),
-      J=C
-    ),
-    ( ( u_assign(['â\u0086\u0092', P, Q], K),
-        K=L
-      ),
-      u_assign(['â\u0089\u009E', L, Pqtv], M),
-      M=D
-    ),
-    ( ( u_assign(['â\u0086\u0092', Q, R], N),
-        N=O
-      ),
-      u_assign(['â\u0089\u009E', O, Qrtv], P),
-      P=E
-    ),
-    ( ( u_assign(['â\u0086\u0092', P, R], Q),
-        Q=R
-      ),
-      u_assign([ ded_formula,
-                 Ptv,
-                 Qtv,
-                 Rtv,
-                 Pqtv,
-                 Qrtv
-               ],
-               S),
-      S=T,
-      u_assign(['â\u0089\u009E', R, T], U)
-    ),
-    U=F,
-    G='True'.
-
 </span>
 
-; Evaluation took 340.88 ms.
+; Evaluation took 8.80 ms.
 <span class="ansi33"> &self
 
 </span>;; premises
 ;; conclusion
-%~ [ convert(Convert),
-%~   head_preconds_into_body( ['P',Assign1] :-
-%~                              u_assign(['PrCnt',1,0.1],Assign) ,
-%~                              Assign=_157568 ,
-%~                              u_assign(['â\x89\\x9E\','P',_157568],Assign1))]
-%~ [convert(_89644),head_preconds_into_body((['P',_87804]:-(u_assign(['PrCnt',1,0.1],_89962),_89962=_89952),u_assign(['â\x89\\x9E\','P',_89952],_87804)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['P'],['â\x89\\x9E\','P',['PrCnt',1,0.1]])
 </span><span class="ansi38-255165000">  (= 
     (P) 
     (â P 
       (PrCnt 1 0.1)))
-</span><span class="ansi38-000082136">
-  ['P', A] :-
-    u_assign(['PrCnt', 1, 0.1], B),
-    B=C,
-    u_assign(['â\u0089\u009E', 'P', C], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( ['Q',Assign1] :-
-%~                              u_assign(['PrCnt',1,0.1],Assign) ,
-%~                              Assign=_250850 ,
-%~                              u_assign(['â\x89\\x9E\','Q',_250850],Assign1))]
-%~ [convert(_182926),head_preconds_into_body((['Q',_181086]:-(u_assign(['PrCnt',1,0.1],_183244),_183244=_183234),u_assign(['â\x89\\x9E\','Q',_183234],_181086)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Q'],['â\x89\\x9E\','Q',['PrCnt',1,0.1]])
 </span><span class="ansi38-255165000">  (= 
     (Q) 
     (â Q 
       (PrCnt 1 0.1)))
-</span><span class="ansi38-000082136">
-  ['Q', A] :-
-    u_assign(['PrCnt', 1, 0.1], B),
-    B=C,
-    u_assign(['â\u0089\u009E', 'Q', C], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( ['R',Assign1] :-
-%~                              u_assign(['PrCnt',1,0.1],Assign) ,
-%~                              Assign=_343954 ,
-%~                              u_assign(['â\x89\\x9E\','R',_343954],Assign1))]
-%~ [convert(_276030),head_preconds_into_body((['R',_274190]:-(u_assign(['PrCnt',1,0.1],_276348),_276348=_276338),u_assign(['â\x89\\x9E\','R',_276338],_274190)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['R'],['â\x89\\x9E\','R',['PrCnt',1,0.1]])
 </span><span class="ansi38-255165000">  (= 
     (R) 
     (â R 
       (PrCnt 1 0.1)))
-</span><span class="ansi38-000082136">
-  ['R', A] :-
-    u_assign(['PrCnt', 1, 0.1], B),
-    B=C,
-    u_assign(['â\u0089\u009E', 'R', C], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( ['PQ',Assign2] :-
-%~                              u_assign(['â\x86\\x92\','P','Q'],Assign) ,
-%~                              Assign=_454932 ,
-%~                              u_assign(['PrCnt',1,0.5],Assign1) ,
-%~                              Assign1=_454950 ,
-%~                              u_assign(['â\x89\\x9E\',_454932,_454950],Assign2))]
-%~ [convert(_369754),head_preconds_into_body((['PQ',_367914]:-((u_assign(['â\x86\\x92\','P','Q'],_370060),_370060=_370050),u_assign(['PrCnt',1,0.5],_370176),_370176=_370166),u_assign(['â\x89\\x9E\',_370050,_370166],_367914)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['PQ'],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]])
 </span><span class="ansi38-255165000">  (= 
     (PQ) 
     (â 
       (â P Q) 
       (PrCnt 1 0.5)))
-</span><span class="ansi38-000082136">
-  ['PQ', A] :-
-    ( u_assign(['â\u0086\u0092', 'P', 'Q'], B),
-      B=C
-    ),
-    u_assign(['PrCnt', 1, 0.5], D),
-    D=E,
-    u_assign(['â\u0089\u009E', C, E], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( ['QR',Assign2] :-
-%~                              u_assign(['â\x86\\x92\','Q','R'],Assign) ,
-%~                              Assign=_49462 ,
-%~                              u_assign(['PrCnt',1,0.5],Assign1) ,
-%~                              Assign1=_49480 ,
-%~                              u_assign(['â\x89\\x9E\',_49462,_49480],Assign2))]
-%~ [convert(_2258),head_preconds_into_body((['QR',_2234]:-((u_assign(['â\x86\\x92\','Q','R'],_2296),_2296=_2292),u_assign(['PrCnt',1,0.5],_2346),_2346=_2342),u_assign(['â\x89\\x9E\',_2292,_2342],_2234)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['QR'],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]])
 </span><span class="ansi38-255165000">  (= 
     (QR) 
     (â 
       (â Q R) 
       (PrCnt 1 0.5)))
-</span><span class="ansi38-000082136">
-  ['QR', A] :-
-    ( u_assign(['â\u0086\u0092', 'Q', 'R'], B),
-      B=C
-    ),
-    u_assign(['PrCnt', 1, 0.5], D),
-    D=E,
-    u_assign(['â\u0089\u009E', C, E], A).
-
 </span>
 
 ;; Forward chain
 <span class="ansi38-000068000">!(let* (($P (P)) ($Q (Q)) ($R (R)) ($Pq (PQ)) ($Qr (QR))) (match &self (â¢ $P $Q $R $Pq $Qr $Res) $Res))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    ( ( ( ['P', B],
-          B=C,
-          u_assign([P, C], D)
-        ),
-        D=E,
-        ( ['Q', F],
-          F=G,
-          u_assign([Q, G], H)
-        ),
-        H=I,
-        ( ['R', J],
-          J=K,
-          u_assign([R, K], L)
-        ),
-        L=M,
-        ( ['PQ', N],
-          N=O,
-          u_assign([Pq, O], P)
-        ),
-        P=Q,
-        ( ['QR', R],
-          R=S
-        ),
-        u_assign([Qr, S], T),
-        T=U
-      ),
-      u_assign([E, I, M, Q, U], V),
-      V=W
-    ),
-    ( ( true,
-        u_assign(['â\u008A¢', P, Q, R, Pq, Qr, Res],
-                 X),
-        X=Y
-      ),
-      true,
-      u_assign([match, '&self', Y, Res], Z)
-    ),
-    Z=A1,
-    u_assign(['let*', W, A1], A).
-
-</span>; Evaluation took 11.95 ms.
+</span>; Evaluation took 18.51 ms.
 <span class="ansi33">  (â 
     (â P R) 
     (ded_formula 
@@ -333,10 +134,10 @@
 </span><span class="ansi32">['Res'=['â\x89\\x9E\',['â\x86\\x92\','P','R'],[ded_formula,['PrCnt',1,0.1],['PrCnt',1,0.1],['PrCnt',1,0.1],['PrCnt',1,0.5],['PrCnt',1,0.5]]],'Qr'=['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]],'Pq'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]],'R'=['â\x89\\x9E\','R',['PrCnt',1,0.1]],'Q'=['â\x89\\x9E\','Q',['PrCnt',1,0.1]],'P'=['â\x89\\x9E\','P',['PrCnt',1,0.1]]]
 </span>
 
-<span class="ansi32">% 5,230,028 inferences, 0.714 CPU in 0.714 seconds (100% CPU, 7321353 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta" 0)
+<span class="ansi32">% 172,714 inferences, 0.051 CPU in 0.051 seconds (100% CPU, 3386795 Lips)
+</span> (@ = "examples/compat/entail/DeductionEntailTest.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/entail/DeductionEntailTest.html" )
 
 </pre>
 </body>

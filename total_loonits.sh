@@ -124,8 +124,8 @@ function print_report() {
     local percent_successes="$1"
     echo "# Bugs in MeTTaLog" > PASS_FAIL.md
     echo "" >> PASS_FAIL.md
-    echo "| Directory                                        | Pass | Fail |Percent|" >> PASS_FAIL.md
-    echo "|--------------------------------------------------|------|------|-------|" >> PASS_FAIL.md
+    echo "| Pass | Fail |Percent| Directory                                        |" >> PASS_FAIL.md
+    echo "|------|------|-------|--------------------------------------------------|" >> PASS_FAIL.md
 
     (
         for key in "${!dir_totals[@]}"; do
@@ -148,11 +148,11 @@ function print_report() {
                 failure_padding=$(( (field_width + ${#failure}) / 2 ))
                 percent_padding=$(( (percent_width + ${#percent}) / 2 ))
 
-                printf "|%-50s|%${field_width}s|%${field_width}s|%${percent_width}s|\n" \
-                    "$directory - " "$success" "$failure" "$percent%"
+                printf "|%${field_width}s|%${field_width}s|%${percent_width}s|%-50s|\n" \
+                    "$success" "$failure" "$percent%" " $directory - "
             fi
         done
-    ) | sort -t'-' -k1,1nr  >> PASS_FAIL.md
+    ) | sort -t'|' -k5,5r  >> PASS_FAIL.md
 
     echo "" >> PASS_FAIL.md
     echo "<details><summary>Expand for Core Summaries</summary>" >> PASS_FAIL.md

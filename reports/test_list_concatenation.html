@@ -17,58 +17,28 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta")
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'Concat'(List2,List2,Assign_Concat) :-
-%~                              u_assign(['Cons',Head1,[]],Assign) ,
-%~                              Assign=List2 ,
-%~                              u_assign(['Cons',Head1,List2],Assign_Concat))]
-%~ [convert(_187938),head_preconds_into_body(('Concat'(_186864,List2,_186584):-(u_assign(['Cons',Head1,[]],_186874),_186874=_186864),u_assign(['Cons',Head1,List2],_186584)))]
+ (@ track_load_into_file "examples/test_list_concatenation.metta")
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Concat',['Cons',Head1,[]],List2],['Cons',Head1,List2])
 </span><span class="ansi38-255165000">  (= 
     (Concat 
       (Cons $Head1 ()) $List2) 
     (Cons $Head1 $List2))
-</span><span class="ansi38-000082136">  :- dynamic('Concat',3).
-
-  'Concat'(A, List2, B) :-
-    u_assign(['Cons', Head1, []], C),
-    C=A,
-    u_assign(['Cons', Head1, List2], B).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'Concat'(List2,List2,Assign_Concat) :-
-%~                              u_assign(['Cons',T1,T11],Assign) ,
-%~                              Assign=_414168 ,
-%~                              u_assign(['Cons',Head1,_414168],Assign3) ,
-%~                              Assign3=List2 ,
-%~                              u_assign(['Cons',T1,T11],Assign4) ,
-%~                              Assign4=_414234 ,
-%~                              u_assign(['Concat',_414234,List2],Assign5) ,
-%~                              Assign5=_414258 ,
-%~                              u_assign(['Cons',Head1,_414258],Assign_Concat))]
-%~ [convert(_289344),head_preconds_into_body(('Concat'(_288088,List2,_287808):-(((u_assign(['Cons',T1,T11],_288196),_288196=_288186),u_assign(['Cons',Head1,_288186],_288098)),_288098=_288088),(((u_assign(['Cons',T1,T11],_289748),_289748=_289738),u_assign(['Concat',_289738,List2],_289706)),_289706=_289696),u_assign(['Cons',Head1,_289696],_287808)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Concat',['Cons',Head1,['Cons',T1,T11]],List2],['Cons',Head1,['Concat',['Cons',T1,T11],List2]])
 </span><span class="ansi38-255165000">  (= 
     (Concat 
@@ -77,69 +47,23 @@
     (Cons $Head1 
       (Concat 
         (Cons $T1 $T11) $List2)))
-</span><span class="ansi38-000082136">  :- dynamic('Concat',3).
-
-  'Concat'(A, List2, B) :-
-    ( u_assign(['Cons', T1, T11], C),
-      C=D,
-      u_assign(['Cons', Head1, D], E)
-    ),
-    E=A,
-    ( u_assign(['Cons', T1, T11], F),
-      F=G,
-      u_assign(['Concat', G, List2], H)
-    ),
-    H=I,
-    u_assign(['Cons', Head1, I], B).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( [lst1,Assign1] :-
-%~                              u_assign(['Cons',a2,[]],Assign) ,
-%~                              Assign=_503508 ,
-%~                              u_assign(['Cons',a1,_503508],Assign1))]
-%~ [convert(_440548),head_preconds_into_body(([lst1,_438708]:-(u_assign(['Cons',a2,[]],_440866),_440866=_440856),u_assign(['Cons',a1,_440856],_438708)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[lst1],['Cons',a1,['Cons',a2,[]]])
 </span><span class="ansi38-255165000">  (= 
     (lst1) 
     (Cons a1 
       (Cons a2 ())))
-</span><span class="ansi38-000082136">
-  [lst1, A] :-
-    u_assign(['Cons', a2, []], B),
-    B=C,
-    u_assign(['Cons', a1, C], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( [lst2,Assign1] :-
-%~                              u_assign(['Cons',b2,[]],Assign) ,
-%~                              Assign=_69250 ,
-%~                              u_assign(['Cons',b1,_69250],Assign1))]
-%~ [convert(_6290),head_preconds_into_body(([lst2,_4450]:-(u_assign(['Cons',b2,[]],_6608),_6608=_6598),u_assign(['Cons',b1,_6598],_4450)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[lst2],['Cons',b1,['Cons',b2,[]]])
 </span><span class="ansi38-255165000">  (= 
     (lst2) 
     (Cons b1 
       (Cons b2 ())))
-</span><span class="ansi38-000082136">
-  [lst2, A] :-
-    u_assign(['Cons', b2, []], B),
-    B=C,
-    u_assign(['Cons', b1, C], A).
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqual (Concat (lst1) (lst2)) (Cons a1 (Cons a2 (Cons b1 (Cons b2 ())))))
-
-</span><span class="ansi38-017068017">exec(A) :-
-    Src_1=[assertEqual, ['Concat', lst1(), lst2()], ['Cons', a1, ['Cons', a2, ['Cons', b1, ['Cons', b2, []]]]]],
-    loonit_assert_source_tf(Src_1,
-                            (findall(FA_1, ((([lst1, B], B=C), [lst2, D], D=E), u_assign(['Concat', C, E], FA_1)), FARL_1), findall(FA_2, (((((((true, u_assign(['Cons', b2, []], F)), F=G), u_assign(['Cons', b1, G], H)), H=I), u_assign(['Cons', a2, I], J)), J=K), u_assign(['Cons', a1, K], FA_2)), FARL_2)),
-                            equal_enough(FARL_1, FARL_2),
-                            A).
 
 </span><h3 id="EXAMPLES.TEST-LIST-CONCATENATION.01">;; EXAMPLES.TEST-LIST-CONCATENATION.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -230,17 +154,17 @@
             -->(59,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(4))
                 -->(60,'&self',['Cons',b1,['Cons',b2,[]]],depth(6))
                     -->(61,'&self',['Cons',b2,[]],depth(8))
-; Evaluation took 6.83 ms.
+; Evaluation took 11.57 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 2,460,903 inferences, 0.328 CPU in 0.328 seconds (100% CPU, 7504819 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta" 0)
+</span><span class="ansi32">% 75,551 inferences, 0.024 CPU in 0.024 seconds (100% CPU, 3187940 Lips)
+</span> (@ = "examples/test_list_concatenation.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/test_list_concatenation.html" )
 
 </pre>
 </body>

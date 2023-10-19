@@ -15,73 +15,43 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/hanoi-peg-space.metta")
-; Move a disk from peg X to peg Y.
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'move-disk'(Disk,X,Y,Move_disk_Y) :-
-%~                              u_assign(['can-remove',X,Disk],Assign_True) ,
-%~                              Assign_True='True' ,
-%~                              u_assign(['can-place',Y,Disk],Assign) ,
-%~                              Assign=_399244 ,
-%~                              u_assign([position,bottom,Disk],Assign5) ,
-%~                              Assign5=_399292 ,
-%~                              u_assign(['remove-atom','&$x',_399292],Assign6) ,
-%~                              Assign6=_399322 ,
-%~                              u_assign([position,middle,Disk],Assign7) ,
-%~                              Assign7=_399352 ,
-%~                              u_assign(['add-atom','&$y',_399352],Assign8) ,
-%~                              Assign8=_399382 ,
-%~                              u_assign([seq,_399322,_399382],Assign9) ,
-%~                              Assign9=_399412 ,
-%~                              u_assign([if,_399244,_399412,nop],Move_disk_Y))]
-%~ [convert(_205682),head_preconds_into_body(('move-disk'(Disk,X,Y,_204376):-(((u_assign(['can-remove',X,Disk],_206022),_206022='True',u_assign(['can-place',Y,Disk],_205988)),_205988=_205978),(((((u_assign([position,bottom,Disk],_206518),_206518=_206508),u_assign(['remove-atom','&$x',_206508],_206464)),_206464=_206454),((u_assign([position,middle,Disk],_206772),_206772=_206762),u_assign(['add-atom','&$y',_206762],_206718)),_206718=_206708),u_assign([seq,_206454,_206708],_206422)),_206422=_206412),u_assign([if,_205978,_206412,nop],_204376)))]
+ (@ track_load_into_file "examples/hanoi-peg-space.metta")
+;; Move a disk from peg X to peg Y.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['move-disk',Disk,X,Y],[if,[and,['can-remove',X,Disk],['can-place',Y,Disk]],[seq,['remove-atom','&$x',[position,bottom,Disk]],['add-atom','&$y',[position,middle,Disk]]],nop])
 </span><span class="ansi38-255165000">  (= 
     (move-disk $Disk $X $Y) 
@@ -94,65 +64,17 @@
           (position bottom $Disk)) 
         (add-atom &$y 
           (position middle $Disk))) nop))
-</span><span class="ansi38-000082136">  :- dynamic('move-disk',4).
-
-  'move-disk'(Disk, X, Y, A) :-
-    ( u_assign(['can-remove', X, Disk], B),
-      B='True',
-      u_assign(['can-place', Y, Disk], C),
-      C=D
-    ),
-    ( ( ( u_assign([position, bottom, Disk], E),
-          E=F
-        ),
-        u_assign(['remove-atom', '&$x', F], G),
-        G=H
-      ),
-      ( u_assign([position, middle, Disk], I),
-        I=J,
-        u_assign(['add-atom', '&$y', J], K)
-      ),
-      K=L,
-      u_assign([seq, H, L], M)
-    ),
-    M=N,
-    u_assign([if, D, N, nop], A).
-
 </span>
 
 ; Check if a disk can be removed from a peg
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'can-remove'(X,Disk,Can_remove_Disk) :-
-%~                              u_assign([position,bottom,Disk],Assign) ,
-%~                              Assign=_6878 ,
-%~                              u_assign(['atom-exists',X,_6878],Can_remove_Disk))]
-%~ [convert(_2272),head_preconds_into_body(('can-remove'(X,Disk,_2230):-(u_assign([position,bottom,Disk],_2316),_2316=_2312),u_assign(['atom-exists',X,_2312],_2230)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['can-remove',X,Disk],['atom-exists',X,[position,bottom,Disk]])
 </span><span class="ansi38-255165000">  (= 
     (can-remove $X $Disk) 
     (atom-exists $X 
       (position bottom $Disk)))
-</span><span class="ansi38-000082136">  :- dynamic('can-remove',3).
-
-  'can-remove'(X, Disk, A) :-
-    u_assign([position, bottom, Disk], B),
-    B=C,
-    u_assign(['atom-exists', X, C], A).
-
 </span>
 
 ; Check if a disk can be placed on a peg
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'can-place'(Y,Disk,Can_place_Disk) :-
-%~                              u_assign(['any-disk-exists',Y],Assign) ,
-%~                              Assign=_142666 ,
-%~                              u_assign([not,_142666],Assign3) ,
-%~                              Assign3=_142690 ,
-%~                              u_assign(['smaller-than-top',Y,Disk],Assign4) ,
-%~                              Assign4=_142708 ,
-%~                              u_assign([or,_142690,_142708],Can_place_Disk))]
-%~ [convert(_42080),head_preconds_into_body(('can-place'(Y,Disk,_40844):-((((u_assign(['any-disk-exists',Y],_42428),_42428=_42418),u_assign([not,_42418],_42386)),_42386=_42376),u_assign(['smaller-than-top',Y,Disk],_42588),_42588=_42578),u_assign([or,_42376,_42578],_40844)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['can-place',Y,Disk],[or,[not,['any-disk-exists',Y]],['smaller-than-top',Y,Disk]])
 </span><span class="ansi38-255165000">  (= 
     (can-place $Y $Disk) 
@@ -160,38 +82,9 @@
       (not 
         (any-disk-exists $Y)) 
       (smaller-than-top $Y $Disk)))
-</span><span class="ansi38-000082136">  :- dynamic('can-place',3).
-
-  'can-place'(Y, Disk, A) :-
-    ( ( u_assign(['any-disk-exists', Y], B),
-        B=C
-      ),
-      u_assign([not, C], D),
-      D=E
-    ),
-    u_assign(['smaller-than-top', Y, Disk], F),
-    F=G,
-    u_assign([or, E, G], A).
-
 </span>
 
 ; Check if any disk exists on a peg
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'any-disk-exists'(Y,Assign_Y) :-
-%~                              u_assign([position,middle,'red-disk'],Assign) ,
-%~                              Assign=_378242 ,
-%~                              u_assign(['atom-exists',Y,_378242],Assign2) ,
-%~                              Assign2=_378272 ,
-%~                              u_assign([position,middle,'blue-disk'],Assign3) ,
-%~                              Assign3=_378308 ,
-%~                              u_assign(['atom-exists',Y,_378308],Assign4) ,
-%~                              Assign4=_378338 ,
-%~                              u_assign([position,middle,'green-disk'],Assign5) ,
-%~                              Assign5=_378368 ,
-%~                              u_assign(['atom-exists',Y,_378368],Assign6) ,
-%~                              Assign6=_378398 ,
-%~                              u_assign([or,_378272,_378338,_378398],Assign_Y))]
-%~ [convert(_184898),head_preconds_into_body(('any-disk-exists'(Y,_183732):-((((u_assign([position,middle,'red-disk'],_185302),_185302=_185292),u_assign(['atom-exists',Y,_185292],_185204)),_185204=_185194),(((u_assign([position,middle,'blue-disk'],_185556),_185556=_185546),u_assign(['atom-exists',Y,_185546],_185458)),_185458=_185448),((u_assign([position,middle,'green-disk'],_185810),_185810=_185800),u_assign(['atom-exists',Y,_185800],_185712)),_185712=_185702),u_assign([or,_185194,_185448,_185702],_183732)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['any-disk-exists',Y],[or,['atom-exists',Y,[position,middle,'red-disk']],['atom-exists',Y,[position,middle,'blue-disk']],['atom-exists',Y,[position,middle,'green-disk']]])
 </span><span class="ansi38-255165000">  (= 
     (any-disk-exists $Y) 
@@ -202,85 +95,19 @@
         (position middle blue-disk)) 
       (atom-exists $Y 
         (position middle green-disk))))
-</span><span class="ansi38-000082136">  :- dynamic('any-disk-exists',2).
-
-  'any-disk-exists'(Y, A) :-
-    ( ( u_assign([position, middle, 'red-disk'], B),
-        B=C
-      ),
-      u_assign(['atom-exists', Y, C], D),
-      D=E
-    ),
-    ( ( u_assign([position, middle, 'blue-disk'], F),
-        F=G
-      ),
-      u_assign(['atom-exists', Y, G], H),
-      H=I
-    ),
-    ( u_assign([position, middle, 'green-disk'], J),
-      J=K,
-      u_assign(['atom-exists', Y, K], L)
-    ),
-    L=M,
-    u_assign([or, E, I, M], A).
-
 </span>
 
 ; Check if a disk is smaller than the top disk on a peg
 ; GPT4: Youd need to define the logic for this
 ; USER: Will use prolog''s "standard-order"
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'smaller-than-top'(Y,Disk,Smaller_than_top_Disk) :-
-%~                                ((
-%~                                 (  ((
-%~                                     (u_assign([@<,Y,Disk],Smaller_than_top_Disk))*->
-%~                                     (True='True',True=Smaller_than_top_Disk)  )));
-%~                                 (False='False',False=Smaller_than_top_Disk)  )))]
-%~ [convert(_410866),head_preconds_into_body(('smaller-than-top'(Y,Disk,_409630):-u_assign([@<,Y,Disk],_409630)*->_411338='True',_411338=_409630;_411348='False',_411348=_409630))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['smaller-than-top',Y,Disk],[and,[@<,Y,Disk]])
 </span><span class="ansi38-255165000">  (= 
     (smaller-than-top $Y $Disk) 
     (and 
       (@< $Y $Disk)))
-</span><span class="ansi38-000082136">  :- dynamic('smaller-than-top',3).
-
-  'smaller-than-top'(Y, Disk, A) :-
-    (   u_assign([@<, Y, Disk], A)
-    *-> B='True',
-        B=A
-    ;   C='False',
-        C=A
-    ).
-
 </span>
 
 ; Towers of Hanoi test
-%~ [ convert(Convert),
-%~   head_preconds_into_body( hanoi(N,Src,Aux,Dest,Assign_Hanoi_Dest) :-
-%~                              u_assign([eq,N,1],Assign) ,
-%~                              Assign=_259936 ,
-%~                              u_assign(['move-disk','red-disk',Src,Dest],Assign3) ,
-%~                              Assign3=_259960 ,
-%~                              u_assign([-,N,1],Assign4) ,
-%~                              Assign4=_260008 ,
-%~                              u_assign(
-%~                                 [ hanoi, _274862,Src,
-%~                                   Dest,Aux],
-%~                                 Assign5) ,
-%~                              Assign5=_260032 ,
-%~                              u_assign(['move-disk','red-disk',Src,Dest],Assign6) ,
-%~                              Assign6=_260056 ,
-%~                              u_assign([-,N,1],Assign7) ,
-%~                              Assign7=_260086 ,
-%~                              u_assign(
-%~                                 [ hanoi, _295682,Aux,Src,
-%~                                   Dest],
-%~                                 Assign8) ,
-%~                              Assign8=_260110 ,
-%~                              u_assign([seq,_260032,_260056,_260110],Assign9) ,
-%~                              Assign9=_260146 ,
-%~                              u_assign([if,_259936,_259960,_260146],Assign_Hanoi_Dest))]
-%~ [convert(_2502),head_preconds_into_body((hanoi(N,Src,Aux,Dest,_2448):-((u_assign([eq,N,1],_2540),_2540=_2536),(u_assign(['move-disk','red-disk',Src,Dest],_2590),_2590=_2586),(((((u_assign([-,N,1],_2698),_2698=_2694),u_assign([hanoi,_2694,Src,Dest,Aux],_2672)),_2672=_2668),(u_assign(['move-disk','red-disk',Src,Dest],_2784),_2784=_2780),((u_assign([-,N,1],_2866),_2866=_2862),u_assign([hanoi,_2862,Aux,Src,Dest],_2840)),_2840=_2836),u_assign([seq,_2668,_2780,_2836],_2646)),_2646=_2642),u_assign([if,_2536,_2586,_2642],_2448)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],['move-disk','red-disk',Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],['move-disk','red-disk',Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]])
 </span><span class="ansi38-255165000">  (= 
     (hanoi $N $Src $Aux $Dest) 
@@ -293,54 +120,8 @@
         (move-disk red-disk $Src $Dest) 
         (hanoi 
           (- $N 1) $Aux $Src $Dest))))
-</span><span class="ansi38-000082136">  :- dynamic(hanoi,5).
-
-  hanoi(N, Src, Aux, Dest, A) :-
-    ( u_assign([eq, N, 1], B),
-      B=C
-    ),
-    ( u_assign(['move-disk', 'red-disk', Src, Dest], D),
-      D=E
-    ),
-    ( ( ( u_assign([-, N, 1], F),
-          F=G
-        ),
-        u_assign([hanoi, G, Src, Dest, Aux], H),
-        H=I
-      ),
-      ( u_assign(['move-disk', 'red-disk', Src, Dest], J),
-        J=K
-      ),
-      ( u_assign([-, N, 1], L),
-        L=M,
-        u_assign([hanoi, M, Aux, Src, Dest], N)
-      ),
-      N=O,
-      u_assign([seq, I, K, O], P)
-    ),
-    P=Q,
-    u_assign([if, C, E, Q], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( [hanoi_test,Assign5] :-
-%~                              u_assign([hanoi,3,src,aux,dest],Assign_List) ,
-%~                              [ [ src,
-%~                                  [position,bottom,'red-disk'],
-%~                                  [position,middle,'blue-disk'],
-%~                                  [position,top,'green-disk']],
-%~                                [aux,[]],
-%~                                [dest,[]]] =
-%~                                Assign_List ,
-%~                              u_assign([position,bottom,'red-disk'],Assign) ,
-%~                              Assign=_490736 ,
-%~                              u_assign([position,middle,'blue-disk'],Assign3) ,
-%~                              Assign3=_490760 ,
-%~                              u_assign([position,top,'green-disk'],Assign4) ,
-%~                              Assign4=_490778 ,
-%~                              u_assign([assertEqual,dest,_490736,_490760,_490778],Assign5))]
-%~ [convert(_341722),head_preconds_into_body(([hanoi_test,_339882]:-u_assign([hanoi,3,src,aux,dest],_342026),[[src,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']],[aux,[]],[dest,[]]]=_342026,((u_assign([position,bottom,'red-disk'],_342222),_342222=_342212),(u_assign([position,middle,'blue-disk'],_342338),_342338=_342328),u_assign([position,top,'green-disk'],_342454),_342454=_342444),u_assign([assertEqual,dest,_342212,_342328,_342444],_339882)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[hanoi_test],[let,[[src,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']],[aux,[]],[dest,[]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']]])
 </span><span class="ansi38-255165000">  (= 
     (hanoi_test) 
@@ -356,32 +137,15 @@
         (position bottom red-disk) 
         (position middle blue-disk) 
         (position top green-disk))))
-</span><span class="ansi38-000082136">
-  [hanoi_test, A] :-
-    u_assign([hanoi, 3, src, aux, dest], B),
-    [[src, [position, bottom, 'red-disk'], [position, middle, 'blue-disk'], [position, top, 'green-disk']], [aux, []], [dest, []]]=B,
-    ( u_assign([position, bottom, 'red-disk'], C),
-      C=D
-    ),
-    ( u_assign([position, middle, 'blue-disk'], E),
-      E=F
-    ),
-    u_assign([position, top, 'green-disk'], G),
-    G=H,
-    u_assign([assertEqual, dest, D, F, H], A).
-
 </span>
 
 <span class="ansi38-000068000">!(hanoi_test)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    [hanoi_test, A].
 
 </span>%~ user: message_hook(
 %~          error(existence_error(source_sink,or),Existence_error),
 %~          error,
 %~          ['~w `~p\' does not exist'-[source_sink,or]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `or' does not exist
 </span>%~ user: message_hook(
 %~          error(
@@ -392,9 +156,10 @@ ERROR:    source_sink `or' does not exist
 %~             Existence_error),
 %~          error,
 %~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
-</span>%~ user: message_hook(
+</span>%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948 
+%~ user: message_hook(
 %~          error(
 %~             existence_error( source_sink, [
 %~               'atom-exists',
@@ -403,7 +168,7 @@ ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does n
 %~             Existence_error),
 %~          error,
 %~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
 </span>%~ user: message_hook(
 %~          error(
@@ -414,61 +179,29 @@ ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does 
 %~             Existence_error),
 %~          error,
 %~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
-</span>%~ [ convert(Convert),
-%~   head_preconds_into_body((position(bottom,'red-disk',_235780):-_235780='True'))]
-%~ [convert(_236928),head_preconds_into_body((position(bottom,'red-disk',_235780):-_235780='True'))]
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=metta_atom('&$x',[position,bottom,'red-disk'])
 </span><span class="ansi38-255165000">  (position bottom red-disk)
-</span><span class="ansi38-000082136">  :- dynamic(position,3).
-
-  position(bottom, 'red-disk', A) :-
-    A='True'.
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body((position(middle,'red-disk',_273630):-_273630='True'))]
-%~ [convert(_274778),head_preconds_into_body((position(middle,'red-disk',_273630):-_273630='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&$y',[position,middle,'red-disk'])
 </span><span class="ansi38-255165000">  (position middle red-disk)
-</span><span class="ansi38-000082136">  :- dynamic(position,3).
-
-  position(middle, 'red-disk', A) :-
-    A='True'.
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body((position(bottom,'red-disk',_311708):-_311708='True'))]
-%~ [convert(_312856),head_preconds_into_body((position(bottom,'red-disk',_311708):-_311708='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=metta_atom('&$x',[position,bottom,'red-disk'])
 </span><span class="ansi38-255165000">  (position bottom red-disk)
-</span><span class="ansi38-000082136">  :- dynamic(position,3).
-
-  position(bottom, 'red-disk', A) :-
-    A='True'.
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body((position(middle,'red-disk',_349558):-_349558='True'))]
-%~ [convert(_350706),head_preconds_into_body((position(middle,'red-disk',_349558):-_349558='True'))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&$y',[position,middle,'red-disk'])
 </span><span class="ansi38-255165000">  (position middle red-disk)
-</span><span class="ansi38-000082136">  :- dynamic(position,3).
-
-  position(middle, 'red-disk', A) :-
-    A='True'.
-
 </span>
 
 %~ user: message_hook(
 %~          error(existence_error(source_sink,or),Existence_error),
 %~          error,
 %~          ['~w `~p\' does not exist'-[source_sink,or]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `or' does not exist
 </span>%~ user: message_hook(
 %~          error(
@@ -479,7 +212,7 @@ ERROR:    source_sink `or' does not exist
 %~             Existence_error),
 %~          error,
 %~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
 </span>%~ user: message_hook(
 %~          error(
@@ -490,7 +223,7 @@ ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does n
 %~             Existence_error),
 %~          error,
 %~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
 </span>%~ user: message_hook(
 %~          error(
@@ -501,12 +234,114 @@ ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does 
 %~             Existence_error),
 %~          error,
 %~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
-<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054:
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
 ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
-</span><span class="ansi32">% 9,327,571 inferences, 1.289 CPU in 2.090 seconds (62% CPU, 7237452 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/hanoi-peg-space.metta" 0)
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,'any-disk-exists'),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,'any-disk-exists']]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `'any-disk-exists'' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,dest),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,dest]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `dest' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,or),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,or]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `or' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'red-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'blue-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'green-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,or),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,or]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `or' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'red-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'red-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'red-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'blue-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'blue-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'blue-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(
+%~             existence_error( source_sink, [
+%~               'atom-exists',
+%~               dest,
+%~               [position,middle,'green-disk']]),
+%~             Existence_error),
+%~          error,
+%~          [ '~w `~p\' does not exist'-[source_sink,['atom-exists',dest,[position,middle,'green-disk']]]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `['atom-exists',dest,[position,middle,'green-disk']]' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,'any-disk-exists'),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,'any-disk-exists']]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `'any-disk-exists'' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,dest),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,dest]]).
+<span class="ansi1 ansi31">ERROR: /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948:
+ERROR:    source_sink `dest' does not exist
+</span><span class="ansi32">% 1,451,060 inferences, 0.433 CPU in 2.434 seconds (18% CPU, 3354455 Lips)
+</span> (@ = "examples/hanoi-peg-space.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/hanoi-peg-space.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/hanoi-peg-space.html" )
 
 </pre>
 </body>

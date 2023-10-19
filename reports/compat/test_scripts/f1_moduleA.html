@@ -13,72 +13,57 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ (@ track_load_into_file "examples/compat/test_scripts/f1_moduleA.metta")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    true,
-    u_assign(['import!', '&self', 'f1_moduleC.metta'], A).
 
 </span>; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Example file used by f1_imports.metta
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example file used by f1_imports.metta
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'__g',[->,'Number']])
 </span><span class="ansi38-255165000">  (: __g 
     (-> Number))
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body((['__g',100]:-true))]
-%~ [convert(_222478),head_preconds_into_body((['__g',100]:-true))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['__g'],100)
 </span><span class="ansi38-255165000">  (= 
     (__g) 100)
-</span><span class="ansi38-000082136">
-  ['__g', 100].
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,g,[->,'Number','Numer']])
@@ -86,60 +71,29 @@
     (-> Number Numer))
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( g(X,Assign_G_X) :-
-%~                              ['__g',_334116] ,
-%~                              _334116=_334124 ,
-%~                              u_assign([+,X,_334124],Assign_G_X))]
-%~ [convert(_271944),head_preconds_into_body((g(X,_270778):-(['__g',_272662],_272662=_272652),u_assign([+,X,_272652],_270778)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,X],[+,X,['__g']])
 </span><span class="ansi38-255165000">  (= 
     (g $X) 
     (+ $X 
       (__g)))
-</span><span class="ansi38-000082136">  :- dynamic(g,2).
-
-  g(X, A) :-
-    ['__g', B],
-    B=C,
-    u_assign([+, X, C], A).
-
 </span>
 
-; Evaluation took 74.37 ms.
+; Evaluation took 4.72 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
 
-</span><span class="ansi38-017068017">exec(A) :-
-    Src_1=[assertEqual, [+, 1, 2], 3],
-    loonit_assert_source_tf(Src_1,
-                            (findall(FA_1, (true, u_assign([+, 1, 2], FA_1)), FARL_1), findall(FA_2, FA_2=3, FARL_2)),
-                            equal_enough(FARL_1, FARL_2),
-                            A).
-
-</span><h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3><span class="ansi36">
+(@ loonit_success 
   (equal_enough  
-    (3 
-      (+ 1 2)) 
+    (3) 
     (3)))
-</span>equal_enough([3,[+,1,2]],[3])
-        -->(0,'&self',[+,1,2],depth(2))
-; Evaluation took 0.948 ms. (948.30 microseconds) 
-<span class="ansi33"> False
+</span>        -->(0,'&self',[+,1,2],depth(2))
+        <--(0,retval(3))
+; Evaluation took 1.25 ms.
+<span class="ansi33"> True
 
 </span>; !(assertEqual (if True "S" "F") "S")
-%~ [ convert(Convert),
-%~   head_preconds_into_body( dup(X,Assign_Dup_X) :-
-%~                              u_assign([==,X,0],Assign) ,
-%~                              Assign=_491428 ,
-%~                              u_assign([+,X,10],Assign3) ,
-%~                              Assign3=_491452 ,
-%~                              u_assign([g,X],Assign4) ,
-%~                              Assign4=_491470 ,
-%~                              u_assign([if,_491428,_491452,_491470],Assign_Dup_X))]
-%~ [convert(_387534),head_preconds_into_body((dup(X,_386368):-((u_assign([==,X,0],_387840),_387840=_387830),(u_assign([+,X,10],_388000),_388000=_387990),u_assign([g,X],_388160),_388160=_388150),u_assign([if,_387830,_387990,_388150],_386368)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dup,X],[if,[==,X,0],[+,X,10],[g,X]])
 </span><span class="ansi38-255165000">  (= 
     (dup $X) 
@@ -147,18 +101,6 @@
       (== $X 0) 
       (+ $X 10) 
       (g $X)))
-</span><span class="ansi38-000082136">
-  dup(X, A) :-
-    ( u_assign([==, X, 0], B),
-      B=C
-    ),
-    ( u_assign([+, X, 10], D),
-      D=E
-    ),
-    u_assign([g, X], F),
-    F=G,
-    u_assign([if, C, E, G], A).
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,f,[->,'Number','Number']])
@@ -166,19 +108,6 @@
     (-> Number Number))
 </span>
 
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( f(X,Assign_X) :-
-%~                              u_assign([<,X,0],Assign) ,
-%~                              Assign=_175220 ,
-%~                              u_assign([-,0,X],Assign2) ,
-%~                              Assign2=_175244 ,
-%~                              u_assign([+,1,X],Assign3) ,
-%~                              Assign3=_175274 ,
-%~                              u_assign([g,_175274],Assign4) ,
-%~                              Assign4=_175298 ,
-%~                              u_assign([if,_175220,_175244,_175298],Assign_X))]
-%~ [convert(_49646),head_preconds_into_body((f(X,_48480):-((u_assign([<,X,0],_49952),_49952=_49942),(u_assign([-,0,X],_50112),_50112=_50102),((u_assign([+,1,X],_50314),_50314=_50304),u_assign([g,_50304],_50272)),_50272=_50262),u_assign([if,_49942,_50102,_50262],_48480)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f,X],[if,[<,X,0],[-,0,X],[g,[+,1,X]]])
 </span><span class="ansi38-255165000">  (= 
     (f $X) 
@@ -187,32 +116,16 @@
       (- 0 $X) 
       (g 
         (+ 1 $X))))
-</span><span class="ansi38-000082136">  :- dynamic(f,2).
-
-  f(X, A) :-
-    ( u_assign([<, X, 0], B),
-      B=C
-    ),
-    ( u_assign([-, 0, X], D),
-      D=E
-    ),
-    ( u_assign([+, 1, X], F),
-      F=G,
-      u_assign([g, G], H)
-    ),
-    H=I,
-    u_assign([if, C, E, I], A).
-
 </span>
 
-<span class="ansi32">% 2,607,457 inferences, 0.360 CPU in 0.360 seconds (100% CPU, 7238111 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta" 0)
+<span class="ansi32">% 56,155 inferences, 0.019 CPU in 0.019 seconds (100% CPU, 2935058 Lips)
+</span> (@ = "examples/compat/test_scripts/f1_moduleA.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/f1_moduleA.html" )
 
 </pre>
 </body>

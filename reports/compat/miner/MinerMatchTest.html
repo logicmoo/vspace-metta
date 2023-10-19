@@ -300,11 +300,11 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/miner/MinerMatchTest.metta")
+ (@ track_load_into_file "examples/compat/miner/MinerMatchTest.metta")
 <span class="ansi38-000068000">!(import! &self MinerMatch.metta)
 
 </span>;; Load sample data
-; ### Algorithm Sketch
+;; ### Algorithm Sketch
 ; Given a collection of data trees T, a minimum support ms and an
 ; initial collection of patterns Candidate (containing at least the identity
 ; pattern, the pattern mining algorithm works as follows
@@ -319,13 +319,13 @@
 <span class="ansi38-000068000">!(import! &self MinerUtils.metta)
 
 </span>;; Get candidate patterns
-;; Import Num
+;;; Import Num
 <span class="ansi38-000068000">!(import! &self "../common/Num.metta")
 
 </span>;; Tuple count grounded python function
 ; !(extend-py! helper)
 ;; This is very slow, use the grounded python function instead
-;; Collection of functions operating on numbers
+;;; Collection of functions operating on numbers
 ;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
 </span><span class="ansi38-255165000">  (: max 
@@ -592,7 +592,7 @@
           (S $Y)))))
 </span>
 
-; Evaluation took 155.80 ms.
+; Evaluation took 255.39 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['TupleCount',Tuple],[if,[==,Tuple,[]],0,[+,1,['TupleCount',['cdr-atom',Tuple]]]])
@@ -627,7 +627,7 @@
     (Space  ()))
 </span>
 
-; Evaluation took 0.630 ms. (630.30 microseconds) 
+; Evaluation took 1.00 ms.
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-named-space Yspace)
@@ -638,7 +638,7 @@
     (Space  ()))
 </span>
 
-; Evaluation took 0.502 ms. (502.30 microseconds) 
+; Evaluation took 0.797 ms. (797.20 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-000068000">!(new-named-space Linkspace)
@@ -649,7 +649,7 @@
     (Space  ()))
 </span>
 
-; Evaluation took 0.617 ms. (616.80 microseconds) 
+; Evaluation took 0.808 ms. (808.10 microseconds) 
 <span class="ansi33"> True
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[addValuation,Link,X,Y],[case,[match,['named-space','Xspace'],X,X],[['%void%',['add-atom',['named-space','Xspace'],X]]]])
@@ -917,10 +917,10 @@
         ($_ 0))))
 </span>
 
-; Evaluation took 530.38 ms.
+; Evaluation took 873.09 ms.
 <span class="ansi33"> &self
 
-</span>;; probability estimate 
+</span>;; probability estimate
 ;; empirical
 ;; probability estimate
 ;; empirical
@@ -979,12 +979,12 @@
                 (nop))))))))
 </span>
 
-; Evaluation took 581.15 ms.
+; Evaluation took 953.17 ms.
 <span class="ansi33"> &self
 
 </span><span class="ansi38-000068000">!(import! &db "data/sample.metta")
 
-</span>; Evaluation took 0.102 ms. (101.70 microseconds) 
+</span>; Evaluation took 0.180 ms. (180.30 microseconds) 
 <span class="ansi33">  (import! &db "data/sample.metta")
 
 </span>;; Parameters
@@ -1006,215 +1006,263 @@
 
 <span class="ansi38-000068000">!(miner &db (minsup) (depth))
 
-</span>; Evaluation took 4.17 ms.
-<span class="ansi33"> $_92926
+</span>; Evaluation took 6.88 ms.
+<span class="ansi33"> $_360072
 
-</span>; Evaluation took 11.50 ms.
-<span class="ansi33"> $_92926
+</span>; Evaluation took 17.34 ms.
+<span class="ansi33"> $_360072
 
-</span>; Evaluation took 18.41 ms.
-<span class="ansi33"> $_92926
+</span>; Evaluation took 27.53 ms.
+<span class="ansi33"> $_360072
 
-</span>; Evaluation took 25.73 ms.
-<span class="ansi33"> $_92926
+</span>; Evaluation took 38.85 ms.
+<span class="ansi33"> $_360072
 
-</span>; Evaluation took 26.61 ms.
-<span class="ansi33"> $_92926
+</span>; Evaluation took 40.87 ms.
+<span class="ansi33"> $_360072
 
-</span>; Evaluation took 118.47 ms.
-<span class="ansi33"> $_1584
+</span>; Evaluation took 188.33 ms.
+<span class="ansi33"> $_1590
 
-</span>; Evaluation took 119.40 ms.
-<span class="ansi33"> $_1584
+</span>; Evaluation took 189.88 ms.
+<span class="ansi33"> $_1590
 
-</span>; Evaluation took 205.71 ms.
-<span class="ansi33"> $_1530
+</span>; Evaluation took 323.19 ms.
+<span class="ansi33"> $_1590
 
 </span><span class="ansi38-000068000">!(surprisingMiner &db (minsup) (depth) (highsurp))
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_501192,[1],['TupleCount',_501192]])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_168188,[1],['TupleCount',_168188]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_501192 
+    (let $_168188 
       (1) 
-      (TupleCount $_501192)))
+      (TupleCount $_168188)))
 </span>
 
-; Evaluation took 4.29 ms.
+; Evaluation took 6.16 ms.
 <span class="ansi33"> True
 
-</span>; Evaluation took 13.14 ms.
-<span class="ansi33">  ($_38550)
+</span> c(0,[candidate,[',',_219286,_219292],_219298])=['let*',[[_219328,[prob,[count,_219286,'&db',_219370,_219376]]],[_219388,[prob,[count,_219292,'&db',_219370,_219376]]],[_219448,[*,_219328,_219388]],[_219484,[prob,_219298]]],[/,[max,[-,_219484,_219448],[-,_219448,_219484]],_219484]]
+ c(1,[candidate,[',',_219286,_219292,_219628],_219298])=['let*',[[_219328,[prob,[count,_219286,'&db',_219370,_219376]]],[_219388,[prob,[count,_219292,'&db',_219370,_219376]]],[_219784,[prob,[count,_219628,'&db',_219370,_219376]]],[_219844,[prob,[count,[',',_219286,_219292],'&db',_219370,_219376]]],[_219922,[prob,[count,[',',_219286,_219628],'&db',_219370,_219376]]],[_220000,[prob,[count,[',',_219292,_219628],'&db',_219370,_219376]]],[_220078,[max,[*,_219844,_219784],[max,[*,_219922,_219388],[max,[*,_220000,_219328],[*,_219328,[*,_219388,_219784]]]]]],[_220240,[min,[*,_219844,_219784],[min,[*,_219922,_219388],[min,[*,_220000,_219328],[*,_219328,[*,_219388,_219784]]]]]],[_219484,[prob,_219298]]],[/,[max,[-,_219484,_220078],[-,_220240,_219484]],_219484]]
+ c(2,_220510)=0
+ switch=_148202
+; Evaluation took 17.04 ms.
+<span class="ansi33">  ($_217816)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_90938,[1],['TupleCount',_90938]])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_267552,[1],['TupleCount',_267552]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_90938 
+    (let $_267552 
       (1) 
-      (TupleCount $_90938)))
+      (TupleCount $_267552)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_90938,[1],['TupleCount',_90938]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_267552,[1],['TupleCount',_267552]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_90938 
+    (let $_267552 
       (1) 
-      (TupleCount $_90938)))
+      (TupleCount $_267552)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_152340,[1],['TupleCount',_152340]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_326028,[1],['TupleCount',_326028]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_152340 
+    (let $_326028 
       (1) 
-      (TupleCount $_152340)))
+      (TupleCount $_326028)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_152340,[1],['TupleCount',_152340]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_326028,[1],['TupleCount',_326028]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_152340 
+    (let $_326028 
       (1) 
-      (TupleCount $_152340)))
+      (TupleCount $_326028)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_212964,[1],['TupleCount',_212964]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_383724,[1],['TupleCount',_383724]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_212964 
+    (let $_383724 
       (1) 
-      (TupleCount $_212964)))
+      (TupleCount $_383724)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_212964,[1],['TupleCount',_212964]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_383724,[1],['TupleCount',_383724]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_212964 
+    (let $_383724 
       (1) 
-      (TupleCount $_212964)))
+      (TupleCount $_383724)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_427892,[1],['TupleCount',_427892]])
+ c(0,[candidate,[',',_443922,_443928],_443934])=['let*',[[_443964,[prob,[count,_443922,'&db',_444006,_444012]]],[_444024,[prob,[count,_443928,'&db',_444006,_444012]]],[_444084,[*,_443964,_444024]],[_444120,[prob,_443934]]],[/,[max,[-,_444120,_444084],[-,_444084,_444120]],_444120]]
+ c(1,[candidate,[',',_443922,_443928,_444264],_443934])=['let*',[[_443964,[prob,[count,_443922,'&db',_444006,_444012]]],[_444024,[prob,[count,_443928,'&db',_444006,_444012]]],[_444420,[prob,[count,_444264,'&db',_444006,_444012]]],[_444480,[prob,[count,[',',_443922,_443928],'&db',_444006,_444012]]],[_444558,[prob,[count,[',',_443922,_444264],'&db',_444006,_444012]]],[_444636,[prob,[count,[',',_443928,_444264],'&db',_444006,_444012]]],[_444714,[max,[*,_444480,_444420],[max,[*,_444558,_444024],[max,[*,_444636,_443964],[*,_443964,[*,_444024,_444420]]]]]],[_444876,[min,[*,_444480,_444420],[min,[*,_444558,_444024],[min,[*,_444636,_443964],[*,_443964,[*,_444024,_444420]]]]]],[_444120,[prob,_443934]]],[/,[max,[-,_444120,_444714],[-,_444876,_444120]],_444120]]
+ c(2,_445146)=0
+ switch=_246736
+ c(0,[candidate,[',',_492182,_492188],_492194])=['let*',[[_492224,[prob,[count,_492182,'&db',_492266,_492272]]],[_492284,[prob,[count,_492188,'&db',_492266,_492272]]],[_492344,[*,_492224,_492284]],[_492380,[prob,_492194]]],[/,[max,[-,_492380,_492344],[-,_492344,_492380]],_492380]]
+ c(1,[candidate,[',',_492182,_492188,_492524],_492194])=['let*',[[_492224,[prob,[count,_492182,'&db',_492266,_492272]]],[_492284,[prob,[count,_492188,'&db',_492266,_492272]]],[_492680,[prob,[count,_492524,'&db',_492266,_492272]]],[_492740,[prob,[count,[',',_492182,_492188],'&db',_492266,_492272]]],[_492818,[prob,[count,[',',_492182,_492524],'&db',_492266,_492272]]],[_492896,[prob,[count,[',',_492188,_492524],'&db',_492266,_492272]]],[_492974,[max,[*,_492740,_492680],[max,[*,_492818,_492284],[max,[*,_492896,_492224],[*,_492224,[*,_492284,_492680]]]]]],[_493136,[min,[*,_492740,_492680],[min,[*,_492818,_492284],[min,[*,_492896,_492224],[*,_492224,[*,_492284,_492680]]]]]],[_492380,[prob,_492194]]],[/,[max,[-,_492380,_492974],[-,_493136,_492380]],_492380]]
+ c(2,_493406)=0
+ switch=_246736
+ c(0,[candidate,[',',_23592,_23598],_23604])=['let*',[[_23634,[prob,[count,_23592,'&db',_23676,_23682]]],[_23694,[prob,[count,_23598,'&db',_23676,_23682]]],[_23754,[*,_23634,_23694]],[_23790,[prob,_23604]]],[/,[max,[-,_23790,_23754],[-,_23754,_23790]],_23790]]
+ c(1,[candidate,[',',_23592,_23598,_23934],_23604])=['let*',[[_23634,[prob,[count,_23592,'&db',_23676,_23682]]],[_23694,[prob,[count,_23598,'&db',_23676,_23682]]],[_24090,[prob,[count,_23934,'&db',_23676,_23682]]],[_24150,[prob,[count,[',',_23592,_23598],'&db',_23676,_23682]]],[_24228,[prob,[count,[',',_23592,_23934],'&db',_23676,_23682]]],[_24306,[prob,[count,[',',_23598,_23934],'&db',_23676,_23682]]],[_24384,[max,[*,_24150,_24090],[max,[*,_24228,_23694],[max,[*,_24306,_23634],[*,_23634,[*,_23694,_24090]]]]]],[_24546,[min,[*,_24150,_24090],[min,[*,_24228,_23694],[min,[*,_24306,_23634],[*,_23634,[*,_23694,_24090]]]]]],[_23790,[prob,_23604]]],[/,[max,[-,_23790,_24384],[-,_24546,_23790]],_23790]]
+ c(2,_24816)=0
+ switch=_4174
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_71968,[1],['TupleCount',_71968]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_427892 
+    (let $_71968 
       (1) 
-      (TupleCount $_427892)))
+      (TupleCount $_71968)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_427892,[1],['TupleCount',_427892]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_71968,[1],['TupleCount',_71968]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_427892 
+    (let $_71968 
       (1) 
-      (TupleCount $_427892)))
+      (TupleCount $_71968)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_489562,[1],['TupleCount',_489562]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_130708,[1],['TupleCount',_130708]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_489562 
+    (let $_130708 
       (1) 
-      (TupleCount $_489562)))
+      (TupleCount $_130708)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_489562,[1],['TupleCount',_489562]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_130708,[1],['TupleCount',_130708]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_489562 
+    (let $_130708 
       (1) 
-      (TupleCount $_489562)))
+      (TupleCount $_130708)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_35210,[1],['TupleCount',_35210]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_188414,[1],['TupleCount',_188414]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_35210 
+    (let $_188414 
       (1) 
-      (TupleCount $_35210)))
+      (TupleCount $_188414)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_35210,[1],['TupleCount',_35210]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_188414,[1],['TupleCount',_188414]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_35210 
+    (let $_188414 
       (1) 
-      (TupleCount $_35210)))
+      (TupleCount $_188414)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_99566,[1],['TupleCount',_99566]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_249844,[1],['TupleCount',_249844]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_99566 
+    (let $_249844 
       (1) 
-      (TupleCount $_99566)))
+      (TupleCount $_249844)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_99566,[1],['TupleCount',_99566]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_249844,[1],['TupleCount',_249844]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_99566 
+    (let $_249844 
       (1) 
-      (TupleCount $_99566)))
+      (TupleCount $_249844)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_121342,[1],['TupleCount',_121342]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_270950,[1],['TupleCount',_270950]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_121342 
+    (let $_270950 
       (1) 
-      (TupleCount $_121342)))
+      (TupleCount $_270950)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_121342,[1],['TupleCount',_121342]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_270950,[1],['TupleCount',_270950]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_121342 
+    (let $_270950 
       (1) 
-      (TupleCount $_121342)))
+      (TupleCount $_270950)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_224970,[1],['TupleCount',_224970]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_342050,[1],['TupleCount',_342050]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_224970 
+    (let $_342050 
       (1) 
-      (TupleCount $_224970)))
+      (TupleCount $_342050)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_224970,[1],['TupleCount',_224970]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_342050,[1],['TupleCount',_342050]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_224970 
+    (let $_342050 
       (1) 
-      (TupleCount $_224970)))
+      (TupleCount $_342050)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_246738,[1],['TupleCount',_246738]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_363146,[1],['TupleCount',_363146]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_246738 
+    (let $_363146 
       (1) 
-      (TupleCount $_246738)))
+      (TupleCount $_363146)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_246738,[1],['TupleCount',_246738]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_363146,[1],['TupleCount',_363146]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_246738 
+    (let $_363146 
       (1) 
-      (TupleCount $_246738)))
+      (TupleCount $_363146)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_348366,[1],['TupleCount',_348366]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',1,[let,_431928,[1],['TupleCount',_431928]])
 </span><span class="ansi38-255165000">  (= 1 
-    (let $_348366 
+    (let $_431928 
       (1) 
-      (TupleCount $_348366)))
+      (TupleCount $_431928)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_348366,[1],['TupleCount',_348366]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[universe_size],[let,_431928,[1],['TupleCount',_431928]])
 </span><span class="ansi38-255165000">  (= 
     (universe_size) 
-    (let $_348366 
+    (let $_431928 
       (1) 
-      (TupleCount $_348366)))
+      (TupleCount $_431928)))
 </span>
 
-<span class="ansi32">% 6,947,767 inferences, 1.303 CPU in 1.303 seconds (100% CPU, 5330410 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/miner/MinerMatchTest.metta" 0)
+ c(0,[candidate,[',',_492794,_492800],_492806])=['let*',[[_492836,[prob,[count,_492794,'&db',_492878,_492884]]],[_492896,[prob,[count,_492800,'&db',_492878,_492884]]],[_492956,[*,_492836,_492896]],[_492992,[prob,_492806]]],[/,[max,[-,_492992,_492956],[-,_492956,_492992]],_492992]]
+ c(1,[candidate,[',',_492794,_492800,_493136],_492806])=['let*',[[_492836,[prob,[count,_492794,'&db',_492878,_492884]]],[_492896,[prob,[count,_492800,'&db',_492878,_492884]]],[_493292,[prob,[count,_493136,'&db',_492878,_492884]]],[_493352,[prob,[count,[',',_492794,_492800],'&db',_492878,_492884]]],[_493430,[prob,[count,[',',_492794,_493136],'&db',_492878,_492884]]],[_493508,[prob,[count,[',',_492800,_493136],'&db',_492878,_492884]]],[_493586,[max,[*,_493352,_493292],[max,[*,_493430,_492896],[max,[*,_493508,_492836],[*,_492836,[*,_492896,_493292]]]]]],[_493748,[min,[*,_493352,_493292],[min,[*,_493430,_492896],[min,[*,_493508,_492836],[*,_492836,[*,_492896,_493292]]]]]],[_492992,[prob,_492806]]],[/,[max,[-,_492992,_493586],[-,_493748,_492992]],_492992]]
+ c(2,_494018)=0
+ switch=_1696
+ c(0,[candidate,[',',_25082,_25088],_25094])=['let*',[[_25124,[prob,[count,_25082,'&db',_25166,_25172]]],[_25184,[prob,[count,_25088,'&db',_25166,_25172]]],[_25244,[*,_25124,_25184]],[_25280,[prob,_25094]]],[/,[max,[-,_25280,_25244],[-,_25244,_25280]],_25280]]
+ c(1,[candidate,[',',_25082,_25088,_25424],_25094])=['let*',[[_25124,[prob,[count,_25082,'&db',_25166,_25172]]],[_25184,[prob,[count,_25088,'&db',_25166,_25172]]],[_25580,[prob,[count,_25424,'&db',_25166,_25172]]],[_25640,[prob,[count,[',',_25082,_25088],'&db',_25166,_25172]]],[_25718,[prob,[count,[',',_25082,_25424],'&db',_25166,_25172]]],[_25796,[prob,[count,[',',_25088,_25424],'&db',_25166,_25172]]],[_25874,[max,[*,_25640,_25580],[max,[*,_25718,_25184],[max,[*,_25796,_25124],[*,_25124,[*,_25184,_25580]]]]]],[_26036,[min,[*,_25640,_25580],[min,[*,_25718,_25184],[min,[*,_25796,_25124],[*,_25124,[*,_25184,_25580]]]]]],[_25280,[prob,_25094]]],[/,[max,[-,_25280,_25874],[-,_26036,_25280]],_25280]]
+ c(2,_26306)=0
+ switch=_1696
+ c(0,[candidate,[',',_72302,_72308],_72314])=['let*',[[_72344,[prob,[count,_72302,'&db',_72386,_72392]]],[_72404,[prob,[count,_72308,'&db',_72386,_72392]]],[_72464,[*,_72344,_72404]],[_72500,[prob,_72314]]],[/,[max,[-,_72500,_72464],[-,_72464,_72500]],_72500]]
+ c(1,[candidate,[',',_72302,_72308,_72644],_72314])=['let*',[[_72344,[prob,[count,_72302,'&db',_72386,_72392]]],[_72404,[prob,[count,_72308,'&db',_72386,_72392]]],[_72800,[prob,[count,_72644,'&db',_72386,_72392]]],[_72860,[prob,[count,[',',_72302,_72308],'&db',_72386,_72392]]],[_72938,[prob,[count,[',',_72302,_72644],'&db',_72386,_72392]]],[_73016,[prob,[count,[',',_72308,_72644],'&db',_72386,_72392]]],[_73094,[max,[*,_72860,_72800],[max,[*,_72938,_72404],[max,[*,_73016,_72344],[*,_72344,[*,_72404,_72800]]]]]],[_73256,[min,[*,_72860,_72800],[min,[*,_72938,_72404],[min,[*,_73016,_72344],[*,_72344,[*,_72404,_72800]]]]]],[_72500,[prob,_72314]]],[/,[max,[-,_72500,_73094],[-,_73256,_72500]],_72500]]
+ c(2,_73526)=0
+ switch=_1696
+ c(0,[candidate,[',',_123246,_123252],_123258])=['let*',[[_123288,[prob,[count,_123246,'&db',_123330,_123336]]],[_123348,[prob,[count,_123252,'&db',_123330,_123336]]],[_123408,[*,_123288,_123348]],[_123444,[prob,_123258]]],[/,[max,[-,_123444,_123408],[-,_123408,_123444]],_123444]]
+ c(1,[candidate,[',',_123246,_123252,_123588],_123258])=['let*',[[_123288,[prob,[count,_123246,'&db',_123330,_123336]]],[_123348,[prob,[count,_123252,'&db',_123330,_123336]]],[_123744,[prob,[count,_123588,'&db',_123330,_123336]]],[_123804,[prob,[count,[',',_123246,_123252],'&db',_123330,_123336]]],[_123882,[prob,[count,[',',_123246,_123588],'&db',_123330,_123336]]],[_123960,[prob,[count,[',',_123252,_123588],'&db',_123330,_123336]]],[_124038,[max,[*,_123804,_123744],[max,[*,_123882,_123348],[max,[*,_123960,_123288],[*,_123288,[*,_123348,_123744]]]]]],[_124200,[min,[*,_123804,_123744],[min,[*,_123882,_123348],[min,[*,_123960,_123288],[*,_123288,[*,_123348,_123744]]]]]],[_123444,[prob,_123258]]],[/,[max,[-,_123444,_124038],[-,_124200,_123444]],_123444]]
+ c(2,_124470)=0
+ switch=_1696
+ c(0,[candidate,[',',_133866,_133872],_133878])=['let*',[[_133908,[prob,[count,_133866,'&db',_133950,_133956]]],[_133968,[prob,[count,_133872,'&db',_133950,_133956]]],[_134028,[*,_133908,_133968]],[_134064,[prob,_133878]]],[/,[max,[-,_134064,_134028],[-,_134028,_134064]],_134064]]
+ c(1,[candidate,[',',_133866,_133872,_134208],_133878])=['let*',[[_133908,[prob,[count,_133866,'&db',_133950,_133956]]],[_133968,[prob,[count,_133872,'&db',_133950,_133956]]],[_134364,[prob,[count,_134208,'&db',_133950,_133956]]],[_134424,[prob,[count,[',',_133866,_133872],'&db',_133950,_133956]]],[_134502,[prob,[count,[',',_133866,_134208],'&db',_133950,_133956]]],[_134580,[prob,[count,[',',_133872,_134208],'&db',_133950,_133956]]],[_134658,[max,[*,_134424,_134364],[max,[*,_134502,_133968],[max,[*,_134580,_133908],[*,_133908,[*,_133968,_134364]]]]]],[_134820,[min,[*,_134424,_134364],[min,[*,_134502,_133968],[min,[*,_134580,_133908],[*,_133908,[*,_133968,_134364]]]]]],[_134064,[prob,_133878]]],[/,[max,[-,_134064,_134658],[-,_134820,_134064]],_134064]]
+ c(2,_135090)=0
+ switch=_1696
+ c(0,[candidate,[',',_194744,_194750],_194756])=['let*',[[_194786,[prob,[count,_194744,'&db',_194828,_194834]]],[_194846,[prob,[count,_194750,'&db',_194828,_194834]]],[_194906,[*,_194786,_194846]],[_194942,[prob,_194756]]],[/,[max,[-,_194942,_194906],[-,_194906,_194942]],_194942]]
+ c(1,[candidate,[',',_194744,_194750,_195086],_194756])=['let*',[[_194786,[prob,[count,_194744,'&db',_194828,_194834]]],[_194846,[prob,[count,_194750,'&db',_194828,_194834]]],[_195242,[prob,[count,_195086,'&db',_194828,_194834]]],[_195302,[prob,[count,[',',_194744,_194750],'&db',_194828,_194834]]],[_195380,[prob,[count,[',',_194744,_195086],'&db',_194828,_194834]]],[_195458,[prob,[count,[',',_194750,_195086],'&db',_194828,_194834]]],[_195536,[max,[*,_195302,_195242],[max,[*,_195380,_194846],[max,[*,_195458,_194786],[*,_194786,[*,_194846,_195242]]]]]],[_195698,[min,[*,_195302,_195242],[min,[*,_195380,_194846],[min,[*,_195458,_194786],[*,_194786,[*,_194846,_195242]]]]]],[_194942,[prob,_194756]]],[/,[max,[-,_194942,_195536],[-,_195698,_194942]],_194942]]
+ c(2,_195968)=0
+ switch=_1696
+ c(0,[candidate,[',',_205354,_205360],_205366])=['let*',[[_205396,[prob,[count,_205354,'&db',_205438,_205444]]],[_205456,[prob,[count,_205360,'&db',_205438,_205444]]],[_205516,[*,_205396,_205456]],[_205552,[prob,_205366]]],[/,[max,[-,_205552,_205516],[-,_205516,_205552]],_205552]]
+ c(1,[candidate,[',',_205354,_205360,_205696],_205366])=['let*',[[_205396,[prob,[count,_205354,'&db',_205438,_205444]]],[_205456,[prob,[count,_205360,'&db',_205438,_205444]]],[_205852,[prob,[count,_205696,'&db',_205438,_205444]]],[_205912,[prob,[count,[',',_205354,_205360],'&db',_205438,_205444]]],[_205990,[prob,[count,[',',_205354,_205696],'&db',_205438,_205444]]],[_206068,[prob,[count,[',',_205360,_205696],'&db',_205438,_205444]]],[_206146,[max,[*,_205912,_205852],[max,[*,_205990,_205456],[max,[*,_206068,_205396],[*,_205396,[*,_205456,_205852]]]]]],[_206308,[min,[*,_205912,_205852],[min,[*,_205990,_205456],[min,[*,_206068,_205396],[*,_205396,[*,_205456,_205852]]]]]],[_205552,[prob,_205366]]],[/,[max,[-,_205552,_206146],[-,_206308,_205552]],_205552]]
+ c(2,_206578)=0
+ switch=_1696
+ c(0,[candidate,[',',_263990,_263996],_264002])=['let*',[[_264032,[prob,[count,_263990,'&db',_264074,_264080]]],[_264092,[prob,[count,_263996,'&db',_264074,_264080]]],[_264152,[*,_264032,_264092]],[_264188,[prob,_264002]]],[/,[max,[-,_264188,_264152],[-,_264152,_264188]],_264188]]
+ c(1,[candidate,[',',_263990,_263996,_264332],_264002])=['let*',[[_264032,[prob,[count,_263990,'&db',_264074,_264080]]],[_264092,[prob,[count,_263996,'&db',_264074,_264080]]],[_264488,[prob,[count,_264332,'&db',_264074,_264080]]],[_264548,[prob,[count,[',',_263990,_263996],'&db',_264074,_264080]]],[_264626,[prob,[count,[',',_263990,_264332],'&db',_264074,_264080]]],[_264704,[prob,[count,[',',_263996,_264332],'&db',_264074,_264080]]],[_264782,[max,[*,_264548,_264488],[max,[*,_264626,_264092],[max,[*,_264704,_264032],[*,_264032,[*,_264092,_264488]]]]]],[_264944,[min,[*,_264548,_264488],[min,[*,_264626,_264092],[min,[*,_264704,_264032],[*,_264032,[*,_264092,_264488]]]]]],[_264188,[prob,_264002]]],[/,[max,[-,_264188,_264782],[-,_264944,_264188]],_264188]]
+ c(2,_265214)=0
+ switch=_1696
+<span class="ansi32">% 6,138,230 inferences, 2.005 CPU in 2.005 seconds (100% CPU, 3061488 Lips)
+</span> (@ = "examples/compat/miner/MinerMatchTest.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/miner/MinerMatchTest.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/miner/MinerMatchTest.html" )
 
 </pre>
 </body>

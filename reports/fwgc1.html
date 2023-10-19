@@ -35,41 +35,32 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-015015015 { color: #0F0F0F; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/fwgc1.metta")
+ (@ track_load_into_file "examples/fwgc1.metta")
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'State',[->,'Side','Side','Side','Side']])
 </span><span class="ansi38-255165000">  (: State 
     (-> Side Side Side Side))
@@ -101,17 +92,6 @@
 </span>
 
 ; Define which states are safe
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:1054 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( safe(False,W,G,C,Assign_Safe_C) :-
-%~                              u_assign([eq,False,W],Assign) ,
-%~                              Assign=_393062 ,
-%~                              u_assign([neq,False,G],Assign_True) ,
-%~                              Assign_True='True' ,
-%~                              u_assign([neq,False,C],Assign5) ,
-%~                              Assign5=_393104 ,
-%~                              u_assign([or,_393062,_393104],Assign_Safe_C))]
-%~ [convert(_300154),head_preconds_into_body((safe(False,W,G,C,_298778):-((u_assign([eq,False,W],_300460),_300460=_300450),(u_assign([neq,False,G],_300698),_300698='True',u_assign([neq,False,C],_300664)),_300664=_300654),u_assign([or,_300450,_300654],_298778)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[safe,False,W,G,C],[or,[eq,False,W],[and,[neq,False,G],[neq,False,C]]])
 </span><span class="ansi38-255165000">  (= 
     (safe $False $W $G $C) 
@@ -120,34 +100,9 @@
       (and 
         (neq $False $G) 
         (neq $False $C))))
-</span><span class="ansi38-000082136">  :- dynamic(safe,5).
-
-  safe(False, W, G, C, A) :-
-    ( u_assign([eq, False, W], B),
-      B=C
-    ),
-    ( u_assign([neq, False, G], D),
-      D='True',
-      u_assign([neq, False, C], E)
-    ),
-    E=F,
-    u_assign([or, C, F], A).
-
 </span>
 
 ; Move rules
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'move-farmer-alone'(False,W,G,C,Move_farmer_alone_C) :-
-%~                              u_assign([not,False],Assign) ,
-%~                              Assign=_115894 ,
-%~                              u_assign([safe,_115894,W,G,C],Assign3) ,
-%~                              Assign3=_115918 ,
-%~                              u_assign([not,False],Assign4) ,
-%~                              Assign4=_115948 ,
-%~                              u_assign(['State',_115948,W,G,C],Assign5) ,
-%~                              Assign5=_115972 ,
-%~                              u_assign([if,_115918,_115972,invalid],Move_farmer_alone_C))]
-%~ [convert(_2430),head_preconds_into_body(('move-farmer-alone'(False,W,G,C,_2376):-((((u_assign([not,False],_2494),_2494=_2490),u_assign([safe,_2490,W,G,C],_2468)),_2468=_2464),((u_assign([not,False],_2600),_2600=_2596),u_assign(['State',_2596,W,G,C],_2574)),_2574=_2570),u_assign([if,_2464,_2570,invalid],_2376)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['move-farmer-alone',False,W,G,C],[if,[safe,[not,False],W,G,C],['State',[not,False],W,G,C],invalid])
 </span><span class="ansi38-255165000">  (= 
     (move-farmer-alone $False $W $G $C) 
@@ -156,42 +111,8 @@
         (not $False) $W $G $C) 
       (State 
         (not $False) $W $G $C) invalid))
-</span><span class="ansi38-000082136">  :- dynamic('move-farmer-alone',5).
-
-  'move-farmer-alone'(False, W, G, C, A) :-
-    ( ( u_assign([not, False], B),
-        B=C
-      ),
-      u_assign([safe, C, W, G, C], D),
-      D=E
-    ),
-    ( u_assign([not, False], F),
-      F=G,
-      u_assign(['State', G, W, G, C], H)
-    ),
-    H=I,
-    u_assign([if, E, I, invalid], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'move-farmer-wolf'(False,W,G,C,Move_farmer_wolf_C) :-
-%~                              u_assign([eq,False,W],Assign_True) ,
-%~                              Assign_True='True' ,
-%~                              u_assign([not,False],Assign) ,
-%~                              Assign=_402766 ,
-%~                              u_assign([not,W],Assign5) ,
-%~                              Assign5=_402784 ,
-%~                              u_assign([safe,_402766,_402784,G,C],Assign6) ,
-%~                              Assign6=_402814 ,
-%~                              u_assign([not,False],Assign7) ,
-%~                              Assign7=_402850 ,
-%~                              u_assign([not,W],Assign8) ,
-%~                              Assign8=_402868 ,
-%~                              u_assign(['State',_402850,_402868,G,C],Assign9) ,
-%~                              Assign9=_402898 ,
-%~                              u_assign([if,_402814,_402898,invalid],Move_farmer_wolf_C))]
-%~ [convert(_162538),head_preconds_into_body(('move-farmer-wolf'(False,W,G,C,_161162):-(((u_assign([eq,False,W],_162878),_162878='True',((u_assign([not,False],_163098),_163098=_163088),u_assign([not,W],_163232),_163232=_163222),u_assign([safe,_163088,_163222,G,C],_162844)),_162844=_162834),(((u_assign([not,False],_163644),_163644=_163634),u_assign([not,W],_163778),_163778=_163768),u_assign(['State',_163634,_163768,G,C],_163602)),_163602=_163592),u_assign([if,_162834,_163592,invalid],_161162)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['move-farmer-wolf',False,W,G,C],[if,[and,[eq,False,W],[safe,[not,False],[not,W],G,C]],['State',[not,False],[not,W],G,C],invalid])
 </span><span class="ansi38-255165000">  (= 
     (move-farmer-wolf $False $W $G $C) 
@@ -204,49 +125,8 @@
       (State 
         (not $False) 
         (not $W) $G $C) invalid))
-</span><span class="ansi38-000082136">  :- dynamic('move-farmer-wolf',5).
-
-  'move-farmer-wolf'(False, W, G, C, A) :-
-    ( u_assign([eq, False, W], B),
-      B='True',
-      ( u_assign([not, False], C),
-        C=D,
-        u_assign([not, W], E),
-        E=F
-      ),
-      u_assign([safe, D, F, G, C], G),
-      G=H
-    ),
-    ( ( u_assign([not, False], I),
-        I=J
-      ),
-      u_assign([not, W], K),
-      K=L,
-      u_assign(['State', J, L, G, C], M)
-    ),
-    M=N,
-    u_assign([if, H, N, invalid], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'move-farmer-goat'(False,W,G,C,Move_farmer_goat_C) :-
-%~                              u_assign([eq,False,G],Assign_True) ,
-%~                              Assign_True='True' ,
-%~                              u_assign([not,False],Assign) ,
-%~                              Assign=_173548 ,
-%~                              u_assign([not,G],Assign5) ,
-%~                              Assign5=_173566 ,
-%~                              u_assign([safe,_173548,W,_173566,C],Assign6) ,
-%~                              Assign6=_173602 ,
-%~                              u_assign([not,False],Assign7) ,
-%~                              Assign7=_173638 ,
-%~                              u_assign([not,G],Assign8) ,
-%~                              Assign8=_173656 ,
-%~                              u_assign(['State',_173638,W,_173656,C],Assign9) ,
-%~                              Assign9=_173692 ,
-%~                              u_assign([if,_173602,_173692,invalid],Move_farmer_goat_C))]
-%~ [convert(_2432),head_preconds_into_body(('move-farmer-goat'(False,W,G,C,_2378):-(((u_assign([eq,False,G],_2472),_2472='True',((u_assign([not,False],_2528),_2528=_2524),u_assign([not,G],_2578),_2578=_2574),u_assign([safe,_2524,W,_2574,C],_2470)),_2470=_2466),(((u_assign([not,False],_2696),_2696=_2692),u_assign([not,G],_2746),_2746=_2742),u_assign(['State',_2692,W,_2742,C],_2670)),_2670=_2666),u_assign([if,_2466,_2666,invalid],_2378)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['move-farmer-goat',False,W,G,C],[if,[and,[eq,False,G],[safe,[not,False],W,[not,G],C]],['State',[not,False],W,[not,G],C],invalid])
 </span><span class="ansi38-255165000">  (= 
     (move-farmer-goat $False $W $G $C) 
@@ -259,49 +139,8 @@
       (State 
         (not $False) $W 
         (not $G) $C) invalid))
-</span><span class="ansi38-000082136">  :- dynamic('move-farmer-goat',5).
-
-  'move-farmer-goat'(False, W, G, C, A) :-
-    ( u_assign([eq, False, G], B),
-      B='True',
-      ( u_assign([not, False], C),
-        C=D,
-        u_assign([not, G], E),
-        E=F
-      ),
-      u_assign([safe, D, W, F, C], G),
-      G=H
-    ),
-    ( ( u_assign([not, False], I),
-        I=J
-      ),
-      u_assign([not, G], K),
-      K=L,
-      u_assign(['State', J, W, L, C], M)
-    ),
-    M=N,
-    u_assign([if, H, N, invalid], A).
-
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( 'move-farmer-cabbage'(False,W,G,C,Assign_C) :-
-%~                              u_assign([eq,False,C],Assign_True) ,
-%~                              Assign_True='True' ,
-%~                              u_assign([not,False],Assign) ,
-%~                              Assign=_448568 ,
-%~                              u_assign([not,C],Assign4) ,
-%~                              Assign4=_448586 ,
-%~                              u_assign([safe,_448568,W,G,_448586],Assign5) ,
-%~                              Assign5=_448628 ,
-%~                              u_assign([not,False],Assign6) ,
-%~                              Assign6=_448664 ,
-%~                              u_assign([not,C],Assign7) ,
-%~                              Assign7=_448682 ,
-%~                              u_assign(['State',_448664,W,G,_448682],Assign8) ,
-%~                              Assign8=_448724 ,
-%~                              u_assign([if,_448628,_448724,invalid],Assign_C))]
-%~ [convert(_220330),head_preconds_into_body(('move-farmer-cabbage'(False,W,G,C,_218954):-(((u_assign([eq,False,C],_220670),_220670='True',((u_assign([not,False],_220890),_220890=_220880),u_assign([not,C],_221136),_221136=_221126),u_assign([safe,_220880,W,G,_221126],_220636)),_220636=_220626),(((u_assign([not,False],_221412),_221412=_221402),u_assign([not,C],_221658),_221658=_221648),u_assign(['State',_221402,W,G,_221648],_221370)),_221370=_221360),u_assign([if,_220626,_221360,invalid],_218954)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['move-farmer-cabbage',False,W,G,C],[if,[and,[eq,False,C],[safe,[not,False],W,G,[not,C]]],['State',[not,False],W,G,[not,C]],invalid])
 </span><span class="ansi38-255165000">  (= 
     (move-farmer-cabbage $False $W $G $C) 
@@ -314,29 +153,6 @@
       (State 
         (not $False) $W $G 
         (not $C)) invalid))
-</span><span class="ansi38-000082136">  :- dynamic('move-farmer-cabbage',5).
-
-  'move-farmer-cabbage'(False, W, G, C, A) :-
-    ( u_assign([eq, False, C], B),
-      B='True',
-      ( u_assign([not, False], C),
-        C=D,
-        u_assign([not, C], E),
-        E=F
-      ),
-      u_assign([safe, D, W, G, F], G),
-      G=H
-    ),
-    ( ( u_assign([not, False], I),
-        I=J
-      ),
-      u_assign([not, C], K),
-      K=L,
-      u_assign(['State', J, W, G, L], M)
-    ),
-    M=N,
-    u_assign([if, H, N, invalid], A).
-
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,solve,[->,'State','State','Bool']])
@@ -344,31 +160,6 @@
     (-> State State Bool))
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( solve(Start,Goal,Assign_Solve_Goal) :-
-%~                              u_assign([eq,Start,Goal],Assign) ,
-%~                              Assign=_299912 ,
-%~                              is_True(True) ,
-%~                              u_assign(['move-farmer-alone',Start],Assign4) ,
-%~                              Assign4=_299970 ,
-%~                              u_assign([solve,_299970,Goal],Assign5) ,
-%~                              Assign5=_299994 ,
-%~                              u_assign(['move-farmer-wolf',Start],Assign6) ,
-%~                              Assign6=_300030 ,
-%~                              u_assign([solve,_300030,Goal],Assign7) ,
-%~                              Assign7=_300054 ,
-%~                              u_assign(['move-farmer-goat',Start],Assign8) ,
-%~                              Assign8=_300090 ,
-%~                              u_assign([solve,_300090,Goal],Assign9) ,
-%~                              Assign9=_300114 ,
-%~                              u_assign(['move-farmer-cabbage',Start],Assign10) ,
-%~                              Assign10=_300144 ,
-%~                              u_assign([solve,_300144,Goal],Assign11) ,
-%~                              Assign11=_300168 ,
-%~                              u_assign([or,_299994,_300054,_300114,_300168],Assign12) ,
-%~                              Assign12=_300210 ,
-%~                              u_assign([if,_299912,True,_300210],Assign_Solve_Goal))]
-%~ [convert(_2428),head_preconds_into_body((solve(Start,Goal,_2386):-((u_assign([eq,Start,Goal],_2466),_2466=_2462),is_True(_2512),(((((u_assign(['move-farmer-alone',Start],_2578),_2578=_2574),u_assign([solve,_2574,Goal],_2552)),_2552=_2548),(((u_assign(['move-farmer-wolf',Start],_2672),_2672=_2668),u_assign([solve,_2668,Goal],_2646)),_2646=_2642),(((u_assign(['move-farmer-goat',Start],_2766),_2766=_2762),u_assign([solve,_2762,Goal],_2740)),_2740=_2736),((u_assign(['move-farmer-cabbage',Start],_2860),_2860=_2856),u_assign([solve,_2856,Goal],_2834)),_2834=_2830),u_assign([or,_2548,_2642,_2736,_2830],_2526)),_2526=_2522),u_assign([if,_2462,_2512,_2522],_2386)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[solve,Start,Goal],[if,[eq,Start,Goal],'True',[or,[solve,['move-farmer-alone',Start],Goal],[solve,['move-farmer-wolf',Start],Goal],[solve,['move-farmer-goat',Start],Goal],[solve,['move-farmer-cabbage',Start],Goal]]])
 </span><span class="ansi38-255165000">  (= 
     (solve $Start $Goal) 
@@ -383,82 +174,23 @@
           (move-farmer-goat $Start) $Goal) 
         (solve 
           (move-farmer-cabbage $Start) $Goal))))
-</span><span class="ansi38-000082136">  :- dynamic(solve,3).
-
-  solve(Start, Goal, A) :-
-    ( u_assign([eq, Start, Goal], B),
-      B=C
-    ),
-    is_True(D),
-    ( ( ( u_assign(['move-farmer-alone', Start], E),
-          E=F
-        ),
-        u_assign([solve, F, Goal], G),
-        G=H
-      ),
-      ( ( u_assign(['move-farmer-wolf', Start], I),
-          I=J
-        ),
-        u_assign([solve, J, Goal], K),
-        K=L
-      ),
-      ( ( u_assign(['move-farmer-goat', Start], M),
-          M=N
-        ),
-        u_assign([solve, N, Goal], O),
-        O=P
-      ),
-      ( u_assign(['move-farmer-cabbage', Start], Q),
-        Q=R,
-        u_assign([solve, R, Goal], S)
-      ),
-      S=T,
-      u_assign([or, H, L, P, T], U)
-    ),
-    U=V,
-    u_assign([if, C, D, V], A).
-
 </span>
 
 ; Initial state: All on one side of the river
 <span class="ansi38-000068000">!(let start (State True True True True))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    ( is_True(B),
-      is_True(C),
-      is_True(D),
-      is_True(E),
-      u_assign(['State', B, C, D, E], F)
-    ),
-    F=G,
-    u_assign([let, start, G], A).
-
-</span>; Evaluation took 0.225 ms. (224.90 microseconds) 
+</span>; Evaluation took 0.317 ms. (316.50 microseconds) 
 <span class="ansi33">  (let start 
     (State True True True True))
 
 </span>; Goal state: All on the other side of the river
 <span class="ansi38-000068000">!(let goal (State False False False False))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    ( true,
-      u_assign(['State', 'False', 'False', 'False', 'False'], B)
-    ),
-    B=C,
-    u_assign([let, goal, C], A).
-
-</span>; Evaluation took 0.201 ms. (200.70 microseconds) 
+</span>; Evaluation took 0.286 ms. (285.90 microseconds) 
 <span class="ansi33">  (let goal 
     (State False False False False))
 
 </span><span class="ansi38-000068000">!(assertEqual (solve start goal) True)
-
-</span><span class="ansi38-017068017">exec(A) :-
-    Src_1=[assertEqual, [solve, start, goal], 'True'],
-    loonit_assert_source_tf(Src_1,
-                            (findall(FA_1, (true, u_assign([solve, start, goal], FA_1)), FARL_1), findall(FA_2, FA_2='True', FARL_2)),
-                            equal_enough(FARL_1, FARL_2),
-                            A).
 
 </span><h3 id="EXAMPLES.FWGC1.01">;; EXAMPLES.FWGC1.01</h3><span class="ansi36">
 (@ loonit_success 
@@ -470,17 +202,17 @@
               -->(2,'&self',[eq,start,goal],depth(5))
           <--(1,retval('True'))
         <--(0,retval([if,[eq,start,goal],'True',[or,[solve,['move-farmer-alone',start],goal],[solve,['move-farmer-wolf',start],goal],[solve,['move-farmer-goat',start],goal],[solve,['move-farmer-cabbage',start],goal]]]))
-; Evaluation took 1.06 ms.
+; Evaluation took 1.79 ms.
 <span class="ansi33"> True
 
-</span><span class="ansi32">% 9,737,912 inferences, 1.340 CPU in 1.340 seconds (100% CPU, 7268185 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/fwgc1.metta" 0)
+</span><span class="ansi32">% 156,431 inferences, 0.134 CPU in 0.134 seconds (100% CPU, 1163121 Lips)
+</span> (@ = "examples/fwgc1.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/fwgc1.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/fwgc1.html" )
 
 </pre>
 </body>

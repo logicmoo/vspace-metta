@@ -13,50 +13,36 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-000082136 { color: #005288; }
 .ansi38-000068000 { color: #004400; }
-.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta")
-; Curried plus
+ (@ track_load_into_file "examples/compat/test_scripts/02-curried-plus.metta")
+;; Curried plus
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,plus,[->,'Number',[->,'Number','Number']]])
 </span><span class="ansi38-255165000">  (: plus 
     (-> Number 
       (-> Number Number)))
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body( u_assign([_263682,Y],Assign) :-
-%~                              u_assign([plus,X],Assign1) ,
-%~                              Assign1=_255562 ,
-%~                              u_assign([+,X,Y],Assign))]
-%~ [convert(_195712),head_preconds_into_body((u_assign([_194678,Y],_194410):-(u_assign([plus,X],_194688),_194688=_194678),u_assign([+,X,Y],_194410)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[plus,X],Y],[+,X,Y])
 </span><span class="ansi38-255165000">  (= 
     ( (plus $X) $Y) 
     (+ $X $Y))
-</span><span class="ansi38-000082136">
-  u_assign([A, Y], B) :-
-    u_assign([plus, X], C),
-    C=A,
-    u_assign([+, X, Y], B).
-
 </span>
 
 ; Define inc as partial evaluation of plus
@@ -66,53 +52,36 @@
       (-> Number Number)))
 </span>
 
-%~ [ convert(Convert),
-%~   head_preconds_into_body(([inc,_305616]:-u_assign([plus,1],_305616)))]
-%~ [convert(_307456),head_preconds_into_body(([inc,_305616]:-u_assign([plus,1],_305616)))]
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[inc],[plus,1])
 </span><span class="ansi38-255165000">  (= 
     (inc) 
     (plus 1))
-</span><span class="ansi38-000082136">
-  [inc, A] :-
-    u_assign([plus, 1], A).
-
 </span>
 
 <span class="ansi38-000068000">!(assertEqualToResult ((inc) 2) (3))
 
-</span><span class="ansi38-017068017">exec(A) :-
-    loonit_assert_source_tf([assertEqualToResult, [[inc], 2], [3]],
-                            findall(B,
-                                    ((([inc, C], C=D), true), u_assign([D, 2], B)),
-                                    E),
-                            equal_enough(E, [3]),
-                            A).
-
-</span><h3 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">;; TEST-SCRIPTS.02-CURRIED-PLUS.01</h3><span class="ansi31">
-(@ loonit_failureR 
+</span><h3 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">;; TEST-SCRIPTS.02-CURRIED-PLUS.01</h3><span class="ansi36">
+(@ loonit_success 
   (equal_enough  
-    (3 
-      (+ 1 2)) 
+    (3) 
     (3)))
-</span>equal_enough([3,[+,1,2]],[3])
-        -->(0,'&self',[[inc],2],depth(2))
+</span>        -->(0,'&self',[[inc],2],depth(2))
             -->(1,'&self',[[plus,1],2],depth(4))
               -->(2,'&self',[+,1,2],depth(5))
-          -->(3,'&self',[+,1,2],depth(3))
+              <--(2,retval(3))
             <--(1,retval([+,1,2]))
-        <--(0,retval([+,1,2]))
-; Evaluation took 1.39 ms.
-<span class="ansi33"> False
+        <--(0,retval(3))
+; Evaluation took 1.87 ms.
+<span class="ansi33"> True
 
-</span><span class="ansi32">% 593,321 inferences, 0.085 CPU in 0.085 seconds (100% CPU, 6998228 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta" 0)
+</span><span class="ansi32">% 29,743 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 2816732 Lips)
+</span> (@ = "examples/compat/test_scripts/02-curried-plus.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/02-curried-plus.html" )
 
 </pre>
 </body>
