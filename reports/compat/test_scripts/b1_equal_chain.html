@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -45,7 +44,26 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b1_equal_chain.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=[]
+7=0.10user 0.01system 0:00.11elapsed 99%CPU (0avgtext+0avgdata 28592maxresident)k
+7=0inputs+0outputs (0major+3273minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta', 6, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The equality sign is specially treated by the interpreter.
@@ -85,11 +103,15 @@
 ; of two expressions (both expressions can have empty
 ; sets of results, so `assertEqualToResult` is safer)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (S K K x) x)
+<span class="ansi38-000068000">!(assertEqual 
+  (S K K x) x)
 
-</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.01">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.01">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.01</h3>
+; 
+; EVAL TEST
+; took 0.269 ms. (268.80 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (x) 
     (x)))
 </span>        -->(0,'&self',['S','K','K',x],depth(2))
@@ -97,24 +119,31 @@
               -->(2,'&self',['K',x],depth(5))
           <--(1,retval(x))
         <--(0,retval(['K',x,['K',x]]))
-; Evaluation took 1.56 ms.
-<span class="ansi33"> True
+; Trace took 0.582 ms. (582.20 microseconds) 
+; Evaluation took 2.08 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Here, we use `assertEqualToResult` to make sure
 ; that the expression is evaluated to itself
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (expression without known equalities) ((expression without known equalities)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (expression without known equalities) 
+  ( (expression without known equalities)))
 
-</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.02">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.02">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.02</h3>
+; 
+; EVAL TEST
+; took 0.298 ms. (297.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (expression without known equalities)) 
     ( (expression without known equalities))))
 </span>        -->(0,'&self',[expression,without,known,equalities],depth(2))
-; Evaluation took 1.35 ms.
-<span class="ansi33"> True
+; Trace took 0.211 ms. (210.70 microseconds) 
+; Evaluation took 1.93 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -133,11 +162,19 @@
       (S $X) $Y))
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (Add (S Z) (S Z)) (S (S Z)))
+<span class="ansi38-000068000">!(assertEqual 
+  (Add 
+    (S Z) 
+    (S Z)) 
+  (S 
+    (S Z)))
 
-</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.03">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.03">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.03</h3>
+; 
+; EVAL TEST
+; took 0.781 ms. (780.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (S 
         (S Z))) 
     ( (S 
@@ -156,19 +193,30 @@
             -->(9,'&self',['S','Z'],depth(4))
             -->(10,'&self',['S','Z'],depth(4))
             -->(11,'&self',['S','Z'],depth(4))
-; Evaluation took 2.81 ms.
-<span class="ansi33"> True
+; Trace took 1.90 ms.
+; Evaluation took 4.06 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; In the current implementation, child expressions
 ; are reduced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (Something? (Add (S Z) (S Z))) (Something? (S (S Z))))
+<span class="ansi38-000068000">!(assertEqual 
+  (Something? 
+    (Add 
+      (S Z) 
+      (S Z))) 
+  (Something? 
+    (S 
+      (S Z))))
 
-</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.04">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.04">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.04</h3>
+; 
+; EVAL TEST
+; took 2.05 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Something? 
         (S 
           (S Z)))) 
@@ -218,8 +266,9 @@
                 -->(35,'&self',['S','Z'],depth(6))
                 -->(36,'&self',['S','Z'],depth(6))
                 -->(37,'&self',['S','Z'],depth(6))
-; Evaluation took 7.30 ms.
-<span class="ansi33"> True
+; Trace took 5.69 ms.
+; Evaluation took 9.31 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -232,11 +281,16 @@
     (eq $X $X) True)
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (eq (S K K x) x) True)
+<span class="ansi38-000068000">!(assertEqual 
+  (eq 
+    (S K K x) x) True)
 
-</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.05">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.05">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.05</h3>
+; 
+; EVAL TEST
+; took 0.479 ms. (478.60 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
 </span>        -->(0,'&self',[eq,['S','K','K',x],x],depth(2))
@@ -253,28 +307,34 @@
               <--(6,retval(x))
             <--(5,retval(['K',x,['K',x]]))
         <--(0,retval('True'))
-; Evaluation took 2.64 ms.
-<span class="ansi33"> True
+; Trace took 1.29 ms.
+; Evaluation took 3.03 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (eq Green Blue) ((eq Green Blue)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (eq Green Blue) 
+  ( (eq Green Blue)))
 
-</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.06">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.06</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B1-EQUAL-CHAIN.06">;; TEST-SCRIPTS.B1-EQUAL-CHAIN.06</h3>
+; 
+; EVAL TEST
+; took 0.119 ms. (118.60 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (eq Green Blue)) 
     ( (eq Green Blue))))
 </span>        -->(0,'&self',[eq,'Green','Blue'],depth(2))
-; Evaluation took 1.18 ms.
-<span class="ansi33"> True
+; Trace took 0.169 ms. (168.90 microseconds) 
+; Evaluation took 1.47 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 161,652 inferences, 0.155 CPU in 0.155 seconds (100% CPU, 1045095 Lips)
-</span> (@ = "examples/compat/test_scripts/b1_equal_chain.metta" 0)
+</span><span class="ansi32">% 388,477 inferences, 0.271 CPU in 0.271 seconds (100% CPU, 1433278 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 6
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b1_equal_chain.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b1_equal_chain.html" )
 
 </pre>
 </body>

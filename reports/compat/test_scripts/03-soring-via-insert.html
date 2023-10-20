@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -50,7 +49,23 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/03-soring-via-insert.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta')
+1=[]
+2=[]
+3=[(Error (assertEqual (insert 2 (insert 1 ())) (Cons 1 (Cons 2 Nil))) 
+4=Expected: [(Cons 1 (Cons 2 Nil))]
+4=Got: [(insert 2 (insert 1 ()))]
+4=Missed result: (Cons 1 (Cons 2 Nil)))]
+4=0.11user 0.00system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 28772maxresident)k
+4=0inputs+0outputs (0major+3279minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta', 3, "[(Error (assertEqual (insert 2 (insert 1 ())) (Cons 1 (Cons 2 Nil))) ").
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ; sorted lists
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -111,37 +126,56 @@
         (insert $X $Tail))))
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (Cons 1 ()) (Cons 1 ()))
+<span class="ansi38-000068000">!(assertEqual 
+  (Cons 1 ()) 
+  (Cons 1 ()))
 
-</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.01">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.01">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.01</h3>
+; 
+; EVAL TEST
+; took 0.133 ms. (133.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons 1 ())) 
     ( (Cons 1 ()))))
 </span>        -->(0,'&self',['Cons',1,[]],depth(2))
         -->(1,'&self',['Cons',1,[]],depth(2))
-; Evaluation took 1.22 ms.
-<span class="ansi33"> True
+; Trace took 0.216 ms. (215.80 microseconds) 
+; Evaluation took 1.46 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (insert 1 ()) (Cons 1 ()))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (insert 1 ()) 
+  (Cons 1 ()))
 
-</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.02">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.02">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.02</h3>
+; 
+; EVAL TEST
+; took 0.193 ms. (193.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons 1 ())) 
     ( (Cons 1 ()))))
 </span>        -->(0,'&self',[insert,1,[]],depth(2))
           -->(1,'&self',['Cons',1,[]],depth(3))
         <--(0,retval(['Cons',1,[]]))
         -->(2,'&self',['Cons',1,[]],depth(2))
-; Evaluation took 1.14 ms.
-<span class="ansi33"> True
+; Trace took 0.293 ms. (292.60 microseconds) 
+; Evaluation took 1.61 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (insert 2 (insert 1 ())) (Cons 1 (Cons 2 ())))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (insert 2 
+    (insert 1 ())) 
+  (Cons 1 
+    (Cons 2 ())))
 
-</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.03">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.03">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.03</h3>
+; 
+; EVAL TEST
+; took 1.24 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons 1 
         (Cons 2 ()))) 
     ( (Cons 1 
@@ -187,14 +221,22 @@
         <--(0,retval([if,[<,2,1],['Cons',2,['Cons',1,[]]],['Cons',1,[insert,2,[]]]]))
         -->(27,'&self',['Cons',1,['Cons',2,[]]],depth(2))
             -->(28,'&self',['Cons',2,[]],depth(4))
-; Evaluation took 5.26 ms.
-<span class="ansi33"> True
+; Trace took 4.33 ms.
+; Evaluation took 6.91 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (insert 1 (insert 2 ())) (Cons 1 (Cons 2 ())))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (insert 1 
+    (insert 2 ())) 
+  (Cons 1 
+    (Cons 2 ())))
 
-</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.04">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.04">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.04</h3>
+; 
+; EVAL TEST
+; took 1.04 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons 1 
         (Cons 2 ()))) 
     ( (Cons 1 
@@ -230,14 +272,24 @@
         <--(0,retval([if,[<,1,2],['Cons',1,['Cons',2,[]]],['Cons',2,[insert,1,[]]]]))
         -->(21,'&self',['Cons',1,['Cons',2,[]]],depth(2))
             -->(22,'&self',['Cons',2,[]],depth(4))
-; Evaluation took 4.32 ms.
-<span class="ansi33"> True
+; Trace took 3.30 ms.
+; Evaluation took 5.67 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (insert 3 (insert 2 (insert 1 ()))) (Cons 1 (Cons 2 (Cons 3 ()))))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (insert 3 
+    (insert 2 
+      (insert 1 ()))) 
+  (Cons 1 
+    (Cons 2 
+      (Cons 3 ()))))
 
-</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.05">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.03-SORING-VIA-INSERT.05">;; TEST-SCRIPTS.03-SORING-VIA-INSERT.05</h3>
+; 
+; EVAL TEST
+; took 4.50 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons 1 
         (Cons 2 
           (Cons 3 ())))) 
@@ -369,17 +421,17 @@
         -->(86,'&self',['Cons',1,['Cons',2,['Cons',3,[]]]],depth(2))
             -->(87,'&self',['Cons',2,['Cons',3,[]]],depth(4))
                 -->(88,'&self',['Cons',3,[]],depth(6))
-; Evaluation took 14.69 ms.
-<span class="ansi33"> True
+; Trace took 11.99 ms.
+; Evaluation took 17.93 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 192,394 inferences, 0.074 CPU in 0.074 seconds (100% CPU, 2596932 Lips)
-</span> (@ = "examples/compat/test_scripts/03-soring-via-insert.metta" 0)
+</span><span class="ansi32">% 427,519 inferences, 0.164 CPU in 0.164 seconds (100% CPU, 2603497 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/03-soring-via-insert.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/03-soring-via-insert.html" )
 
 </pre>
 </body>

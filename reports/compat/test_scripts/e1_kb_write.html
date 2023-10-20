@@ -52,34 +52,58 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/e1_kb_write.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta')
+1=[]
+2=[]
+3=[(Error (assertEqualToResult (ift (green $x) (add-atom GroundingSpace-0x24f0318 (Green $x))) (() ())) 
+4=Expected: [(), ()]
+4=Got: []
+4=Missed result: ())]
+4=0.11user 0.01system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 28472maxresident)k
+4=0inputs+0outputs (0major+3277minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta', 3, "[(Error (assertEqualToResult (ift (green $x) (add-atom GroundingSpace-0x24f0318 (Green $x))) (() ())) ").
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MeTTa allows to use a separate knowledge base (Space) &kb
 ;; to accumulate inferred knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (let $X (+ 2 3) (* $X $X)) (25))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (let $X 
+    (+ 2 3) 
+    (* $X $X)) 
+  (25))
 
-</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.01">;; TEST-SCRIPTS.E1-KB-WRITE.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.01">;; TEST-SCRIPTS.E1-KB-WRITE.01</h3>
+; 
+; EVAL TEST
+; took 0.332 ms. (331.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (25) 
     (25)))
-</span>        -->(0,'&self',[let,_16700,[+,2,3],[*,_16700,_16700]],depth(2))
+</span>        -->(0,'&self',[let,_353696,[+,2,3],[*,_353696,_353696]],depth(2))
             -->(1,'&self',[+,2,3],depth(4))
+            <--(1,retval(5))
             -->(2,'&self',[*,5,5],depth(4))
             <--(2,retval(25))
-            <--(1,retval(5))
         <--(0,retval(25))
-; Evaluation took 1.72 ms.
-<span class="ansi33"> True
+; Trace took 0.600 ms. (599.70 microseconds) 
+; Evaluation took 2.41 ms.
+<span class="ansi33"> Empty
 
 </span>; Bind &kb to a new empty Space
-<span class="ansi38-000068000">!(bind! &kb (new-space))
+<span class="ansi38-000068000">!(bind! &kb 
+  (new-space))
 
-</span>; Evaluation took 0.413 ms. (413.40 microseconds) 
-<span class="ansi33"> (@ Space ())
- % 'Space'([])
+</span>; Evaluation took 0.326 ms. (325.80 microseconds) 
+<span class="ansi33"> Empty
 
 </span>; Some knowledge
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[frog,X],[and,[croaks,X],[eat_flies,X]])
@@ -129,62 +153,79 @@
 
 ; For anything that is green, assert it is Green in &kb
 ; There should be two green things
-<span class="ansi38-000068000">!(assertEqualToResult (ift (green $X) (add-atom &kb (Green $X))) (() ()))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (ift 
+    (green $X) 
+    (add-atom &kb 
+      (Green $X))) 
+  (() ()))
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&kb',['Green','Fritz'])
+</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.02">;; TEST-SCRIPTS.E1-KB-WRITE.02</h3>
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&kb',['Green','Fritz'])
 </span><span class="ansi38-255165000">  (Green Fritz)
 </span>
 
-<h3 id="TEST-SCRIPTS.E1-KB-WRITE.02">;; TEST-SCRIPTS.E1-KB-WRITE.02</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
+; 
+; EVAL TEST
+; took 1.06 ms.
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
     (True) 
     (())))
-</span>        -->(0,'&self',[ift,[green,_145398],['add-atom','&kb',['Green',_145398]]],depth(2))
-            -->(1,'&self',[green,_145398],depth(4))
-              -->(2,'&self',[frog,_145398],depth(5))
-                -->(3,'&self',[and,[croaks,_145398],[eat_flies,_145398]],depth(6))
-                    -->(4,'&self',[croaks,_145398],depth(8))
+</span>        -->(0,'&self',[ift,[green,_487120],['add-atom','&kb',['Green',_487120]]],depth(2))
+            -->(1,'&self',[green,_487120],depth(4))
+              -->(2,'&self',[frog,_487120],depth(5))
+                -->(3,'&self',[and,[croaks,_487120],[eat_flies,_487120]],depth(6))
+                    -->(4,'&self',[croaks,_487120],depth(8))
                     -->(5,'&self',[eat_flies,'Fritz'],depth(8))
+                    <--(5,retval('True'))
+                    <--(4,retval('True'))
+                <--(3,retval('True'))
             -->(6,'&self',['add-atom','&kb',['Green','Fritz']],depth(4))
-                -->(7,'&self',['Green','Fritz'],depth(6))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&kb',['Green','Fritz'])
 </span><span class="ansi38-255165000">  (Green Fritz)
 </span>
 
             <--(6,retval('True'))
-          -->(8,'&self',[ift,'True','True'],depth(3))
-          <--(8,retval('True'))
-                    <--(5,retval('True'))
-                    <--(4,retval('True'))
-                <--(3,retval('True'))
-              <--(2,retval([and,[croaks,_160410],[eat_flies,_160410]]))
-            <--(1,retval([frog,_159942]))
+          -->(7,'&self',[ift,'True','True'],depth(3))
+          <--(7,retval('True'))
+              <--(2,retval([and,[croaks,_498234],[eat_flies,_498234]]))
+            <--(1,retval([frog,_497766]))
         <--(0,retval([ift,'True','True']))
-; Evaluation took 3.63 ms.
-<span class="ansi33"> False
+; Trace took 1.85 ms.
+; Evaluation took 4.74 ms.
+<span class="ansi33">  (got True expected 
+    (()))
 
 </span>; Retrieve the inferred Green things: Fritz and Sam.
-<span class="ansi38-000068000">!(assertEqualToResult (match &kb (Green $X) $X) (Fritz Sam))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &kb 
+    (Green $X) $X) 
+  (Fritz Sam))
 
-</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.03">;; TEST-SCRIPTS.E1-KB-WRITE.03</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.E1-KB-WRITE.03">;; TEST-SCRIPTS.E1-KB-WRITE.03</h3>
+; 
+; EVAL TEST
+; took 0.049 ms. (48.60 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
     (Fritz) 
     (Fritz Sam)))
-</span>        -->(0,'&self',[match,'&kb',['Green',_180248],_180248],depth(2))
+</span>        -->(0,'&self',[match,'&kb',['Green',_3584],_3584],depth(2))
         <--(0,retval('Fritz'))
-; Evaluation took 1.03 ms.
-<span class="ansi33"> False
+; Trace took 0.156 ms. (156.20 microseconds) 
+; Evaluation took 2.03 ms.
+<span class="ansi33">  (got 
+    (Fritz) expected 
+    (Fritz Sam))
 
-</span><span class="ansi32">% 84,776 inferences, 0.042 CPU in 0.042 seconds (100% CPU, 2020304 Lips)
-</span> (@ = "examples/compat/test_scripts/e1_kb_write.metta" 0)
+</span><span class="ansi32">% 308,838 inferences, 0.132 CPU in 0.132 seconds (100% CPU, 2347121 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 2
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/e1_kb_write.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/e1_kb_write.html" )
 
 </pre>
 </body>

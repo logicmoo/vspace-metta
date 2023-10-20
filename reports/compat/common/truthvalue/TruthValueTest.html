@@ -9,6 +9,8 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
@@ -302,15 +304,40 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/common/truthvalue/TruthValueTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta')
+1=[]
+2=[0.9090909090909091]
+3=[9.000000000000002]
+4=[0.1]
+5=[0.14]
+6=[0.2]
+7=[9.000000000000002]
+8=0.18user 0.00system 0:00.18elapsed 99%CPU (0avgtext+0avgdata 29416maxresident)k
+8=0inputs+0outputs (0major+3555minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 2, [0.9090909090909091]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 3, [9.000000000000002]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 4, [0.1]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 5, [0.14]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 6, [0.2]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta', 7, [9.000000000000002]).
+
 ;;; Import TruthValue
 <span class="ansi38-000068000">!(import! &self TruthValue.metta)
 
-</span>;;; Truth value type definition
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta')
+;;; Truth value type definition
 ;; Import modules
 <span class="ansi38-000068000">!(import! &self "../Num.metta")
 
-</span>;;;;;;;;;;
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta')
+;;;;;;;;;;
 ;; Type ;;
 ;;;;;;;;;;
 ;;; Collection of functions operating on numbers
@@ -580,8 +607,8 @@
           (S $Y)))))
 </span>
 
-; Evaluation took 261.61 ms.
-<span class="ansi33"> &self
+; Evaluation took 273.57 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'TruthValue','Type'])
 </span><span class="ansi38-255165000">  (: TruthValue Type)
@@ -989,48 +1016,216 @@
         (+ $A $B))))
 </span>
 
-; Evaluation took 1078.76 ms.
-<span class="ansi33"> &self
+; Evaluation took 1113.22 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-000068000">!(count->confidence 10)
 
-</span>; Evaluation took 0.499 ms. (498.80 microseconds) 
+</span>; Evaluation took 0.464 ms. (463.70 microseconds) 
 <span class="ansi33"> 0.9090909090909091
 
-</span>; 0.9090909090909091
+</span>; Evaluation took 0.731 ms. (731.00 microseconds) 
+<span class="ansi33"> 0.9090909090909091
+
+</span>; Evaluation took 1.06 ms.
+<span class="ansi33"> 0.9090909090909091
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (count->confidence 10) 
+    (9.000000000000002))
+(@ ! 
+  (assertEqual 
+    (0.9090909090909091 0.9090909090909091 0.9090909090909091) 
+    (9.000000000000002)))
+write_pass_fail_result("TRUTHVALUE.TRUTHVALUETEST.103",exec,['count->confidence',10],'FAIL',[9.000000000000002],[0.9090909090909091,0.9090909090909091,0.9090909090909091])
+
+</span>
+
+--------------------------------------------------------------------------
+; 0.9090909090909091
 <span class="ansi38-000068000">!(confidence->count 0.9)
 
-</span>; Evaluation took 1.14 ms.
+</span>; Evaluation took 1.49 ms.
 <span class="ansi33"> 9.000000000000002
 
-</span>; 9.000000000000002
-<span class="ansi38-000068000">!(mode (STV 0.1 0.2))
+</span>; Evaluation took 1.83 ms.
+<span class="ansi33"> 9.000000000000002
 
-</span>; Evaluation took 0.199 ms. (199.00 microseconds) 
+</span>; Evaluation took 2.28 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 2.75 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 4.23 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 4.55 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 4.87 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 5.29 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 7.36 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 7.67 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 7.97 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 8.41 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (confidence->count 0.9) 
+    (0.1))
+(@ ! 
+  (assertEqual 
+    (9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002) 
+    (0.1)))
+write_pass_fail_result("TRUTHVALUE.TRUTHVALUETEST.104",exec,['confidence->count',0.9],'FAIL',[0.1],[9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002,9.000000000000002])
+
+</span>
+
+--------------------------------------------------------------------------
+; 9.000000000000002
+<span class="ansi38-000068000">!(mode 
+  (STV 0.1 0.2))
+
+</span>; Evaluation took 0.119 ms. (118.80 microseconds) 
 <span class="ansi33"> 0.1
 
-</span>; 0.1
-<span class="ansi38-000068000">!(mean (STV 0.1 0.9))
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (mode 
+      (STV 0.1 0.2)) 
+    (0.14))
+(@ ! 
+  (assertEqual 
+    (0.1) 
+    (0.14)))
+write_pass_fail_result("TRUTHVALUE.TRUTHVALUETEST.105",exec,[mode,['STV',0.1,0.2]],'FAIL',[0.14],[0.1])
 
-</span>; Evaluation took 4.12 ms.
+</span>
+
+--------------------------------------------------------------------------
+; 0.1
+<span class="ansi38-000068000">!(mean 
+  (STV 0.1 0.9))
+
+</span>; Evaluation took 4.07 ms.
 <span class="ansi33"> 0.14
 
-</span>; 0.14
-<span class="ansi38-000068000">!(confidence (STV 0.1 0.2))
+</span>; Evaluation took 4.39 ms.
+<span class="ansi33"> 0.14
 
-</span>; Evaluation took 0.157 ms. (156.60 microseconds) 
+</span>; Evaluation took 6.35 ms.
+<span class="ansi33"> 0.14
+
+</span>; Evaluation took 6.69 ms.
+<span class="ansi33"> 0.14
+
+</span>; Evaluation took 10.33 ms.
+<span class="ansi33"> 0.14
+
+</span>; Evaluation took 10.74 ms.
+<span class="ansi33"> 0.14
+
+</span>; Evaluation took 12.84 ms.
+<span class="ansi33"> 0.14
+
+</span>; Evaluation took 13.18 ms.
+<span class="ansi33"> 0.14
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (mean 
+      (STV 0.1 0.9)) 
+    (0.2))
+(@ ! 
+  (assertEqual 
+    (0.14 0.14 0.14 0.14 0.14 0.14 0.14 0.14) 
+    (0.2)))
+write_pass_fail_result("TRUTHVALUE.TRUTHVALUETEST.106",exec,[mean,['STV',0.1,0.9]],'FAIL',[0.2],[0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14])
+
+</span>
+
+--------------------------------------------------------------------------
+; 0.14
+<span class="ansi38-000068000">!(confidence 
+  (STV 0.1 0.2))
+
+</span>; Evaluation took 0.115 ms. (115.10 microseconds) 
 <span class="ansi33"> 0.2
 
-</span>; 0.2
-<span class="ansi38-000068000">!(count (STV 0.1 0.9))
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (confidence 
+      (STV 0.1 0.2)) 
+    (9.000000000000002))
+(@ ! 
+  (assertEqual 
+    (0.2) 
+    (9.000000000000002)))
+write_pass_fail_result("TRUTHVALUE.TRUTHVALUETEST.107",exec,[confidence,['STV',0.1,0.2]],'FAIL',[9.000000000000002],[0.2])
+
+</span>
+
+--------------------------------------------------------------------------
+; 0.2
+<span class="ansi38-000068000">!(count 
+  (STV 0.1 0.9))
 
 </span>; Evaluation took 1.21 ms.
 <span class="ansi33"> 9.000000000000002
 
-</span><span class="ansi32">% 933,548 inferences, 1.165 CPU in 1.166 seconds (100% CPU, 801016 Lips)
-</span> (@ = "examples/compat/common/truthvalue/TruthValueTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/common/truthvalue/TruthValueTest.html" )
+</span>; Evaluation took 1.54 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 1.94 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 2.37 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 3.86 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 4.17 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 4.55 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 5.03 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 7.23 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 7.52 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 7.91 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span>; Evaluation took 8.40 ms.
+<span class="ansi33"> 9.000000000000002
+
+</span><span class="ansi32">% 1,026,408 inferences, 1.271 CPU in 1.271 seconds (100% CPU, 807436 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 5
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/truthvalue/TruthValueTest.html" )
 
 </pre>
 </body>

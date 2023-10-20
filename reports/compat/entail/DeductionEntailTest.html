@@ -36,29 +36,39 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/entail/DeductionEntailTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta')
+1=[]
+2=[]
+3=0.08user 0.00system 0:00.09elapsed 100%CPU (0avgtext+0avgdata 28668maxresident)k
+3=0inputs+0outputs (0major+3328minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta', 2, []).
+
 ;;; Test Deduction Entail Rule
 <span class="ansi38-000068000">!(import! &self DeductionEntail.metta)
 
-</span>;;; MeTTa port for deduction PLN rule
-;;; as the entail relationship, â¢
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta')
+;;; MeTTa port for deduction PLN rule
+;;; as the entail relationship, ⊢
 ;;;
-;;; (â P ptv)
-;;; (â Q qtv)
-;;; (â R rtv)
-;;; (â (â P Q) tv1)
-;;; (â (â Q R) tv2)
-;;; â¢
-;;; (â (â P R) TV)
+;;; (≞ P ptv)
+;;; (≞ Q qtv)
+;;; (≞ R rtv)
+;;; (≞ (→ P Q) tv1)
+;;; (≞ (→ Q R) tv2)
+;;; ⊢
+;;; (≞ (→ P R) TV)
 ;;;
 ;;; where ptv, qtv, rtv, tv1 and tv2 are truth values of the
-;;; premises P, Q, R, (â P Q) and (â Q R) respectively.
+;;; premises P, Q, R, (→ P Q) and (→ Q R) respectively.
 ;;; TV represents the resulting truth value of the conclusion.
 ;; Import formula functions
 <span class="ansi38-000068000">!(import! &self "../common/DeductionFormula.metta")
-
-</span>; Evaluation took 0.100 ms. (100.20 microseconds) 
-<span class="ansi33">  (import! &self "../common/DeductionFormula.metta")
 
 </span>;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
@@ -77,8 +87,8 @@
       (ded_formula $Ptv $Qtv $Rtv $Pqtv $Qrtv)))
 </span>
 
-; Evaluation took 8.80 ms.
-<span class="ansi33"> &self
+; Evaluation took 17.39 ms.
+<span class="ansi33"> Empty
 
 </span>;; premises
 ;; conclusion
@@ -120,9 +130,21 @@
 </span>
 
 ;; Forward chain
-<span class="ansi38-000068000">!(let* (($P (P)) ($Q (Q)) ($R (R)) ($Pq (PQ)) ($Qr (QR))) (match &self (â¢ $P $Q $R $Pq $Qr $Res) $Res))
+<span class="ansi38-000068000">!(let* 
+  ( ($P 
+      (P)) 
+    ($Q 
+      (Q)) 
+    ($R 
+      (R)) 
+    ($Pq 
+      (PQ)) 
+    ($Qr 
+      (QR))) 
+  (match &self 
+    (â¢ $P $Q $R $Pq $Qr $Res) $Res))
 
-</span>; Evaluation took 18.51 ms.
+</span>; Evaluation took 27.17 ms.
 <span class="ansi33">  (â 
     (â P R) 
     (ded_formula 
@@ -134,10 +156,9 @@
 </span><span class="ansi32">['Res'=['â\x89\\x9E\',['â\x86\\x92\','P','R'],[ded_formula,['PrCnt',1,0.1],['PrCnt',1,0.1],['PrCnt',1,0.1],['PrCnt',1,0.5],['PrCnt',1,0.5]]],'Qr'=['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]],'Pq'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]],'R'=['â\x89\\x9E\','R',['PrCnt',1,0.1]],'Q'=['â\x89\\x9E\','Q',['PrCnt',1,0.1]],'P'=['â\x89\\x9E\','P',['PrCnt',1,0.1]]]
 </span>
 
-<span class="ansi32">% 172,714 inferences, 0.051 CPU in 0.051 seconds (100% CPU, 3386795 Lips)
-</span> (@ = "examples/compat/entail/DeductionEntailTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/entail/DeductionEntailTest.html" )
+<span class="ansi32">% 410,686 inferences, 0.159 CPU in 0.159 seconds (100% CPU, 2574927 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/DeductionEntailTest.html" )
 
 </pre>
 </body>

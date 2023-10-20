@@ -67,7 +67,28 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/d3_deptypes.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=[]
+7=[]
+8=0.12user 0.02system 0:00.14elapsed 100%CPU (0avgtext+0avgdata 28616maxresident)k
+8=0inputs+0outputs (0major+3291minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 6, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta', 7, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; A classical example of dependent types
@@ -108,25 +129,40 @@
 </span>
 
 ; We can query the derived type
-<span class="ansi38-000068000">!(assertEqual (get-type (Cons 0 (Cons 1 ()))) (Vec Number (S (S Z))))
+<span class="ansi38-000068000">!(assertEqual 
+  (get-type 
+    (Cons 0 
+      (Cons 1 ()))) 
+  (Vec Number 
+    (S 
+      (S Z))))
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.01">;; TEST-SCRIPTS.D3-DEPTYPES.01</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.01">;; TEST-SCRIPTS.D3-DEPTYPES.01</h3>
+; 
+; EVAL TEST
+; took 0.591 ms. (591.00 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     ( (Vec Number 
         (S 
           (S Z))))))
 </span>        -->(0,'&self',['get-type',['Cons',0,['Cons',1,[]]]],depth(2))
+            -->(1,'&self',['Cons',0,['Cons',1,[]]],depth(4))
+                -->(2,'&self',['Cons',1,[]],depth(6))
+              -->(3,'&self',['Cons',1,[]],depth(5))
+                -->(4,'&self',['Cons',1,[]],depth(6))
+              -->(5,'&self',['Cons',0,['Cons',1,[]]],depth(5))
+                  -->(6,'&self',['Cons',1,[]],depth(7))
         <--(0,retval(fail))
-        -->(1,'&self',['Vec','Number',['S',['S','Z']]],depth(2))
-            -->(2,'&self',['S','Z'],depth(4))
-            -->(3,'&self',['S','Z'],depth(4))
-            -->(4,'&self',['S',['S','Z']],depth(4))
-                -->(5,'&self',['S','Z'],depth(6))
-                -->(6,'&self',['S','Z'],depth(6))
-                -->(7,'&self',['S','Z'],depth(6))
-; Evaluation took 2.49 ms.
-<span class="ansi33"> False
+        -->(7,'&self',['Vec','Number',['S',['S','Z']]],depth(2))
+            -->(8,'&self',['S',['S','Z']],depth(4))
+                -->(9,'&self',['S','Z'],depth(6))
+; Trace took 1.17 ms.
+; Evaluation took 3.53 ms.
+<span class="ansi33">  (got () expected 
+    ( (Vec Number 
+        (S 
+          (S Z)))))
 
 </span>; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,drop,[->,['Vec',True,['S',X]],['Vec',True,X]]])
@@ -144,24 +180,50 @@
 </span>
 
 ; Query type
-<span class="ansi38-000068000">!(assertEqual (get-type (drop (Cons 1 ()))) (Vec Number Z))
+<span class="ansi38-000068000">!(assertEqual 
+  (get-type 
+    (drop 
+      (Cons 1 ()))) 
+  (Vec Number Z))
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.02">;; TEST-SCRIPTS.D3-DEPTYPES.02</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.02">;; TEST-SCRIPTS.D3-DEPTYPES.02</h3>
+; 
+; EVAL TEST
+; took 0.637 ms. (636.60 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (Z) 
     ( (Vec Number Z))))
 </span>        -->(0,'&self',['get-type',[drop,['Cons',1,[]]]],depth(2))
-        <--(0,retval(fail))
-        -->(1,'&self',['Vec','Number','Z'],depth(2))
-; Evaluation took 1.32 ms.
-<span class="ansi33"> False
+            -->(1,'&self',[drop,['Cons',1,[]]],depth(4))
+                -->(2,'&self',['Cons',1,[]],depth(6))
+            <--(1,retval([]))
+              -->(3,'&self',['Cons',1,[]],depth(5))
+                -->(4,'&self',['Cons',1,[]],depth(6))
+              -->(5,'&self',[drop,['Cons',1,[]]],depth(5))
+                  -->(6,'&self',['Cons',1,[]],depth(7))
+              <--(5,retval([]))
+        <--(0,retval('Z'))
+        -->(7,'&self',['Vec','Number','Z'],depth(2))
+; Trace took 1.45 ms.
+; Evaluation took 3.66 ms.
+<span class="ansi33">  (got 
+    (Z) expected 
+    ( (Vec Number Z)))
 
 </span>; Check length after dropping
-<span class="ansi38-000068000">!(assertEqual (drop (Cons 2 (Cons 1 ()))) (Cons 1 ()))
+<span class="ansi38-000068000">!(assertEqual 
+  (drop 
+    (Cons 2 
+      (Cons 1 ()))) 
+  (Cons 1 ()))
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.03">;; TEST-SCRIPTS.D3-DEPTYPES.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.03">;; TEST-SCRIPTS.D3-DEPTYPES.03</h3>
+; 
+; EVAL TEST
+; took 0.423 ms. (423.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons 1 ())) 
     ( (Cons 1 ()))))
 </span>        -->(0,'&self',[drop,['Cons',2,['Cons',1,[]]]],depth(2))
@@ -169,19 +231,28 @@
           -->(2,'&self',['Cons',1,[]],depth(3))
         <--(0,retval(['Cons',1,[]]))
         -->(3,'&self',['Cons',1,[]],depth(2))
-; Evaluation took 1.66 ms.
-<span class="ansi33"> True
+; Trace took 0.696 ms. (695.80 microseconds) 
+; Evaluation took 2.57 ms.
+<span class="ansi33"> Empty
 
 </span>; Types can protect against misuse, like dropping from empty Vec
-<span class="ansi38-000068000">!(assertEqualToResult (get-type (drop ())) ())
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (get-type 
+    (drop ())) ())
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.04">;; TEST-SCRIPTS.D3-DEPTYPES.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  () ()))
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.04">;; TEST-SCRIPTS.D3-DEPTYPES.04</h3>
+; 
+; EVAL TEST
+; took 0.405 ms. (405.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  () ()))
 </span>        -->(0,'&self',['get-type',[drop,[]]],depth(2))
+            -->(1,'&self',[drop,[]],depth(4))
+              -->(2,'&self',[drop,[]],depth(5))
         <--(0,retval(fail))
-; Evaluation took 0.967 ms. (966.60 microseconds) 
-<span class="ansi33"> True
+; Trace took 0.686 ms. (685.90 microseconds) 
+; Evaluation took 2.19 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -209,18 +280,32 @@
 </span>
 
 ; When querying types, grounded ops are reduced
-<span class="ansi38-000068000">!(assertEqual (get-type (ConsN "1" (ConsN "2" NilN))) (VecN String 2))
+<span class="ansi38-000068000">!(assertEqual 
+  (get-type 
+    (ConsN "1" 
+      (ConsN "2" NilN))) 
+  (VecN String 2))
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.05">;; TEST-SCRIPTS.D3-DEPTYPES.05</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
-    (1) 
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.05">;; TEST-SCRIPTS.D3-DEPTYPES.05</h3>
+; 
+; EVAL TEST
+; took 0.546 ms. (545.70 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     ( (VecN String 2))))
 </span>        -->(0,'&self',['get-type',['ConsN',"1",['ConsN',"2",'NilN']]],depth(2))
-        <--(0,retval(1))
-        -->(1,'&self',['VecN','String',2],depth(2))
-; Evaluation took 1.42 ms.
-<span class="ansi33"> False
+            -->(1,'&self',['ConsN',"1",['ConsN',"2",'NilN']],depth(4))
+                -->(2,'&self',['ConsN',"2",'NilN'],depth(6))
+              -->(3,'&self',['ConsN',"2",'NilN'],depth(5))
+                -->(4,'&self',['ConsN',"2",'NilN'],depth(6))
+              -->(5,'&self',['ConsN',"1",['ConsN',"2",'NilN']],depth(5))
+                  -->(6,'&self',['ConsN',"2",'NilN'],depth(7))
+        <--(0,retval(fail))
+        -->(7,'&self',['VecN','String',2],depth(2))
+; Trace took 1.23 ms.
+; Evaluation took 3.42 ms.
+<span class="ansi33">  (got () expected 
+    ( (VecN String 2)))
 
 </span>; Similarly, `-` reduces the length in `dropN` type.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,dropN,[->,['VecN',True,X],['VecN',True,[-,X,1]]]])
@@ -237,18 +322,29 @@
       (ConsN $X $Xs)) $Xs)
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (get-type (dropN (ConsN "1" NilN))) (VecN String 0))
+<span class="ansi38-000068000">!(assertEqual 
+  (get-type 
+    (dropN 
+      (ConsN "1" NilN))) 
+  (VecN String 0))
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.06">;; TEST-SCRIPTS.D3-DEPTYPES.06</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
-    (1) 
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.06">;; TEST-SCRIPTS.D3-DEPTYPES.06</h3>
+; 
+; EVAL TEST
+; took 0.279 ms. (279.50 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     ( (VecN String 0))))
 </span>        -->(0,'&self',['get-type',[dropN,['ConsN',"1",'NilN']]],depth(2))
-        <--(0,retval(1))
-        -->(1,'&self',['VecN','String',0],depth(2))
-; Evaluation took 1.53 ms.
-<span class="ansi33"> False
+            -->(1,'&self',[dropN,['ConsN',"1",'NilN']],depth(4))
+                -->(2,'&self',['ConsN',"1",'NilN'],depth(6))
+            <--(1,retval('NilN'))
+        <--(0,retval(fail))
+        -->(3,'&self',['VecN','String',0],depth(2))
+; Trace took 0.560 ms. (559.80 microseconds) 
+; Evaluation took 2.40 ms.
+<span class="ansi33">  (got () expected 
+    ( (VecN String 0)))
 
 </span>; TODO: doesn't work after type checking fixes
 ; However, without any validation, invalid lengths like -1 can be derived.
@@ -263,25 +359,30 @@
 
 ; Applying `dropN` to `NilN` is not badly typed, but it
 ; doesn't reduce, since there are no definitions for this case.
-<span class="ansi38-000068000">!(assertEqualToResult (dropN NilN) ((dropN NilN)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (dropN NilN) 
+  ( (dropN NilN)))
 
-</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.07">;; TEST-SCRIPTS.D3-DEPTYPES.07</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.D3-DEPTYPES.07">;; TEST-SCRIPTS.D3-DEPTYPES.07</h3>
+; 
+; EVAL TEST
+; took 0.111 ms. (111.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (dropN NilN)) 
     ( (dropN NilN))))
 </span>        -->(0,'&self',[dropN,'NilN'],depth(2))
-; Evaluation took 1.12 ms.
-<span class="ansi33"> True
+; Trace took 0.171 ms. (171.10 microseconds) 
+; Evaluation took 1.56 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 179,892 inferences, 0.175 CPU in 0.175 seconds (100% CPU, 1025869 Lips)
-</span> (@ = "examples/compat/test_scripts/d3_deptypes.metta" 0)
+</span><span class="ansi32">% 437,046 inferences, 0.278 CPU in 0.278 seconds (100% CPU, 1569739 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
 </span><span class="ansi31">Failures: 4
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/d3_deptypes.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/d3_deptypes.html" )
 
 </pre>
 </body>

@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -61,7 +60,28 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/a1_symbols.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=[]
+7=[]
+8=0.11user 0.00system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 28416maxresident)k
+8=0inputs+0outputs (0major+3270minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 6, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta', 7, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `match` searches for all expressions corresponding to
@@ -87,20 +107,28 @@
 ; `assertEqualToResult` checks all the results of the first
 ; expression; it doesn''t evaluate the second expression,
 ; which is treated as a set of expected results.
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    ( ($X leaf2) leaf3) $X) 
+  (leaf1 
+    (leaf0 leaf1)))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.01">;; TEST-SCRIPTS.A1-SYMBOLS.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.01">;; TEST-SCRIPTS.A1-SYMBOLS.01</h3>
+; 
+; EVAL TEST
+; took 0.268 ms. (268.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (leaf1 
       (leaf0 leaf1)) 
     (leaf1 
       (leaf0 leaf1))))
-</span>        -->(0,'&self',[match,'&self',[[_94910,leaf2],leaf3],_94910],depth(2))
+</span>        -->(0,'&self',[match,'&self',[[_426828,leaf2],leaf3],_426828],depth(2))
           -->(1,'&self',[leaf0,leaf1],depth(3))
         <--(0,retval([leaf0,leaf1]))
-; Evaluation took 1.70 ms.
-<span class="ansi33"> True
+; Trace took 0.297 ms. (297.10 microseconds) 
+; Evaluation took 2.09 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -119,24 +147,34 @@
 </span>
 
 ; `match` can bind more that one variable
-<span class="ansi38-000068000">!(assertEqualToResult (match &self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    ($Who is a $What) 
+    ($Who the $What)) 
+  ( (Sam the frog) 
+    (Tom the cat) 
+    (Sophia the robot)))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.02">;; TEST-SCRIPTS.A1-SYMBOLS.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.02">;; TEST-SCRIPTS.A1-SYMBOLS.02</h3>
+; 
+; EVAL TEST
+; took 0.339 ms. (339.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Sam the frog) 
       (Sophia the robot) 
       (Tom the cat)) 
     ( (Sam the frog) 
       (Sophia the robot) 
       (Tom the cat))))
-</span>        -->(0,'&self',[match,'&self',[_185190,is,a,_185512],[_185190,the,_185512]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[_2406,is,a,_2424],[_2406,the,_2424]],depth(2))
           -->(1,'&self',['Sam',the,frog],depth(3))
           -->(2,'&self',['Tom',the,cat],depth(3))
           -->(3,'&self',['Sophia',the,robot],depth(3))
         <--(0,retval(['Sophia',the,robot]))
-; Evaluation took 2.08 ms.
-<span class="ansi33"> True
+; Trace took 0.648 ms. (647.50 microseconds) 
+; Evaluation took 3.31 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -158,81 +196,104 @@
     (Green Tom) False)
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green $Who) True) ($Who is really green)) ((Sam is really green)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Green $Who) True) 
+    ($Who is really green)) 
+  ( (Sam is really green)))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.03">;; TEST-SCRIPTS.A1-SYMBOLS.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.03">;; TEST-SCRIPTS.A1-SYMBOLS.03</h3>
+; 
+; EVAL TEST
+; took 0.154 ms. (154.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Sam is really green)) 
     ( (Sam is really green))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Green',_260864],'True'],[_260864,is,really,green]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Green',_77948],'True'],[_77948,is,really,green]],depth(2))
           -->(1,'&self',['Sam',is,really,green],depth(3))
         <--(0,retval(['Sam',is,really,green]))
-; Evaluation took 1.53 ms.
-<span class="ansi33"> True
+; Trace took 0.294 ms. (293.50 microseconds) 
+; Evaluation took 1.76 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      ($Color $Who) True) 
+    ($Who is really $Color)) 
+  ( (Sam is really Green) 
+    (Tom is really White)))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.04">;; TEST-SCRIPTS.A1-SYMBOLS.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.04">;; TEST-SCRIPTS.A1-SYMBOLS.04</h3>
+; 
+; EVAL TEST
+; took 0.245 ms. (245.40 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Sam is really Green) 
       (Tom is really White)) 
     ( (Sam is really Green) 
       (Tom is really White))))
-</span>        -->(0,'&self',[match,'&self',[:=,[_297876,_298194],'True'],[_298194,is,really,_297876]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,[_119094,_119100],'True'],[_119100,is,really,_119094]],depth(2))
           -->(1,'&self',['Sam',is,really,'Green'],depth(3))
           -->(2,'&self',['Tom',is,really,'White'],depth(3))
         <--(0,retval(['Tom',is,really,'White']))
-; Evaluation took 1.89 ms.
-<span class="ansi33"> True
+; Trace took 0.498 ms. (498.00 microseconds) 
+; Evaluation took 2.32 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (:= ($Color $Who) $Tv) (It (quote s) $Tv that $Who is $Color)) ((It (quote s) True that Sam is Green) (It (quote s) True that Tom is White) (It (quote s) False that Tom is Green)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      ($Color $Who) $Tv) 
+    ("It's" $Tv that $Who is $Color)) 
+  ( ("It's" True that Sam is Green) 
+    ("It's" True that Tom is White) 
+    ("It's" False that Tom is Green)))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.05">;; TEST-SCRIPTS.A1-SYMBOLS.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
-    ( (It 
-        (quote s) False that Tom is Green) 
-      (It 
-        (quote s) True that Sam is Green) 
-      (It 
-        (quote s) True that Tom is White)) 
-    ( (It 
-        (quote s) False that Tom is Green) 
-      (It 
-        (quote s) True that Sam is Green) 
-      (It 
-        (quote s) True that Tom is White))))
-</span>        -->(0,'&self',[match,'&self',[:=,[_345308,_345626],_345932],['It',[quote,s],_345932,that,_345626,is,_345308]],depth(2))
-          -->(1,'&self',['It',[quote,s],'True',that,'Sam',is,'Green'],depth(3))
-              -->(2,'&self',[quote,s],depth(5))
-              -->(3,'&self',[quote,s],depth(5))
-              -->(4,'&self',[quote,s],depth(5))
-          -->(5,'&self',['It',[quote,s],'True',that,'Tom',is,'White'],depth(3))
-              -->(6,'&self',[quote,s],depth(5))
-              -->(7,'&self',[quote,s],depth(5))
-              -->(8,'&self',[quote,s],depth(5))
-          -->(9,'&self',['It',[quote,s],'False',that,'Tom',is,'Green'],depth(3))
-              -->(10,'&self',[quote,s],depth(5))
-              -->(11,'&self',[quote,s],depth(5))
-              -->(12,'&self',[quote,s],depth(5))
-        <--(0,retval(['It',[quote,s],'False',that,'Tom',is,'Green']))
-; Evaluation took 5.62 ms.
-<span class="ansi33"> True
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.05">;; TEST-SCRIPTS.A1-SYMBOLS.05</h3>
+; 
+; EVAL TEST
+; took 0.526 ms. (526.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( ("It's" False that Tom is Green) 
+      ("It's" True that Sam is Green) 
+      ("It's" True that Tom is White)) 
+    ( ("It's" False that Tom is Green) 
+      ("It's" True that Sam is Green) 
+      ("It's" True that Tom is White))))
+</span>        -->(0,'&self',[match,'&self',[:=,[_168080,_168086],_168092],['It\'s',_168092,that,_168086,is,_168080]],depth(2))
+          -->(1,'&self',['It\'s','True',that,'Sam',is,'Green'],depth(3))
+          -->(2,'&self',['It\'s','True',that,'Tom',is,'White'],depth(3))
+          -->(3,'&self',['It\'s','False',that,'Tom',is,'Green'],depth(3))
+        <--(0,retval(['It\'s','False',that,'Tom',is,'Green']))
+; Trace took 0.831 ms. (831.10 microseconds) 
+; Evaluation took 3.65 ms.
+<span class="ansi33"> Empty
 
 </span>; This type of query works as a sort of evaluation/reduction
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv) (False))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Green Tom) $Tv) $Tv) 
+  (False))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.06">;; TEST-SCRIPTS.A1-SYMBOLS.06</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.06">;; TEST-SCRIPTS.A1-SYMBOLS.06</h3>
+; 
+; EVAL TEST
+; took 0.062 ms. (61.90 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (False) 
     (False)))
-</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_398250],_398250],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Green','Tom'],_209762],_209762],depth(2))
         <--(0,retval('False'))
-; Evaluation took 1.17 ms.
-<span class="ansi33"> True
+; Trace took 0.144 ms. (143.60 microseconds) 
+; Evaluation took 1.22 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -250,26 +311,32 @@
 </span><span class="ansi38-255165000">  (isa blue color)
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (isa $Color color) $Color) (red green blue))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (isa $Color color) $Color) 
+  (red green blue))
 
-</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.07">;; TEST-SCRIPTS.A1-SYMBOLS.07</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A1-SYMBOLS.07">;; TEST-SCRIPTS.A1-SYMBOLS.07</h3>
+; 
+; EVAL TEST
+; took 0.051 ms. (50.90 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (blue green red) 
     (blue green red)))
-</span>        -->(0,'&self',[match,'&self',[isa,_437822,color],_437822],depth(2))
+</span>        -->(0,'&self',[match,'&self',[isa,_252376,color],_252376],depth(2))
         <--(0,retval(blue))
-; Evaluation took 1.56 ms.
-<span class="ansi33"> True
+; Trace took 0.193 ms. (192.60 microseconds) 
+; Evaluation took 1.48 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 190,804 inferences, 0.165 CPU in 0.165 seconds (100% CPU, 1157397 Lips)
-</span> (@ = "examples/compat/test_scripts/a1_symbols.metta" 0)
+</span><span class="ansi32">% 407,961 inferences, 0.268 CPU in 0.268 seconds (100% CPU, 1523298 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a1_symbols.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a1_symbols.html" )
 
 </pre>
 </body>

@@ -9,6 +9,8 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
@@ -179,33 +181,60 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta')
+1=[]
+2=[("========== Test formula ==========")]
+3=[(idi_formula (Bl True) (Bl False) (PrCnt 1 0))]
+4=[("========== Test axiom ==========")]
+5=[]
+6=[("========== Test inductive rule ==========")]
+7=[]
+8=0.08user 0.00system 0:00.08elapsed 100%CPU (0avgtext+0avgdata 29344maxresident)k
+8=0inputs+0outputs (0major+3483minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 2, [["========== Test formula =========="]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 3, [[idi_formula, ['Bl', 'True'], ['Bl', 'False'], ['PrCnt', 1, 0]]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 4, [["========== Test axiom =========="]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 6, [["========== Test inductive rule =========="]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta', 7, []).
+
 ;;; Test Implication Direct Introduction Entail Rule
 <span class="ansi38-000068000">!(import! &self ImplicationDirectIntroductionEntail.metta)
 
-</span>;; Test formula
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta')
+;; Test formula
 ;;; MeTTa port of the Implication Direct Introduction PLN rule, encoded
-;;; as the entail relationship, â¢
+;;; as the entail relationship, ⊢
 ;;;
-;;; (P aâ) â pâ
+;;; (P a₁) ≞ p₁
 ;;; ...
-;;; (P aâ) â pâ
-;;; (Q aâ) â qâ
+;;; (P aₙ) ≞ pₙ
+;;; (Q a₁) ≞ q₁
 ;;; ...
-;;; (Q aâ) â qâ
-;;; â¢
-;;; PâQ â tv
+;;; (Q aₙ) ≞ qₙ
+;;; ⊢
+;;; P→Q ≞ tv
 ;;;
-;;; where páµ¢ (resp. qáµ¢) are of boolean type representing whether (P aáµ¢)
-;;; (resp. (Q aáµ¢)) has been observed as True or False, and tv
+;;; where pᵢ (resp. qᵢ) are of boolean type representing whether (P aᵢ)
+;;; (resp. (Q aᵢ)) has been observed as True or False, and tv
 ;;; represents the resulting truth value of the conclusion.
 ;; Import modules
 <span class="ansi38-000068000">!(import! &self "../common/OrderedSet.metta")
 
-</span>;;; Import modules
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta')
+;;; Import modules
 <span class="ansi38-000068000">!(import! &self Num.metta)
 
-</span>;; Definition of a set data structure.  Under the hood it is a sorted
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta')
+;; Definition of a set data structure.  Under the hood it is a sorted
 ;; list without duplicates, thus called OrderedSet.  For now its
 ;; constructor :: is unconstrained, meaning it does not guaranty that
 ;; the constructed OrderedSet are sorted and without duplicates.
@@ -481,8 +510,8 @@
           (S $Y)))))
 </span>
 
-; Evaluation took 272.43 ms.
-<span class="ansi33"> &self
+; Evaluation took 288.93 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'OrderedSet',[->,A,'Type']])
 </span><span class="ansi38-255165000">  (: OrderedSet 
@@ -554,8 +583,8 @@
           (insert $X $True)))))
 </span>
 
-; Evaluation took 338.79 ms.
-<span class="ansi33"> &self
+; Evaluation took 362.06 ms.
+<span class="ansi33"> Empty
 
 </span>; Recursive case
 ; Present, no need to insert
@@ -564,13 +593,7 @@
 ; Recursive call
 <span class="ansi38-000068000">!(import! &self "../common/EvidentialTruthValue.metta")
 
-</span>; Evaluation took 0.113 ms. (112.80 microseconds) 
-<span class="ansi33">  (import! &self "../common/EvidentialTruthValue.metta")
-
 </span><span class="ansi38-000068000">!(import! &self "../common/ImplicationDirectIntroductionFormula.metta")
-
-</span>; Evaluation took 0.114 ms. (113.50 microseconds) 
-<span class="ansi33">  (import! &self "../common/ImplicationDirectIntroductionFormula.metta")
 
 </span>;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
@@ -615,8 +638,8 @@
         (idi_formula $Patv $Qtv $Pqtv))))
 </span>
 
-; Evaluation took 376.36 ms.
-<span class="ansi33"> &self
+; Evaluation took 402.59 ms.
+<span class="ansi33"> Empty
 
 </span>;; Premises
 ;; Conclusion
@@ -627,26 +650,62 @@
 ;; to relate inference tree and inference rules
 <span class="ansi38-000068000">!("========== Test formula ==========")
 
-</span>; Evaluation took 0.026 ms. (25.50 microseconds) 
+</span>; Evaluation took 0.022 ms. (22.00 microseconds) 
 <span class="ansi33">  ("========== Test formula ==========")
 
-</span><span class="ansi38-000068000">!(idi_formula (Bl True) (Bl False) (PrCnt 1 0))
+</span><span class="ansi31">
+! (assertEqualToResult 
+    ("========== Test formula ==========") 
+    ( ("========== Test inductive rule ==========")))
+(@ ! 
+  (assertEqual 
+    ( ("========== Test formula ==========")) 
+    ( ("========== Test inductive rule =========="))))
+write_pass_fail_result("ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.106",exec,["========== Test formula =========="],'FAIL',[["========== Test inductive rule =========="]],[["========== Test formula =========="]])
 
-</span>; Evaluation took 0.715 ms. (715.30 microseconds) 
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(idi_formula 
+  (Bl True) 
+  (Bl False) 
+  (PrCnt 1 0))
+
+</span>; Evaluation took 0.771 ms. (770.60 microseconds) 
 <span class="ansi33">  (idi_formula 
     (Bl True) 
     (Bl False) 
     (PrCnt 1 0))
 
-</span>;; Test axiom
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (idi_formula 
+      (Bl True) 
+      (Bl False) 
+      (PrCnt 1 0)) ())
+(@ ! 
+  (assertEqual 
+    ( (idi_formula 
+        (Bl True) 
+        (Bl False) 
+        (PrCnt 1 0))) ()))
+write_pass_fail_result("ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.107",exec,[idi_formula,['Bl','True'],['Bl','False'],['PrCnt',1,0]],'FAIL',[],[[idi_formula,['Bl','True'],['Bl','False'],['PrCnt',1,0]]])
+
+</span>
+
+--------------------------------------------------------------------------
+;; Test axiom
 <span class="ansi38-000068000">!("========== Test axiom ==========")
 
-</span>; Evaluation took 0.020 ms. (20.20 microseconds) 
+</span>; Evaluation took 0.019 ms. (18.60 microseconds) 
 <span class="ansi33">  ("========== Test axiom ==========")
 
-</span><span class="ansi38-000068000">!(match &self (â¢ (â (â P Q) $Tv)) $Tv)
+</span><span class="ansi38-000068000">!(match &self 
+  (â¢ 
+    (â 
+      (â P Q) $Tv)) $Tv)
 
-</span>; Evaluation took 0.451 ms. (451.30 microseconds) 
+</span>; Evaluation took 0.785 ms. (784.80 microseconds) 
 <span class="ansi33">  (ETV Empty 
     (PrCnt 1 0))
 </span><span class="ansi32">['Tv'=['ETV','Empty',['PrCnt',1,0]]]
@@ -655,26 +714,46 @@
 ;; Test inductive rule
 <span class="ansi38-000068000">!("========== Test inductive rule ==========")
 
-</span>; Evaluation took 0.025 ms. (25.10 microseconds) 
+</span>; Evaluation took 0.028 ms. (28.40 microseconds) 
 <span class="ansi33">  ("========== Test inductive rule ==========")
 
-</span><span class="ansi38-000068000">!(let* (($Pa (â (P 42) (Bl True))) ($Qa (â (Q 42) (Bl False))) ($Pq (â (â P Q) (ETV Empty (PrCnt 1 0)))) ($An (â 42 Empty))) (match &self (â¢ $Pa $Qa $Pq $An $Conclusion) $Conclusion))
+</span><span class="ansi38-000068000">!(let* 
+  ( ($Pa 
+      (â 
+        (P 42) 
+        (Bl True))) 
+    ($Qa 
+      (â 
+        (Q 42) 
+        (Bl False))) 
+    ($Pq 
+      (â 
+        (â P Q) 
+        (ETV Empty 
+          (PrCnt 1 0)))) 
+    ($An 
+      (â 42 Empty))) 
+  (match &self 
+    (â¢ $Pa $Qa $Pq $An $Conclusion) $Conclusion))
 
-</span>; Evaluation took 18.02 ms.
+</span>; Evaluation took 27.06 ms.
 <span class="ansi33">  (â 
     (â P Q) 
     (ETV 
       (insert 42 Empty) 
       (idi_formula 
-        (Bl True) $_90288 
+        (Bl True) $_85220 
         (PrCnt 1 0))))
-</span><span class="ansi32">['Conclusion'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['ETV',[insert,42,'Empty'],[idi_formula,['Bl','True'],_90288,['PrCnt',1,0]]]],'An'=['â\x88\\x89\',42,'Empty'],'Pq'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['ETV','Empty',['PrCnt',1,0]]],'Qa'=['â\x89\\x9E\',['Q',42],['Bl','False']],'Pa'=['â\x89\\x9E\',['P',42],['Bl','True']]]
+</span><span class="ansi32">['Conclusion'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['ETV',[insert,42,'Empty'],[idi_formula,['Bl','True'],_85220,['PrCnt',1,0]]]],'An'=['â\x88\\x89\',42,'Empty'],'Pq'=['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['ETV','Empty',['PrCnt',1,0]]],'Qa'=['â\x89\\x9E\',['Q',42],['Bl','False']],'Pa'=['â\x89\\x9E\',['P',42],['Bl','True']]]
 </span>
 
-<span class="ansi32">% 525,121 inferences, 0.433 CPU in 0.433 seconds (100% CPU, 1211399 Lips)
-</span> (@ = "examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/entail/ImplicationDirectIntroductionEntailTest.html" )
+<span class="ansi32">% 823,665 inferences, 0.575 CPU in 0.575 seconds (100% CPU, 1433571 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 2
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/entail/ImplicationDirectIntroductionEntailTest.html" )
 
 </pre>
 </body>

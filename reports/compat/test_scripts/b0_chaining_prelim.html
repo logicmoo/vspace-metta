@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -41,7 +40,24 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b0_chaining_prelim.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=0.08user 0.03system 0:00.11elapsed 99%CPU (0avgtext+0avgdata 28356maxresident)k
+6=0inputs+0outputs (0major+3273minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta', 5, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; From matching to evaluation of expressions via equality queries chaining
@@ -73,52 +89,80 @@
 </span>
 
 ; A single matching step
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) $R) ((K x (K x))))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (S K K x) $R) $R) 
+  ( (K x 
+      (K x))))
 
-</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.01">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.01">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.01</h3>
+; 
+; EVAL TEST
+; took 0.419 ms. (419.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (K x 
         (K x))) 
     ( (K x 
         (K x)))))
-</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_2632],_2632],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_424666],_424666],depth(2))
           -->(1,'&self',['K',x,['K',x]],depth(3))
               -->(2,'&self',['K',x],depth(5))
               -->(3,'&self',['K',x],depth(5))
               -->(4,'&self',['K',x],depth(5))
         <--(0,retval(['K',x,['K',x]]))
-; Evaluation took 2.37 ms.
-<span class="ansi33"> True
+; Trace took 0.778 ms. (778.00 microseconds) 
+; Evaluation took 2.63 ms.
+<span class="ansi33"> Empty
 
 </span>; A second matching step; the result of the previous
 ; step is manually used as input for the next query
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (K x (K x)) $R) $R) (x))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (K x 
+        (K x)) $R) $R) 
+  (x))
 
-</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.02">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.02">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.02</h3>
+; 
+; EVAL TEST
+; took 0.045 ms. (44.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (x) 
     (x)))
-</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_39172],_39172],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['K',x,['K',x]],_463948],_463948],depth(2))
         <--(0,retval(x))
-; Evaluation took 1.08 ms.
-<span class="ansi33"> True
+; Trace took 0.146 ms. (146.30 microseconds) 
+; Evaluation took 1.27 ms.
+<span class="ansi33"> Empty
 
 </span>; Combined reduction via matching in two steps
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2)) (x))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (S K K x) $R) 
+    (match &self 
+      (:= $R $R2) $R2)) 
+  (x))
 
-</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.03">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.03">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.03</h3>
+; 
+; EVAL TEST
+; took 0.061 ms. (60.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (x) 
     (x)))
-</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_74120],[match,'&self',[:=,_74120,_74744],_74744]],depth(2))
-          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_74744],_74744],depth(3))
+</span>        -->(0,'&self',[match,'&self',[:=,['S','K','K',x],_502882],[match,'&self',[:=,_502882,_502924],_502924]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_502924],_502924],depth(3))
           <--(1,retval(x))
-        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_83138],_83138]))
-; Evaluation took 1.35 ms.
-<span class="ansi33"> True
+        <--(0,retval([match,'&self',[:=,['K',x,['K',x]],_509258],_509258]))
+; Trace took 0.222 ms. (221.90 microseconds) 
+; Evaluation took 1.44 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -138,18 +182,29 @@
 </span>
 
 ; First step
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) $R) ((Add (S (S Z)) Z)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Add 
+        (S Z) 
+        (S Z)) $R) $R) 
+  ( (Add 
+      (S 
+        (S Z)) Z)))
 
-</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.04">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.04">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.04</h3>
+; 
+; EVAL TEST
+; took 0.746 ms. (746.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Add 
         (S 
           (S Z)) Z)) 
     ( (Add 
         (S 
           (S Z)) Z))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_125396],_125396],depth(2))
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_36254],_36254],depth(2))
           -->(1,'&self',['Add',['S',['S','Z']],'Z'],depth(3))
               -->(2,'&self',['S','Z'],depth(5))
               -->(3,'&self',['S',['S','Z']],depth(5))
@@ -161,38 +216,51 @@
                   -->(9,'&self',['S','Z'],depth(7))
                   -->(10,'&self',['S','Z'],depth(7))
         <--(0,retval(['Add',['S',['S','Z']],'Z']))
-; Evaluation took 3.66 ms.
-<span class="ansi33"> True
+; Trace took 1.60 ms.
+; Evaluation took 3.79 ms.
+<span class="ansi33"> Empty
 
 </span>; Two steps together
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2)) ((S (S Z))))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Add 
+        (S Z) 
+        (S Z)) $R) 
+    (match &self 
+      (:= $R $R2) $R2)) 
+  ( (S 
+      (S Z))))
 
-</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.05">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B0-CHAINING-PRELIM.05">;; TEST-SCRIPTS.B0-CHAINING-PRELIM.05</h3>
+; 
+; EVAL TEST
+; took 0.319 ms. (319.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (S 
         (S Z))) 
     ( (S 
         (S Z)))))
-</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_165882],[match,'&self',[:=,_165882,_166506],_166506]],depth(2))
-          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_166506],_166506],depth(3))
+</span>        -->(0,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_79760],[match,'&self',[:=,_79760,_79802],_79802]],depth(2))
+          -->(1,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_79802],_79802],depth(3))
             -->(2,'&self',['S',['S','Z']],depth(4))
                 -->(3,'&self',['S','Z'],depth(6))
                 -->(4,'&self',['S','Z'],depth(6))
                 -->(5,'&self',['S','Z'],depth(6))
           <--(1,retval(['S',['S','Z']]))
-        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_177048],_177048]))
-; Evaluation took 2.46 ms.
-<span class="ansi33"> True
+        <--(0,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_88096],_88096]))
+; Trace took 0.878 ms. (878.20 microseconds) 
+; Evaluation took 2.64 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 129,016 inferences, 0.072 CPU in 0.072 seconds (100% CPU, 1794908 Lips)
-</span> (@ = "examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
+</span><span class="ansi32">% 355,285 inferences, 0.159 CPU in 0.159 seconds (100% CPU, 2234400 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b0_chaining_prelim.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b0_chaining_prelim.html" )
 
 </pre>
 </body>

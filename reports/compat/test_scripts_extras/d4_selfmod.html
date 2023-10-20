@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta')
+1=[(Error (import! &memory "memory.metta") import! expects a file path as a second argument)]
+2=0.08user 0.02system 0:00.10elapsed 99%CPU (0avgtext+0avgdata 28456maxresident)k
+2=0inputs+0outputs (0major+3274minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta', 1, [['Error', ['import!', '&memory', "memory.metta"], 'import!', expects, a, file, path, as, a, second, argument]]).
+
+;; !(import! &memory "memory.metta")
+<span class="ansi38-000068000">!(bind! &memory 
+  (new-space))
+
+</span>; Evaluation took 0.405 ms. (404.80 microseconds) 
+<span class="ansi33"> Empty
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['remove-state',Var],[match,'&memory',[state,Var,Y],['remove-atom','&memory',[state,Var,Y]]])
+</span><span class="ansi38-255165000">  (= 
+    (remove-state $Var) 
+    (match &memory 
+      (state $Var $Y) 
+      (remove-atom &memory 
+        (state $Var $Y))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['change-state',Var,Value],[',',['remove-state',Var],['add-atom','&memory',[state,Var,Value]]])
+</span><span class="ansi38-255165000">  (= 
+    (change-state $Var $Value) 
+    (and 
+      (remove-state $Var) 
+      (add-atom &memory 
+        (state $Var $Value))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['get-state',Var],[match,'&memory',[state,Var,Value],Value])
+</span><span class="ansi38-255165000">  (= 
+    (get-state $Var) 
+    (match &memory 
+      (state $Var $Value) $Value))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[answer,X],['println!',X])
+</span><span class="ansi38-255165000">  (= 
+    (answer $X) 
+    (println! $X))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[if,'True',X,Y],X)
+</span><span class="ansi38-255165000">  (= 
+    (if True $X $Y) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[if,'False',X,Y],Y)
+</span><span class="ansi38-255165000">  (= 
+    (if False $X $Y) $Y)
+</span>
+
+<span class="ansi38-000068000">!(change-state greeted False)
+
+</span><span class="ansi38-000068000">!(change-state 
+  (person name) "None")
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,['My',name,is,X]],[if,[==,['get-state',[person,name]],"None"],[nop],[if,[==,['get-state',[person,name]],X],['Yes,','I',remember],['I',thought,you,are,['get-state',[person,name]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (listen 
+      (My name is $X)) 
+    (if 
+      (== 
+        (get-state 
+          (person name)) "None") 
+      (nop) 
+      (if 
+        (== 
+          (get-state 
+            (person name)) $X) 
+        ("Yes," I remember) 
+        (I thought you are 
+          (get-state 
+            (person name))))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,['My',name,is,X]],[nop,['change-state',[person,name],X]])
+</span><span class="ansi38-255165000">  (= 
+    (listen 
+      (My name is $X)) 
+    (nop 
+      (change-state 
+        (person name) $X)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,_],[if,[not,['get-state',greeted]],[if,[==,['get-state',[person,name]],"None"],['Hi.','What',is,your,'name?'],['Nice',to,meet,you,['get-state',[person,name]]]],[nop]])
+</span><span class="ansi38-255165000">  (= 
+    (listen $_) 
+    (if 
+      (not 
+        (get-state greeted)) 
+      (if 
+        (== 
+          (get-state 
+            (person name)) "None") 
+        (Hi. What is your name?) 
+        (Nice to meet you 
+          (get-state 
+            (person name)))) 
+      (nop)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,_],[nop,['change-state',greeted,'True']])
+</span><span class="ansi38-255165000">  (= 
+    (listen $_) 
+    (nop 
+      (change-state greeted True)))
+</span>
+
+;!(answer (listen (Hello)))
+<span class="ansi38-000068000">!(answer 
+  (listen 
+    (My name is "Alexey")))
+
+</span>Error: Invalid input.
+Error: Invalid input.
+Error: Invalid input.
+Error: Invalid input.
+Error: Invalid input.
+Error: Invalid input.
+Error: Invalid input.
+Error: Invalid input.
+[ 'I', thought,you,are, 
+  [ 'get-state', 
+    [person,name]]]
+Error: Invalid input.
+Error: Invalid input.
+; Evaluation took 6.16 ms.
+<span class="ansi33">  (I thought you are 
+    (get-state 
+      (person name)))
+
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,'get-state'),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,'get-state']]).
+<span class="ansi1 ansi31">ERROR: source_sink `'get-state'' does not exist
+</span>%~ user: message_hook(
+%~          error(existence_error(source_sink,greeted),Existence_error),
+%~          error,
+%~          ['~w `~p\' does not exist'-[source_sink,greeted]]).
+<span class="ansi1 ansi31">ERROR: source_sink `greeted' does not exist
+</span>_75694
+; Evaluation took 55.79 ms.
+<span class="ansi33"> $_70306
+
+</span>;!(answer (listen (My name is "Alexey")))
+;!(answer (listen (My name is "Ben")))
+;!(println! (call:get_atoms &memory))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['get-atoms','&memory'])
+</span><span class="ansi38-255165000">  (get-atoms &memory)
+</span>
+
+<span class="ansi32">% 517,016 inferences, 0.227 CPU in 0.227 seconds (100% CPU, 2275644 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.html" )
+
+</pre>
+</body>
+
+</html>

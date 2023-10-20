@@ -192,32 +192,49 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/match/ImplicationDirectIntroductionMatchTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta')
+1=[]
+2=[(idi_induction_match GroundingSpace-0x212bab8)]
+3=0.06user 0.01system 0:00.07elapsed 100%CPU (0avgtext+0avgdata 29212maxresident)k
+3=0inputs+0outputs (0major+3464minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta', 2, [[idi_induction_match, 'GroundingSpace-0x212bab8']]).
+
 ;;; Test Implication Direct Introduction Match Rule
 <span class="ansi38-000068000">!(import! &self ImplicationDirectIntroductionMatch.metta)
 
-</span>;;; MeTTa port of the Implication Direct Introduction PLN rule, using
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta')
+;;; MeTTa port of the Implication Direct Introduction PLN rule, using
 ;;; the match operator.
 ;;;
-;;; (P aâ) â pâ
+;;; (P a₁) ≞ p₁
 ;;; ...
-;;; (P aâ) â pâ
-;;; (Q aâ) â qâ
+;;; (P aₙ) ≞ pₙ
+;;; (Q a₁) ≞ q₁
 ;;; ...
-;;; (Q aâ) â qâ
-;;; â¢
-;;; PâQ â tv
+;;; (Q aₙ) ≞ qₙ
+;;; ⊢
+;;; P→Q ≞ tv
 ;;;
-;;; where páµ¢ (resp. qáµ¢) are of boolean type representing whether (P aáµ¢)
-;;; (resp. (Q aáµ¢)) has been observed as True or False, and tv
+;;; where pᵢ (resp. qᵢ) are of boolean type representing whether (P aᵢ)
+;;; (resp. (Q aᵢ)) has been observed as True or False, and tv
 ;;; represents the resulting truth value of the conclusion.
 ;; Import modules
 <span class="ansi38-000068000">!(import! &self "../common/OrderedSet.metta")
 
-</span>;;; Import modules
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta')
+;;; Import modules
 <span class="ansi38-000068000">!(import! &self Num.metta)
 
-</span>;; Definition of a set data structure.  Under the hood it is a sorted
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta')
+;; Definition of a set data structure.  Under the hood it is a sorted
 ;; list without duplicates, thus called OrderedSet.  For now its
 ;; constructor :: is unconstrained, meaning it does not guaranty that
 ;; the constructed OrderedSet are sorted and without duplicates.
@@ -493,8 +510,8 @@
           (S $Y)))))
 </span>
 
-; Evaluation took 256.92 ms.
-<span class="ansi33"> &self
+; Evaluation took 269.37 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'OrderedSet',[->,A,'Type']])
 </span><span class="ansi38-255165000">  (: OrderedSet 
@@ -566,8 +583,8 @@
           (insert $X $True)))))
 </span>
 
-; Evaluation took 322.79 ms.
-<span class="ansi33"> &self
+; Evaluation took 340.30 ms.
+<span class="ansi33"> Empty
 
 </span>; Recursive case
 ; Present, no need to insert
@@ -576,13 +593,7 @@
 ; Recursive call
 <span class="ansi38-000068000">!(import! &self "../common/EvidentialTruthValue.metta")
 
-</span>; Evaluation took 0.135 ms. (134.50 microseconds) 
-<span class="ansi33">  (import! &self "../common/EvidentialTruthValue.metta")
-
 </span><span class="ansi38-000068000">!(import! &self "../common/ImplicationDirectIntroductionFormula.metta")
-
-</span>; Evaluation took 0.103 ms. (103.30 microseconds) 
-<span class="ansi33">  (import! &self "../common/ImplicationDirectIntroductionFormula.metta")
 
 </span>;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
@@ -669,8 +680,8 @@
         (â $A $Ev))))
 </span>
 
-; Evaluation took 423.73 ms.
-<span class="ansi33"> &self
+; Evaluation took 451.99 ms.
+<span class="ansi33"> Empty
 
 </span>;; Premises
 ;; Conclusion
@@ -699,7 +710,7 @@
 
 <span class="ansi38-000068000">!(idi_induction_match &self)
 
-</span>; Evaluation took 2.49 ms.
+</span>; Evaluation took 2.60 ms.
 <span class="ansi33">  (â 
     (â P Q) 
     (ETV 
@@ -709,10 +720,9 @@
         (Bl False) 
         (PrCnt 1 0))))
 
-</span><span class="ansi32">% 443,887 inferences, 0.435 CPU in 0.435 seconds (100% CPU, 1019726 Lips)
-</span> (@ = "examples/compat/match/ImplicationDirectIntroductionMatchTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/match/ImplicationDirectIntroductionMatchTest.html" )
+</span><span class="ansi32">% 715,563 inferences, 0.560 CPU in 0.560 seconds (100% CPU, 1277974 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/match/ImplicationDirectIntroductionMatchTest.html" )
 
 </pre>
 </body>

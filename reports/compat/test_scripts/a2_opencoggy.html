@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -28,7 +27,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/a2_opencoggy.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta')
+1=[]
+2=0.10user 0.01system 0:00.11elapsed 100%CPU (0avgtext+0avgdata 28720maxresident)k
+2=0inputs+0outputs (0major+3280minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta', 1, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; We can use Nodes and Links in the OpenCog Classic style,
@@ -60,30 +68,40 @@
       (ConceptNode "flies")))
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (EvaluationLink (PredicateNode "eats") (ListLink $X (ConceptNode "flies"))) $X) ((ConceptNode "Sam") (ConceptNode "Fritz")))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (EvaluationLink 
+      (PredicateNode "eats") 
+      (ListLink $X 
+        (ConceptNode "flies"))) $X) 
+  ( (ConceptNode "Sam") 
+    (ConceptNode "Fritz")))
 
-</span><h3 id="TEST-SCRIPTS.A2-OPENCOGGY.01">;; TEST-SCRIPTS.A2-OPENCOGGY.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A2-OPENCOGGY.01">;; TEST-SCRIPTS.A2-OPENCOGGY.01</h3>
+; 
+; EVAL TEST
+; took 0.352 ms. (351.80 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (ConceptNode "Fritz") 
       (ConceptNode "Sam")) 
     ( (ConceptNode "Fritz") 
       (ConceptNode "Sam"))))
-</span>        -->(0,'&self',[match,'&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',_492130,['ConceptNode',"flies"]]],_492130],depth(2))
+</span>        -->(0,'&self',[match,'&self',['EvaluationLink',['PredicateNode',"eats"],['ListLink',_390358,['ConceptNode',"flies"]]],_390358],depth(2))
           -->(1,'&self',['ConceptNode',"Sam"],depth(3))
           -->(2,'&self',['ConceptNode',"Fritz"],depth(3))
         <--(0,retval(['ConceptNode',"Fritz"]))
-; Evaluation took 1.76 ms.
-<span class="ansi33"> True
+; Trace took 0.651 ms. (650.80 microseconds) 
+; Evaluation took 2.89 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 35,209 inferences, 0.016 CPU in 0.016 seconds (100% CPU, 2208915 Lips)
-</span> (@ = "examples/compat/test_scripts/a2_opencoggy.metta" 0)
+</span><span class="ansi32">% 251,682 inferences, 0.108 CPU in 0.108 seconds (100% CPU, 2329147 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a2_opencoggy.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a2_opencoggy.html" )
 
 </pre>
 </body>

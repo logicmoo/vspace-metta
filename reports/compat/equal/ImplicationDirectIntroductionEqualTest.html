@@ -176,33 +176,48 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta')
+1=[]
+2=0.07user 0.00system 0:00.07elapsed 100%CPU (0avgtext+0avgdata 29412maxresident)k
+2=0inputs+0outputs (0major+3460minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta', 1, []).
+
 ;;; Test Implication Direct Introduction Equal Rule
 <span class="ansi38-000068000">!(import! &self ImplicationDirectIntroductionEqual.metta)
 
-</span>;; TODO
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta')
+;; TODO
 ;;; MeTTa port of the Implication Direct Introduction PLN rule, encoded
 ;;; as a non-determinist equality, =
 ;;;
-;;; (P aâ) â pâ
+;;; (P a₁) ≞ p₁
 ;;; ...
-;;; (P aâ) â pâ
-;;; (Q aâ) â qâ
+;;; (P aₙ) ≞ pₙ
+;;; (Q a₁) ≞ q₁
 ;;; ...
-;;; (Q aâ) â qâ
-;;; â¢
-;;; PâQ â tv
+;;; (Q aₙ) ≞ qₙ
+;;; ⊢
+;;; P→Q ≞ tv
 ;;;
-;;; where páµ¢ (resp. qáµ¢) are of boolean type representing whether (P aáµ¢)
-;;; (resp. (Q aáµ¢)) has been observed as True or False, and tv
+;;; where pᵢ (resp. qᵢ) are of boolean type representing whether (P aᵢ)
+;;; (resp. (Q aᵢ)) has been observed as True or False, and tv
 ;;; represents the resulting truth value of the conclusion.
 ;; Import modules
 <span class="ansi38-000068000">!(import! &self "../common/OrderedSet.metta")
 
-</span>;;; Import modules
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta')
+;;; Import modules
 <span class="ansi38-000068000">!(import! &self Num.metta)
 
-</span>;; Definition of a set data structure.  Under the hood it is a sorted
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta')
+;; Definition of a set data structure.  Under the hood it is a sorted
 ;; list without duplicates, thus called OrderedSet.  For now its
 ;; constructor :: is unconstrained, meaning it does not guaranty that
 ;; the constructed OrderedSet are sorted and without duplicates.
@@ -478,8 +493,8 @@
           (S $Y)))))
 </span>
 
-; Evaluation took 260.71 ms.
-<span class="ansi33"> &self
+; Evaluation took 287.86 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'OrderedSet',[->,A,'Type']])
 </span><span class="ansi38-255165000">  (: OrderedSet 
@@ -551,8 +566,8 @@
           (insert $X $True)))))
 </span>
 
-; Evaluation took 329.61 ms.
-<span class="ansi33"> &self
+; Evaluation took 359.66 ms.
+<span class="ansi33"> Empty
 
 </span>; Recursive case
 ; Present, no need to insert
@@ -561,13 +576,7 @@
 ; Recursive call
 <span class="ansi38-000068000">!(import! &self "../common/EvidentialTruthValue.metta")
 
-</span>; Evaluation took 0.153 ms. (153.00 microseconds) 
-<span class="ansi33">  (import! &self "../common/EvidentialTruthValue.metta")
-
 </span><span class="ansi38-000068000">!(import! &self "../common/ImplicationDirectIntroductionFormula.metta")
-
-</span>; Evaluation took 0.110 ms. (109.60 microseconds) 
-<span class="ansi33">  (import! &self "../common/ImplicationDirectIntroductionFormula.metta")
 
 </span>;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
@@ -648,13 +657,12 @@
         (idi_formula $Patv $Qatv $Pqtv))))
 </span>
 
-; Evaluation took 422.40 ms.
-<span class="ansi33"> &self
+; Evaluation took 469.05 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 401,230 inferences, 0.425 CPU in 0.425 seconds (100% CPU, 945115 Lips)
-</span> (@ = "examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/equal/ImplicationDirectIntroductionEqualTest.html" )
+</span><span class="ansi32">% 667,921 inferences, 0.555 CPU in 0.555 seconds (100% CPU, 1203840 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/ImplicationDirectIntroductionEqualTest.html" )
 
 </pre>
 </body>

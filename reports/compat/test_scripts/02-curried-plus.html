@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -31,7 +30,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/02-curried-plus.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta')
+1=[]
+2=0.10user 0.00system 0:00.11elapsed 100%CPU (0avgtext+0avgdata 28496maxresident)k
+2=0inputs+0outputs (0major+3274minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta', 1, []).
+
 ;; Curried plus
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,plus,[->,'Number',[->,'Number','Number']]])
 </span><span class="ansi38-255165000">  (: plus 
@@ -58,11 +66,16 @@
     (plus 1))
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult ((inc) 2) (3))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  ( (inc) 2) 
+  (3))
 
-</span><h3 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">;; TEST-SCRIPTS.02-CURRIED-PLUS.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.02-CURRIED-PLUS.01">;; TEST-SCRIPTS.02-CURRIED-PLUS.01</h3>
+; 
+; EVAL TEST
+; took 0.192 ms. (191.90 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (3) 
     (3)))
 </span>        -->(0,'&self',[[inc],2],depth(2))
@@ -71,17 +84,17 @@
               <--(2,retval(3))
             <--(1,retval([+,1,2]))
         <--(0,retval(3))
-; Evaluation took 1.87 ms.
-<span class="ansi33"> True
+; Trace took 0.433 ms. (433.00 microseconds) 
+; Evaluation took 1.71 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 29,743 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 2816732 Lips)
-</span> (@ = "examples/compat/test_scripts/02-curried-plus.metta" 0)
+</span><span class="ansi32">% 247,541 inferences, 0.103 CPU in 0.103 seconds (100% CPU, 2406724 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/02-curried-plus.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/02-curried-plus.html" )
 
 </pre>
 </body>

@@ -9,8 +9,11 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
@@ -50,11 +53,26 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/common/EqualityTypeTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta')
+1=[]
+2=[True]
+3=[(Error T42 BadType)]
+4=0.06user 0.00system 0:00.07elapsed 98%CPU (0avgtext+0avgdata 28588maxresident)k
+4=0inputs+0outputs (0major+3303minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 2, ['True']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 3, [['Error', 'T42', 'BadType']]).
+
 ;;; Import ===
 <span class="ansi38-000068000">!(import! &self EqualityType.metta)
 
-</span>;; Define various subterms
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta')
+;; Define various subterms
 ;;; Define (homogeneous) equality type, also called propositional equality
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,===,[->,A,A,'Type']])
 </span><span class="ansi38-255165000">  (: === 
@@ -90,8 +108,8 @@
       (=== $X $X)))
 </span>
 
-; Evaluation took 12.65 ms.
-<span class="ansi33"> &self
+; Evaluation took 16.30 ms.
+<span class="ansi33"> Empty
 
 </span>;; What about
 ;;
@@ -141,33 +159,68 @@
 </span>
 
 ;; Test equality type
-<span class="ansi38-000068000">!(foo (Refl T42))
+<span class="ansi38-000068000">!(foo 
+  (Refl T42))
 
-</span>; Evaluation took 0.126 ms. (126.40 microseconds) 
+</span>; Evaluation took 0.292 ms. (292.20 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi36">
+! (assertEqualToResult 
+    (foo 
+      (Refl T42)) 
+    (True))
+(@ ! 
+  (assertEqual 
+    (True) 
+    (True)))
+write_pass_fail_result("COMMON.EQUALITYTYPETEST.102",exec,[foo,['Refl','T42']],'PASS',['True'],['True'])
+
+</span>
+
+--------------------------------------------------------------------------
+; Should succeed
+<span class="ansi38-000068000">!(bar 
+  (Refl T42))
+
+</span>; Evaluation took 0.157 ms. (157.00 microseconds) 
+<span class="ansi33"> True
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (bar 
+      (Refl T42)) 
+    ( (Error T42 BadType)))
+(@ ! 
+  (assertEqual 
+    (True) 
+    ( (Error T42 BadType))))
+write_pass_fail_result("COMMON.EQUALITYTYPETEST.103",exec,[bar,['Refl','T42']],'FAIL',[['Error','T42','BadType']],['True'])
+
+</span>
+
+--------------------------------------------------------------------------
+; Should fail
+<span class="ansi38-000068000">!(bar 
+  (Refl TTrue))
+
+</span>; Evaluation took 0.154 ms. (153.80 microseconds) 
 <span class="ansi33"> True
 
 </span>; Should succeed
-<span class="ansi38-000068000">!(bar (Refl T42))
+<span class="ansi38-000068000">!(baz 
+  (Refl T42))
 
-</span>; Evaluation took 0.109 ms. (108.60 microseconds) 
-<span class="ansi33"> True
-
-</span>; Should fail
-<span class="ansi38-000068000">!(bar (Refl TTrue))
-
-</span>; Evaluation took 0.101 ms. (101.20 microseconds) 
-<span class="ansi33"> True
-
-</span>; Should succeed
-<span class="ansi38-000068000">!(baz (Refl T42))
-
-</span>; Evaluation took 0.118 ms. (117.60 microseconds) 
+</span>; Evaluation took 0.147 ms. (147.10 microseconds) 
 <span class="ansi33"> False
 
-</span><span class="ansi32">% 82,817 inferences, 0.041 CPU in 0.041 seconds (100% CPU, 2022388 Lips)
-</span> (@ = "examples/compat/common/EqualityTypeTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/common/EqualityTypeTest.html" )
+</span><span class="ansi32">% 320,782 inferences, 0.140 CPU in 0.140 seconds (100% CPU, 2296082 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.html" )
 
 </pre>
 </body>

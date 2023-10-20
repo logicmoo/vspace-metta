@@ -68,7 +68,24 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b2_backchain.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=0.13user 0.01system 0:00.14elapsed 99%CPU (0avgtext+0avgdata 28796maxresident)k
+6=0inputs+0outputs (0major+3305minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta', 5, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `match` can be used inside equalities, which is typically
@@ -87,44 +104,60 @@
 </span>
 
 ; `(Frog Sam)` is not reduced; it is just a declaration
-<span class="ansi38-000068000">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (Frog Sam) 
+  ( (Frog Sam)))
 
-</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.01">;; TEST-SCRIPTS.B2-BACKCHAIN.01</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.01">;; TEST-SCRIPTS.B2-BACKCHAIN.01</h3>
+; 
+; EVAL TEST
+; took 0.099 ms. (98.70 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
     (True) 
     ( (Frog Sam))))
 </span>        -->(0,'&self',['Frog','Sam'],depth(2))
         <--(0,retval('True'))
-; Evaluation took 1.54 ms.
-<span class="ansi33"> False
+; Trace took 0.215 ms. (215.30 microseconds) 
+; Evaluation took 2.62 ms.
+<span class="ansi33">  (got True expected True)
 
 </span>; `frog` uses this declaration
-<span class="ansi38-000068000">!(assertEqual (frog Sam) True)
+<span class="ansi38-000068000">!(assertEqual 
+  (frog Sam) True)
 
-</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.02">;; TEST-SCRIPTS.B2-BACKCHAIN.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.02">;; TEST-SCRIPTS.B2-BACKCHAIN.02</h3>
+; 
+; EVAL TEST
+; took 0.115 ms. (115.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
 </span>        -->(0,'&self',[frog,'Sam'],depth(2))
           -->(1,'&self',[match,'&self',['Frog','Sam'],'True'],depth(3))
           <--(1,retval('True'))
         <--(0,retval([match,'&self',['Frog','Sam'],'True']))
-; Evaluation took 1.17 ms.
-<span class="ansi33"> True
+; Trace took 0.328 ms. (328.40 microseconds) 
+; Evaluation took 1.58 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (frog Fritz) ())
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (frog Fritz) ())
 
-</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.03">;; TEST-SCRIPTS.B2-BACKCHAIN.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  () ()))
+</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.03">;; TEST-SCRIPTS.B2-BACKCHAIN.03</h3>
+; 
+; EVAL TEST
+; took 0.089 ms. (88.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  () ()))
 </span>        -->(0,'&self',[frog,'Fritz'],depth(2))
           -->(1,'&self',[match,'&self',['Frog','Fritz'],'True'],depth(3))
           <--(1,retval(fail))
         <--(0,retval([match,'&self',['Frog','Fritz'],'True']))
-; Evaluation took 1.06 ms.
-<span class="ansi33"> True
+; Trace took 0.303 ms. (303.40 microseconds) 
+; Evaluation took 1.34 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -209,50 +242,55 @@
 </span>
 
 ; Test deduction that Plato is mortal
-<span class="ansi38-000068000">!(assertEqual (deduce (Evaluation (mortal Plato))) True)
+<span class="ansi38-000068000">!(assertEqual 
+  (deduce 
+    (Evaluation 
+      (mortal Plato))) True)
 
-</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.04">;; TEST-SCRIPTS.B2-BACKCHAIN.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.04">;; TEST-SCRIPTS.B2-BACKCHAIN.04</h3>
+; 
+; EVAL TEST
+; took 0.852 ms. (852.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
 </span>        -->(0,'&self',[deduce,['Evaluation',[mortal,'Plato']]],depth(2))
             -->(1,'&self',[mortal,'Plato'],depth(4))
           -->(2,'&self',[match,'&self',['Evaluation',[mortal,'Plato']],'True'],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',['Implication',_302668,['Evaluation',[mortal,'Plato']]],[deduce,_302668]],depth(3))
+          -->(3,'&self',[match,'&self',['Implication',_211420,['Evaluation',[mortal,'Plato']]],[deduce,_211420]],depth(3))
             -->(4,'&self',[deduce,['Evaluation',[human,'Plato']]],depth(4))
                 -->(5,'&self',[human,'Plato'],depth(6))
               -->(6,'&self',[match,'&self',['Evaluation',[human,'Plato']],'True'],depth(5))
               <--(6,retval(fail))
-              -->(7,'&self',[match,'&self',['Implication',_304708,['Evaluation',[human,'Plato']]],[deduce,_304708]],depth(5))
+              -->(7,'&self',[match,'&self',['Implication',_213382,['Evaluation',[human,'Plato']]],[deduce,_213382]],depth(5))
                 -->(8,'&self',[deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]],depth(6))
                     -->(9,'&self',[philosopher,'Plato'],depth(8))
                   -->(10,'&self',['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]],depth(7))
-                      -->(11,'&self',[philosopher,'Plato'],depth(9))
-                      -->(12,'&self',[deduce,['Evaluation',[philosopher,'Plato']]],depth(9))
-                          -->(13,'&self',[philosopher,'Plato'],depth(11))
-                        -->(14,'&self',[match,'&self',['Evaluation',[philosopher,'Plato']],'True'],depth(10))
-                      -->(15,'&self',['likes-to-wrestle','Plato'],depth(9))
-                      -->(16,'&self',[deduce,['Evaluation',['likes-to-wrestle','Plato']]],depth(9))
-                          -->(17,'&self',['likes-to-wrestle','Plato'],depth(11))
-                        -->(18,'&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],'True'],depth(10))
-                        <--(18,retval('True'))
-                        -->(19,'&self',[match,'&self',['Implication',_312308,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_312308]],depth(10))
-                        <--(19,retval(fail))
-                      <--(16,retval([match,'&self',['Implication',_312560,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_312560]]))
-                        <--(14,retval('True'))
-                        -->(20,'&self',[match,'&self',['Implication',_312638,['Evaluation',[philosopher,'Plato']]],[deduce,_312638]],depth(10))
-                        <--(20,retval(fail))
-                      <--(12,retval([match,'&self',['Implication',_312890,['Evaluation',[philosopher,'Plato']]],[deduce,_312890]]))
+                      -->(11,'&self',[deduce,['Evaluation',[philosopher,'Plato']]],depth(9))
+                          -->(12,'&self',[philosopher,'Plato'],depth(11))
+                        -->(13,'&self',[match,'&self',['Evaluation',[philosopher,'Plato']],'True'],depth(10))
+                      -->(14,'&self',[deduce,['Evaluation',['likes-to-wrestle','Plato']]],depth(9))
+                          -->(15,'&self',['likes-to-wrestle','Plato'],depth(11))
+                        -->(16,'&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],'True'],depth(10))
+                        <--(16,retval('True'))
+                        -->(17,'&self',[match,'&self',['Implication',_218986,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_218986]],depth(10))
+                        <--(17,retval(fail))
+                      <--(14,retval([match,'&self',['Implication',_219238,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_219238]]))
+                        <--(13,retval('True'))
+                        -->(18,'&self',[match,'&self',['Implication',_219316,['Evaluation',[philosopher,'Plato']]],[deduce,_219316]],depth(10))
+                        <--(18,retval(fail))
+                      <--(11,retval([match,'&self',['Implication',_219568,['Evaluation',[philosopher,'Plato']]],[deduce,_219568]]))
                   <--(10,retval('True'))
                 <--(8,retval(['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]]))
               <--(7,retval([deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]))
-            <--(4,retval([match,'&self',['Implication',_304960,['Evaluation',[human,'Plato']]],[deduce,_304960]]))
+            <--(4,retval([match,'&self',['Implication',_213634,['Evaluation',[human,'Plato']]],[deduce,_213634]]))
           <--(3,retval([deduce,['Evaluation',[human,'Plato']]]))
-        <--(0,retval([match,'&self',['Implication',_302920,['Evaluation',[mortal,'Plato']]],[deduce,_302920]]))
-; Evaluation took 4.35 ms.
-<span class="ansi33"> True
+        <--(0,retval([match,'&self',['Implication',_211672,['Evaluation',[mortal,'Plato']]],[deduce,_211672]]))
+; Trace took 2.88 ms.
+; Evaluation took 4.96 ms.
+<span class="ansi33"> Empty
 
 </span>; TODO : Some variables are not substituted
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[ift,'True',Then],Then)
@@ -310,11 +348,22 @@
 </span>
 
 ; Example of explain why Plato is mortal
-<span class="ansi38-000068000">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
+<span class="ansi38-000068000">!(assertEqual 
+  (explain 
+    (Evaluation 
+      (mortal Plato))) 
+  ( (mortal Plato) proven by 
+    ( (human Plato) proven by 
+      (And 
+        (philosopher Plato) 
+        (likes-to-wrestle Plato)))))
 
-</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.05">;; TEST-SCRIPTS.B2-BACKCHAIN.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B2-BACKCHAIN.05">;; TEST-SCRIPTS.B2-BACKCHAIN.05</h3>
+; 
+; EVAL TEST
+; took 3.01 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( ( (mortal Plato) proven by 
         ( (human Plato) proven by True))) 
     ( ( (mortal Plato) proven by 
@@ -323,7 +372,7 @@
             -->(1,'&self',[mortal,'Plato'],depth(4))
           -->(2,'&self',[match,'&self',['Evaluation',[mortal,'Plato']],[mortal,'Plato']],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',['Implication',_446306,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_446306]]],depth(3))
+          -->(3,'&self',[match,'&self',['Implication',_352220,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_352220]]],depth(3))
             -->(4,'&self',[[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]],depth(4))
                 -->(5,'&self',[human,'Plato'],depth(6))
                 -->(6,'&self',[mortal,'Plato'],depth(6))
@@ -331,78 +380,74 @@
                     -->(8,'&self',[human,'Plato'],depth(8))
                   -->(9,'&self',[match,'&self',['Evaluation',[human,'Plato']],[human,'Plato']],depth(7))
                   <--(9,retval(fail))
-                  -->(10,'&self',[match,'&self',['Implication',_450600,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_450600]]],depth(7))
+                  -->(10,'&self',[match,'&self',['Implication',_356282,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_356282]]],depth(7))
                     -->(11,'&self',[[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]],depth(8))
                         -->(12,'&self',[philosopher,'Plato'],depth(10))
                         -->(13,'&self',[human,'Plato'],depth(10))
                         -->(14,'&self',[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]],depth(10))
                             -->(15,'&self',[philosopher,'Plato'],depth(12))
                           -->(16,'&self',['And',[explain,['Evaluation',[philosopher,'Plato']]],[explain,['Evaluation',['likes-to-wrestle','Plato']]]],depth(11))
-                              -->(17,'&self',[philosopher,'Plato'],depth(13))
-                              -->(18,'&self',[explain,['Evaluation',[philosopher,'Plato']]],depth(13))
-                                  -->(19,'&self',[philosopher,'Plato'],depth(15))
-                                -->(20,'&self',[match,'&self',['Evaluation',[philosopher,'Plato']],[philosopher,'Plato']],depth(14))
-                                  -->(21,'&self',[philosopher,'Plato'],depth(15))
-                              -->(22,'&self',['likes-to-wrestle','Plato'],depth(13))
-                              -->(23,'&self',[explain,['Evaluation',['likes-to-wrestle','Plato']]],depth(13))
+                              -->(17,'&self',[explain,['Evaluation',[philosopher,'Plato']]],depth(13))
+                                  -->(18,'&self',[philosopher,'Plato'],depth(15))
+                                -->(19,'&self',[match,'&self',['Evaluation',[philosopher,'Plato']],[philosopher,'Plato']],depth(14))
+                                  -->(20,'&self',[philosopher,'Plato'],depth(15))
+                              -->(21,'&self',[explain,['Evaluation',['likes-to-wrestle','Plato']]],depth(13))
+                                  -->(22,'&self',['likes-to-wrestle','Plato'],depth(15))
+                                -->(23,'&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],['likes-to-wrestle','Plato']],depth(14))
                                   -->(24,'&self',['likes-to-wrestle','Plato'],depth(15))
-                                -->(25,'&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],['likes-to-wrestle','Plato']],depth(14))
-                                  -->(26,'&self',['likes-to-wrestle','Plato'],depth(15))
-                      -->(27,'&self',[[human,'Plato'],proven,by,'True'],depth(9))
-                          -->(28,'&self',[human,'Plato'],depth(11))
-              -->(29,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']],depth(5))
-                  -->(30,'&self',[human,'Plato'],depth(7))
-                  -->(31,'&self',[mortal,'Plato'],depth(7))
-                  -->(32,'&self',[[human,'Plato'],proven,by,'True'],depth(7))
-                      -->(33,'&self',[human,'Plato'],depth(9))
-                                <--(25,retval(['likes-to-wrestle','Plato']))
-                                -->(34,'&self',[match,'&self',['Implication',_467426,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_467426]]],depth(14))
-                                <--(34,retval(fail))
-                              <--(23,retval([match,'&self',['Implication',_467762,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_467762]]]))
-                                <--(20,retval([philosopher,'Plato']))
-                                -->(35,'&self',[match,'&self',['Implication',_467876,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_467876]]],depth(14))
-                                <--(35,retval(fail))
-                              <--(18,retval([match,'&self',['Implication',_468212,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_468212]]]))
+                      -->(25,'&self',[[human,'Plato'],proven,by,'True'],depth(9))
+                          -->(26,'&self',[human,'Plato'],depth(11))
+              -->(27,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']],depth(5))
+                  -->(28,'&self',[human,'Plato'],depth(7))
+                  -->(29,'&self',[mortal,'Plato'],depth(7))
+                  -->(30,'&self',[[human,'Plato'],proven,by,'True'],depth(7))
+                      -->(31,'&self',[human,'Plato'],depth(9))
+                                <--(23,retval(['likes-to-wrestle','Plato']))
+                                -->(32,'&self',[match,'&self',['Implication',_370366,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_370366]]],depth(14))
+                                <--(32,retval(fail))
+                              <--(21,retval([match,'&self',['Implication',_370702,['Evaluation',['likes-to-wrestle','Plato']]],[['likes-to-wrestle','Plato'],proven,by,[explain,_370702]]]))
+                                <--(19,retval([philosopher,'Plato']))
+                                -->(33,'&self',[match,'&self',['Implication',_370816,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_370816]]],depth(14))
+                                <--(33,retval(fail))
+                              <--(17,retval([match,'&self',['Implication',_371152,['Evaluation',[philosopher,'Plato']]],[[philosopher,'Plato'],proven,by,[explain,_371152]]]))
                           <--(16,retval('True'))
                         <--(14,retval(['And',[explain,['Evaluation',[philosopher,'Plato']]],[explain,['Evaluation',['likes-to-wrestle','Plato']]]]))
                     <--(11,retval([[human,'Plato'],proven,by,'True']))
                   <--(10,retval([[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]]))
-                <--(7,retval([match,'&self',['Implication',_450936,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_450936]]]))
+                <--(7,retval([match,'&self',['Implication',_356618,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_356618]]]))
             <--(4,retval([[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']]))
           <--(3,retval([[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]]))
-        <--(0,retval([match,'&self',['Implication',_446642,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_446642]]]))
-        -->(36,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]],depth(2))
-            -->(37,'&self',[human,'Plato'],depth(4))
-            -->(38,'&self',[mortal,'Plato'],depth(4))
-            -->(39,'&self',[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]],depth(4))
-                -->(40,'&self',[philosopher,'Plato'],depth(6))
-                -->(41,'&self',[human,'Plato'],depth(6))
-                -->(42,'&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],depth(6))
-                    -->(43,'&self',[philosopher,'Plato'],depth(8))
-                    -->(44,'&self',[philosopher,'Plato'],depth(8))
-                    -->(45,'&self',['likes-to-wrestle','Plato'],depth(8))
-                    -->(46,'&self',['likes-to-wrestle','Plato'],depth(8))
-                <--(42,retval('True'))
-            <--(39,retval([[human,'Plato'],proven,by,'True']))
-              -->(47,'&self',[[human,'Plato'],proven,by,'True'],depth(5))
-                  -->(48,'&self',[human,'Plato'],depth(7))
-        <--(36,retval([[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']]))
-          -->(49,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']],depth(3))
-              -->(50,'&self',[human,'Plato'],depth(5))
-              -->(51,'&self',[mortal,'Plato'],depth(5))
-              -->(52,'&self',[[human,'Plato'],proven,by,'True'],depth(5))
-                  -->(53,'&self',[human,'Plato'],depth(7))
-; Evaluation took 11.95 ms.
-<span class="ansi33"> True
+        <--(0,retval([match,'&self',['Implication',_352556,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_352556]]]))
+        -->(34,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]],depth(2))
+            -->(35,'&self',[human,'Plato'],depth(4))
+            -->(36,'&self',[mortal,'Plato'],depth(4))
+            -->(37,'&self',[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]],depth(4))
+                -->(38,'&self',[philosopher,'Plato'],depth(6))
+                -->(39,'&self',[human,'Plato'],depth(6))
+                -->(40,'&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],depth(6))
+                    -->(41,'&self',[philosopher,'Plato'],depth(8))
+                    -->(42,'&self',['likes-to-wrestle','Plato'],depth(8))
+                <--(40,retval('True'))
+            <--(37,retval([[human,'Plato'],proven,by,'True']))
+              -->(43,'&self',[[human,'Plato'],proven,by,'True'],depth(5))
+                  -->(44,'&self',[human,'Plato'],depth(7))
+        <--(34,retval([[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']]))
+          -->(45,'&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,'True']],depth(3))
+              -->(46,'&self',[human,'Plato'],depth(5))
+              -->(47,'&self',[mortal,'Plato'],depth(5))
+              -->(48,'&self',[[human,'Plato'],proven,by,'True'],depth(5))
+                  -->(49,'&self',[human,'Plato'],depth(7))
+; Trace took 7.62 ms.
+; Evaluation took 12.37 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 213,676 inferences, 0.228 CPU in 0.228 seconds (100% CPU, 938346 Lips)
-</span> (@ = "examples/compat/test_scripts/b2_backchain.metta" 0)
+</span><span class="ansi32">% 442,849 inferences, 0.331 CPU in 0.331 seconds (100% CPU, 1339255 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
 </span><span class="ansi31">Failures: 1
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b2_backchain.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b2_backchain.html" )
 
 </pre>
 </body>

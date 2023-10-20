@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -39,7 +38,20 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b3_direct.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta')
+1=[]
+2=[]
+3=[]
+4=0.10user 0.01system 0:00.11elapsed 99%CPU (0avgtext+0avgdata 28692maxresident)k
+4=0inputs+0outputs (0major+3277minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta', 3, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example from OpenCog Classic wiki on PLN Backward Chaining
@@ -77,43 +89,30 @@
 </span>
 
 ; Conclusion from facts and rules
-<span class="ansi38-000068000">!(assertEqual (green Fritz) True)
+<span class="ansi38-000068000">!(assertEqual 
+  (green Fritz) True)
 
-</span><h3 id="TEST-SCRIPTS.B3-DIRECT.01">;; TEST-SCRIPTS.B3-DIRECT.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B3-DIRECT.01">;; TEST-SCRIPTS.B3-DIRECT.01</h3>
+; 
+; EVAL TEST
+; took 0.361 ms. (361.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
 </span>        -->(0,'&self',[green,'Fritz'],depth(2))
           -->(1,'&self',[frog,'Fritz'],depth(3))
             -->(2,'&self',['And',[croaks,'Fritz'],[eat_flies,'Fritz']],depth(4))
                 -->(3,'&self',[croaks,'Fritz'],depth(6))
-                -->(4,'&self',['And','True',[eat_flies,'Fritz']],depth(6))
-                    -->(5,'&self',[eat_flies,'Fritz'],depth(8))
-                    -->(6,'&self',['And','True','True'],depth(8))
-                    <--(6,retval('True'))
-                    <--(5,retval('True'))
-                    -->(7,'&self',[eat_flies,'Fritz'],depth(8))
-                    -->(8,'&self',['And','True'],depth(8))
-                    <--(8,retval('True'))
-                    <--(7,retval('True'))
-                    -->(9,'&self',[eat_flies,'Fritz'],depth(8))
-                    <--(9,retval('True'))
+                -->(4,'&self',[eat_flies,'Fritz'],depth(6))
                 <--(4,retval('True'))
                 <--(3,retval('True'))
-                -->(10,'&self',[croaks,'Fritz'],depth(6))
-                -->(11,'&self',[eat_flies,'Fritz'],depth(6))
-                -->(12,'&self',['And','True'],depth(6))
-                <--(12,retval('True'))
-                <--(11,retval('True'))
-                -->(13,'&self',[eat_flies,'Fritz'],depth(6))
-                <--(13,retval('True'))
-                <--(10,retval('True'))
             <--(2,retval('True'))
           <--(1,retval(['And',[croaks,'Fritz'],[eat_flies,'Fritz']]))
         <--(0,retval([frog,'Fritz']))
-; Evaluation took 3.64 ms.
-<span class="ansi33"> True
+; Trace took 0.985 ms. (984.70 microseconds) 
+; Evaluation took 2.75 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -125,33 +124,35 @@
     (ift True $Then) $Then)
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (ift (green $X) $X) Fritz)
+<span class="ansi38-000068000">!(assertEqual 
+  (ift 
+    (green $X) $X) Fritz)
 
-</span><h3 id="TEST-SCRIPTS.B3-DIRECT.02">;; TEST-SCRIPTS.B3-DIRECT.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B3-DIRECT.02">;; TEST-SCRIPTS.B3-DIRECT.02</h3>
+; 
+; EVAL TEST
+; took 0.482 ms. (482.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (Fritz) 
     (Fritz)))
-</span>        -->(0,'&self',[ift,[green,_56258],_56258],depth(2))
-            -->(1,'&self',[green,_56258],depth(4))
-              -->(2,'&self',[frog,_56258],depth(5))
-                -->(3,'&self',['And',[croaks,_56258],[eat_flies,_56258]],depth(6))
-                    -->(4,'&self',[croaks,_56258],depth(8))
+</span>        -->(0,'&self',[ift,[green,_469686],_469686],depth(2))
+            -->(1,'&self',[green,_469686],depth(4))
+              -->(2,'&self',[frog,_469686],depth(5))
+                -->(3,'&self',['And',[croaks,_469686],[eat_flies,_469686]],depth(6))
+                    -->(4,'&self',[croaks,_469686],depth(8))
                     -->(5,'&self',[eat_flies,'Fritz'],depth(8))
-                    -->(6,'&self',['And','True'],depth(8))
-                    <--(6,retval('True'))
-          -->(7,'&self',[ift,'True','Fritz'],depth(3))
-          <--(7,retval('Fritz'))
+          -->(6,'&self',[ift,'True','Fritz'],depth(3))
+          <--(6,retval('Fritz'))
                     <--(5,retval('True'))
-                    -->(8,'&self',[eat_flies,'Fritz'],depth(8))
-                    <--(8,retval('True'))
                     <--(4,retval('True'))
                 <--(3,retval('True'))
-              <--(2,retval(['And',[croaks,_66840],[eat_flies,_66840]]))
-            <--(1,retval([frog,_66372]))
+              <--(2,retval(['And',[croaks,_477466],[eat_flies,_477466]]))
+            <--(1,retval([frog,_476998]))
         <--(0,retval([ift,'True','Fritz']))
-; Evaluation took 2.99 ms.
-<span class="ansi33"> True
+; Trace took 1.36 ms.
+; Evaluation took 3.10 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -159,26 +160,33 @@
 ; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
 ; with it may work differently from that over purely symbolic expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (= ($P Fritz) True) $P) (croaks eat_flies))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (= 
+      ($P Fritz) True) $P) 
+  (croaks eat_flies))
 
-</span><h3 id="TEST-SCRIPTS.B3-DIRECT.03">;; TEST-SCRIPTS.B3-DIRECT.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B3-DIRECT.03">;; TEST-SCRIPTS.B3-DIRECT.03</h3>
+; 
+; EVAL TEST
+; took 0.096 ms. (96.40 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (croaks eat_flies) 
     (croaks eat_flies)))
-</span>        -->(0,'&self',[match,'&self',[=,[_83246,'Fritz'],'True'],_83246],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[_497624,'Fritz'],'True'],_497624],depth(2))
         <--(0,retval(eat_flies))
-; Evaluation took 1.27 ms.
-<span class="ansi33"> True
+; Trace took 0.155 ms. (154.80 microseconds) 
+; Evaluation took 1.66 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 76,363 inferences, 0.050 CPU in 0.050 seconds (100% CPU, 1532289 Lips)
-</span> (@ = "examples/compat/test_scripts/b3_direct.metta" 0)
+</span><span class="ansi32">% 290,240 inferences, 0.153 CPU in 0.153 seconds (100% CPU, 1893575 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b3_direct.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b3_direct.html" )
 
 </pre>
 </body>

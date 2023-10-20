@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -35,13 +34,51 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/00_lang_case.metta")
-; cases are processed sequentially
-<span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 2 3))))
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=[]
+7=[]
+8=[]
+9=[]
+10=[]
+11=[]
+12=0.14user 0.00system 0:00.15elapsed 100%CPU (0avgtext+0avgdata 28724maxresident)k
+12=0inputs+0outputs (0major+3288minor)pagefaults 0swaps
+:- dynamic file_answers/3.
 
-</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 6, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 7, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 8, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 9, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 10, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta', 11, []).
+
+; cases are processed sequentially
+<span class="ansi38-000068000">!(assertEqual 
+  (+ 1 
+    (superpose 
+      (1 2 3))) 
+  (+ 1 
+    (superpose 
+      (1 2 3))))
+
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.01">;; TEST-SCRIPTS.00-LANG-CASE.01</h3>
+; 
+; EVAL TEST
+; took 0.311 ms. (310.90 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (2 3 4) 
     (2 3 4)))
 </span>        -->(0,'&self',[+,1,[superpose,[1,2,3]]],depth(2))
@@ -60,14 +97,26 @@
             -->(7,'&self',[+,1,3],depth(4))
             <--(7,retval(4))
         <--(4,retval(4))
-; Evaluation took 3.19 ms.
-<span class="ansi33"> True
+; Trace took 1.11 ms.
+; Evaluation took 2.54 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (+ 1 
+    (superpose 
+      (1 2 3))) 
+  (+ 1 
+    (superpose 
+      (1 
+        (superpose 
+          (2 3))))))
 
-</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.02">;; TEST-SCRIPTS.00-LANG-CASE.02</h3>
+; 
+; EVAL TEST
+; took 0.334 ms. (334.40 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (2 3 4) 
     (2 3 4)))
 </span>        -->(0,'&self',[+,1,[superpose,[1,2,3]]],depth(2))
@@ -88,14 +137,24 @@
                 <--(8,retval(4))
             <--(6,retval(4))
         <--(4,retval(4))
-; Evaluation took 3.78 ms.
-<span class="ansi33"> True
+; Trace took 1.32 ms.
+; Evaluation took 2.67 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
+</span><span class="ansi38-000068000">!(assertEqual 
+  ( (superpose 
+      (1 2 3))) 
+  ( (superpose 
+      (1 
+        (superpose 
+          ( (+ 1 1) 3))))))
 
-</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.03">;; TEST-SCRIPTS.00-LANG-CASE.03</h3>
+; 
+; EVAL TEST
+; took 0.267 ms. (266.80 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (1) 
       (2) 
       (3)) 
@@ -107,145 +166,162 @@
             -->(2,'&self',[[superpose,[[+,1,1],3]]],depth(4))
                 -->(3,'&self',[[+,1,1]],depth(6))
                     -->(4,'&self',[+,1,1],depth(8))
+                    <--(4,retval(2))
+                <--(3,retval([2]))
                   -->(5,'&self',[2],depth(7))
               -->(6,'&self',[2],depth(5))
           -->(7,'&self',[2],depth(3))
-                    <--(4,retval(2))
-                <--(3,retval([2]))
-; Evaluation took 2.02 ms.
-<span class="ansi33"> True
+        <--(1,retval([3]))
+          -->(8,'&self',[3],depth(3))
+; Trace took 0.824 ms. (823.80 microseconds) 
+; Evaluation took 2.31 ms.
+<span class="ansi33"> Empty
 
 </span>; cases are processed sequentially
-<span class="ansi38-000068000">!(assertEqual (case (+ 1 5) ((5 Error) (6 OK) (6 Error))) OK)
+<span class="ansi38-000068000">!(assertEqual 
+  (case 
+    (+ 1 5) 
+    ( (5 Error) 
+      (6 OK) 
+      (6 Error))) OK)
 
-</span> c(0,5)='Error'
- c(1,6)='OK'
- c(2,6)='Error'
- switch=6
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.04">;; TEST-SCRIPTS.00-LANG-CASE.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.04">;; TEST-SCRIPTS.00-LANG-CASE.04</h3>
+; 
+; EVAL TEST
+; took 0.161 ms. (160.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (OK) 
     (OK)))
 </span>        -->(0,'&self',[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],depth(2))
- c(0,5)='Error'
- c(1,6)='OK'
- c(2,6)='Error'
             -->(1,'&self',[+,1,5],depth(4))
- switch=6
             <--(1,retval(6))
         <--(0,retval('OK'))
-; Evaluation took 1.60 ms.
-<span class="ansi33"> True
+; Trace took 0.341 ms. (340.80 microseconds) 
+; Evaluation took 1.61 ms.
+<span class="ansi33"> Empty
 
 </span>; we can use variables as cases
-<span class="ansi38-000068000">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
+<span class="ansi38-000068000">!(assertEqual 
+  (case 
+    (+ 1 5) 
+    ( ($X 
+        (+ 1 $X)))) 7)
 
-</span> c(0,_113214)=[+,1,_113214]
- switch=6
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.05">;; TEST-SCRIPTS.00-LANG-CASE.05</h3>
+; 
+; EVAL TEST
+; took 0.196 ms. (196.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (7) 
     (7)))
-</span>        -->(0,'&self',[case,[+,1,5],[[_113214,[+,1,_113214]]]],depth(2))
- c(0,_113214)=[+,1,_113214]
+</span>        -->(0,'&self',[case,[+,1,5],[[_21102,[+,1,_21102]]]],depth(2))
             -->(1,'&self',[+,1,5],depth(4))
- switch=6
+            <--(1,retval(6))
             -->(2,'&self',[+,1,6],depth(4))
             <--(2,retval(7))
-            <--(1,retval(6))
         <--(0,retval(7))
-; Evaluation took 1.87 ms.
-<span class="ansi33"> True
+; Trace took 0.475 ms. (475.20 microseconds) 
+; Evaluation took 1.66 ms.
+<span class="ansi33"> Empty
 
 </span>; cases are not necessarily exhaustive,
 ; and the result can be empty
-<span class="ansi38-000068000">!(assertEqual (case 5 ((6 OK))) (superpose ()))
+<span class="ansi38-000068000">!(assertEqual 
+  (case 5 
+    ( (6 OK))) 
+  (superpose ()))
 
-</span> c(0,6)='OK'
- switch=5
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.06">;; TEST-SCRIPTS.00-LANG-CASE.06</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  () ()))
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.06">;; TEST-SCRIPTS.00-LANG-CASE.06</h3>
+; 
+; EVAL TEST
+; took 0.098 ms. (97.80 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  () ()))
 </span>        -->(0,'&self',[case,5,[[6,'OK']]],depth(2))
- c(0,6)='OK'
- switch=5
         <--(0,retval(fail))
         -->(1,'&self',[superpose,[]],depth(2))
         <--(1,retval(fail))
-; Evaluation took 1.33 ms.
-<span class="ansi33"> True
+; Trace took 0.213 ms. (213.20 microseconds) 
+; Evaluation took 1.27 ms.
+<span class="ansi33"> Empty
 
 </span>; it is non-deterministic: each value is matched against all cases
-<span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) ((3 OK-3) (4 OK-4))) (superpose (OK-3 OK-4)))
+<span class="ansi38-000068000">!(assertEqual 
+  (case 
+    (+ 1 
+      (superpose 
+        (1 2 3))) 
+    ( (3 OK-3) 
+      (4 OK-4))) 
+  (superpose 
+    (OK-3 OK-4)))
 
-</span> c(0,3)='OK-3'
- c(1,4)='OK-4'
- switch=2
- switch=3
- switch=4
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.07">;; TEST-SCRIPTS.00-LANG-CASE.07</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.07">;; TEST-SCRIPTS.00-LANG-CASE.07</h3>
+; 
+; EVAL TEST
+; took 0.287 ms. (286.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (OK-3 OK-4) 
     (OK-3 OK-4)))
 </span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],depth(2))
- c(0,3)='OK-3'
- c(1,4)='OK-4'
             -->(1,'&self',[+,1,[superpose,[1,2,3]]],depth(4))
                 -->(2,'&self',[+,1,1],depth(6))
- switch=2
                 <--(2,retval(2))
                 -->(3,'&self',[+,1,2],depth(6))
- switch=3
                 <--(3,retval(3))
                 -->(4,'&self',[+,1,3],depth(6))
- switch=4
                 <--(4,retval(4))
             <--(1,retval(4))
         <--(0,retval('OK-4'))
         -->(5,'&self',[superpose,['OK-3','OK-4']],depth(2))
         <--(5,retval('OK-4'))
-; Evaluation took 2.93 ms.
-<span class="ansi33"> True
+; Trace took 0.882 ms. (882.40 microseconds) 
+; Evaluation took 2.61 ms.
+<span class="ansi33"> Empty
 
 </span>; one case can produce multiple results
-<span class="ansi38-000068000">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
+<span class="ansi38-000068000">!(assertEqual 
+  (case 
+    (+ 1 
+      (superpose 
+        (1 2 3))) 
+    ( ($X 
+        (+ 1 $X)))) 
+  (superpose 
+    (3 4 5)))
 
-</span> c(0,_213272)=[+,1,_213272]
- switch=2
- switch=3
- switch=4
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.08">;; TEST-SCRIPTS.00-LANG-CASE.08</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.08">;; TEST-SCRIPTS.00-LANG-CASE.08</h3>
+; 
+; EVAL TEST
+; took 0.405 ms. (405.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (3 4 5) 
     (3 4 5)))
-</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_213272,[+,1,_213272]]]],depth(2))
- c(0,_213272)=[+,1,_213272]
+</span>        -->(0,'&self',[case,[+,1,[superpose,[1,2,3]]],[[_128744,[+,1,_128744]]]],depth(2))
             -->(1,'&self',[+,1,[superpose,[1,2,3]]],depth(4))
                 -->(2,'&self',[+,1,1],depth(6))
- switch=2
+                <--(2,retval(2))
             -->(3,'&self',[+,1,2],depth(4))
             <--(3,retval(3))
-                <--(2,retval(2))
                 -->(4,'&self',[+,1,2],depth(6))
- switch=3
+                <--(4,retval(3))
             -->(5,'&self',[+,1,3],depth(4))
             <--(5,retval(4))
-                <--(4,retval(3))
                 -->(6,'&self',[+,1,3],depth(6))
- switch=4
-            -->(7,'&self',[+,1,4],depth(4))
-            <--(7,retval(5))
                 <--(6,retval(4))
             <--(1,retval(4))
+            -->(7,'&self',[+,1,4],depth(4))
+            <--(7,retval(5))
         <--(0,retval(5))
         -->(8,'&self',[superpose,[3,4,5]],depth(2))
         <--(8,retval(5))
-; Evaluation took 3.78 ms.
-<span class="ansi33"> True
+; Trace took 1.41 ms.
+; Evaluation took 3.07 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
 </span><span class="ansi38-255165000">  (Rel-P A B)
@@ -256,16 +332,25 @@
 </span>
 
 ; Basic Match
-<span class="ansi38-000068000">!(assertEqual (match &self ($Rel A $X) ($Rel $X)) (superpose ((Rel-P B) (Rel-Q C))))
+<span class="ansi38-000068000">!(assertEqual 
+  (match &self 
+    ($Rel A $X) 
+    ($Rel $X)) 
+  (superpose 
+    ( (Rel-P B) 
+      (Rel-Q C))))
 
-</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.09">;; TEST-SCRIPTS.00-LANG-CASE.09</h3>
+; 
+; EVAL TEST
+; took 0.443 ms. (443.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Rel-P B) 
       (Rel-Q C)) 
     ( (Rel-P B) 
       (Rel-Q C))))
-</span>        -->(0,'&self',[match,'&self',[_270736,'A',_271050],[_270736,_271050]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[_186364,'A',_186376],[_186364,_186376]],depth(2))
           -->(1,'&self',['Rel-P','B'],depth(3))
           -->(2,'&self',['Rel-Q','C'],depth(3))
         <--(0,retval(['Rel-Q','C']))
@@ -275,19 +360,30 @@
             -->(6,'&self',['Rel-Q','C'],depth(4))
         <--(3,retval(['Rel-Q','C']))
           -->(7,'&self',['Rel-Q','C'],depth(3))
-; Evaluation took 2.29 ms.
-<span class="ansi33"> True
+; Trace took 0.787 ms. (787.30 microseconds) 
+; Evaluation took 2.67 ms.
+<span class="ansi33"> Empty
 
 </span>; cases can be used for deconstruction
-<span class="ansi38-000068000">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
+<span class="ansi38-000068000">!(assertEqual 
+  (superpose 
+    ( (P B) 
+      (Q C))) 
+  (case 
+    (match &self 
+      ($Rel A $X) 
+      ($Rel $X)) 
+    ( ( (Rel-P $Y) 
+        (P $Y)) 
+      ( (Rel-Q $Y) 
+        (Q $Y)))))
 
-</span> c(0,['Rel-P',_315204])=['P',_315204]
- c(1,['Rel-Q',_315204])=['Q',_315204]
- switch=['Rel-P','B']
- switch=['Rel-Q','C']
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.10">;; TEST-SCRIPTS.00-LANG-CASE.10</h3>
+; 
+; EVAL TEST
+; took 0.791 ms. (790.90 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (P B) 
       (Q C)) 
     ( (P B) 
@@ -298,52 +394,55 @@
             -->(3,'&self',['Q','C'],depth(4))
         <--(0,retval(['Q','C']))
           -->(4,'&self',['Q','C'],depth(3))
-        -->(5,'&self',[case,[match,'&self',[_313964,'A',_314278],[_313964,_314278]],[[['Rel-P',_315204],['P',_315204]],[['Rel-Q',_315204],['Q',_315204]]]],depth(2))
- c(0,['Rel-P',_315204])=['P',_315204]
- c(1,['Rel-Q',_315204])=['Q',_315204]
-            -->(6,'&self',[match,'&self',[_313964,'A',_314278],[_313964,_314278]],depth(4))
+        -->(5,'&self',[case,[match,'&self',[_234370,'A',_234382],[_234370,_234382]],[[['Rel-P',_234430],['P',_234430]],[['Rel-Q',_234430],['Q',_234430]]]],depth(2))
+            -->(6,'&self',[match,'&self',[_234370,'A',_234382],[_234370,_234382]],depth(4))
               -->(7,'&self',['Rel-P','B'],depth(5))
- switch=['Rel-P','B']
             -->(8,'&self',['P','B'],depth(4))
           -->(9,'&self',['P','B'],depth(3))
               -->(10,'&self',['Rel-Q','C'],depth(5))
- switch=['Rel-Q','C']
             -->(11,'&self',['Q','C'],depth(4))
           -->(12,'&self',['Q','C'],depth(3))
             <--(6,retval(['Rel-Q','C']))
         <--(5,retval(['Q','C']))
-; Evaluation took 4.16 ms.
-<span class="ansi33"> True
+; Trace took 1.92 ms.
+; Evaluation took 4.27 ms.
+<span class="ansi33"> Empty
 
 </span>; %void% can be used to capture empty results
-<span class="ansi38-000068000">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
+<span class="ansi38-000068000">!(assertEqual 
+  (case 
+    (match &self 
+      ($Rel B $X) 
+      ($Rel $X)) 
+    ( ( (Rel-P $Y) 
+        (P $Y)) 
+      ( (Rel-Q $Y) 
+        (Q $Y)) 
+      (%void% no-match))) no-match)
 
-</span> c(0,['Rel-P',_362084])=['P',_362084]
- c(1,['Rel-Q',_362084])=['Q',_362084]
- c(2,'%void%')='no-match'
-<h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.00-LANG-CASE.11">;; TEST-SCRIPTS.00-LANG-CASE.11</h3>
+; 
+; EVAL TEST
+; took 0.133 ms. (132.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (no-match) 
     (no-match)))
-</span>        -->(0,'&self',[case,[match,'&self',[_360844,'B',_361158],[_360844,_361158]],[[['Rel-P',_362084],['P',_362084]],[['Rel-Q',_362084],['Q',_362084]],['%void%','no-match']]],depth(2))
- c(0,['Rel-P',_362084])=['P',_362084]
- c(1,['Rel-Q',_362084])=['Q',_362084]
- c(2,'%void%')='no-match'
-            -->(1,'&self',[match,'&self',[_360844,'B',_361158],[_360844,_361158]],depth(4))
+</span>        -->(0,'&self',[case,[match,'&self',[_284044,'B',_284056],[_284044,_284056]],[[['Rel-P',_284104],['P',_284104]],[['Rel-Q',_284104],['Q',_284104]],['%void%','no-match']]],depth(2))
+            -->(1,'&self',[match,'&self',[_284044,'B',_284056],[_284044,_284056]],depth(4))
             <--(1,retval(fail))
         <--(0,retval('no-match'))
-; Evaluation took 1.49 ms.
-<span class="ansi33"> True
+; Trace took 0.312 ms. (311.80 microseconds) 
+; Evaluation took 1.74 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 222,995 inferences, 0.167 CPU in 0.167 seconds (100% CPU, 1338589 Lips)
-</span> (@ = "examples/compat/test_scripts/00_lang_case.metta" 0)
+</span><span class="ansi32">% 443,994 inferences, 0.248 CPU in 0.248 seconds (100% CPU, 1790084 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 11
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/00_lang_case.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/00_lang_case.html" )
 
 </pre>
 </body>

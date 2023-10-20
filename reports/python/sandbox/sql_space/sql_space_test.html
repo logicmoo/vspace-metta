@@ -21,55 +21,102 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/python/sandbox/sql_space/sql_space_test.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/sql_space/sql_space_test.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/sql_space/sql_space_test.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/sql_space/sql_space_test.metta')
+1=[(Error (extend-py! sql_space) Exception caught:
+2=ModuleNotFoundError: No module named 'sql_space'
+2=
+2=At:
+2=  <frozen importlib._bootstrap>(1140): _find_and_load_unlocked
+2=  <frozen importlib._bootstrap>(1176): _find_and_load
+2=  <frozen importlib._bootstrap>(1204): _gcd_import
+2=  /usr/lib/python3.11/importlib/__init__.py(126): import_module
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(64): load_py_module
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(22): <lambda>
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(320): execute
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(167): _priv_call_execute_on_grounded_atom
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(89): run
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(81): import_file
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/metta.py(32): main
+2=  /usr/local/bin/metta(8): <module>
+2=)]
+2=0.09user 0.01system 0:00.11elapsed 98%CPU (0avgtext+0avgdata 28852maxresident)k
+2=32inputs+0outputs (2major+3282minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/sql_space/sql_space_test.metta', 1, "[(Error (extend-py! sql_space) Exception caught:").
+
 <span class="ansi38-000068000">!(extend-py! sql_space)
 
-</span>; Evaluation took 0.150 ms. (150.00 microseconds) 
+</span>; Evaluation took 0.207 ms. (207.20 microseconds) 
 <span class="ansi33">  (extend-py! sql_space)
 
 </span>; database can be installed with use of   https://github.com/metabrainz/musicbrainz-docker#publish-ports-of-all-services
 ; the description https://musicbrainz.org/doc/MusicBrainz_Database
-<span class="ansi38-000068000">!(bind! &sql_space (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432))
+<span class="ansi38-000068000">!(bind! &sql_space 
+  (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432))
 
-</span>; Evaluation took 0.472 ms. (472.40 microseconds) 
-<span class="ansi33">  (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432)
+</span>; Evaluation took 0.272 ms. (272.40 microseconds) 
+<span class="ansi33"> Empty
 
 </span>; save sql query results into given space
-<span class="ansi38-000068000">!(sql.save-query-result &sql_space &self (and (musicbrainz.artist (id $Id) (name $Name)) (musicbrainz.artist (id $Id) (begin_date_year 1977)) (limit 3)))
+<span class="ansi38-000068000">!(sql.save-query-result &sql_space &self 
+  (and 
+    (musicbrainz.artist 
+      (id $Id) 
+      (name $Name)) 
+    (musicbrainz.artist 
+      (id $Id) 
+      (begin_date_year 1977)) 
+    (limit 3)))
 
-</span>%~ catch_warn(apply(name,[_69400,_69406])) -->
+</span>%~ catch_warn(apply(name,[_486014,_486020])) -->
 %~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(name,[_91218,_91224])) -->
+%~ catch_warn(apply(name,[_507736,_507742])) -->
 %~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(limit,[3,_114506])) -->
+%~ catch_warn(apply(limit,[3,_12150])) -->
 %~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
-%~ catch_warn(apply(limit,[3,_135096])) -->
-%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl:948 
-%~ catch_warn(apply(name,[_159208,_159214])) -->
+%~ catch_warn(apply(name,[_35812,_35818])) -->
 %~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(name,[_180654,_180660])) -->
+%~ catch_warn(apply(name,[_57288,_57294])) -->
 %~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(limit,[3,_204558])) -->
+%~ catch_warn(apply(limit,[3,_79604])) -->
 %~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
-%~ catch_warn(apply(limit,[3,_225148])) -->
-%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
-; Evaluation took 257.39 ms.
+; Evaluation took 229.98 ms.
 <span class="ansi33">  (sql.save-query-result 
     (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self True)
 
 </span><span class="ansi38-000068000">!(get-atoms &self)
 
-</span>; Evaluation took 0.070 ms. (69.70 microseconds) 
+</span>; Evaluation took 0.046 ms. (45.90 microseconds) 
 <span class="ansi33"> ()
 
 </span>;result : [GroundingSpace, ((musicbrainz.artist (id "127482") (name "Kanye West"))), ((musicbrainz.artist (id "127482") (begin_date_year 1977))), ((musicbrainz.artist (id "23366") (name "The Dirty Dozen Brass Band"))), ((musicbrainz.artist (id "23366") (begin_date_year 1977))), ((musicbrainz.artist (id "35629") (name "Fabolous"))), ((musicbrainz.artist (id "35629") (begin_date_year 1977)))]
-<span class="ansi38-000068000">!(match &sql_space (and (musicbrainz.artist (id $Id) (name $Name)) (musicbrainz.artist (id $Id) (begin_date_year 1983)) (limit 3)) $Name)
+<span class="ansi38-000068000">!(match &sql_space 
+  (and 
+    (musicbrainz.artist 
+      (id $Id) 
+      (name $Name)) 
+    (musicbrainz.artist 
+      (id $Id) 
+      (begin_date_year 1983)) 
+    (limit 3)) $Name)
 
 </span>;result ["NOFX", "Red Hot Chili Peppers", "Bon Jovi"]
-<span class="ansi38-000068000">!(sql.insert &sql_space ((table musicbrainz.artist) (gid "uuid_generate_v4()") (name "some name3") (sort_name "name some3") (begin_date_year 1988) (begin_date_month 1) (begin_date_day 1) (type 1) (area 222) (gender 2)))
+<span class="ansi38-000068000">!(sql.insert &sql_space 
+  ( (table musicbrainz.artist) 
+    (gid "uuid_generate_v4()") 
+    (name "some name3") 
+    (sort_name "name some3") 
+    (begin_date_year 1988) 
+    (begin_date_month 1) 
+    (begin_date_day 1) 
+    (type 1) 
+    (area 222) 
+    (gender 2)))
 
-</span>; Evaluation took 11.17 ms.
+</span>; Evaluation took 12.34 ms.
 <span class="ansi33">  (sql.insert 
     (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) 
     (True 
@@ -83,10 +130,9 @@
       (area 222) 
       (gender 2)))
 
-</span><span class="ansi32">% 1,291,286 inferences, 0.332 CPU in 0.332 seconds (100% CPU, 3887655 Lips)
-</span> (@ = "examples/python/sandbox/sql_space/sql_space_test.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/python/sandbox/sql_space/sql_space_test.html" )
+</span><span class="ansi32">% 1,305,823 inferences, 0.386 CPU in 0.386 seconds (100% CPU, 3385421 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/sql_space/sql_space_test.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/sql_space/sql_space_test.html" )
 
 </pre>
 </body>

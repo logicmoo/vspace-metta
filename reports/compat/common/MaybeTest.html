@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -40,10 +39,28 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/common/MaybeTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta')
+1=[]
+2=[True]
+3=[False]
+4=[True]
+5=0.06user 0.00system 0:00.07elapsed 100%CPU (0avgtext+0avgdata 28528maxresident)k
+5=0inputs+0outputs (0major+3312minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta', 2, ['True']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta', 3, ['False']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta', 4, ['True']).
+
 <span class="ansi38-000068000">!(import! &self Maybe.metta)
 
-</span>;; Test Maybe
+</span>%~ Maybe.metta:1 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta')
+;; Test Maybe
 ;;; Define Maybe type
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Maybe',[->,A,'Type']])
 </span><span class="ansi38-255165000">  (: Maybe 
@@ -83,14 +100,21 @@
       (Just $X)) True)
 </span>
 
-; Evaluation took 13.06 ms.
-<span class="ansi33"> &self
+; Evaluation took 13.83 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (Maybe< (Just 10) (Just 20)) (True))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (Maybe< 
+    (Just 10) 
+    (Just 20)) 
+  (True))
 
-</span><h3 id="COMMON.MAYBETEST.01">;; COMMON.MAYBETEST.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="COMMON.MAYBETEST.01">;; COMMON.MAYBETEST.01</h3>
+; 
+; EVAL TEST
+; took 0.224 ms. (224.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
 </span>        -->(0,'&self',['Maybe<',['Just',10],['Just',20]],depth(2))
@@ -98,43 +122,57 @@
           -->(2,'&self',[<,10,20],depth(3))
           <--(2,retval('True'))
         <--(0,retval([<,10,20]))
-; Evaluation took 1.86 ms.
-<span class="ansi33"> True
+; Trace took 0.445 ms. (444.70 microseconds) 
+; Evaluation took 1.84 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (Maybe< (Just 10) Nothing) (False))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (Maybe< 
+    (Just 10) Nothing) 
+  (False))
 
-</span><h3 id="COMMON.MAYBETEST.02">;; COMMON.MAYBETEST.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="COMMON.MAYBETEST.02">;; COMMON.MAYBETEST.02</h3>
+; 
+; EVAL TEST
+; took 0.117 ms. (117.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (False) 
     (False)))
 </span>        -->(0,'&self',['Maybe<',['Just',10],'Nothing'],depth(2))
             -->(1,'&self',['Just',10],depth(4))
         <--(0,retval('False'))
-; Evaluation took 1.65 ms.
-<span class="ansi33"> True
+; Trace took 0.315 ms. (315.00 microseconds) 
+; Evaluation took 1.55 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (Maybe< Nothing (Just 10)) (True))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (Maybe< Nothing 
+    (Just 10)) 
+  (True))
 
-</span><h3 id="COMMON.MAYBETEST.03">;; COMMON.MAYBETEST.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="COMMON.MAYBETEST.03">;; COMMON.MAYBETEST.03</h3>
+; 
+; EVAL TEST
+; took 0.118 ms. (118.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
 </span>        -->(0,'&self',['Maybe<','Nothing',['Just',10]],depth(2))
             -->(1,'&self',['Just',10],depth(4))
         <--(0,retval('True'))
-; Evaluation took 1.63 ms.
-<span class="ansi33"> True
+; Trace took 0.257 ms. (257.30 microseconds) 
+; Evaluation took 1.45 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 67,848 inferences, 0.028 CPU in 0.028 seconds (100% CPU, 2419246 Lips)
-</span> (@ = "examples/compat/common/MaybeTest.metta" 0)
+</span><span class="ansi32">% 296,410 inferences, 0.111 CPU in 0.111 seconds (100% CPU, 2675110 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/common/MaybeTest.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/MaybeTest.html" )
 
 </pre>
 </body>

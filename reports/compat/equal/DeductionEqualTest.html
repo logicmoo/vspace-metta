@@ -9,6 +9,8 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-000068000 { color: #004400; }
@@ -25,30 +27,42 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/equal/DeductionEqualTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta')
+1=[]
+2=[(, (≞ P (PrCnt 1 0.1)) (≞ Q (PrCnt 1 0.1)) (≞ R (PrCnt 1 0.1)) (≞ (→ P Q) (PrCnt 1 0.5)) (≞ (→ Q R) (PrCnt 1 0.5)))]
+3=[(, (≞ P (PrCnt 1 0.1)) (≞ R (PrCnt 1 0.1)) (≞ S (PrCnt 1 0.1)) (, (≞ P (PrCnt 1 0.1)) (≞ Q (PrCnt 1 0.1)) (≞ R (PrCnt 1 0.1)) (≞ (→ P Q) (PrCnt 1 0.5)) (≞ (→ Q R) (PrCnt 1 0.5))) (≞ (→ R S) (PrCnt 1 0.5)))]
+4=0.08user 0.00system 0:00.08elapsed 100%CPU (0avgtext+0avgdata 28920maxresident)k
+4=0inputs+0outputs (0major+3322minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta', 2, [[',', [≞, 'P', ['PrCnt', 1, 0.1]], [≞, 'Q', ['PrCnt', 1, 0.1]], [≞, 'R', ['PrCnt', 1, 0.1]], [≞, [→, 'P', 'Q'], ['PrCnt', 1, 0.5]], [≞, [→, 'Q', 'R'], ['PrCnt', 1, 0.5]]]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta', 3, [[',', [≞, 'P', ['PrCnt', 1, 0.1]], [≞, 'R', ['PrCnt', 1, 0.1]], [≞, 'S', ['PrCnt', 1, 0.1]], [',', [≞, 'P', ['PrCnt', 1, 0.1]], [≞, 'Q', ['PrCnt', 1, 0.1]], [≞, 'R', ['PrCnt', 1, 0.1]], [≞, [→, 'P', 'Q'], ['PrCnt', 1, 0.5]], [≞, [→, 'Q', 'R'], ['PrCnt', 1, 0.5]]], [≞, [→, 'R', 'S'], ['PrCnt', 1, 0.5]]]]).
+
 ;;; Test Deduction equality Rule
 <span class="ansi38-000068000">!(import! &self DeductionEqual.metta)
 
-</span>;; Test 1:
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta')
+;; Test 1:
 ;;; MeTTa port for deduction PLN rule
 ;;; using equality, =
 ;;;
-;;; (â P ptv)
-;;; (â Q qtv)
-;;; (â R rtv)
-;;; (â (â P Q) tv1)
-;;; (â (â Q R) tv2)
-;;; â¢
-;;; (â (â P R) TV)
+;;; (≞ P ptv)
+;;; (≞ Q qtv)
+;;; (≞ R rtv)
+;;; (≞ (→ P Q) tv1)
+;;; (≞ (→ Q R) tv2)
+;;; ⊢
+;;; (≞ (→ P R) TV)
 ;;;
 ;;; where ptv, qtv, rtv, tv1 and tv2 are truth values of the
-;;; premises P, Q, R, (â P Q) and (â Q R) respectively.
+;;; premises P, Q, R, (→ P Q) and (→ Q R) respectively.
 ;;; TV represents the resulting truth value of the conclusion.
 ;; Import formula functions
 <span class="ansi38-000068000">!(import! &self "../common/DeductionFormula.metta")
-
-</span>; Evaluation took 0.105 ms. (105.30 microseconds) 
-<span class="ansi33">  (import! &self "../common/DeductionFormula.metta")
 
 </span>;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
@@ -88,27 +102,134 @@
         (â $Q $R) $Qrtv)))
 </span>
 
-; Evaluation took 23.96 ms.
-<span class="ansi33"> &self
+; Evaluation took 28.10 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(and (â P (PrCnt 1 0.1)) (â Q (PrCnt 1 0.1)) (â R (PrCnt 1 0.1)) (â (â P Q) (PrCnt 1 0.5)) (â (â Q R) (PrCnt 1 0.5)))
+</span><span class="ansi38-000068000">!(and 
+  (â P 
+    (PrCnt 1 0.1)) 
+  (â Q 
+    (PrCnt 1 0.1)) 
+  (â R 
+    (PrCnt 1 0.1)) 
+  (â 
+    (â P Q) 
+    (PrCnt 1 0.5)) 
+  (â 
+    (â Q R) 
+    (PrCnt 1 0.5)))
 
-</span>; Evaluation took 2.43 ms.
+</span>; Evaluation took 2.79 ms.
 <span class="ansi33"> True
 
-</span>;; Test 2: Apply deduction rule over the result
-;; we get from test 1 as an input.
-<span class="ansi38-000068000">!(let $PR (and (â P (PrCnt 1 0.1)) (â Q (PrCnt 1 0.1)) (â R (PrCnt 1 0.1)) (â (â P Q) (PrCnt 1 0.5)) (â (â Q R) (PrCnt 1 0.5))) (and (â P (PrCnt 1 0.1)) (â R (PrCnt 1 0.1)) (â S (PrCnt 1 0.1)) $PR (â (â R S) (PrCnt 1 0.5))))
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (and 
+      (â P 
+        (PrCnt 1 0.1)) 
+      (â Q 
+        (PrCnt 1 0.1)) 
+      (â R 
+        (PrCnt 1 0.1)) 
+      (â 
+        (â P Q) 
+        (PrCnt 1 0.5)) 
+      (â 
+        (â Q R) 
+        (PrCnt 1 0.5))) 
+    ( (and 
+        (≞ P 
+          (PrCnt 1 0.1)) 
+        (≞ R 
+          (PrCnt 1 0.1)) 
+        (≞ S 
+          (PrCnt 1 0.1)) 
+        (and 
+          (≞ P 
+            (PrCnt 1 0.1)) 
+          (≞ Q 
+            (PrCnt 1 0.1)) 
+          (≞ R 
+            (PrCnt 1 0.1)) 
+          (≞ 
+            (→ P Q) 
+            (PrCnt 1 0.5)) 
+          (≞ 
+            (→ Q R) 
+            (PrCnt 1 0.5))) 
+        (≞ 
+          (→ R S) 
+          (PrCnt 1 0.5)))))
+(@ ! 
+  (assertEqual 
+    (True) 
+    ( (and 
+        (≞ P 
+          (PrCnt 1 0.1)) 
+        (≞ R 
+          (PrCnt 1 0.1)) 
+        (≞ S 
+          (PrCnt 1 0.1)) 
+        (and 
+          (≞ P 
+            (PrCnt 1 0.1)) 
+          (≞ Q 
+            (PrCnt 1 0.1)) 
+          (≞ R 
+            (PrCnt 1 0.1)) 
+          (≞ 
+            (→ P Q) 
+            (PrCnt 1 0.5)) 
+          (≞ 
+            (→ Q R) 
+            (PrCnt 1 0.5))) 
+        (≞ 
+          (→ R S) 
+          (PrCnt 1 0.5))))))
+write_pass_fail_result("EQUAL.DEDUCTIONEQUALTEST.103",exec,[',',['â\x89\\x9E\','P',['PrCnt',1,0.1]],['â\x89\\x9E\','Q',['PrCnt',1,0.1]],['â\x89\\x9E\','R',['PrCnt',1,0.1]],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['PrCnt',1,0.5]],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['PrCnt',1,0.5]]],'FAIL',[[',',[≞,'P',['PrCnt',1,0.1]],[≞,'R',['PrCnt',1,0.1]],[≞,'S',['PrCnt',1,0.1]],[',',[≞,'P',['PrCnt',1,0.1]],[≞,'Q',['PrCnt',1,0.1]],[≞,'R',['PrCnt',1,0.1]],[≞,[→,'P','Q'],['PrCnt',1,0.5]],[≞,[→,'Q','R'],['PrCnt',1,0.5]]],[≞,[→,'R','S'],['PrCnt',1,0.5]]]],['True'])
 
-</span>; Evaluation took 4.36 ms.
+</span>
+
+--------------------------------------------------------------------------
+;; Test 2: Apply deduction rule over the result
+;; we get from test 1 as an input.
+<span class="ansi38-000068000">!(let $PR 
+  (and 
+    (â P 
+      (PrCnt 1 0.1)) 
+    (â Q 
+      (PrCnt 1 0.1)) 
+    (â R 
+      (PrCnt 1 0.1)) 
+    (â 
+      (â P Q) 
+      (PrCnt 1 0.5)) 
+    (â 
+      (â Q R) 
+      (PrCnt 1 0.5))) 
+  (and 
+    (â P 
+      (PrCnt 1 0.1)) 
+    (â R 
+      (PrCnt 1 0.1)) 
+    (â S 
+      (PrCnt 1 0.1)) $PR 
+    (â 
+      (â R S) 
+      (PrCnt 1 0.5))))
+
+</span>; Evaluation took 6.50 ms.
 <span class="ansi33"> True
 </span><span class="ansi32">['PR'='True']
 </span>
 
-<span class="ansi32">% 146,964 inferences, 0.060 CPU in 0.060 seconds (100% CPU, 2447454 Lips)
-</span> (@ = "examples/compat/equal/DeductionEqualTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/equal/DeductionEqualTest.html" )
+<span class="ansi32">% 433,873 inferences, 0.174 CPU in 0.174 seconds (100% CPU, 2500291 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/equal/DeductionEqualTest.html" )
 
 </pre>
 </body>

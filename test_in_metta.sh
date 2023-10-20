@@ -12,11 +12,31 @@ export PYTHONPATH=./metta_vspace
 # Save the directory where this script resides
 export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export UNITS_DIR="${1:-examples/}"
+# only use arg1 and shift if it is a path
+if [ -d "$1" ] || [ -f "$1" ]; then
+    export UNITS_DIR="$1"
+    shift
+else
+    export UNITS_DIR="examples/"
+fi
+
+
+# Store the remaining arguments in outer_extra_args
+outer_extra_args="$@"
 
 function delete_html_files() {
     cd "$SCRIPT_DIR"
     find "${UNITS_DIR}" -name "*.html" -type f -delete
+}
+
+file_in_array() {
+    local file="$1"
+    shift
+    local arr=("$@")
+    for elem in "${arr[@]}"; do
+        [[ "$elem" == "$file" ]] && return 0
+    done
+    return 1
 }
 
 export MAX_TIME=10
@@ -56,7 +76,9 @@ function run_tests() {
 
     # Shared logic across both file types
     process_file() {
-        local file=$1
+       local file=$1
+       shift
+       local extra_args="$@"
 
        echo ""
        echo ""
@@ -65,7 +87,7 @@ function run_tests() {
         cd "$SCRIPT_DIR"
         echo ""
 
-        local TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false --html \"$file\" --halt=true"
+        local TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false  $extra_args $outer_extra_args --html \"$file\" --halt=true"
         echo "Running command: $TEST_CMD"
 
         set +e
@@ -104,7 +126,11 @@ function run_tests() {
            else
                cat "${file}.answers"
            fi
-           [ -f "${file}" ] && process_file "$file"
+           if file_in_array "$file" "${assert_files[@]}"; then
+              [ -f "${file}" ] && process_file "$file"
+           else
+              [ -f "${file}" ] && process_file "$file" "--test-retval=true"
+           fi
         fi
     done
 

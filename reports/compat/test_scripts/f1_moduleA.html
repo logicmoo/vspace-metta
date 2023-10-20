@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -41,14 +40,27 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/f1_moduleA.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta')
+1=[]
+2=[]
+3=0.10user 0.02system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 28776maxresident)k
+3=0inputs+0outputs (0major+3310minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta', 2, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self f1_moduleC.metta)
 
-</span>; FIXME? stdlib space is not available at importing time -
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta')
+; FIXME? stdlib space is not available at importing time -
 ; only tokens / grounded operations work, while symbolic functions
 ; (like `if`) don''t work.
 ; FIXME? Exceptions are not caught by `importOp`
@@ -78,20 +90,25 @@
       (__g)))
 </span>
 
-; Evaluation took 4.72 ms.
-<span class="ansi33"> &self
+; Evaluation took 8.13 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (+ 1 2) 3)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (+ 1 2) 3)
 
-</span><h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.F1-MODULEA.01">;; TEST-SCRIPTS.F1-MODULEA.01</h3>
+; 
+; EVAL TEST
+; took 0.095 ms. (94.60 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (3) 
     (3)))
 </span>        -->(0,'&self',[+,1,2],depth(2))
         <--(0,retval(3))
-; Evaluation took 1.25 ms.
-<span class="ansi33"> True
+; Trace took 0.181 ms. (181.40 microseconds) 
+; Evaluation took 1.21 ms.
+<span class="ansi33"> Empty
 
 </span>; !(assertEqual (if True "S" "F") "S")
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[dup,X],[if,[==,X,0],[+,X,10],[g,X]])
@@ -118,14 +135,13 @@
         (+ 1 $X))))
 </span>
 
-<span class="ansi32">% 56,155 inferences, 0.019 CPU in 0.019 seconds (100% CPU, 2935058 Lips)
-</span> (@ = "examples/compat/test_scripts/f1_moduleA.metta" 0)
+<span class="ansi32">% 282,761 inferences, 0.116 CPU in 0.116 seconds (100% CPU, 2440981 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/f1_moduleA.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/f1_moduleA.html" )
 
 </pre>
 </body>

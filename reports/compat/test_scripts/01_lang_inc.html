@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -23,7 +22,18 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/01_lang_inc.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.metta')
+1=[]
+2=[]
+3=0.10user 0.00system 0:00.11elapsed 99%CPU (0avgtext+0avgdata 28620maxresident)k
+3=0inputs+0outputs (0major+3280minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.metta', 2, []).
+
 ; a functional example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['maybe-inc',X],[case,X,[[['Just',V],['Just',[+,1,V]]],['Nothing','Nothing']]])
 </span><span class="ansi38-255165000">  (= 
@@ -35,58 +45,63 @@
         (Nothing Nothing))))
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (maybe-inc Nothing) Nothing)
+<span class="ansi38-000068000">!(assertEqual 
+  (maybe-inc Nothing) Nothing)
 
-</span><h3 id="TEST-SCRIPTS.01-LANG-INC.01">;; TEST-SCRIPTS.01-LANG-INC.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.01-LANG-INC.01">;; TEST-SCRIPTS.01-LANG-INC.01</h3>
+; 
+; EVAL TEST
+; took 0.132 ms. (132.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (Nothing) 
     (Nothing)))
 </span>        -->(0,'&self',['maybe-inc','Nothing'],depth(2))
         <--(0,retval('Nothing'))
-; Evaluation took 1.18 ms.
-<span class="ansi33"> True
+; Trace took 0.217 ms. (216.50 microseconds) 
+; Evaluation took 1.88 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (maybe-inc (Just 2)) (Just 3))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (maybe-inc 
+    (Just 2)) 
+  (Just 3))
 
-</span> c(0,['Just',_480380])=['Just',[+,1,_480380]]
- c(1,'Nothing')='Nothing'
- switch=['Just',2]
-<h3 id="TEST-SCRIPTS.01-LANG-INC.02">;; TEST-SCRIPTS.01-LANG-INC.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.01-LANG-INC.02">;; TEST-SCRIPTS.01-LANG-INC.02</h3>
+; 
+; EVAL TEST
+; took 1.03 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Just 3)) 
     ( (Just 3))))
 </span>        -->(0,'&self',['maybe-inc',['Just',2]],depth(2))
             -->(1,'&self',['Just',2],depth(4))
-          -->(2,'&self',[case,['Just',2],[[['Just',_491338],['Just',[+,1,_491338]]],['Nothing','Nothing']]],depth(3))
- c(0,['Just',_491338])=['Just',[+,1,_491338]]
- c(1,'Nothing')='Nothing'
+          -->(2,'&self',[case,['Just',2],[[['Just',_389002],['Just',[+,1,_389002]]],['Nothing','Nothing']]],depth(3))
               -->(3,'&self',['Just',2],depth(5))
- switch=['Just',2]
               -->(4,'&self',['Just',[+,1,2]],depth(5))
                   -->(5,'&self',[+,1,2],depth(7))
+                  <--(5,retval(3))
                   -->(6,'&self',['Just',3],depth(7))
                 -->(7,'&self',['Just',3],depth(6))
             -->(8,'&self',['Just',3],depth(4))
-                  <--(5,retval(3))
                   -->(9,'&self',[+,1,2],depth(7))
                   <--(9,retval(3))
               <--(4,retval(['Just',3]))
           <--(2,retval(['Just',3]))
-        <--(0,retval([case,['Just',2],[[['Just',_491596],['Just',[+,1,_491596]]],['Nothing','Nothing']]]))
+        <--(0,retval([case,['Just',2],[[['Just',_389260],['Just',[+,1,_389260]]],['Nothing','Nothing']]]))
         -->(10,'&self',['Just',3],depth(2))
-; Evaluation took 3.77 ms.
-<span class="ansi33"> True
+; Trace took 2.50 ms.
+; Evaluation took 5.07 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 34,760 inferences, 0.012 CPU in 0.012 seconds (100% CPU, 2940007 Lips)
-</span> (@ = "examples/compat/test_scripts/01_lang_inc.metta" 0)
+</span><span class="ansi32">% 251,022 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 2529003 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/01_lang_inc.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/01_lang_inc.html" )
 
 </pre>
 </body>

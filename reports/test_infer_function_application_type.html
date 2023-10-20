@@ -156,7 +156,19 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/test_infer_function_application_type.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_infer_function_application_type.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_infer_function_application_type.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_infer_function_application_type.metta')
+1=[(Error (assertEqual (if (: (apply reverse "Hello") $t) $t) String) 
+2=Expected: [String]
+2=Got: [(Error (if (: (apply reverse "Hello") $t) $t) IncorrectNumberOfArguments)]
+2=Missed result: String)]
+2=0.10user 0.01system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 28316maxresident)k
+2=0inputs+0outputs (0major+3273minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_infer_function_application_type.metta', 1, "[(Error (assertEqual (if (: (apply reverse \"Hello\") $t) $t) String) ").
+
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[if,'True',Then],Then)
 </span><span class="ansi38-255165000">  (= 
     (if True $Then) $Then)
@@ -183,26 +195,33 @@
     (: "Hello" String) True)
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (if (: (apply reverse "Hello") $True) $True) String)
+<span class="ansi38-000068000">!(assertEqual 
+  (if 
+    (: 
+      (apply reverse "Hello") $True) $True) String)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.01">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.01">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.01</h3>
+; 
+; EVAL TEST
+; took 1.43 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (String) 
     (String)))
-</span>        -->(0,'&self',[if,[:,[apply,reverse,"Hello"],_112280],_112280],depth(2))
-            -->(1,'&self',[:,[apply,reverse,"Hello"],_112280],depth(4))
+</span>        -->(0,'&self',[if,[:,[apply,reverse,"Hello"],_2116],_2116],depth(2))
+            -->(1,'&self',[:,[apply,reverse,"Hello"],_2116],depth(4))
                 -->(2,'&self',[apply,reverse,"Hello"],depth(6))
-              -->(3,'&self',[and,[:,reverse,[=>,_127560,_112280]],[:,"Hello",_127560]],depth(5))
-                  -->(4,'&self',[:,reverse,[=>,_127560,_112280]],depth(7))
+              -->(3,'&self',[and,[:,reverse,[=>,_6804,_2116]],[:,"Hello",_6804]],depth(5))
+                  -->(4,'&self',[:,reverse,[=>,_6804,_2116]],depth(7))
                   -->(5,'&self',[:,"Hello",'String'],depth(7))
                   <--(5,retval('True'))
                   <--(4,retval('True'))
               <--(3,retval('True'))
-            <--(1,retval([and,[:,reverse,[=>,_127746,_127752]],[:,"Hello",_127746]]))
+            <--(1,retval([and,[:,reverse,[=>,_6990,_6996]],[:,"Hello",_6990]]))
         <--(0,retval('String'))
-; Evaluation took 3.39 ms.
-<span class="ansi33"> True
+; Trace took 1.04 ms.
+; Evaluation took 4.17 ms.
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[:?,C],[match,'&self',[:=,C,True],True])
 </span><span class="ansi38-255165000">  (= 
@@ -345,28 +364,42 @@
     (Croaks Sam))
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (:? (HumansAreMortal SocratesIsHuman)) (Mortal Socrates))
+<span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (HumansAreMortal SocratesIsHuman)) 
+  (Mortal Socrates))
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.02">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.02</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.02">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.02</h3>
+; 
+; EVAL TEST
+; took 0.454 ms. (454.00 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     ( (Mortal Socrates))))
 </span>        -->(0,'&self',[:?,['HumansAreMortal','SocratesIsHuman']],depth(2))
             -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,['HumansAreMortal','SocratesIsHuman'],_264794],_264794],depth(3))
+          -->(2,'&self',[match,'&self',[:=,['HumansAreMortal','SocratesIsHuman'],_146734],_146734],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],_265010],_265010],depth(3))
+          -->(3,'&self',[match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],_146950],_146950],depth(3))
           <--(3,retval(fail))
-        <--(0,retval([match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],_265244],_265244]))
+        <--(0,retval([match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],_147184],_147184]))
         -->(4,'&self',['Mortal','Socrates'],depth(2))
-; Evaluation took 2.03 ms.
-<span class="ansi33"> False
+; Trace took 0.913 ms. (912.60 microseconds) 
+; Evaluation took 3.75 ms.
+<span class="ansi33">  (got () expected 
+    ( (Mortal Socrates)))
 
-</span><span class="ansi38-000068000">!(assertEqual (:check (HumansAreMortal SocratesIsHuman) (Mortal Socrates)) True)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:check 
+    (HumansAreMortal SocratesIsHuman) 
+    (Mortal Socrates)) True)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.03">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.03</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.03">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.03</h3>
+; 
+; EVAL TEST
+; took 0.274 ms. (274.00 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (True)))
 </span>        -->(0,'&self',[':check',['HumansAreMortal','SocratesIsHuman'],['Mortal','Socrates']],depth(2))
             -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
@@ -375,30 +408,46 @@
           -->(3,'&self',[match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],['Mortal','Socrates']],'True'],depth(3))
           <--(3,retval(fail))
         <--(0,retval([match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],['Mortal','Socrates']],'True']))
-; Evaluation took 1.65 ms.
-<span class="ansi33"> False
+; Trace took 0.799 ms. (798.50 microseconds) 
+; Evaluation took 2.68 ms.
+<span class="ansi33">  (got () expected True)
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= SocratesIsMortal (HumansAreMortal SocratesIsHuman))) Prop)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= SocratesIsMortal 
+      (HumansAreMortal SocratesIsHuman))) Prop)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.04">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.04</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.04">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.04</h3>
+; 
+; EVAL TEST
+; took 0.223 ms. (223.50 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (Prop)))
 </span>        -->(0,'&self',[:?,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']]],depth(2))
             -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],_364020],_364020],depth(3))
+          -->(2,'&self',[match,'&self',[:=,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],_254374],_254374],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,[=,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']]],_364290],_364290],depth(3))
+          -->(3,'&self',[match,'&self',[:=,[=,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']]],_254644],_254644],depth(3))
           <--(3,retval(fail))
-        <--(0,retval([match,'&self',[:=,[=,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']]],_364602],_364602]))
-; Evaluation took 1.64 ms.
-<span class="ansi33"> False
+        <--(0,retval([match,'&self',[:=,[=,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']]],_254956],_254956]))
+; Trace took 0.570 ms. (569.90 microseconds) 
+; Evaluation took 2.27 ms.
+<span class="ansi33">  (got () expected 
+    (Prop))
 
-</span><span class="ansi38-000068000">!(assertEqual (:check (= (Mortal Plato) (Mortal Socrates)) Prop) True)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:check 
+    (= 
+      (Mortal Plato) 
+      (Mortal Socrates)) Prop) True)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.05">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.05</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.05">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.05</h3>
+; 
+; EVAL TEST
+; took 0.242 ms. (242.00 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (True)))
 </span>        -->(0,'&self',[':check',[=,['Mortal','Plato'],['Mortal','Socrates']],'Prop'],depth(2))
             -->(1,'&self',['Mortal','Plato'],depth(4))
@@ -407,14 +456,22 @@
           -->(3,'&self',[match,'&self',[:=,[=,[:?,['Mortal','Plato']],[:?,['Mortal','Socrates']]],'Prop'],'True'],depth(3))
           <--(3,retval(fail))
         <--(0,retval([match,'&self',[:=,[=,[:?,['Mortal','Plato']],[:?,['Mortal','Socrates']]],'Prop'],'True']))
-; Evaluation took 1.57 ms.
-<span class="ansi33"> False
+; Trace took 0.648 ms. (647.80 microseconds) 
+; Evaluation took 2.39 ms.
+<span class="ansi33">  (got () expected True)
 
-</span><span class="ansi38-000068000">!(assertEqual (:check (= (Human Socrates) (Mortal Socrates)) Prop) True)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:check 
+    (= 
+      (Human Socrates) 
+      (Mortal Socrates)) Prop) True)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.06">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.06</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.06">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.06</h3>
+; 
+; EVAL TEST
+; took 0.287 ms. (287.10 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (True)))
 </span>        -->(0,'&self',[':check',[=,['Human','Socrates'],['Mortal','Socrates']],'Prop'],depth(2))
             -->(1,'&self',['Human','Socrates'],depth(4))
@@ -423,45 +480,61 @@
           -->(3,'&self',[match,'&self',[:=,[=,[:?,['Human','Socrates']],[:?,['Mortal','Socrates']]],'Prop'],'True'],depth(3))
           <--(3,retval(fail))
         <--(0,retval([match,'&self',[:=,[=,[:?,['Human','Socrates']],[:?,['Mortal','Socrates']]],'Prop'],'True']))
-; Evaluation took 1.49 ms.
-<span class="ansi33"> False
+; Trace took 0.618 ms. (618.50 microseconds) 
+; Evaluation took 2.32 ms.
+<span class="ansi33">  (got () expected True)
 
 </span>; they are both of Prop type and can be equated
-<span class="ansi38-000068000">!(assertEqual (:? (GreenAndCroaksIsFrog SamIsGreen SamCroaks)) (Frog Sam))
+<span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (GreenAndCroaksIsFrog SamIsGreen SamCroaks)) 
+  (Frog Sam))
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.07">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.07</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.07">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.07</h3>
+; 
+; EVAL TEST
+; took 0.309 ms. (308.60 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     ( (Frog Sam))))
 </span>        -->(0,'&self',[:?,['GreenAndCroaksIsFrog','SamIsGreen','SamCroaks']],depth(2))
             -->(1,'&self',['GreenAndCroaksIsFrog','SamIsGreen','SamCroaks'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,['GreenAndCroaksIsFrog','SamIsGreen','SamCroaks'],_508852],_508852],depth(3))
+          -->(2,'&self',[match,'&self',[:=,['GreenAndCroaksIsFrog','SamIsGreen','SamCroaks'],_411764],_411764],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,['GreenAndCroaksIsFrog',[:?,'SamIsGreen'],[:?,'SamCroaks']],_509098],_509098],depth(3))
+          -->(3,'&self',[match,'&self',[:=,['GreenAndCroaksIsFrog',[:?,'SamIsGreen'],[:?,'SamCroaks']],_412010],_412010],depth(3))
           <--(3,retval(fail))
-        <--(0,retval([match,'&self',[:=,['GreenAndCroaksIsFrog',[:?,'SamIsGreen'],[:?,'SamCroaks']],_509374],_509374]))
+        <--(0,retval([match,'&self',[:=,['GreenAndCroaksIsFrog',[:?,'SamIsGreen'],[:?,'SamCroaks']],_412286],_412286]))
         -->(4,'&self',['Frog','Sam'],depth(2))
-; Evaluation took 2.05 ms.
-<span class="ansi33"> False
+; Trace took 0.819 ms. (819.40 microseconds) 
+; Evaluation took 2.68 ms.
+<span class="ansi33">  (got () expected 
+    ( (Frog Sam)))
 
 </span>; some negative examples
-<span class="ansi38-000068000">!(assertEqual (:check (= SocratesIsHuman SocratesIsMortal) Prop))
+<span class="ansi38-000068000">!(assertEqual 
+  (:check 
+    (= SocratesIsHuman SocratesIsMortal) Prop))
 
-</span>; Evaluation took 0.486 ms. (485.90 microseconds) 
+</span>; Evaluation took 0.469 ms. (469.50 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:check False Prop))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (SocratesIsHuman (Human Socrates))))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (SocratesIsHuman 
+      (Human Socrates))))
 
-</span>; Evaluation took 0.281 ms. (280.90 microseconds) 
+</span>; Evaluation took 0.338 ms. (338.00 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? 
       (SocratesIsHuman 
         (Human Socrates))))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (Human Time)))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (Human Time)))
 
-</span>; Evaluation took 0.267 ms. (267.50 microseconds) 
+</span>; Evaluation took 0.347 ms. (347.10 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? 
       (Human Time)))
@@ -547,165 +620,217 @@
 </span>
 
 ; :? just infers the type of the expression - not its inhabitance
-<span class="ansi38-000068000">!(assertEqual (:? (Human Plato)) Type)
+<span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (Human Plato)) Type)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.08">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.08</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.08">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.08</h3>
+; 
+; EVAL TEST
+; took 0.221 ms. (221.10 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (Type)))
 </span>        -->(0,'&self',[:?,['Human','Plato']],depth(2))
             -->(1,'&self',['Human','Plato'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,['Human','Plato'],_310786],_310786],depth(3))
+          -->(2,'&self',[match,'&self',[:=,['Human','Plato'],_236238],_236238],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,['Human',[:?,'Plato']],_311002],_311002],depth(3))
+          -->(3,'&self',[match,'&self',[:=,['Human',[:?,'Plato']],_236454],_236454],depth(3))
           <--(3,retval(fail))
-          -->(4,'&self',[match,'&self',[::,['Human','Plato'],_311278],_311278],depth(3))
+          -->(4,'&self',[match,'&self',[::,['Human','Plato'],_236730],_236730],depth(3))
           <--(4,retval(fail))
-          -->(5,'&self',[match,'&self',[::,'Human',[->,[:?,'Plato'],_311632]],_311632],depth(3))
+          -->(5,'&self',[match,'&self',[::,'Human',[->,[:?,'Plato'],_237084]],_237084],depth(3))
           <--(5,retval(fail))
-        <--(0,retval([match,'&self',[::,'Human',[->,[:?,'Plato'],_312010]],_312010]))
-; Evaluation took 1.86 ms.
-<span class="ansi33"> False
+        <--(0,retval([match,'&self',[::,'Human',[->,[:?,'Plato'],_237462]],_237462]))
+; Trace took 0.710 ms. (709.70 microseconds) 
+; Evaluation took 2.19 ms.
+<span class="ansi33">  (got () expected 
+    (Type))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (Human Time)))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (Human Time)))
 
-</span>; Evaluation took 0.372 ms. (371.70 microseconds) 
+</span>; Evaluation took 0.309 ms. (308.90 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? 
       (Human Time)))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (HumansAreMortal SocratesIsHuman)) (Mortal Socrates))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (HumansAreMortal SocratesIsHuman)) 
+  (Mortal Socrates))
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.09">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.09</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.09">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.09</h3>
+; 
+; EVAL TEST
+; took 0.308 ms. (308.00 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     ( (Mortal Socrates))))
 </span>        -->(0,'&self',[:?,['HumansAreMortal','SocratesIsHuman']],depth(2))
             -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,['HumansAreMortal','SocratesIsHuman'],_359376],_359376],depth(3))
+          -->(2,'&self',[match,'&self',[:=,['HumansAreMortal','SocratesIsHuman'],_290102],_290102],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],_359592],_359592],depth(3))
+          -->(3,'&self',[match,'&self',[:=,['HumansAreMortal',[:?,'SocratesIsHuman']],_290318],_290318],depth(3))
           <--(3,retval(fail))
-          -->(4,'&self',[match,'&self',[::,['HumansAreMortal','SocratesIsHuman'],_359868],_359868],depth(3))
+          -->(4,'&self',[match,'&self',[::,['HumansAreMortal','SocratesIsHuman'],_290594],_290594],depth(3))
           <--(4,retval(fail))
-          -->(5,'&self',[match,'&self',[::,'HumansAreMortal',[->,[:?,'SocratesIsHuman'],_360222]],_360222],depth(3))
+          -->(5,'&self',[match,'&self',[::,'HumansAreMortal',[->,[:?,'SocratesIsHuman'],_290948]],_290948],depth(3))
           <--(5,retval(fail))
-        <--(0,retval([match,'&self',[::,'HumansAreMortal',[->,[:?,'SocratesIsHuman'],_360600]],_360600]))
+        <--(0,retval([match,'&self',[::,'HumansAreMortal',[->,[:?,'SocratesIsHuman'],_291326]],_291326]))
         -->(6,'&self',['Mortal','Socrates'],depth(2))
-; Evaluation took 1.74 ms.
-<span class="ansi33"> False
+; Trace took 0.897 ms. (896.90 microseconds) 
+; Evaluation took 2.63 ms.
+<span class="ansi33">  (got () expected 
+    ( (Mortal Socrates)))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= SocratesIsMortal (HumansAreMortal SocratesIsHuman))) Type)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= SocratesIsMortal 
+      (HumansAreMortal SocratesIsHuman))) Type)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.10">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.10</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.10">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.10</h3>
+; 
+; EVAL TEST
+; took 0.249 ms. (249.20 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (Type)))
 </span>        -->(0,'&self',[:?,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']]],depth(2))
             -->(1,'&self',['HumansAreMortal','SocratesIsHuman'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],_388014],_388014],depth(3))
+          -->(2,'&self',[match,'&self',[:=,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],_322558],_322558],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,[=,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']]],_388284],_388284],depth(3))
+          -->(3,'&self',[match,'&self',[:=,[=,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']]],_322828],_322828],depth(3))
           <--(3,retval(fail))
-          -->(4,'&self',[match,'&self',[::,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],_388638],_388638],depth(3))
+          -->(4,'&self',[match,'&self',[::,[=,'SocratesIsMortal',['HumansAreMortal','SocratesIsHuman']],_323182],_323182],depth(3))
           <--(4,retval(fail))
-          -->(5,'&self',[match,'&self',[::,=,[->,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']],_389094]],_389094],depth(3))
+          -->(5,'&self',[match,'&self',[::,=,[->,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']],_323638]],_323638],depth(3))
           <--(5,retval(fail))
-        <--(0,retval([match,'&self',[::,=,[->,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']],_389598]],_389598]))
-; Evaluation took 1.74 ms.
-<span class="ansi33"> False
+        <--(0,retval([match,'&self',[::,=,[->,[:?,'SocratesIsMortal'],[:?,['HumansAreMortal','SocratesIsHuman']],_324142]],_324142]))
+; Trace took 0.869 ms. (869.40 microseconds) 
+; Evaluation took 2.44 ms.
+<span class="ansi33">  (got () expected 
+    (Type))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= Human Entity)))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= Human Entity)))
 
-</span>; Evaluation took 0.443 ms. (443.30 microseconds) 
+</span>; Evaluation took 0.456 ms. (456.00 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? False))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= (Human Socrates) Plato)))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= 
+      (Human Socrates) Plato)))
 
-</span>; Evaluation took 0.329 ms. (328.60 microseconds) 
+</span>; Evaluation took 0.323 ms. (323.10 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? 
       (= 
         (Human Socrates) Plato)))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= SocratesIsHuman SocratesIsMortal)))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= SocratesIsHuman SocratesIsMortal)))
 
-</span>; Evaluation took 0.451 ms. (450.90 microseconds) 
+</span>; Evaluation took 0.551 ms. (551.30 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? False))
 
 </span>; `(Human Socrates)` and `(Human Plato)` are different types, but they are elements
 ; of the same Type, so they can be equated
-<span class="ansi38-000068000">!(assertEqual (:? (= (Human Socrates) (Human Plato))) Type)
+<span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= 
+      (Human Socrates) 
+      (Human Plato))) Type)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.11">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.11</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.11">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.11</h3>
+; 
+; EVAL TEST
+; took 0.254 ms. (253.70 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (Type)))
 </span>        -->(0,'&self',[:?,[=,['Human','Socrates'],['Human','Plato']]],depth(2))
             -->(1,'&self',['Human','Socrates'],depth(4))
-          -->(2,'&self',[match,'&self',[:=,[=,['Human','Socrates'],['Human','Plato']],_466490],_466490],depth(3))
+          -->(2,'&self',[match,'&self',[:=,[=,['Human','Socrates'],['Human','Plato']],_411046],_411046],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[:=,[=,[:?,['Human','Socrates']],[:?,['Human','Plato']]],_466784],_466784],depth(3))
+          -->(3,'&self',[match,'&self',[:=,[=,[:?,['Human','Socrates']],[:?,['Human','Plato']]],_411340],_411340],depth(3))
           <--(3,retval(fail))
-          -->(4,'&self',[match,'&self',[::,[=,['Human','Socrates'],['Human','Plato']],_467174],_467174],depth(3))
+          -->(4,'&self',[match,'&self',[::,[=,['Human','Socrates'],['Human','Plato']],_411730],_411730],depth(3))
           <--(4,retval(fail))
-          -->(5,'&self',[match,'&self',[::,=,[->,[:?,['Human','Socrates']],[:?,['Human','Plato']],_467678]],_467678],depth(3))
+          -->(5,'&self',[match,'&self',[::,=,[->,[:?,['Human','Socrates']],[:?,['Human','Plato']],_412234]],_412234],depth(3))
           <--(5,retval(fail))
-        <--(0,retval([match,'&self',[::,=,[->,[:?,['Human','Socrates']],[:?,['Human','Plato']],_468242]],_468242]))
-; Evaluation took 1.79 ms.
-<span class="ansi33"> False
+        <--(0,retval([match,'&self',[::,=,[->,[:?,['Human','Socrates']],[:?,['Human','Plato']],_412798]],_412798]))
+; Trace took 0.818 ms. (817.60 microseconds) 
+; Evaluation took 2.38 ms.
+<span class="ansi33">  (got () expected 
+    (Type))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= Human Mortal)) Type)
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= Human Mortal)) Type)
 
-</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.12">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.12</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  () 
+</span><h3 id="EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.12">;; EXAMPLES.TEST-INFER-FUNCTION-APPLICATION-TYPE.12</h3>
+; 
+; EVAL TEST
+; took 0.280 ms. (280.50 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
     (Type)))
 </span>        -->(0,'&self',[:?,[=,'Human','Mortal']],depth(2))
             -->(1,'&self',[=,'Human','Mortal'],depth(4))
             <--(1,retval('False'))
             -->(2,'&self',[:?,'False'],depth(4))
-              -->(3,'&self',[match,'&self',[:=,'False',_489184],_489184],depth(5))
+              -->(3,'&self',[match,'&self',[:=,'False',_436682],_436682],depth(5))
               <--(3,retval(fail))
-              -->(4,'&self',[match,'&self',[::,'False',_489352],_489352],depth(5))
+              -->(4,'&self',[match,'&self',[::,'False',_436850],_436850],depth(5))
               <--(4,retval(fail))
-            <--(2,retval([match,'&self',[::,'False',_489526],_489526]))
-          -->(5,'&self',[match,'&self',[:=,[=,'Human','Mortal'],_489642],_489642],depth(3))
+            <--(2,retval([match,'&self',[::,'False',_437024],_437024]))
+          -->(5,'&self',[match,'&self',[:=,[=,'Human','Mortal'],_437140],_437140],depth(3))
           <--(5,retval(fail))
-          -->(6,'&self',[match,'&self',[:=,[=,[:?,'Human'],[:?,'Mortal']],_489888],_489888],depth(3))
+          -->(6,'&self',[match,'&self',[:=,[=,[:?,'Human'],[:?,'Mortal']],_437386],_437386],depth(3))
           <--(6,retval(fail))
-          -->(7,'&self',[match,'&self',[::,[=,'Human','Mortal'],_490206],_490206],depth(3))
+          -->(7,'&self',[match,'&self',[::,[=,'Human','Mortal'],_437704],_437704],depth(3))
           <--(7,retval(fail))
-          -->(8,'&self',[match,'&self',[::,=,[->,[:?,'Human'],[:?,'Mortal'],_490614]],_490614],depth(3))
+          -->(8,'&self',[match,'&self',[::,=,[->,[:?,'Human'],[:?,'Mortal'],_438112]],_438112],depth(3))
           <--(8,retval(fail))
-        <--(0,retval([match,'&self',[::,=,[->,[:?,'Human'],[:?,'Mortal'],_491058]],_491058]))
-; Evaluation took 2.14 ms.
-<span class="ansi33"> False
+        <--(0,retval([match,'&self',[::,=,[->,[:?,'Human'],[:?,'Mortal'],_438556]],_438556]))
+; Trace took 1.23 ms.
+; Evaluation took 2.73 ms.
+<span class="ansi33">  (got () expected 
+    (Type))
 
-</span><span class="ansi38-000068000">!(assertEqual (:? (= HumanAreMortal Mortal)))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (= HumanAreMortal Mortal)))
 
-</span>; Evaluation took 0.393 ms. (393.00 microseconds) 
+</span>; Evaluation took 0.498 ms. (498.10 microseconds) 
 <span class="ansi33">  (assertEqual 
     (:? False))
 
 </span>; Interestingly, the following example works correctly in this syntax, because
 ; application `(Human Socrates)` is not mixed up with dependent type definition
-<span class="ansi38-000068000">!(assertEqual (:? (HumansAreMortal (Human Socrates))))
+<span class="ansi38-000068000">!(assertEqual 
+  (:? 
+    (HumansAreMortal 
+      (Human Socrates))))
 
-</span>; Evaluation took 0.448 ms. (448.10 microseconds) 
+</span>; Evaluation took 0.521 ms. (520.60 microseconds) 
 <span class="ansi33">  (assertEqual 
     (Mortal Socrates))
 
-</span><span class="ansi32">% 426,001 inferences, 0.574 CPU in 0.574 seconds (100% CPU, 742443 Lips)
-</span> (@ = "examples/test_infer_function_application_type.metta" 0)
+</span><span class="ansi32">% 690,439 inferences, 0.701 CPU in 0.701 seconds (100% CPU, 984765 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_infer_function_application_type.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 11
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/test_infer_function_application_type.html" )
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_infer_function_application_type.html" )
 
 </pre>
 </body>

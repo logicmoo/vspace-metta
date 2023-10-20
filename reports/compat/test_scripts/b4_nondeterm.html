@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -95,7 +94,36 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/b4_nondeterm.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=[]
+7=[]
+8=[]
+9=[]
+10=[]
+11=[]
+12=0.12user 0.02system 0:00.14elapsed 100%CPU (0avgtext+0avgdata 28604maxresident)k
+12=0inputs+0outputs (0major+3285minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 6, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 7, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 8, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 9, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 10, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta', 11, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Nondeterminism in matching and interpretation
@@ -121,19 +149,28 @@
 ; The same is true for equality queries
 ; `superpose` turns a tuple into a non-deterministic result (for comparison here)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (match &self (= (color) $X) $X) (superpose (green yellow red)))
+<span class="ansi38-000068000">!(assertEqual 
+  (match &self 
+    (= 
+      (color) $X) $X) 
+  (superpose 
+    (green yellow red)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.01">;; TEST-SCRIPTS.B4-NONDETERM.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.01">;; TEST-SCRIPTS.B4-NONDETERM.01</h3>
+; 
+; EVAL TEST
+; took 0.166 ms. (165.60 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (green red yellow) 
     (green red yellow)))
-</span>        -->(0,'&self',[match,'&self',[=,[color],_105452],_105452],depth(2))
+</span>        -->(0,'&self',[match,'&self',[=,[color],_502578],_502578],depth(2))
         <--(0,retval(red))
         -->(1,'&self',[superpose,[green,yellow,red]],depth(2))
         <--(1,retval(red))
-; Evaluation took 1.47 ms.
-<span class="ansi33"> True
+; Trace took 0.442 ms. (442.40 microseconds) 
+; Evaluation took 2.27 ms.
+<span class="ansi33"> Empty
 
 </span>;!(assertEqual (match &self (= (color) $x) $x) (color))
 ;!(assertEqual (collapse (color)) (red yellow green))
@@ -143,75 +180,105 @@
 ; We don''t use it above, because the order of non-deterministic results
 ; is not guaranteed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (collapse (match &self (= (shape) $X) $X)) ())
+<span class="ansi38-000068000">!(assertEqual 
+  (collapse 
+    (match &self 
+      (= 
+        (shape) $X) $X)) ())
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.02">;; TEST-SCRIPTS.B4-NONDETERM.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.02">;; TEST-SCRIPTS.B4-NONDETERM.02</h3>
+; 
+; EVAL TEST
+; took 0.133 ms. (133.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (()) 
     (())))
-</span>        -->(0,'&self',[collapse,[match,'&self',[=,[shape],_173532],_173532]],depth(2))
-            -->(1,'&self',[match,'&self',[=,[shape],_173532],_173532],depth(4))
+</span>        -->(0,'&self',[collapse,[match,'&self',[=,[shape],_62258],_62258]],depth(2))
+            -->(1,'&self',[match,'&self',[=,[shape],_62258],_62258],depth(4))
             <--(1,retval(fail))
         <--(0,retval([]))
-; Evaluation took 1.10 ms.
-<span class="ansi33"> True
+; Trace took 0.267 ms. (267.40 microseconds) 
+; Evaluation took 1.99 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Multiple results from equality queries
 ; are also returned by the interpreter
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (color) (superpose (red yellow green)))
+<span class="ansi38-000068000">!(assertEqual 
+  (color) 
+  (superpose 
+    (red yellow green)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.03">;; TEST-SCRIPTS.B4-NONDETERM.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.03">;; TEST-SCRIPTS.B4-NONDETERM.03</h3>
+; 
+; EVAL TEST
+; took 0.154 ms. (154.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (green red yellow) 
     (green red yellow)))
 </span>        -->(0,'&self',[color],depth(2))
         <--(0,retval(red))
         -->(1,'&self',[superpose,[red,yellow,green]],depth(2))
         <--(1,retval(green))
-; Evaluation took 1.51 ms.
-<span class="ansi33"> True
+; Trace took 0.399 ms. (398.80 microseconds) 
+; Evaluation took 1.99 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `superpose` reverts `collapse`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; `let` is used to introduce temporary variable bindings within an expression
-<span class="ansi38-000068000">!(assertEqual (color) (let $X (collapse (color)) (superpose $X)))
+<span class="ansi38-000068000">!(assertEqual 
+  (color) 
+  (let $X 
+    (collapse 
+      (color)) 
+    (superpose $X)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.04">;; TEST-SCRIPTS.B4-NONDETERM.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.04">;; TEST-SCRIPTS.B4-NONDETERM.04</h3>
+; 
+; EVAL TEST
+; took 0.508 ms. (507.90 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (green red yellow) 
     (green red yellow)))
 </span>        -->(0,'&self',[color],depth(2))
         <--(0,retval(red))
-        -->(1,'&self',[let,_293350,[collapse,[color]],[superpose,_293350]],depth(2))
+        -->(1,'&self',[let,_187752,[collapse,[color]],[superpose,_187752]],depth(2))
             -->(2,'&self',[color],depth(4))
             <--(2,retval(red))
-            -->(3,'&self',[let,_293350,[green,red,yellow],[superpose,_293350]],depth(4))
+            -->(3,'&self',[let,_187752,[green,red,yellow],[superpose,_187752]],depth(4))
                 -->(4,'&self',[green,red,yellow],depth(6))
                 -->(5,'&self',[superpose,[green,red,yellow]],depth(6))
                 <--(5,retval(yellow))
             <--(3,retval(yellow))
         <--(1,retval(yellow))
-; Evaluation took 2.38 ms.
-<span class="ansi33"> True
+; Trace took 1.37 ms.
+; Evaluation took 3.31 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; In contrast to `match`, if the equality query returns an empty result
 ; the interpreter doesn''t reduce a symbolic expression
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (collapse (shape)) ((shape)))
+<span class="ansi38-000068000">!(assertEqual 
+  (collapse 
+    (shape)) 
+  ( (shape)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.05">;; TEST-SCRIPTS.B4-NONDETERM.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.05">;; TEST-SCRIPTS.B4-NONDETERM.05</h3>
+; 
+; EVAL TEST
+; took 0.483 ms. (483.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( ( (shape))) 
     ( ( (shape)))))
 </span>        -->(0,'&self',[collapse,[shape]],depth(2))
@@ -221,19 +288,26 @@
               -->(3,'&self',[shape],depth(5))
         -->(4,'&self',[[shape]],depth(2))
             -->(5,'&self',[shape],depth(4))
-; Evaluation took 1.84 ms.
-<span class="ansi33"> True
+; Trace took 0.995 ms. (994.80 microseconds) 
+; Evaluation took 2.94 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (shape) ((shape)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (shape) 
+  ( (shape)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.06">;; TEST-SCRIPTS.B4-NONDETERM.06</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.06">;; TEST-SCRIPTS.B4-NONDETERM.06</h3>
+; 
+; EVAL TEST
+; took 0.107 ms. (106.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (shape)) 
     ( (shape))))
 </span>        -->(0,'&self',[shape],depth(2))
-; Evaluation took 1.12 ms.
-<span class="ansi33"> True
+; Trace took 0.156 ms. (156.40 microseconds) 
+; Evaluation took 1.63 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -256,11 +330,21 @@
     ($X $Y))
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (pair (bin) (bin)) ((A A) (A B) (B A) (B B)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (pair 
+    (bin) 
+    (bin)) 
+  ( (A A) 
+    (A B) 
+    (B A) 
+    (B B)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.07">;; TEST-SCRIPTS.B4-NONDETERM.07</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.07">;; TEST-SCRIPTS.B4-NONDETERM.07</h3>
+; 
+; EVAL TEST
+; took 3.17 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (A A) 
       (A B) 
       (B A) 
@@ -307,7 +391,7 @@
                 -->(29,'&self',['A','B'],depth(6))
                   <--(25,retval('B'))
                   -->(30,'&self',[bin],depth(7))
-                  <--(30,retval('B'))
+                  <--(30,retval('A'))
               <--(24,retval(['A','B']))
               -->(31,'&self',['B',[bin]],depth(5))
                   -->(32,'&self',[bin],depth(7))
@@ -317,7 +401,7 @@
                 -->(36,'&self',['B','B'],depth(6))
                   <--(32,retval('B'))
                   -->(37,'&self',[bin],depth(7))
-                  <--(37,retval('B'))
+                  <--(37,retval('A'))
               <--(31,retval(['B','B']))
               -->(38,'&self',[bin],depth(5))
               -->(39,'&self',['A','A'],depth(5))
@@ -327,8 +411,9 @@
               <--(38,retval('B'))
           <--(8,retval(['B','B']))
         <--(0,retval([[bin],[bin]]))
-; Evaluation took 10.03 ms.
-<span class="ansi33"> True
+; Trace took 6.47 ms.
+; Evaluation took 11.26 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -362,11 +447,17 @@
         (eq $X $Y) True) $X))
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (find-equal (color) (foo)) red)
+<span class="ansi38-000068000">!(assertEqual 
+  (find-equal 
+    (color) 
+    (foo)) red)
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.08">;; TEST-SCRIPTS.B4-NONDETERM.08</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.08">;; TEST-SCRIPTS.B4-NONDETERM.08</h3>
+; 
+; EVAL TEST
+; took 0.823 ms. (822.80 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (red) 
     (red)))
 </span>        -->(0,'&self',['find-equal',[color],[foo]],depth(2))
@@ -417,8 +508,9 @@
           -->(23,'&self',[match,'&self',[=,[eq,[color],[foo]],'True'],[color]],depth(3))
           <--(23,retval(fail))
         <--(0,retval([match,'&self',[=,[eq,[color],[foo]],'True'],[color]]))
-; Evaluation took 5.31 ms.
-<span class="ansi33"> True
+; Trace took 3.04 ms.
+; Evaluation took 5.04 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -431,11 +523,20 @@
     ($Y $X))
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (rev A (superpose (B C D))) ((B A) (C A) (D A)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (rev A 
+    (superpose 
+      (B C D))) 
+  ( (B A) 
+    (C A) 
+    (D A)))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.09">;; TEST-SCRIPTS.B4-NONDETERM.09</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.09">;; TEST-SCRIPTS.B4-NONDETERM.09</h3>
+; 
+; EVAL TEST
+; took 0.900 ms. (900.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (B A) 
       (C A) 
       (D A)) 
@@ -456,8 +557,9 @@
           -->(9,'&self',['D','A'],depth(3))
             <--(7,retval(['D','A']))
         <--(0,retval(['D','A']))
-; Evaluation took 2.90 ms.
-<span class="ansi33"> True
+; Trace took 1.30 ms.
+; Evaluation took 3.84 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -548,12 +650,22 @@
 </span>
 
 ; the results are not sequential in sense that their order is arbitrary
-<span class="ansi38-000068000">!(assertEqual (is (air dry)) (superpose ((stop ventilation) (start kettle) (start humidifier))))
+<span class="ansi38-000068000">!(assertEqual 
+  (is 
+    (air dry)) 
+  (superpose 
+    ( (stop ventilation) 
+      (start kettle) 
+      (start humidifier))))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.10">;; TEST-SCRIPTS.B4-NONDETERM.10</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.10">;; TEST-SCRIPTS.B4-NONDETERM.10</h3>
+; 
+; EVAL TEST
+; took 3.12 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (start humidifier) 
+      (start kettle) 
       (stop ventilation)) 
     ( (start humidifier) 
       (start kettle) 
@@ -562,10 +674,10 @@
             -->(1,'&self',[air,dry],depth(4))
           -->(2,'&self',[make,[air,wet]],depth(3))
               -->(3,'&self',[air,wet],depth(5))
-            -->(4,'&self',[ift,[makes,_403932,[air,wet]],[start,_403932]],depth(4))
+            -->(4,'&self',[ift,[makes,_310668,[air,wet]],[start,_310668]],depth(4))
                 -->(5,'&self',[air,wet],depth(6))
                 -->(6,'&self',[air,wet],depth(6))
-                -->(7,'&self',[makes,_403932,[air,wet]],depth(6))
+                -->(7,'&self',[makes,_310668,[air,wet]],depth(6))
                     -->(8,'&self',[air,wet],depth(8))
                 -->(9,'&self',[start,humidifier],depth(6))
               -->(10,'&self',[ift,'True',[start,humidifier]],depth(5))
@@ -574,45 +686,54 @@
               <--(10,retval([start,humidifier]))
                 <--(7,retval('True'))
             <--(4,retval([ift,'True',[start,humidifier]]))
-            -->(13,'&self',[ift,['And',[prevents,[making,_410010],[making,[air,wet]]],[makes,_410046,_410010]],[stop,_410046]],depth(4))
+            -->(13,'&self',[ift,['And',[prevents,[making,_316242],[making,[air,wet]]],[makes,_316278,_316242]],[stop,_316278]],depth(4))
                 -->(14,'&self',[air,wet],depth(6))
                 -->(15,'&self',[air,wet],depth(6))
-                -->(16,'&self',['And',[prevents,[making,_410010],[making,[air,wet]]],[makes,_410046,_410010]],depth(6))
-                    -->(17,'&self',[air,wet],depth(8))
-                    -->(18,'&self',[prevents,[making,_410010],[making,[air,wet]]],depth(8))
-                        -->(19,'&self',[air,wet],depth(10))
-                    -->(20,'&self',[air,dry],depth(8))
-                    -->(21,'&self',[makes,_410046,[air,dry]],depth(8))
-                        -->(22,'&self',[air,dry],depth(10))
-                -->(23,'&self',[stop,ventilation],depth(6))
-              -->(24,'&self',[ift,'True',[stop,ventilation]],depth(5))
-                  -->(25,'&self',[stop,ventilation],depth(7))
-                -->(26,'&self',[stop,ventilation],depth(6))
-              <--(24,retval([stop,ventilation]))
-                    <--(21,retval('True'))
-                    <--(18,retval('True'))
+                -->(16,'&self',['And',[prevents,[making,_316242],[making,[air,wet]]],[makes,_316278,_316242]],depth(6))
+                    -->(17,'&self',[prevents,[making,_316242],[making,[air,wet]]],depth(8))
+                        -->(18,'&self',[air,wet],depth(10))
+                    -->(19,'&self',[makes,_316278,[air,dry]],depth(8))
+                        -->(20,'&self',[air,dry],depth(10))
+                -->(21,'&self',[stop,ventilation],depth(6))
+              -->(22,'&self',[ift,'True',[stop,ventilation]],depth(5))
+                  -->(23,'&self',[stop,ventilation],depth(7))
+                -->(24,'&self',[stop,ventilation],depth(6))
+              <--(22,retval([stop,ventilation]))
+                    <--(19,retval('True'))
+                    <--(17,retval('True'))
                 <--(16,retval('True'))
             <--(13,retval([ift,'True',[stop,ventilation]]))
-          <--(2,retval([ift,['And',[prevents,[making,_410346],[making,[air,wet]]],[makes,_410394,_410346]],[stop,_410394]]))
+          <--(2,retval([ift,['And',[prevents,[making,_316578],[making,[air,wet]]],[makes,_316626,_316578]],[stop,_316626]]))
         <--(0,retval([make,[air,wet]]))
-        -->(27,'&self',[superpose,[[stop,ventilation],[start,kettle],[start,humidifier]]],depth(2))
-            -->(28,'&self',[stop,ventilation],depth(4))
-          -->(29,'&self',[stop,ventilation],depth(3))
-            -->(30,'&self',[start,kettle],depth(4))
-          -->(31,'&self',[start,kettle],depth(3))
-            -->(32,'&self',[start,humidifier],depth(4))
-        <--(27,retval([start,humidifier]))
-          -->(33,'&self',[start,humidifier],depth(3))
-; Evaluation took 7.99 ms.
-<span class="ansi33"> False
+        -->(25,'&self',[superpose,[[stop,ventilation],[start,kettle],[start,humidifier]]],depth(2))
+            -->(26,'&self',[stop,ventilation],depth(4))
+          -->(27,'&self',[stop,ventilation],depth(3))
+            -->(28,'&self',[start,kettle],depth(4))
+          -->(29,'&self',[start,kettle],depth(3))
+            -->(30,'&self',[start,humidifier],depth(4))
+        <--(25,retval([start,humidifier]))
+          -->(31,'&self',[start,humidifier],depth(3))
+; Trace took 6.66 ms.
+; Evaluation took 12.04 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqual (is (air wet)) (superpose ((stop kettle) (stop humidifier) (start ventilation))))
+</span><span class="ansi38-000068000">!(assertEqual 
+  (is 
+    (air wet)) 
+  (superpose 
+    ( (stop kettle) 
+      (stop humidifier) 
+      (start ventilation))))
 
-</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.11">;; TEST-SCRIPTS.B4-NONDETERM.11</h3><span class="ansi31">
-(@ loonit_failureR 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.B4-NONDETERM.11">;; TEST-SCRIPTS.B4-NONDETERM.11</h3>
+; 
+; EVAL TEST
+; took 2.20 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (start ventilation) 
-      (stop humidifier)) 
+      (stop humidifier) 
+      (stop kettle)) 
     ( (start ventilation) 
       (stop humidifier) 
       (stop kettle))))
@@ -620,10 +741,10 @@
             -->(1,'&self',[air,wet],depth(4))
           -->(2,'&self',[make,[air,dry]],depth(3))
               -->(3,'&self',[air,dry],depth(5))
-            -->(4,'&self',[ift,[makes,_459598,[air,dry]],[start,_459598]],depth(4))
+            -->(4,'&self',[ift,[makes,_365132,[air,dry]],[start,_365132]],depth(4))
                 -->(5,'&self',[air,dry],depth(6))
                 -->(6,'&self',[air,dry],depth(6))
-                -->(7,'&self',[makes,_459598,[air,dry]],depth(6))
+                -->(7,'&self',[makes,_365132,[air,dry]],depth(6))
                     -->(8,'&self',[air,dry],depth(8))
                 -->(9,'&self',[start,ventilation],depth(6))
               -->(10,'&self',[ift,'True',[start,ventilation]],depth(5))
@@ -632,46 +753,44 @@
               <--(10,retval([start,ventilation]))
                 <--(7,retval('True'))
             <--(4,retval([ift,'True',[start,ventilation]]))
-            -->(13,'&self',[ift,['And',[prevents,[making,_465676],[making,[air,dry]]],[makes,_465712,_465676]],[stop,_465712]],depth(4))
+            -->(13,'&self',[ift,['And',[prevents,[making,_370706],[making,[air,dry]]],[makes,_370742,_370706]],[stop,_370742]],depth(4))
                 -->(14,'&self',[air,dry],depth(6))
                 -->(15,'&self',[air,dry],depth(6))
-                -->(16,'&self',['And',[prevents,[making,_465676],[making,[air,dry]]],[makes,_465712,_465676]],depth(6))
-                    -->(17,'&self',[air,dry],depth(8))
-                    -->(18,'&self',[prevents,[making,_465676],[making,[air,dry]]],depth(8))
-                        -->(19,'&self',[air,dry],depth(10))
-                    -->(20,'&self',[air,wet],depth(8))
-                    -->(21,'&self',[makes,_465712,[air,wet]],depth(8))
-                        -->(22,'&self',[air,wet],depth(10))
-                -->(23,'&self',[stop,humidifier],depth(6))
-              -->(24,'&self',[ift,'True',[stop,humidifier]],depth(5))
-                  -->(25,'&self',[stop,humidifier],depth(7))
-                -->(26,'&self',[stop,humidifier],depth(6))
-              <--(24,retval([stop,humidifier]))
-                    <--(21,retval('True'))
-                    <--(18,retval('True'))
+                -->(16,'&self',['And',[prevents,[making,_370706],[making,[air,dry]]],[makes,_370742,_370706]],depth(6))
+                    -->(17,'&self',[prevents,[making,_370706],[making,[air,dry]]],depth(8))
+                        -->(18,'&self',[air,dry],depth(10))
+                    -->(19,'&self',[makes,_370742,[air,wet]],depth(8))
+                        -->(20,'&self',[air,wet],depth(10))
+                -->(21,'&self',[stop,humidifier],depth(6))
+              -->(22,'&self',[ift,'True',[stop,humidifier]],depth(5))
+                  -->(23,'&self',[stop,humidifier],depth(7))
+                -->(24,'&self',[stop,humidifier],depth(6))
+              <--(22,retval([stop,humidifier]))
+                    <--(19,retval('True'))
+                    <--(17,retval('True'))
                 <--(16,retval('True'))
             <--(13,retval([ift,'True',[stop,humidifier]]))
-          <--(2,retval([ift,['And',[prevents,[making,_466012],[making,[air,dry]]],[makes,_466060,_466012]],[stop,_466060]]))
+          <--(2,retval([ift,['And',[prevents,[making,_371042],[making,[air,dry]]],[makes,_371090,_371042]],[stop,_371090]]))
         <--(0,retval([make,[air,dry]]))
-        -->(27,'&self',[superpose,[[stop,kettle],[stop,humidifier],[start,ventilation]]],depth(2))
-            -->(28,'&self',[stop,kettle],depth(4))
-          -->(29,'&self',[stop,kettle],depth(3))
-            -->(30,'&self',[stop,humidifier],depth(4))
-          -->(31,'&self',[stop,humidifier],depth(3))
-            -->(32,'&self',[start,ventilation],depth(4))
-        <--(27,retval([start,ventilation]))
-          -->(33,'&self',[start,ventilation],depth(3))
-; Evaluation took 7.58 ms.
-<span class="ansi33"> False
+        -->(25,'&self',[superpose,[[stop,kettle],[stop,humidifier],[start,ventilation]]],depth(2))
+            -->(26,'&self',[stop,kettle],depth(4))
+          -->(27,'&self',[stop,kettle],depth(3))
+            -->(28,'&self',[stop,humidifier],depth(4))
+          -->(29,'&self',[stop,humidifier],depth(3))
+            -->(30,'&self',[start,ventilation],depth(4))
+        <--(25,retval([start,ventilation]))
+          -->(31,'&self',[start,ventilation],depth(3))
+; Trace took 5.08 ms.
+; Evaluation took 8.81 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 370,269 inferences, 0.543 CPU in 0.543 seconds (100% CPU, 681547 Lips)
-</span> (@ = "examples/compat/test_scripts/b4_nondeterm.metta" 0)
+</span><span class="ansi32">% 610,122 inferences, 0.662 CPU in 0.662 seconds (100% CPU, 922185 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 9
-</span><span class="ansi31">Failures: 2
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/b4_nondeterm.html" )
+<span class="ansi32">Successes: 11
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/b4_nondeterm.html" )
 
 </pre>
 </body>

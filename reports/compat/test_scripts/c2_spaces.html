@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -115,7 +114,28 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/c2_spaces.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=[]
+6=[]
+7=[]
+8=0.11user 0.01system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 28988maxresident)k
+8=0inputs+0outputs (0major+3322minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 5, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 6, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta', 7, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Spaces are also represented as grounded symbols in the program.
@@ -123,7 +143,10 @@
 ;; TODO: replace symbol by string
 <span class="ansi38-000068000">!(import! &kb c2_spaces_kb.metta)
 
-</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</span>%~ c2_spaces_kb.metta:1 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta')
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; We can `match` over `&self` or another space
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&kb',['Green','is-a','Color'])
 </span><span class="ansi38-255165000">  (Green is-a Color)
@@ -181,50 +204,76 @@
 </span><span class="ansi38-255165000">  (Mars orbit 1.5 au)
 </span>
 
-; Evaluation took 13.47 ms.
-<span class="ansi33"> &kb
+; Evaluation took 17.34 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &kb (and ($Obj is $Prop) ($Prop is-a Color) ($Obj is-a Planet)) (Color of Planet $Obj is $Prop)) ((Color of Planet Mars is Red)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (match &kb 
+    (and 
+      ($Obj is $Prop) 
+      ($Prop is-a Color) 
+      ($Obj is-a Planet)) 
+    (Color of Planet $Obj is $Prop)) 
+  ( (Color of Planet Mars is Red)))
 
-</span><h3 id="TEST-SCRIPTS.C2-SPACES.01">;; TEST-SCRIPTS.C2-SPACES.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.C2-SPACES.01">;; TEST-SCRIPTS.C2-SPACES.01</h3>
+; 
+; EVAL TEST
+; took 0.428 ms. (428.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Color of Planet Mars is Red)) 
     ( (Color of Planet Mars is Red))))
-</span>        -->(0,'&self',[match,'&kb',[',',[_69252,is,_69566],[_69566,'is-a','Color'],[_69252,'is-a','Planet']],['Color',of,'Planet',_69252,is,_69566]],depth(2))
+</span>        -->(0,'&self',[match,'&kb',[',',[_511790,is,_511802],[_511802,'is-a','Color'],[_511790,'is-a','Planet']],['Color',of,'Planet',_511790,is,_511802]],depth(2))
           -->(1,'&self',['Color',of,'Planet','Mars',is,'Red'],depth(3))
         <--(0,retval(['Color',of,'Planet','Mars',is,'Red']))
-; Evaluation took 1.87 ms.
-<span class="ansi33"> True
+; Trace took 0.584 ms. (583.50 microseconds) 
+; Evaluation took 3.26 ms.
+<span class="ansi33"> Empty
 
 </span>; The knowledge in `&kb` is not in `&self`
-<span class="ansi38-000068000">!(assertEqualToResult (match &self ($P is-a Color) $P) ())
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    ($P is-a Color) $P) ())
 
-</span><h3 id="TEST-SCRIPTS.C2-SPACES.02">;; TEST-SCRIPTS.C2-SPACES.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  () ()))
-</span>        -->(0,'&self',[match,'&self',[_110896,'is-a','Color'],_110896],depth(2))
+</span><h3 id="TEST-SCRIPTS.C2-SPACES.02">;; TEST-SCRIPTS.C2-SPACES.02</h3>
+; 
+; EVAL TEST
+; took 0.071 ms. (71.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  () ()))
+</span>        -->(0,'&self',[match,'&self',[_33068,'is-a','Color'],_33068],depth(2))
         <--(0,retval(fail))
-; Evaluation took 0.825 ms. (824.90 microseconds) 
-<span class="ansi33"> True
+; Trace took 0.168 ms. (168.10 microseconds) 
+; Evaluation took 1.43 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Checking that grounded symbols from different spaces are compatible
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqual (match &kb (and (Venus orbit $X au) (Mars orbit $Y au)) (- $Y $X)) 0.8)
+<span class="ansi38-000068000">!(assertEqual 
+  (match &kb 
+    (and 
+      (Venus orbit $X au) 
+      (Mars orbit $Y au)) 
+    (- $Y $X)) 0.8)
 
-</span><h3 id="TEST-SCRIPTS.C2-SPACES.03">;; TEST-SCRIPTS.C2-SPACES.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.C2-SPACES.03">;; TEST-SCRIPTS.C2-SPACES.03</h3>
+; 
+; EVAL TEST
+; took 0.117 ms. (117.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (0.8) 
     (0.8)))
-</span>        -->(0,'&self',[match,'&kb',[',',['Venus',orbit,_148106,au],['Mars',orbit,_148432,au]],[-,_148432,_148106]],depth(2))
+</span>        -->(0,'&self',[match,'&kb',[',',['Venus',orbit,_74290,au],['Mars',orbit,_74314,au]],[-,_74314,_74290]],depth(2))
           -->(1,'&self',[-,1.5,0.7],depth(3))
           <--(1,retval(0.8))
         <--(0,retval([-,1.5,0.7]))
-; Evaluation took 2.33 ms.
-<span class="ansi33"> True
+; Trace took 0.381 ms. (381.30 microseconds) 
+; Evaluation took 1.78 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -238,29 +287,38 @@
 </span><span class="ansi38-255165000">  (Chair is High)
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (match &kb ($Prop is-a Color) (match &self ($Obj is $Prop) $Obj)) (Ball))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &kb 
+    ($Prop is-a Color) 
+    (match &self 
+      ($Obj is $Prop) $Obj)) 
+  (Ball))
 
-</span><h3 id="TEST-SCRIPTS.C2-SPACES.04">;; TEST-SCRIPTS.C2-SPACES.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.C2-SPACES.04">;; TEST-SCRIPTS.C2-SPACES.04</h3>
+; 
+; EVAL TEST
+; took 0.120 ms. (120.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (Ball) 
     (Ball)))
-</span>        -->(0,'&self',[match,'&kb',[_201518,'is-a','Color'],[match,'&self',[_201878,is,_201518],_201878]],depth(2))
-          -->(1,'&self',[match,'&self',[_201878,is,'Green'],_201878],depth(3))
+</span>        -->(0,'&self',[match,'&kb',[_130500,'is-a','Color'],[match,'&self',[_130530,is,_130500],_130530]],depth(2))
+          -->(1,'&self',[match,'&self',[_130530,is,'Green'],_130530],depth(3))
           <--(1,retval(fail))
-          -->(2,'&self',[match,'&self',[_201878,is,'White'],_201878],depth(3))
+          -->(2,'&self',[match,'&self',[_130530,is,'White'],_130530],depth(3))
           <--(2,retval(fail))
-          -->(3,'&self',[match,'&self',[_201878,is,'Blue'],_201878],depth(3))
+          -->(3,'&self',[match,'&self',[_130530,is,'Blue'],_130530],depth(3))
           <--(3,retval(fail))
-          -->(4,'&self',[match,'&self',[_201878,is,'Red'],_201878],depth(3))
+          -->(4,'&self',[match,'&self',[_130530,is,'Red'],_130530],depth(3))
           <--(4,retval('Ball'))
-          -->(5,'&self',[match,'&self',[_201878,is,'Brown'],_201878],depth(3))
+          -->(5,'&self',[match,'&self',[_130530,is,'Brown'],_130530],depth(3))
           <--(5,retval(fail))
-          -->(6,'&self',[match,'&self',[_201878,is,'Yellow'],_201878],depth(3))
+          -->(6,'&self',[match,'&self',[_130530,is,'Yellow'],_130530],depth(3))
           <--(6,retval(fail))
-        <--(0,retval([match,'&self',[_212136,is,'Yellow'],_212136]))
-; Evaluation took 2.08 ms.
-<span class="ansi33"> True
+        <--(0,retval([match,'&self',[_138378,is,'Yellow'],_138378]))
+; Trace took 0.774 ms. (774.00 microseconds) 
+; Evaluation took 2.00 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -269,7 +327,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-000068000">!(import! &self c2_spaces_kb.metta)
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Green','is-a','Color'])
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Green','is-a','Color'])
 </span><span class="ansi38-255165000">  (Green is-a Color)
 </span>
 
@@ -325,30 +385,40 @@
 </span><span class="ansi38-255165000">  (Mars orbit 1.5 au)
 </span>
 
-; Evaluation took 13.91 ms.
-<span class="ansi33"> &self
+; Evaluation took 20.42 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (and ($Obj is $Prop) ($Prop is-a Color) ($Obj is-a Planet)) (Color of Planet $Obj is $Prop)) ((Color of Planet Mars is Red)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (and 
+      ($Obj is $Prop) 
+      ($Prop is-a Color) 
+      ($Obj is-a Planet)) 
+    (Color of Planet $Obj is $Prop)) 
+  ( (Color of Planet Mars is Red)))
 
-</span><h3 id="TEST-SCRIPTS.C2-SPACES.05">;; TEST-SCRIPTS.C2-SPACES.05</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.C2-SPACES.05">;; TEST-SCRIPTS.C2-SPACES.05</h3>
+; 
+; EVAL TEST
+; took 0.227 ms. (226.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Color of Planet Mars is Red)) 
     ( (Color of Planet Mars is Red))))
-</span>        -->(0,'&self',[match,'&self',[',',[_336116,is,_336430],[_336430,'is-a','Color'],[_336116,'is-a','Planet']],['Color',of,'Planet',_336116,is,_336430]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[',',[_289928,is,_289940],[_289940,'is-a','Color'],[_289928,'is-a','Planet']],['Color',of,'Planet',_289928,is,_289940]],depth(2))
           -->(1,'&self',['Color',of,'Planet','Mars',is,'Red'],depth(3))
         <--(0,retval(['Color',of,'Planet','Mars',is,'Red']))
-; Evaluation took 2.05 ms.
-<span class="ansi33"> True
+; Trace took 0.410 ms. (409.80 microseconds) 
+; Evaluation took 2.16 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 190,803 inferences, 0.125 CPU in 0.125 seconds (100% CPU, 1528126 Lips)
-</span> (@ = "examples/compat/test_scripts/c2_spaces.metta" 0)
+</span><span class="ansi32">% 437,033 inferences, 0.239 CPU in 0.239 seconds (100% CPU, 1830500 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/c2_spaces.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/c2_spaces.html" )
 
 </pre>
 </body>

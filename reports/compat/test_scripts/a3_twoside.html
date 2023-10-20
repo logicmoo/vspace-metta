@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -34,7 +33,22 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/test_scripts/a3_twoside.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta')
+1=[]
+2=[]
+3=[]
+4=[]
+5=0.09user 0.01system 0:00.11elapsed 98%CPU (0avgtext+0avgdata 28592maxresident)k
+5=0inputs+0outputs (0major+3274minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta', 4, []).
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables can appear in knowledge base entries
@@ -55,34 +69,53 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Bound variables on both sides will be substituted
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (implies 
+      (Frog Sam) $What) $What) 
+  ( (Green Sam) 
+    (Eats-flies Sam)))
 
-</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.01">;; TEST-SCRIPTS.A3-TWOSIDE.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.01">;; TEST-SCRIPTS.A3-TWOSIDE.01</h3>
+; 
+; EVAL TEST
+; took 0.375 ms. (375.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Eats-flies Sam) 
       (Green Sam)) 
     ( (Eats-flies Sam) 
       (Green Sam))))
-</span>        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_498968],_498968],depth(2))
+</span>        -->(0,'&self',[match,'&self',[implies,['Frog','Sam'],_397516],_397516],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           -->(2,'&self',['Eats-flies','Sam'],depth(3))
         <--(0,retval(['Eats-flies','Sam']))
-; Evaluation took 1.96 ms.
-<span class="ansi33"> True
+; Trace took 0.451 ms. (451.40 microseconds) 
+; Evaluation took 2.47 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (implies 
+      ($P $X) 
+      (Green Sam)) 
+    ($X might be $P)) 
+  ( (Sam might be Frog)))
 
-</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.02">;; TEST-SCRIPTS.A3-TWOSIDE.02</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.02">;; TEST-SCRIPTS.A3-TWOSIDE.02</h3>
+; 
+; EVAL TEST
+; took 0.180 ms. (180.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Sam might be Frog)) 
     ( (Sam might be Frog))))
-</span>        -->(0,'&self',[match,'&self',[implies,[_25712,_26006],['Green','Sam']],[_26006,might,be,_25712]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[implies,[_444974,_444980],['Green','Sam']],[_444980,might,be,_444974]],depth(2))
           -->(1,'&self',['Sam',might,be,'Frog'],depth(3))
         <--(0,retval(['Sam',might,be,'Frog']))
-; Evaluation took 1.51 ms.
-<span class="ansi33"> True
+; Trace took 0.372 ms. (372.10 microseconds) 
+; Evaluation took 2.07 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -99,47 +132,71 @@
 </span><span class="ansi38-255165000">  (Robot Sophia)
 </span>
 
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (and 
+      (Frog $X) 
+      (implies 
+        (Frog $X) $Y)) $Y) 
+  ( (Green Sam) 
+    (Eats-flies Sam)))
 
-</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.03">;; TEST-SCRIPTS.A3-TWOSIDE.03</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.03">;; TEST-SCRIPTS.A3-TWOSIDE.03</h3>
+; 
+; EVAL TEST
+; took 0.242 ms. (242.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Eats-flies Sam) 
       (Green Sam)) 
     ( (Eats-flies Sam) 
       (Green Sam))))
-</span>        -->(0,'&self',[match,'&self',[',',['Frog',_79646],[implies,['Frog',_79646],_80262]],_80262],depth(2))
+</span>        -->(0,'&self',[match,'&self',[',',['Frog',_502478],[implies,['Frog',_502478],_502514]],_502514],depth(2))
           -->(1,'&self',['Green','Sam'],depth(3))
           -->(2,'&self',['Eats-flies','Sam'],depth(3))
         <--(0,retval(['Eats-flies','Sam']))
-; Evaluation took 1.58 ms.
-<span class="ansi33"> True
+; Trace took 0.593 ms. (592.90 microseconds) 
+; Evaluation took 2.37 ms.
+<span class="ansi33"> Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Variables in queries can remain unbound
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-000068000">!(assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (and 
+      (implies 
+        ($P $X) 
+        (Green $X)) 
+      (implies 
+        ($P $X) 
+        (Eats-flies $X))) 
+    (Then it is definitely $P)) 
+  ( (Then it is definitely Frog)))
 
-</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.04">;; TEST-SCRIPTS.A3-TWOSIDE.04</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="TEST-SCRIPTS.A3-TWOSIDE.04">;; TEST-SCRIPTS.A3-TWOSIDE.04</h3>
+; 
+; EVAL TEST
+; took 0.204 ms. (204.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Then it is definitely Frog)) 
     ( (Then it is definitely Frog))))
-</span>        -->(0,'&self',[match,'&self',[',',[implies,[_115164,_115458],['Green',_115458]],[implies,[_115164,_115458],['Eats-flies',_115458]]],['Then',it,is,definitely,_115164]],depth(2))
+</span>        -->(0,'&self',[match,'&self',[',',[implies,[_21320,_21326],['Green',_21326]],[implies,[_21320,_21326],['Eats-flies',_21326]]],['Then',it,is,definitely,_21320]],depth(2))
           -->(1,'&self',['Then',it,is,definitely,'Frog'],depth(3))
         <--(0,retval(['Then',it,is,definitely,'Frog']))
-; Evaluation took 1.59 ms.
-<span class="ansi33"> True
+; Trace took 0.433 ms. (432.70 microseconds) 
+; Evaluation took 2.45 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 100,614 inferences, 0.071 CPU in 0.071 seconds (100% CPU, 1415872 Lips)
-</span> (@ = "examples/compat/test_scripts/a3_twoside.metta" 0)
+</span><span class="ansi32">% 323,197 inferences, 0.164 CPU in 0.164 seconds (100% CPU, 1976309 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 4
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/test_scripts/a3_twoside.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts/a3_twoside.html" )
 
 </pre>
 </body>

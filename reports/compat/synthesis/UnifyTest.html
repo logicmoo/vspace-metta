@@ -9,8 +9,11 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
@@ -31,11 +34,28 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/compat/synthesis/UnifyTest.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta')
+1=[]
+2=[(Link A B)]
+3=[(Link A B C)]
+4=[]
+5=0.09user 0.00system 0:00.09elapsed 100%CPU (0avgtext+0avgdata 28744maxresident)k
+5=0inputs+0outputs (0major+3356minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta', 2, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta', 3, [['Link', 'A', 'B', 'C']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta', 4, []).
+
 ;;; Import module
 <span class="ansi38-000068000">!(import! &self Unify.metta)
 
-</span>;; Test unify.
+</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta')
+;; Test unify.
 ;; Should output (Link A B)
 ;;; Implement a unifier.  Like with `let` the left term must be an
 ;;; Atom, so if it is function it will not be evaluated.  The
@@ -78,8 +98,8 @@
                     (unify* $Tail $Rewrite))))))))))
 </span>
 
-; Evaluation took 28.95 ms.
-<span class="ansi33"> &self
+; Evaluation took 39.27 ms.
+<span class="ansi33"> Empty
 
 </span>;; Base case
 ;; Recursive case
@@ -87,117 +107,81 @@
 ; that ill-formed inputs (non
 ; tuple of pairs) will be
 ; discarded
-<span class="ansi38-000068000">!(unify (Link $X B) (Link A $Y) (Link $X $Y))
+<span class="ansi38-000068000">!(unify 
+  (Link $X B) 
+  (Link A $Y) 
+  (Link $X $Y))
 
-</span> c(0,['Link',_59840,'B'])=['Link',_59840,_60166]
- switch=['Link','A',_60166]
-; Evaluation took 0.551 ms. (551.10 microseconds) 
-<span class="ansi33">  (Link A $_62380)
-</span><span class="ansi32">['Y'='B','X'=_59840]
+</span>; Evaluation took 0.804 ms. (804.30 microseconds) 
+<span class="ansi33">  (Link A $_495256)
+</span><span class="ansi32">['Y'='B','X'=_492500]
 </span>
 
+<span class="ansi31">
+! (assertEqualToResult 
+    (unify 
+      (Link $X B) 
+      (Link A $Y) 
+      (Link $X $Y)) 
+    ( (Link A B)))
+(@ ! 
+  (assertEqual 
+    ( (Link A $_498450)) 
+    ( (Link A B))))
+write_pass_fail_result("SYNTHESIS.UNIFYTEST.102",exec,[unify,['Link',X,'B'],['Link','A',Y],['Link',X,Y]],'FAIL',[['Link','A','B']],[['Link','A',_498450]])
+
+</span>
+
+--------------------------------------------------------------------------
 ;; Test unify*.
 ;; Unify `Link $x B $z` with `Link A $y $z`, and `$z` with `C`
 ;; Should output (Link A B C)
-<span class="ansi38-000068000">!(unify* (((Link $X B $Z) (Link A $Y $Z)) ($Z C)) (Link $X $Y $Z))
+<span class="ansi38-000068000">!(unify* 
+  ( ( (Link $X B $Z) 
+      (Link A $Y $Z)) 
+    ($Z C)) 
+  (Link $X $Y $Z))
 
-</span> c(0,[])=['Link',_92386,_93006,_92688]
- c(1,[[['Link',_92386,'B',_92688],['Link','A',_93006,_92688]],[_92688,'C']])=['let*',[[_96020,['car-atom',[[['Link',_92386,'B',_92688],['Link','A',_93006,_92688]],[_92688,'C']]]],[_96050,['cdr-atom',[[['Link',_92386,'B',_92688],['Link','A',_93006,_92688]],[_92688,'C']]]]],[case,_96020,[[[_96110,_96116],[unify,_96110,_96116,['unify*',_96050,['Link',_92386,_93006,_92688]]]]]]]
- switch=[[['Link'|'False'],['Link','A',_93006,_92688]],[_92688,'C']]
- c(0,[_96466,_96472])=[unify,_96466,_96472,['unify*',[[_96304,'C']],['Link',==,_96328,_96304]]]
- switch=[['Link'|'False'],['Link','A',_96328,_96304]]
- c(0,['Link'|'False'])=['unify*',[[_110652,'C']],['Link',==,_110682,_110652]]
- switch=['Link','A',_96328,_96304]
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (unify* 
+      ( ( (Link $X B $Z) 
+          (Link A $Y $Z)) 
+        ($Z C)) 
+      (Link $X $Y $Z)) 
+    ( (Link A B C)))
+(@ ! 
+  (assertEqual () 
+    ( (Link A B C))))
+write_pass_fail_result("SYNTHESIS.UNIFYTEST.103",exec,['unify*',[[['Link',X,'B',Z],['Link','A',Y,Z]],[Z,'C']],['Link',X,Y,Z]],'FAIL',[['Link','A','B','C']],[])
+
+</span>
+
+--------------------------------------------------------------------------
 ;; Test complex unify* query
 ;; After a series of unifications, it should define the function composition `(. g f)`
 ;; having type `(-> Number Bool)`
-<span class="ansi38-000068000">!(unify* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) (: -> (-> $B $C) (-> $A $B) (-> $A $C))) ((: ($Ructor $Proof1 $Proof2) $Conclusion) (: $Term (-> Number Bool))) ((: $Proof1 $Premise1) (: g (-> String Bool))) ((: $Proof2 $Premise2) (: f (-> Number String)))) (: $Term (-> Number Bool)))
+<span class="ansi38-000068000">!(unify* 
+  ( ( (: $Ructor 
+        (-> $Premise1 $Premise2 $Conclusion)) 
+      (: -> 
+        (-> $B $C) 
+        (-> $A $B) 
+        (-> $A $C))) 
+    ( (: 
+        ($Ructor $Proof1 $Proof2) $Conclusion) 
+      (: $Term 
+        (-> Number Bool))) 
+    ( (: $Proof1 $Premise1) 
+      (: g 
+        (-> String Bool))) 
+    ( (: $Proof2 $Premise2) 
+      (: f 
+        (-> Number String)))) 
+  (: $Term 
+    (-> Number Bool)))
 
-</span> c(0,[])=[:,_164006,[->,'Number','Bool']]
- c(1,[[[:,_159462,[->,_159802,_160138,_160474]],[:,->,[->,_160862,_161156],[->,_161466,_160862],[->,_161466,_161156]]],[[:,[_159462,_162998,_163322],_160474],[:,_164006,[->,'Number','Bool']]],[[:,_162998,_159802],[:,g,[->,'String','Bool']]],[[:,_163322,_160138],[:,f,[->,'Number','String']]]])=['let*',[[_168020,['car-atom',[[[:,_159462,[->,_159802,_160138,_160474]],[:,->,[->,_160862,_161156],[->,_161466,_160862],[->,_161466,_161156]]],[[:,[_159462,_162998,_163322],_160474],[:,_164006,[->,'Number','Bool']]],[[:,_162998,_159802],[:,g,[->,'String','Bool']]],[[:,_163322,_160138],[:,f,[->,'Number','String']]]]]],[_168050,['cdr-atom',[[[:,_159462,[->,_159802,_160138,_160474]],[:,->,[->,_160862,_161156],[->,_161466,_160862],[->,_161466,_161156]]],[[:,[_159462,_162998,_163322],_160474],[:,_164006,[->,'Number','Bool']]],[[:,_162998,_159802],[:,g,[->,'String','Bool']]],[[:,_163322,_160138],[:,f,[->,'Number','String']]]]]]],[case,_168020,[[[_168110,_168116],[unify,_168110,_168116,['unify*',_168050,[:,_164006,[->,'Number','Bool']]]]]]]]
- c(0,[])=_163322
- c(1,_162998)=['let*',[[_175552,['car-atom',_162998]],[_175582,['cdr-atom',_162998]]],[case,_175552,[[[_175642,_175648],[unify,_175642,_175648,['unify*',_175582,_163322]]]]]]
- switch=_162998
- c(0,[_175914,_175920])=[unify,_175914,_175920,['unify*',_175854,_175968]]
- switch=_175824
- c(0,_176600)=['unify*',_176642,_176648]
- switch=_176606
- c(0,[])=_177036
- c(1,_177030)=['let*',[[_177338,['car-atom',_177030]],[_177368,['cdr-atom',_177030]]],[case,_177338,[[[_177428,_177434],[unify,_177428,_177434,['unify*',_177368,_177036]]]]]]
- switch=_177030
- c(0,[_177700,_177706])=[unify,_177700,_177706,['unify*',_177640,_177754]]
- switch=_177610
- c(0,_178386)=['unify*',_178428,_178434]
- switch=_178392
- c(0,[])=_178822
- c(1,_178816)=['let*',[[_179124,['car-atom',_178816]],[_179154,['cdr-atom',_178816]]],[case,_179124,[[[_179214,_179220],[unify,_179214,_179220,['unify*',_179154,_178822]]]]]]
- switch=_178816
- c(0,[_179486,_179492])=[unify,_179486,_179492,['unify*',_179426,_179540]]
- switch=_179396
- c(0,_180172)=['unify*',_180214,_180220]
- switch=_180178
- c(0,[])=_180608
- c(1,_180602)=['let*',[[_180910,['car-atom',_180602]],[_180940,['cdr-atom',_180602]]],[case,_180910,[[[_181000,_181006],[unify,_181000,_181006,['unify*',_180940,_180608]]]]]]
- switch=_180602
- c(0,[_181272,_181278])=[unify,_181272,_181278,['unify*',_181212,_181326]]
- switch=_181182
- c(0,_181958)=['unify*',_182000,_182006]
- switch=_181964
- c(0,[])=_182394
- c(1,_182388)=['let*',[[_182696,['car-atom',_182388]],[_182726,['cdr-atom',_182388]]],[case,_182696,[[[_182786,_182792],[unify,_182786,_182792,['unify*',_182726,_182394]]]]]]
- switch=_182388
- c(0,[_183058,_183064])=[unify,_183058,_183064,['unify*',_182998,_183112]]
- switch=_182968
- c(0,_183744)=['unify*',_183786,_183792]
- switch=_183750
- c(0,[])=_184180
- c(1,_184174)=['let*',[[_184482,['car-atom',_184174]],[_184512,['cdr-atom',_184174]]],[case,_184482,[[[_184572,_184578],[unify,_184572,_184578,['unify*',_184512,_184180]]]]]]
- switch=_184174
- c(0,[_184844,_184850])=[unify,_184844,_184850,['unify*',_184784,_184898]]
- switch=_184754
- c(0,_185530)=['unify*',_185572,_185578]
- switch=_185536
- c(0,[])=_185966
- c(1,_185960)=['let*',[[_186268,['car-atom',_185960]],[_186298,['cdr-atom',_185960]]],[case,_186268,[[[_186358,_186364],[unify,_186358,_186364,['unify*',_186298,_185966]]]]]]
- switch=_185960
- c(0,[_186630,_186636])=[unify,_186630,_186636,['unify*',_186570,_186684]]
- switch=_186540
- c(0,_187316)=['unify*',_187358,_187364]
- switch=_187322
- c(0,[])=_187752
- c(1,_187746)=['let*',[[_188054,['car-atom',_187746]],[_188084,['cdr-atom',_187746]]],[case,_188054,[[[_188144,_188150],[unify,_188144,_188150,['unify*',_188084,_187752]]]]]]
- switch=_187746
- c(0,[_188416,_188422])=[unify,_188416,_188422,['unify*',_188356,_188470]]
- switch=_188326
- c(0,_189102)=['unify*',_189144,_189150]
- switch=_189108
- c(0,[])=_189538
- c(1,_189532)=['let*',[[_189840,['car-atom',_189532]],[_189870,['cdr-atom',_189532]]],[case,_189840,[[[_189930,_189936],[unify,_189930,_189936,['unify*',_189870,_189538]]]]]]
- switch=_189532
- c(0,[_190202,_190208])=[unify,_190202,_190208,['unify*',_190142,_190256]]
- switch=_190112
- c(0,_190888)=['unify*',_190930,_190936]
- switch=_190894
- c(0,[])=_191324
- c(1,_191318)=['let*',[[_191626,['car-atom',_191318]],[_191656,['cdr-atom',_191318]]],[case,_191626,[[[_191716,_191722],[unify,_191716,_191722,['unify*',_191656,_191324]]]]]]
- switch=_191318
- c(0,[_191988,_191994])=[unify,_191988,_191994,['unify*',_191928,_192042]]
- switch=_191898
- c(0,_192674)=['unify*',_192716,_192722]
- switch=_192680
- c(0,[])=_193110
- c(1,_193104)=['let*',[[_193412,['car-atom',_193104]],[_193442,['cdr-atom',_193104]]],[case,_193412,[[[_193502,_193508],[unify,_193502,_193508,['unify*',_193442,_193110]]]]]]
- switch=_193104
- c(0,[_193774,_193780])=[unify,_193774,_193780,['unify*',_193714,_193828]]
- switch=_193684
- c(0,_194460)=['unify*',_194502,_194508]
- switch=_194466
- c(0,[])=_194896
- c(1,_194890)=['let*',[[_195198,['car-atom',_194890]],[_195228,['cdr-atom',_194890]]],[case,_195198,[[[_195288,_195294],[unify,_195288,_195294,['unify*',_195228,_194896]]]]]]
- switch=_194890
- c(0,[_195560,_195566])=[unify,_195560,_195566,['unify*',_195500,_195614]]
- switch=_195470
-                                                                                                                                                                                                          -->(0,'&self',[unify,_196246,_196252,['unify*',_196288,_196294]],depth(99))
+</span>                                                                                                                                                                                                          -->(0,'&self',[unify,_125010,_125016,['unify*',_125052,_125058]],depth(99))
                                                                                                                                                                                                           <--(0,retval([unify|'False']))
                                                                                                                                                                                                         -->(0,'&self',[unify|'False'],depth(98))
                                                                                                                                                                                                       -->(0,'&self',[unify|'False'],depth(97))
@@ -268,33 +252,33 @@
                         -->(65,'&self',[unify|'False'],depth(10))
                       -->(66,'&self',[unify|'False'],depth(9))
                     -->(67,'&self',[unify|'False'],depth(8))
-                -->(68,'&self',[:,[unify|'False'],_160138],depth(6))
+                -->(68,'&self',[:,[unify|'False'],_91748],depth(6))
                     -->(69,'&self',[unify|'False'],depth(8))
-              -->(70,'&self',[:,_164006,[->,'Number','Bool']],depth(5))
+              -->(70,'&self',[:,_95496,[->,'Number','Bool']],depth(5))
                   -->(71,'&self',[->,'Number','Bool'],depth(7))
                   -->(72,'&self',[->,'Number','Bool'],depth(7))
                   -->(73,'&self',[->,'Number','Bool'],depth(7))
-              -->(74,'&self',[[:,[unify|'False'],_160138],[:,_164006,[->,'Number','Bool']]],depth(5))
+              -->(74,'&self',[[:,[unify|'False'],_91748],[:,_95496,[->,'Number','Bool']]],depth(5))
                   -->(75,'&self',[->,'Number','Bool'],depth(7))
                   -->(76,'&self',[->,'Number','Bool'],depth(7))
-                  -->(77,'&self',[:,[unify|'False'],_160138],depth(7))
+                  -->(77,'&self',[:,[unify|'False'],_91748],depth(7))
                       -->(78,'&self',[unify|'False'],depth(9))
-                  -->(79,'&self',[:,_164006,[->,'Number','Bool']],depth(7))
+                  -->(79,'&self',[:,_95496,[->,'Number','Bool']],depth(7))
                       -->(80,'&self',[->,'Number','Bool'],depth(9))
                       -->(81,'&self',[->,'Number','Bool'],depth(9))
                       -->(82,'&self',[->,'Number','Bool'],depth(9))
-            -->(83,'&self',[[:,_162998,'Atom'],[:,g,[->,'String','Bool']]],depth(4))
+            -->(83,'&self',[[:,_94518,'Atom'],[:,g,[->,'String','Bool']]],depth(4))
                 -->(84,'&self',[->,'String','Bool'],depth(6))
                 -->(85,'&self',[->,'String','Bool'],depth(6))
-                -->(86,'&self',[:,_162998,'Atom'],depth(6))
+                -->(86,'&self',[:,_94518,'Atom'],depth(6))
                 -->(87,'&self',[:,g,[->,'String','Bool']],depth(6))
                     -->(88,'&self',[->,'String','Bool'],depth(8))
                     -->(89,'&self',[->,'String','Bool'],depth(8))
                     -->(90,'&self',[->,'String','Bool'],depth(8))
-            -->(91,'&self',[[:,_163322,_160138],[:,f,[->,'Number','String']]],depth(4))
+            -->(91,'&self',[[:,_94832,_91748],[:,f,[->,'Number','String']]],depth(4))
                 -->(92,'&self',[->,'Number','String'],depth(6))
                 -->(93,'&self',[->,'Number','String'],depth(6))
-                -->(94,'&self',[:,_163322,_160138],depth(6))
+                -->(94,'&self',[:,_94832,_91748],depth(6))
                 -->(95,'&self',[:,f,[->,'Number','String']],depth(6))
                     -->(96,'&self',[->,'Number','String'],depth(8))
                     -->(97,'&self',[->,'Number','String'],depth(8))
@@ -302,90 +286,7 @@
               -->(99,'&self',['True',[:,f,[->,'Number','String']]],depth(5))
                   -->(100,'&self',[->,'Number','String'],depth(7))
 Switched off tracing. For a longer trace !(pragma! tracelen 101))
- switch=[['True',[:,->,[->,_160862,_161156],[->,_161466,_160862],[->,_161466,_161156]]],[[:,[unify|'False'],[->,'Atom'|'True']],[:,_164006,[->,'Number','Bool']]],[[:,_162998,'Atom'],[:,g,[->,'String','Bool']]],['True',[:,f,[->,'Number','String']]]]
- c(0,[])=_168454
- c(1,_168448)=['let*',[[_306956,['car-atom',_168448]],[_306986,['cdr-atom',_168448]]],[case,_306956,[[[_307046,_307052],[unify,_307046,_307052,['unify*',_306986,_168454]]]]]]
- switch=_168448
- c(0,[_307318,_307324])=[unify,_307318,_307324,['unify*',_307258,_307372]]
- switch=_307228
- c(0,_308004)=['unify*',_308046,_308052]
- switch=_308010
- c(0,[])=_308440
- c(1,_308434)=['let*',[[_308742,['car-atom',_308434]],[_308772,['cdr-atom',_308434]]],[case,_308742,[[[_308832,_308838],[unify,_308832,_308838,['unify*',_308772,_308440]]]]]]
- switch=_308434
- c(0,[_309104,_309110])=[unify,_309104,_309110,['unify*',_309044,_309158]]
- switch=_309014
- c(0,_309790)=['unify*',_309832,_309838]
- switch=_309796
- c(0,[])=_310226
- c(1,_310220)=['let*',[[_310528,['car-atom',_310220]],[_310558,['cdr-atom',_310220]]],[case,_310528,[[[_310618,_310624],[unify,_310618,_310624,['unify*',_310558,_310226]]]]]]
- switch=_310220
- c(0,[_310890,_310896])=[unify,_310890,_310896,['unify*',_310830,_310944]]
- switch=_310800
- c(0,_311576)=['unify*',_311618,_311624]
- switch=_311582
- c(0,[])=_312012
- c(1,_312006)=['let*',[[_312314,['car-atom',_312006]],[_312344,['cdr-atom',_312006]]],[case,_312314,[[[_312404,_312410],[unify,_312404,_312410,['unify*',_312344,_312012]]]]]]
- switch=_312006
- c(0,[_312676,_312682])=[unify,_312676,_312682,['unify*',_312616,_312730]]
- switch=_312586
- c(0,_313362)=['unify*',_313404,_313410]
- switch=_313368
- c(0,[])=_313798
- c(1,_313792)=['let*',[[_314100,['car-atom',_313792]],[_314130,['cdr-atom',_313792]]],[case,_314100,[[[_314190,_314196],[unify,_314190,_314196,['unify*',_314130,_313798]]]]]]
- switch=_313792
- c(0,[_314462,_314468])=[unify,_314462,_314468,['unify*',_314402,_314516]]
- switch=_314372
- c(0,_315148)=['unify*',_315190,_315196]
- switch=_315154
- c(0,[])=_315584
- c(1,_315578)=['let*',[[_315886,['car-atom',_315578]],[_315916,['cdr-atom',_315578]]],[case,_315886,[[[_315976,_315982],[unify,_315976,_315982,['unify*',_315916,_315584]]]]]]
- switch=_315578
- c(0,[_316248,_316254])=[unify,_316248,_316254,['unify*',_316188,_316302]]
- switch=_316158
- c(0,_316934)=['unify*',_316976,_316982]
- switch=_316940
- c(0,[])=_317370
- c(1,_317364)=['let*',[[_317672,['car-atom',_317364]],[_317702,['cdr-atom',_317364]]],[case,_317672,[[[_317762,_317768],[unify,_317762,_317768,['unify*',_317702,_317370]]]]]]
- switch=_317364
- c(0,[_318034,_318040])=[unify,_318034,_318040,['unify*',_317974,_318088]]
- switch=_317944
- c(0,_318720)=['unify*',_318762,_318768]
- switch=_318726
- c(0,[])=_319156
- c(1,_319150)=['let*',[[_319458,['car-atom',_319150]],[_319488,['cdr-atom',_319150]]],[case,_319458,[[[_319548,_319554],[unify,_319548,_319554,['unify*',_319488,_319156]]]]]]
- switch=_319150
- c(0,[_319820,_319826])=[unify,_319820,_319826,['unify*',_319760,_319874]]
- switch=_319730
- c(0,_320506)=['unify*',_320548,_320554]
- switch=_320512
- c(0,[])=_320942
- c(1,_320936)=['let*',[[_321244,['car-atom',_320936]],[_321274,['cdr-atom',_320936]]],[case,_321244,[[[_321334,_321340],[unify,_321334,_321340,['unify*',_321274,_320942]]]]]]
- switch=_320936
- c(0,[_321606,_321612])=[unify,_321606,_321612,['unify*',_321546,_321660]]
- switch=_321516
- c(0,_322292)=['unify*',_322334,_322340]
- switch=_322298
- c(0,[])=_322728
- c(1,_322722)=['let*',[[_323030,['car-atom',_322722]],[_323060,['cdr-atom',_322722]]],[case,_323030,[[[_323120,_323126],[unify,_323120,_323126,['unify*',_323060,_322728]]]]]]
- switch=_322722
- c(0,[_323392,_323398])=[unify,_323392,_323398,['unify*',_323332,_323446]]
- switch=_323302
- c(0,_324078)=['unify*',_324120,_324126]
- switch=_324084
- c(0,[])=_324514
- c(1,_324508)=['let*',[[_324816,['car-atom',_324508]],[_324846,['cdr-atom',_324508]]],[case,_324816,[[[_324906,_324912],[unify,_324906,_324912,['unify*',_324846,_324514]]]]]]
- switch=_324508
- c(0,[_325178,_325184])=[unify,_325178,_325184,['unify*',_325118,_325232]]
- switch=_325088
- c(0,_325864)=['unify*',_325906,_325912]
- switch=_325870
- c(0,[])=_326300
- c(1,_326294)=['let*',[[_326602,['car-atom',_326294]],[_326632,['cdr-atom',_326294]]],[case,_326602,[[[_326692,_326698],[unify,_326692,_326698,['unify*',_326632,_326300]]]]]]
- switch=_326294
- c(0,[_326964,_326970])=[unify,_326964,_326970,['unify*',_326904,_327018]]
- switch=_326874
-                                                                                                                                                                                                          -->(0,'&self',[unify,_327650,_327656,['unify*',_327692,_327698]],depth(99))
+                                                                                                                                                                                                          -->(0,'&self',[unify,_236316,_236322,['unify*',_236358,_236364]],depth(99))
                                                                                                                                                                                                           <--(0,retval([unify|'False']))
                                                                                                                                                                                                         -->(0,'&self',[unify|'False'],depth(98))
                                                                                                                                                                                                       -->(0,'&self',[unify|'False'],depth(97))
@@ -456,33 +357,33 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))
                         -->(65,'&self',[unify|'False'],depth(10))
                       -->(66,'&self',[unify|'False'],depth(9))
                     -->(67,'&self',[unify|'False'],depth(8))
-                -->(68,'&self',[:,[unify|'False'],_168316],depth(6))
+                -->(68,'&self',[:,[unify|'False'],_100114],depth(6))
                     -->(69,'&self',[unify|'False'],depth(8))
-              -->(70,'&self',[:,_168478,[->,'Number','Bool']],depth(5))
+              -->(70,'&self',[:,_100276,[->,'Number','Bool']],depth(5))
                   -->(71,'&self',[->,'Number','Bool'],depth(7))
                   -->(72,'&self',[->,'Number','Bool'],depth(7))
                   -->(73,'&self',[->,'Number','Bool'],depth(7))
-              -->(74,'&self',[[:,[unify|'False'],_168316],[:,_168478,[->,'Number','Bool']]],depth(5))
+              -->(74,'&self',[[:,[unify|'False'],_100114],[:,_100276,[->,'Number','Bool']]],depth(5))
                   -->(75,'&self',[->,'Number','Bool'],depth(7))
                   -->(76,'&self',[->,'Number','Bool'],depth(7))
-                  -->(77,'&self',[:,[unify|'False'],_168316],depth(7))
+                  -->(77,'&self',[:,[unify|'False'],_100114],depth(7))
                       -->(78,'&self',[unify|'False'],depth(9))
-                  -->(79,'&self',[:,_168478,[->,'Number','Bool']],depth(7))
+                  -->(79,'&self',[:,_100276,[->,'Number','Bool']],depth(7))
                       -->(80,'&self',[->,'Number','Bool'],depth(9))
                       -->(81,'&self',[->,'Number','Bool'],depth(9))
                       -->(82,'&self',[->,'Number','Bool'],depth(9))
-            -->(83,'&self',[[:,_168448,'Atom'],[:,g,[->,'String','Bool']]],depth(4))
+            -->(83,'&self',[[:,_100246,'Atom'],[:,g,[->,'String','Bool']]],depth(4))
                 -->(84,'&self',[->,'String','Bool'],depth(6))
                 -->(85,'&self',[->,'String','Bool'],depth(6))
-                -->(86,'&self',[:,_168448,'Atom'],depth(6))
+                -->(86,'&self',[:,_100246,'Atom'],depth(6))
                 -->(87,'&self',[:,g,[->,'String','Bool']],depth(6))
                     -->(88,'&self',[->,'String','Bool'],depth(8))
                     -->(89,'&self',[->,'String','Bool'],depth(8))
                     -->(90,'&self',[->,'String','Bool'],depth(8))
-            -->(91,'&self',[[:,_168454,_168316],[:,f,[->,'Number','String']]],depth(4))
+            -->(91,'&self',[[:,_100252,_100114],[:,f,[->,'Number','String']]],depth(4))
                 -->(92,'&self',[->,'Number','String'],depth(6))
                 -->(93,'&self',[->,'Number','String'],depth(6))
-                -->(94,'&self',[:,_168454,_168316],depth(6))
+                -->(94,'&self',[:,_100252,_100114],depth(6))
                 -->(95,'&self',[:,f,[->,'Number','String']],depth(6))
                     -->(96,'&self',[->,'Number','String'],depth(8))
                     -->(97,'&self',[->,'Number','String'],depth(8))
@@ -490,95 +391,13 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))
               -->(99,'&self',['True',[:,f,[->,'Number','String']]],depth(5))
                   -->(100,'&self',[->,'Number','String'],depth(7))
 Switched off tracing. For a longer trace !(pragma! tracelen 101))
- c(0,[])=unify
- c(1,_168448)=['let*',[[_441652,['car-atom',_168448]],[_441682,['cdr-atom',_168448]]],[case,_441652,[[[_441742,_441748],[unify,_441742,_441748,['unify*',_441682,unify]]]]]]
- switch=_168448
- c(0,[_442014,_442020])=[unify,_442014,_442020,['unify*',_441954,unify]]
- switch=_441924
- c(0,_442700)=['unify*',_442742,unify]
- switch=_442706
- c(0,[])=unify
- c(1,_443130)=['let*',[[_443438,['car-atom',_443130]],[_443468,['cdr-atom',_443130]]],[case,_443438,[[[_443528,_443534],[unify,_443528,_443534,['unify*',_443468,unify]]]]]]
- switch=_443130
- c(0,[_443800,_443806])=[unify,_443800,_443806,['unify*',_443740,unify]]
- switch=_443710
- c(0,_444486)=['unify*',_444528,unify]
- switch=_444492
- c(0,[])=unify
- c(1,_444916)=['let*',[[_445224,['car-atom',_444916]],[_445254,['cdr-atom',_444916]]],[case,_445224,[[[_445314,_445320],[unify,_445314,_445320,['unify*',_445254,unify]]]]]]
- switch=_444916
- c(0,[_445586,_445592])=[unify,_445586,_445592,['unify*',_445526,unify]]
- switch=_445496
- c(0,_446272)=['unify*',_446314,unify]
- switch=_446278
- c(0,[])=unify
- c(1,_446702)=['let*',[[_447010,['car-atom',_446702]],[_447040,['cdr-atom',_446702]]],[case,_447010,[[[_447100,_447106],[unify,_447100,_447106,['unify*',_447040,unify]]]]]]
- switch=_446702
- c(0,[_447372,_447378])=[unify,_447372,_447378,['unify*',_447312,unify]]
- switch=_447282
- c(0,_448058)=['unify*',_448100,unify]
- switch=_448064
- c(0,[])=unify
- c(1,_448488)=['let*',[[_448796,['car-atom',_448488]],[_448826,['cdr-atom',_448488]]],[case,_448796,[[[_448886,_448892],[unify,_448886,_448892,['unify*',_448826,unify]]]]]]
- switch=_448488
- c(0,[_449158,_449164])=[unify,_449158,_449164,['unify*',_449098,unify]]
- switch=_449068
- c(0,_449844)=['unify*',_449886,unify]
- switch=_449850
- c(0,[])=unify
- c(1,_450274)=['let*',[[_450582,['car-atom',_450274]],[_450612,['cdr-atom',_450274]]],[case,_450582,[[[_450672,_450678],[unify,_450672,_450678,['unify*',_450612,unify]]]]]]
- switch=_450274
- c(0,[_450944,_450950])=[unify,_450944,_450950,['unify*',_450884,unify]]
- switch=_450854
- c(0,_451630)=['unify*',_451672,unify]
- switch=_451636
- c(0,[])=unify
- c(1,_452060)=['let*',[[_452368,['car-atom',_452060]],[_452398,['cdr-atom',_452060]]],[case,_452368,[[[_452458,_452464],[unify,_452458,_452464,['unify*',_452398,unify]]]]]]
- switch=_452060
- c(0,[_452730,_452736])=[unify,_452730,_452736,['unify*',_452670,unify]]
- switch=_452640
- c(0,_453416)=['unify*',_453458,unify]
- switch=_453422
- c(0,[])=unify
- c(1,_453846)=['let*',[[_454154,['car-atom',_453846]],[_454184,['cdr-atom',_453846]]],[case,_454154,[[[_454244,_454250],[unify,_454244,_454250,['unify*',_454184,unify]]]]]]
- switch=_453846
- c(0,[_454516,_454522])=[unify,_454516,_454522,['unify*',_454456,unify]]
- switch=_454426
- c(0,_455202)=['unify*',_455244,unify]
- switch=_455208
- c(0,[])=unify
- c(1,_455632)=['let*',[[_455940,['car-atom',_455632]],[_455970,['cdr-atom',_455632]]],[case,_455940,[[[_456030,_456036],[unify,_456030,_456036,['unify*',_455970,unify]]]]]]
- switch=_455632
- c(0,[_456302,_456308])=[unify,_456302,_456308,['unify*',_456242,unify]]
- switch=_456212
- c(0,_456988)=['unify*',_457030,unify]
- switch=_456994
- c(0,[])=unify
- c(1,_457418)=['let*',[[_457726,['car-atom',_457418]],[_457756,['cdr-atom',_457418]]],[case,_457726,[[[_457816,_457822],[unify,_457816,_457822,['unify*',_457756,unify]]]]]]
- switch=_457418
- c(0,[_458088,_458094])=[unify,_458088,_458094,['unify*',_458028,unify]]
- switch=_457998
- c(0,_458774)=['unify*',_458816,unify]
- switch=_458780
- c(0,[])=unify
- c(1,_459204)=['let*',[[_459512,['car-atom',_459204]],[_459542,['cdr-atom',_459204]]],[case,_459512,[[[_459602,_459608],[unify,_459602,_459608,['unify*',_459542,unify]]]]]]
- switch=_459204
- c(0,[_459874,_459880])=[unify,_459874,_459880,['unify*',_459814,unify]]
- switch=_459784
- c(0,_460560)=['unify*',_460602,unify]
- switch=_460566
- c(0,[])=unify
- c(1,_460990)=['let*',[[_461958,['car-atom',_460990]],[_461988,['cdr-atom',_460990]]],[case,_461958,[[[_462048,_462054],[unify,_462048,_462054,['unify*',_461988,unify]]]]]]
- switch=_460990
-                                                                                                                                                                                                          -->(0,'&self',['let*',[[_462260,['cdr-atom',[_462230|_462646]]]],[case,_462230,[[[_462320,_462326],[unify,_462320,_462326,['unify*',_462260,unify]]]]]],depth(99))
-                                                                                                                                                                                                          <--(0,retval(['let*',[],[case,_463578,[[[_463602,_463608],[unify,_463602,_463608,['unify*',['cdr-atom',[_463578|_463670]],unify]]]]]]))
-                                                                                                                                                                                                          -->(0,'&self',['let*',[],[case,_462230,[[[_462320,_462326],[unify,_462320,_462326,['unify*',['cdr-atom',[_462230|_462646]],unify]]]]]],depth(99))
-                                                                                                                                                                                                          <--(0,retval([case,_464548,[[[_464572,_464578],[unify,_464572,_464578,['unify*',['cdr-atom',[_464548|_464640]],unify]]]]]))
-                                                                                                                                                                                                        -->(0,'&self',[case,_462230,[[[_462320,_462326],[unify,_462320,_462326,['unify*',['cdr-atom',[_462230|_462646]],unify]]]]],depth(98))
- c(0,[_462320,_462326])=[unify,_462320,_462326,['unify*',['cdr-atom',[_462230|_462646]],unify]]
- switch=_462230
-                                                                                                                                                                                                        <--(0,retval([unify,_465716,_465722,['unify*',['cdr-atom',[_465758|_465760]],unify]]))
-                                                                                                                                                                                                          -->(0,'&self',[unify,_465222,_465228,['unify*',['cdr-atom',[_465282|_465284]],unify]],depth(99))
+                                                                                                                                                                                                          -->(0,'&self',['let*',[[_350558,['cdr-atom',[_350528|_350866]]]],[case,_350528,[[[_350618,_350624],[unify,_350618,_350624,['unify*',_350558,unify]]]]]],depth(99))
+                                                                                                                                                                                                          <--(0,retval(['let*',[],[case,_351508,[[[_351532,_351538],[unify,_351532,_351538,['unify*',['cdr-atom',[_351508|_351600]],unify]]]]]]))
+                                                                                                                                                                                                          -->(0,'&self',['let*',[],[case,_350528,[[[_350618,_350624],[unify,_350618,_350624,['unify*',['cdr-atom',[_350528|_350866]],unify]]]]]],depth(99))
+                                                                                                                                                                                                          <--(0,retval([case,_352132,[[[_352156,_352162],[unify,_352156,_352162,['unify*',['cdr-atom',[_352132|_352224]],unify]]]]]))
+                                                                                                                                                                                                        -->(0,'&self',[case,_350528,[[[_350618,_350624],[unify,_350618,_350624,['unify*',['cdr-atom',[_350528|_350866]],unify]]]]],depth(98))
+                                                                                                                                                                                                        <--(0,retval([unify,_352950,_352956,['unify*',['cdr-atom',[_352992|_352994]],unify]]))
+                                                                                                                                                                                                          -->(0,'&self',[unify,_352654,_352660,['unify*',['cdr-atom',[_352714|_352716]],unify]],depth(99))
                                                                                                                                                                                                           <--(0,retval([unify|'False']))
                                                                                                                                                                                                   -->(0,'&self',[unify|'False'],depth(95))
                                                                                                                                                                                                 -->(1,'&self',[unify|'False'],depth(94))
@@ -654,25 +473,25 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))
                           -->(71,'&self',[unify|'False'],depth(11))
                           -->(72,'&self',[->,'Atom'|'True'],depth(11))
                               -->(73,'&self',['Atom'|'True'],depth(13))
-                    -->(74,'&self',[:,_168478,[->,'Number','Bool']],depth(8))
+                    -->(74,'&self',[:,_100276,[->,'Number','Bool']],depth(8))
                         -->(75,'&self',[->,'Number','Bool'],depth(10))
                         -->(76,'&self',[->,'Number','Bool'],depth(10))
                         -->(77,'&self',[->,'Number','Bool'],depth(10))
-                    -->(78,'&self',[[:,[unify|'False'],[->,'Atom'|'True']],[:,_168478,[->,'Number','Bool']]],depth(8))
+                    -->(78,'&self',[[:,[unify|'False'],[->,'Atom'|'True']],[:,_100276,[->,'Number','Bool']]],depth(8))
                         -->(79,'&self',[->,'Number','Bool'],depth(10))
                         -->(80,'&self',[->,'Number','Bool'],depth(10))
                         -->(81,'&self',[:,[unify|'False'],[->,'Atom'|'True']],depth(10))
                             -->(82,'&self',[unify|'False'],depth(12))
                             -->(83,'&self',[->,'Atom'|'True'],depth(12))
                                 -->(84,'&self',['Atom'|'True'],depth(14))
-                        -->(85,'&self',[:,_168478,[->,'Number','Bool']],depth(10))
+                        -->(85,'&self',[:,_100276,[->,'Number','Bool']],depth(10))
                             -->(86,'&self',[->,'Number','Bool'],depth(12))
                             -->(87,'&self',[->,'Number','Bool'],depth(12))
                             -->(88,'&self',[->,'Number','Bool'],depth(12))
-                  -->(89,'&self',[[:,_168448,'Atom'],[:,g,[->,'String','Bool']]],depth(7))
+                  -->(89,'&self',[[:,_100246,'Atom'],[:,g,[->,'String','Bool']]],depth(7))
                       -->(90,'&self',[->,'String','Bool'],depth(9))
                       -->(91,'&self',[->,'String','Bool'],depth(9))
-                      -->(92,'&self',[:,_168448,'Atom'],depth(9))
+                      -->(92,'&self',[:,_100246,'Atom'],depth(9))
                       -->(93,'&self',[:,g,[->,'String','Bool']],depth(9))
                           -->(94,'&self',[->,'String','Bool'],depth(11))
                           -->(95,'&self',[->,'String','Bool'],depth(11))
@@ -682,18 +501,151 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101))
                       -->(99,'&self',[->,'Number','String'],depth(9))
                       -->(100,'&self',[:,unify,[->,'Atom',==,==,==]],depth(9))
 Switched off tracing. For a longer trace !(pragma! tracelen 101))
- c(0,[_4252,_4258])=[unify,_4252,_4258,['unify*',[[[:,[unify|'False'],[->,'Atom'|'True']],[:,_3970,[->,'Number','Bool']]],[[:,_3940,'Atom'],[:,g,[->,'String','Bool']]],[[:,unify,[->,'Atom'|'True']],[:,f,[->,'Number','String']]]],[:,_3970,[->,'Number','Bool']]]]
- switch=['True',[:,->,[->,_3850,_3856],[->,_3874,_3850],[->,_3874,_3856]]]
- c(0,'True')=['unify*',[[[:,[unify|'False'],[->,'Atom'|'True']],[:,_52794,[->,'Number','Bool']]],[[:,_52842,'Atom'],[:,g,[->,'String','Bool']]],[[:,unify,[->,'Atom'|'True']],[:,f,[->,'Number','String']]]],[:,_52794,[->,'Number','Bool']]]
- switch=[:,->,[->,_3850,_3856],[->,_3874,_3850],[->,_3874,_3856]]
- c(0,[_4252,_4258])=[unify,_4252,_4258,['unify*',[[[:,[unify|'False'],[->,'Atom'|'True']],[:,_3970,[->,'Number','Bool']]],[[:,_3940,'Atom'],[:,g,[->,'String','Bool']]],['True',[:,f,[->,'Number','String']]]],[:,_3970,[->,'Number','Bool']]]]
- switch=['True',[:,->,[->,_3850,_3856],[->,_3874,_3850],[->,_3874,_3856]]]
- c(0,'True')=['unify*',[[[:,[unify|'False'],[->,'Atom'|'True']],[:,_78462,[->,'Number','Bool']]],[[:,_78510,'Atom'],[:,g,[->,'String','Bool']]],['True',[:,f,[->,'Number','String']]]],[:,_78462,[->,'Number','Bool']]]
- switch=[:,->,[->,_3850,_3856],[->,_3874,_3850],[->,_3874,_3856]]
-<span class="ansi32">% 525,703 inferences, 0.179 CPU in 0.179 seconds (100% CPU, 2933827 Lips)
-</span> (@ = "examples/compat/synthesis/UnifyTest.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/compat/synthesis/UnifyTest.html" )
+                                                                                                                                                                                                          -->(0,'&self',['let*',[[_474146,['cdr-atom',[_474116|_474454]]]],[case,_474116,[[[_474206,_474212],[unify,_474206,_474212,['unify*',_474146,unify]]]]]],depth(99))
+                                                                                                                                                                                                          <--(0,retval(['let*',[],[case,_475096,[[[_475120,_475126],[unify,_475120,_475126,['unify*',['cdr-atom',[_475096|_475188]],unify]]]]]]))
+                                                                                                                                                                                                          -->(0,'&self',['let*',[],[case,_474116,[[[_474206,_474212],[unify,_474206,_474212,['unify*',['cdr-atom',[_474116|_474454]],unify]]]]]],depth(99))
+                                                                                                                                                                                                          <--(0,retval([case,_475720,[[[_475744,_475750],[unify,_475744,_475750,['unify*',['cdr-atom',[_475720|_475812]],unify]]]]]))
+                                                                                                                                                                                                        -->(0,'&self',[case,_474116,[[[_474206,_474212],[unify,_474206,_474212,['unify*',['cdr-atom',[_474116|_474454]],unify]]]]],depth(98))
+                                                                                                                                                                                                        <--(0,retval([unify,_476538,_476544,['unify*',['cdr-atom',[_476580|_476582]],unify]]))
+                                                                                                                                                                                                          -->(0,'&self',[unify,_476242,_476248,['unify*',['cdr-atom',[_476302|_476304]],unify]],depth(99))
+                                                                                                                                                                                                          <--(0,retval([unify|'False']))
+                                                                                                                                                                                                  -->(0,'&self',[unify|'False'],depth(95))
+                                                                                                                                                                                                -->(1,'&self',[unify|'False'],depth(94))
+                                                                                                                                                                                              -->(2,'&self',[unify|'False'],depth(93))
+                                                                                                                                                                                            -->(3,'&self',[unify|'False'],depth(92))
+                                                                                                                                                                                        -->(4,'&self',[unify|'False'],depth(90))
+                                                                                                                                                                                    -->(5,'&self',[unify|'False'],depth(88))
+                                                                                                                                                                                  -->(6,'&self',[unify|'False'],depth(87))
+                                                                                                                                                                                -->(7,'&self',[unify|'False'],depth(86))
+                                                                                                                                                                              -->(8,'&self',[unify|'False'],depth(85))
+                                                                                                                                                                            -->(9,'&self',[unify|'False'],depth(84))
+                                                                                                                                                                        -->(10,'&self',[unify|'False'],depth(82))
+                                                                                                                                                                    -->(11,'&self',[unify|'False'],depth(80))
+                                                                                                                                                                  -->(12,'&self',[unify|'False'],depth(79))
+                                                                                                                                                                -->(13,'&self',[unify|'False'],depth(78))
+                                                                                                                                                              -->(14,'&self',[unify|'False'],depth(77))
+                                                                                                                                                            -->(15,'&self',[unify|'False'],depth(76))
+                                                                                                                                                        -->(16,'&self',[unify|'False'],depth(74))
+                                                                                                                                                    -->(17,'&self',[unify|'False'],depth(72))
+                                                                                                                                                  -->(18,'&self',[unify|'False'],depth(71))
+                                                                                                                                                -->(19,'&self',[unify|'False'],depth(70))
+                                                                                                                                              -->(20,'&self',[unify|'False'],depth(69))
+                                                                                                                                            -->(21,'&self',[unify|'False'],depth(68))
+                                                                                                                                        -->(22,'&self',[unify|'False'],depth(66))
+                                                                                                                                    -->(23,'&self',[unify|'False'],depth(64))
+                                                                                                                                  -->(24,'&self',[unify|'False'],depth(63))
+                                                                                                                                -->(25,'&self',[unify|'False'],depth(62))
+                                                                                                                              -->(26,'&self',[unify|'False'],depth(61))
+                                                                                                                            -->(27,'&self',[unify|'False'],depth(60))
+                                                                                                                        -->(28,'&self',[unify|'False'],depth(58))
+                                                                                                                    -->(29,'&self',[unify|'False'],depth(56))
+                                                                                                                  -->(30,'&self',[unify|'False'],depth(55))
+                                                                                                                -->(31,'&self',[unify|'False'],depth(54))
+                                                                                                              -->(32,'&self',[unify|'False'],depth(53))
+                                                                                                            -->(33,'&self',[unify|'False'],depth(52))
+                                                                                                        -->(34,'&self',[unify|'False'],depth(50))
+                                                                                                    -->(35,'&self',[unify|'False'],depth(48))
+                                                                                                  -->(36,'&self',[unify|'False'],depth(47))
+                                                                                                -->(37,'&self',[unify|'False'],depth(46))
+                                                                                              -->(38,'&self',[unify|'False'],depth(45))
+                                                                                            -->(39,'&self',[unify|'False'],depth(44))
+                                                                                        -->(40,'&self',[unify|'False'],depth(42))
+                                                                                    -->(41,'&self',[unify|'False'],depth(40))
+                                                                                  -->(42,'&self',[unify|'False'],depth(39))
+                                                                                -->(43,'&self',[unify|'False'],depth(38))
+                                                                              -->(44,'&self',[unify|'False'],depth(37))
+                                                                            -->(45,'&self',[unify|'False'],depth(36))
+                                                                        -->(46,'&self',[unify|'False'],depth(34))
+                                                                    -->(47,'&self',[unify|'False'],depth(32))
+                                                                  -->(48,'&self',[unify|'False'],depth(31))
+                                                                -->(49,'&self',[unify|'False'],depth(30))
+                                                              -->(50,'&self',[unify|'False'],depth(29))
+                                                            -->(51,'&self',[unify|'False'],depth(28))
+                                                        -->(52,'&self',[unify|'False'],depth(26))
+                                                    -->(53,'&self',[unify|'False'],depth(24))
+                                                  -->(54,'&self',[unify|'False'],depth(23))
+                                                -->(55,'&self',[unify|'False'],depth(22))
+                                              -->(56,'&self',[unify|'False'],depth(21))
+                                            -->(57,'&self',[unify|'False'],depth(20))
+                                        -->(58,'&self',[unify|'False'],depth(18))
+                                    -->(59,'&self',[unify|'False'],depth(16))
+                                  -->(60,'&self',[unify|'False'],depth(15))
+                                -->(61,'&self',[unify|'False'],depth(14))
+                              -->(62,'&self',[unify|'False'],depth(13))
+                            -->(63,'&self',[unify|'False'],depth(12))
+                        -->(64,'&self',[->,'Atom'|'True'],depth(10))
+                            -->(65,'&self',['Atom'|'True'],depth(12))
+                        -->(66,'&self',[:,[unify|'False'],[->,'Atom'|'True']],depth(10))
+                            -->(67,'&self',[unify|'False'],depth(12))
+                            -->(68,'&self',[->,'Atom'|'True'],depth(12))
+                                -->(69,'&self',['Atom'|'True'],depth(14))
+                      -->(70,'&self',[:,[unify|'False'],[->,'Atom'|'True']],depth(9))
+                          -->(71,'&self',[unify|'False'],depth(11))
+                          -->(72,'&self',[->,'Atom'|'True'],depth(11))
+                              -->(73,'&self',['Atom'|'True'],depth(13))
+                    -->(74,'&self',[:,_100276,[->,'Number','Bool']],depth(8))
+                        -->(75,'&self',[->,'Number','Bool'],depth(10))
+                        -->(76,'&self',[->,'Number','Bool'],depth(10))
+                        -->(77,'&self',[->,'Number','Bool'],depth(10))
+                    -->(78,'&self',[[:,[unify|'False'],[->,'Atom'|'True']],[:,_100276,[->,'Number','Bool']]],depth(8))
+                        -->(79,'&self',[->,'Number','Bool'],depth(10))
+                        -->(80,'&self',[->,'Number','Bool'],depth(10))
+                        -->(81,'&self',[:,[unify|'False'],[->,'Atom'|'True']],depth(10))
+                            -->(82,'&self',[unify|'False'],depth(12))
+                            -->(83,'&self',[->,'Atom'|'True'],depth(12))
+                                -->(84,'&self',['Atom'|'True'],depth(14))
+                        -->(85,'&self',[:,_100276,[->,'Number','Bool']],depth(10))
+                            -->(86,'&self',[->,'Number','Bool'],depth(12))
+                            -->(87,'&self',[->,'Number','Bool'],depth(12))
+                            -->(88,'&self',[->,'Number','Bool'],depth(12))
+                  -->(89,'&self',[[:,_3992,'Atom'],[:,g,[->,'String','Bool']]],depth(7))
+                      -->(90,'&self',[->,'String','Bool'],depth(9))
+                      -->(91,'&self',[->,'String','Bool'],depth(9))
+                      -->(92,'&self',[:,_3992,'Atom'],depth(9))
+                      -->(93,'&self',[:,g,[->,'String','Bool']],depth(9))
+                          -->(94,'&self',[->,'String','Bool'],depth(11))
+                          -->(95,'&self',[->,'String','Bool'],depth(11))
+                          -->(96,'&self',[->,'String','Bool'],depth(11))
+                  -->(97,'&self',[[:,unify,[->,'Atom',==,==,==]],[:,f,[->,'Number','String']]],depth(7))
+                      -->(98,'&self',[->,'Number','String'],depth(9))
+                      -->(99,'&self',[->,'Number','String'],depth(9))
+                      -->(100,'&self',[:,unify,[->,'Atom',==,==,==]],depth(9))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi36">
+
+! (assertEqualToResult 
+    (unify* 
+      ( ( (: $Ructor 
+            (-> $Premise1 $Premise2 $Conclusion)) 
+          (: -> 
+            (-> $B $C) 
+            (-> $A $B) 
+            (-> $A $C))) 
+        ( (: 
+            ($Ructor $Proof1 $Proof2) $Conclusion) 
+          (: $Term 
+            (-> Number Bool))) 
+        ( (: $Proof1 $Premise1) 
+          (: g 
+            (-> String Bool))) 
+        ( (: $Proof2 $Premise2) 
+          (: f 
+            (-> Number String)))) 
+      (: $Term 
+        (-> Number Bool))) ())
+(@ ! 
+  (assertEqual () ()))
+write_pass_fail_result("SYNTHESIS.UNIFYTEST.104",exec,['unify*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[:,->,[->,B,C],[->,A,B],[->,A,C]]],[[:,[Ructor,Proof1,Proof2],Conclusion],[:,Term,[->,'Number','Bool']]],[[:,Proof1,Premise1],[:,g,[->,'String','Bool']]],[[:,Proof2,Premise2],[:,f,[->,'Number','String']]]],[:,Term,[->,'Number','Bool']]],'PASS',[],[])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 947,752 inferences, 0.317 CPU in 0.317 seconds (100% CPU, 2987656 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 2
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/UnifyTest.html" )
 
 </pre>
 </body>

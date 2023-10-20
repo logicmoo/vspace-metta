@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -31,7 +30,16 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/test_list_concatenation.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta')
+1=[]
+2=0.10user 0.04system 0:00.22elapsed 68%CPU (0avgtext+0avgdata 28240maxresident)k
+2=33856inputs+0outputs (193major+3212minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta', 1, []).
+
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Concat',['Cons',Head1,[]],List2],['Cons',Head1,List2])
 </span><span class="ansi38-255165000">  (= 
     (Concat 
@@ -63,11 +71,21 @@
       (Cons b2 ())))
 </span>
 
-<span class="ansi38-000068000">!(assertEqual (Concat (lst1) (lst2)) (Cons a1 (Cons a2 (Cons b1 (Cons b2 ())))))
+<span class="ansi38-000068000">!(assertEqual 
+  (Concat 
+    (lst1) 
+    (lst2)) 
+  (Cons a1 
+    (Cons a2 
+      (Cons b1 
+        (Cons b2 ())))))
 
-</span><h3 id="EXAMPLES.TEST-LIST-CONCATENATION.01">;; EXAMPLES.TEST-LIST-CONCATENATION.01</h3><span class="ansi36">
-(@ loonit_success 
-  (equal_enough  
+</span><h3 id="EXAMPLES.TEST-LIST-CONCATENATION.01">;; EXAMPLES.TEST-LIST-CONCATENATION.01</h3>
+; 
+; EVAL TEST
+; took 2.66 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     ( (Cons a1 
         (Cons a2 
           (Cons b1 
@@ -154,17 +172,17 @@
             -->(59,'&self',['Cons',a2,['Cons',b1,['Cons',b2,[]]]],depth(4))
                 -->(60,'&self',['Cons',b1,['Cons',b2,[]]],depth(6))
                     -->(61,'&self',['Cons',b2,[]],depth(8))
-; Evaluation took 11.57 ms.
-<span class="ansi33"> True
+; Trace took 6.84 ms.
+; Evaluation took 11.12 ms.
+<span class="ansi33"> Empty
 
-</span><span class="ansi32">% 75,551 inferences, 0.024 CPU in 0.024 seconds (100% CPU, 3187940 Lips)
-</span> (@ = "examples/test_list_concatenation.metta" 0)
+</span><span class="ansi32">% 292,672 inferences, 0.104 CPU in 0.104 seconds (100% CPU, 2801861 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/test_list_concatenation.html" )
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/test_list_concatenation.html" )
 
 </pre>
 </body>

@@ -672,7 +672,12 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "examples/nars_extras/TestNARS_listing.metta")
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars_extras/TestNARS_listing.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars_extras/TestNARS_listing.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars_extras/TestNARS_listing.metta')
+:- dynamic file_answers/3.
+
+
 ;;; stdlib extension
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[assertEquals,0.11111,0.11112])
 </span><span class="ansi38-255165000">  (assertEquals 0.11111 0.11112)
@@ -688,7 +693,7 @@
     (If True $Then) $Then)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['If','False',Then],'False')
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['If','False',Then],[])
 </span><span class="ansi38-255165000">  (= 
     (If False $Then) ())
 </span>
@@ -798,7 +803,7 @@
 
 <span class="ansi38-000068000">!(get-atoms &self)
 
-</span>; Evaluation took 0.069 ms. (68.90 microseconds) 
+</span>; Evaluation took 0.087 ms. (86.60 microseconds) 
 <span class="ansi33"> ()
 
 </span>;; Truth functions
@@ -1062,7 +1067,7 @@
 
 <span class="ansi38-000068000">!(get-atoms &self)
 
-</span>; Evaluation took 0.043 ms. (43.50 microseconds) 
+</span>; Evaluation took 0.065 ms. (65.20 microseconds) 
 <span class="ansi33"> ()
 
 </span>;;NAL-1
@@ -1169,11 +1174,11 @@
       (Truth_StructuralIntersection $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[['[]',S]],-->,P],True]],[[[['[]',S]],<->,P],['Truth_StructuralIntersection',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[['[$OBJ]',S]],-->,P],True]],[[[['[$OBJ]',S]],<->,P],['Truth_StructuralIntersection',True]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
-      ( ( ( ([] $S)) --> $P) $True)) 
-    ( ( ( ([] $S)) <-> $P) 
+      ( ( ( ([$OBJ] $S)) --> $P) $True)) 
+    ( ( ( ([$OBJ] $S)) <-> $P) 
       (Truth_StructuralIntersection $True)))
 </span>
 
@@ -1186,14 +1191,14 @@
       (Truth_Analogy $T1 $T2)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[P,-->,[['[]',M]]],T1],[[S,<->,M],T2]],[[P,-->,[['[]',S]]],['Truth_Analogy',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[P,-->,[['[$OBJ]',M]]],T1],[[S,<->,M],T2]],[[P,-->,[['[$OBJ]',S]]],['Truth_Analogy',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
       ( ($P --> 
-          ( ([] $M))) $T1) 
+          ( ([$OBJ] $M))) $T1) 
       ( ($S <-> $M) $T2)) 
     ( ($P --> 
-        ( ([] $S))) 
+        ( ([$OBJ] $S))) 
       (Truth_Analogy $T1 $T2)))
 </span>
 
@@ -1206,11 +1211,11 @@
       (Truth_StructuralIntersection $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['|-',[[[['[]',A]],<->,[['[]',B]]]],[A,<->,B],['Truth_StructuralIntersection',True]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['|-',[[[['[$OBJ]',A]],<->,[['[$OBJ]',B]]]],[A,<->,B],['Truth_StructuralIntersection',True]]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
-      ( ( ( ([] $A)) <-> 
-          ( ([] $B)))) 
+      ( ( ( ([$OBJ] $A)) <-> 
+          ( ([$OBJ] $B)))) 
       ($A <-> $B) 
       (Truth_StructuralIntersection $True)))
 </span>
@@ -1233,23 +1238,23 @@
       (Truth_StructuralDeduction $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[]',A]]],['Truth_StructuralDeduction',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[$OBJ]',A]]],['Truth_StructuralDeduction',True]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
       ( (M --> 
           ( ([ $A $B ]))) $True)) 
     ( (M --> 
-        ( ([] $A))) 
+        ( ([$OBJ] $A))) 
       (Truth_StructuralDeduction $True)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[]',B]]],['Truth_StructuralDeduction',True]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[['M',-->,[['[',A,B,']']]],True]],[['M',-->,[['[$OBJ]',B]]],['Truth_StructuralDeduction',True]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
       ( (M --> 
           ( ([ $A $B ]))) $True)) 
     ( (M --> 
-        ( ([] $B))) 
+        ( ([$OBJ] $B))) 
       (Truth_StructuralDeduction $True)))
 </span>
 
@@ -1349,7 +1354,6 @@
     ( ( ($P ~ $S) --> $M) 
       (Truth_Difference $T1 $T2)))
 </span>
-
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[M,-->,P],T1],[[M,-->,S],T2]],[[M,-->,[P,&,S]],['Truth_Intersection',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
@@ -1572,13 +1576,13 @@
 </span>
 
 ;;!Comparative relations
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},R],'|-',>,[['[]',P]]],T1],[[[{},S],'|-',>,[['[]',P]]],T2]],[[[[{},R],*,[{},S]],-->,[>>>,P]],['Truth_FrequencyGreater',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},R],'|-',>,[['[$OBJ]',P]]],T1],[[[{},S],'|-',>,[['[$OBJ]',P]]],T2]],[[[[{},R],*,[{},S]],-->,[>>>,P]],['Truth_FrequencyGreater',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
       ( ( ({} $R) |- > 
-          ( ([] $P))) $T1) 
+          ( ([$OBJ] $P))) $T1) 
       ( ( ({} $S) |- > 
-          ( ([] $P))) $T2)) 
+          ( ([$OBJ] $P))) $T2)) 
     ( ( ( ({} $R) * 
           ({} $S)) --> 
         (>>> $P)) 
@@ -1597,13 +1601,13 @@
       (Truth_Deduction $T1 $T2)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},R],'|-',>,[['[]',P]]],T1],[[[{},S],'|-',>,[['[]',P]]],T2]],[[[[{},R],*,[{},S]],-->,[===,P]],['Truth_FrequencyEqual',T1,T2]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['|-',[[[{},R],'|-',>,[['[$OBJ]',P]]],T1],[[[{},S],'|-',>,[['[$OBJ]',P]]],T2]],[[[[{},R],*,[{},S]],-->,[===,P]],['Truth_FrequencyEqual',T1,T2]])
 </span><span class="ansi38-255165000">  (= 
     (|- 
       ( ( ({} $R) |- > 
-          ( ([] $P))) $T1) 
+          ( ([$OBJ] $P))) $T1) 
       ( ( ({} $S) |- > 
-          ( ([] $P))) $T2)) 
+          ( ([$OBJ] $P))) $T2)) 
     ( ( ( ({} $R) * 
           ({} $S)) --> 
         (=== $P)) 
@@ -2163,24 +2167,24 @@
 </span>
 
 ;;!Intensional set reductions:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[]',A]],&,[['[]',B]]],[['[',A,B,']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[$OBJ]',A]],&,[['[$OBJ]',B]]],[['[',A,B,']']])
 </span><span class="ansi38-255165000">  (= 
-    ( ( ([] $A)) & 
-      ( ([] $B))) 
+    ( ( ([$OBJ] $A)) & 
+      ( ([$OBJ] $B))) 
     ( ([ $A $B ])))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[',A,B,']']],&,[['[]',C]]],[['[',[A|B],C,']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[',A,B,']']],&,[['[$OBJ]',C]]],[['[',[A|B],C,']']])
 </span><span class="ansi38-255165000">  (= 
     ( ( ([ $A $B ])) & 
-      ( ([] $C))) 
+      ( ([$OBJ] $C))) 
     ( ([ 
         (Cons  $A $B) $C ])))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[]',A]],&,[['[',B,C,']']]],[['[',A,[B|C],']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[['[$OBJ]',A]],&,[['[',B,C,']']]],[['[',A,[B|C],']']])
 </span><span class="ansi38-255165000">  (= 
-    ( ( ([] $A)) & 
+    ( ( ([$OBJ] $A)) & 
       ( ([ $B $C ]))) 
     ( ([ $A 
         (Cons  $B $C) ])))
@@ -2194,9 +2198,9 @@
     ({ $A $B }))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['[]',[A|B]]],[['[',A,B,']']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[['[$OBJ]',[A|B]]],[['[',A,B,']']])
 </span><span class="ansi38-255165000">  (= 
-    ( ([] 
+    ( ([$OBJ] 
         (Cons  $A $B))) 
     ( ([ $A $B ])))
 </span>
@@ -2213,33 +2217,35 @@
 </span>
 
 ;spaces
-<span class="ansi38-000068000">!(bind! &belief_events (new-space))
+<span class="ansi38-000068000">!(bind! &belief_events 
+  (new-space))
 
-</span>; Evaluation took 0.201 ms. (201.20 microseconds) 
-<span class="ansi33">  (new-space)
+</span>; Evaluation took 0.214 ms. (214.20 microseconds) 
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(bind! &goal_events (new-space))
+</span><span class="ansi38-000068000">!(bind! &goal_events 
+  (new-space))
 
-</span>; Evaluation took 0.179 ms. (179.20 microseconds) 
-<span class="ansi33">  (new-space)
+</span>; Evaluation took 0.120 ms. (120.50 microseconds) 
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-000068000">!(get-atoms &self)
 
-</span>; Evaluation took 0.065 ms. (65.40 microseconds) 
+</span>; Evaluation took 0.041 ms. (40.60 microseconds) 
 <span class="ansi33"> ()
 
 </span>;states
-<span class="ansi38-000068000">!(bind! &currentTime (new-state 1))
+<span class="ansi38-000068000">!(bind! &currentTime 
+  (new-state 1))
 
-</span>; Evaluation took 0.184 ms. (184.30 microseconds) 
-<span class="ansi33"> (@ State 1 $_104628)
- % 'State'(1,_104628)
+</span>; Evaluation took 0.095 ms. (95.30 microseconds) 
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(bind! &evidentialBase (new-state 1))
+</span><span class="ansi38-000068000">!(bind! &evidentialBase 
+  (new-state 1))
 
-</span>; Evaluation took 0.144 ms. (144.40 microseconds) 
-<span class="ansi33"> (@ State 1 $_306984)
- % 'State'(1,_306984)
+</span>; Evaluation took 0.095 ms. (94.90 microseconds) 
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[increment,Atom],['change-state!',Atom,[+,1,['get-state',Atom]]])
 </span><span class="ansi38-255165000">  (= 
@@ -2275,17 +2281,17 @@
 </span>
 
 ;retrieve the best candidate (allows to use tuples / collapse results / spaces as a PQ)
-<span class="ansi38-000068000">!(bind! &tempbest (new-state ()))
+<span class="ansi38-000068000">!(bind! &tempbest 
+  (new-state ()))
 
-</span>; Evaluation took 0.184 ms. (183.90 microseconds) 
-<span class="ansi33"> (@ State () $_410692)
- % 'State'([],_410692)
+</span>; Evaluation took 0.093 ms. (92.70 microseconds) 
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(bind! &tempbestscore (new-state 0))
+</span><span class="ansi38-000068000">!(bind! &tempbestscore 
+  (new-state 0))
 
-</span>; Evaluation took 0.163 ms. (163.20 microseconds) 
-<span class="ansi33"> (@ State 0 $_101612)
- % 'State'(0,_101612)
+</span>; Evaluation took 0.139 ms. (138.90 microseconds) 
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['BestCandidate',Tuple,EvaluateCandidateFunction,True],[sequential,[[do,['change-state!','&tempbestscore',0]],[do,['change-state!','&tempbest',[]]],[do,['let*',[[X,[superpose,Tuple]],[Fx,[EvaluateCandidateFunction,X,True]]],[superpose,[['If',[>,Fx,['get-state','&tempbestscore']],[sequential,[['change-state!','&tempbest',X],['change-state!','&tempbestscore',Fx]]]]]]]],['get-state','&tempbest']]])
 </span><span class="ansi38-255165000">  (= 
@@ -2368,15 +2374,17 @@
 </span>
 
 ;spaces
-<span class="ansi38-000068000">!(bind! &concepts (new-space))
+<span class="ansi38-000068000">!(bind! &concepts 
+  (new-space))
 
-</span>; Evaluation took 0.250 ms. (249.60 microseconds) 
-<span class="ansi33">  (new-space)
+</span>; Evaluation took 0.124 ms. (123.60 microseconds) 
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(bind! &attentional_focus (new-space))
+</span><span class="ansi38-000068000">!(bind! &attentional_focus 
+  (new-space))
 
-</span>; Evaluation took 0.215 ms. (214.90 microseconds) 
-<span class="ansi33">  (new-space)
+</span>; Evaluation took 0.142 ms. (142.40 microseconds) 
+<span class="ansi33"> Empty
 
 </span>;priority of concepts
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ConceptPriorityNow',[True,P],True],[*,P,[/,1,[+,1,[-,True,True]]]])
@@ -2390,16 +2398,17 @@
 </span>
 
 ;whether evidence was just counted once
-<span class="ansi38-000068000">!(bind! &tempstate (new-state False))
+<span class="ansi38-000068000">!(bind! &tempstate 
+  (new-state False))
 
-</span>; Evaluation took 0.161 ms. (161.40 microseconds) 
-<span class="ansi33"> (@ State False $_442454)
- % 'State'('False',_442454)
+</span>; Evaluation took 0.100 ms. (99.60 microseconds) 
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-000068000">!(bind! &tempset (new-space))
+</span><span class="ansi38-000068000">!(bind! &tempset 
+  (new-space))
 
-</span>; Evaluation took 0.185 ms. (185.00 microseconds) 
-<span class="ansi33">  (new-space)
+</span>; Evaluation took 0.122 ms. (122.20 microseconds) 
+<span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['StampDisjoint',X],[not,[sequential,[[do,['change-state!','&tempstate','False']],[do,[case,['get-atoms','&tempset'],[[Y,['remove-atom','&tempset',Y]]]]],[do,[let,Z,[superpose,X],[case,[match,'&tempset',Z,Z],[[W,['change-state!','&tempstate','True']],['%void%',['add-atom','&tempset',Z]]]]]],['get-state','&tempstate']]]])
 </span><span class="ansi38-255165000">  (= 
@@ -2711,13 +2720,13 @@
 </span>
 
 ;FIFO max. size bound
-<span class="ansi38-000068000">!(bind! &FIFO (new-state ()))
+<span class="ansi38-000068000">!(bind! &FIFO 
+  (new-state ()))
 
-</span>; Evaluation took 0.154 ms. (153.60 microseconds) 
-<span class="ansi33"> (@ State () $_143296)
- % 'State'([],_143296)
+</span>; Evaluation took 0.094 ms. (94.40 microseconds) 
+<span class="ansi33"> Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ListFirstK',C,[]],'False')
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['ListFirstK',C,[]],[])
 </span><span class="ansi38-255165000">  (= 
     (ListFirstK $C ()) ())
 </span>
@@ -3050,13 +3059,12 @@
 
 <span class="ansi38-000068000">!(get-atoms &self)
 
-</span>; Evaluation took 0.043 ms. (43.00 microseconds) 
+</span>; Evaluation took 0.071 ms. (70.60 microseconds) 
 <span class="ansi33"> ()
 
-</span><span class="ansi32">% 6,494,660 inferences, 8.960 CPU in 8.960 seconds (100% CPU, 724886 Lips)
-</span> (@ = "examples/nars_extras/TestNARS_listing.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "examples/nars_extras/TestNARS_listing.html" )
+</span><span class="ansi32">% 6,566,318 inferences, 9.241 CPU in 9.242 seconds (100% CPU, 710542 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars_extras/TestNARS_listing.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars_extras/TestNARS_listing.html" )
 
 </pre>
 </body>
