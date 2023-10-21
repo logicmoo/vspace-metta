@@ -14,7 +14,7 @@
 (= (baz $prf) False)
 
 ;; Test equality type
-!(foo (Refl T42))                       ; Should succeed
-!(bar (Refl T42))                       ; Should fail
-!(bar (Refl TTrue))                     ; Should succeed
-!(baz (Refl T42))                       ; Should fail
+!(assertEqualToResult (foo (Refl T42))  (True))                 ; Should succeed
+!(assertEqualToResult (bar (Refl T42)) ((Error T42 BadType)))   ; Should fail
+!(assertEqualToResult (bar (Refl TTrue))             (True))    ; Should succeed
+!(assertEqualToResult (baz (Refl T42))               (False))   ; Should fail

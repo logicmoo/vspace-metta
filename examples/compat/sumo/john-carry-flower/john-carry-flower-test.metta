@@ -52,8 +52,10 @@
 ;; (⟹ (∧ (subclass $X $Y) (instance $Z $X)) (instance $Z $Y))  (∧ (subclass Carrying Transfer) (instance JohnsCarry Carrying))
 ;; ----------------------------------------------------------------------------------------------------------------------------(ModusPonens)
 ;;                                             (instance JohnsCarry Transfer)
-!(synthesize (: $proof (instance JohnsCarry Transfer))
+!(assertEqualToResult (synthesize (: $proof (instance JohnsCarry Transfer))
              kb rb (fromNumber 2))
+
+( (: (ModusPonens (WitnessOf (⟹ (∧ (subclass Carrying Transfer) (instance JohnsCarry Carrying)) (instance JohnsCarry Transfer))) (BinaryConjunctionIntroduction (WitnessOf (subclass Carrying Transfer)) (WitnessOf (instance JohnsCarry Carrying)))) (instance JohnsCarry Transfer))))
 
 ;; Call synthesizer on query (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
 ;;
@@ -68,8 +70,11 @@
 ;;                                             (instance JohnsCarry Transfer)                                                                  (objectTransferred JohnsCarry JohnsVase)  (orientation JohnsFlower JohnsVase Inside)
 ;;                                             ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(TrinaryConjunctionIntroduction)
 ;;                                                                       (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
-!(synthesize (: $proof (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)))
+!(assertEqualToResult (synthesize (: $proof (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)))
              kb rb (fromNumber 3))
+
+       ( (let* (((: $proof1#2753 (⟹ $x#2654 (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)))) (synthesize (: $proof1#2753 (⟹ $x#2654 (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)))) kb rb (S (S Z)))) ((: $proof2#2754 $x#2654) (synthesize (: $proof2#2754 $x#2654) kb rb (S (S Z))))) (: (ModusPonens $proof1#2753 $proof2#2754) (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))))
+	 (: (TrinaryConjunctionIntroduction (ModusPonens (WitnessOf (⟹ (∧ (subclass Carrying Transfer) (instance JohnsCarry Carrying)) (instance JohnsCarry Transfer))) (BinaryConjunctionIntroduction (WitnessOf (subclass Carrying Transfer)) (WitnessOf (instance JohnsCarry Carrying)))) (WitnessOf (objectTransferred JohnsCarry JohnsVase)) (WitnessOf (orientation JohnsFlower JohnsVase Inside))) (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)))))
 
 ;; Call synthesizer on query (objectTransferred JohnsCarry JohnsFlower)
 ;;
@@ -84,8 +89,9 @@
 ;; (⟹ (∧ (instance $T Transfer) (objectTransferred $T $O) (orientation $O2 $O Inside)) (objectTransferred $T $O2))    (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(ModusPonens)
 ;;                                                                                              (objectTransferred JohnsCarry JohnsFlower)
-!(synthesize (: $proof (objectTransferred JohnsCarry JohnsFlower))
+!(assertEqualToResult (synthesize (: $proof (objectTransferred JohnsCarry JohnsFlower))
              kb rb (fromNumber 4))
+  ( (: (ModusPonens (WitnessOf (⟹ (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)) (objectTransferred JohnsCarry JohnsFlower))) (TrinaryConjunctionIntroduction (ModusPonens (WitnessOf (⟹ (∧ (subclass Carrying Transfer) (instance JohnsCarry Carrying)) (instance JohnsCarry Transfer))) (BinaryConjunctionIntroduction (WitnessOf (subclass Carrying Transfer)) (WitnessOf (instance JohnsCarry Carrying)))) (WitnessOf (objectTransferred JohnsCarry JohnsVase)) (WitnessOf (orientation JohnsFlower JohnsVase Inside)))) (objectTransferred JohnsCarry JohnsFlower))))
 
 ;; Call synthesizer on query (∧ (instance $C Carrying)
 ;;                              (agent $C John)
@@ -117,8 +123,17 @@
 ;;                                                                                    (WitnessOf (objectTransferred JohnsCarry JohnsVase))
 ;;                                                                                    (WitnessOf (orientation JohnsFlower JohnsVase Inside)))))
 ;;    (∧ (instance JohnsCarry Carrying) (agent JohnsCarry John) (instance JohnsFlower Flower) (objectTransferred JohnsCarry JohnsFlower)))
-!(synthesize (: $proof (∧ (instance $C Carrying)
+!(assertEqualToResult (synthesize (: $proof (∧ (instance $C Carrying)
                           (agent $C John)
                           (instance $F Flower)
                           (objectTransferred $C $F)))
              kb rb (fromNumber 5))
+
+    ( (let* (((: $proof1#22957 (⟹ $x#22859 (∧ (instance $C Carrying) (agent $C John) (instance $F Flower) (objectTransferred $C $F)))) (synthesize (: $proof1#22957 (⟹ $x#22859 (∧ (instance $C Carrying) (agent $C John) (instance $F Flower) (objectTransferred $C $F)))) kb rb (S (S (S (S Z)))))) ((: $proof2#22958 $x#22859) (synthesize (: $proof2#22958 $x#22859) kb rb (S (S (S (S Z))))))) (: (ModusPonens $proof1#22957 $proof2#22958) (∧ (instance $C Carrying) (agent $C John) (instance $F Flower) (objectTransferred $C $F))))
+	 (: (QuaternaryConjunctionIntroduction (WitnessOf (instance JohnsCarry Carrying)) (WitnessOf (agent JohnsCarry John)) (WitnessOf (instance JohnsFlower Flower)) (ModusPonens (WitnessOf (⟹ (∧ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)) (objectTransferred JohnsCarry JohnsFlower))) (TrinaryConjunctionIntroduction (ModusPonens (WitnessOf (⟹ (∧ (subclass Carrying Transfer) (instance JohnsCarry Carrying)) (instance JohnsCarry Transfer))) (BinaryConjunctionIntroduction (WitnessOf (subclass Carrying Transfer)) (WitnessOf (instance JohnsCarry Carrying)))) (WitnessOf (objectTransferred JohnsCarry JohnsVase)) (WitnessOf (orientation JohnsFlower JohnsVase Inside))))) (∧ (instance JohnsCarry Carrying) (agent JohnsCarry John) (instance JohnsFlower Flower) (objectTransferred JohnsCarry JohnsFlower)))))
+
+
+
+
+
+

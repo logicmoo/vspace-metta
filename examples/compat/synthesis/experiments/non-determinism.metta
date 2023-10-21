@@ -5,7 +5,7 @@
 ;; (= (foo $x) (superpose ((+ $x $x) (* $x $x))))
 
 ;; Test foo
-!(foo 21) ; [42, 441]
+!(assertEqualToResult (foo 21) (42  441))
 
 ;; Define bar, a mixture of increment by 1 and factorial.
 (: bar (-> Number Number))
@@ -15,4 +15,4 @@
                 (* $x (bar (- $x 1)))))
 
 ;; Test bar
-!(bar 2)  ; [3, 4, 2, 2] or [2, 2, 4, 3]
+!(assertEqualToResult (bar 2)  (3 4 2 2)) ; or [2, 2, 4, 3]

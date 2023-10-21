@@ -25,8 +25,8 @@
 ;!(println! (= SocratesIsMortal (HumansAreMortal SocratesIsHuman)))
 
 (= (Mortal $x) (Human $x))
-;!(println! (Mortal Plato))
+!(println! (Mortal Plato))
 
 (: if (-> Type $t $t))
 (= (if T $then) $then)
-;!(println! (if (Mortal $x) $x))
+!(println! (if (Mortal $x) $x))

@@ -106,35 +106,38 @@
  (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta')
-1=[(transfer! "schemes.metta")]
+1=[]
 2=[((cata mapExpr evalExpr) (Fix (Plus (Fix (Plus (Fix (Var X)) (Fix (Const 2)))) (Fix (Const 40)))))]
 3=[((ana mapExpr nTimes) (, 2 (S (S Z))))]
 4=[((hylo mapExpr evalExpr nTimes) (, 3 (S (S (S Z)))))]
 5=[((para mapExpr diff) (Fix (Plus (Fix (Var X)) (Fix (Const 1)))))]
-6=[(2t $x#132), (Fix $Y), (1p $x#134)]
+6=[(1p $x#135), (2t $x#136), (Fix $Y)]
 7=[((futu mapExpr expand) (2t (1p (Fix (Var X)))))]
-8=0.10user 0.02system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 28748maxresident)k
-8=0inputs+0outputs (0major+3286minor)pagefaults 0swaps
+8=0.12user 0.01system 0:00.13elapsed 99%CPU (0avgtext+0avgdata 28760maxresident)k
+8=0inputs+0outputs (0major+3314minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 1, [['transfer!', "schemes.metta"]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 1, []).
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 2, [[[cata, mapExpr, evalExpr], ['Fix', ['Plus', ['Fix', ['Plus', ['Fix', ['Var', 'X']], ['Fix', ['Const', 2]]]], ['Fix', ['Const', 40]]]]]]).
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 3, [[[ana, mapExpr, nTimes], [',', 2, ['S', ['S', 'Z']]]]]).
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 4, [[[hylo, mapExpr, evalExpr, nTimes], [',', 3, ['S', ['S', ['S', 'Z']]]]]]).
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 5, [[[para, mapExpr, diff], ['Fix', ['Plus', ['Fix', ['Var', 'X']], ['Fix', ['Const', 1]]]]]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 6, [[2, t, X_C35_132], ',', ['Fix', Y], ',', [1, p, X_C35_134]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 6, [[1, p, X_C35_135], ',', [2, t, X_C35_136], ',', ['Fix', Y]]).
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta', 7, [[[futu, mapExpr, expand], [2, t, [1, p, ['Fix', ['Var', 'X']]]]]]).
 
-<span class="ansi38-000068000">!(transfer! "../schemes.metta")
+;; !(import! &self "../schemes.metta")
+<span class="ansi38-000068000">!(import! &self "../schemes.metta")
 
 </span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta')
 ; How to apply a function to the slots, a Functor's map
 ;; For references see https://github.com/passy/awesome-recursion-schemes
 ;; For my typed Scala implementation see https://github.com/Adam-Vandervorst/RecursionSchemes
-<span class="ansi38-000068000">!(transfer! "base.metta")
+;; !(transfer! "base.metta")
+<span class="ansi38-000068000">!(import! &self "base.metta")
 
-</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta.answers',
+</span>%~ base.metta:1 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta')
 ; folds
 ;; Wrapping and unwrapping for the recursion
@@ -151,7 +154,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
     (identity $X) $X)
 </span>
 
-; Evaluation took 7.01 ms.
+; Evaluation took 6.20 ms.
 <span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[[cata,False,Alg],A],[Alg,[False,[cata,False,Alg],[unFix,A]]])
@@ -224,7 +227,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
         ($Coalg $S))))
 </span>
 
-; Evaluation took 46.23 ms.
+; Evaluation took 42.89 ms.
 <span class="ansi33"> Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[mapExpr,False,['Plus',X,Y]],['Plus',[False,X],[False,Y]])
@@ -290,7 +293,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (Fix 
         (Const 40)))))
 
-</span>; Evaluation took 28.09 ms.
+</span>; Evaluation took 25.33 ms.
 <span class="ansi33"> 42
 
 </span><span class="ansi31">
@@ -357,7 +360,7 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.103",exec,[[cata,mapExpr,evalExpr],[
     (S 
       (S Z))))
 
-</span>; Evaluation took 37.16 ms.
+</span>; Evaluation took 30.80 ms.
 <span class="ansi33">  (Fix 
     (Plus 
       (Fix 
@@ -409,7 +412,7 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.104",exec,[[ana,mapExpr,nTimes],[','
       (S 
         (S Z)))))
 
-</span>; Evaluation took 18.21 ms.
+</span>; Evaluation took 13.68 ms.
 <span class="ansi33">  (+ 
     (evalExpr 
       (mapExpr 
@@ -493,7 +496,7 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.105",exec,[[hylo,mapExpr,evalExpr,nT
       (Fix 
         (Const 1)))))
 
-</span>; Evaluation took 10.95 ms.
+</span>; Evaluation took 10.72 ms.
 <span class="ansi33">  (diff 
     (Plus True True))
 
@@ -506,17 +509,17 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.105",exec,[[hylo,mapExpr,evalExpr,nT
             (Var X)) 
           (Fix 
             (Const 1))))) 
-    ( (2 t $X_C35_132) 
-      (Fix $Y) 
-      (1 p $X_C35_134)))
+    ( (1 p $X_C35_135) 
+      (2 t $X_C35_136) 
+      (Fix $Y)))
 (@ ! 
   (assertEqual 
     ( (diff 
         (Plus True True))) 
-    ( (2 t $X_C35_132) 
-      (Fix $Y) 
-      (1 p $X_C35_134))))
-write_pass_fail_result("EXAMPLES.EXPRESSION.106",exec,[[para,mapExpr,diff],['Fix',['Plus',['Fix',['Var','X']],['Fix',['Const',1]]]]],'FAIL',[[2,t,X_C35_132],['Fix',Y],[1,p,X_C35_134]],[[diff,['Plus','True','True']]])
+    ( (1 p $X_C35_135) 
+      (2 t $X_C35_136) 
+      (Fix $Y))))
+write_pass_fail_result("EXAMPLES.EXPRESSION.106",exec,[[para,mapExpr,diff],['Fix',['Plus',['Fix',['Var','X']],['Fix',['Const',1]]]]],'FAIL',[[1,p,X_C35_135],[2,t,X_C35_136],['Fix',Y]],[[diff,['Plus','True','True']]])
 
 </span>
 
@@ -552,19 +555,19 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.106",exec,[[para,mapExpr,diff],['Fix
   (= 
     (expand $X) $Y) $X)
 
-</span>; Evaluation took 0.039 ms. (38.90 microseconds) 
-<span class="ansi33">  (1 p $_382880)
-</span><span class="ansi32">['Y'=['Plus',['Bind',['Const',1]],['Pure',_382880]],'X'=[1,p,_382880]]
+</span>; Evaluation took 0.041 ms. (41.10 microseconds) 
+<span class="ansi33">  (1 p $_386436)
+</span><span class="ansi32">['Y'=['Plus',['Bind',['Const',1]],['Pure',_386436]],'X'=[1,p,_386436]]
 </span>
 
-; Evaluation took 0.393 ms. (392.50 microseconds) 
-<span class="ansi33">  (2 t $_385072)
-</span><span class="ansi32">['Y'=['Plus',['Pure',_385072],['Pure',_385072]],'X'=[2,t,_385072]]
+; Evaluation took 0.491 ms. (490.80 microseconds) 
+<span class="ansi33">  (2 t $_388628)
+</span><span class="ansi32">['Y'=['Plus',['Pure',_388628],['Pure',_388628]],'X'=[2,t,_388628]]
 </span>
 
-; Evaluation took 0.798 ms. (798.30 microseconds) 
-<span class="ansi33">  (Fix $_380978)
-</span><span class="ansi32">['Y'=_380978,'X'=['Fix',_380978]]
+; Evaluation took 0.949 ms. (949.10 microseconds) 
+<span class="ansi33">  (Fix $_384534)
+</span><span class="ansi32">['Y'=_384534,'X'=['Fix',_384534]]
 </span>
 
 <span class="ansi31">
@@ -579,15 +582,15 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.106",exec,[[para,mapExpr,diff],['Fix
               (Var X)))))))
 (@ ! 
   (assertEqual 
-    ( (1 p $_389476) 
-      (2 t $_389452) 
-      (Fix $_389428)) 
+    ( (1 p $_393030) 
+      (2 t $_393006) 
+      (Fix $_392982)) 
     ( ( (futu mapExpr expand) 
         (2 t 
           (1 p 
             (Fix 
               (Var X))))))))
-write_pass_fail_result("EXAMPLES.EXPRESSION.107",exec,[match,'&self',[=,[expand,X],Y],X],'FAIL',[[[futu,mapExpr,expand],[2,t,[1,p,['Fix',['Var','X']]]]]],[[1,p,_389476],[2,t,_389452],['Fix',_389428]])
+write_pass_fail_result("EXAMPLES.EXPRESSION.107",exec,[match,'&self',[=,[expand,X],Y],X],'FAIL',[[[futu,mapExpr,expand],[2,t,[1,p,['Fix',['Var','X']]]]]],[[1,p,_393030],[2,t,_393006],['Fix',_392982]])
 
 </span>
 
@@ -599,7 +602,7 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.107",exec,[match,'&self',[=,[expand,
       (Fix 
         (Var X)))))
 
-</span>; Evaluation took 262.78 ms.
+</span>; Evaluation took 261.50 ms.
 <span class="ansi33">  (Fix 
     (Plus 
       (Fix 
@@ -617,7 +620,7 @@ write_pass_fail_result("EXAMPLES.EXPRESSION.107",exec,[match,'&self',[=,[expand,
           (Fix 
             (Var X))))))
 
-</span><span class="ansi32">% 2,227,067 inferences, 0.681 CPU in 0.681 seconds (100% CPU, 3268706 Lips)
+</span><span class="ansi32">% 2,202,114 inferences, 0.658 CPU in 0.658 seconds (100% CPU, 3346487 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/recursion-schemes/src/examples/expression.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

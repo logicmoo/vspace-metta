@@ -64,6 +64,7 @@
 (: synthesize (-> List Nat List))    ; TODO: add type signature as argument
 (= (synthesize $fns Z) (trace! (synthesize= $fns Z Nil) Nil))
 (= (synthesize $fns (S Z)) (trace! (synthesize= $fns (S Z) $fns) $fns))
+
 (= (synthesize $fns (S (S $k))) (let* (($prgs (synthesize $fns (S $k)))
                                        ($cmbs (prodWith . $fns $prgs))
                                        ($vld (filter well-typed $cmbs)))
@@ -80,22 +81,22 @@
 ;; Test map
 (: inc (-> Number Number))
 (= (inc $n) (+ $n 1))
-!(map inc (Cons 2 (Cons 3 (Cons 1 Nil))))  ; (Cons 3 (Cons 4 (Cons 2 Nil)))
+!(assertEqualToResult (map inc (Cons 2 (Cons 3 (Cons 1 Nil))))  ( (Cons 3 (Cons 4 (Cons 2 Nil))) ))
 
 ;; Test filter
 (: even (-> Number Bool))
 (= (even $n) (== (* (ceil (/ $n 2)) 2) $n))
-!(filter even (Cons 2 (Cons 3 (Cons 1 Nil))))  ; (Cons 2 Nil)
+(assertEqualToResult (filter even (Cons 2 (Cons 3 (Cons 1 Nil))))  ( (Cons 2 Nil)))
 
 ;; Test interleave
-!(interleave Nil Nil)  ; Nil
-!(interleave (Cons 1 (Cons 2 Nil)) (Cons "a" (Cons "b" Nil)))  ; (Cons 1 (Cons "a" (Cons 2 (Cons "b" Nil))))
+!(assertEqualToResult (interleave Nil Nil)  (Nil))
+!(assertEqualToResult (interleave (Cons 1 (Cons 2 Nil)) (Cons "a" (Cons "b" Nil)))  ( (Cons 1 (Cons "a" (Cons 2 (Cons "b" Nil))))   ))
 
 ;; Test prodWith
-!(prodWith * Nil (Cons 2 Nil))  ; Nil
-!(prodWith * (Cons 1 Nil) Nil)  ; Nil
-!(prodWith * (Cons 1 Nil) (Cons 2 Nil))  ; (Cons 2 Nil)
-!(prodWith * (Cons 1 (Cons 2 Nil)) (Cons 3 (Cons 4 Nil)))  ; (Cons 3 (Cons 4 (Cons 6 (Cons 8 Nil))))
+!(assertEqualToResult (prodWith * Nil (Cons 2 Nil))  (Nil))
+!(assertEqualToResult (prodWith * (Cons 1 Nil) Nil)  (Nil))
+!(assertEqualToResult (prodWith * (Cons 1 Nil) (Cons 2 Nil))  ( (Cons 2 Nil)  ))
+!(assertEqualToResult (prodWith * (Cons 1 (Cons 2 Nil)) (Cons 3 (Cons 4 Nil)))  ( (Cons 3 (Cons 4 (Cons 6 (Cons 8 Nil))))  ))
 
 ;; Test synthesize
 
@@ -114,7 +115,7 @@
 ;; Uncomment to try `synthesize` with more functions
 ;; (= (functions) (Cons f (Cons g (Cons h Nil))))
 
-!(prodWith . (Cons g Nil) (Cons f Nil))  ; (Cons (. g f) Nil)
-!(prodWith . (Cons f Nil) (Cons g Nil))  ; (Cons (. f g) Nil)
-!(prodWith . (Cons f (Cons g Nil)) (Cons f (Cons g Nil)))  ; (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))
-!(synthesize (functions) (fromNumber 2))  ; (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))
+!(assertEqualToResult (prodWith . (Cons g Nil) (Cons f Nil))  ( (Cons (. g f) Nil) ))
+!(assertEqualToResult (prodWith . (Cons f Nil) (Cons g Nil))  ( (Cons (. f g) Nil) ))
+!(assertEqualToResult (prodWith . (Cons f (Cons g Nil)) (Cons f (Cons g Nil)))  ( (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))) ))
+!(assertEqualToResult (synthesize (functions) (fromNumber 2))  ( (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))) ))

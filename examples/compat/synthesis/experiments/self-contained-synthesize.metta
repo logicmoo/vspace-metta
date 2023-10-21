@@ -83,17 +83,17 @@
                     (: .: (-> (-> $c $d) (-> $a $b $c) (-> $a $b $d)))))) ; Blackbird
 
 ;; Test program synthesizer
-!(record synthesize ((: $term $type) kb rb Z))                  ; (: f (-> Number String)), (: g (-> String Bool)), (: h (-> Bool Number)), (: i (-> String Number Bool))
-!(record synthesize ((: $term (-> Number String)) kb rb Z))     ; (: f (-> Number String))
-!(record synthesize ((: $term (-> String Number Number)) kb rb (S Z)))     ; (: (.: h i) (-> String Number Number))
-!(record synthesize ((: $term (-> Number Bool)) kb rb (S Z)))   ; (: (. g f) (-> Number Bool))
-!(record synthesize ((: (. g f) (-> Number Bool)) kb rb (S Z))) ; (: (. g f) (-> Number Bool))
-!(record synthesize ((: (. g f) $type) kb rb (S Z)))            ; (: (. g f) (-> Number Bool))
-!(record synthesize ((: $term $type) kb rb (S Z)))              ; (: f (-> Number String)), ..., (: (. f h) (-> Bool String)), ...
-!(record synthesize ((: (. (. g f) h) (-> $in Bool)) kb rb (fromNumber 2))) ; (: (. (. g f) h) (-> Bool Bool))
-!(record synthesize ((: (. $g h) $type) kb rb (fromNumber 3))) ; (: (. f h) (-> Bool String)), (: (. (. g f) h) (-> Bool Bool)), (: (. (. h (. g f)) h) (-> Bool Number)), (: (. (. (. f h) (. g f)) h) (-> Bool String)), (: (. (. (. h g) f) h) (-> Bool Number))
-!(record synthesize ((: (. $g h) (-> Number $out)) kb rb (fromNumber 3)))   ; No answer
-!(record synthesize ((: (. g $f) (-> $in String)) kb rb (fromNumber 3))) ; No answer
-!(record synthesize ((: (. g $f) (-> $in Bool)) kb rb (fromNumber 3)))   ; (: (. g f) (-> Number Bool)), (: (. g (. f h)) (-> Bool Bool)), (: (. g (. f (. h g))) (-> String Bool)), (: (. g (. (. f h) g)) (-> String Bool)), (: (. g (. (. f h) (. g f))) (-> Number Bool))
-!(record synthesize ((: $term $type) kb rb (fromNumber 4)))     ; Too long to list
-;; !(record synthesize ((: $term (-> Number Number)) (fromNumber 6) kb rb)) ; Too long to run
+!(assertEqualToResult (record synthesize ((: $term $type) Z))                  ( (: f (-> Number String)), (: g (-> String Bool)), (: h (-> Bool Number))))
+!(assertEqualToResult (record synthesize ((: $term (-> Number String)) Z))     ( (: f (-> Number String))))
+!(assertEqualToResult (record synthesize ((: $term (-> String Number Number)) kb rb (S Z)))     ( (: f (-> Number String))))
+!(assertEqualToResult (record synthesize ((: $term (-> Number Bool)) (S Z)))   ( (: (. g f) (-> Number Bool))))
+!(assertEqualToResult (record synthesize ((: (. g f) (-> Number Bool)) (S Z))) ( (: (. g f) (-> Number Bool))))
+!(assertEqualToResult (record synthesize ((: (. g f) $type) (S Z)))            ( (: (. g f) (-> Number Bool))))
+!(assertEqualToResult (record synthesize ((: $term $type) (S Z)))              ( (: f (-> Number String)), ..., (: (. f h) (-> Bool String)), ...))
+!(assertEqualToResult (record synthesize ((: (. (. g f) h) (-> $in Bool)) (fromNumber 2))) ( (: (. (. g f) h) (-> Bool Bool))))
+!(assertEqualToResult (record synthesize ((: (. $g h) (-> $in String)) (fromNumber 3))) ( (: (. f h) (-> Bool String)), (: (. (. (. f h) (. g f)) h) (-> Bool String))))
+!(assertEqualToResult (record synthesize ((: (. $g h) (-> Number $out)) (fromNumber 3)))  ()) ; No answer
+!(assertEqualToResult (record synthesize ((: (. g $f) (-> $in String)) (fromNumber 3)))  ()); No answer
+!(assertEqualToResult (record synthesize ((: (. g $f) (-> $in Bool)) (fromNumber 3))) (: (. g f) (-> Number Bool)), (: (. g (. f h)) (-> Bool Bool)), (: (. g (. f (. h g))) (-> String Bool)), (: (. g (. (. f h) g)) (-> String Bool)), (. g (. (. f h) (. g f))) (-> Number Bool))
+!(assertEqualToResult (record synthesize ((: $term $type) (fromNumber 4))) $... )  ; Too long to list
+;; !(record synthesize ((: $term (-> Number Number)) (fromNumber 6))) ; Too long to run

@@ -39,8 +39,8 @@ file_in_array() {
     return 1
 }
 
-export MAX_TIME=10
-export METTA_MAX_TIME=120
+export METTALOG_MAX_TIME=120
+export RUST_METTA_MAX_TIME=120
 
 function run_tests() {
 
@@ -86,8 +86,24 @@ function run_tests() {
 
         cd "$SCRIPT_DIR"
         echo ""
+           echo ""
+           echo "Checking for answers:  $file.answers"
 
-        local TEST_CMD="./MeTTa --timeout=$MAX_TIME --repl=false  $extra_args $outer_extra_args --html \"$file\" --halt=true"
+           # Check if the .answers file doesn't exist, or if $file is newer than the .answers file.
+           if [ ! -f "${file}.answers" ] || [ "${file}" -nt "${file}.answers" ]; then
+               set +e
+               set -x
+               ( timeout --foreground --kill-after=5 --signal=SIGKILL $(($RUST_METTA_MAX_TIME + 10)) timeout --foreground --kill-after=5 --signal=SIGINT $(($RUST_METTA_MAX_TIME + 1)) time metta "$file" 2>&1 | tee "${file}.answers"
+                 ) || true
+               set +x
+               set -e
+               echo ""
+               touch "${file}.answers"
+           else
+               cat "${file}.answers"
+           fi
+
+        local TEST_CMD="./MeTTa --timeout=$METTALOG_MAX_TIME --repl=false  $extra_args $outer_extra_args --html \"$file\" --halt=true"
         echo "Running command: $TEST_CMD"
 
         set +e
@@ -97,12 +113,13 @@ function run_tests() {
         echo ""
 
         if [ $TEST_EXIT_CODE -eq 0 ]; then
-            echo "Killed possibly due to timeout (EXITCODE=0) after $MAX_TIME seconds: ${TEST_CMD}"
+            echo "Killed possibly due to timeout (EXITCODE=0) after $METTALOG_MAX_TIME seconds: ${TEST_CMD}"
         elif [ $TEST_EXIT_CODE -eq 124 ]; then
-            echo "Killed (definitely due to timeout) after $MAX_TIME seconds: ${TEST_CMD}"
+            echo "Killed (definitely due to timeout) after $METTALOG_MAX_TIME seconds: ${TEST_CMD}"
         else
-            echo "Completed (EXITCODE=$TEST_EXIT_CODE) under $MAX_TIME seconds: ${TEST_CMD}"
+            echo "Completed (EXITCODE=$TEST_EXIT_CODE) under $METTALOG_MAX_TIME seconds: ${TEST_CMD}"
         fi
+        ./total_loonits.sh
     }
 
     # Process assert_files
@@ -110,29 +127,23 @@ function run_tests() {
     #   [ -f "${file}" ] && process_file "$file"
     #done
 
-    # Process test_files
-    for file in "${all_files[@]}"; do
-       if [ -f "${file}" ]; then
-          echo ""
-          echo ""
-          echo "Checking for answers:  $file.answers"
+   sorted_array=($(for i in "${all_files[@]}"; do
+       echo "$i"
+   done | sort | uniq | awk 'NF'))
 
-           if [ ! -f "${file}.answers" ]; then
-               set +e
-               timeout --foreground $METTA_MAX_TIME time metta "$file" 2>&1 | tee "${file}.answers"
-               #set -e
-               echo ""
-               touch "${file}.answers"
-           else
-               cat "${file}.answers"
-           fi
+   # Process test_files
+   for file in "${sorted_array[@]}"; do
+       if [ -f "${file}" ]; then
+           echo ""
            if file_in_array "$file" "${assert_files[@]}"; then
-              [ -f "${file}" ] && process_file "$file"
+               [ -f "${file}" ] && process_file "$file"
            else
-              [ -f "${file}" ] && process_file "$file" "--test-retval=true"
+               [ -f "${file}" ] && process_file "$file" "--test-retval=true"
            fi
-        fi
-    done
+       fi
+   done
+
+
 
 }
 
@@ -252,16 +263,17 @@ function compare_test_files() {
     sorted1=$(mktemp)
     sorted2=$(mktemp)
 
-#    grep -E '\| PASS \||\| FAIL \|' "$file1" | awk -F'|' '{ gsub(/\(.*/, "", $3); print $2, $3 }' | sort > "$sorted1"
-#    grep -E '\| PASS \||\| FAIL \|' "$file2" | awk -F'|' '{ gsub(/\(.*/, "", $3); print $2, $3 }' | sort > "$sorted2"
-       grep -E '\| PASS \||\| FAIL \|' "$file1" | awk -F'|' '{ gsub(/.*#/, "", $3); print $2, $3 }' | sort > "$sorted1"
-       grep -E '\| PASS \||\| FAIL \|' "$file2" | awk -F'|' '{ gsub(/.*#/, "", $3); print $2, $3 }' | sort > "$sorted2"
-
+    grep -E '\| PASS \||\| FAIL \|' "$file1" | awk -F'|' '{ gsub(/.*#/, "", $3); print $2, $3 }' | sort > "$sorted1"
+    grep -E '\| PASS \||\| FAIL \|' "$file2" | awk -F'|' '{ gsub(/.*#/, "", $3); print $2, $3 }' | sort > "$sorted2"
 
     cat "$sorted1"
-    # If the Results.md file exists, remove it and create a new one.
+
     [ -e Results.md ] && rm Results.md
     touch Results.md
+
+    # Detect new and missing tests
+    comm -13 "$sorted1" "$sorted2" > new_tests.md
+    comm -23 "$sorted1" "$sorted2" > missing_tests.md
 
     comm -3 "$sorted1" "$sorted2" | while read -r line; do
         read -r status test <<< "$line"
@@ -276,12 +288,18 @@ function compare_test_files() {
 
     sort -u Results.md -o Results.md
 
-
-
     echo "-----------------------------------------"
     grep 'PASSING' Results.md
     echo "-----------------------------------------"
     grep 'FAILING' Results.md
+    echo "-----------------------------------------"
+
+    echo "New tests:"
+    cat new_tests.md
+    echo "-----------------------------------------"
+
+    echo "Missing tests:"
+    cat missing_tests.md
     echo "-----------------------------------------"
 
     new_passing=$(grep -c 'PASSING' Results.md)
@@ -290,8 +308,9 @@ function compare_test_files() {
     echo "Number of newly PASSING tests: $new_passing"
     echo "Number of newly FAILING tests: $new_failing"
 
-    rm -f "$sorted1" "$sorted2"
+    rm -f "$sorted1" "$sorted2" new_tests.md missing_tests.md
 }
+
 
 (
    cd "$SCRIPT_DIR"

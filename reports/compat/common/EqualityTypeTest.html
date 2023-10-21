@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -47,6 +46,7 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-216191216 { color: #D8BFD8; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 </style>
@@ -57,15 +57,22 @@
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta')
 1=[]
-2=[True]
-3=[(Error T42 BadType)]
-4=0.06user 0.00system 0:00.07elapsed 98%CPU (0avgtext+0avgdata 28588maxresident)k
-4=0inputs+0outputs (0major+3303minor)pagefaults 0swaps
+2=[]
+3=[]
+4=[]
+5=[(Error (assertEqualToResult (baz (Refl T42)) (False)) 
+6=Expected: [False]
+6=Got: [(Error (Refl T42) BadType)]
+6=Missed result: False)]
+6=0.11user 0.00system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 28724maxresident)k
+6=0inputs+0outputs (0major+3312minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 1, []).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 2, ['True']).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 3, [['Error', 'T42', 'BadType']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 2, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta', 5, "[(Error (assertEqualToResult (baz (Refl T42)) (False)) ").
 
 ;;; Import ===
 <span class="ansi38-000068000">!(import! &self EqualityType.metta)
@@ -108,7 +115,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (=== $X $X)))
 </span>
 
-; Evaluation took 16.30 ms.
+; Evaluation took 18.59 ms.
 <span class="ansi33"> Empty
 
 </span>;; What about
@@ -159,67 +166,98 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>
 
 ;; Test equality type
-<span class="ansi38-000068000">!(foo 
-  (Refl T42))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (foo 
+    (Refl T42)) 
+  (True))
 
-</span>; Evaluation took 0.292 ms. (292.20 microseconds) 
-<span class="ansi33"> True
-
-</span><span class="ansi36">
-! (assertEqualToResult 
-    (foo 
-      (Refl T42)) 
-    (True))
-(@ ! 
-  (assertEqual 
+</span><h3 id="COMMON.EQUALITYTYPETEST.01">;; COMMON.EQUALITYTYPETEST.01</h3>
+; 
+; EVAL TEST
+; took 0.217 ms. (217.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (True) 
     (True)))
-write_pass_fail_result("COMMON.EQUALITYTYPETEST.102",exec,[foo,['Refl','T42']],'PASS',['True'],['True'])
-
-</span>
-
---------------------------------------------------------------------------
-; Should succeed
-<span class="ansi38-000068000">!(bar 
-  (Refl T42))
-
-</span>; Evaluation took 0.157 ms. (157.00 microseconds) 
-<span class="ansi33"> True
-
-</span><span class="ansi31">
-! (assertEqualToResult 
-    (bar 
-      (Refl T42)) 
-    ( (Error T42 BadType)))
-(@ ! 
-  (assertEqual 
-    (True) 
-    ( (Error T42 BadType))))
-write_pass_fail_result("COMMON.EQUALITYTYPETEST.103",exec,[bar,['Refl','T42']],'FAIL',[['Error','T42','BadType']],['True'])
-
-</span>
-
---------------------------------------------------------------------------
-; Should fail
-<span class="ansi38-000068000">!(bar 
-  (Refl TTrue))
-
-</span>; Evaluation took 0.154 ms. (153.80 microseconds) 
-<span class="ansi33"> True
+</span>        -->(0,'&self',[foo,['Refl','T42']],depth(2))
+            -->(1,'&self',['Refl','T42'],depth(4))
+        <--(0,retval('True'))
+; Trace took 0.336 ms. (335.70 microseconds) 
+; Evaluation took 1.73 ms.
+<span class="ansi33"> Empty
 
 </span>; Should succeed
-<span class="ansi38-000068000">!(baz 
-  (Refl T42))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (bar 
+    (Refl T42)) 
+  ( (Error T42 BadType)))
 
-</span>; Evaluation took 0.147 ms. (147.10 microseconds) 
-<span class="ansi33"> False
+</span><h3 id="COMMON.EQUALITYTYPETEST.02">;; COMMON.EQUALITYTYPETEST.02</h3>
+; 
+; EVAL TEST
+; took 0.127 ms. (127.30 microseconds) 
 
-</span><span class="ansi32">% 320,782 inferences, 0.140 CPU in 0.140 seconds (100% CPU, 2296082 Lips)
+!check_type (not considering this a failure)
+<span class="ansi38-216191216">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (True) 
+    ( (Error T42 BadType))))
+</span>        -->(0,'&self',[bar,['Refl','T42']],depth(2))
+            -->(1,'&self',['Refl','T42'],depth(4))
+        <--(0,retval('True'))
+; Trace took 0.341 ms. (340.70 microseconds) 
+; Evaluation took 2.45 ms.
+<span class="ansi33">  (got True expected 
+    ( (Error T42 BadType)))
+
+</span>; Should fail
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (bar 
+    (Refl TTrue)) 
+  (True))
+
+</span><h3 id="COMMON.EQUALITYTYPETEST.03">;; COMMON.EQUALITYTYPETEST.03</h3>
+; 
+; EVAL TEST
+; took 0.148 ms. (148.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (True) 
+    (True)))
+</span>        -->(0,'&self',[bar,['Refl','TTrue']],depth(2))
+            -->(1,'&self',['Refl','TTrue'],depth(4))
+        <--(0,retval('True'))
+; Trace took 0.299 ms. (298.70 microseconds) 
+; Evaluation took 1.70 ms.
+<span class="ansi33"> Empty
+
+</span>; Should succeed
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (baz 
+    (Refl T42)) 
+  (False))
+
+</span><h3 id="COMMON.EQUALITYTYPETEST.04">;; COMMON.EQUALITYTYPETEST.04</h3>
+; 
+; EVAL TEST
+; took 0.197 ms. (197.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (False) 
+    (False)))
+</span>        -->(0,'&self',[baz,['Refl','T42']],depth(2))
+            -->(1,'&self',['Refl','T42'],depth(4))
+        <--(0,retval('False'))
+; Trace took 0.328 ms. (328.40 microseconds) 
+; Evaluation took 1.77 ms.
+<span class="ansi33"> Empty
+
+</span><span class="ansi32">% 339,606 inferences, 0.159 CPU in 0.159 seconds (100% CPU, 2134848 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 3
+</span><span class="ansi32">Failures: 0
 </span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/common/EqualityTypeTest.html" )
 
 </pre>

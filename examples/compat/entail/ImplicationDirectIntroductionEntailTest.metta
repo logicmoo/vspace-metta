@@ -4,6 +4,7 @@
 ;; Test formula
 !("========== Test formula ==========")
 !(idi_formula (Bl True) (Bl False) (PrCnt 1 0))
+;; MeTTa merly does??  [(idi_formula (Bl True) (Bl False) (PrCnt 1 0))]
 
 ;; Test axiom
 !("========== Test axiom ==========")
@@ -20,5 +21,5 @@
 ;; Backward inference step
 ;; Disabled cause takes ages
 ;; !("========== Test backward inference ===========")
-;; !(match &self (⊢ $p1 $p2 $p3 $p4 (≞ (→ P Q) $tv))
-;;         (Solution $p1 $p2 $p3 $p4 $tv))
+;!(match &self (⊢ $p1 $p2 $p3 $p4 (≞ (→ P Q) $tv))
+;         (Solution $p1 $p2 $p3 $p4 $tv))

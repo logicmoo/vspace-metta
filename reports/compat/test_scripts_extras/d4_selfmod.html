@@ -57,43 +57,49 @@
  (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta')
-1=[(Error (import! &memory "memory.metta") import! expects a file path as a second argument)]
-2=0.08user 0.02system 0:00.10elapsed 99%CPU (0avgtext+0avgdata 28456maxresident)k
-2=0inputs+0outputs (0major+3274minor)pagefaults 0swaps
+1=[]
+2=[(change-space-state greeted False)]
+3=[(change-space-state (person name) "None")]
+4=[(Error (answer (listen (My name is "Alexey"))) NoValidAlternatives)]
+5=0.12user 0.00system 0:00.13elapsed 100%CPU (0avgtext+0avgdata 28536maxresident)k
+5=0inputs+0outputs (0major+3289minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta', 1, [['Error', ['import!', '&memory', "memory.metta"], 'import!', expects, a, file, path, as, a, second, argument]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta', 2, [['change-space-state', greeted, 'False']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta', 3, [['change-space-state', [person, name], "None"]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta', 4, [['Error', [answer, [listen, ['My', name, is, "Alexey"]]], 'NoValidAlternatives']]).
 
 ;; !(import! &memory "memory.metta")
 <span class="ansi38-000068000">!(bind! &memory 
   (new-space))
 
-</span>; Evaluation took 0.405 ms. (404.80 microseconds) 
+</span>; Evaluation took 0.276 ms. (276.00 microseconds) 
 <span class="ansi33"> Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['remove-state',Var],[match,'&memory',[state,Var,Y],['remove-atom','&memory',[state,Var,Y]]])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['remove-space-state',Var],[match,'&memory',['space-state',Var,Y],['remove-atom','&memory',['space-state',Var,Y]]])
 </span><span class="ansi38-255165000">  (= 
-    (remove-state $Var) 
+    (remove-space-state $Var) 
     (match &memory 
-      (state $Var $Y) 
+      (space-state $Var $Y) 
       (remove-atom &memory 
-        (state $Var $Y))))
+        (space-state $Var $Y))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['change-state',Var,Value],[',',['remove-state',Var],['add-atom','&memory',[state,Var,Value]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['change-space-state',Var,Value],[',',['remove-space-state',Var],['add-atom','&memory',['space-state',Var,Value]]])
 </span><span class="ansi38-255165000">  (= 
-    (change-state $Var $Value) 
+    (change-space-state $Var $Value) 
     (and 
-      (remove-state $Var) 
+      (remove-space-state $Var) 
       (add-atom &memory 
-        (state $Var $Value))))
+        (space-state $Var $Value))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['get-state',Var],[match,'&memory',[state,Var,Value],Value])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['get-space-state',Var],[match,'&memory',['space-state',Var,Value],Value])
 </span><span class="ansi38-255165000">  (= 
-    (get-state $Var) 
+    (get-space-state $Var) 
     (match &memory 
-      (state $Var $Value) $Value))
+      (space-state $Var $Value) $Value))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[answer,X],['println!',X])
@@ -112,61 +118,88 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
     (if False $X $Y) $Y)
 </span>
 
-<span class="ansi38-000068000">!(change-state greeted False)
+<span class="ansi38-000068000">!(change-space-state greeted False)
 
-</span><span class="ansi38-000068000">!(change-state 
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (change-space-state greeted False) 
+    ( (change-space-state greeted False)))
+(@ ! 
+  (assertEqual () 
+    ( (change-space-state greeted False))))
+write_pass_fail_result("TEST-SCRIPTS-EXTRAS.D4-SELFMOD.102",exec,['change-space-state',greeted,'False'],'FAIL',[['change-space-state',greeted,'False']],[])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(change-space-state 
   (person name) "None")
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,['My',name,is,X]],[if,[==,['get-state',[person,name]],"None"],[nop],[if,[==,['get-state',[person,name]],X],['Yes,','I',remember],['I',thought,you,are,['get-state',[person,name]]]]])
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (change-space-state 
+      (person name) "None") 
+    ( (change-space-state 
+        (person name) "None")))
+(@ ! 
+  (assertEqual () 
+    ( (change-space-state 
+        (person name) "None"))))
+write_pass_fail_result("TEST-SCRIPTS-EXTRAS.D4-SELFMOD.103",exec,['change-space-state',[person,name],"None"],'FAIL',[['change-space-state',[person,name],"None"]],[])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,['My',name,is,X]],[if,[==,['get-space-state',[person,name]],"None"],[nop],[if,[==,['get-space-state',[person,name]],X],['Yes,','I',remember],['I',thought,you,are,['get-space-state',[person,name]]]]])
 </span><span class="ansi38-255165000">  (= 
     (listen 
       (My name is $X)) 
     (if 
       (== 
-        (get-state 
+        (get-space-state 
           (person name)) "None") 
       (nop) 
       (if 
         (== 
-          (get-state 
+          (get-space-state 
             (person name)) $X) 
         ("Yes," I remember) 
         (I thought you are 
-          (get-state 
+          (get-space-state 
             (person name))))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,['My',name,is,X]],[nop,['change-state',[person,name],X]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,['My',name,is,X]],[nop,['change-space-state',[person,name],X]])
 </span><span class="ansi38-255165000">  (= 
     (listen 
       (My name is $X)) 
     (nop 
-      (change-state 
+      (change-space-state 
         (person name) $X)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,_],[if,[not,['get-state',greeted]],[if,[==,['get-state',[person,name]],"None"],['Hi.','What',is,your,'name?'],['Nice',to,meet,you,['get-state',[person,name]]]],[nop]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,_],[if,[not,['get-space-state',greeted]],[if,[==,['get-space-state',[person,name]],"None"],['Hi.','What',is,your,'name?'],['Nice',to,meet,you,['get-space-state',[person,name]]]],[nop]])
 </span><span class="ansi38-255165000">  (= 
     (listen $_) 
     (if 
       (not 
-        (get-state greeted)) 
+        (get-space-state greeted)) 
       (if 
         (== 
-          (get-state 
+          (get-space-state 
             (person name)) "None") 
         (Hi. What is your name?) 
         (Nice to meet you 
-          (get-state 
+          (get-space-state 
             (person name)))) 
       (nop)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,_],[nop,['change-state',greeted,'True']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[listen,_],[nop,['change-space-state',greeted,'True']])
 </span><span class="ansi38-255165000">  (= 
     (listen $_) 
     (nop 
-      (change-state greeted True)))
+      (change-space-state greeted True)))
 </span>
 
 ;!(answer (listen (Hello)))
@@ -174,48 +207,65 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
   (listen 
     (My name is "Alexey")))
 
-</span>Error: Invalid input.
-Error: Invalid input.
-Error: Invalid input.
-Error: Invalid input.
-Error: Invalid input.
-Error: Invalid input.
-Error: Invalid input.
-Error: Invalid input.
-[ 'I', thought,you,are, 
-  [ 'get-state', 
+</span>[ 'I', thought,you,are, 
+  [ 'get-space-state', 
     [person,name]]]
-Error: Invalid input.
-Error: Invalid input.
-; Evaluation took 6.16 ms.
+; Evaluation took 8.48 ms.
 <span class="ansi33">  (I thought you are 
-    (get-state 
+    (get-space-state 
       (person name)))
 
 </span>%~ user: message_hook(
-%~          error(existence_error(source_sink,'get-state'),Existence_error),
+%~          error(existence_error(source_sink,'get-space-state'),Existence_error),
 %~          error,
-%~          ['~w `~p\' does not exist'-[source_sink,'get-state']]).
-<span class="ansi1 ansi31">ERROR: source_sink `'get-state'' does not exist
+%~          ['~w `~p\' does not exist'-[source_sink,'get-space-state']]).
+<span class="ansi1 ansi31">ERROR: source_sink `'get-space-state'' does not exist
 </span>%~ user: message_hook(
 %~          error(existence_error(source_sink,greeted),Existence_error),
 %~          error,
 %~          ['~w `~p\' does not exist'-[source_sink,greeted]]).
 <span class="ansi1 ansi31">ERROR: source_sink `greeted' does not exist
-</span>_75694
-; Evaluation took 55.79 ms.
-<span class="ansi33"> $_70306
+</span>_116160
+; Evaluation took 59.16 ms.
+<span class="ansi33"> $_110786
 
-</span>;!(answer (listen (My name is "Alexey")))
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (answer 
+      (listen 
+        (My name is "Alexey"))) 
+    ( (Error 
+        (answer 
+          (listen 
+            (My name is "Alexey"))) NoValidAlternatives)))
+(@ ! 
+  (assertEqual 
+    ( (I thought you are 
+        (get-space-state 
+          (person name))) $_235340) 
+    ( (Error 
+        (answer 
+          (listen 
+            (My name is "Alexey"))) NoValidAlternatives))))
+write_pass_fail_result("TEST-SCRIPTS-EXTRAS.D4-SELFMOD.104",exec,[answer,[listen,['My',name,is,"Alexey"]]],'FAIL',[['Error',[answer,[listen,['My',name,is,"Alexey"]]],'NoValidAlternatives']],[['I',thought,you,are,['get-space-state',[person,name]]],_235340])
+
+</span>
+
+--------------------------------------------------------------------------
+;!(answer (listen (My name is "Alexey")))
 ;!(answer (listen (My name is "Ben")))
 ;!(println! (call:get_atoms &memory))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['get-atoms','&memory'])
 </span><span class="ansi38-255165000">  (get-atoms &memory)
 </span>
 
-<span class="ansi32">% 517,016 inferences, 0.227 CPU in 0.227 seconds (100% CPU, 2275644 Lips)
+<span class="ansi32">% 536,802 inferences, 0.236 CPU in 0.236 seconds (100% CPU, 2275123 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.metta" 0)
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.html" )
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/test_scripts_extras/d4_selfmod.html" )
 
 </pre>
 </body>

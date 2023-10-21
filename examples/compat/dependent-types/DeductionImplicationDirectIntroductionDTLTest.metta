@@ -49,25 +49,25 @@
 !(get-type deduction_idi_prf)
 
 ! "===== Prove that P→Q based on one piece of evidence ====="
-!(synthesize (: $proof (≞ (→ P Q) $etv)) kb rb (fromNumber 1))
+!(assertEqualToResult (synthesize (: $proof (≞ (→ P Q) $etv)) kb rb (fromNumber 1))
 ;; Output:
-;; (: (IDIBase P2 Q2) (≞ (→ P Q) (ETV (:: (S (S Z)) ∅) (STV 0 0.5))))
-;; (: (IDIBase P7 Q2) (≞ (→ P Q) (ETV (:: (S (S (S (S (S (S (S Z))))))) ∅) (STV 1 0.5))))
+ ((: (IDIBase P2 Q2) (≞ (→ P Q) (ETV (:: (S (S Z)) ∅) (STV 0 0.5))))
+  (: (IDIBase P7 Q2) (≞ (→ P Q) (ETV (:: (S (S (S (S (S (S (S Z))))))) ∅) (STV 1 0.5))))))
 
 ! "===== Prove that P→Q based on two pieces of evidence ====="
-!(synthesize (: $proof (≞ (→ P Q) $etv)) kb rb (fromNumber 3))
+!(assertEqualToResult (synthesize (: $proof (≞ (→ P Q) $etv)) kb rb (fromNumber 3))
 ;; Output:
-;; (: (IDIRecursive P7
-;;                  Q7
-;;                  (IDIBase P2 Q2)
-;;                  (SuccMonotonicity (SuccMonotonicity ZeroLTSucc)))
-;;    (≞ (→ P Q) (ETV (:: (S (S (S (S (S (S (S Z))))))) (:: (S (S Z)) ∅)) (STV 0 0.6666666666666666))))
+ ((: (IDIRecursive P7
+                  Q7
+                  (IDIBase P2 Q2)
+                  (SuccMonotonicity (SuccMonotonicity ZeroLTSucc)))
+    (≞ (→ P Q) (ETV (:: (S (S (S (S (S (S (S Z))))))) (:: (S (S Z)) ∅)) (STV 0 0.6666666666666666))))))
 
 ! "===== Prove that P→R based on one piece of evidence and deduction ====="
-!(synthesize (: $proof (≞ (→ P R) $etv)) kb rb (fromNumber 3))
+!(assertEqualToResult (synthesize (: $proof (≞ (→ P R) $etv)) kb rb (fromNumber 3))
 ;; Output:
-;; (: (Deduction Pm Qm Rm (EvidenceElimination (IDIBase P2 Q2)) QRm) (≞ (→ P R) (STV 0.18571428571428572 0.1)))
-;; (: (Deduction Pm Qm Rm (EvidenceElimination (IDIBase P7 Q7)) QRm) (≞ (→ P R) (STV 0.9 0.1)))
+   ((: (Deduction Pm Qm Rm (EvidenceElimination (IDIBase P2 Q2)) QRm) (≞ (→ P R) (STV 0.18571428571428572 0.1)))
+    (: (Deduction Pm Qm Rm (EvidenceElimination (IDIBase P7 Q7)) QRm) (≞ (→ P R) (STV 0.9 0.1)))))
 
 ;; TODO: disabled because it takes to long for now
 ;; ! "===== Prove that P→R based on two pieces of evidence and deduction ====="

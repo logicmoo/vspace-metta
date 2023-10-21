@@ -61,21 +61,21 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 <span class="ansi38-000068000">!(extend-py! numme)
 
-</span>; Evaluation took 0.159 ms. (158.60 microseconds) 
+</span>; Evaluation took 0.205 ms. (205.10 microseconds) 
 <span class="ansi33">  (extend-py! numme)
 
 </span>; bind a bunch of numpy objects to tokens for convenience
 <span class="ansi38-000068000">!(bind! &x 
   (np.vector 1 2 3))
 
-</span>; Evaluation took 0.294 ms. (294.40 microseconds) 
+</span>; Evaluation took 0.201 ms. (200.90 microseconds) 
 <span class="ansi33"> Empty
 
 </span><span class="ansi38-000068000">!(bind! &y 
   (np.array 
     (3 2 3)))
 
-</span>; Evaluation took 0.268 ms. (267.90 microseconds) 
+</span>; Evaluation took 0.244 ms. (244.40 microseconds) 
 <span class="ansi33"> Empty
 
 </span><span class="ansi38-000068000">!(bind! &m 
@@ -84,7 +84,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (7 2) 
       (8 3))))
 
-</span>; Evaluation took 0.476 ms. (475.90 microseconds) 
+</span>; Evaluation took 0.484 ms. (484.10 microseconds) 
 <span class="ansi33"> Empty
 
 </span><span class="ansi38-000068000">!(bind! &mt 
@@ -92,13 +92,13 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
     ( (1 0 0) 
       (0 1 0))))
 
-</span>; Evaluation took 0.377 ms. (377.30 microseconds) 
+</span>; Evaluation took 0.410 ms. (409.80 microseconds) 
 <span class="ansi33"> Empty
 
 </span>; FIXME: no exception?
 <span class="ansi38-000068000">!(np.vector 1 "S")
 
-</span>; Evaluation took 0.125 ms. (124.70 microseconds) 
+</span>; Evaluation took 0.124 ms. (124.40 microseconds) 
 <span class="ansi33">  (np.vector 1 "S")
 
 </span>; !(np.array (1 (1 2))) ; exception because of bad shape
@@ -114,12 +114,12 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-000068000">!(np-add-1 
   (np-add-1 &x))
 
-</span>; Evaluation took 3.08 ms.
+</span>; Evaluation took 3.11 ms.
 <span class="ansi33">  (np.add 
     (np.add 
       (np.vector 1 2 3) 1) 1)
 
-</span>; Evaluation took 5.90 ms.
+</span>; Evaluation took 6.20 ms.
 <span class="ansi33">  (np.add 
     (np.add 
       (np.vector 1 2 3) 1) 1)
@@ -133,30 +133,30 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
   (np.add &y &x) 
   (np.add &x &y))
 
-</span>; Evaluation took 3.66 ms.
+</span>; Evaluation took 3.86 ms.
 <span class="ansi33"> False
 
-</span>; Evaluation took 5.95 ms.
+</span>; Evaluation took 6.60 ms.
 <span class="ansi33"> False
 
 </span>; True
 <span class="ansi38-000068000">!(== &x &y)
 
-</span>; Evaluation took 0.281 ms. (281.40 microseconds) 
+</span>; Evaluation took 0.468 ms. (468.10 microseconds) 
 <span class="ansi33"> False
 
 </span>; False
 <span class="ansi38-000068000">!(== &x 
   (np.vector 1 2))
 
-</span>; Evaluation took 0.378 ms. (378.10 microseconds) 
+</span>; Evaluation took 0.446 ms. (446.20 microseconds) 
 <span class="ansi33"> False
 
 </span>; False
 <span class="ansi38-000068000">!(np.add &m 
   (np.vector 1 2))
 
-</span>; Evaluation took 1.91 ms.
+</span>; Evaluation took 2.08 ms.
 <span class="ansi33">  (np.add 
     (np.array 
       ( (6 1) 
@@ -167,7 +167,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>; ((7 3) (8 4) (9 5))
 <span class="ansi38-000068000">!(np.matmul &mt &m)
 
-</span>; Evaluation took 2.61 ms.
+</span>; Evaluation took 2.84 ms.
 <span class="ansi33">  (np.matmul 
     (np.array 
       ( (1 0 0) 
@@ -180,12 +180,12 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>; ((6 1) (7 2))
 <span class="ansi38-000068000">!(np.add &m $X)
 
-</span>; Evaluation took 1.44 ms.
+</span>; Evaluation took 1.59 ms.
 <span class="ansi33">  (np.add 
     (np.array 
       ( (6 1) 
         (7 2) 
-        (8 3))) $_160776)
+        (8 3))) $_168058)
 
 </span>; will be turned into pattern
 <span class="ansi38-000068000">!(case 
@@ -205,10 +205,10 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
   (np.vector 1 2 3) 
   ( (&x "X")))
 
-</span>; Evaluation took 0.231 ms. (231.40 microseconds) 
+</span>; Evaluation took 0.322 ms. (322.00 microseconds) 
 <span class="ansi33"> "X"
 
-</span><span class="ansi32">% 454,989 inferences, 0.199 CPU in 0.199 seconds (100% CPU, 2290364 Lips)
+</span><span class="ansi32">% 454,575 inferences, 0.198 CPU in 0.198 seconds (100% CPU, 2300459 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/numpy/nm_test.metta" 0)
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python/sandbox/numpy/nm_test.html" )
 

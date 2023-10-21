@@ -40,14 +40,14 @@
  (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta')
-1=[42, 441]
-2=[2, 2, 4, 3]
-3=0.12user 0.01system 0:00.13elapsed 99%CPU (0avgtext+0avgdata 28468maxresident)k
-3=0inputs+0outputs (0major+3287minor)pagefaults 0swaps
+1=[]
+2=[]
+3=0.13user 0.00system 0:00.13elapsed 99%CPU (0avgtext+0avgdata 28628maxresident)k
+3=0inputs+0outputs (0major+3293minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta', 1, [42, ',', 441]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta', 2, [2, ',', 2, ',', 4, ',', 3]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta', 2, []).
 
 ;;; Define foo, a mixture of double and power of 2.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foo,[->,'Number','Number']])
@@ -69,29 +69,29 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 ;; (= (foo $x) (superpose ((+ $x $x) (* $x $x))))
 ;; Test foo
-<span class="ansi38-000068000">!(foo 21)
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (foo 21) 
+  (42 441))
 
-</span>; Evaluation took 0.123 ms. (122.90 microseconds) 
-<span class="ansi33"> 42
-
-</span>; Evaluation took 0.450 ms. (449.70 microseconds) 
-<span class="ansi33"> 441
-
-</span><span class="ansi36">
-! (assertEqualToResult 
-    (foo 21) 
-    (42 441))
-(@ ! 
-  (assertEqual 
+</span><h3 id="EXPERIMENTS.NON-DETERMINISM.01">;; EXPERIMENTS.NON-DETERMINISM.01</h3>
+; 
+; EVAL TEST
+; took 0.269 ms. (269.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
     (42 441) 
     (42 441)))
-write_pass_fail_result("EXPERIMENTS.NON-DETERMINISM.101",exec,[foo,21],'PASS',[42,441],[42,441])
+</span>        -->(0,'&self',[foo,21],depth(2))
+          -->(1,'&self',[+,21,21],depth(3))
+          <--(1,retval(42))
+          -->(2,'&self',[*,21,21],depth(3))
+          <--(2,retval(441))
+        <--(0,retval([*,21,21]))
+; Trace took 0.533 ms. (532.80 microseconds) 
+; Evaluation took 2.02 ms.
+<span class="ansi33"> Empty
 
-</span>
-
---------------------------------------------------------------------------
-; [42, 441]
-;; Define bar, a mixture of increment by 1 and factorial.
+</span>;; Define bar, a mixture of increment by 1 and factorial.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,bar,[->,'Number','Number']])
 </span><span class="ansi38-255165000">  (: bar 
     (-> Number Number))
@@ -114,46 +114,91 @@ write_pass_fail_result("EXPERIMENTS.NON-DETERMINISM.101",exec,[foo,21],'PASS',[4
 </span>
 
 ;; Test bar
-<span class="ansi38-000068000">!(bar 2)
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (bar 2) 
+  (3 4 2 2))
 
-</span>; Evaluation took 0.098 ms. (97.80 microseconds) 
-<span class="ansi33"> 3
+</span><h3 id="EXPERIMENTS.NON-DETERMINISM.02">;; EXPERIMENTS.NON-DETERMINISM.02</h3>
+; 
+; EVAL TEST
+; took 2.24 ms.
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (2 3 4) 
+    (3 4 2 2)))
+</span>        -->(0,'&self',[bar,2],depth(2))
+          -->(1,'&self',[+,2,1],depth(3))
+          <--(1,retval(3))
+          -->(2,'&self',[if,[==,2,0],1,[*,2,[bar,[-,2,1]]]],depth(3))
+              -->(3,'&self',[==,2,0],depth(5))
+              <--(3,retval('False'))
+              -->(4,'&self',[*,2,[bar,[-,2,1]]],depth(5))
+                  -->(5,'&self',[-,2,1],depth(7))
+                  <--(5,retval(1))
+                  -->(6,'&self',[*,2,[bar,1]],depth(7))
+                      -->(7,'&self',[bar,1],depth(9))
+                        -->(8,'&self',[+,1,1],depth(10))
+                        <--(8,retval(2))
+                      -->(9,'&self',[*,2,2],depth(9))
+                      <--(9,retval(4))
+                        -->(10,'&self',[if,[==,1,0],1,[*,1,[bar,[-,1,1]]]],depth(10))
+                            -->(11,'&self',[==,1,0],depth(12))
+                            <--(11,retval('False'))
+                            -->(12,'&self',[*,1,[bar,[-,1,1]]],depth(12))
+                                -->(13,'&self',[-,1,1],depth(14))
+                                <--(13,retval(0))
+                                -->(14,'&self',[*,1,[bar,0]],depth(14))
+                                    -->(15,'&self',[bar,0],depth(16))
+                                      -->(16,'&self',[+,0,1],depth(17))
+                                      <--(16,retval(1))
+                                    -->(17,'&self',[*,1,1],depth(16))
+                                    <--(17,retval(1))
+                      -->(18,'&self',[*,2,1],depth(9))
+                      <--(18,retval(2))
+                                      -->(19,'&self',[if,[==,0,0],1,[*,0,[bar,[-,0,1]]]],depth(17))
+                                          -->(20,'&self',[==,0,0],depth(19))
+                                          <--(20,retval('True'))
+                                      <--(19,retval(1))
+                                    -->(21,'&self',[*,1,1],depth(16))
+                                    <--(21,retval(1))
+                                    <--(15,retval([if,[==,0,0],1,[*,0,[bar,[-,0,1]]]]))
+                                    -->(22,'&self',[bar,0],depth(16))
+                                      -->(23,'&self',[+,0,1],depth(17))
+                                      <--(23,retval(1))
+                                    <--(22,retval([+,0,1]))
+                                <--(14,retval(1))
+                                -->(24,'&self',[bar,[-,1,1]],depth(14))
+                                    -->(25,'&self',[-,1,1],depth(16))
+                                    <--(25,retval(0))
+                                    -->(26,'&self',[bar,0],depth(16))
+                                      -->(27,'&self',[+,0,1],depth(17))
+                                      <--(27,retval(1))
+                                    <--(26,retval([+,0,1]))
+                                <--(24,retval(1))
+                            <--(12,retval(1))
+                        <--(10,retval(1))
+                      <--(7,retval([if,[==,1,0],1,[*,1,[bar,[-,1,1]]]]))
+                      -->(28,'&self',[bar,1],depth(9))
+                        -->(29,'&self',[+,1,1],depth(10))
+                        <--(29,retval(2))
+                      <--(28,retval([+,1,1]))
+                  <--(6,retval(2))
+                  -->(30,'&self',[bar,[-,2,1]],depth(7))
+                      -->(31,'&self',[-,2,1],depth(9))
+                      <--(31,retval(1))
+                      -->(32,'&self',[bar,1],depth(9))
+                        -->(33,'&self',[+,1,1],depth(10))
+                        <--(33,retval(2))
+                      <--(32,retval([+,1,1]))
+                  <--(30,retval(2))
+              <--(4,retval(2))
+          <--(2,retval(2))
+        <--(0,retval([if,[==,2,0],1,[*,2,[bar,[-,2,1]]]]))
+; Trace took 6.06 ms.
+; Evaluation took 9.42 ms.
+<span class="ansi33"> Empty
 
-</span>; Evaluation took 0.829 ms. (829.30 microseconds) 
-<span class="ansi33"> 4
-
-</span>; Evaluation took 1.58 ms.
-<span class="ansi33"> 2
-
-</span>; Evaluation took 2.14 ms.
-<span class="ansi33"> 2
-
-</span>; Evaluation took 2.56 ms.
-<span class="ansi33"> 2
-
-</span>; Evaluation took 3.09 ms.
-<span class="ansi33"> 2
-
-</span>; Evaluation took 3.41 ms.
-<span class="ansi33"> 4
-
-</span>; Evaluation took 3.80 ms.
-<span class="ansi33"> 4
-
-</span><span class="ansi36">
-! (assertEqualToResult 
-    (bar 2) 
-    (2 2 4 3))
-(@ ! 
-  (assertEqual 
-    (3 4 2 2 2 2 4 4) 
-    (2 2 4 3)))
-write_pass_fail_result("EXPERIMENTS.NON-DETERMINISM.102",exec,[bar,2],'PASS',[2,2,4,3],[3,4,2,2,2,2,4,4])
-
-</span>
-
---------------------------------------------------------------------------
-<span class="ansi32">% 286,777 inferences, 0.110 CPU in 0.110 seconds (100% CPU, 2597368 Lips)
+</span><span class="ansi32">% 300,203 inferences, 0.114 CPU in 0.114 seconds (100% CPU, 2634760 Lips)
 </span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/synthesis/experiments/non-determinism.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
