@@ -21,7 +21,7 @@
 
 ;; Test uniq
 !( "============ Test uniq ============\n")
-!(assertEqual (uniq (Cons 2 (Cons 3 (Cons 1 (Cons 2 Nil))))) Cons 2 (Cons 3 (Cons 1 Nil)))
+!(assertEqual (uniq (Cons 2 (Cons 3 (Cons 1 (Cons 2 Nil))))) (Cons 2 (Cons 3 (Cons 1 Nil))))
 !(assertEqual (uniq (Cons 2 (Cons 3 (Cons 3 (Cons 2 Nil))))) (Cons 2 (Cons 3 Nil)))
 
 ;; Test insert_uniq

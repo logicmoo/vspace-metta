@@ -9,7 +9,7 @@
 !(assertEqual (abs -10) 10)
 !(assertEqual (approxEq 10 10.0001 1e-3) True)
 !(assertEqual (approxEq 10 10.0001 1e-9) False)
-!(assertEqual (⩻ Z (S Z)) True)
+!(assertEqualToResult (⩻ Z (S Z)) (True))
 
 ;; Define knowledge and rule bases to reason about Natural order
 (= (kb) (zero-lt-succ-axiom))

@@ -1,4 +1,6 @@
-; NOTE: this behavior can change in the future
+; NOTE: This test won't work outside the test environment because it relies on
+;  specific atoms in a specific order in the space, and loading the default environment's
+;  init.metta will break the assumptions in this test
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Even at the very beginning of the main script `(get-atoms &self)`
@@ -20,7 +22,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(import! &m f1_moduleA.metta)
 
-; It''s first atom is a space
+; It's first atom is a space
 !(assertEqual
   (let* (($x (collapse (get-atoms &m)))
          ($y (car-atom $x)))
@@ -73,14 +75,14 @@
         (get-type &self))
    False)
 
-; Let''s check that `if` from stdlib is not duplicated and gives only one result
+; Let's check that `if` from stdlib is not duplicated and gives only one result
 !(assertEqual
   (if (> 1 2) 1 2)
   2)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Let''s import one more module into `&self` with a diamond dependence
+; Let's import one more module into `&self` with a diamond dependence
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(import! &self f1_moduleB.metta)
 ; `g` from moduleC imported via two paths as well as `f`, which uses `g`,
@@ -94,10 +96,10 @@
   (dup 2)
   (12 102))
 
-; Let''s import f1_moduleB.metta once more using a different path.
+; Let's import f1_moduleB.metta once more using a different path.
 ; Such import should be ignored and thus f, g and dup should remain
 ; unchanged.
-!(import! &self f1_moduleB.metta)
+!(import! &self ../scripts/f1_moduleB.metta)
 !(assertEqual (g 2) 102)
 !(assertEqual (f 2) 103)
 !(assertEqualToResult

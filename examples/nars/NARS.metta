@@ -1,30 +1,79 @@
 ;; stdlib extension
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
-(= (If False $then) ())
+(= (If False $then) (nop))
 (: If (-> Bool Atom Atom Atom))
 (= (If $cond $then $else) (if $cond $then $else))
 (= (TupleConcat $Ev1 $Ev2) (collapse (superpose ((superpose $Ev1) (superpose $Ev2)))))
 (= (max $1 $2) (If (> $1 $2) $1 $2))
 (= (min $1 $2) (If (< $1 $2) $1 $2))
 (= (abs $x) (If (< $x 0) (- 0 $x) $x))
-(: sequential (-> Expression %Undefined% ))
+(: sequential (-> Expression %Undefined%))
 (= (sequential $1) (superpose $1))
-(: do (-> Expression %Undefined% ))
+(: do (-> Expression %Undefined%))
 (= (do $1) (case $1 ()))
-;(= (TupleCount ()) 0)
-;(= (TupleCount (1)) 1)
-;(= (BuildTupleCounts $TOld $C $N)
-;   (let $T (collapse (superpose (1 (superpose $TOld))))
-;        (superpose ((add-atom &self (= (TupleCount $T) (+ $C 2)))
-;                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))*/
-(= (TupleCount $list) (length $list))
+(= (TupleCount ()) 0)
+(= (TupleCount (1)) 1)
+(= (BuildTupleCounts $TOld $C $N)
+   (let $T (collapse (superpose (1 (superpose $TOld))))
+        (superpose ((trace! (= (TupleCount $T) (+ $C 2)) ())
+                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
-;;Build for count up to 100 (takes a few sec but it is worth it if space or generally collapse counts are often needed)
-;!(BuildTupleCounts (1) 0 100)
 (: CollapseCardinality (-> Expression Number))
 (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
+(= (TupleCount (1 1)) 2)
+(= (TupleCount (1 1 1)) 3)
+(= (TupleCount (1 1 1 1)) 4)
+(= (TupleCount (1 1 1 1 1)) 5)
+(= (TupleCount (1 1 1 1 1 1)) 6)
+(= (TupleCount (1 1 1 1 1 1 1)) 7)
+(= (TupleCount (1 1 1 1 1 1 1 1)) 8)
+(= (TupleCount (1 1 1 1 1 1 1 1 1)) 9)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1)) 10)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1)) 11)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1)) 12)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1)) 13)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 14)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 15)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 16)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 17)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 18)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 19)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 20)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 21)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 22)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 23)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 24)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 25)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 26)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 27)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 28)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 29)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 30)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 31)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 32)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 33)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 34)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 35)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 36)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 37)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 38)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 39)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 40)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 41)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 42)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 43)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 44)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 45)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 46)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 47)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 48)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 49)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 50)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 51)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 52)
+(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 53)
 ;; Truth functions
 (= (Truth_c2w $c) (/ $c (- 1 $c)))
 (= (Truth_w2c $w) (/ $w (+ $w 1)))
@@ -91,12 +140,12 @@
 (= (|- ((($A ~ $S) --> $M) $T)) (($S --> $M) (Truth_StructuralDeductionNegated $T)))
 (= (|- (($M --> ($B - $S)) $T)) (($M --> $S) (Truth_StructuralDeductionNegated $T)))
 ;;!Extensional and intensional intersection composition: (sets via reductions)
-(= (|- (($P --> $M) $T1) (($S --> $M) $T2)) ((($P | $S) --> $M) (Truth_Intersection $T1 $T2)))
-(= (|- (($P --> $M) $T1) (($S --> $M) $T2)) ((($P & $S) --> $M) (Truth_Union $T1 $T2)))
-(= (|- (($P --> $M) $T1) (($S --> $M) $T2)) ((($P ~ $S) --> $M) (Truth_Difference $T1 $T2)))
-(= (|- (($M --> $P) $T1) (($M --> $S) $T2)) (($M --> ($P & $S)) (Truth_Intersection $T1 $T2)))
-(= (|- (($M --> $P) $T1) (($M --> $S) $T2)) (($M --> ($P | $S)) (Truth_Union $T1 $T2)))
-(= (|- (($M --> $P) $T1) (($M --> $S) $T2)) (($M --> ($P - $S)) (Truth_Difference $T1 $T2)))
+;(= (|- (($P --> $M) $T1) (($S --> $M) $T2)) ((($P | $S) --> $M) (Truth_Intersection $T1 $T2)))
+;(= (|- (($P --> $M) $T1) (($S --> $M) $T2)) ((($P & $S) --> $M) (Truth_Union $T1 $T2)))
+;(= (|- (($P --> $M) $T1) (($S --> $M) $T2)) ((($P ~ $S) --> $M) (Truth_Difference $T1 $T2)))
+;(= (|- (($M --> $P) $T1) (($M --> $S) $T2)) (($M --> ($P & $S)) (Truth_Intersection $T1 $T2)))
+;(= (|- (($M --> $P) $T1) (($M --> $S) $T2)) (($M --> ($P | $S)) (Truth_Union $T1 $T2)))
+;(= (|- (($M --> $P) $T1) (($M --> $S) $T2)) (($M --> ($P - $S)) (Truth_Difference $T1 $T2)))
 ;;!Extensional and intensional intersection decomposition:
 (= (|- (($S --> $M) $T1) ((($S | $P) --> $M) $T2)) (($P --> $M) (Truth_DecomposePNN $T1 $T2)))
 (= (|- (($P --> $M) $T1) ((($S | $P) --> $M) $T2)) (($S --> $M) (Truth_DecomposePNN $T1 $T2)))
@@ -117,16 +166,16 @@
 (= (|- (($R --> ($A * $B)) $T)) ((($R \1 $B) --> $A) (Truth_StructuralIntersection $T)))
 (= (|- (($R --> ($A * $B)) $T)) ((($R \2 $A) --> $B) (Truth_StructuralIntersection $T)))
 ;;other direction of same rules (as these are bi-directional)
-(= (|- (($A --> ($R /1 $B)) $T)) ((($A * $B) --> $R) (Truth_StructuralIntersection $T)))
-(= (|- (($B --> ($R /2 $A)) $T)) ((($A * $B) --> $R) (Truth_StructuralIntersection $T)))
-(= (|- ((($R \1 $B) --> $A) $T)) (($R --> ($A * $B)) (Truth_StructuralIntersection $T)))
-(= (|- ((($R \2 $A) --> $B) $T)) (($R --> ($A * $B)) (Truth_StructuralIntersection $T)))
+;(= (|- (($A --> ($R /1 $B)) $T)) ((($A * $B) --> $R) (Truth_StructuralIntersection $T)))
+;(= (|- (($B --> ($R /2 $A)) $T)) ((($A * $B) --> $R) (Truth_StructuralIntersection $T)))
+;(= (|- ((($R \1 $B) --> $A) $T)) (($R --> ($A * $B)) (Truth_StructuralIntersection $T)))
+;(= (|- ((($R \2 $A) --> $B) $T)) (($R --> ($A * $B)) (Truth_StructuralIntersection $T)))
 ;;!Comparative relations
-(= (|- ((({ $R }) |-> ([ $P ])) $T1) ((({ $S }) |-> ([ $P ])) $T2)) (((({ $R }) * ({ $S })) --> (>>> $P )) (Truth_FrequencyGreater $T1 $T2)))
-(= (|- ((($A * $B) --> (>>> $P)) $T1) ((($B * $C) --> (>>> $P)) $T2)) ((($A * $C) --> (>>> $P)) (Truth_Deduction $T1 $T2)))
-(= (|- ((({ $R }) |-> ([ $P ])) $T1) ((({ $S }) |-> ([ $P ])) $T2)) (((({ $R }) * ({ $S })) --> (=== $P)) (Truth_FrequencyEqual $T1 $T2)))
-(= (|- ((($A * $B) --> (=== $P)) $T1) ((($B * $C) --> (=== $P)) $T2)) ((($A * $C) --> (=== $P)) (Truth_Deduction $T1 $T2)))
-(= (|- ((($A * $B) --> (=== $P)) $T)) ((($B * $A) --> (=== $P)) (Truth_StructuralIntersection $T)))
+;(= (|- ((({ $R }) |-> ([ $P ])) $T1) ((({ $S }) |-> ([ $P ])) $T2)) (((({ $R }) * ({ $S })) --> (>>> $P )) (Truth_FrequencyGreater $T1 $T2)))
+;(= (|- ((($A * $B) --> (>>> $P)) $T1) ((($B * $C) --> (>>> $P)) $T2)) ((($A * $C) --> (>>> $P)) (Truth_Deduction $T1 $T2)))
+;(= (|- ((({ $R }) |-> ([ $P ])) $T1) ((({ $S }) |-> ([ $P ])) $T2)) (((({ $R }) * ({ $S })) --> (=== $P)) (Truth_FrequencyEqual $T1 $T2)))
+;(= (|- ((($A * $B) --> (=== $P)) $T1) ((($B * $C) --> (=== $P)) $T2)) ((($A * $C) --> (=== $P)) (Truth_Deduction $T1 $T2)))
+;(= (|- ((($A * $B) --> (=== $P)) $T)) ((($B * $A) --> (=== $P)) (Truth_StructuralIntersection $T)))
 ;;!Optional rules for more efficient reasoning about relation components:
 (= (|- ((($A * $B) --> $R) $T1) ((($C * $B) --> $R) $T2)) (($C --> $A) (Truth_Abduction $T1 $T2)))
 (= (|- ((($A * $B) --> $R) $T1) ((($A * $C) --> $R) $T2)) (($C --> $B) (Truth_Abduction $T1 $T2)))
@@ -215,7 +264,7 @@
 !(bind! &currentTime (new-state 1))
 !(bind! &evidentialBase (new-state 1))
 (= (increment $atom) (change-state! $atom (+ 1 (get-state $atom))))
-(= (UpdateReasonerState) ((increment &currentTime) (increment &evidentialBase)))
+(= (UpdateReasonerState) (trace! (time = (get-state &currentTime)) ((increment &currentTime) (increment &evidentialBase))))
 (= (GetReasonerState) ((get-state &currentTime) ((get-state &evidentialBase))))
 
 ;priority of events
@@ -279,20 +328,21 @@
 ;revise if there is no evidential overlap, else use higher-confident candidate
 (= (RevisionAndChoice (Event ($Term1 ($f1 $c1)) (eternal $ev1 $EPrio1)) (Event ($Term2 ($f2 $c2)) (eternal $ev2 $EPrio2)))
    (let $ConclusionStamp (TupleConcat $ev1 $ev2)
-    (If (StampDisjoint $ConclusionStamp)
-        (Event ($Term1 (Truth_Revision ($f1 $c1) ($f2 $c2))) (eternal $ConclusionStamp (0 0.0)))
-        (If (> $c1 $c2)
-            (Event ($Term1 ($f1 $c1)) (eternal $ev1 (0 0.0)))
-            (Event ($Term2 ($f2 $c2)) (eternal $ev2 (0 0.0)))))))
+        (If (StampDisjoint $ConclusionStamp)
+            (Event ($Term1 (Truth_Revision ($f1 $c1) ($f2 $c2))) (eternal $ConclusionStamp (0 0.0)))
+            (If (> $c1 $c2)
+                (Event ($Term1 ($f1 $c1)) (eternal $ev1 (0 0.0)))
+                (Event ($Term2 ($f2 $c2)) (eternal $ev2 (0 0.0)))))))
 
-;;update beliefs in existing concept with the new event or create new concept to enter the new evidence
+;update beliefs in existing concept with the new event or create new concept to enter the new evidence
 (= (UpdateConcept $NewEvent $t)
    (let* (((Event ($Term $TV) ($Time $Evidence $EPrio)) $NewEvent)
           ($NewEventEternalized (Eternalize $NewEvent))
           ($MatchConcept (Concept $Term $Belief $BeliefEvent $CPrio)))
          (sequential ((case (match &attentional_focus $MatchConcept $MatchConcept)
                             (($MatchConcept (sequential ((remove-atom &attentional_focus $MatchConcept)
-                                                         (let* (($RevisedBelief (RevisionAndChoice $Belief $NewEventEternalized))
+                                                         (let* (((Event $RevSentence $Metadata) (RevisionAndChoice $Belief $NewEventEternalized))
+                                                                ($RevisedBelief (Event (trace! (@ $RevSentence) $RevSentence) $Metadata))
                                                                 ($MaxPrio (If (> (EventPriorityNow $EPrio $t) (ConceptPriorityNow $CPrio $t))
                                                                               $EPrio $CPrio)))
                                                          (add-atom &attentional_focus (Concept $Term $RevisedBelief $NewEvent $MaxPrio))))))
@@ -315,12 +365,12 @@
 ;get eternal belief of concept
 (: EternalQuestion (-> Expression $t))
 (= (EternalQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $Belief)
-                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
+                                 (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (eternal Nil 0.0))))))
 
 ;get event belief of concept
 (: EventQuestion (-> Expression $t))
 (= (EventQuestion $Term) (case (match (superpose (&attentional_focus &concepts)) (Concept $Term $Belief $BeliefEvent $CPrio) $BeliefEvent)
-                                (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (0 Nil 0.0))))))
+                               (($Ev $Ev) (%void% (Event (None (0.5 0.0)) (0 Nil 0.0))))))
 ;;Declarative inference (deriving events and knowledge from observed events)
 
 ;Derived belief event priority
@@ -345,7 +395,7 @@
                                      ((Event $SE2 ($timeE2 $evE2 $prioE2)) $Cprio)
                                      ((Event $S2 ($time2 $ev2 $prio2)) $CPrio)))))
         (case (Conclude (Event $S1 ($time1 $ev1 $prio1)) (TemporallyAlignedBelief $time1 $Belief) $CPrio $t)
-              (((Event $1 $2) (ProcessBeliefEvent (Event $1 $2) $t))))))
+              (((Event $1 $2) (ProcessBeliefEvent (Event (trace! (. $1) $1) $2) $t))))))
 
 ;select the highest priority belief event from the PQ and use it for reasoning
 (= (BeliefCycle $t) (do (sequential ((let $Ev (SelectHighestPriorityEvent &belief_events $t)
@@ -371,16 +421,15 @@
                                                    (Projection $Belief $TaskTime)))
 
 ;FIFO max. size bound
-!(bind! &FIFO (new-state Nil))
-(= (ListFirstK $C Nil) Nil)
-(= (ListFirstK $C (Cons $LH $LT))
-   (If (> $C 0)
-       (Cons $LH (ListFirstK (- $C 1) $LT))
-       Nil))
+!(bind! &FIFO (new-state ()))
+(= (EventWithFIFO3 $New ($1 $2 $3)) ($New $1 $2))
+(= (EventWithFIFO3 $New ($1 $2)) ($New $1 $2))
+(= (EventWithFIFO3 $New ($1)) ($New $1))
+(= (EventWithFIFO3 $New ()) ($New))
 
 ;Add event to FIFO
 (= (EventToFIFO $Ev)
-   (let $newlist (ListFirstK 3 (Cons $Ev (get-state &FIFO)))
+   (let $newlist (EventWithFIFO3 $Ev (get-state &FIFO))
         (change-state! &FIFO $newlist)))
 
 ;Form a sequence of two events
@@ -391,7 +440,8 @@
 ;Form a temporal implication between two events
 (= (TemporalImplication $Ev1 (Event ($Term2 $Truth2) ($Time2 $Evidence2 $EPrio2)))
    (let (Event ($Term1 $Truth1) ($Time1 $Evidence1 $EPrio1)) (Projection $Ev1 $Time2)
-        (Event (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)) ($Time2 (TupleConcat $Evidence1 $Evidence2) (0 0.0)))))
+        (trace! (. (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)))
+                (Event (($Term1 =/> $Term2) (Truth_Induction $Truth1 $Truth2)) ($Time2 (TupleConcat $Evidence1 $Evidence2) (0 0.0))))))
 
 ;Whether an event's term is an operation
 (= (IsOp (Event ($Term $Truth) $Metadata))
@@ -400,14 +450,14 @@
 
 ;Find implications in the event FIFO:
 ;procedural implications
-(= (TemporalImplicationInduction (Cons $Cons (Cons $Op (Cons $Prec $Tail))))
+(= (TemporalImplicationInduction ($Cons $Op $Prec))
    (If (and (IsOp $Op) (and (not (IsOp $Cons)) (not (IsOp $Prec))))
        (let $PrecOp (TemporalSequence $Prec $Op)
             (TemporalImplication $PrecOp $Cons))))
 ;and temporal without operation
-(= (TemporalImplicationInduction (Cons $Cons (Cons $Prec $Tail)))
-   (If (and (not (IsOp $Prec)) (not (IsOp $Cons)))
-       (TemporalImplication $Prec $Cons)))
+;(= (TemporalImplicationInduction ($Cons $Prec $Trail))
+;   (If (and (not (IsOp $Prec)) (not (IsOp $Cons)))
+;       (TemporalImplication $Prec $Cons)))
 
 ;Add negative evidence for implications which predicted the input unsuccessfully
 (= (NegConfirmation $PrecTerm $ObservedCons $t)
@@ -416,13 +466,12 @@
             (UpdateConcept (Event (($PrecTerm =/> $PredictedCons) (0.0 0.1)) ($t () (0 0.0))) $t))))
 
 ;Check if the implication's preconditions are met to anticipate the by the implication predicted outcome
-(= (Anticipate (Cons $Pos Nil) $t))
-(= (Anticipate (Cons $Pos (Cons $Pre Nil)) $t)
-   (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)
-          ((Event ($PosTerm $PosTV) $PosMetadata) $Pos))
-         (If (not (IsOp $Pre))
-             (NegConfirmation $PreTerm $PosTerm $t))))
-(= (Anticipate (Cons $Pos (Cons $Op (Cons $Pre $Trail))) $t)
+;(= (Anticipate ($Pos $Pre $Trail) $t)
+;   (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)
+;          ((Event ($PosTerm $PosTV) $PosMetadata) $Pos))
+;         (If (not (IsOp $Pre))
+;             (NegConfirmation $PreTerm $PosTerm $t))))
+(= (Anticipate ($Pos $Op $Pre) $t)
    (let* (((Event ($PreTerm $PreTV) $PreMetadata) $Pre)
           ((Event ($OpTerm $OpTV) $OpMetadata) $Op)
           ((Event ($PosTerm $PosTV) $PosMetadata) $Pos)
@@ -430,16 +479,19 @@
          (If (and (IsOp $Op) (not (IsOp $Pre)))
              (NegConfirmation ($PreTerm &/ $OpTerm) $PosTerm $t))))
 
-;;Input procedure
+;Input procedure
 (= (AddBeliefEvent $Sentence)
    (let* ((($t $evidentialBase) (GetReasonerState))
-          ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
-         (do (sequential ((EventToFIFO $InputEvent)
-                          (let $InducedHypothesis (TemporalImplicationInduction (get-state &FIFO))
-                               (UpdateConcept $InducedHypothesis $t))
-                          (ProcessBeliefEvent $InputEvent $t)
-                          (Anticipate (get-state &FIFO) $t)
-                          (BeliefCycle $t))))))
+          ($InputEvent (Event (trace! (. $Sentence) $Sentence) ($t $evidentialBase ($t 1.0))))
+          ($notAnOperation (not (IsOp $InputEvent))))
+          (do (sequential ((EventToFIFO $InputEvent)
+                           (Anticipate (get-state &FIFO) $t)
+                           (If $notAnOperation
+                               (sequential ((let $InducedHypothesis (TemporalImplicationInduction (get-state &FIFO))
+                                                 (UpdateConcept $InducedHypothesis $t))
+                                            (ProcessBeliefEvent $InputEvent $t)
+                                            (BeliefCycle $t)))
+                               (UpdateReasonerState)))))))
 ;;Procedural inference (decision making with operation execution and subgoaling)
 
 ;Derived goal event priority
@@ -453,8 +505,9 @@
 
 ;Add subgoals to the PQ
 (= (DeriveSubgoals $Options)
-   (do (let (Decision $Op $Subgoal) (superpose $Options)
-            (add-atom &goal_events $Subgoal))))
+   (do (let (Decision $Op (Event $S $Metadata)) (superpose $Options)
+            (let $Subgoal (Event (trace! (! $S) $S) $Metadata)
+                 (add-atom &goal_events $Subgoal)))))
 
 ;execute the operation which most likely gets the goal achieved in current contexts, and if contexts are not yet fulfilled, derive them as subgoals
 (= (BestDecision $t (Event ($Term $DV) ($GoalTime $GoalEvBase $GoalPrio)) $FIFO)
@@ -474,16 +527,16 @@
                  (Execute $Opname)
                  (DeriveSubgoals $Options)))))
 
-;;select the highest priority goal event from the PQ and use it for decision making
+;select the highest priority goal event from the PQ and use it for decision making
 (= (GoalCycle $t) (sequential ((let $Ev (SelectHighestPriorityEvent &goal_events $t)
                                     (sequential ((do (remove-atom &goal_events $Ev))
                                                  (BestDecision $t $Ev (get-state &FIFO)))))
                                (do (UpdateReasonerState))
                                (do (BoundEvents &goal_events 0.0 0.1 (GoalEventsMax) $t)))))
 
-;;Input procedure
+;Input procedure
 (= (AddGoalEvent $Sentence)
    (let* ((($t $evidentialBase) (GetReasonerState))
-          ($InputEvent (Event $Sentence ($t $evidentialBase ($t 1.0)))))
+          ($InputEvent (Event (trace! (! $Sentence) $Sentence) ($t $evidentialBase ($t 1.0)))))
          (sequential ((do (add-atom &goal_events $InputEvent))
                       (GoalCycle $t)))))

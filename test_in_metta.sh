@@ -7,27 +7,89 @@
 export IS_SOURCED=$( [[ "${BASH_SOURCE[0]}" != "${0}" ]] && echo 1 || echo 0)
 
 export RUST_BACKTRACE=full
-export PYTHONPATH=./metta_vspace
+#export PYTHONPATH=./metta_vspace
 
 # Save the directory where this script resides
 export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# only use arg1 and shift if it is a path
-if [ -d "$1" ] || [ -f "$1" ]; then
-    export UNITS_DIR="$1"
-    shift
-else
-    export UNITS_DIR="examples/"
-fi
+# Initialize default values
+auto_reply=""
+UNITS_DIR="examples/"
+outer_extra_args=""
+METTALOG_MAX_TIME=120
+clean=0  # 0 means don't clean, 1 means do clean
+export RUST_METTA_MAX_TIME=120
 
 
-# Store the remaining arguments in outer_extra_args
-outer_extra_args="$@"
+# Loop through all arguments
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -y)
+      auto_reply="y"
+      shift
+      ;;
+    -n)
+      auto_reply="n"
+      shift
+      ;;
+    --timeout=*)
+      METTALOG_MAX_TIME="${1#*=}"
+      shift
+      ;;
+    --clean)
+      clean=1
+      shift
+      ;;
+    -h|--help)
+      echo "Usage: $0 [options] [directory] [extra args]"
+      echo "Options:"
+      echo "  -y                 Automatically choose 'y' for rerunning all tests"
+      echo "  -n                 Automatically choose 'n'"
+      echo "  --clean            Clean up by deleting all .html files under directory"
+      echo "  -h|--help          Display this help message"
+      echo " "
+      echo "Arguments:"
+      echo "  directory          Directory to find tests (current: ${SCRIPT_DIR}/${UNITS_DIR})"
+      echo "  extra args         Optional command-line arguments passed to MeTTaLog like:"
+      echo "                       --compile=full|true|false   Enable or disable compilation (current: false)"
+      echo "                       --timeout=SECONDS           Specify a timeout value in seconds (current: $METTALOG_MAX_TIME)"
+      echo " "
+      echo "Examples:"
+      echo "  # Run under '${SCRIPT_DIR}/examples/compat/sumo' with a 180 second timeout per test"
+      echo "  $0 examples/compat/sumo --timeout=60   "
+      echo " "
+      echo "  # Automatically (chooses 'y') cleans up and runs all tests in default '${SCRIPT_DIR}/examples' directory with a 180 second timeout per test"
+      echo "  $0 -y --clean --timeout=180 "
+      echo " "
+      echo "Note: Arguments can be in any order."
+      [[ $IS_SOURCED -eq 1 ]] && return 0 || exit 0
+      ;;
+
+    *)
+      if [ -d "$1" ] || [ -f "$1" ]; then
+        UNITS_DIR="$1"
+      else
+        outer_extra_args+=" $1"
+      fi
+      shift
+      ;;
+  esac
+done
+
+# export variables for later use
+export UNITS_DIR
+export outer_extra_args
+export METTALOG_MAX_TIME
+
 
 function delete_html_files() {
     cd "$SCRIPT_DIR"
     find "${UNITS_DIR}" -name "*.html" -type f -delete
 }
+
+if [ "$clean" -eq 1 ]; then
+  delete_html_files
+fi
 
 file_in_array() {
     local file="$1"
@@ -38,9 +100,6 @@ file_in_array() {
     done
     return 1
 }
-
-export METTALOG_MAX_TIME=120
-export RUST_METTA_MAX_TIME=120
 
 function run_tests() {
 
@@ -146,7 +205,6 @@ function run_tests() {
 
 
 }
-
 
 
 function generate_final_MeTTaLog() {
@@ -315,25 +373,30 @@ function compare_test_files() {
 (
    cd "$SCRIPT_DIR"
 
-   read -p "Rerun all tests? (y/N): " -n 1 -r
-   echo    # Move to a new line for cleaner output
-   if [[ $REPLY =~ ^[Yy]$ ]]
-   then
-       run_tests
+   # If auto_reply is empty, then ask the user
+   if [ -z "$auto_reply" ]; then
+     read -p "Rerun all tests? (y/N): " -n 1 -r
+     echo
    else
-       echo "You chose not to run all tests."
+     REPLY=$auto_reply
+   fi
+
+   if [[ $REPLY =~ ^[Yy]$ ]]; then
+     run_tests
+   else
+     echo "You chose not to run all tests."
    fi
 
    generate_final_MeTTaLog
    compare_test_files ./MeTTaLog.md ./final_MeTTaLog.md
 
    read -p "Are you ready to commit your code and generate unit reports? (y/N): " -n 1 -r
-   echo    # Move to a new line for cleaner output
-   if [[ $REPLY =~ ^[Yy]$ ]]
-   then
-       PreCommitReports
+   echo
+
+   if [[ $REPLY =~ ^[Y]$ ]]; then
+     PreCommitReports
    else
-       echo "You chose not to commit your code and generate unit reports."
+     echo "You chose not to commit your code and generate unit reports."
    fi
 )
 
