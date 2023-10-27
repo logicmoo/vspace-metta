@@ -21,4 +21,17 @@
 
 #pip install -U "jupyter-server<2.0.0"
 
+#pip install -force -e reqs/metta_kernel/
+#pip install -e reqs/picat_kernel/
+
+#jupyter kernelspec install reqs/picat_kernel
+#jupyter kernelspec install metta_vspace
+#jupyter kernelspec install reqs/metta_kernel
+
+(
+export PYTHONPATH=/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta:.:/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace
+
+export PATH=/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta:/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reqs/Picat:$PATH
+
 jupyter notebook --allow-root --no-browser --port=17888 --ip 0.0.0.0 --password das
+)
