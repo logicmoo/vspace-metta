@@ -138,6 +138,9 @@
 (= (fact $n) (if (== $n 0) 1 (* (fact (- $n 1)) $n)))
 !(assertEqual (fact 5) 120)
 
+; ensure we only return one result
+!(assertEqualToResult (fact 5) (120))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Grounded symbols work with non-determinism based "reasoning"
