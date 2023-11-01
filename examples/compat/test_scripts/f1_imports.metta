@@ -99,7 +99,7 @@
 ; Let's import f1_moduleB.metta once more using a different path.
 ; Such import should be ignored and thus f, g and dup should remain
 ; unchanged.
-!(import! &self ../scripts/f1_moduleB.metta)
+!(import! &self f1_moduleB.metta)
 !(assertEqual (g 2) 102)
 !(assertEqual (f 2) 103)
 !(assertEqualToResult

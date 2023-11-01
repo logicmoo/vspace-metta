@@ -19,7 +19,7 @@ outer_extra_args=""
 METTALOG_MAX_TIME=120
 clean=0  # 0 means don't clean, 1 means do clean
 export RUST_METTA_MAX_TIME=120
-
+GREP_ARGS=""
 
 # Loop through all arguments
 while [ "$#" -gt 0 ]; do
@@ -36,6 +36,11 @@ while [ "$#" -gt 0 ]; do
       METTALOG_MAX_TIME="${1#*=}"
       shift
       ;;
+    --*clud*=*)
+      GREP_ARGS="${GREP_ARGS} ${1}"
+      shift
+      ;;
+
     --clean)
       clean=1
       shift
@@ -112,9 +117,9 @@ function run_tests() {
     cat /dev/null > TEE.ansi.UNITS
 
     # Get files
-    mapfile -t assert_files < <(grep -rl 'assert' "${UNITS_DIR}" --include="*.metta")
-    mapfile -t test_files < <(find "${UNITS_DIR}" -type f -iname "*test*.metta")
-    mapfile -t has_tests < <(grep -rl '^!\([^!]*\)$' "${UNITS_DIR}" --include="*.metta")
+    mapfile -t assert_files < <(grep -rl 'assert' "${UNITS_DIR}" --include="*.metta" $GREP_ARGS )
+    mapfile -t test_files < <(find "${UNITS_DIR}" -type f -iname "*test*.metta" $GREP_ARGS)
+    mapfile -t has_tests < <(grep -rl '^!\([^!]*\)$' "${UNITS_DIR}" --include="*.metta" $GREP_ARGS)
 
     # Filtering out the has_tests from assert_files and test_files
     for htest in "${has_tests[@]}"; do
@@ -161,6 +166,8 @@ function run_tests() {
            else
                cat "${file}.answers"
            fi
+
+        sleep 1
 
         local TEST_CMD="./MeTTa --timeout=$METTALOG_MAX_TIME --repl=false  $extra_args $outer_extra_args --html \"$file\" --halt=true"
         echo "Running command: $TEST_CMD"
@@ -381,6 +388,8 @@ function compare_test_files() {
      REPLY=$auto_reply
    fi
 
+
+time (
    if [[ $REPLY =~ ^[Yy]$ ]]; then
      run_tests
    else
@@ -388,7 +397,7 @@ function compare_test_files() {
    fi
 
    generate_final_MeTTaLog
-   compare_test_files ./MeTTaLog.md ./final_MeTTaLog.md
+   compare_test_files ./MeTTaLog.md ./final_MeTTaLog.md   )
 
    read -p "Are you ready to commit your code and generate unit reports? (y/N): " -n 1 -r
    echo

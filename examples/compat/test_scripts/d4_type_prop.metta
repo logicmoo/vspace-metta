@@ -59,8 +59,8 @@
   (get-type (= SocratesIsMortal (HumansAreMortal SocratesIsHuman)))
   Type)
 ; This equality is well-typed, because both its arguments are of `Type`.
-; It doesn't mean they are both inhabited (true propositions), and
-; it doesn't mean that the equality itself is true (an inhabited type).
+; It doesn''t mean they are both inhabited (true propositions), and
+; it doesn''t mean that the equality itself is true (an inhabited type).
 !(assertEqual
   (get-type (= (Mortal Socrates) (Mortal Plato)))
   Type)

@@ -33,7 +33,11 @@
 !(assertEqualToResult
   (ift (green $x)
       (add-atom &kb (Green $x)))
-(()()))
+   ((Green Fritz) (Green Sam)))
+
+; Should not see Tom ?
+(Green Tom)
+
 
 ; Retrieve the inferred Green things: Fritz and Sam.
 !(assertEqualToResult

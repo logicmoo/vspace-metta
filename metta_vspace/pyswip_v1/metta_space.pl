@@ -161,7 +161,7 @@ ensure_space(_N,_V):- fail.
 % ===============================
 %debug_metta(Call):- skip(Call).
 if_metta_debug(Goal):- getenv('VSPACE_VERBOSE','2'),!,ignore(call(Goal)).
-if_metta_debug(_):-!.
+%if_metta_debug(_):-!.
 if_metta_debug(Goal):- !,ignore(call(Goal)).
 debug_metta(Term):- notrace(if_metta_debug((format('~N; ~@~n',[write_src(Term)])))).
 debug_metta(Msg,Term):- notrace(if_metta_debug((format('~N; ~w: ~@~n',[Msg,write_src(Term)])))),!.
@@ -407,6 +407,9 @@ write_args_as_sexpression([H|T]) :- write(' '), pp_sex(H), write_args_as_sexpres
 print_list_as_sexpression([]).
 %print_list_as_sexpression([H]):- w_proper_indent(pp_sex(H)),!.
 print_list_as_sexpression([H|T]):- write(' '), pp_sex(H), print_list_as_sexpression(T).
+
+call_sexpr(S):- writeln(call=S).
+
 
 :- dynamic(fb_pred/2).
 

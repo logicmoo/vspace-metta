@@ -155,6 +155,8 @@ function print_report() {
     ) | sort -t'|' -k5,5r  >> PASS_FAIL.md
 
     echo "" >> PASS_FAIL.md
+
+    cat PASS_FAIL.md
     echo "<details><summary>Expand for Core Summaries</summary>" >> PASS_FAIL.md
     echo "" >> PASS_FAIL.md
     echo "|Pass |Fail |File                               |GitHub Link                                                                                                                       |" >> PASS_FAIL.md
@@ -162,7 +164,7 @@ function print_report() {
     cat $FOUND_UNITS.sortme >> PASS_FAIL.md
     echo "" >> PASS_FAIL.md
     echo "</details>" >> PASS_FAIL.md
-    cat PASS_FAIL.md
+
 }
 
 

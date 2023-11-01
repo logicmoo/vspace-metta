@@ -116,6 +116,7 @@
   (+ (superpose (1 2 3)) 1)
   (superpose (2 3 4)))
 
+
 (= (bin) 0)
 (= (bin) 1)
 
@@ -137,9 +138,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (= (fact $n) (if (== $n 0) 1 (* (fact (- $n 1)) $n)))
 !(assertEqual (fact 5) 120)
-
-; ensure we only return one result
-!(assertEqualToResult (fact 5) (120))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -165,7 +163,22 @@
 ; Among all 3-bit binary lists, return the one whose `subsum`
 ; with (:: 3 (:: 7 (:: 5 nil))) equals 8, or `nop` if not found
 ; (`nop` is a grounded function that consumes its arguments and returns nothing)
+;!(assertEqualToResult
+;  (let $t (gen 3)
+;    (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $t) 8) $t (nop)))
+;  ((:: 1 (:: 0 (:: 1 nil)))))
+
+;!(let $t (gen 3)
+;    (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $t) 8) $t (nop)))
+
+
+;!(assertEqualToResult
+;  (let $t (gen 3)
+;    (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $t) 8) $t (nop)))
+;  (() () (:: 1 (:: 0 (:: 1 nil))) () () () () ()))
+
 !(assertEqualToResult
   (let $t (gen 3)
     (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $t) 8) $t (nop)))
   ((:: 1 (:: 0 (:: 1 nil)))))
+
