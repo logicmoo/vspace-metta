@@ -9,8 +9,8 @@ export IS_SOURCED=$( [[ "${BASH_SOURCE[0]}" != "${0}" ]] && echo 1 || echo 0)
 export RUST_BACKTRACE=full
 #export PYTHONPATH=./metta_vspace
 
-# Save the directory where this script resides
-export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Save the directory one above where this script resides
+export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 
 # Initialize default values
 auto_reply=""
@@ -185,7 +185,7 @@ function run_tests() {
         else
             echo "Completed (EXITCODE=$TEST_EXIT_CODE) under $METTALOG_MAX_TIME seconds: ${TEST_CMD}"
         fi
-        ./total_loonits.sh
+        ./scripts/total_loonits.sh
     }
 
     # Process assert_files
@@ -353,18 +353,18 @@ function compare_test_files() {
 
     sort -u Results.md -o Results.md
 
-    echo "-----------------------------------------"
-    grep 'PASSING' Results.md
-    echo "-----------------------------------------"
-    grep 'FAILING' Results.md
-    echo "-----------------------------------------"
-
     echo "New tests:"
     cat new_tests.md
     echo "-----------------------------------------"
 
     echo "Missing tests:"
     cat missing_tests.md
+    echo "-----------------------------------------"
+
+    echo "-----------------------------------------"
+    grep 'PASSING' Results.md
+    echo "-----------------------------------------"
+    grep 'FAILING' Results.md
     echo "-----------------------------------------"
 
     new_passing=$(grep -c 'PASSING' Results.md)

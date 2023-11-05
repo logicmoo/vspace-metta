@@ -17,6 +17,7 @@
   (ConceptMapFn  organism 1 fbgn_fbtr_fbpp_expanded)
   (ConceptMapFn  organism_abbreviation 2 fbgn_annotation_ID)))
 
+
 (=
  (assert_progress
   (mine_overlaps1  protein_coding_gene))
@@ -639,6 +640,7 @@
  (maybe_corisponds
   (ConceptMapFn  polypeptide_symbol 11 fbgn_fbtr_fbpp_expanded)
   (ConceptMapFn  representative_protein 3 dmel_unique_protein_isoforms)))
+
 
 (=
  (already
@@ -9033,8 +9035,5 @@ metta +> !(try-overlaps)
   (dmel_unique_protein_isoforms  $W $Z $A1 $B1)
   (fbgn_fbtr_fbpp_expanded  $C1 $D1 $E1 $Z $F1 $G1 $H1 $I1 $J1 $K1 $L1)
   (synonym  $M1 $C1 $N1 $O1 $P1 $Q1)))
-
-
-
 
 

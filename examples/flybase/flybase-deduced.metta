@@ -374,6 +374,9 @@
 (most-frequent fbgn_annotation_ID 6 (# (# CG14398 4) (# CG15675 4) (# CG10450 4) (# CG14458 6) (# CG2149 6) (# CG32605 12)))
 (less-frequent fbgn_annotation_ID 6 (# (# CG13505 1) (# "CG15275,CG15276,CG15277,CG33515" 1) (# "CG31537,CG2534" 1) (# "CG30111,CG5058" 1) (# "CG30164,CG30165,CG30166,CG4556" 1) (# "CG30179,CG30174,CG33149,CG3220" 1) (# CG14428 1)))
 ;;;Skipping file: data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_annotation_ID_fb_2023_04.pl
+
+
+
 ;;------------------------------------------------------------------------------------------------------------------
 ;;; Analyzing file: data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_annotation_ID_fb_2023_04.tsv
 !(file-name fbgn_annotation_ID  data/ftp.flybase.net/releases/current/precomputed_files/genes/fbgn_annotation_ID_fb_2023_04.tsv)

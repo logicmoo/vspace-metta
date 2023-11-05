@@ -150,6 +150,7 @@
    (if (> $n 0)
        (:: (bin) (gen (- $n 1)))
        nil))
+
 ; Note: `::` is just a custom symbol, used here as a constructor,
 ; but any other symbol can be used for this.
 
@@ -181,4 +182,28 @@
   (let $t (gen 3)
     (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $t) 8) $t (nop)))
   ((:: 1 (:: 0 (:: 1 nil)))))
+
+
+; ensure we only return one result
+!(assertEqualToResult (fact 5) (120))
+
+!(pragma! trace-on-fail True)
+!(pragma! trace-on-pass True)
+!(pragma! trace-on-eval True)
+!(pragma! trace-on-exec True)
+
+; ensure we only return one result
+!(assertEqualToResult ((fact 5)) ((120)))
+
+!(pragma! traclen 1000)
+!(assertEqualToResult
+  (gen 3)
+	((:: 0 (:: 0 (:: 0 nil)))
+	 (:: 0 (:: 0 (:: 1 nil)))
+	 (:: 0 (:: 1 (:: 0 nil)))
+	 (:: 0 (:: 1 (:: 1 nil)))
+	 (:: 1 (:: 0 (:: 0 nil)))
+	 (:: 1 (:: 0 (:: 1 nil)))
+	 (:: 1 (:: 1 (:: 0 nil)))
+	 (:: 1 (:: 1 (:: 1 nil)))))
 
