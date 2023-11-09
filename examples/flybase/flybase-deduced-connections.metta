@@ -137,5 +137,5 @@
 (= (assert_progress (mine_overlaps1  Roc1a)) (maybe_corisponds (ConceptMapFn  Group_member_FB_gene_symbol 7 pathway_group) (ConceptMapFn  gene_symbol 8 Dmel_enzyme)))
 (= (assert_progress (mine_overlaps1  tRNA:Pro-CGG-1-1)) (maybe_corisponds (ConceptMapFn  Gene_Symbol 2 best_gene_summary) (ConceptMapFn  gene_symbol 2 gene_rpkm_matrix)))
 
-% 712,966 inferences, 0.165 CPU in 0.208 seconds (80% CPU, 4309769 Lips)
+; % 712,966 inferences, 0.165 CPU in 0.208 seconds (80% CPU, 4309769 Lips)
 
