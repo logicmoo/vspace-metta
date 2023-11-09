@@ -1,0 +1,1 @@
+../precomputed_files/genes/gene_groups_HGNC_fb_2023_04.tsv.metta

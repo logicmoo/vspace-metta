@@ -1,0 +1,1 @@
+../precomputed_files/synonyms/fb_synonym_fb_2023_04.tsv.metta

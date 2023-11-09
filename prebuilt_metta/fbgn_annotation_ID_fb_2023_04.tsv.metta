@@ -1,0 +1,1 @@
+../precomputed_files/genes/fbgn_annotation_ID_fb_2023_04.tsv.metta

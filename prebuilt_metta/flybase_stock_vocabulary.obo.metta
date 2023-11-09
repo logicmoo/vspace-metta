@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/flybase_stock_vocabulary.obo.metta

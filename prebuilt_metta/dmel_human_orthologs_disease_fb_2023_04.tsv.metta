@@ -1,0 +1,1 @@
+../precomputed_files/orthologs/dmel_human_orthologs_disease_fb_2023_04.tsv.metta

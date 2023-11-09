@@ -1,0 +1,1 @@
+../precomputed_files/genes/Dmel_enzyme_data_fb_2023_04.tsv.metta

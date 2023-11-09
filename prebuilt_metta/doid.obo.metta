@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/doid.obo.metta

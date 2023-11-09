@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/fly_development.obo.metta

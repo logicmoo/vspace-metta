@@ -1,0 +1,1 @@
+../precomputed_files/genes/dmel_gene_sequence_ontology_annotations_fb_2023_04.tsv.metta

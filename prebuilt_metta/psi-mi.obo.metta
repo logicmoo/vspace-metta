@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/psi-mi.obo.metta

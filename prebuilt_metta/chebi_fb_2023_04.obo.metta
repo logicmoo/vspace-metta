@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/chebi_fb_2023_04.obo.metta

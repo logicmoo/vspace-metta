@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/so-simple.obo.metta

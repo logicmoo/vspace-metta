@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/go-basic.obo.metta

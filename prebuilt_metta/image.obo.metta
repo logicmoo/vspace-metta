@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/image.obo.metta

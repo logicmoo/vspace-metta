@@ -1,0 +1,1 @@
+../precomputed_files/go/gene_association.fb.metta

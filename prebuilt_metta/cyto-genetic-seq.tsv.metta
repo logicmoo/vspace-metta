@@ -1,0 +1,1 @@
+../precomputed_files/map_conversion/cyto-genetic-seq.tsv.metta

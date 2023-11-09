@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/slice.chebi.obo.metta

@@ -1,0 +1,1 @@
+../precomputed_files/alleles/fbal_to_fbgn_fb_2023_04.tsv.metta

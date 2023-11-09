@@ -1,0 +1,1 @@
+../precomputed_files/species/organism_list_fb_2023_04.tsv.metta

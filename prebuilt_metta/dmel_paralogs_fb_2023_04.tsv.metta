@@ -1,0 +1,1 @@
+../precomputed_files/orthologs/dmel_paralogs_fb_2023_04.tsv.metta

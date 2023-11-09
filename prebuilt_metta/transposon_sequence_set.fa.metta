@@ -1,0 +1,1 @@
+../precomputed_files/transposons/transposon_sequence_set.fa.metta

@@ -1,0 +1,1 @@
+../precomputed_files/collaborators/pmid_fbgn_uniprot_fb_2023_04.tsv.metta

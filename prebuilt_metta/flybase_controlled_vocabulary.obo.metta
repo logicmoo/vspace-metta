@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/flybase_controlled_vocabulary.obo.metta

@@ -1,0 +1,1 @@
+../precomputed_files/ontologies/gene_group_FB2023_04.obo.metta

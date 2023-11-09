@@ -1,0 +1,1 @@
+../precomputed_files/alleles/allele_genetic_interactions_fb_2023_04.tsv.metta
