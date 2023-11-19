@@ -1,5 +1,7 @@
 
 
+; !(and (functor $P dmel_paralogs 11) (call $P))
+
 
 ; metta +> !(mine-overlaps)
 
