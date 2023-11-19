@@ -1,13 +1,14 @@
-;; will only be fast enough (for our 10 second limit) if compiled anyways?
-!(pragma! compiler full)
+;; The next few comments passes only to MeTTaLog
+;;MeTTaLog: ;; !(pragma! compiler full)
+;;MeTTaLog: !(pragma! trace-on-fail False)
+;;MeTTaLog: !(pragma! trace-on-pass False)
+;;MeTTaLog: !(pragma! trace-on-error False)
+;;MeTTaLog: !(pragma! trace-on-overflow False)
+;;MeTTaLog: !(pragma! trace-on-load False)
 
-
-!(pragma! trace-on-fail True)
-!(pragma! trace-on-pass False)
-!(pragma! trace-on-error True)
-!(pragma! trace-on-load False)
 !(import! &self NARS.metta)
-!(pragma! trace-on-load True)
+
+;;MeTTaLog: !(pragma! trace-on-load True)
 
 !(AddBeliefEvent ((({ garfield }) --> cat) (1.0 0.9)))
 !(AddBeliefEvent (((cat * sky) --> like) (1.0 0.9)))

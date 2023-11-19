@@ -1,20 +1,16 @@
-;; will only be fast enough (for our 10 second limit) if compiled anyways?
-!(pragma! compiler full)
+;; The next few comments passes only to MeTTaLog
+;;MeTTaLog: ;; !(pragma! compiler full)
+;;MeTTaLog: !(pragma! trace-on-fail False)
+;;MeTTaLog: !(pragma! trace-on-pass False)
+;;MeTTaLog: !(pragma! trace-on-error False)
+;;MeTTaLog: !(pragma! trace-on-overflow False)
+;;MeTTaLog: !(pragma! trace-on-load False)
 
-
-!(pragma! trace-on-fail True)
-!(pragma! trace-on-pass False)
-!(pragma! trace-on-error True)
-!(pragma! trace-on-load False)
 !(import! &self NARS.metta)
-!(pragma! trace-on-fail False)
-!(pragma! trace-on-pass False)
-!(pragma! trace-on-error False)
-!(pragma! trace-on-eval False)
 
-!(pragma! trace-on-load True)
-!(pragma! trace-on-exec True)
-!(pragma! trace-on-overflow True)
+;;MeTTaLog: !(pragma! trace-on-load True)
+;;MeTTaLog: !(pragma! trace-on-exec True)
+;;MeTTaLog: !(pragma! trace-on-overflow True)
 
 ; debug
 ; !(assertEqual (TupleCount (get-atoms &belief_events)) 0)
@@ -41,5 +37,5 @@
 !(assertEqual
   (AddGoalEvent ((sheep --> ([ counted ])) (1.0 0.9)))
   (^ count))
-  
-!(pragma! trace-on-eval True)
+
+;;MeTTaLog: !(pragma! trace-on-eval True)

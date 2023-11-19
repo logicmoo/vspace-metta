@@ -1,11 +1,9 @@
-;; will only be fast enough (for our 10 second limit) if compiled anyways?
-!(pragma! compiler False)
 
-
-!(pragma! trace-on-fail False)
-!(pragma! trace-on-pass False)
-!(pragma! trace-on-error False)
-!(pragma! trace-on-load False)
+;;;;MeTTaLog only: !(pragma! compiler full)
+;;MeTTaLog only: !(pragma! trace-on-fail True)
+;;MeTTaLog only: !(pragma! trace-on-pass False)
+;;MeTTaLog only: !(pragma! trace-on-error True)
+;;MeTTaLog only: !(pragma! trace-on-load False)
 
 ;; stdlib extension
 (: If (-> Bool Atom Atom))
@@ -553,11 +551,10 @@
 
 ;; !(import! &self NARS.metta)
 
-!(pragma! trace-on-load True)
+;;MeTTaLog only: !(pragma! trace-on-load True)
 
 ; debug
 !(assertEqual (TupleCount (get-atoms &belief_events)) 0)
-
 
 ;;NARS test
 !(AddBeliefEvent ((({ garfield }) --> cat) (1.0 0.9)))

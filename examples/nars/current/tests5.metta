@@ -1,14 +1,9 @@
-;; will only be fast enough (for our 10 second limit) if compiled anyways?
-!(pragma! compiler full)
 
-
-!(pragma! trace-on-fail True)
-!(pragma! trace-on-pass False)
-!(pragma! trace-on-error True)
-!(pragma! trace-on-load False)
-!(pragma! trace-on-exec False)
-!(pragma! trace-on-eval False)
-!(pragma! trace-on-overflow True)
+;;;;MeTTaLog only: !(pragma! compiler full)
+;;MeTTaLog only: !(pragma! trace-on-fail True)
+;;MeTTaLog only: !(pragma! trace-on-pass False)
+;;MeTTaLog only: !(pragma! trace-on-error True)
+;;MeTTaLog only: !(pragma! trace-on-load False)
 
 ;; stdlib extension
 (: If (-> Bool Atom Atom))
@@ -410,14 +405,12 @@
               (((Event $1 $2) (ProcessBeliefEvent (Event (trace! (. $1) $1) $2) $t))))))
 
 ;select the highest priority belief event from the PQ and use it for reasoning
-(= (BeliefCycle $t) (do (sequential (
-                                     (let $Ev (SelectHighestPriorityEvent &belief_events $t)
+(= (BeliefCycle $t) (do (sequential ((let $Ev (SelectHighestPriorityEvent &belief_events $t)
                                           (sequential ((remove-atom &belief_events $Ev)
                                                        (ReasonWithTask $Ev $t))))
                                      (UpdateReasonerState)
                                      (BoundEvents &belief_events 0.0 0.1 (BeliefEventsMax) $t)
                                      (BoundAttention 0.0 0.1 (AttentionalFocusConceptsMax) $t)))))
-
 ;;Temporal inference (sequence and implication formation based on FIFO)
 
 ;use the event's evidence to induce a time-independent belief which can be used in the future
@@ -558,14 +551,16 @@
 
 ;; !(import! &self NARS.metta)
 
-!(pragma! trace-on-fail False)
-!(pragma! trace-on-pass False)
-!(pragma! trace-on-error False)
-!(pragma! trace-on-eval False)
+;;MeTTaLog only: !(pragma! trace-on-load True)
 
-!(pragma! trace-on-load True)
-!(pragma! trace-on-exec True)
-!(pragma! trace-on-overflow True)
+
+;;MeTTaLog only: !(pragma! trace-on-fail False)
+;;MeTTaLog only: !(pragma! trace-on-pass False)
+;;MeTTaLog only: !(pragma! trace-on-error False)
+;;MeTTaLog only: !(pragma! trace-on-eval False)
+;;MeTTaLog only: !(pragma! trace-on-load True)
+;;MeTTaLog only: !(pragma! trace-on-exec True)
+;;MeTTaLog only: !(pragma! trace-on-overflow True)
 
 ; debug
 ; !(assertEqual (TupleCount (get-atoms &belief_events)) 0)
@@ -592,6 +587,6 @@
 !(assertEqual
   (AddGoalEvent ((sheep --> ([ counted ])) (1.0 0.9)))
   (^ count))
-  
+
 !(pragma! trace-on-eval True)
 
