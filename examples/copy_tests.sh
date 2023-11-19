@@ -18,8 +18,8 @@ find ./?*/?*/ -type f  -name "*.metta"  -exec dirname {} \; | sort -u | while re
     echo "$dir/ -> $dest_dir"
     echo "$parent_dir/ -> $parent_dest_dir"
 
-    rsync -av --ignore-existing --include='*.py' --include='*.metta' --exclude='*' "$parent_dir/" "$parent_dest_dir"
-    rsync -av --ignore-existing --include='*.metta' --exclude='*' "$dir/" "$dest_dir"
+    rsync -av --ignore-existing --include='*.py'   --include='*?.??*'   --include='*.md'  --include='*.sh' --include='*.metta' --exclude='*' "$parent_dir/" "$parent_dest_dir"
+    rsync -av --ignore-existing --include='*.py'  --include='*?.??*'   --include='*.md'  --include='*.sh' --include='*.metta' --exclude='*' "$dir/" "$dest_dir"
 done
 
 
