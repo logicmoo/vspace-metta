@@ -1,10 +1,10 @@
 
 mkdir -p compat
-mkdir -p compat-override
-mkdir -p temp
+mkdir -p override-compat
+mkdir -p ~temp~
 
 (
-cd temp/
+cd ~temp~/
 ln -s ../../../hyperon-experimental
 ln -s ../../../hyperon-miner
 ln -s ../../../hyperon-pln
@@ -43,8 +43,8 @@ find ./?*/?*/ -type f  -name "*.metta" -exec dirname {} \; | sort -u | while rea
     parent_dir=$(dirname "$dir")
     dest_dir="../compat/${dir#./}"
     parent_dest_dir="../compat/${parent_dir#./}"
-    override_dir="../compat-override/${dir#./}"
-    parent_override_dir="../compat-override/${parent_dir#./}"
+    override_dir="../override-compat/${dir#./}"
+    parent_override_dir="../override-compat/${parent_dir#./}"
 
     mkdir -p "$dest_dir"
     mkdir -p "$parent_dest_dir"
