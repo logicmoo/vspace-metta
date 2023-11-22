@@ -1,5 +1,8 @@
 
-foo :-
+
+
+foo1 :-
+ ((
 %   /name, position, has sister/
     Employers=[_ , _ , _],
 %    /Boris has sister/
@@ -10,4 +13,15 @@ foo :-
     nextto([ _ , controller, _], [semyon, _ , _ ], Employers),
     member([ivan, _ , _ ], Employers),
     member([_, supervisor, _], Employers),
-    print(Employers), nl.
+    writeq(Employers), nl)),
+    call(halt).
+
+nextto(X, Y, [X,Y|_]) :- !.
+nextto(X, Y, [_|Zs] ) :- nextto(X, Y, Zs).
+
+foo:- time(foo1).
+
+:- foo.
+
+
+
