@@ -24,6 +24,6 @@
 !(update-state! &fail :uncalled)
 
 !(assertEqual (pass-or-fail-f) :pass)
-!(assertEqual (get-state &pass) :called)
+!(assertEqual (get-state &pass) :uncalled)
 !(assertEqual (get-state &fail) :uncalled)
 

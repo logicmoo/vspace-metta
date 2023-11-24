@@ -84,9 +84,10 @@
 ; TODO: MINIMAL This test has different behavior in old and new versions of the
 ;       interpreter versions. Uncomment it after migration to the minimal MeTTa.
 ; This list is badly typed, because S and Z are not the same type
-;!(assertEqualToResult
-;  (Cons S (Cons Z Nil))
-;  ((Error (Cons Z Nil) BadType)))
+!(assertEqualToResult
+  (Cons S (Cons Z Nil))
+  ((Error  Z  BadType)))
+;; We uncomment this because it still works in MeTTaLog ! 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

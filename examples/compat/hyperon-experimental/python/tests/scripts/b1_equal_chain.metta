@@ -67,3 +67,4 @@
 !(assertEqualToResult
    (eq Green Blue)
   ((eq Green Blue)))
+
