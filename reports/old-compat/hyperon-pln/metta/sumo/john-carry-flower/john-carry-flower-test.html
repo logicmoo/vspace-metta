@@ -1,0 +1,658 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/sumo/john-carry-flower/john-carry-flower-test.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/sumo/john-carry-flower/john-carry-flower-test.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/sumo/john-carry-flower/john-carry-flower-test.metta')
+1=[(Error (import! GroundingSpace-0x5583b20dfe78 ../../synthesis/Synthesize.metta) Failed to load module ../../synthesis/Synthesize.metta; could not locate file)]
+2=0.11user 0.01system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 32196maxresident)k
+2=0inputs+0outputs (0major+3453minor)pagefaults 0swaps
+;;; Test reasoning on the content of orientation.kif.metta.  Before
+;;; running that file, make sure `orientation.kif.metta` has been
+;;; properly generated.  See `README.md` for more information on how to
+;;; do that.
+;; Import synthesizer
+<span class="ansi38-000068000">!(import! &self "../../synthesis/Synthesize.metta")
+
+</span>;; Import knowledge base
+<span class="ansi38-000068000">!(import! &kb john-carry-flower.kif.metta)
+
+</span>;; Import rule base
+<span class="ansi38-000068000">!(import! &rb "../rule-base.metta")
+
+</span>;; Label each statement in the knowledge base as a witness of a type,
+;; because that is what the synthesizer expects.  For now each witness
+;; is defined by using the `WitnessOf` construct.  So for instance the
+;; statement
+;;
+;; (instance A Object)
+;;
+;; has the corresponding witness
+;;
+;; (WitnessOf (instance A Object))
+;;
+;; Then add the labelled statement in the labelled-kb space.
+<span class="ansi38-000068000">!(bind! &labelled-kb 
+  (new-space))
+
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi38-000068000">!(match &kb $X 
+  (add-atom &labelled-kb 
+    (: 
+      (WitnessOf $X) $X)))
+
+</span>; (add-atom &labelled-kb 
+    (: 
+      (WitnessOf ()) ()))
+; (type-method is_not_meTTa_space &labelled-kb add_to_space)
+;; Define knowledge base (called kb but different than &kb)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb,[->,'Atom']])
+</span><span class="ansi38-255165000">  (: kb 
+    (-> Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[kb],[match,'&labelled-kb',X,X])
+</span><span class="ansi38-255165000">  (= 
+    (kb) 
+    (match &labelled-kb $X $X))
+</span>
+
+;; Define rule base (called rb but different than &rb)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb,[->,'Atom']])
+</span><span class="ansi38-255165000">  (: rb 
+    (-> Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[rb],[match,'&rb',X,X])
+</span><span class="ansi38-255165000">  (= 
+    (rb) 
+    (match &rb $X $X))
+</span>
+
+;; ;; Call synthesizer on query (â§ (instance $C Carrying) (agent $C John))
+;; !(synthesize (: $proof (â§ (instance $C Carrying) (agent $C John)))
+;;              kb rb (fromNumber 1))
+;; ;; Call synthesizer on query (â§ (instance $C Carrying) (agent $C John) (instance $F Flower))
+;; !(synthesize (: $proof (â§ (instance $C Carrying) (agent $C John) (instance $F Flower)))
+;;              kb rb (fromNumber 2))
+;; Call synthesizer on query (instance JohnsCarry Transfer)
+;;
+;; Should synthesize the following proof tree
+;;                                                              ----------------------------     ------------------------------
+;;                                                              (subclass Carrying Transfer)     (instance JohnsCarry Carrying)
+;;                                                              ---------------------------------------------------------------(BinaryConjunctionIntroduction)
+;; (â¹ (â§ (subclass $X $Y) (instance $Z $X)) (instance $Z $Y))  (â§ (subclass Carrying Transfer) (instance JohnsCarry Carrying))
+;; ----------------------------------------------------------------------------------------------------------------------------(ModusPonens)
+;;                                             (instance JohnsCarry Transfer)
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (synthesize 
+    (: $Proof 
+      (instance JohnsCarry Transfer)) kb rb 
+    (fromNumber 2)) 
+  ( (: 
+      (ModusPonens 
+        (WitnessOf 
+          (â¹ 
+            (â§ 
+              (subclass Carrying Transfer) 
+              (instance JohnsCarry Carrying)) 
+            (instance JohnsCarry Transfer))) 
+        (BinaryConjunctionIntroduction 
+          (WitnessOf 
+            (subclass Carrying Transfer)) 
+          (WitnessOf 
+            (instance JohnsCarry Carrying)))) 
+      (instance JohnsCarry Transfer))))
+
+</span><h3 id="JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.01">;; JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.01</h3>
+; 
+; EVAL TEST
+; took 1.09 ms.
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    ( (synthesize 
+        (: $_463364 
+          (instance JohnsCarry Transfer)) kb rb 
+        (fromNumber 2))) 
+    ( (: 
+        (ModusPonens 
+          (WitnessOf 
+            (â¹ 
+              (â§ 
+                (subclass Carrying Transfer) 
+                (instance JohnsCarry Carrying)) 
+              (instance JohnsCarry Transfer))) 
+          (BinaryConjunctionIntroduction 
+            (WitnessOf 
+              (subclass Carrying Transfer)) 
+            (WitnessOf 
+              (instance JohnsCarry Carrying)))) 
+        (instance JohnsCarry Transfer)))))
+</span>; Trace took 0.932 ms. (932.40 microseconds) 
+<span class="ansi33">  (got 
+    ( (synthesize 
+        (: $_2762 
+          (instance JohnsCarry Transfer)) kb rb 
+        (fromNumber 2))) expected 
+    ( (: 
+        (ModusPonens 
+          (WitnessOf 
+            (â¹ 
+              (â§ 
+                (subclass Carrying Transfer) 
+                (instance JohnsCarry Carrying)) 
+              (instance JohnsCarry Transfer))) 
+          (BinaryConjunctionIntroduction 
+            (WitnessOf 
+              (subclass Carrying Transfer)) 
+            (WitnessOf 
+              (instance JohnsCarry Carrying)))) 
+        (instance JohnsCarry Transfer))))
+
+</span>;; Call synthesizer on query (â§ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
+;;
+;; Should synthesize the following proof tree
+;;
+;;
+;;                                                              ----------------------------     ------------------------------
+;;                                                              (subclass Carrying Transfer)     (instance JohnsCarry Carrying)
+;;                                                              ---------------------------------------------------------------(BinaryConjunctionIntroduction)
+;; (â¹ (â§ (subclass $X $Y) (instance $Z $X)) (instance $Z $Y))  (â§ (subclass Carrying Transfer) (instance JohnsCarry Carrying))
+;; ----------------------------------------------------------------------------------------------------------------------------(ModusPonens)   ----------------------------------------  ------------------------------------------
+;;                                             (instance JohnsCarry Transfer)                                                                  (objectTransferred JohnsCarry JohnsVase)  (orientation JohnsFlower JohnsVase Inside)
+;;                                             ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(TrinaryConjunctionIntroduction)
+;;                                                                       (â§ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (synthesize 
+    (: $Proof 
+      (â§ 
+        (instance JohnsCarry Transfer) 
+        (objectTransferred JohnsCarry JohnsVase) 
+        (orientation JohnsFlower JohnsVase Inside))) kb rb 
+    (fromNumber 3)) 
+  ( (let* 
+      ( ( (: $Proof1_C35_2753 
+            (â¹ $X_C35_2654 
+              (â§ 
+                (instance JohnsCarry Transfer) 
+                (objectTransferred JohnsCarry JohnsVase) 
+                (orientation JohnsFlower JohnsVase Inside)))) 
+          (synthesize 
+            (: $Proof1_C35_2753 
+              (â¹ $X_C35_2654 
+                (â§ 
+                  (instance JohnsCarry Transfer) 
+                  (objectTransferred JohnsCarry JohnsVase) 
+                  (orientation JohnsFlower JohnsVase Inside)))) kb rb 
+            (S 
+              (S Z)))) 
+        ( (: $Proof2_C35_2754 $X_C35_2654) 
+          (synthesize 
+            (: $Proof2_C35_2754 $X_C35_2654) kb rb 
+            (S 
+              (S Z))))) 
+      (: 
+        (ModusPonens $Proof1_C35_2753 $Proof2_C35_2754) 
+        (â§ 
+          (instance JohnsCarry Transfer) 
+          (objectTransferred JohnsCarry JohnsVase) 
+          (orientation JohnsFlower JohnsVase Inside)))) 
+    (: 
+      (TrinaryConjunctionIntroduction 
+        (ModusPonens 
+          (WitnessOf 
+            (â¹ 
+              (â§ 
+                (subclass Carrying Transfer) 
+                (instance JohnsCarry Carrying)) 
+              (instance JohnsCarry Transfer))) 
+          (BinaryConjunctionIntroduction 
+            (WitnessOf 
+              (subclass Carrying Transfer)) 
+            (WitnessOf 
+              (instance JohnsCarry Carrying)))) 
+        (WitnessOf 
+          (objectTransferred JohnsCarry JohnsVase)) 
+        (WitnessOf 
+          (orientation JohnsFlower JohnsVase Inside))) 
+      (â§ 
+        (instance JohnsCarry Transfer) 
+        (objectTransferred JohnsCarry JohnsVase) 
+        (orientation JohnsFlower JohnsVase Inside)))))
+
+</span><h3 id="JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.02">;; JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.02</h3>
+; 
+; EVAL TEST
+; took 2.43 ms.
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    ( (synthesize 
+        (: $_293228 
+          (â§ 
+            (instance JohnsCarry Transfer) 
+            (objectTransferred JohnsCarry JohnsVase) 
+            (orientation JohnsFlower JohnsVase Inside))) kb rb 
+        (fromNumber 3))) 
+    ( (let* 
+        ( ( (: $_278566 
+              (â¹ $_278950 
+                (â§ 
+                  (instance JohnsCarry Transfer) 
+                  (objectTransferred JohnsCarry JohnsVase) 
+                  (orientation JohnsFlower JohnsVase Inside)))) 
+            (synthesize 
+              (: $_278566 
+                (â¹ $_278950 
+                  (â§ 
+                    (instance JohnsCarry Transfer) 
+                    (objectTransferred JohnsCarry JohnsVase) 
+                    (orientation JohnsFlower JohnsVase Inside)))) kb rb 
+              (S 
+                (S Z)))) 
+          ( (: $_280354 $_278950) 
+            (synthesize 
+              (: $_280354 $_278950) kb rb 
+              (S 
+                (S Z))))) 
+        (: 
+          (ModusPonens $_278566 $_280354) 
+          (â§ 
+            (instance JohnsCarry Transfer) 
+            (objectTransferred JohnsCarry JohnsVase) 
+            (orientation JohnsFlower JohnsVase Inside)))) 
+      (: 
+        (TrinaryConjunctionIntroduction 
+          (ModusPonens 
+            (WitnessOf 
+              (â¹ 
+                (â§ 
+                  (subclass Carrying Transfer) 
+                  (instance JohnsCarry Carrying)) 
+                (instance JohnsCarry Transfer))) 
+            (BinaryConjunctionIntroduction 
+              (WitnessOf 
+                (subclass Carrying Transfer)) 
+              (WitnessOf 
+                (instance JohnsCarry Carrying)))) 
+          (WitnessOf 
+            (objectTransferred JohnsCarry JohnsVase)) 
+          (WitnessOf 
+            (orientation JohnsFlower JohnsVase Inside))) 
+        (â§ 
+          (instance JohnsCarry Transfer) 
+          (objectTransferred JohnsCarry JohnsVase) 
+          (orientation JohnsFlower JohnsVase Inside))))))
+</span>; Trace took 2.42 ms.
+<span class="ansi33">  (got 
+    ( (synthesize 
+        (: $_293228 
+          (â§ 
+            (instance JohnsCarry Transfer) 
+            (objectTransferred JohnsCarry JohnsVase) 
+            (orientation JohnsFlower JohnsVase Inside))) kb rb 
+        (fromNumber 3))) expected 
+    ( (let* 
+        ( ( (: $_278566 
+              (â¹ $_278950 
+                (â§ 
+                  (instance JohnsCarry Transfer) 
+                  (objectTransferred JohnsCarry JohnsVase) 
+                  (orientation JohnsFlower JohnsVase Inside)))) 
+            (synthesize 
+              (: $_278566 
+                (â¹ $_278950 
+                  (â§ 
+                    (instance JohnsCarry Transfer) 
+                    (objectTransferred JohnsCarry JohnsVase) 
+                    (orientation JohnsFlower JohnsVase Inside)))) kb rb 
+              (S 
+                (S Z)))) 
+          ( (: $_280354 $_278950) 
+            (synthesize 
+              (: $_280354 $_278950) kb rb 
+              (S 
+                (S Z))))) 
+        (: 
+          (ModusPonens $_278566 $_280354) 
+          (â§ 
+            (instance JohnsCarry Transfer) 
+            (objectTransferred JohnsCarry JohnsVase) 
+            (orientation JohnsFlower JohnsVase Inside)))) 
+      (: 
+        (TrinaryConjunctionIntroduction 
+          (ModusPonens 
+            (WitnessOf 
+              (â¹ 
+                (â§ 
+                  (subclass Carrying Transfer) 
+                  (instance JohnsCarry Carrying)) 
+                (instance JohnsCarry Transfer))) 
+            (BinaryConjunctionIntroduction 
+              (WitnessOf 
+                (subclass Carrying Transfer)) 
+              (WitnessOf 
+                (instance JohnsCarry Carrying)))) 
+          (WitnessOf 
+            (objectTransferred JohnsCarry JohnsVase)) 
+          (WitnessOf 
+            (orientation JohnsFlower JohnsVase Inside))) 
+        (â§ 
+          (instance JohnsCarry Transfer) 
+          (objectTransferred JohnsCarry JohnsVase) 
+          (orientation JohnsFlower JohnsVase Inside)))))
+
+</span>;; Call synthesizer on query (objectTransferred JohnsCarry JohnsFlower)
+;;
+;; Should synthesize the following proof tree
+;;                                                                                                                                       ----------------------------     ------------------------------
+;;                                                                                                                                       (subclass Carrying Transfer)     (instance JohnsCarry Carrying)
+;;                                                                                                                                       ---------------------------------------------------------------(BinaryConjunctionIntroduction)
+;;                                                                          (â¹ (â§ (subclass $X $Y) (instance $Z $X)) (instance $Z $Y))  (â§ (subclass Carrying Transfer) (instance JohnsCarry Carrying))
+;;                                                                          ----------------------------------------------------------------------------------------------------------------------------(ModusPonens)   ----------------------------------------  ------------------------------------------
+;;                                                                                                                      (instance JohnsCarry Transfer)                                                                  (objectTransferred JohnsCarry JohnsVase)  (orientation JohnsFlower JohnsVase Inside)
+;; -----------------------------------------------------------------------------------------------------------------    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(TrinaryConjunctionIntroduction)
+;; (â¹ (â§ (instance $T Transfer) (objectTransferred $T $O) (orientation $O2 $O Inside)) (objectTransferred $T $O2))    (â§ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
+;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(ModusPonens)
+;;                                                                                              (objectTransferred JohnsCarry JohnsFlower)
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (synthesize 
+    (: $Proof 
+      (objectTransferred JohnsCarry JohnsFlower)) kb rb 
+    (fromNumber 4)) 
+  ( (: 
+      (ModusPonens 
+        (WitnessOf 
+          (â¹ 
+            (â§ 
+              (instance JohnsCarry Transfer) 
+              (objectTransferred JohnsCarry JohnsVase) 
+              (orientation JohnsFlower JohnsVase Inside)) 
+            (objectTransferred JohnsCarry JohnsFlower))) 
+        (TrinaryConjunctionIntroduction 
+          (ModusPonens 
+            (WitnessOf 
+              (â¹ 
+                (â§ 
+                  (subclass Carrying Transfer) 
+                  (instance JohnsCarry Carrying)) 
+                (instance JohnsCarry Transfer))) 
+            (BinaryConjunctionIntroduction 
+              (WitnessOf 
+                (subclass Carrying Transfer)) 
+              (WitnessOf 
+                (instance JohnsCarry Carrying)))) 
+          (WitnessOf 
+            (objectTransferred JohnsCarry JohnsVase)) 
+          (WitnessOf 
+            (orientation JohnsFlower JohnsVase Inside)))) 
+      (objectTransferred JohnsCarry JohnsFlower))))
+
+</span><h3 id="JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.03">;; JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.03</h3>
+; 
+; EVAL TEST
+; took 1.42 ms.
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    ( (synthesize 
+        (: $_95626 
+          (objectTransferred JohnsCarry JohnsFlower)) kb rb 
+        (fromNumber 4))) 
+    ( (: 
+        (ModusPonens 
+          (WitnessOf 
+            (â¹ 
+              (â§ 
+                (instance JohnsCarry Transfer) 
+                (objectTransferred JohnsCarry JohnsVase) 
+                (orientation JohnsFlower JohnsVase Inside)) 
+              (objectTransferred JohnsCarry JohnsFlower))) 
+          (TrinaryConjunctionIntroduction 
+            (ModusPonens 
+              (WitnessOf 
+                (â¹ 
+                  (â§ 
+                    (subclass Carrying Transfer) 
+                    (instance JohnsCarry Carrying)) 
+                  (instance JohnsCarry Transfer))) 
+              (BinaryConjunctionIntroduction 
+                (WitnessOf 
+                  (subclass Carrying Transfer)) 
+                (WitnessOf 
+                  (instance JohnsCarry Carrying)))) 
+            (WitnessOf 
+              (objectTransferred JohnsCarry JohnsVase)) 
+            (WitnessOf 
+              (orientation JohnsFlower JohnsVase Inside)))) 
+        (objectTransferred JohnsCarry JohnsFlower)))))
+</span>; Trace took 1.05 ms.
+<span class="ansi33">  (got 
+    ( (synthesize 
+        (: $_95626 
+          (objectTransferred JohnsCarry JohnsFlower)) kb rb 
+        (fromNumber 4))) expected 
+    ( (: 
+        (ModusPonens 
+          (WitnessOf 
+            (â¹ 
+              (â§ 
+                (instance JohnsCarry Transfer) 
+                (objectTransferred JohnsCarry JohnsVase) 
+                (orientation JohnsFlower JohnsVase Inside)) 
+              (objectTransferred JohnsCarry JohnsFlower))) 
+          (TrinaryConjunctionIntroduction 
+            (ModusPonens 
+              (WitnessOf 
+                (â¹ 
+                  (â§ 
+                    (subclass Carrying Transfer) 
+                    (instance JohnsCarry Carrying)) 
+                  (instance JohnsCarry Transfer))) 
+              (BinaryConjunctionIntroduction 
+                (WitnessOf 
+                  (subclass Carrying Transfer)) 
+                (WitnessOf 
+                  (instance JohnsCarry Carrying)))) 
+            (WitnessOf 
+              (objectTransferred JohnsCarry JohnsVase)) 
+            (WitnessOf 
+              (orientation JohnsFlower JohnsVase Inside)))) 
+        (objectTransferred JohnsCarry JohnsFlower))))
+
+</span>;; Call synthesizer on query (â§ (instance $C Carrying)
+;;                              (agent $C John)
+;;                              (instance $F Flower)
+;;                              (objectTransferred $C $F))
+;;
+;; Should synthesize the following proof tree
+;;                                                                                                                                                                                                                                                                              ----------------------------     ------------------------------
+;;                                                                                                                                                                                                                                                                              (subclass Carrying Transfer)     (instance JohnsCarry Carrying)
+;;                                                                                                                                                                                                                                                                              ---------------------------------------------------------------(BinaryConjunctionIntroduction)
+;;                                                                                                                                                                                                                 (â¹ (â§ (subclass $X $Y) (instance $Z $X)) (instance $Z $Y))  (â§ (subclass Carrying Transfer) (instance JohnsCarry Carrying))
+;;                                                                                                                                                                                                                 ----------------------------------------------------------------------------------------------------------------------------(ModusPonens)   ----------------------------------------  ------------------------------------------
+;;                                                                                                                                                                                                                 (instance JohnsCarry Transfer)                                                                  (objectTransferred JohnsCarry JohnsVase)  (orientation JohnsFlower JohnsVase Inside)
+;;                                                                                            -----------------------------------------------------------------------------------------------------------------    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(TrinaryConjunctionIntroduction)
+;;                                                                                            (â¹ (â§ (instance $T Transfer) (objectTransferred $T $O) (orientation $O2 $O Inside)) (objectTransferred $T $O2))    (â§ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))
+;; ------------------------------   -----------------------   -----------------------------   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(ModusPonens)
+;; (instance JohnsCarry Carrying)   (agent JohnsCarry John)   (instance JohnsFlower Flower)   (objectTransferred JohnsCarry JohnsFlower)
+;; --------------------------------------------------------------------------------------------------------------------------------------(QuaternaryConjuctionIntroduction)
+;;  (â§ (instance JohnsCarry Carrying) (agent JohnsCarry John) (instance JohnsFlower Flower) (objectTransferred JohnsCarry JohnsFlower))
+;;
+;; Corresponding to the MeTTa expression:
+;;
+;; (: (QuaternaryConjunctionIntroduction (WitnessOf (instance JohnsCarry Carrying))
+;;                                       (WitnessOf (agent JohnsCarry John))
+;;                                       (WitnessOf (instance JohnsFlower Flower))
+;;                                       (ModusPonens (WitnessOf (â¹ (â§ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside)) (objectTransferred JohnsCarry JohnsFlower)))
+;;                                                    (TrinaryConjunctionIntroduction (ModusPonens (WitnessOf (â¹ (â§ (subclass Carrying Transfer) (instance JohnsCarry Carrying)) (instance JohnsCarry Transfer)))
+;;                                                                                                 (BinaryConjunctionIntroduction (WitnessOf (subclass Carrying Transfer)) (WitnessOf (instance JohnsCarry Carrying))))
+;;                                                                                    (WitnessOf (objectTransferred JohnsCarry JohnsVase))
+;;                                                                                    (WitnessOf (orientation JohnsFlower JohnsVase Inside)))))
+;;    (â§ (instance JohnsCarry Carrying) (agent JohnsCarry John) (instance JohnsFlower Flower) (objectTransferred JohnsCarry JohnsFlower)))
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (synthesize 
+    (: $Proof 
+      (â§ 
+        (instance $C Carrying) 
+        (agent $C John) 
+        (instance $False Flower) 
+        (objectTransferred $C $False))) kb rb 
+    (fromNumber 5)) 
+  (: 
+    (TrinaryConjunctionIntroduction 
+      (ModusPonens 
+        (WitnessOf 
+          (â¹ 
+            (â§ 
+              (subclass Carrying Transfer) 
+              (instance JohnsCarry Carrying)) 
+            (instance JohnsCarry Transfer))) 
+        (BinaryConjunctionIntroduction 
+          (WitnessOf 
+            (subclass Carrying Transfer)) 
+          (WitnessOf 
+            (instance JohnsCarry Carrying)))) 
+      (WitnessOf 
+        (objectTransferred JohnsCarry JohnsVase)) 
+      (WitnessOf 
+        (orientation JohnsFlower JohnsVase Inside))) 
+    (â§ 
+      (instance JohnsCarry Transfer) 
+      (objectTransferred JohnsCarry JohnsVase) 
+      (orientation JohnsFlower JohnsVase Inside))) and 
+  (let* 
+    ( ( (: $Proof1_C35_7258 
+          (â¹ $X_C35_7202 
+            (â§ 
+              (instance JohnsCarry Transfer) 
+              (objectTransferred JohnsCarry JohnsVase) 
+              (orientation JohnsFlower JohnsVase Inside)))) 
+        (synthesize 
+          (: $Proof1_C35_7258 
+            (â¹ $X_C35_7202 
+              (â§ 
+                (instance JohnsCarry Transfer) 
+                (objectTransferred JohnsCarry JohnsVase) 
+                (orientation JohnsFlower JohnsVase Inside)))) kb rb 
+          (S 
+            (S Z)))) 
+      ( (: $Proof2_C35_7259 $X_C35_7202) 
+        (synthesize 
+          (: $Proof2_C35_7259 $X_C35_7202) kb rb 
+          (S 
+            (S Z))))) 
+    (: 
+      (ModusPonens $Proof1_C35_7258 $Proof2_C35_7259) 
+      (â§ 
+        (instance JohnsCarry Transfer) 
+        (objectTransferred JohnsCarry JohnsVase) 
+        (orientation JohnsFlower JohnsVase Inside)))))
+
+</span><span class="ansi33">  (assertEqualToResult 
+    (synthesize 
+      (: $_4172 
+        (â§ 
+          (instance $_4214 Carrying) 
+          (agent $_4214 John) 
+          (instance $_4274 Flower) 
+          (objectTransferred $_4214 $_4274))) kb rb 
+      (fromNumber 5)) 
+    (: 
+      (TrinaryConjunctionIntroduction 
+        (ModusPonens 
+          (WitnessOf 
+            (â¹ 
+              (â§ 
+                (subclass Carrying Transfer) 
+                (instance JohnsCarry Carrying)) 
+              (instance JohnsCarry Transfer))) 
+          (BinaryConjunctionIntroduction 
+            (WitnessOf 
+              (subclass Carrying Transfer)) 
+            (WitnessOf 
+              (instance JohnsCarry Carrying)))) 
+        (WitnessOf 
+          (objectTransferred JohnsCarry JohnsVase)) 
+        (WitnessOf 
+          (orientation JohnsFlower JohnsVase Inside))) 
+      (â§ 
+        (instance JohnsCarry Transfer) 
+        (objectTransferred JohnsCarry JohnsVase) 
+        (orientation JohnsFlower JohnsVase Inside))) and 
+    (let* 
+      ( ( (: $_4790 
+            (â¹ $_4820 
+              (â§ 
+                (instance JohnsCarry Transfer) 
+                (objectTransferred JohnsCarry JohnsVase) 
+                (orientation JohnsFlower JohnsVase Inside)))) 
+          (synthesize 
+            (: $_4790 
+              (â¹ $_4820 
+                (â§ 
+                  (instance JohnsCarry Transfer) 
+                  (objectTransferred JohnsCarry JohnsVase) 
+                  (orientation JohnsFlower JohnsVase Inside)))) kb rb 
+            (S 
+              (S Z)))) 
+        ( (: $_5126 $_4820) 
+          (synthesize 
+            (: $_5126 $_4820) kb rb 
+            (S 
+              (S Z))))) 
+      (: 
+        (ModusPonens $_4790 $_5126) 
+        (â§ 
+          (instance JohnsCarry Transfer) 
+          (objectTransferred JohnsCarry JohnsVase) 
+          (orientation JohnsFlower JohnsVase Inside)))))
+
+</span><span class="ansi32">% 1,638,275 inferences, 2.049 CPU in 2.049 seconds (100% CPU, 799546 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/sumo/john-carry-flower/john-carry-flower-test.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/sumo/john-carry-flower/john-carry-flower-test.html" )
+
+</pre>
+</body>
+
+</html>

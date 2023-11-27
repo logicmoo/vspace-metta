@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta')
+1=[]
+2=[()]
+3=[]
+4=[GroundingSpace-0x55fb90f8d9f8]
+5=[(Error (Error (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) Exception caught:
+5=OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "musicbrainz"
+5=connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "musicbrainz"
+5=
+5=
+5=At:
+5=  /usr/lib/python3/dist-packages/psycopg2/__init__.py(122): connect
+5=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space.py(134): __init__
+5=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space.py(230): <lambda>
+5=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(320): execute
+5=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(167): _priv_call_execute_on_grounded_atom
+5=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(31): run_step
+5=  (18): run_step
+5=) BadType)]
+5=0.14user 0.03system 0:00.18elapsed 95%CPU (0avgtext+0avgdata 47052maxresident)k
+5=960inputs+32outputs (4major+4628minor)pagefaults 0swaps
+<span class="ansi38-000068000">!(extend-py! sql_space)
+
+</span><span class="ansi33">  (extend-py! sql_space)
+
+</span>; database can be installed with use of   https://github.com/metabrainz/musicbrainz-docker#publish-ports-of-all-services
+; the description https://musicbrainz.org/doc/MusicBrainz_Database
+<span class="ansi38-000068000">!(bind! &sql_space 
+  (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432))
+
+</span><span class="ansi33"> Empty
+
+</span>; save sql query results into given space
+<span class="ansi38-000068000">!(sql.save-query-result &sql_space &self 
+  (and 
+    (musicbrainz.artist 
+      (id $Id) 
+      (name $Name)) 
+    (musicbrainz.artist 
+      (id $Id) 
+      (begin_date_year 1977)) 
+    (limit 3)))
+
+</span>%~ catch_warn(apply(name,[_480370,_480376])) -->
+%~   error(instantiation_error,context(system:name/2,Context_Kw)).
+%~ catch_warn(apply(name,[_501914,_501920])) -->
+%~   error(instantiation_error,context(system:name/2,Context_Kw)).
+%~ catch_warn(apply(limit,[3,_5724])) -->
+%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
+%~ catch_warn(apply(name,[_26642,_26648])) -->
+%~   error(instantiation_error,context(system:name/2,Context_Kw)).
+%~ catch_warn(apply(name,[_48574,_48580])) -->
+%~   error(instantiation_error,context(system:name/2,Context_Kw)).
+%~ catch_warn(apply(limit,[3,_69488])) -->
+%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
+<span class="ansi33">  (sql.save-query-result 
+    (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self True)
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (sql.save-query-result &sql_space &self 
+      (and 
+        (musicbrainz.artist 
+          (id $Id) 
+          (name $Name)) 
+        (musicbrainz.artist 
+          (id $Id) 
+          (begin_date_year 1977)) 
+        (limit 3))) ())
+(@ ! 
+  (assertEqual 
+    ( (sql.save-query-result 
+        (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self True)) ()))
+write_pass_fail_result("SQL-SPACE.SQL-SPACE-TEST.103",exec,['sql.save-query-result','&sql_space','&self',[',',['musicbrainz.artist',[id,Id],[name,Name]],['musicbrainz.artist',[id,Id],[begin_date_year,1977]],[limit,3]]],'FAIL',[],[['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(get-atoms &self)
+
+</span><span class="ansi33"> ()
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (get-atoms &self) 
+    (GroundingSpace-0x55fb90f8d9f8))
+(@ ! 
+  (assertEqual 
+    (()) 
+    (GroundingSpace-0x55fb90f8d9f8)))
+write_pass_fail_result("SQL-SPACE.SQL-SPACE-TEST.104",exec,['get-atoms','&self'],'FAIL',['GroundingSpace-0x55fb90f8d9f8'],[[]])
+
+</span>
+
+--------------------------------------------------------------------------
+;result : [GroundingSpace, ((musicbrainz.artist (id "127482") (name "Kanye West"))), ((musicbrainz.artist (id "127482") (begin_date_year 1977))), ((musicbrainz.artist (id "23366") (name "The Dirty Dozen Brass Band"))), ((musicbrainz.artist (id "23366") (begin_date_year 1977))), ((musicbrainz.artist (id "35629") (name "Fabolous"))), ((musicbrainz.artist (id "35629") (begin_date_year 1977)))]
+<span class="ansi38-000068000">!(match &sql_space 
+  (and 
+    (musicbrainz.artist 
+      (id $Id) 
+      (name $Name)) 
+    (musicbrainz.artist 
+      (id $Id) 
+      (begin_date_year 1983)) 
+    (limit 3)) $Name)
+
+</span>;result ["NOFX", "Red Hot Chili Peppers", "Bon Jovi"]
+<span class="ansi38-000068000">!(sql.insert &sql_space 
+  ( (table musicbrainz.artist) 
+    (gid "uuid_generate_v4()") 
+    (name "some name3") 
+    (sort_name "name some3") 
+    (begin_date_year 1988) 
+    (begin_date_month 1) 
+    (begin_date_day 1) 
+    (type 1) 
+    (area 222) 
+    (gender 2)))
+
+</span><span class="ansi33">  (sql.insert 
+    (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) 
+    (True 
+      (gid "uuid_generate_v4()") 
+      (115 111 109 101 32 110 97 109 101 51) 
+      (sort_name "name some3") 
+      (begin_date_year 1988) 
+      (begin_date_month 1) 
+      (begin_date_day 1) 
+      (type 1) 
+      (area 222) 
+      (gender 2)))
+
+</span><span class="ansi32">% 1,107,777 inferences, 0.309 CPU in 0.309 seconds (100% CPU, 3583513 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 2
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.html" )
+
+</pre>
+</body>
+
+</html>

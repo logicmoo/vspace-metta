@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/entail/DeductionEntailTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/entail/DeductionEntailTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/entail/DeductionEntailTest.metta')
+1=[(Error (import! GroundingSpace-0x563679895e38 DeductionEntail.metta) Failed to load module DeductionEntail.metta; could not locate file)]
+2=0.09user 0.02system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 32432maxresident)k
+2=0inputs+0outputs (0major+3448minor)pagefaults 0swaps
+;;; Test Deduction Entail Rule
+<span class="ansi38-000068000">!(import! &self DeductionEntail.metta)
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['P'],['â\x89\\x9E\','P',['STV',1,0.1]])
+</span><span class="ansi38-255165000">  (= 
+    (P) 
+    (â P 
+      (STV 1 0.1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['Q'],['â\x89\\x9E\','Q',['STV',1,0.1]])
+</span><span class="ansi38-255165000">  (= 
+    (Q) 
+    (â Q 
+      (STV 1 0.1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['R'],['â\x89\\x9E\','R',['STV',1,0.1]])
+</span><span class="ansi38-255165000">  (= 
+    (R) 
+    (â R 
+      (STV 1 0.1)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['PQ'],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['STV',1,0.5]])
+</span><span class="ansi38-255165000">  (= 
+    (PQ) 
+    (â 
+      (â P Q) 
+      (STV 1 0.5)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['QR'],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['STV',1,0.5]])
+</span><span class="ansi38-255165000">  (= 
+    (QR) 
+    (â 
+      (â Q R) 
+      (STV 1 0.5)))
+</span>
+
+;; Forward chain
+<span class="ansi38-000068000">!(assertEqual 
+  (let* 
+    ( ($P 
+        (P)) 
+      ($Q 
+        (Q)) 
+      ($R 
+        (R)) 
+      ($Pq 
+        (PQ)) 
+      ($Qr 
+        (QR))) 
+    (match &self 
+      (â¢ $P $Q $R $Pq $Qr $Res) $Res)) 
+  (â 
+    (â P R) 
+    (STV 1 1)))
+
+</span><h3 id="ENTAIL.DEDUCTIONENTAILTEST.01">;; ENTAIL.DEDUCTIONENTAILTEST.01</h3>
+; 
+; EVAL TEST
+; took 3.65 ms.
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  () 
+    ( (â 
+        (â P R) 
+        (STV 1 1)))))
+</span>; Trace took 3.54 ms.
+<span class="ansi33">  (got () expected 
+    ( (â 
+        (â P R) 
+        (STV 1 1))))
+
+</span><span class="ansi32">% 125,019 inferences, 0.045 CPU in 0.045 seconds (100% CPU, 2766672 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/entail/DeductionEntailTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/old-compat/hyperon-pln/metta/entail/DeductionEntailTest.html" )
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta')
+1=[]
+2=[(compile! "
+2=(= (f1 $x) (+ 2 $x))
+2=(= (use1 $f $arg)
+2=   ($f $arg))
+2=")]
+2=[(+ 1 (use1 f2 40))]
+3=[(+ 1 (use1 f1 39))]
+4=[42]
+5=[(+ 1 (f1 39))]
+6=0.16user 0.00system 0:00.17elapsed 98%CPU (0avgtext+0avgdata 34040maxresident)k
+6=744inputs+0outputs (5major+3566minor)pagefaults 0swaps
+<span class="ansi38-000068000">!(extend-py! mettamorph)
+
+</span><span class="ansi33">  (extend-py! mettamorph)
+
+</span><span class="ansi38-000068000">!(compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")
+
+</span><span class="ansi33">  (compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f2,X],[+,1,X])
+</span><span class="ansi38-255165000">  (= 
+    (f2 $X) 
+    (+ 1 $X))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[use2,False,Arg],[False,Arg])
+</span><span class="ansi38-255165000">  (= 
+    (use2 $False $Arg) 
+    ($False $Arg))
+</span>
+
+<span class="ansi38-000068000">!(+ 1 
+  (use1 f2 40))
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (+ 1 
+      (use1 f2 40)) 
+    ( (+ 1 
+        (use1 f1 39))))
+(@ ! 
+  (assertEqual () 
+    ( (+ 1 
+        (use1 f1 39)))))
+write_pass_fail_result("EXTEND.EXAMPLE3.103",exec,[+,1,[use1,f2,40]],'FAIL',[[+,1,[use1,f1,39]]],[])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(+ 1 
+  (use1 f1 39))
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (+ 1 
+      (use1 f1 39)) 
+    (42))
+(@ ! 
+  (assertEqual () 
+    (42)))
+write_pass_fail_result("EXTEND.EXAMPLE3.104",exec,[+,1,[use1,f1,39]],'FAIL',[42],[])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(+ 1 
+  (use2 f2 40))
+
+</span><span class="ansi33"> 42
+
+</span><span class="ansi31">
+! (assertEqualToResult 
+    (+ 1 
+      (use2 f2 40)) 
+    ( (+ 1 
+        (f1 39))))
+(@ ! 
+  (assertEqual 
+    (42) 
+    ( (+ 1 
+        (f1 39)))))
+write_pass_fail_result("EXTEND.EXAMPLE3.105",exec,[+,1,[use2,f2,40]],'FAIL',[[+,1,[f1,39]]],[42])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(+ 1 
+  (use2 f1 39))
+
+</span><span class="ansi32">% 78,830 inferences, 0.029 CPU in 0.029 seconds (100% CPU, 2755571 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 3
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.html" )
+
+</pre>
+</body>
+
+</html>

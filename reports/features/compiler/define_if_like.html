@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extra-compat/compiler/define_if_like.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extra-compat/compiler/define_if_like.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extra-compat/compiler/define_if_like.metta')
+1=[()]
+2=[()]
+3=[(), ()]
+4=[(Error (assertEqual :fail :pass) 
+4=Expected: [:pass]
+4=Got: [:fail]
+5=Missed result: :pass)]
+5=0.17user 0.00system 0:00.18elapsed 100%CPU (0avgtext+0avgdata 33132maxresident)k
+5=0inputs+0outputs (0major+3463minor)pagefaults 0swaps
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['if-like','True',Then,Else],Then)
+</span><span class="ansi38-255165000">  (= 
+    (if-like True $Then $Else) $Then)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['if-like','False',Then,Else],Else)
+</span><span class="ansi38-255165000">  (= 
+    (if-like False $Then $Else) $Else)
+</span>
+
+<span class="ansi38-000068000">!(bind! &pass 
+  (new-state :uncalled))
+
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi38-000068000">!(bind! &fail 
+  (new-state :uncalled))
+
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['set-pass'],[let,__,['update-state!','&pass',':called'],':pass'])
+</span><span class="ansi38-255165000">  (= 
+    (set-pass) 
+    (let $__ 
+      (update-state! &pass :called) :pass))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['set-pass'],[let,__,['update-state!','&fail',':called'],':fail'])
+</span><span class="ansi38-255165000">  (= 
+    (set-pass) 
+    (let $__ 
+      (update-state! &fail :called) :fail))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['is-true'],'True')
+</span><span class="ansi38-255165000">  (= 
+    (is-True) True)
+</span>
+
+<span class="ansi38-000068000">!(bind! pass-or-False 
+  (if-like 
+    (is-True) 
+    (set-pass) 
+    (set-False)))
+
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi38-000068000">!(assertEqual pass-or-False :pass)
+
+</span><h3 id="COMPILER.DEFINE-IF-LIKE.01">;; COMPILER.DEFINE-IF-LIKE.01</h3>
+; 
+; EVAL TEST
+; took 0.042 ms. (41.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (:pass) 
+    (:pass)))
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi38-000068000">!(assertEqual 
+  (get-state &pass) :called)
+
+</span><h3 id="COMPILER.DEFINE-IF-LIKE.02">;; COMPILER.DEFINE-IF-LIKE.02</h3>
+; 
+; EVAL TEST
+; took 0.076 ms. (76.30 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (:uncalled) 
+    (:called)))
+</span>; Trace took 0.059 ms. (59.10 microseconds) 
+<span class="ansi33">  (got 
+    (:uncalled) expected 
+    (:called))
+
+</span><span class="ansi38-000068000">!(assertEqual 
+  (get-state &fail) :uncalled)
+
+</span><h3 id="COMPILER.DEFINE-IF-LIKE.03">;; COMPILER.DEFINE-IF-LIKE.03</h3>
+; 
+; EVAL TEST
+; took 0.073 ms. (73.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (:uncalled) 
+    (:uncalled)))
+</span><span class="ansi33"> Empty
+
+</span>;; we need to not be too eager to eval arguements
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self','pass-or-fail-f',['if-like',['is-true'],['set-pass'],[superpose,['set-fail']]])
+</span><span class="ansi38-255165000">  (= pass-or-False-f 
+    (if-like 
+      (is-True) 
+      (set-pass) 
+      (superpose 
+        (set-False))))
+</span>
+
+<span class="ansi38-000068000">!(update-state! &pass :uncalled)
+
+</span><span class="ansi33">  (update-state! 
+    (State  :uncalled $_1038) :uncalled)
+
+</span><span class="ansi38-000068000">!(update-state! &fail :uncalled)
+
+</span><span class="ansi33">  (update-state! 
+    (State  :uncalled $_1052) :uncalled)
+
+</span><span class="ansi38-000068000">!(assertEqual 
+  (pass-or-False-f) :pass)
+
+</span><h3 id="COMPILER.DEFINE-IF-LIKE.04">;; COMPILER.DEFINE-IF-LIKE.04</h3>
+; 
+; EVAL TEST
+; took 0.090 ms. (89.70 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    ( (pass-or-False-f)) 
+    (:pass)))
+</span>; Trace took 0.070 ms. (69.80 microseconds) 
+<span class="ansi33">  (got 
+    ( (pass-or-False-f)) expected 
+    (:pass))
+
+</span><span class="ansi38-000068000">!(assertEqual 
+  (get-state &pass) :uncalled)
+
+</span><h3 id="COMPILER.DEFINE-IF-LIKE.05">;; COMPILER.DEFINE-IF-LIKE.05</h3>
+; 
+; EVAL TEST
+; took 0.072 ms. (72.40 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (:uncalled) 
+    (:uncalled)))
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi38-000068000">!(assertEqual 
+  (get-state &fail) :uncalled)
+
+</span><h3 id="COMPILER.DEFINE-IF-LIKE.06">;; COMPILER.DEFINE-IF-LIKE.06</h3>
+; 
+; EVAL TEST
+; took 0.078 ms. (78.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (:uncalled) 
+    (:uncalled)))
+</span><span class="ansi33"> Empty
+
+</span><span class="ansi32">% 146,525 inferences, 0.059 CPU in 0.059 seconds (100% CPU, 2477273 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extra-compat/compiler/define_if_like.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi31">Failures: 2
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extra-compat/compiler/define_if_like.html" )
+
+</pre>
+</body>
+
+</html>

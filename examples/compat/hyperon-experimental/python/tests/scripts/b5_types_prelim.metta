@@ -87,7 +87,7 @@
 !(assertEqualToResult
   (Cons S (Cons Z Nil))
   ((Error  Z  BadType)))
-;; We uncomment this because it still works in MeTTaLog ! 
+;; We uncomment this because it still works in MeTTaLog !
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -240,6 +240,8 @@
 !(assertEqualToResult
     (eqa Z (Add Z Z))
    ((eqa Z (Add Z Z))))
+
+!(repl!)
 
 ; In contrast to this:
 !(assertEqual
