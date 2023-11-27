@@ -114,3 +114,10 @@ cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
 
 git add examples/ reports/
 git status .
+git commit -am "88%"
+git push origin 
+./MeTTa ./examples/nars/current/
+./MeTTa ./examples/nars/current/tests0.metta
+cls ; ./MeTTa ./examples/nars/current/tests0.metta
+echo !(assertEqual (⩻ Z (S Z)) True)
+cls ; ./MeTTa ./examples/nars/current/tests0.metta

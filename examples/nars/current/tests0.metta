@@ -1,11 +1,11 @@
 
-;;MeTTaLog only: !(pragma! compiler full)
+;; stdlib extension
+;;MeTTaLog not-only: !(pragma! compiler full)
 ;;MeTTaLog only: !(pragma! trace-on-fail True)
 ;;MeTTaLog only: !(pragma! trace-on-pass False)
 ;;MeTTaLog only: !(pragma! trace-on-error True)
 ;;MeTTaLog only: !(pragma! trace-on-load False)
 
-;; stdlib extension
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)
 (= (If False $then) (nop))
