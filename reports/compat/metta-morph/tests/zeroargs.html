@@ -16,65 +16,81 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta')
 1=[(z)]
 2=[42]
 3=0.11user 0.00system 0:00.11elapsed 100%CPU (0avgtext+0avgdata 32736maxresident)k
 3=0inputs+0outputs (0major+3438minor)pagefaults 0swaps
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f],42)
-</span><span class="ansi38-255165000">  (= 
-    (f) 42)
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta', 1, [[z]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta', 2, [42]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[f],42)
+</span><span class="ansi38-255165000">(= 
+  (f) 42)
 </span>
 
-<span class="ansi38-000068000">!(z)
+<span class="ansi38-255165000">;; In file as:  
+!(z)
 
-</span><span class="ansi33">  (z)
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (z) 
+  ( (z)))
 
-</span><span class="ansi36">
-! (assertEqualToResult 
-    (z) 
-    ( (z)))
-(@ ! 
-  (assertEqual 
+</span><span class="ansi38-017068017">[assertEqualToResult,[z],[[z]]]
+</span><h3 id="TESTS.ZEROARGS.01">;; TESTS.ZEROARGS.01</h3>
+; 
+; EVAL TEST
+; took 0.101 ms. (100.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
     ( (z)) 
     ( (z))))
-write_pass_fail_result("TESTS.ZEROARGS.101",exec,[z],'PASS',[[z]],[[z]])
-
+</span>; Evaluation took 1.44 milliseconds.
+<span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
+<span class="ansi38-255165000">;; In file as:  
+!(f)
 
---------------------------------------------------------------------------
-<span class="ansi38-000068000">!(f)
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (f) 
+  (42))
 
-</span><span class="ansi33"> 42
-
-</span><span class="ansi36">
-! (assertEqualToResult 
-    (f) 
-    (42))
-(@ ! 
-  (assertEqual 
+</span><span class="ansi38-017068017">[assertEqualToResult,[f],[42]]
+</span><h3 id="TESTS.ZEROARGS.02">;; TESTS.ZEROARGS.02</h3>
+; 
+; EVAL TEST
+; took 0.121 ms. (120.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
     (42) 
     (42)))
-write_pass_fail_result("TESTS.ZEROARGS.102",exec,[f],'PASS',[42],[42])
-
+</span>; Evaluation took 1.60 milliseconds.
+<span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
-
---------------------------------------------------------------------------
-<span class="ansi32">% 27,372 inferences, 0.009 CPU in 0.009 seconds (100% CPU, 3100835 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta" 0)
+<span class="ansi32">% 233,234 inferences, 0.088 CPU in 0.088 seconds (100% CPU, 2645438 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2
 </span><span class="ansi32">Failures: 0
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.html" )
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/zeroargs.html" )
 
 </pre>
 </body>

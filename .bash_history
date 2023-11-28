@@ -121,3 +121,81 @@ git push origin
 cls ; ./MeTTa ./examples/nars/current/tests0.metta
 echo !(assertEqual (⩻ Z (S Z)) True)
 cls ; ./MeTTa ./examples/nars/current/tests0.metta
+git commit -am "maybe 88%"
+git push origin 
+./MeTTa ./examples/nars/current/tests1.metta
+cls ; ./MeTTa ./examples/nars/current/tests1.metta
+ls ; ./MeTTa ./examples/nars/current/tests1
+vi ./examples/nars/current/.mettalogrc 
+cls ; ./MeTTa ./examples/nars/current/tests1.metta
+cls ; ./MeTTa ./examples/nars/current/tests2.metta
+cls ; ./MeTTa ./examples/nars/nars_extras/RUN_minnars_trimmed.metta
+cls ; ./MeTTa ./examples/nars/nars_extras/RUN_minnars.metta
+grep let\* examples/
+grep let\* examples/ =R
+grep let\* examples/ -R
+grep "let[*]" examples/ -R
+cls
+grep "let[*]" examples/ -R
+cls ; grep "let[*]" examples/ -R
+cls ; grep "let[*]" examples/ -R --include="*.metta"
+cls ; ./MeTTa ./examples/compat/metta-morph/tests/let_superpose_list.metta
+cls ; ./MeTTa --clean ./examples/compat/metta-morph/tests
+cls ; ./MeTTa --clean ./examples/compat/metta-morph/tests/match_superposed_spaces.metta
+cls ; ./MeTTa --clean ./examples/compat/
+cls ; ./MeTTa  ./examples/compat/
+./scripts/total_loonits.sh 
+cls ; ./MeTTa  ./examples/compat/
+cls ; ./MeTTa --clean  ./examples/compat/
+mv reports/ reports-old
+mkdir reports
+cls ; ./MeTTa --clean  ./examples/
+cls ; ./MeTTa --clean  ./examples/compat/
+cls ; ./MeTTa --clean  ./examples/
+cls ; ./MeTTa --clean  ./examples/compat/
+cls ; ./MeTTa  ./examples/compat/
+mv /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/override-compat/hyperon-miner /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/override-compat/hyperon-miner-old
+cls ; ./MeTTa  ./examples/compat/
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/d2_higherfunc.metta
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/d1_gadt.metta
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/d2_higherfunc.metta
+fg
+echo !(assertEqual (⩻ Z (S Z)) True)
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/d2_higherfunc.metta
+swipl
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/d2_higherfunc.metta
+wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/d2_higherfunc.metta
+cls ; ./MeTTa  ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean
+cls ; ./MeTTa --clean ./examples/compat/hyperon-experimental/python/tests/scripts/
+cls ; ./MeTTa --fresh --clean ./examples/compat/hyperon-experimental/python/tests/scripts/
+cls ; ./scripts/test_in_metta.sh --fresh --clean ./examples/compat/hyperon-experimental/python/tests/scripts/
+which metta
+mv /root/.cargo/bin/metta /root/.cargo/bin/metta.fix
+metta
+cls ; ./scripts/test_in_metta.sh --fresh --clean ./examples/compat/hyperon-experimental/python/tests/scripts/
+git status .
+rmdir reports
+cp -a reports-old/ reports/
+rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/ 
+git status reports 
+update-locale --reset LANG=en_US.utf8 
+git status reports 
+update-locale --reset LANG=en_US.utf8 
+update-locale LANG=en_US.utf8 
+update-locale en_US.utf8 
+git status reports 
+ls
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
+ls
+git status reports
+git add reports
+git status examples/ 
+git add examples/
+git status examples/ 
+git status
+mv MeTTaLog_final.md DEAD.MeTTaLog_final.md
+rm Python-3.10.5.tgz 
+cat new_tests.md 
+git status .
+git add .bash_history 

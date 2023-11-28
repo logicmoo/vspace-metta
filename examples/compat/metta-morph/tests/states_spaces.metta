@@ -6,5 +6,7 @@
 !(match &WU $1 $1)
 !(add-atom &WU b)
 !(remove-atom &WU a)
-!(match &WU $1 $1)
-!(get-atoms &WU)
+
+!(assertEqual
+  (match &WU $1 $1)
+  (get-atoms &WU))

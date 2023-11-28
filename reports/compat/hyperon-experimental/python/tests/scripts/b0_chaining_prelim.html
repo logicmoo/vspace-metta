@@ -94,64 +94,53 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>
 
 ;; A single matching step
-<span class="ansi38-000068000">!(assertEqualToResult 
+(= "answers" 
+  (()))<span class="ansi38-000068000">!(assertEqualToResult 
   (match &self 
     (:= 
       (S K K x) $R) $R) 
   ( (K x 
       (K x))))
 
-</span>    -->(0,'&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_313480],_313480],[['K',x,['K',x]]]],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_313480],_313480],[['K',x,['K',x]]]]
+</span><span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_322654],_322654],[['K',x,['K',x]]]]
 </span><h3 id="SCRIPTS.B0-CHAINING-PRELIM.01">;; SCRIPTS.B0-CHAINING-PRELIM.01</h3>
-      -->(1,'&self',[match,'&self',[:=,['S','K','K',x],_313480],_313480],depth(1))
-        -->(2,'&self',['K',x,['K',x]],depth(2))
-          -->(3,'&self',['K',x],depth(3))
-        -->(4,'&self',['K',x,['K',x]],depth(2))
-          -->(5,'&self',['K',x],depth(3))
-      <--(1,retval(['K',x,['K',x]]))
 ; 
 ; EVAL TEST
-; took 0.561 ms. (561.40 microseconds) 
+; took 0.340 ms. (339.70 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  
     ( (K x 
         (K x))) 
     ( (K x 
         (K x)))))
-</span>    <--(0,retval('Empty'))
-      -->(0,'&self','Empty',depth(1))
-; Evaluation took 2.32 milliseconds.
+</span>; Evaluation took 1.95 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
 ;; A second matching step; the result of the previous
 ;; step is manually used as input for the next query
-<span class="ansi38-000068000">!(assertEqualToResult 
+(= "answers" 
+  (()))<span class="ansi38-000068000">!(assertEqualToResult 
   (match &self 
     (:= 
       (K x 
         (K x)) $R) $R) 
   (x))
 
-</span>    -->(0,'&self',[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_347202],_347202],[x]],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_347202],_347202],[x]]
+</span><span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_357460],_357460],[x]]
 </span><h3 id="SCRIPTS.B0-CHAINING-PRELIM.02">;; SCRIPTS.B0-CHAINING-PRELIM.02</h3>
-      -->(1,'&self',[match,'&self',[:=,['K',x,['K',x]],_347202],_347202],depth(1))
-        -->(2,'&self',x,depth(2))
-      <--(1,retval(x))
 ; 
 ; EVAL TEST
-; took 0.118 ms. (118.30 microseconds) 
+; took 0.110 ms. (110.20 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  
     (x) 
     (x)))
-</span>    <--(0,retval('Empty'))
-      -->(0,'&self','Empty',depth(1))
+</span>; Evaluation took 1.40 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
 ;; Combined reduction via matching in two steps
-<span class="ansi38-000068000">!(assertEqualToResult 
+(= "answers" 
+  (()))<span class="ansi38-000068000">!(assertEqualToResult 
   (match &self 
     (:= 
       (S K K x) $R) 
@@ -159,24 +148,16 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (:= $R $R2) $R2)) 
   (x))
 
-</span>    -->(1,'&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_381180],[match,'&self',[:=,_381180,_381784],_381784]],[x]],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_381180],[match,'&self',[:=,_381180,_381784],_381784]],[x]]
+</span><span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_392664],[match,'&self',[:=,_392664,_393268],_393268]],[x]]
 </span><h3 id="SCRIPTS.B0-CHAINING-PRELIM.03">;; SCRIPTS.B0-CHAINING-PRELIM.03</h3>
-      -->(2,'&self',[match,'&self',[:=,['S','K','K',x],_381180],[match,'&self',[:=,_381180,_381784],_381784]],depth(1))
-        -->(3,'&self',[match,'&self',[:=,['K',x,['K',x]],_381784],_381784],depth(2))
-          -->(4,'&self',x,depth(3))
-        -->(5,'&self',x,depth(2))
-        <--(3,retval(x))
-      <--(2,retval(x))
 ; 
 ; EVAL TEST
-; took 0.382 ms. (381.90 microseconds) 
+; took 0.295 ms. (294.80 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  
     (x) 
     (x)))
-</span>    <--(1,retval('Empty'))
-      -->(1,'&self','Empty',depth(1))
+</span>; Evaluation took 2.32 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -197,7 +178,8 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>
 
 ;; First step
-<span class="ansi38-000068000">!(assertEqualToResult 
+(= "answers" 
+  (()))<span class="ansi38-000068000">!(assertEqualToResult 
   (match &self 
     (:= 
       (Add 
@@ -207,20 +189,11 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (S 
         (S Z)) Z)))
 
-</span>    -->(2,'&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_435438],_435438],[['Add',['S',['S','Z']],'Z']]],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_435438],_435438],[['Add',['S',['S','Z']],'Z']]]
+</span><span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_448304],_448304],[['Add',['S',['S','Z']],'Z']]]
 </span><h3 id="SCRIPTS.B0-CHAINING-PRELIM.04">;; SCRIPTS.B0-CHAINING-PRELIM.04</h3>
-      -->(3,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_435438],_435438],depth(1))
-        -->(4,'&self',['Add',['S',['S','Z']],'Z'],depth(2))
-          -->(5,'&self',['S',['S','Z']],depth(3))
-            -->(6,'&self',['S','Z'],depth(4))
-        -->(7,'&self',['Add',['S',['S','Z']],'Z'],depth(2))
-          -->(8,'&self',['S',['S','Z']],depth(3))
-            -->(9,'&self',['S','Z'],depth(4))
-      <--(3,retval(['Add',['S',['S','Z']],'Z']))
 ; 
 ; EVAL TEST
-; took 0.761 ms. (761.00 microseconds) 
+; took 0.611 ms. (611.00 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  
     ( (Add 
@@ -229,12 +202,12 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
     ( (Add 
         (S 
           (S Z)) Z))))
-</span>    <--(2,retval('Empty'))
-      -->(2,'&self','Empty',depth(1))
+</span>; Evaluation took 2.89 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
 ;; Two steps together
-<span class="ansi38-000068000">!(assertEqualToResult 
+(= "answers" 
+  (()))<span class="ansi38-000068000">!(assertEqualToResult 
   (match &self 
     (:= 
       (Add 
@@ -245,33 +218,21 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
   ( (S 
       (S Z))))
 
-</span>    -->(3,'&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_470372],[match,'&self',[:=,_470372,_470976],_470976]],[['S',['S','Z']]]],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_470372],[match,'&self',[:=,_470372,_470976],_470976]],[['S',['S','Z']]]]
+</span><span class="ansi38-017068017">[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_484608],[match,'&self',[:=,_484608,_485212],_485212]],[['S',['S','Z']]]]
 </span><h3 id="SCRIPTS.B0-CHAINING-PRELIM.05">;; SCRIPTS.B0-CHAINING-PRELIM.05</h3>
-      -->(4,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_470372],[match,'&self',[:=,_470372,_470976],_470976]],depth(1))
-        -->(5,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_470976],_470976],depth(2))
-          -->(6,'&self',['S',['S','Z']],depth(3))
-            -->(7,'&self',['S','Z'],depth(4))
-          -->(8,'&self',['S',['S','Z']],depth(3))
-            -->(9,'&self',['S','Z'],depth(4))
-        -->(10,'&self',['S',['S','Z']],depth(2))
-          -->(11,'&self',['S','Z'],depth(3))
-        <--(5,retval(['S',['S','Z']]))
-      <--(4,retval(['S',['S','Z']]))
 ; 
 ; EVAL TEST
-; took 0.779 ms. (778.80 microseconds) 
+; took 0.587 ms. (587.40 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  
     ( (S 
         (S Z))) 
     ( (S 
         (S Z)))))
-</span>    <--(3,retval('Empty'))
-      -->(3,'&self','Empty',depth(1))
+</span>; Evaluation took 2.57 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
-<span class="ansi32">% 339,859 inferences, 0.170 CPU in 0.170 seconds (100% CPU, 1996282 Lips)
+<span class="ansi32">% 342,476 inferences, 0.158 CPU in 0.158 seconds (100% CPU, 2168920 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -19,68 +19,14 @@
 (= (sequential $1) (superpose $1))
 (: do (-> Expression %Undefined%))
 (= (do $1) (case $1 ()))
-(= (TupleCount ()) 0)
-(= (TupleCount (1)) 1)
-(= (BuildTupleCounts $TOld $C $N)
-   (let $T (collapse (superpose (1 (superpose $TOld))))
-        (superpose ((trace! (= (TupleCount $T) (+ $C 2)) ())
-                    (If (< $C $N) (BuildTupleCounts $T (+ $C 1) $N))))))
+
 (: CountElement (-> Expression Number))
 (= (CountElement $x) (case $x (($y 1))))
 (: CollapseCardinality (-> Expression Number))
-(= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
-(= (TupleCount (1 1)) 2)
-(= (TupleCount (1 1 1)) 3)
-(= (TupleCount (1 1 1 1)) 4)
-(= (TupleCount (1 1 1 1 1)) 5)
-(= (TupleCount (1 1 1 1 1 1)) 6)
-(= (TupleCount (1 1 1 1 1 1 1)) 7)
-(= (TupleCount (1 1 1 1 1 1 1 1)) 8)
-(= (TupleCount (1 1 1 1 1 1 1 1 1)) 9)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1)) 10)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1)) 11)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1)) 12)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1)) 13)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 14)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 15)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 16)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 17)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 18)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 19)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 20)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 21)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 22)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 23)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 24)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 25)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 26)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 27)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 28)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 29)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 30)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 31)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 32)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 33)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 34)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 35)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 36)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 37)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 38)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 39)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 40)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 41)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 42)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 43)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 44)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 45)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 46)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 47)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 48)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 49)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 50)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 51)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 52)
-(= (TupleCount (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)) 53)
+
+;;;(= (CollapseCardinality $expression) (length $expression))
+(= (TupleCount $expression) (length $expression))
+ (= (CollapseCardinality $expression) (TupleCount (collapse (CountElement $expression))))
 ;; Truth functions
 (= (Truth_c2w $c) (/ $c (- 1 $c)))
 (= (Truth_w2c $w) (/ $w (+ $w 1)))
@@ -264,15 +210,24 @@
 (= (GoalEventsMax) 10)
 
 ;spaces
+
 !(bind! &belief_events (new-space))
+
+!(" (get-type &belief_events) => " (get-type &belief_events))
+
 !(bind! &goal_events (new-space))
 
 ;states
 !(bind! &currentTime (new-state 1))
 !(bind! &evidentialBase (new-state 1))
+
+!(" (get-type &currentTime) => " (get-type &currentTime))
+
 (= (increment $atom) (change-state! $atom (+ 1 (get-state $atom))))
-(= (UpdateReasonerState) (trace! (time = (get-state &currentTime)) ((increment &currentTime) (increment &evidentialBase))))
-(= (GetReasonerState) ((get-state &currentTime) ((get-state &evidentialBase))))
+(= (UpdateReasonerState) (trace! (time = (get-state &currentTime))
+   ((increment &currentTime) (increment &evidentialBase))))
+(= (GetReasonerState)  ((get-state &currentTime) ((get-state &evidentialBase))))
+
 
 ;priority of events
 (= (EventPriorityNow ($T $P) $t) (* $P (/ 1 (+ 1 (- $t $T)))))
@@ -294,6 +249,8 @@
 (= (PriorityOf (Event $Sentence ($occT $Ev $Prio)) $t) (EventPriorityNow $Prio $t))
 (= (SelectHighestPriorityEvent $collection $t)
    (BestCandidate (collapse (get-atoms $collection)) PriorityOf $t))
+
+!(repl!)
 
 ;a belief event to process, which demands adding it to the PQ and updating its concept
 (= (ProcessBeliefEvent $Ev $t)
@@ -553,9 +510,14 @@
 
 ;;MeTTaLog only: !(pragma! trace-on-load True)
 
+!("(get-atoms &belief_events)="  (get-atoms &belief_events))
+
 ; debug
 !(assertEqual (TupleCount (get-atoms &belief_events)) 0)
 
+!(repl!)
+
+;;MeTTaLog only: !(pragma! trace-on-exec True)
 ;;NARS test
 !(AddBeliefEvent ((({ garfield }) --> cat) (1.0 0.9)))
 !(AddBeliefEvent (((cat * sky) --> like) (1.0 0.9)))

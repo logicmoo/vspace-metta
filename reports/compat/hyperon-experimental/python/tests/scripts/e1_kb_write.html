@@ -13,7 +13,10 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -49,16 +52,17 @@
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta')
-1=[()]
-2=[()]
-3=[()]
-4=0.13user 0.00system 0:00.14elapsed 100%CPU (0avgtext+0avgdata 32944maxresident)k
-4=0inputs+0outputs (0major+3470minor)pagefaults 0swaps
+1=[]
+2=[(Error (assertEqualToResult (ift (green $x) (add-atom GroundingSpace (Green $x))) (() ())) 
+2=Expected: [(), ()]
+2=Got: []
+3=Missed result: ())]
+3=0.09user 0.01system 0:00.11elapsed 99%CPU (0avgtext+0avgdata 27512maxresident)k
+3=0inputs+0outputs (0major+3290minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta', 1, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta', 2, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta', 2, []).
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -66,16 +70,23 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; to accumulate inferred knowledge
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bind &kb to a new empty Space
-<span class="ansi38-000068000">!(bind! &kb 
+<span class="ansi38-255165000">;; In file as:  
+!(bind! &kb 
   (new-space))
 
-</span>    -->(0,'&self',['bind!','&kb',['new-space']],depth(0))
-      -->(1,'&self',['new-space'],depth(1))
-      <--(1,retval('Space'([])))
-        -->(1,'&self','Space'([]),depth(2))
-    <--(0,retval('Empty'))
-      -->(0,'&self','Empty',depth(1))
-; Evaluation took 0.644 ms. (643.80 microseconds) 
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (bind! &kb 
+    (new-space)) ())
+
+</span><span class="ansi38-017068017">[assertEqualToResult,['bind!','&kb',['new-space']],[]]
+</span><h3 id="SCRIPTS.E1-KB-WRITE.01">;; SCRIPTS.E1-KB-WRITE.01</h3>
+; 
+; EVAL TEST
+; took 0.354 ms. (353.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>; Evaluation took 1.77 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">Empty
 </span>
 ;; Some knowledge
@@ -133,54 +144,45 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (Green $X))) 
   (() ()))
 
-</span>    -->(0,'&self',[assertEqualToResult,[ift,[green,_338912],['add-atom','&kb',['Green',_338912]]],[[],[]]],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[ift,[green,_338912],['add-atom','&kb',['Green',_338912]]],[[],[]]]
-</span><h3 id="SCRIPTS.E1-KB-WRITE.01">;; SCRIPTS.E1-KB-WRITE.01</h3>
-      -->(1,'&self',[ift,[green,_338912],['add-atom','&kb',['Green',_338912]]],depth(1))
-        -->(2,'&self',[green,_338912],depth(2))
-        <--(2,retval([frog,_348214]))
-      <--(1,retval(fail))
-    <--(0,retval(fail))
-%~ error(existence_error(procedure,arg_violation/2),context(eval_args60/4,_348286))
-no results<span class="ansi33"> $_338138
-
-</span>;; Retrieve the inferred Green things: Fritz and Sam.
+</span><span class="ansi38-017068017">[assertEqualToResult,[ift,[green,_372182],['add-atom','&kb',['Green',_372182]]],[[],[]]]
+</span><h3 id="SCRIPTS.E1-KB-WRITE.02">;; SCRIPTS.E1-KB-WRITE.02</h3>
+%~ error(existence_error(procedure,add_argtype/2),context(eval_args30/4,_386812))
+no results
+;; Retrieve the inferred Green things: Fritz and Sam.
 <span class="ansi38-000068000">!(assertEqualToResult 
   (match &kb 
     (Green $X) $X) 
   (Fritz Sam))
 
-</span>    -->(0,'&self',[assertEqualToResult,[match,'&kb',['Green',_366538],_366538],['Fritz','Sam']],depth(0))
-<span class="ansi38-017068017">[assertEqualToResult,[match,'&kb',['Green',_366538],_366538],['Fritz','Sam']]
-</span><h3 id="SCRIPTS.E1-KB-WRITE.02">;; SCRIPTS.E1-KB-WRITE.02</h3>
-      -->(1,'&self',[match,'&kb',['Green',_366538],_366538],depth(1))
-        -->(2,'&self','&kb',depth(2))
-        <--(2,retval('Space'([])))
-          -->(2,'&self','Space'([]),depth(3))
-      <--(1,retval(fail))
+</span><span class="ansi38-017068017">[assertEqualToResult,[match,'&kb',['Green',_402536],_402536],['Fritz','Sam']]
+</span><h3 id="SCRIPTS.E1-KB-WRITE.03">;; SCRIPTS.E1-KB-WRITE.03</h3>
 ; 
 ; EVAL TEST
-; took 0.336 ms. (336.30 microseconds) 
+; took 0.167 ms. (167.40 microseconds) 
 <span class="ansi31">(loonit_failureR 
   (equal_enough_for_test  () 
     (Fritz Sam)))
-</span>      -->(1,'&self',[match,'&kb',['Green',_371890],_371890],depth(1))
-        -->(2,'&self','&kb',depth(2))
-        <--(2,retval('Space'([])))
-          -->(2,'&self','Space'([]),depth(3))
-      <--(1,retval(fail))
-; Trace took 0.414 ms. (414.20 microseconds) 
-    <--(0,retval([got,[],expected,['Fritz','Sam']]))
-      -->(0,'&self',[got,[],expected,['Fritz','Sam']],depth(1))
-        -->(1,'&self',['Fritz','Sam'],depth(2))
+</span>          -->(0,'&self',[match,'&kb',['Green',_407944],_407944],depth(3))
+              -->(1,'&self','&kb',depth(5))
+              <--(1,retval('Space'([])))
+                -->(1,'&self','Space'([]),depth(6))
+                -->(2,'&self','Space'([]),depth(6))
+          <--(0,retval(fail))
+; Trace took 0.268 ms. (267.60 microseconds) 
+      <--(2,retval([got,[],expected,['Fritz','Sam']]))
+        -->(2,'&self',[got,[],expected,['Fritz','Sam']],depth(2))
+            -->(3,'&self',['Fritz','Sam'],depth(4))
+        -->(4,'&self',[got,[],expected,['Fritz','Sam']],depth(2))
+            -->(5,'&self',['Fritz','Sam'],depth(4))
+; Evaluation took 2.55 milliseconds.
 <span class="ansi33">Deterministic: </span><span class="ansi33">(got () expected 
   (Fritz Sam))
 </span>
-<span class="ansi32">% 286,863 inferences, 0.124 CPU in 0.124 seconds (100% CPU, 2313915 Lips)
+<span class="ansi32">% 291,457 inferences, 0.115 CPU in 0.115 seconds (100% CPU, 2538495 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
+<span class="ansi32">Successes: 1
 </span><span class="ansi31">Failures: 1
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/e1_kb_write.html" )

@@ -11,6 +11,7 @@
 .inv_background { background-color: #AAAAAA; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi35 { color: #E850A8; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -82,295 +83,361 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.metta')
+:- dynamic file_answers/3.
+
+
 ;;; Define <=
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,<=,[[->,A,A,'Bool']])
+</span><span class="ansi38-255165000">(: <= 
+  (-> $A $A Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[<=,X,Y],[or,[<,X,Y],[==,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (<= $X $Y) 
+  (or 
+    (< $X $Y) 
+    (== $X $Y)))
 </span>
 
-;; Define Nat
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+;;; Define Nat
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'Nat',['Type'])
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'Z',['Nat'])
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'S',[[->,'Nat','Nat']])
+</span><span class="ansi38-255165000">(: S 
+  (-> Nat Nat))
 </span>
 
-;; Define cast functions between Nat and Number
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+;;; Define cast functions between Nat and Number
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,fromNumber,[[->,'Number','Nat']])
+</span><span class="ansi38-255165000">(: fromNumber 
+  (-> Number Nat))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]])
+</span><span class="ansi38-255165000">(= 
+  (fromNumber $N) 
+  (if 
+    (<= $N 0) Z 
+    (S 
+      (fromNumber 
+        (- $N 1)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,fromNat,[[->,'Nat','Number']])
+</span><span class="ansi38-255165000">(: fromNat 
+  (-> Nat Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fromNat,'Z'],0)
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[fromNat,'Z'],0)
+</span><span class="ansi38-255165000">(= 
+  (fromNat Z) 0)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[fromNat,['S',K]],[+,1,[fromNat,K]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[fromNat,['S',K]],[+,1,[fromNat,K]])
+</span><span class="ansi38-255165000">(= 
+  (fromNat 
+    (S $K)) 
+  (+ 1 
+    (fromNat $K)))
 </span>
 
-;; Given a function call, produce records of that function call.
-;; There can be multiple records with only one call due to the
-;; non-determinism of MeTTa.  Each record is represented by (â· f x y)
-;; which can be read as
-;;
-;; "under f, the image of x is y"
-;;
-;; â· was chosen because it is described as IMAGE OF in UTF-8.  It is
-;; the MeTTa equivalent of ExecutionLink in Atomese.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[record,False,[Arg1,Arg2,Arg3,Arg4]],['â\x8A\·',False,[Arg1,Arg2,Arg3,Arg4],[False,Arg1,Arg2,Arg3,Arg4]])
-</span><span class="ansi38-255165000">  (= 
-    (record $False 
-      ($Arg1 $Arg2 $Arg3 $Arg4)) 
-    (â· $False 
-      ($Arg1 $Arg2 $Arg3 $Arg4) 
-      ($False $Arg1 $Arg2 $Arg3 $Arg4)))
+;;; Given a function call, produce records of that function call.
+;;; There can be multiple records with only one call due to the
+;;; non-determinism of MeTTa.  Each record is represented by (â· f x y)
+;;; which can be read as
+;;;
+;;; "under f, the image of x is y"
+;;;
+;;; â· was chosen because it is described as IMAGE OF in UTF-8.  It is
+;;; the MeTTa equivalent of ExecutionLink in Atomese.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[record,F,[Arg1,Arg2,Arg3,Arg4]],['â\x8A\·',F,[Arg1,Arg2,Arg3,Arg4],[F,Arg1,Arg2,Arg3,Arg4]])
+</span><span class="ansi38-255165000">(= 
+  (record $F 
+    ($Arg1 $Arg2 $Arg3 $Arg4)) 
+  (â· $F 
+    ($Arg1 $Arg2 $Arg3 $Arg4) 
+    ($F $Arg1 $Arg2 $Arg3 $Arg4)))
 </span>
 
-;; Enumerate all programs up to a given depth that are consistent with
-;; the query, using the given axioms and rules.
-;;
-;; The arguments are:
-;;
-;; $query: an Atom under the form (: TERM TYPE).  The atom may contain
-;;         free variables within TERM and TYPE to form various sort of
-;;         queries, such as:
-;;         1. Backward chaining: (: $term (Inheritance $x Mammal))
-;;         2. Forward chaining: (: ($rule $premise AXIOM) $type)
-;;         3. Mixed chaining: (: ($rule $premise AXIOM) (Inheritance $x Mammal))
-;;         4. Type checking: (: TERM TYPE)
-;;         5. Type inference: (: TERM $type)
-;;
-;; $axiom: a nullary function to axiom, to non-deterministically pick
-;;         up an axiom.  An axiom is an Atom of the form
-;;         (: TERM TYPE).
-;;
-;; $rule: a nullary function to rule, to non-deterministically pick up
-;;        a rule.  A rule is a function mapping premises to
-;;        conclusion, where premises and conclusion have the form
-;;        (: TERM TYPE).
-;;
-;; $depth: a Nat representing the maximum depth of the generated
-;;         programs.
-;;
-;; up to a given depth that are consistent with the query, using the
-;; provided rule and axiom non-deterministic functions.  An axiom is
-;; an Atom of the form
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,synthesize,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">  (: synthesize 
-    (-> Atom 
-      (-> Atom) 
-      (-> Atom) Nat Atom))
+;;; Enumerate all programs up to a given depth that are consistent with
+;;; the query, using the given axioms and rules.
+;;;
+;;; The arguments are:
+;;;
+;;; $query: an Atom under the form (: TERM TYPE).  The atom may contain
+;;;         free variables within TERM and TYPE to form various sort of
+;;;         queries, such as:
+;;;         1. Backward chaining: (: $term (Inheritance $x Mammal))
+;;;         2. Forward chaining: (: ($rule $premise AXIOM) $type)
+;;;         3. Mixed chaining: (: ($rule $premise AXIOM) (Inheritance $x Mammal))
+;;;         4. Type checking: (: TERM TYPE)
+;;;         5. Type inference: (: TERM $type)
+;;;
+;;; $axiom: a nullary function to axiom, to non-deterministically pick
+;;;         up an axiom.  An axiom is an Atom of the form
+;;;         (: TERM TYPE).
+;;;
+;;; $rule: a nullary function to rule, to non-deterministically pick up
+;;;        a rule.  A rule is a function mapping premises to
+;;;        conclusion, where premises and conclusion have the form
+;;;        (: TERM TYPE).
+;;;
+;;; $depth: a Nat representing the maximum depth of the generated
+;;;         programs.
+;;;
+;;; up to a given depth that are consistent with the query, using the
+;;; provided rule and axiom non-deterministic functions.  An axiom is
+;;; an Atom of the form
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,synthesize,[[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
+</span><span class="ansi38-255165000">(: synthesize 
+  (-> Atom 
+    (-> Atom) 
+    (-> Atom) Nat Atom))
 </span>
 
-;; Nullary rule (axiom)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[synthesize,Query,Axiom,Rule,Depth],[case,[Axiom],[[Query,Query]]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Axiom $Rule $Depth) 
-    (case 
-      ($Axiom) 
-      ( ($Query $Query))))
+;;; Nullary rule (axiom)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[synthesize,Query,Axiom,Rule,Depth],[case,[Axiom],[[Query,Query]]])
+</span><span class="ansi38-255165000">(= 
+  (synthesize $Query $Axiom $Rule $Depth) 
+  (case 
+    ($Axiom) 
+    ( ($Query $Query))))
 </span>
 
-;; Binary rule
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[synthesize,Query,Axiom,Rule,['S',K]],[case,[Rule],[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[case,Query,[[[:,[Ructor,Proof1,Proof2],Conclusion],[case,[synthesize,[:,Proof1,Premise1],Axiom,Rule,K],[[[:,Proof1,Premise1],[case,[synthesize,[:,Proof2,Premise2],Axiom,Rule,K],[[[:,Proof2,Premise2],Query]]]]]]]]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Axiom $Rule 
-      (S $K)) 
-    (case 
-      ($Rule) 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Conclusion)) 
-          (case $Query 
-            ( ( (: 
-                  ($Ructor $Proof1 $Proof2) $Conclusion) 
-                (case 
-                  (synthesize 
-                    (: $Proof1 $Premise1) $Axiom $Rule $K) 
-                  ( ( (: $Proof1 $Premise1) 
-                      (case 
-                        (synthesize 
-                          (: $Proof2 $Premise2) $Axiom $Rule $K) 
-                        ( ( (: $Proof2 $Premise2) $Query)))))))))))))
+;;; Binary rule
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[synthesize,Query,Axiom,Rule,['S',K]],[case,[Rule],[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[case,Query,[[[:,[Ructor,Proof1,Proof2],Conclusion],[case,[synthesize,[:,Proof1,Premise1],Axiom,Rule,K],[[[:,Proof1,Premise1],[case,[synthesize,[:,Proof2,Premise2],Axiom,Rule,K],[[[:,Proof2,Premise2],Query]]]]]]]]]]]])
+</span><span class="ansi38-255165000">(= 
+  (synthesize $Query $Axiom $Rule 
+    (S $K)) 
+  (case 
+    ($Rule) 
+    ( ( (: $Ructor 
+          (-> $Premise1 $Premise2 $Conclusion)) 
+        (case $Query 
+          ( ( (: 
+                ($Ructor $Proof1 $Proof2) $Conclusion) 
+              (case 
+                (synthesize 
+                  (: $Proof1 $Premise1) $Axiom $Rule $K) 
+                ( ( (: $Proof1 $Premise1) 
+                    (case 
+                      (synthesize 
+                        (: $Proof2 $Premise2) $Axiom $Rule $K) 
+                      ( ( (: $Proof2 $Premise2) $Query)))))))))))))
 </span>
 
-;; Knowledge base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb,[->,'Atom']])
-</span><span class="ansi38-255165000">  (: kb 
-    (-> Atom))
+;;; Knowledge base
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,kb,[[->,'Atom']])
+</span><span class="ansi38-255165000">(: kb 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[kb],[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']],[:,i,[->,'String','Number','Bool']]]])
-</span><span class="ansi38-255165000">  (= 
-    (kb) 
-    (superpose 
-      ( (: f 
-          (-> Number String)) 
-        (: g 
-          (-> String Bool)) 
-        (: h 
-          (-> Bool Number)) 
-        (: i 
-          (-> String Number Bool)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[kb],[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']],[:,i,[->,'String','Number','Bool']]]])
+</span><span class="ansi38-255165000">(= 
+  (kb) 
+  (superpose 
+    ( (: f 
+        (-> Number String)) 
+      (: g 
+        (-> String Bool)) 
+      (: h 
+        (-> Bool Number)) 
+      (: i 
+        (-> String Number Bool)))))
 </span>
 
-;; Rule base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb,[->,'Atom']])
-</span><span class="ansi38-255165000">  (: rb 
-    (-> Atom))
+;;; Rule base
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,rb,[[->,'Atom']])
+</span><span class="ansi38-255165000">(: rb 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[rb],[superpose,[[:,->,[->,B,C],[->,A,B],[->,A,C]],[:,.:,[->,[->,C,D],[->,A,B,C],[->,A,B,D]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (rb) 
-    (superpose 
-      ( (: -> 
-          (-> $B $C) 
-          (-> $A $B) 
-          (-> $A $C)) 
-        (: .: 
-          (-> 
-            (-> $C $D) 
-            (-> $A $B $C) 
-            (-> $A $B $D))))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[rb],[superpose,[[:,->,[->,B,C],[->,A,B],[->,A,C]],[:,.:,[->,[->,C,D],[->,A,B,C],[->,A,B,D]]]]])
+</span><span class="ansi38-255165000">(= 
+  (rb) 
+  (superpose 
+    ( (: -> 
+        (-> $B $C) 
+        (-> $A $B) 
+        (-> $A $C)) 
+      (: .: 
+        (-> 
+          (-> $C $D) 
+          (-> $A $B $C) 
+          (-> $A $B $D))))))
 </span>
 
-; Function composition
-; Blackbird
-;; Test program synthesizer
+;; Function composition
+;; Blackbird
+;;; Test program synthesizer
 <span class="ansi38-000068000">!(record synthesize 
   ( (: $Term $Type) kb rb Z))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_518734 $_519036) kb rb Z) 
-    (synthesize 
-      (: $_518734 $_519036) kb rb Z))
+</span>; Evaluation took 0.680 ms. (679.90 microseconds) 
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: $_375298 $_375600) kb rb Z) 
+  (: f 
+    (-> Number String)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: f (-> Number String)), (: g (-> String Bool)), (: h (-> Bool Number)), (: i (-> String Number Bool))
+</span>; Evaluation took 1.76 milliseconds.
+<span class="ansi33">NDet Result(2): </span><span class="ansi33">(â· synthesize 
+  ( (: $_375298 $_375600) kb rb Z) 
+  (: g 
+    (-> String Bool)))
+</span>
+; Evaluation took 2.77 milliseconds.
+<span class="ansi33">NDet Result(3): </span><span class="ansi33">(â· synthesize 
+  ( (: $_375298 $_375600) kb rb Z) 
+  (: h 
+    (-> Bool Number)))
+</span>
+; Evaluation took 3.62 milliseconds.
+<span class="ansi33">NDet Result(4): </span><span class="ansi33">(â· synthesize 
+  ( (: $_375298 $_375600) kb rb Z) 
+  (: i 
+    (-> String Number Bool)))
+</span>
+;; (: f (-> Number String)), (: g (-> String Bool)), (: h (-> Bool Number)), (: i (-> String Number Bool))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: $Term 
       (-> Number String)) kb rb Z))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_33742 
-        (-> Number String)) kb rb Z) 
-    (: f 
-      (-> Number String)))
+</span>; Evaluation took 0.529 ms. (529.10 microseconds) 
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: $_422228 
+      (-> Number String)) kb rb Z) 
+  (: f 
+    (-> Number String)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: f (-> Number String))
+</span>;; (: f (-> Number String))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: $Term 
       (-> String Number Number)) kb rb 
     (S Z)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_71450 
-        (-> String Number Number)) kb rb 
-      (S Z)) 
-    (synthesize 
-      (: $_71450 
-        (-> String Number Number)) kb rb 
-      (S Z)))
+</span>; Evaluation took 3.29 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: $_456346 
+      (-> String Number Number)) kb rb 
+    (S Z)) 
+  (: $_488668 
+    (-> String Number Number)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: (.: h i) (-> String Number Number))
+</span>;; (: (.: h i) (-> String Number Number))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: $Term 
       (-> Number Bool)) kb rb 
     (S Z)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_113890 
-        (-> Number Bool)) kb rb 
-      (S Z)) 
-    (synthesize 
-      (: $_113890 
-        (-> Number Bool)) kb rb 
-      (S Z)))
+</span>; Evaluation took 1.99 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: $_1642 
+      (-> Number Bool)) kb rb 
+    (S Z)) 
+  (synthesize 
+    (: $_1642 
+      (-> Number Bool)) kb rb 
+    (S Z)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: (. g f) (-> Number Bool))
+</span>;; (: (. g f) (-> Number Bool))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
       (. g f) 
       (-> Number Bool)) kb rb 
     (S Z)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g f) 
-        (-> Number Bool)) kb rb 
-      (S Z)) 
-    (synthesize 
-      (: 
-        (. g f) 
-        (-> Number Bool)) kb rb 
-      (S Z)))
+</span>; Evaluation took 2.00 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. g f) 
+      (-> Number Bool)) kb rb 
+    (S Z)) 
+  (synthesize 
+    (: 
+      (. g f) 
+      (-> Number Bool)) kb rb 
+    (S Z)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: (. g f) (-> Number Bool))
+</span>;; (: (. g f) (-> Number Bool))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
       (. g f) $Type) kb rb 
     (S Z)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g f) $_228758) kb rb 
-      (S Z)) 
-    (synthesize 
-      (: 
-        (. g f) $_228758) kb rb 
-      (S Z)))
+</span>; Evaluation took 2.03 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. g f) $_85142) kb rb 
+    (S Z)) 
+  (synthesize 
+    (: 
+      (. g f) $_85142) kb rb 
+    (S Z)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: (. g f) (-> Number Bool))
+</span>;; (: (. g f) (-> Number Bool))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: $Term $Type) kb rb 
     (S Z)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_305134 $_305436) kb rb 
-      (S Z)) 
-    (synthesize 
-      (: $_305134 $_305436) kb rb 
-      (S Z)))
+</span>; Evaluation took 1.77 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: $_128866 $_129168) kb rb 
+    (S Z)) 
+  (: f 
+    (-> Number String)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: f (-> Number String)), ..., (: (. f h) (-> Bool String)), ...
+</span>; Evaluation took 3.76 milliseconds.
+<span class="ansi33">NDet Result(2): </span><span class="ansi33">(â· synthesize 
+  ( (: $_128866 $_129168) kb rb 
+    (S Z)) 
+  (: g 
+    (-> String Bool)))
+</span>
+; Evaluation took 5.38 milliseconds.
+<span class="ansi33">NDet Result(3): </span><span class="ansi33">(â· synthesize 
+  ( (: $_128866 $_129168) kb rb 
+    (S Z)) 
+  (: h 
+    (-> Bool Number)))
+</span>
+; Evaluation took 6.96 milliseconds.
+<span class="ansi33">NDet Result(4): </span><span class="ansi33">(â· synthesize 
+  ( (: $_128866 $_129168) kb rb 
+    (S Z)) 
+  (: i 
+    (-> String Number Bool)))
+</span>
+; Evaluation took 13.37 milliseconds.
+<span class="ansi33">NDet Result(5): </span><span class="ansi33">(â· synthesize 
+  ( (: $_128866 $_129168) kb rb 
+    (S Z)) 
+  (: $_199072 $_199078))
+</span>
+;; (: f (-> Number String)), ..., (: (. f h) (-> Bool String)), ...
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
       (. 
@@ -378,266 +445,169 @@
       (-> $In Bool)) kb rb 
     (fromNumber 2)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. 
-          (. g f) h) 
-        (-> $_2042 Bool)) kb rb 
-      (fromNumber 2)) 
-    (synthesize 
-      (: 
-        (. 
-          (. g f) h) 
-        (-> $_2042 Bool)) kb rb 
-      (fromNumber 2)))
+</span>; Evaluation took 11.53 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. 
+        (. g f) h) 
+      (-> $_227054 Bool)) kb rb 
+    (S 
+      (fromNumber 
+        (- 2 1)))) 
+  (synthesize 
+    (: 
+      (. 
+        (. g f) h) 
+      (-> $_227054 Bool)) kb rb 
+    (S 
+      (fromNumber 
+        (- 2 1)))))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span>; (: (. (. g f) h) (-> Bool Bool))
+</span>;; (: (. (. g f) h) (-> Bool Bool))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
       (. $G h) $Type) kb rb 
     (fromNumber 3)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. $_37884 h) $_38176) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. $_37884 h) $_38176) kb rb 
-      (S 
-        (S 
-          (S Z)))))
+</span>; Evaluation took 15.87 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. $_340630 h) $_340922) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))) 
+  (synthesize 
+    (: 
+      (. $_340630 h) $_340922) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. $_37884 h) $_38176) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. $_37884 h) $_38176) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. $_37884 h) $_38176) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. $_37884 h) $_38176) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span>; (: (. f h) (-> Bool String)), (: (. (. g f) h) (-> Bool Bool)), (: (. (. h (. g f)) h) (-> Bool Number)), (: (. (. (. f h) (. g f)) h) (-> Bool String)), (: (. (. (. h g) f) h) (-> Bool Number))
+</span>;; (: (. f h) (-> Bool String)), (: (. (. g f) h) (-> Bool Bool)), (: (. (. h (. g f)) h) (-> Bool Number)), (: (. (. (. f h) (. g f)) h) (-> Bool String)), (: (. (. (. h g) f) h) (-> Bool Number))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
       (. $G h) 
       (-> Number $Out)) kb rb 
     (fromNumber 3)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. $_224732 h) 
-        (-> Number $_225048)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. $_224732 h) 
-        (-> Number $_225048)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
+</span>; Evaluation took 17.39 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. $_1644 h) 
+      (-> Number $_1686)) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))) 
+  (synthesize 
+    (: 
+      (. $_1644 h) 
+      (-> Number $_1686)) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. $_224732 h) 
-        (-> Number $_225048)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. $_224732 h) 
-        (-> Number $_225048)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. $_224732 h) 
-        (-> Number $_225048)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. $_224732 h) 
-        (-> Number $_225048)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span>; No answer
+</span>;; No answer
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
-      (. g $False) 
+      (. g $F) 
       (-> $In String)) kb rb 
     (fromNumber 3)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g $_412882) 
-        (-> $_413206 String)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. g $_412882) 
-        (-> $_413206 String)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
+</span>; Evaluation took 15.08 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. g $_91810) 
+      (-> $_92110 String)) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))) 
+  (synthesize 
+    (: 
+      (. g $_91810) 
+      (-> $_92110 String)) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g $_2014) 
-        (-> $_2044 String)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. g $_2014) 
-        (-> $_2044 String)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g $_2014) 
-        (-> $_2044 String)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. g $_2014) 
-        (-> $_2044 String)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span>; No answer
+</span>;; No answer
 <span class="ansi38-000068000">!(record synthesize 
   ( (: 
-      (. g $False) 
+      (. g $F) 
       (-> $In Bool)) kb rb 
     (fromNumber 3)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g $_78542) 
-        (-> $_78866 Bool)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. g $_78542) 
-        (-> $_78866 Bool)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
+</span>; Evaluation took 14.63 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: 
+      (. g $_227812) 
+      (-> $_228112 Bool)) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))) 
+  (synthesize 
+    (: 
+      (. g $_227812) 
+      (-> $_228112 Bool)) kb rb 
+    (S 
+      (fromNumber 
+        (- 3 1)))))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g $_78542) 
-        (-> $_78866 Bool)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. g $_78542) 
-        (-> $_78866 Bool)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span><span class="ansi33">  (â· synthesize 
-    ( (: 
-        (. g $_78542) 
-        (-> $_78866 Bool)) kb rb 
-      (S 
-        (S 
-          (S Z)))) 
-    (synthesize 
-      (: 
-        (. g $_78542) 
-        (-> $_78866 Bool)) kb rb 
-      (S 
-        (S 
-          (S Z)))))
-
-</span>; (: (. g f) (-> Number Bool)), (: (. g (. f h)) (-> Bool Bool)), (: (. g (. f (. h g))) (-> String Bool)), (: (. g (. (. f h) g)) (-> String Bool)), (: (. g (. (. f h) (. g f))) (-> Number Bool))
+</span>;; (: (. g f) (-> Number Bool)), (: (. g (. f h)) (-> Bool Bool)), (: (. g (. f (. h g))) (-> String Bool)), (: (. g (. (. f h) g)) (-> String Bool)), (: (. g (. (. f h) (. g f))) (-> Number Bool))
 <span class="ansi38-000068000">!(record synthesize 
   ( (: $Term $Type) kb rb 
     (fromNumber 4)))
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_257962 $_258264) kb rb 
-      (S 
-        (S 
-          (S 
-            (S Z))))) 
-    (synthesize 
-      (: $_257962 $_258264) kb rb 
-      (S 
-        (S 
-          (S 
-            (S Z))))))
+</span>; Evaluation took 15.17 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi33">(â· synthesize 
+  ( (: $_360510 $_360812) kb rb 
+    (S 
+      (fromNumber 
+        (- 4 1)))) 
+  (: f 
+    (-> Number String)))
+</span>
+More Solutions? <span class="ansi35"> l
 
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_1916 $_1934) kb rb 
-      (S 
-        (S 
-          (S 
-            (S Z))))) 
-    (synthesize 
-      (: $_1916 $_1934) kb rb 
-      (S 
-        (S 
-          (S 
-            (S Z))))))
-
-</span><span class="ansi33">  (â· synthesize 
-    ( (: $_1916 $_1934) kb rb 
-      (S 
-        (S 
-          (S 
-            (S Z))))) 
-    (synthesize 
-      (: $_1916 $_1934) kb rb 
-      (S 
-        (S 
-          (S 
-            (S Z))))))
-
-</span><span class="ansi32">% 7,638,166 inferences, 2.382 CPU in 2.382 seconds (100% CPU, 3206393 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.metta" 0)
+</span>; Evaluation took 20.60 milliseconds.
+<span class="ansi33">NDet Result(2): </span><span class="ansi33">(â· synthesize 
+  ( (: $_360510 $_360812) kb rb 
+    (S 
+      (fromNumber 
+        (- 4 1)))) 
+  (: g 
+    (-> String Bool)))
+</span>
+; Evaluation took 26.51 milliseconds.
+<span class="ansi33">NDet Result(3): </span><span class="ansi33">(â· synthesize 
+  ( (: $_1584 $_1602) kb rb 
+    (S 
+      (fromNumber 
+        (- 4 1)))) 
+  (: h 
+    (-> Bool Number)))
+</span>
+; Evaluation took 31.79 milliseconds.
+<span class="ansi33">NDet Result(4): </span><span class="ansi33">(â· synthesize 
+  ( (: $_1584 $_1602) kb rb 
+    (S 
+      (fromNumber 
+        (- 4 1)))) 
+  (: i 
+    (-> String Number Bool)))
+</span>
+<span class="ansi32">% 870,527 inferences, 0.880 CPU in 0.880 seconds (100% CPU, 989487 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-pln/metta/synthesis/experiments/self-contained-synthesize.html" )
 
 </pre>

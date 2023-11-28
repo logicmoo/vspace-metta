@@ -16,8 +16,8 @@
 
 ;; Import modules
 !(import! &self ../common/OrderedSet.metta)
-!(import! &self ../common/EvidentialTruthValue.metta)
-!(import! &self ../common/ImplicationDirectIntroductionFormula.metta)
+!(import! &self ../common/truthvalue/EvidentialTruthValue.metta)
+!(import! &self ../common/formula/ImplicationDirectIntroductionFormula.metta)
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Rule Definition ;;
 ;;;;;;;;;;;;;;;;;;;;;

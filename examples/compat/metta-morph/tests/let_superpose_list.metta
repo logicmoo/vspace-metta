@@ -4,3 +4,7 @@
           ($y $z)))
 
 !(wuza 5)
+
+!(assertEqual
+  (wuza 5)
+  (superpose ((10 4) (10 5))))

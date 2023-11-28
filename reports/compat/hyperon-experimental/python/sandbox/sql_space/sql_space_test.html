@@ -13,17 +13,26 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
 .ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta')
 1=[]
@@ -46,19 +55,70 @@
 5=) BadType)]
 5=0.14user 0.03system 0:00.18elapsed 95%CPU (0avgtext+0avgdata 47052maxresident)k
 5=960inputs+32outputs (4major+4628minor)pagefaults 0swaps
-<span class="ansi38-000068000">!(extend-py! sql_space)
+:- dynamic file_answers/3.
 
-</span><span class="ansi33">  (extend-py! sql_space)
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta', 3, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta', 4, ['GroundingSpace-0x55fb90f8d9f8']).
 
-</span>; database can be installed with use of   https://github.com/metabrainz/musicbrainz-docker#publish-ports-of-all-services
-; the description https://musicbrainz.org/doc/MusicBrainz_Database
-<span class="ansi38-000068000">!(bind! &sql_space 
+<span class="ansi38-255165000">;; In file as:  
+!(extend-py! sql_space)
+
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (extend-py! sql_space) ())
+
+</span><span class="ansi38-017068017">[assertEqualToResult,['extend-py!',sql_space],[]]
+</span><h3 id="SQL-SPACE.SQL-SPACE-TEST.01">;; SQL-SPACE.SQL-SPACE-TEST.01</h3>
+; 
+; EVAL TEST
+; took 0.263 ms. (263.40 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (extend-py! sql_space)) ()))
+</span>      -->(0,'&self',['extend-py!',sql_space],depth(1))
+; Trace took 0.206 ms. (206.30 microseconds) 
+    <--(0,retval([got,[['extend-py!',sql_space]],expected,[]]))
+      -->(0,'&self',[got,[['extend-py!',sql_space]],expected,[]],depth(1))
+        -->(1,'&self',[['extend-py!',sql_space]],depth(2))
+          -->(2,'&self',['extend-py!',sql_space],depth(3))
+; Evaluation took 3.11 milliseconds.
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got 
+  ( (extend-py! sql_space)) expected ())
+</span>
+;; database can be installed with use of   https://github.com/metabrainz/musicbrainz-docker#publish-ports-of-all-services
+;; the description https://musicbrainz.org/doc/MusicBrainz_Database
+<span class="ansi38-255165000">;; In file as:  
+!(bind! &sql_space 
   (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432))
 
-</span><span class="ansi33"> Empty
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (bind! &sql_space 
+    (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432)) 
+  (()))
 
-</span>; save sql query results into given space
-<span class="ansi38-000068000">!(sql.save-query-result &sql_space &self 
+</span>    -->(0,'&self',[assertEqualToResult,['bind!','&sql_space',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]],[[]]],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,['bind!','&sql_space',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]],[[]]]
+</span><h3 id="SQL-SPACE.SQL-SPACE-TEST.02">;; SQL-SPACE.SQL-SPACE-TEST.02</h3>
+      -->(1,'&self',['bind!','&sql_space',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]],depth(1))
+        -->(2,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(2))
+      <--(1,retval('Empty'))
+        -->(1,'&self','Empty',depth(2))
+; 
+; EVAL TEST
+; took 0.715 ms. (714.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () 
+    (())))
+</span>    <--(0,retval('Empty'))
+      -->(0,'&self','Empty',depth(1))
+<span class="ansi33">Deterministic: </span><span class="ansi33">Empty
+</span>
+;; save sql query results into given space
+<span class="ansi38-255165000">;; In file as:  
+!(sql.save-query-result &sql_space &self 
   (and 
     (musicbrainz.artist 
       (id $Id) 
@@ -68,59 +128,117 @@
       (begin_date_year 1977)) 
     (limit 3)))
 
-</span>%~ catch_warn(apply(name,[_480370,_480376])) -->
-%~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(name,[_501914,_501920])) -->
-%~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(limit,[3,_5724])) -->
-%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
-%~ catch_warn(apply(name,[_26642,_26648])) -->
-%~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(name,[_48574,_48580])) -->
-%~   error(instantiation_error,context(system:name/2,Context_Kw)).
-%~ catch_warn(apply(limit,[3,_69488])) -->
-%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
-<span class="ansi33">  (sql.save-query-result 
-    (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self True)
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (sql.save-query-result &sql_space &self 
+    (and 
+      (musicbrainz.artist 
+        (id $Id) 
+        (name $Name)) 
+      (musicbrainz.artist 
+        (id $Id) 
+        (begin_date_year 1977)) 
+      (limit 3))) ())
 
-</span><span class="ansi31">
-! (assertEqualToResult 
-    (sql.save-query-result &sql_space &self 
-      (and 
-        (musicbrainz.artist 
-          (id $Id) 
-          (name $Name)) 
-        (musicbrainz.artist 
-          (id $Id) 
-          (begin_date_year 1977)) 
-        (limit 3))) ())
-(@ ! 
-  (assertEqual 
+</span>    -->(1,'&self',[assertEqualToResult,['sql.save-query-result','&sql_space','&self',[',',['musicbrainz.artist',[id,_318906],[name,_319212]],['musicbrainz.artist',[id,_318906],[begin_date_year,1977]],[limit,3]]],[]],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,['sql.save-query-result','&sql_space','&self',[',',['musicbrainz.artist',[id,_318906],[name,_319212]],['musicbrainz.artist',[id,_318906],[begin_date_year,1977]],[limit,3]]],[]]
+</span><h3 id="SQL-SPACE.SQL-SPACE-TEST.03">;; SQL-SPACE.SQL-SPACE-TEST.03</h3>
+      -->(2,'&self',['sql.save-query-result','&sql_space','&self',[',',['musicbrainz.artist',[id,_318906],[name,_319212]],['musicbrainz.artist',[id,_318906],[begin_date_year,1977]],[limit,3]]],depth(1))
+        -->(3,'&self','&sql_space',depth(2))
+        <--(3,retval(['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]))
+          -->(3,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(3))
+        -->(4,'&self',[',',['musicbrainz.artist',[id,_318906],[name,_319212]],['musicbrainz.artist',[id,_318906],[begin_date_year,1977]],[limit,3]],depth(2))
+          -->(5,'&self',['musicbrainz.artist',[id,_318906],[name,_319212]],depth(3))
+            -->(6,'&self',[id,_318906],depth(4))
+            -->(7,'&self',[name,_319212],depth(4))
+%~ catch_warn(apply(name,[_395852,_395858])) -->
+%~   error(instantiation_error,context(system:name/2,Context_Kw)).
+          -->(8,'&self',[',',['musicbrainz.artist',[id,_318906],[begin_date_year,1977]],[limit,3]],depth(3))
+            -->(9,'&self',['musicbrainz.artist',[id,_318906],[begin_date_year,1977]],depth(4))
+              -->(10,'&self',[id,_318906],depth(5))
+              -->(11,'&self',[begin_date_year,1977],depth(5))
+            -->(12,'&self',[limit,3],depth(4))
+%~ catch_warn(apply(limit,[3,_419382])) -->
+%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
+          <--(8,retval('True'))
+            -->(8,'&self','True',depth(4))
+        <--(4,retval('True'))
+          -->(4,'&self','True',depth(3))
+      <--(2,retval(['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']))
+        -->(2,'&self',['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True'],depth(2))
+          -->(3,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(3))
+; 
+; EVAL TEST
+; took 93.37 milliseconds.
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
     ( (sql.save-query-result 
         (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self True)) ()))
-write_pass_fail_result("SQL-SPACE.SQL-SPACE-TEST.103",exec,['sql.save-query-result','&sql_space','&self',[',',['musicbrainz.artist',[id,Id],[name,Name]],['musicbrainz.artist',[id,Id],[begin_date_year,1977]],[limit,3]]],'FAIL',[],[['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']])
-
+</span>      -->(4,'&self',['sql.save-query-result','&sql_space','&self',[',',['musicbrainz.artist',[id,_325922],[name,_325940]],['musicbrainz.artist',[id,_325922],[begin_date_year,1977]],[limit,3]]],depth(1))
+        -->(5,'&self','&sql_space',depth(2))
+        <--(5,retval(['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]))
+          -->(5,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(3))
+        -->(6,'&self',[',',['musicbrainz.artist',[id,_325922],[name,_325940]],['musicbrainz.artist',[id,_325922],[begin_date_year,1977]],[limit,3]],depth(2))
+          -->(7,'&self',['musicbrainz.artist',[id,_325922],[name,_325940]],depth(3))
+            -->(8,'&self',[id,_325922],depth(4))
+            -->(9,'&self',[name,_325940],depth(4))
+%~ catch_warn(apply(name,[_451530,_451536])) -->
+%~   error(instantiation_error,context(system:name/2,Context_Kw)).
+          -->(10,'&self',[',',['musicbrainz.artist',[id,_325922],[begin_date_year,1977]],[limit,3]],depth(3))
+            -->(11,'&self',['musicbrainz.artist',[id,_325922],[begin_date_year,1977]],depth(4))
+              -->(12,'&self',[id,_325922],depth(5))
+              -->(13,'&self',[begin_date_year,1977],depth(5))
+            -->(14,'&self',[limit,3],depth(4))
+%~ catch_warn(apply(limit,[3,_474818])) -->
+%~   error(instantiation_error,context(solution_sequences:limit/2,Context_Kw)).
+          <--(10,retval('True'))
+            -->(10,'&self','True',depth(4))
+        <--(6,retval('True'))
+          -->(6,'&self','True',depth(3))
+      <--(4,retval(['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']))
+        -->(4,'&self',['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True'],depth(2))
+          -->(5,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(3))
+; Trace took 68.97 milliseconds.
+    <--(1,retval([got,[['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']],expected,[]]))
+      -->(1,'&self',[got,[['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']],expected,[]],depth(1))
+        -->(2,'&self',[['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True']],depth(2))
+          -->(3,'&self',['sql.save-query-result',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],'&self','True'],depth(3))
+            -->(4,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(4))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got 
+  ( (sql.save-query-result 
+      (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self True)) expected ())
 </span>
+<span class="ansi38-255165000">;; In file as:  
+!(get-atoms &self)
 
---------------------------------------------------------------------------
-<span class="ansi38-000068000">!(get-atoms &self)
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (get-atoms &self) 
+  (GroundingSpace-0x55fb90f8d9f8))
 
-</span><span class="ansi33"> ()
-
-</span><span class="ansi31">
-! (assertEqualToResult 
-    (get-atoms &self) 
-    (GroundingSpace-0x55fb90f8d9f8))
-(@ ! 
-  (assertEqual 
+</span>    -->(5,'&self',[assertEqualToResult,['get-atoms','&self'],['GroundingSpace-0x55fb90f8d9f8']],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,['get-atoms','&self'],['GroundingSpace-0x55fb90f8d9f8']]
+</span><h3 id="SQL-SPACE.SQL-SPACE-TEST.04">;; SQL-SPACE.SQL-SPACE-TEST.04</h3>
+      -->(6,'&self',['get-atoms','&self'],depth(1))
+      <--(6,retval([]))
+; 
+; EVAL TEST
+; took 0.109 ms. (109.30 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
     (()) 
     (GroundingSpace-0x55fb90f8d9f8)))
-write_pass_fail_result("SQL-SPACE.SQL-SPACE-TEST.104",exec,['get-atoms','&self'],'FAIL',['GroundingSpace-0x55fb90f8d9f8'],[[]])
-
+</span>      -->(6,'&self',['get-atoms','&self'],depth(1))
+      <--(6,retval([]))
+; Trace took 0.146 ms. (145.80 microseconds) 
+    <--(5,retval([got,[[]],expected,['GroundingSpace-0x55fb90f8d9f8']]))
+      -->(5,'&self',[got,[[]],expected,['GroundingSpace-0x55fb90f8d9f8']],depth(1))
+        -->(6,'&self',['GroundingSpace-0x55fb90f8d9f8'],depth(2))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got 
+  (()) expected 
+  (GroundingSpace-0x55fb90f8d9f8))
 </span>
-
---------------------------------------------------------------------------
-;result : [GroundingSpace, ((musicbrainz.artist (id "127482") (name "Kanye West"))), ((musicbrainz.artist (id "127482") (begin_date_year 1977))), ((musicbrainz.artist (id "23366") (name "The Dirty Dozen Brass Band"))), ((musicbrainz.artist (id "23366") (begin_date_year 1977))), ((musicbrainz.artist (id "35629") (name "Fabolous"))), ((musicbrainz.artist (id "35629") (begin_date_year 1977)))]
+;;result : [GroundingSpace, ((musicbrainz.artist (id "127482") (name "Kanye West"))), ((musicbrainz.artist (id "127482") (begin_date_year 1977))), ((musicbrainz.artist (id "23366") (name "The Dirty Dozen Brass Band"))), ((musicbrainz.artist (id "23366") (begin_date_year 1977))), ((musicbrainz.artist (id "35629") (name "Fabolous"))), ((musicbrainz.artist (id "35629") (begin_date_year 1977)))]
 <span class="ansi38-000068000">!(match &sql_space 
   (and 
     (musicbrainz.artist 
@@ -131,10 +249,16 @@ write_pass_fail_result("SQL-SPACE.SQL-SPACE-TEST.104",exec,['get-atoms','&self']
       (begin_date_year 1983)) 
     (limit 3)) $Name)
 
-</span>;result ["NOFX", "Red Hot Chili Peppers", "Bon Jovi"]
+</span>    -->(7,'&self',[match,'&sql_space',[',',['musicbrainz.artist',[id,_6086],[name,_6392]],['musicbrainz.artist',[id,_6086],[begin_date_year,1983]],[limit,3]],_6392],depth(0))
+      -->(8,'&self','&sql_space',depth(1))
+      <--(8,retval(['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]))
+        -->(8,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(2))
+    <--(7,retval(fail))
+no results
+;;result ["NOFX", "Red Hot Chili Peppers", "Bon Jovi"]
 <span class="ansi38-000068000">!(sql.insert &sql_space 
   ( (table musicbrainz.artist) 
-    (gid "uuid_generate_v4()") 
+    (gid uuid_generate_v4()) 
     (name "some name3") 
     (sort_name "name some3") 
     (begin_date_year 1988) 
@@ -144,26 +268,69 @@ write_pass_fail_result("SQL-SPACE.SQL-SPACE-TEST.104",exec,['get-atoms','&self']
     (area 222) 
     (gender 2)))
 
-</span><span class="ansi33">  (sql.insert 
-    (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) 
-    (True 
-      (gid "uuid_generate_v4()") 
-      (115 111 109 101 32 110 97 109 101 51) 
-      (sort_name "name some3") 
-      (begin_date_year 1988) 
-      (begin_date_month 1) 
-      (begin_date_day 1) 
-      (type 1) 
-      (area 222) 
-      (gender 2)))
-
-</span><span class="ansi32">% 1,107,777 inferences, 0.309 CPU in 0.309 seconds (100% CPU, 3583513 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta" 0)
+</span>    -->(7,'&self',['sql.insert','&sql_space',[[table,'musicbrainz.artist'],[gid,'uuid_generate_v4()'],[name,'some name3'],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]]],depth(0))
+      -->(8,'&self','&sql_space',depth(1))
+      <--(8,retval(['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432]))
+        -->(8,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(2))
+      -->(9,'&self',[[table,'musicbrainz.artist'],[gid,'uuid_generate_v4()'],[name,'some name3'],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]],depth(1))
+        -->(10,'&self',[table,'musicbrainz.artist'],depth(2))
+        <--(10,retval('True'))
+        -->(10,'&self',[gid,'uuid_generate_v4()'],depth(2))
+        -->(11,'&self',[name,'some name3'],depth(2))
+        <--(11,retval([115,111,109,101,32,110,97,109,101,51]))
+          -->(11,'&self',[115,111,109,101,32,110,97,109,101,51],depth(3))
+        -->(12,'&self',[sort_name,'name some3'],depth(2))
+        -->(13,'&self',[begin_date_year,1988],depth(2))
+        -->(14,'&self',[begin_date_month,1],depth(2))
+        -->(15,'&self',[begin_date_day,1],depth(2))
+        -->(16,'&self',[type,1],depth(2))
+        -->(17,'&self',[area,222],depth(2))
+        -->(18,'&self',[gender,2],depth(2))
+      <--(9,retval(['True',[gid,'uuid_generate_v4()'],[115,111,109,101,32,110,97,109,101,51],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]]))
+        -->(9,'&self',['True',[gid,'uuid_generate_v4()'],[115,111,109,101,32,110,97,109,101,51],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]],depth(2))
+          -->(10,'&self',[gid,'uuid_generate_v4()'],depth(3))
+          -->(11,'&self',[115,111,109,101,32,110,97,109,101,51],depth(3))
+          -->(12,'&self',[sort_name,'name some3'],depth(3))
+          -->(13,'&self',[begin_date_year,1988],depth(3))
+          -->(14,'&self',[begin_date_month,1],depth(3))
+          -->(15,'&self',[begin_date_day,1],depth(3))
+          -->(16,'&self',[type,1],depth(3))
+          -->(17,'&self',[area,222],depth(3))
+          -->(18,'&self',[gender,2],depth(3))
+    <--(7,retval(['sql.insert',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],['True',[gid,'uuid_generate_v4()'],[115,111,109,101,32,110,97,109,101,51],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]]]))
+      -->(7,'&self',['sql.insert',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],['True',[gid,'uuid_generate_v4()'],[115,111,109,101,32,110,97,109,101,51],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]]],depth(1))
+        -->(8,'&self',['new-sql-space',musicbrainz_db,localhost,musicbrainz,musicbrainz,5432],depth(2))
+        -->(9,'&self',['True',[gid,'uuid_generate_v4()'],[115,111,109,101,32,110,97,109,101,51],[sort_name,'name some3'],[begin_date_year,1988],[begin_date_month,1],[begin_date_day,1],[type,1],[area,222],[gender,2]],depth(2))
+          -->(10,'&self',[gid,'uuid_generate_v4()'],depth(3))
+          -->(11,'&self',[115,111,109,101,32,110,97,109,101,51],depth(3))
+          -->(12,'&self',[sort_name,'name some3'],depth(3))
+          -->(13,'&self',[begin_date_year,1988],depth(3))
+          -->(14,'&self',[begin_date_month,1],depth(3))
+          -->(15,'&self',[begin_date_day,1],depth(3))
+          -->(16,'&self',[type,1],depth(3))
+          -->(17,'&self',[area,222],depth(3))
+          -->(18,'&self',[gender,2],depth(3))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(sql.insert 
+  (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) 
+  (True 
+    (gid uuid_generate_v4()) 
+    (115 111 109 101 32 110 97 109 101 51) 
+    (sort_name "name some3") 
+    (begin_date_year 1988) 
+    (begin_date_month 1) 
+    (begin_date_day 1) 
+    (type 1) 
+    (area 222) 
+    (gender 2)))
+</span>
+<span class="ansi32">% 986,076 inferences, 0.327 CPU in 0.327 seconds (100% CPU, 3014831 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 2
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.html" )
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 3
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/sql_space/sql_space_test.html" )
 
 </pre>
 </body>

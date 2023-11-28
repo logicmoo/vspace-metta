@@ -551,7 +551,13 @@
 
 ;; !(import! &self NARS.metta)
 
-;;MeTTaLog only: !(pragma! trace-on-load True)
+;;MeTTaLog only: !(pragma! trace-on-pass False)
+;;MeTTaLog only: !(pragma! trace-on-fail False)
+;;MeTTaLog only: !(pragma! trace-on-load False)
+;;MeTTaLog only: !(pragma! trace-on-exec True)
+;;MeTTaLog only: !(pragma! trace-on-eval False)
+
+;;MeTTaLog only: !(pragma! disable-exec-trace True)
 
 ; debug
 !(assertEqual (TupleCount (get-atoms &belief_events)) 0)

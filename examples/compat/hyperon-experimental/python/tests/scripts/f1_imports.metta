@@ -7,6 +7,10 @@
 ; returns one atom, which wraps the space of stdlib.
 ; The type of this atom is the same as of `&self`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+!(get-atoms &self)
+!(get-type (get-atoms &self))
+!(get-type &self)
+
 !(assertEqual
   ((let $x (get-atoms &self) (get-type $x)))
   ((get-type &self)))

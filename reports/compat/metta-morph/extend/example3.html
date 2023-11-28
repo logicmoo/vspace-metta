@@ -13,23 +13,33 @@
 .ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-255165000 { color: #FFA500; }
 .ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
 .ansi38-000068000 { color: #004400; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta')
 1=[]
@@ -44,91 +54,230 @@
 5=[(+ 1 (f1 39))]
 6=0.16user 0.00system 0:00.17elapsed 98%CPU (0avgtext+0avgdata 34040maxresident)k
 6=744inputs+0outputs (5major+3566minor)pagefaults 0swaps
-<span class="ansi38-000068000">!(extend-py! mettamorph)
+:- dynamic file_answers/3.
 
-</span><span class="ansi33">  (extend-py! mettamorph)
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta', 1, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta', 2, [[+, 1, [use1, f2, 40]]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta', 3, [[+, 1, [use1, f1, 39]]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta', 4, [42]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta', 5, [[+, 1, [f1, 39]]]).
 
-</span><span class="ansi38-000068000">!(compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")
+<span class="ansi38-255165000">;; In file as:  
+!(extend-py! mettamorph)
 
-</span><span class="ansi33">  (compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (extend-py! mettamorph) ())
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f2,X],[+,1,X])
-</span><span class="ansi38-255165000">  (= 
-    (f2 $X) 
-    (+ 1 $X))
+</span><span class="ansi38-017068017">[assertEqualToResult,['extend-py!',mettamorph],[]]
+</span><h3 id="EXTEND.EXAMPLE3.01">;; EXTEND.EXAMPLE3.01</h3>
+; 
+; EVAL TEST
+; took 0.180 ms. (179.80 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (extend-py! mettamorph)) ()))
+</span>      -->(0,'&self',['extend-py!',mettamorph],depth(1))
+; Trace took 0.140 ms. (139.90 microseconds) 
+    <--(0,retval([got,[['extend-py!',mettamorph]],expected,[]]))
+      -->(0,'&self',[got,[['extend-py!',mettamorph]],expected,[]],depth(1))
+        -->(1,'&self',[['extend-py!',mettamorph]],depth(2))
+          -->(2,'&self',['extend-py!',mettamorph],depth(3))
+; Evaluation took 2.26 milliseconds.
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got 
+  ( (extend-py! mettamorph)) expected ())
+</span>
+<span class="ansi38-255165000">;; In file as:  
+!(compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")
+
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n") 
+  ( (+ 1 
+      (use1 f2 40))))
+
+</span>    -->(0,'&self',[assertEqualToResult,['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n'],[[+,1,[use1,f2,40]]]],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n'],[[+,1,[use1,f2,40]]]]
+</span><h3 id="EXTEND.EXAMPLE3.02">;; EXTEND.EXAMPLE3.02</h3>
+      -->(1,'&self',['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n'],depth(1))
+; 
+; EVAL TEST
+; took 0.261 ms. (261.30 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")) 
+    ( (+ 1 
+        (use1 f2 40)))))
+</span>      -->(2,'&self',['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n'],depth(1))
+; Trace took 0.188 ms. (188.00 microseconds) 
+    <--(0,retval([got,[['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n']],expected,[[+,1,[use1,f2,40]]]]))
+      -->(0,'&self',[got,[['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n']],expected,[[+,1,[use1,f2,40]]]],depth(1))
+        -->(1,'&self',[['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n']],depth(2))
+          -->(2,'&self',['compile!','\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n'],depth(3))
+        -->(3,'&self',[[+,1,[use1,f2,40]]],depth(2))
+          -->(4,'&self',[+,1,[use1,f2,40]],depth(3))
+            -->(5,'&self',[use1,f2,40],depth(4))
+          <--(4,retval(fail))
+          -->(4,'&self',[use1,f2,40],depth(3))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got 
+  ( (compile! "\n(= (f1 $x) (+ 2 $x))\n(= (use1 $f $arg)\n   ($f $arg))\n")) expected 
+  ( (+ 1 
+      (use1 f2 40))))
+</span>
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[f2,X],[+,1,X])
+</span><span class="ansi38-255165000">(= 
+  (f2 $X) 
+  (+ 1 $X))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[use2,False,Arg],[False,Arg])
-</span><span class="ansi38-255165000">  (= 
-    (use2 $False $Arg) 
-    ($False $Arg))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[use2,F,Arg],[F,Arg])
+</span><span class="ansi38-255165000">(= 
+  (use2 $F $Arg) 
+  ($F $Arg))
 </span>
 
-<span class="ansi38-000068000">!(+ 1 
+<span class="ansi38-255165000">;; In file as:  
+!(+ 1 
   (use1 f2 40))
 
-</span><span class="ansi31">
-! (assertEqualToResult 
-    (+ 1 
-      (use1 f2 40)) 
-    ( (+ 1 
-        (use1 f1 39))))
-(@ ! 
-  (assertEqual () 
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (+ 1 
+    (use1 f2 40)) 
+  ( (+ 1 
+      (use1 f1 39))))
+
+</span>    -->(5,'&self',[assertEqualToResult,[+,1,[use1,f2,40]],[[+,1,[use1,f1,39]]]],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,[+,1,[use1,f2,40]],[[+,1,[use1,f1,39]]]]
+</span><h3 id="EXTEND.EXAMPLE3.03">;; EXTEND.EXAMPLE3.03</h3>
+      -->(6,'&self',[+,1,[use1,f2,40]],depth(1))
+        -->(7,'&self',[use1,f2,40],depth(2))
+      <--(6,retval(fail))
+; 
+; EVAL TEST
+; took 0.394 ms. (394.40 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  () 
     ( (+ 1 
         (use1 f1 39)))))
-write_pass_fail_result("EXTEND.EXAMPLE3.103",exec,[+,1,[use1,f2,40]],'FAIL',[[+,1,[use1,f1,39]]],[])
-
+</span>      -->(6,'&self',[+,1,[use1,f2,40]],depth(1))
+        -->(7,'&self',[use1,f2,40],depth(2))
+      <--(6,retval(fail))
+; Trace took 0.281 ms. (280.70 microseconds) 
+    <--(5,retval([got,[],expected,[[+,1,[use1,f1,39]]]]))
+      -->(5,'&self',[got,[],expected,[[+,1,[use1,f1,39]]]],depth(1))
+        -->(6,'&self',[[+,1,[use1,f1,39]]],depth(2))
+          -->(7,'&self',[+,1,[use1,f1,39]],depth(3))
+            -->(8,'&self',[use1,f1,39],depth(4))
+          <--(7,retval(fail))
+          -->(7,'&self',[use1,f1,39],depth(3))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got () expected 
+  ( (+ 1 
+      (use1 f1 39))))
 </span>
-
---------------------------------------------------------------------------
-<span class="ansi38-000068000">!(+ 1 
+<span class="ansi38-255165000">;; In file as:  
+!(+ 1 
   (use1 f1 39))
 
-</span><span class="ansi31">
-! (assertEqualToResult 
-    (+ 1 
-      (use1 f1 39)) 
-    (42))
-(@ ! 
-  (assertEqual () 
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (+ 1 
+    (use1 f1 39)) 
+  (42))
+
+</span>    -->(8,'&self',[assertEqualToResult,[+,1,[use1,f1,39]],[42]],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,[+,1,[use1,f1,39]],[42]]
+</span><h3 id="EXTEND.EXAMPLE3.04">;; EXTEND.EXAMPLE3.04</h3>
+      -->(9,'&self',[+,1,[use1,f1,39]],depth(1))
+        -->(10,'&self',[use1,f1,39],depth(2))
+      <--(9,retval(fail))
+; 
+; EVAL TEST
+; took 0.301 ms. (300.90 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  () 
     (42)))
-write_pass_fail_result("EXTEND.EXAMPLE3.104",exec,[+,1,[use1,f1,39]],'FAIL',[42],[])
-
+</span>      -->(9,'&self',[+,1,[use1,f1,39]],depth(1))
+        -->(10,'&self',[use1,f1,39],depth(2))
+      <--(9,retval(fail))
+; Trace took 0.214 ms. (213.90 microseconds) 
+    <--(8,retval([got,[],expected,[42]]))
+      -->(8,'&self',[got,[],expected,[42]],depth(1))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got () expected 
+  (42))
 </span>
-
---------------------------------------------------------------------------
-<span class="ansi38-000068000">!(+ 1 
+<span class="ansi38-255165000">;; In file as:  
+!(+ 1 
   (use2 f2 40))
 
-</span><span class="ansi33"> 42
+;; To unit test case:
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (+ 1 
+    (use2 f2 40)) 
+  ( (+ 1 
+      (f1 39))))
 
-</span><span class="ansi31">
-! (assertEqualToResult 
-    (+ 1 
-      (use2 f2 40)) 
-    ( (+ 1 
-        (f1 39))))
-(@ ! 
-  (assertEqual 
+</span>    -->(9,'&self',[assertEqualToResult,[+,1,[use2,f2,40]],[[+,1,[f1,39]]]],depth(0))
+<span class="ansi38-017068017">[assertEqualToResult,[+,1,[use2,f2,40]],[[+,1,[f1,39]]]]
+</span><h3 id="EXTEND.EXAMPLE3.05">;; EXTEND.EXAMPLE3.05</h3>
+      -->(10,'&self',[+,1,[use2,f2,40]],depth(1))
+        -->(11,'&self',[use2,f2,40],depth(2))
+          -->(12,'&self',[f2,40],depth(3))
+            -->(13,'&self',[+,1,40],depth(4))
+            <--(13,retval(41))
+              -->(13,'&self',41,depth(5))
+        -->(14,'&self',42,depth(2))
+          <--(12,retval([+,1,40]))
+        <--(11,retval([f2,40]))
+      <--(10,retval(42))
+; 
+; EVAL TEST
+; took 0.824 ms. (824.20 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
     (42) 
     ( (+ 1 
         (f1 39)))))
-write_pass_fail_result("EXTEND.EXAMPLE3.105",exec,[+,1,[use2,f2,40]],'FAIL',[[+,1,[f1,39]]],[42])
-
+</span>      -->(10,'&self',[+,1,[use2,f2,40]],depth(1))
+        -->(11,'&self',[use2,f2,40],depth(2))
+          -->(12,'&self',[f2,40],depth(3))
+            -->(13,'&self',[+,1,40],depth(4))
+            <--(13,retval(41))
+              -->(13,'&self',41,depth(5))
+        -->(14,'&self',42,depth(2))
+          <--(12,retval([+,1,40]))
+        <--(11,retval([f2,40]))
+      <--(10,retval(42))
+; Trace took 0.818 ms. (817.60 microseconds) 
+    <--(9,retval([got,[42],expected,[[+,1,[f1,39]]]]))
+      -->(9,'&self',[got,[42],expected,[[+,1,[f1,39]]]],depth(1))
+        -->(10,'&self',[[+,1,[f1,39]]],depth(2))
+          -->(11,'&self',[+,1,[f1,39]],depth(3))
+            -->(12,'&self',[f1,39],depth(4))
+          <--(11,retval(fail))
+          -->(11,'&self',[f1,39],depth(3))
+<span class="ansi33">Deterministic: </span><span class="ansi33">(got 
+  (42) expected 
+  ( (+ 1 
+      (f1 39))))
 </span>
-
---------------------------------------------------------------------------
 <span class="ansi38-000068000">!(+ 1 
   (use2 f1 39))
 
-</span><span class="ansi32">% 78,830 inferences, 0.029 CPU in 0.029 seconds (100% CPU, 2755571 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta" 0)
+</span>    -->(12,'&self',[+,1,[use2,f1,39]],depth(0))
+      -->(13,'&self',[use2,f1,39],depth(1))
+        -->(14,'&self',[f1,39],depth(2))
+      <--(13,retval([f1,39]))
+    <--(12,retval(fail))
+no results<span class="ansi32">
+% 300,893 inferences, 0.116 CPU in 0.116 seconds (100% CPU, 2586511 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 3
-</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.html" )
+</span><span class="ansi31">Failures: 5
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/extend/example3.html" )
 
 </pre>
 </body>
