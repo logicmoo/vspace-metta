@@ -1,3 +1,11 @@
+(: sequential (-> Expression %Undefined%))
+(= (sequential $1) (superpose $1))
+
+(: do (-> Expression %Undefined%))
+(= (do $1) (case $1 ()))
+
+
+
 !(bind! &var (new-state 1))
 (= (increment)
    (superpose ((do (change-state! &var (+ 1 (get-state &var))))

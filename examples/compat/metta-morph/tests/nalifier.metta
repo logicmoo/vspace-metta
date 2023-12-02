@@ -1,3 +1,20 @@
+(: If (-> Bool Atom Atom))
+(= (If True $then) $then)
+(= (If False $then) (let $x 0 (let $x 1 $x)))
+
+(: If (-> Bool Atom Atom Atom))
+(= (If $cond $then $else) (if $cond $then $else))
+
+(: sequential (-> Expression %Undefined%))
+(= (sequential $1) (superpose $1))
+
+(: do (-> Expression %Undefined%))
+(= (do $1) (case $1 ()))
+
+(= (max $1 $2) (if (> $1 $2) $1 $2))
+(= (min $1 $2) (if (< $1 $2) $1 $2))
+(= (abs $x) (If (< $x 0) (- 0 $x) $x))
+
 (= (TupleConcat $Ev1 $Ev2) (collapse (superpose ((superpose $Ev1) (superpose $Ev2)))))
 
 ;; Truth functions
@@ -6,7 +23,7 @@
 (= (Truth_Deduction ($f1 $c1) ($f2 $c2)) ((* $f1 $f2) (* (* $f1 $f2) (* $c1 $c2))))
 (= (Truth_Abduction ($f1 $c1) ($f2 $c2)) ($f2 (Truth_w2c (* (* $f1 $c1) $c2))))
 (= (Truth_Induction $T1 $T2) (Truth_Abduction $T2 $T1))
-(= (Truth_Revision ($f1 $c1) ($f2 $c2)) 
+(= (Truth_Revision ($f1 $c1) ($f2 $c2))
    (let* (($w1 (Truth_c2w $c1)) ($w2 (Truth_c2w $c2)) ($w  (+ $w1 $w2))
           ($f (/ (+ (* $w1 $f1) (* $w2 $f2)) $w)) ($c (Truth_w2c $w)))
           ((min 1.00 $f) (min 0.99 (max (max $c $c1) $c2)))))

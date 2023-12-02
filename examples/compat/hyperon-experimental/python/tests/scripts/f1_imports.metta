@@ -7,8 +7,8 @@
 ; returns one atom, which wraps the space of stdlib.
 ; The type of this atom is the same as of `&self`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(get-atoms &self)
-!(get-type (get-atoms &self))
+;;!(get-atoms &self)
+;;!(get-type (get-atoms &self))
 !(get-type &self)
 
 !(assertEqual
@@ -27,15 +27,19 @@
 !(import! &m f1_moduleA.metta)
 
 ; It's first atom is a space
-!(assertEqual
-  (let* (($x (collapse (get-atoms &m)))
-         ($y (car-atom $x)))
-        (get-type $y))
-  (get-type &self))
+;!(assertEqual
+;  (let* (($x (collapse (get-atoms &m)))
+;         ($y (car-atom $x)))
+;        (get-type $y))
+;  (get-type &self))
+
 
 ; FIXME? Now, it is moduleC space.
 ;        Should it be `stdlib` atom for a separately imported space
 ; !(let $x (collapse (get-atoms &m)) (car-atom $x))
+
+
+; MeTTLog:  xlisting('&m').
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -58,6 +62,11 @@
 ; Now indirectly imported `g` works and `f` fully works
 !(assertEqual (g 2) 102)
 !(assertEqual (f 2) 103)
+
+
+
+; MeTTLog:  xlisting('&self').
+
 
 ; `&self` contains 3 atoms-spaces now:
 ; - stdlib

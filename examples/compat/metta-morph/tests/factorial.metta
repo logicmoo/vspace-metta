@@ -1,3 +1,6 @@
+(: If (-> Bool Atom Atom Atom))
+(= (If $cond $then $else) (if $cond $then $else))
+
 (= (facF $n)
    (If (== $n 0)
        1

@@ -1,3 +1,20 @@
+(: If (-> Bool Atom Atom))
+(= (If True $then) $then)
+(= (If False $then) (let $x 0 (let $x 1 $x)))
+
+(: If (-> Bool Atom Atom Atom))
+(= (If $cond $then $else) (if $cond $then $else))
+
+(: sequential (-> Expression %Undefined%))
+(= (sequential $1) (superpose $1))
+
+(: do (-> Expression %Undefined%))
+(= (do $1) (case $1 ()))
+
+(= (max $1 $2) (if (> $1 $2) $1 $2))
+(= (min $1 $2) (if (< $1 $2) $1 $2))
+(= (abs $x) (If (< $x 0) (- 0 $x) $x))
+
 (= (TupleConcat $Ev1 $Ev2) (collapse (superpose ((superpose $Ev1) (superpose $Ev2)))))
 
 ;; Truth functions
@@ -47,11 +64,11 @@
 (= (Derive $beliefs $depth $maxdepth)
    (If (> $depth $maxdepth)
        $beliefs
-       (let $derivations 
+       (let $derivations
             (collapse (let* (((Sentence $x $Ev1) (superpose $beliefs))
                              ((Sentence $y $Ev2) (superpose $beliefs))
                              ($stamp (TupleConcat $Ev1 $Ev2)))
-                            (If (StampDisjoint $Ev1 $Ev2) 
+                            (If (StampDisjoint $Ev1 $Ev2)
                                 (case (|- $x $y) ((($T $TV) (Sentence ($T $TV) $stamp)))))))
             (Derive (TupleConcat $beliefs $derivations) (+ $depth 1) $maxdepth))))
 
@@ -72,7 +89,7 @@
 
 ;pose a question of a certain term to the system on some knowledge base
 (= (Question $kb $term $steps)
-   (BestCandidate ConfidenceRank () (collapse (let $x (Derive $kb 1 $steps) 
+   (BestCandidate ConfidenceRank () (collapse (let $x (Derive $kb 1 $steps)
                                                    (case (superpose $x)
                                                          (((Sentence ($T $TV) $Ev) (case (== $T $term)
                                                                                           ((True ($TV $Ev)))))))))))

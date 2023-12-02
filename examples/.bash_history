@@ -505,3 +505,28 @@ mv override-compat/hyperon-pln~ override-compat/hyperon-pln
 ls override-compat/hyperon-pln/
 ls override-compat/hyperon-pln/metta/
 find override-compat/hyperon-pln/metta/
+cp -a examples examples-saved
+cd examples
+git status .
+git restore --source=main '*.answers' 
+git status .
+cls
+git status .
+git checkout compat/hyperon-pln/metta/common/*.answers
+\cp -a ../examples-saved/* .
+ls
+git status .
+cat compat/hyperon-pln/metta/common/MaybeTest.metta.answers 
+cd add *.answers
+git add *.answers
+git status .
+git add compat/hyperon-pln/metta/synthesis/experiments/synthesize-via-unify-test-longer.metta 
+git add compat/hyperon-pln/metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.answers 
+git status .
+ls  override-compat/hyperon-miner-old/match/
+git checkout  override-compat/hyperon-miner-old/match/
+git status .
+git restore  override-compat/hyperon-miner-old/match/MinerMatch.metta
+git restore override-compat/hyperon-miner-old/match/MinerMatch.metta
+git add .
+git status .

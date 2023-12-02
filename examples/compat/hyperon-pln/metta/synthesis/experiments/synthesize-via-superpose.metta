@@ -21,20 +21,24 @@
 (= (h False) 1)
 
 ;; ;; ;; Test composition via superpose
-;; !(. (superpose (f g)) (superpose (f g)))
-;; !(collapse (. (superpose (f g)) (superpose (f g))))
-;; !(well-typed (. (superpose (f g)) (superpose (f g))))
-;; !(get-type (. (superpose (f g)) (superpose (f g))))
+!(. (superpose (f g)) (superpose (f g)))
+; !(collapse (. (superpose (f g)) (superpose (f g))))
+!(well-typed (. (superpose (f g)) (superpose (f g))))
+; !(get-type (. (superpose (f g)) (superpose (f g))))
 
-!(superpose ((. f f) (. f g) (. g f) (. g g) (. h g)))
 
 ;; Defining functions to compose using non-determinism
 ;; (: ndfs (-> Atom))
 (= (fns) f)
 (= (fns) g)
 (= (fns) h)
-!(get-type (. (fns) (fns)))
-;; !((. (fns) (fns)) 42)
+; !(get-type (. (fns) (fns)))
 
-;; !(g "42")
-;; !((. g f) 42)
+;!((. (fns) (fns)) 42)
+
+!(g "42")
+!((. g f) 42)
+
+!(superpose ((. f f) (. f g) (. g f) (. g g) (. h g)))
+
+
