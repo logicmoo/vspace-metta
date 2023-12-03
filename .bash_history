@@ -675,3 +675,11 @@ cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
 cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta
 rgit status .
 git status .
+git commit -am "more debugging"
+git push origin 
+cls ; ./MeTTa examples/interp/test_scripts
+find examples -name "*.html" -delete
+cls ; ./MeTTa examples/interp/test_scripts/  
+\
+cd vspace-metta/
+./MeTTa metta_vspace/pyswip/metta_prelude.metta 
