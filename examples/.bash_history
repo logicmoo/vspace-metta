@@ -530,3 +530,5 @@ git restore  override-compat/hyperon-miner-old/match/MinerMatch.metta
 git restore override-compat/hyperon-miner-old/match/MinerMatch.metta
 git add .
 git status .
+fg
+cd ../../

@@ -572,3 +572,106 @@ cd ..
 git status .
 cat history.txt 
 git add  pyswip/flybase_learn.pl
+git commit -am  pyswip/flybase_learn.pl
+ls metta_vspace/pyswip
+git status .
+git git-ls
+git ls
+rm *.bak
+cd pyswip
+cd ..
+./MeTTa -clean examples
+./MeTTa -clean examples/compat/metta-morph/tests
+./MeTTa -clean -v_34  examples/compat/metta-morph/tests/match_void.metta
+./MeTTa -clean -v_35  examples/compat/metta-morph/tests/match_void.metta
+./MeTTa -clean -v4a  examples/compat/metta-morph/tests/match_void.metta
+./MeTTa -clean -v2a  examples/compat/metta-morph/tests/match_void.metta
+./MeTTa -clean -vGOOD  examples/compat/metta-morph/tests/match_void.metta
+./MeTTa -clean examples/compat/metta-morph/tests/match_void.metta
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/match_void.metta
+metta
+systemctl restart tomcat9.service 
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
+ls
+./MeTTa  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/match_void.metta
+cls ; ./MeTTa  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/match_void.metta
+./MeTTa  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/match_superposed_spaces.metta
+cls ; ./MeTTa  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/match_superposed_spaces.metta
+                                                                                                                        systemctl restart tomcat9.service 
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
+cat .bash_history 
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/
+metta
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/ --clean
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/match_feval.metta
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/
+cls ; ./MeTTa -clean examples/compat/metta-morph/tests/ --clean
+cls ; ./MeTTa examples/compat/metta-morph/tests/ --clean --eval=rtrace
+cls ; ./MeTTa examples/compat/metta-morph/tests/ --clean --eval=rtrace --exec=rtrace
+cls ; ./MeTTa examples/compat/metta-morph/tests/ --clean --exec=rtrace
+find examples -name *.html
+cls ; ./MeTTa examples/compat/metta-morph/tests/ --clean --exec=rtrace
+cls ; ./MeTTa examples/compat/metta-morph/tests/supercollapse.metta --clean --exec=rtrace
+cls ; ./MeTTa examples/compat/metta-morph/tests/supercollapse.mett --exec=rtrace
+cls ; ./MeTTa examples/compat/metta-morph/tests/supercollapse.metta --exec=rtrace
+cls ; ./MeTTa examples/compat/metta-morph/tests/supercollapse.metta --exec=skip
+cls ; ./MeTTa --exec=skip examples/compat/metta-morph/tests/supercollapse.metta
+cls ; ./MeTTa --exec=ttrace examples/compat/metta-morph/tests/supercollapse.metta
+cls ; ./MeTTa --exec=rtrace examples/compat/metta-morph/tests/supercollapse.metta
+cls ; ./MeTTa --exec=rtrace examples/compat/metta-morph/tests/sequential_nested.metta
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/add_atom_match.metta
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/ --clean
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/add_atom_match.metta --clean
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/and_or.metta
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/ --clean
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/sequential_nested.metta --clean
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/sequential_nested.metta
+find examples -name "*.html"
+find examples -name "*.html" -delete 
+find examples -name "*.html"
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/
+rm examples/compat/metta-morph/tests/*.html
+cls ; ./MeTTa --eval=rtrace examples/compat/metta-morph/tests/sequential_nested.metta
+cls ; ./MeTTa examples/compat/metta-morph/tests/sequential_nested.metta
+cls ; ./MeTTa examples/compat/metta-morph/tests/identity.metta
+cls ; ./MeTTa examples/compat/metta-morph/tests/match_void.metta
+aaaaaaa
+cls ; ./MeTTa examples/compat/metta-morph/tests/match_void.metta
+kill -9 -9
+fg
+reset
+kill -9 %1
+kill -9 %2
+cls ; ./MeTTa examples/compat/metta-morph/tests/match_void.metta
+fg
+reset
+cls ; ./MeTTa examples/compat/metta-morph/tests/match_void.metta --fresh
+cls ; ./MeTTa examples/compat/metta-morph/tests/match_void.metta
+find examples -name "00*" 
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean fresh
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
+c
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta
+reset
+cd ../../
+cd ..
+cat .bash_history 
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta
+metta examples/interp/test_scripts/00_lang_case.metta
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+metta examples/interp/test_scripts/00_lang_case.metta
+ewrer
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
+b
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta --clean --fresh
+cls ; ./MeTTa examples/interp/test_scripts/00_lang_case.metta
+rgit status .
+git status .

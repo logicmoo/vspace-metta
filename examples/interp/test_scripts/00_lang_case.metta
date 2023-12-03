@@ -61,10 +61,16 @@
 
 !(assertEqualToResult (collapse (superpose ((nop 1)))) (()))
 
-
+(= (Rel-P P P P) 10)
 
 (Rel-P A B)
 (Rel-Q A C)
+
+!(match &self $1 $1)
+
+!(get-atoms &self)
+
+;;l !(repl!)
 
 !(assertEqualToResult
   (match &self
@@ -72,6 +78,7 @@
     ($Rel A $X))
   ((Rel-P A B)
    (Rel-Q A C)))
+
 
 !(assertEqualToResult
   (superpose ((Rel-P B) (Rel-Q C)))
@@ -93,10 +100,12 @@
 
 
 ; %void% can be used to capture empty results
-!(assertEqual (case (match &self ($rel B $x) ($rel $x))
-    (((Rel-P $y) (P $y))
-    ((Rel-Q $y) (Q $y))
-    (%void% no-match
+!(assertEqual
+  (case
+    (match &self ($rel B $x) ($rel $x))
+    (  ((Rel-P $y) (P $y))
+       ((Rel-Q $y) (Q $y))
+       (%void% no-match
      )))
      no-match )
 

@@ -22,7 +22,6 @@
 	(pragma! trace-length 1090)
 	(pragma! stack-max 100))
 
-!(pragma! stack-max 100)
 
 !(range 1 1)
 
