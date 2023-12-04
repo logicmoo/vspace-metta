@@ -935,3 +935,11 @@ git push origin
 find -name metta_types.pl
 cp ./metta_vspace/pyswipGOODZ/metta_types.pl metta_vspace/pyswip/metta_types.pl
 git add metta_vspace/pyswip/metta_types.pl 
+git commit -am metta_vspace/pyswip/metta
+git push origin 
+git push logicmoo 
+./MeTTa ./examples/
+find -name flybase_learn.pl
+cp  ./metta_vspace/pyswipGOODZ/flybase_learn.pl metta_vspace/pyswip/
+git add metta_vspace/pyswip/flybase_learn.pl '
+git add metta_vspace/pyswip/flybase_learn.pl 
