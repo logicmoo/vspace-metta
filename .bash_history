@@ -926,3 +926,12 @@ git diff 021f865fe47e7aec198cf20a5591798d4aff7bf7 metta_vspace/pyswip/metta_eval
 git checkout  021f865fe47e7aec198cf20a5591798d4aff7bf7 metta_vspace/pyswip/metta_eval.pl
 git push logicmoo 
 git status .
+git commit -am metta_vspace/pyswip/metta_eval.pl
+git push logicmoo 
+git push origin 
+./MeTTa ./examples/
+./MeTTa ./examples/ --clean
+./MeTTa ./examples/
+find -name metta_types.pl
+cp ./metta_vspace/pyswipGOODZ/metta_types.pl metta_vspace/pyswip/metta_types.pl
+git add metta_vspace/pyswip/metta_types.pl 
