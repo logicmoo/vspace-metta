@@ -918,3 +918,11 @@ mv v_1.md reports/
 git status .
 cd ..
 git add reports/
+git push origin 
+cd ..
+git log .
+git diff 021f865fe47e7aec198cf20a5591798d4aff7bf7 metta_vspace/pyswip
+git diff 021f865fe47e7aec198cf20a5591798d4aff7bf7 metta_vspace/pyswip/metta_eval.pl
+git checkout  021f865fe47e7aec198cf20a5591798d4aff7bf7 metta_vspace/pyswip/metta_eval.pl
+git push logicmoo 
+git status .
