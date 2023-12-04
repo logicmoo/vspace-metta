@@ -518,3 +518,47 @@ cd ../../examples/nars/
 ls
 git mv extra_tests/ nars_extras
 ls
+rm  ./examples/nars/*/.mettalogrc
+cd ./examples/nars/
+ls
+ls -l
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc */
+ls nars_extras/ -A
+ls nars_extras/ -a
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc ./*/
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc ./*/.mettalogrc
+rm prev/,mettalogrc
+ls prev/ -A
+rm prev/current 
+rm prev/nars
+rm prev/nars_extras 
+ls
+find .
+find . -type l
+find . -type l -delete 
+ls
+ls -A
+cat ,mettalogrc
+ls -l 0A
+ls -l -A
+vi .mettalogrc
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc */.mettalogrc
+ls
+ls prev/ -A -l
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc prev/
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc new/
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc nars_extras/
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc nars_v0/
+ls
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/nars/.mettalogrc current/
+ks
+find -type l
+find -type l -ls {} -;
+find -type l -exec ls -lh {} \; 
+mv * ../metta_vspace/
+cd ../examples/nars/
+cp .mettalogrc 
+cp .mettalogrc ../features/
+cat .mettalogrc  >>../performance/
+cat .mettalogrc  >>../performance/.mettalogrc 
+vi ../performance/.mettalogrc 

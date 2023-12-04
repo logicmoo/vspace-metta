@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.metta')
+1=[False]
+2=[False]
+3=0.60user 0.02system 0:00.62elapsed 100%CPU (0avgtext+0avgdata 34104maxresident)k
+3=0inputs+0outputs (0major+3749minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.metta', 1, ['False']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.metta', 2, ['False']).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foldl,[->,'Atom','Atom','Atom',True]])
+</span><span class="ansi38-255165000">  (: foldl 
+    (-> Atom Atom Atom $True))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[foldl,List,Init,Op],[if,[==,[],List],Init,['let*',[[Head,['car-atom',List]],[Tail,['cdr-atom',List]]],[Op,Head,[foldl,Tail,Init,Op]]]])
+</span><span class="ansi38-255165000">  (= 
+    (foldl $List $Init $Op) 
+    (if 
+      (== () $List) $Init 
+      (let* 
+        ( ($Head 
+            (car-atom $List)) 
+          ($Tail 
+            (cdr-atom $List))) 
+        ($Op $Head 
+          (foldl $Tail $Init $Op)))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,all,[->,'Atom','Bool']])
+</span><span class="ansi38-255165000">  (: all 
+    (-> Atom Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[all,A],[foldl,A,'True',and])
+</span><span class="ansi38-255165000">  (= 
+    (all $A) 
+    (foldl $A True and))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,any,[->,'Atom','Bool']])
+</span><span class="ansi38-255165000">  (: any 
+    (-> Atom Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[any,A],[if,[==,[],A],'False',['let*',[[Tail,['cdr-atom',A]],[Head,['car-atom',A]]],[if,Head,'True',[any,Tail]]]])
+</span><span class="ansi38-255165000">  (= 
+    (any $A) 
+    (if 
+      (== () $A) False 
+      (let* 
+        ( ($Tail 
+            (cdr-atom $A)) 
+          ($Head 
+            (car-atom $A))) 
+        (if $Head True 
+          (any $Tail)))))
+</span>
+
+<span class="ansi38-000068000">!(any 
+  (False False False False))
+
+</span>      -->(0,'&self',[any,['False','False','False','False']],depth(1))
+          -->(1,'&self',['False','False','False','False'],depth(3))
+        -->(2,'&self',[if,[==,[],['False','False','False','False']],'False',['let*',[[_405650,['cdr-atom',['False','False','False','False']]],[_405680,['car-atom',['False','False','False','False']]]],[if,_405680,'True',[any,_405650]]]],depth(2))
+            -->(3,'&self',[==,[],['False','False','False','False']],depth(4))
+                -->(4,'&self',['False','False','False','False'],depth(6))
+                -->(5,'&self',['False','False','False','False'],depth(6))
+            <--(3,retval('False'))
+            -->(6,'&self',['let*',[[_405650,['cdr-atom',['False','False','False','False']]],[_405680,['car-atom',['False','False','False','False']]]],[if,_405680,'True',[any,_405650]]],depth(4))
+                -->(7,'&self',['cdr-atom',['False','False','False','False']],depth(6))
+                <--(7,retval(['False','False','False']))
+                  -->(8,'&self',['False','False','False'],depth(7))
+                -->(9,'&self',['let*',[[_405680,['car-atom',['False','False','False','False']]]],[if,_405680,'True',[any,['False','False','False']]]],depth(6))
+                    -->(10,'&self',['car-atom',['False','False','False','False']],depth(8))
+                    <--(10,retval('False'))
+                    -->(11,'&self',['let*',[],[if,'False','True',[any,['False','False','False']]]],depth(8))
+                        -->(12,'&self',[if,'False','True',[any,['False','False','False']]],depth(10))
+                            -->(13,'&self',[any,['False','False','False']],depth(12))
+                                -->(14,'&self',['False','False','False'],depth(14))
+                              -->(15,'&self',[if,[==,[],['False','False','False']],'False',['let*',[[_418146,['cdr-atom',['False','False','False']]],[_418176,['car-atom',['False','False','False']]]],[if,_418176,'True',[any,_418146]]]],depth(13))
+                                  -->(16,'&self',[==,[],['False','False','False']],depth(15))
+                                      -->(17,'&self',['False','False','False'],depth(17))
+                                      -->(18,'&self',['False','False','False'],depth(17))
+                                  <--(16,retval('False'))
+                                  -->(19,'&self',['let*',[[_418146,['cdr-atom',['False','False','False']]],[_418176,['car-atom',['False','False','False']]]],[if,_418176,'True',[any,_418146]]],depth(15))
+                                      -->(20,'&self',['cdr-atom',['False','False','False']],depth(17))
+                                      <--(20,retval(['False','False']))
+                                        -->(21,'&self',['False','False'],depth(18))
+                                      -->(22,'&self',['let*',[[_418176,['car-atom',['False','False','False']]]],[if,_418176,'True',[any,['False','False']]]],depth(17))
+                                          -->(23,'&self',['car-atom',['False','False','False']],depth(19))
+                                          <--(23,retval('False'))
+                                          -->(24,'&self',['let*',[],[if,'False','True',[any,['False','False']]]],depth(19))
+                                              -->(25,'&self',[if,'False','True',[any,['False','False']]],depth(21))
+                                                  -->(26,'&self',[any,['False','False']],depth(23))
+                                                      -->(27,'&self',['False','False'],depth(25))
+                                                    -->(28,'&self',[if,[==,[],['False','False']],'False',['let*',[[_426394,['cdr-atom',['False','False']]],[_426424,['car-atom',['False','False']]]],[if,_426424,'True',[any,_426394]]]],depth(24))
+                                                        -->(29,'&self',[==,[],['False','False']],depth(26))
+                                                            -->(30,'&self',['False','False'],depth(28))
+                                                            -->(31,'&self',['False','False'],depth(28))
+                                                        <--(29,retval('False'))
+                                                        -->(32,'&self',['let*',[[_426394,['cdr-atom',['False','False']]],[_426424,['car-atom',['False','False']]]],[if,_426424,'True',[any,_426394]]],depth(26))
+                                                            -->(33,'&self',['cdr-atom',['False','False']],depth(28))
+                                                            <--(33,retval(['False']))
+                                                              -->(34,'&self',['False'],depth(29))
+                                                              <--(34,retval('False'))
+                                                            -->(35,'&self',['let*',[[_426424,['car-atom',['False','False']]]],[if,_426424,'True',[any,'False']]],depth(28))
+                                                                -->(36,'&self',['car-atom',['False','False']],depth(30))
+                                                                <--(36,retval('False'))
+                                                                -->(37,'&self',['let*',[],[if,'False','True',[any,'False']]],depth(30))
+                                                                    -->(38,'&self',[if,'False','True',[any,'False']],depth(32))
+                                                                        -->(39,'&self',[any,'False'],depth(34))
+                                                                          -->(40,'&self',[if,[==,[],'False'],'False',['let*',[[_433438,['cdr-atom','False']],[_433468,['car-atom','False']]],[if,_433468,'True',[any,_433438]]]],depth(35))
+                                                                              -->(41,'&self',[==,[],'False'],depth(37))
+                                                                              <--(41,retval('False'))
+                                                                              -->(42,'&self',['let*',[[_433438,['cdr-atom','False']],[_433468,['car-atom','False']]],[if,_433468,'True',[any,_433438]]],depth(37))
+                                                                                  -->(43,'&self',['cdr-atom','False'],depth(39))
+                                                                                  <--(43,retval(fail))
+                                                                              <--(42,retval(fail))
+                                                                          <--(40,retval(fail))
+                                                                        <--(39,retval([if,[==,[],'False'],'False',['let*',[[_433792,['cdr-atom','False']],[_433822,['car-atom','False']]],[if,_433822,'True',[any,_433792]]]]))
+                                                                    <--(38,retval(fail))
+                                                                <--(37,retval(fail))
+                                                            <--(35,retval(fail))
+                                                        <--(32,retval(fail))
+                                                    <--(28,retval(fail))
+                                                  <--(26,retval([if,[==,[],['False','False']],'False',['let*',[[_426772,['cdr-atom',['False','False']]],[_426802,['car-atom',['False','False']]]],[if,_426802,'True',[any,_426772]]]]))
+                                              <--(25,retval(fail))
+                                          <--(24,retval(fail))
+                                      <--(22,retval(fail))
+                                  <--(19,retval(fail))
+                              <--(15,retval(fail))
+                            <--(13,retval([if,[==,[],['False','False','False']],'False',['let*',[[_418536,['cdr-atom',['False','False','False']]],[_418566,['car-atom',['False','False','False']]]],[if,_418566,'True',[any,_418536]]]]))
+                        <--(12,retval(fail))
+                    <--(11,retval(fail))
+                <--(9,retval(fail))
+            <--(6,retval(fail))
+        <--(2,retval(fail))
+      <--(0,retval([if,[==,[],['False','False','False','False']],'False',['let*',[[_406052,['cdr-atom',['False','False','False','False']]],[_406082,['car-atom',['False','False','False','False']]]],[if,_406082,'True',[any,_406052]]]]))
+<span class="ansi31">
+! (assertEqualToResult 
+    (any 
+      (False False False False)) 
+    (False))
+(@ ! 
+  (assertEqual () 
+    (False)))
+write_pass_fail_result("LOGIC.ALL-ANY.101",exec,[any,['False','False','False','False']],'FAIL',['False'],[])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(all 
+  (True True True False))
+
+</span>      -->(44,'&self',[all,['True','True','True','False']],depth(1))
+          -->(45,'&self',['True','True','True','False'],depth(3))
+        -->(46,'&self',[foldl,['True','True','True','False'],'True',and],depth(2))
+            -->(47,'&self',['True','True','True','False'],depth(4))
+          -->(48,'&self',[if,[==,[],['True','True','True','False']],'True',['let*',[[_457168,['car-atom',['True','True','True','False']]],[_457198,['cdr-atom',['True','True','True','False']]]],[and,_457168,[foldl,_457198,'True',and]]]],depth(3))
+              -->(49,'&self',[==,[],['True','True','True','False']],depth(5))
+                  -->(50,'&self',['True','True','True','False'],depth(7))
+                  -->(51,'&self',['True','True','True','False'],depth(7))
+              <--(49,retval('False'))
+              -->(52,'&self',['let*',[[_457168,['car-atom',['True','True','True','False']]],[_457198,['cdr-atom',['True','True','True','False']]]],[and,_457168,[foldl,_457198,'True',and]]],depth(5))
+                  -->(53,'&self',['car-atom',['True','True','True','False']],depth(7))
+                  <--(53,retval('True'))
+                  -->(54,'&self',['let*',[[_457198,['cdr-atom',['True','True','True','False']]]],[and,'True',[foldl,_457198,'True',and]]],depth(7))
+                      -->(55,'&self',['cdr-atom',['True','True','True','False']],depth(9))
+                      <--(55,retval(['True','True','False']))
+                        -->(56,'&self',['True','True','False'],depth(10))
+                      -->(57,'&self',['let*',[],[and,'True',[foldl,['True','True','False'],'True',and]]],depth(9))
+                          -->(58,'&self',[and,'True',[foldl,['True','True','False'],'True',and]],depth(11))
+                              -->(59,'&self',[foldl,['True','True','False'],'True',and],depth(13))
+                                  -->(60,'&self',['True','True','False'],depth(15))
+                                -->(61,'&self',[if,[==,[],['True','True','False']],'True',['let*',[[_466364,['car-atom',['True','True','False']]],[_466394,['cdr-atom',['True','True','False']]]],[and,_466364,[foldl,_466394,'True',and]]]],depth(14))
+                                    -->(62,'&self',[==,[],['True','True','False']],depth(16))
+                                        -->(63,'&self',['True','True','False'],depth(18))
+                                        -->(64,'&self',['True','True','False'],depth(18))
+                                    <--(62,retval('False'))
+                                    -->(65,'&self',['let*',[[_466364,['car-atom',['True','True','False']]],[_466394,['cdr-atom',['True','True','False']]]],[and,_466364,[foldl,_466394,'True',and]]],depth(16))
+                                        -->(66,'&self',['car-atom',['True','True','False']],depth(18))
+                                        <--(66,retval('True'))
+                                        -->(67,'&self',['let*',[[_466394,['cdr-atom',['True','True','False']]]],[and,'True',[foldl,_466394,'True',and]]],depth(18))
+                                            -->(68,'&self',['cdr-atom',['True','True','False']],depth(20))
+                                            <--(68,retval(['True','False']))
+                                              -->(69,'&self',['True','False'],depth(21))
+                                            -->(70,'&self',['let*',[],[and,'True',[foldl,['True','False'],'True',and]]],depth(20))
+                                                -->(71,'&self',[and,'True',[foldl,['True','False'],'True',and]],depth(22))
+                                                    -->(72,'&self',[foldl,['True','False'],'True',and],depth(24))
+                                                        -->(73,'&self',['True','False'],depth(26))
+                                                      -->(74,'&self',[if,[==,[],['True','False']],'True',['let*',[[_474672,['car-atom',['True','False']]],[_474702,['cdr-atom',['True','False']]]],[and,_474672,[foldl,_474702,'True',and]]]],depth(25))
+                                                          -->(75,'&self',[==,[],['True','False']],depth(27))
+                                                              -->(76,'&self',['True','False'],depth(29))
+                                                              -->(77,'&self',['True','False'],depth(29))
+                                                          <--(75,retval('False'))
+                                                          -->(78,'&self',['let*',[[_474672,['car-atom',['True','False']]],[_474702,['cdr-atom',['True','False']]]],[and,_474672,[foldl,_474702,'True',and]]],depth(27))
+                                                              -->(79,'&self',['car-atom',['True','False']],depth(29))
+                                                              <--(79,retval('True'))
+                                                              -->(80,'&self',['let*',[[_474702,['cdr-atom',['True','False']]]],[and,'True',[foldl,_474702,'True',and]]],depth(29))
+                                                                  -->(81,'&self',['cdr-atom',['True','False']],depth(31))
+                                                                  <--(81,retval(['False']))
+                                                                    -->(82,'&self',['False'],depth(32))
+                                                                    <--(82,retval('False'))
+                                                                  -->(83,'&self',['let*',[],[and,'True',[foldl,'False','True',and]]],depth(31))
+                                                                      -->(84,'&self',[and,'True',[foldl,'False','True',and]],depth(33))
+                                                                          -->(85,'&self',[foldl,'False','True',and],depth(35))
+                                                                            -->(86,'&self',[if,[==,[],'False'],'True',['let*',[[_481776,['car-atom','False']],[_481806,['cdr-atom','False']]],[and,_481776,[foldl,_481806,'True',and]]]],depth(36))
+                                                                                -->(87,'&self',[==,[],'False'],depth(38))
+                                                                                <--(87,retval('False'))
+                                                                                -->(88,'&self',['let*',[[_481776,['car-atom','False']],[_481806,['cdr-atom','False']]],[and,_481776,[foldl,_481806,'True',and]]],depth(38))
+                                                                                    -->(89,'&self',['car-atom','False'],depth(40))
+                                                                                    <--(89,retval(fail))
+                                                                                <--(88,retval(fail))
+                                                                            <--(86,retval(fail))
+                                                                          <--(85,retval([if,[==,[],'False'],'True',['let*',[[_482142,['car-atom','False']],[_482172,['cdr-atom','False']]],[and,_482142,[foldl,_482172,'True',and]]]]))
+                                                                      <--(84,retval('False'))
+                                                                  <--(83,retval('False'))
+                                                              <--(80,retval('False'))
+                                                          <--(78,retval('False'))
+                                                      <--(74,retval('False'))
+                                                    <--(72,retval([if,[==,[],['True','False']],'True',['let*',[[_475062,['car-atom',['True','False']]],[_475092,['cdr-atom',['True','False']]]],[and,_475062,[foldl,_475092,'True',and]]]]))
+                                                <--(71,retval('False'))
+                                            <--(70,retval('False'))
+                                        <--(67,retval('False'))
+                                    <--(65,retval('False'))
+                                <--(61,retval('False'))
+                              <--(59,retval([if,[==,[],['True','True','False']],'True',['let*',[[_466766,['car-atom',['True','True','False']]],[_466796,['cdr-atom',['True','True','False']]]],[and,_466766,[foldl,_466796,'True',and]]]]))
+                          <--(58,retval('False'))
+                      <--(57,retval('False'))
+                  <--(54,retval('False'))
+              <--(52,retval('False'))
+          <--(48,retval('False'))
+<span class="ansi33"> False
+
+</span>        <--(46,retval([if,[==,[],['True','True','True','False']],'True',['let*',[[_457582,['car-atom',['True','True','True','False']]],[_457612,['cdr-atom',['True','True','True','False']]]],[and,_457582,[foldl,_457612,'True',and]]]]))
+      <--(44,retval([foldl,['True','True','True','False'],'True',and]))
+<span class="ansi36">
+! (assertEqualToResult 
+    (all 
+      (True True True False)) 
+    (False))
+(@ ! 
+  (assertEqual 
+    (False) 
+    (False)))
+write_pass_fail_result("LOGIC.ALL-ANY.102",exec,[all,['True','True','True','False']],'PASS',['False'],['False'])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 344,861 inferences, 0.156 CPU in 0.156 seconds (100% CPU, 2215949 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/all_any.html" )
+
+</pre>
+</body>
+
+</html>

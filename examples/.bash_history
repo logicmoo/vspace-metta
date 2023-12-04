@@ -532,3 +532,5 @@ git add .
 git status .
 fg
 cd ../../
+vi ../performance/.mettalogrc 
+cd ..

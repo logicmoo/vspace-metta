@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ ((StringValue "@") (ConceptNode track_load_into_file) (ConceptNode "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/if.metta"))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/if.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/if.metta')
+1=[(5 6)]
+2=0.10user 0.01system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 32884maxresident)k
+2=0inputs+0outputs (0major+3480minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/if.metta', 1, [[5, 6]]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
+</span><span class="ansi38-255165000">  ((StringValue ":") (ConceptNode If) 
+    ((ConceptNode ->) (ConceptNode Bool) (ConceptNode Atom) (ConceptNode Atom) (ConceptNode Atom)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',['If',Cond,Then,Else],[if,Cond,Then,Else])
+</span><span class="ansi38-255165000">  ((StringValue "=") 
+    ((ConceptNode If) $Cond $Then $Else) 
+    ((ConceptNode if) $Cond $Then $Else))
+</span>
+
+<span class="ansi38-000068000">! ((ConceptNode If) 
+    ((StringValue ">") (ValueAtom 1) (ValueAtom 2)) 
+    ((ValueAtom 3) (ValueAtom 4)) 
+    ((ValueAtom 5) (ValueAtom 6)))
+
+</span>      -->(0,'&self',['If',[>,1,2],[3,4],[5,6]],depth(1))
+          -->(1,'&self',[>,1,2],depth(3))
+          <--(1,retval('False'))
+          -->(2,'&self',['If','False',[3,4],[5,6]],depth(3))
+              -->(3,'&self',[3,4],depth(5))
+            -->(4,'&self',[if,'False',[3,4],[5,6]],depth(4))
+                -->(5,'&self',[5,6],depth(6))
+            <--(4,retval([5,6]))
+              -->(6,'&self',[5,6],depth(5))
+        -->(7,'&self',[5,6],depth(2))
+<span class="ansi33">  ((ValueAtom 5) (ValueAtom 6))
+
+</span>          <--(2,retval([if,'False',[3,4],[5,6]]))
+        -->(8,'&self',[if,[>,1,2],[3,4],[5,6]],depth(2))
+            -->(9,'&self',[>,1,2],depth(4))
+            <--(9,retval('False'))
+            -->(10,'&self',[5,6],depth(4))
+        <--(8,retval([5,6]))
+          -->(11,'&self',[5,6],depth(3))
+<span class="ansi33">  ((ValueAtom 5) (ValueAtom 6))
+
+</span>      <--(0,retval([if,[>,1,2],[3,4],[5,6]]))
+<span class="ansi36">
+! ((ConceptNode assertEqualToResult) 
+    ((ConceptNode If) 
+      ((StringValue ">") (ValueAtom 1) (ValueAtom 2)) 
+      ((ValueAtom 3) (ValueAtom 4)) 
+      ((ValueAtom 5) (ValueAtom 6))) 
+    ( ((ValueAtom 5) (ValueAtom 6))))
+((StringValue "@") (StringValue "!") 
+  ((ConceptNode assertEqual) 
+    ( ((ValueAtom 5) (ValueAtom 6)) 
+      ((ValueAtom 5) (ValueAtom 6))) 
+    ( ((ValueAtom 5) (ValueAtom 6)))))
+write_pass_fail_result("TESTS.IF.101",exec,['If',[>,1,2],[3,4],[5,6]],'PASS',[[5,6]],[[5,6],[5,6]])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 253,134 inferences, 0.093 CPU in 0.093 seconds (100% CPU, 2732846 Lips)
+</span> ((StringValue "@") (StringValue "=") (ConceptNode "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/if.metta") (ValueAtom 0))
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-morph/tests/if.html" )
+
+</pre>
+</body>
+
+</html>

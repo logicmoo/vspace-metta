@@ -683,3 +683,238 @@ cls ; ./MeTTa examples/interp/test_scripts/
 \
 cd vspace-metta/
 ./MeTTa metta_vspace/pyswip/metta_prelude.metta 
+git commit -am metta_impl_data
+git push
+./MeTTa examples/interp/test_scripts/ --clena
+./MeTTa examples/interp/test_scripts/ --clean
+grep ematch -R examples
+./MeTTa examples/interp/test_scripts/ --clean
+./MeTTa examples/compat/hyperon-pln/metta/
+./MeTTa examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v_35 examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v2a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --vGOOD examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v4a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v44a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v2a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa -v2a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v2a examples/compat/hyperon-pln/metta/common/ListTest.metta
+a
+cls ; ./MeTTa --v2a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v4a examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --vGOOD examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v_34 examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --v_35 examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --vGOODY examples/compat/hyperon-pln/metta/common/ListTest.metta
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODZ -a
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODY/*.pl /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODZ/
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODY/metta_eval.pl /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODZ/
+cls ; ./MeTTa --vGOODZ examples/compat/hyperon-pln/metta/common/ListTest.metta
+\cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODY/* /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODZ/
+cls ; ./MeTTa --vGOODZ examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --vGOOD examples/compat/hyperon-pln/metta/common/ListTest.metta
+cls ; ./MeTTa --vGOOD examples/compat/hyperon-pln/metta
+cls ; ./MeTTa --vGOOD examples/compat/hyperon-pln/metta --clean
+cls ; ./MeTTa --vGOOD examples/compat --clean
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODY/* /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODZ/
+\cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODY/* /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswipGOODZ/
+cls ; ./MeTTa --vGOODZ examples/compat/ --clean
+mv metta_vspace/pyswip  metta_vspace/pyswip_lng
+cp metta_vspace/pyswipGOODZ metta_vspace/pyswip -a
+cls ; ./MeTTa  examples/compat/ --clean
+rm -rf examples-saved/
+ls
+rm -rf reports-old/
+rm all_data.pl.gz 
+df / -h
+ncdu .. -x
+metta
+du /
+df -h /
+tune2fs -u 123
+tune2fs -u 1234
+tune2fs -m 1 
+tune2fs -m 1 /
+df 
+tune2fs -m 1 /dev/sda2
+df / -h
+ncdu / -x
+df / -g
+df / -h
+cls ; ./MeTTa  examples/compat/ --clean
+git diff pyswip/metta_space.pl
+git diff metta_vspace/pyswip/metta_space.pl
+cls ; ./MeTTa  examples/compat/ --clean
+cls ; ./MeTTa --v_lng  examples/compat/ --clean
+mv metta_vspace/pyswip /metta_vspace/pyswip_hybrid
+mv metta_vspace/pyswip metta_vspace/pyswip_hybrid
+cp -a metta_vspace/pyswip_lng /metta_vspace/pyswip 
+cp -a metta_vspace/pyswip_lng metta_vspace/pyswip 
+cls ; ./MeTTa  examples/compat/ --clean
+cls ; ./MeTTa  examples/compat/ 
+touch examples/compat/metta-morph/extend/.mettalogrc
+vi examples/compat/metta-morph/extend/.mettalogrc 
+cls ; ./MeTTa  examples/compat/ 
+cls ; ./MeTTa  examples/compat/ --clean
+cls ; ./MeTTa  examples/compat/metta-morph/extend/ --clean
+cls ; ./MeTTa  examples/ --clean
+cls ; ./MeTTa  examples/compat/metta-morph/extend/ --clean
+cls ; ./MeTTa  examples/compat/metta-examples/ --clean
+cls ; ./MeTTa  examples/interp/test_scripts/
+cls ; ./MeTTa 
+rm ~/.config/swi-prolog/dir-history/F5XXA5BPNRXWO2LDNVXW6X3XN5ZGW43QMFRWKL3QMFRWW427ON4XGL3MN5TWSY3NN5XV633QMVXGG33HF5GWKVCUMEXXM43QMFRWKLLNMV2HIY*
+cls ; ./MeTTa 
+metta
+rm ~/.config/swi-prolog/dir-history/F5XXA5BPNRXWO2LDNVXW6X3XN5ZGW43QMFRWKL3QMFRWW427ON4XGL3MN5TWSY3NN5XV633QMVXGG33HF5GWKVCUMEXXM43QMFRWKLLNMV2HIY*
+ls
+cls ; ./MeTTa --clean
+mv examples/old-compat .
+cls ; ./MeTTa
+cls ; ./MeTTa --clean
+find examples/ -name ".*"
+cp examples/compat/metta-morph/extend/.mettalogrc examples/performance/
+cls ; ./MeTTa --clean
+vi examples/performance/.mettalogrc 
+cls ; ./MeTTa --clean
+vi examples/performance/.mettalogrc 
+cls ; ./MeTTa --clean
+grep ====================== metta_vspace -R
+grep ====================== metta_vspace -R --include="metta_interp*"
+find . -name "metta_interp*" -exec ls -lt {} + | grep "======================"
+find . -type f -name "metta_interp*" -exec grep -l "======================" {} +
+find metta_vspace -type f -name "metta_interp*" -exec grep -l "======================" {} +
+find . -type f -name "metta_interp*" -exec grep -l "======================" {} + | xargs ls -lt
+find metta_vspace/pyswip* -type f -name "metta_interp*" -exec grep -l "======================" {} + | xargs ls -lt
+find metta_vspace/pyswip*  -type f -name "metta_interp*" -exec grep -l "======================" {} + | xargs ls -lt
+find metta_vspace/pyswip* -type f -name "metta_interp*" -exec grep -l "======================" {} + | xargs ls -lt
+find metta_vspace/pyswip* -type f -name "metta_interp,ok*" -exec grep -l "======================" {} + | xargs ls -lt
+find metta_vspace/ -type f -name "metta_interp,ok**" -exec grep -l "======================" {} + | xargs ls -lt
+find metta_vspace/ -type f -name "metta_interp,pl*"
+find metta_vspace/ -type f -name "metta_interp*"
+find metta_vspace/ -type f -name "metta_interp*" -exec sh -c 'echo -n "{}: "; grep -c "============================" "{}"' \; | sort -t: -k2 -n
+cp metta_vspace/pyswip_hybrid/metta_interp-20231203184934.pl.bak v1
+cp metta_vspace/pyswip_35 - Copy/metta_interp.pl v2
+cp "metta_vspace/pyswip_35 - Copy/metta_interp.pl" v2
+find metta_vspace/ -type f -name "metta_interp*" -exec sh -c 'echo -n "{}: "; grep -c "% =================================================================" "{}"' \; | sort -t: -k2 -n
+find metta_vspace/ -type f -name "metta_interp*" -exec sh -c 'echo -n "{}: "; grep -c "% ================================================================" "{}"' \; | sort -t: -k2 -n
+find metta_vspace/ -type f -name "metta_eval*" -exec sh -c 'echo -n "{}: "; grep -c "% ================================================================" "{}"' \; | sort -t: -k2 -n
+find metta_vspace/ -type f -name "metta_eval*" -exec sh -c 'echo -n "{}: "; grep -c "% ================================================================" "{}"' \; | sort -t: -k2,-k1 -n 
+find metta_vspace/ -type f -name "metta_eval*" -exec sh -c 'echo -n "{}: "; grep -c "% ================================================================" "{}"' \; | sort |sort -t: -k2 -n 
+cp metta_vspace/pyswip/metta_eval-20231204022806.pl.bak v1
+cp "metta_vspace/pyswip - Copy (2)/metta_eval.pl" v2
+co metta_vspace/pyswip_lng/metta_eval.pl v3
+cp metta_vspace/pyswip_lng/metta_eval.pl v3
+cp metta_vspace/pyswipGOODY/metta_eval.pl v2
+cp  metta_vspace/pyswip  metta_vspace/pyswip_almost -a
+cp v2  metta_vspace/pyswip/
+cp v2  metta_vspace/pyswip/metta_eval.pl
+cp v1 metta_vspace/pyswip_almost/metta_eval.pl
+./MeTTa
+cls ; ./MeTTa --clean
+cls ; ./MeTTa --clean examples/interp/test_scripts/
+cls ; ./MeTTa --clean --v_35 examples/interp/test_scripts/
+cls ; ./MeTTa --clean --vGOODY examples/interp/test_scripts/
+cls ; ./MeTTa --clean --vGOODY examples/interp/test_scripts/ --clean
+cp metta_vspace/pyswip/chars.data metta_vspace/pyswipGOODY/
+cp metta_vspace/pyswip/chars.data metta_vspace/pyswipGOODZ/
+cp metta_vspace/pyswip/chars.data metta_vspace/pyswipGOOD/
+cls ; ./MeTTa --clean --vGOODY examples/interp/test_scripts/ --clean
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout 958c99daf6aa0f26511533104fbe5a86d47e10ff metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa --clean examples/interp/test_scripts/ --clean
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout ace23ed70e040d39f158e6a302f0a97cbf207c98 metta_vspace/pyswip/metta_eval.pl
+git log metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa --clean examples/interp/test_scripts/ --clean
+cls ; ./MeTTa --clean examples/interp/test_scripts/d1_gadt.metta
+git log metta_vspace/pyswip/metta_types.pl
+git log metta_vspace/pyswip/metta_data.pl
+git log metta_vspace/pyswip/metta_types.pl
+cls ; ./MeTTa --clean examples/interp/test_scripts/d1_gadt.metta
+cls ; ./MeTTa --clean examples/interp/test_scripts/
+git checkout 958c99daf6aa0f26511533104fbe5a86d47e10ff~3 metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa --clean examples/interp/test_scripts/
+git log 958c99daf6aa0f26511533104fbe5a86d47e10ff~3 metta_vspace/pyswip/metta_eval.pl
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout 27b34bff79d50c51b49c76e124a8770c39af1523  metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa --clean examples/interp/test_scripts/
+grep add_argtype metta_vspace/pyswip* -R
+cls ; ./MeTTa --clean examples/interp/test_scripts/
+cls ; ./MeTTa --clean examples/interp/test_scripts/  --vGOODY
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout 010cdff60095ca2d57216ce07d266a0568c9dd34  metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa --clean examples/interp/test_scripts/ --clean
+mv metta_vspace metta_vspace_sommeeee
+git checkout 010cdff60095ca2d57216ce07d266a0568c9dd34  metta_vspace/pyswip
+cls ; ./MeTTa --clean examples/interp/test_scripts/ --clean
+touch swi_flybase.pl
+mv swi_flybase.pl  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/
+cls ; ./MeTTa --clean examples/interp/test_scripts/ --clean
+git checkout 010cdff60095ca2d57216ce07d266a0568c9dd34  metta_vspace/pyswip/read_obo.pl
+touch /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/read_obo
+cls ; ./MeTTa --clean examples/interp/test_scripts/ --clean
+cp metta_vspace/pyswip/ metta_vspace/pyswip_1 -a
+cls ; ./MeTTa  --clean
+cls ; ./MeTTa  
+find -name .mettalogrc
+vi ./examples/nars/new/.mettalogrc 
+vi ./examples/nars/.mettalogrc
+cat ./examples/nars/new/.mettalogrc 
+rm  ./examples/nars/new/.mettalogrc
+cls ; ./MeTTa --clean  ./examples/nars/new/
+cp  ./examples/nars/.mettalogrc  ./examples/nars/new/.mettalogrc
+cp  ./examples/nars/.mettalogrc  ./examples/nars/*/
+cp  ./examples/nars/.mettalogrc  ./examples/nars/current/
+cp  ./examples/nars/.mettalogrc  ./examples/nars/nars_extras/
+cls ; ./MeTTa --clean  ./examples/nars/new
+rm  ./examples/nars/*/.mettalogrc
+find -type l -exec ls -lh {} \; 
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
+./MeTTa -clean 
+git log metta_vspace/pyswip
+./MeTTa examples/ --clean
+cd ..
+./MeTTa examples/ 
+\cp pyswip/* pyswip_1/
+cd ..
+find -name ".mettalogrc"
+find -name ".mettalogrc" -print -exec cat {} \;
+mv 0./examples/.HIDE~/0./examples/.HIDE~/ .
+mv ./examples/.HIDE~/ .
+mv ./examples/.HIDE~/ .HID2~
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/nars/nars_extras/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/nars/nars_v0/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/nars/current/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/nars/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/nars/prev/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/nars/new/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/performance/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./examples/features/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+rm ./.HID2~/nars_extras/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+cls
+find -name ".mettalogrc" -print -exec cat {} \;
+rm /examples/compat/hyperon-pln/metta/synthesis/experiments/.mettalogrc
+rm ./examples/compat/hyperon-pln/metta/synthesis/experiments/.mettalogrc
+find -name ".mettalogrc" -print -exec cat {} \;
+./MeTTa examples/ --report=Y
+mkdir v_1
+mv reports/* v_1/
+mv v_1/ reports/
+ls
+ls reports/
+cp MeTTaLog.md v_1.md
+mv v_1.md reports/
+git status .
+cd ..
+git add reports/

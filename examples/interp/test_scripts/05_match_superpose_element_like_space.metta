@@ -11,7 +11,7 @@
      (PQ SS-Q_Each C_Each))))
 
 !(assertEqualToResult
-  (ematch  (kb)
+  (match  (kb)
     ($SS A_Each $X)
     ($SS A_Each $X))
   ((SS-P_Each A_Each B_Each)
@@ -19,23 +19,23 @@
 
 ; Basic Match
 !(assertEqual
-   (ematch (kb) ($rel A_Each $x) ($rel $x))
+   (match (kb) ($rel A_Each $x) ($rel $x))
    (superpose ((SS-P_Each B_Each) (SS-Q_Each C_Each))))
 
 ; cases can be used for deconstruction
 !(assertEqual
   (superpose ((P_Each B_Each) (Q_Each C_Each)))
   (case
-   (ematch (kb) ($rel A_Each $x) ($rel $x))
+   (match (kb) ($rel A_Each $x) ($rel $x))
     (((SS-P_Each $y) (P_Each $y))
      ((SS-Q_Each $y) (Q_Each $y)))))
 
 
 ; %void% can be used to capture empty results
-!(assertEqual (case (ematch (kb) ($rel B_Each $x) ($rel $x))
+!(assertEqual (case (match (kb) ($rel B_Each $x) ($rel $x))
     (((SS-P_Each $y) (P_Each $y))
     ((SS-Q_Each $y) (Q_Each $y))
-    (%void% no-ematch
+    (%void% no-match
      )))
-     no-ematch )
+     no-match )
 

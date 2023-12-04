@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta')
+1=[()]
+2=[()]
+3=[()]
+4=[()]
+5=[()]
+6=0.10user 0.02system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 33084maxresident)k
+6=0inputs+0outputs (0major+3484minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta', 4, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta', 5, [[]]).
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; From matching to evaluation of expressions via equality queries chaining
+;; It's possible to chain together matching queries
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Some knowledge base entries
+;; `:=` is a custom symbol
+;; Combinatory logic rules
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['I',X],X])
+</span><span class="ansi38-255165000">  (:= 
+    (I $X) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,[['K',X],Y],X])
+</span><span class="ansi38-255165000">  (:= 
+    ( (K $X) $Y) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['K',X,Y],X])
+</span><span class="ansi38-255165000">  (:= 
+    (K $X $Y) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['S',X,Y,Z],[X,Z,[Y,Z]]])
+</span><span class="ansi38-255165000">  (:= 
+    (S $X $Y $Z) 
+    ($X $Z 
+      ($Y $Z)))
+</span>
+
+; A single matching step
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (S K K x) $R) $R) 
+  ( (K x 
+      (K x))))
+
+</span>      -->(0,'&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_395934],_395934],[['K',x,['K',x]]]],depth(1))
+<h3 id="SCRIPTS.B0-CHAINING-PRELIM.01">;; SCRIPTS.B0-CHAINING-PRELIM.01</h3>
+          -->(1,'&self',[match,'&self',[:=,['S','K','K',x],_395934],_395934],depth(3))
+            -->(2,'&self',['K',x,['K',x]],depth(4))
+                -->(3,'&self',['K',x],depth(6))
+                -->(4,'&self',['K',x],depth(6))
+                -->(5,'&self',['K',x],depth(6))
+          <--(1,retval(['K',x,['K',x]]))
+; 
+; EVAL TEST
+; took 0.000867 secs. (867.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (K x 
+        (K x))) 
+    ( (K x 
+        (K x)))))
+</span>      <--(0,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>; A second matching step; the result of the previous
+; step is manually used as input for the next query
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (K x 
+        (K x)) $R) $R) 
+  (x))
+
+</span>      -->(6,'&self',[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_434446],_434446],[x]],depth(1))
+<h3 id="SCRIPTS.B0-CHAINING-PRELIM.02">;; SCRIPTS.B0-CHAINING-PRELIM.02</h3>
+          -->(7,'&self',[match,'&self',[:=,['K',x,['K',x]],_434446],_434446],depth(3))
+          <--(7,retval(x))
+; 
+; EVAL TEST
+; took 0.000227 secs. (227.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (x) 
+    (x)))
+</span>      <--(6,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>; Combined reduction via matching in two steps
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (S K K x) $R) 
+    (match &self 
+      (:= $R $R2) $R2)) 
+  (x))
+
+</span>      -->(8,'&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_473182],[match,'&self',[:=,_473182,_473786],_473786]],[x]],depth(1))
+<h3 id="SCRIPTS.B0-CHAINING-PRELIM.03">;; SCRIPTS.B0-CHAINING-PRELIM.03</h3>
+          -->(9,'&self',[match,'&self',[:=,['S','K','K',x],_473182],[match,'&self',[:=,_473182,_473786],_473786]],depth(3))
+            -->(10,'&self',[match,'&self',[:=,['K',x,['K',x]],_473786],_473786],depth(4))
+            <--(10,retval(x))
+          <--(9,retval([match,'&self',[:=,['K',x,['K',x]],_477846],_477846]))
+; 
+; EVAL TEST
+; took 0.000356 secs. (356.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (x) 
+    (x)))
+</span>      <--(8,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Another example (Peano summation)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Add',X,'Z'],X])
+</span><span class="ansi38-255165000">  (:= 
+    (Add $X Z) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Add',X,['S',Y]],['Add',['S',X],Y]])
+</span><span class="ansi38-255165000">  (:= 
+    (Add $X 
+      (S $Y)) 
+    (Add 
+      (S $X) $Y))
+</span>
+
+; First step
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Add 
+        (S Z) 
+        (S Z)) $R) $R) 
+  ( (Add 
+      (S 
+        (S Z)) Z)))
+
+</span>      -->(11,'&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_6276],_6276],[['Add',['S',['S','Z']],'Z']]],depth(1))
+<h3 id="SCRIPTS.B0-CHAINING-PRELIM.04">;; SCRIPTS.B0-CHAINING-PRELIM.04</h3>
+          -->(12,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_6276],_6276],depth(3))
+            -->(13,'&self',['Add',['S',['S','Z']],'Z'],depth(4))
+                -->(14,'&self',['S','Z'],depth(6))
+                -->(15,'&self',['S',['S','Z']],depth(6))
+                    -->(16,'&self',['S','Z'],depth(8))
+                    -->(17,'&self',['S','Z'],depth(8))
+                    -->(18,'&self',['S','Z'],depth(8))
+                -->(19,'&self',['S',['S','Z']],depth(6))
+                    -->(20,'&self',['S','Z'],depth(8))
+                    -->(21,'&self',['S','Z'],depth(8))
+                    -->(22,'&self',['S','Z'],depth(8))
+          <--(12,retval(['Add',['S',['S','Z']],'Z']))
+; 
+; EVAL TEST
+; took 0.002 secs. (1.80 milliseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (Add 
+        (S 
+          (S Z)) Z)) 
+    ( (Add 
+        (S 
+          (S Z)) Z))))
+</span>      <--(11,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>; Two steps together
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Add 
+        (S Z) 
+        (S Z)) $R) 
+    (match &self 
+      (:= $R $R2) $R2)) 
+  ( (S 
+      (S Z))))
+
+</span>      -->(23,'&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_46950],[match,'&self',[:=,_46950,_47554],_47554]],[['S',['S','Z']]]],depth(1))
+<h3 id="SCRIPTS.B0-CHAINING-PRELIM.05">;; SCRIPTS.B0-CHAINING-PRELIM.05</h3>
+          -->(24,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_46950],[match,'&self',[:=,_46950,_47554],_47554]],depth(3))
+            -->(25,'&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_47554],_47554],depth(4))
+              -->(26,'&self',['S',['S','Z']],depth(5))
+                  -->(27,'&self',['S','Z'],depth(7))
+                  -->(28,'&self',['S','Z'],depth(7))
+                  -->(29,'&self',['S','Z'],depth(7))
+            <--(25,retval(['S',['S','Z']]))
+          <--(24,retval([match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_51670],_51670]))
+; 
+; EVAL TEST
+; took 0.001 secs. (1.09 milliseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (S 
+        (S Z))) 
+    ( (S 
+        (S Z)))))
+</span>      <--(23,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span><span class="ansi32">% 354,556 inferences, 0.157 CPU in 0.157 seconds (100% CPU, 2256440 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 5
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b0_chaining_prelim.html" )
+
+</pre>
+</body>
+
+</html>

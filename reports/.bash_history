@@ -16,3 +16,9 @@ find -name "*.html" -exec cp {} ../examples/{} \;
 cp *.html ../../examples/performance/
 cd ..
 cd ..
+mv v_1.md reports/
+cd reports/
+ls
+find v_1/
+git add .
+git status .

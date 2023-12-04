@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/memb.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/memb.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/memb.metta')
+1=[None, None, None, None, 2, None]
+2=0.27user 0.01system 0:00.28elapsed 100%CPU (0avgtext+0avgdata 33244maxresident)k
+2=0inputs+0outputs (0major+3567minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/memb.metta', 1, ['None,', 'None,', 'None,', 'None,', 2, ',', 'None']).
+
+;; list membership
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,eq,[->,'Atom','Atom','Bool']])
+</span><span class="ansi38-255165000">  (: eq 
+    (-> Atom Atom Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[eq,X,Y],'False')
+</span><span class="ansi38-255165000">  (= 
+    (eq $X $Y) False)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[eq,X,X],'True')
+</span><span class="ansi38-255165000">  (= 
+    (eq $X $X) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[memb,X,[]],'False')
+</span><span class="ansi38-255165000">  (= 
+    (memb $X ()) False)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[memb,X,['Cons',H,Tail]],[or,[eq,X,H],[memb,X,Tail]])
+</span><span class="ansi38-255165000">  (= 
+    (memb $X 
+      (Cons $H $Tail)) 
+    (or 
+      (eq $X $H) 
+      (memb $X $Tail)))
+</span>
+
+; find X that is member of both lists
+<span class="ansi38-000068000">!(let $Res 
+  (and 
+    (memb $X 
+      (Cons 0 
+        (Cons 2 ()))) 
+    (memb $X 
+      (Cons 2 
+        (Cons 3 ())))) 
+  (if $Res $X None))
+
+</span>      -->(0,'&self',[let,_373336,[and,[memb,_373664,['Cons',0,['Cons',2,[]]]],[memb,_373664,['Cons',2,['Cons',3,[]]]]],[if,_373336,_373664,'None']],depth(1))
+          -->(1,'&self',[and,[memb,_373664,['Cons',0,['Cons',2,[]]]],[memb,_373664,['Cons',2,['Cons',3,[]]]]],depth(3))
+              -->(2,'&self',[memb,_373664,['Cons',0,['Cons',2,[]]]],depth(5))
+                  -->(3,'&self',['Cons',2,[]],depth(7))
+                -->(4,'&self',[or,[eq,_373664,0],[memb,_373664,['Cons',2,[]]]],depth(6))
+                    -->(5,'&self',[eq,_373664,0],depth(8))
+                    <--(5,retval('True'))
+                <--(4,retval('True'))
+              -->(6,'&self',[memb,0,['Cons',2,['Cons',3,[]]]],depth(5))
+                  -->(7,'&self',['Cons',3,[]],depth(7))
+                -->(8,'&self',[or,[eq,0,2],[memb,0,['Cons',3,[]]]],depth(6))
+                    -->(9,'&self',[eq,0,2],depth(8))
+                    <--(9,retval('False'))
+                    -->(10,'&self',[memb,0,['Cons',3,[]]],depth(8))
+                        -->(11,'&self',['Cons',3,[]],depth(10))
+                      -->(12,'&self',[or,[eq,0,3],[memb,0,[]]],depth(9))
+                          -->(13,'&self',[eq,0,3],depth(11))
+                          <--(13,retval('False'))
+                          -->(14,'&self',[memb,0,[]],depth(11))
+                          <--(14,retval('False'))
+                      <--(12,retval('False'))
+                    <--(10,retval([or,[eq,0,3],[memb,0,[]]]))
+                <--(8,retval('False'))
+              <--(6,retval([or,[eq,0,2],[memb,0,['Cons',3,[]]]]))
+              <--(2,retval([or,[eq,_378340,0],[memb,_378340,['Cons',2,[]]]]))
+          <--(1,retval('False'))
+          -->(15,'&self',[if,'False',_373664,'None'],depth(3))
+          <--(15,retval('None'))
+      <--(0,retval('None'))
+<span class="ansi33"> None
+</span><span class="ansi32">['X'=_373664,'Res'='False']
+</span>
+
+<span class="ansi31">
+! (assertEqualToResult 
+    (let $Res 
+      (and 
+        (memb $X 
+          (Cons 0 
+            (Cons 2 ()))) 
+        (memb $X 
+          (Cons 2 
+            (Cons 3 ())))) 
+      (if $Res $X None)) 
+    ("None," "None," "None," "None," 2 None))
+(@ ! 
+  (assertEqual 
+    (None) 
+    ("None," "None," "None," "None," 2 None)))
+write_pass_fail_result("LOGIC.MEMB.101",exec,[let,Res,[and,[memb,X,['Cons',0,['Cons',2,[]]]],[memb,X,['Cons',2,['Cons',3,[]]]]],[if,Res,X,'None']],'FAIL',['None,','None,','None,','None,',2,'None'],['None'])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 272,155 inferences, 0.102 CPU in 0.102 seconds (100% CPU, 2673885 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/memb.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/metta-examples/logic/memb.html" )
+
+</pre>
+</body>
+
+</html>
