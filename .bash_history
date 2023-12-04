@@ -943,3 +943,15 @@ find -name flybase_learn.pl
 cp  ./metta_vspace/pyswipGOODZ/flybase_learn.pl metta_vspace/pyswip/
 git add metta_vspace/pyswip/flybase_learn.pl '
 git add metta_vspace/pyswip/flybase_learn.pl 
+git commit -am metta_vspace/pyswip/flybase_learn.pl 
+git push logicmoo 
+git push origin 
+./MeTTa ./examples/
+./MeTTa ./examples/ --clean
+cp metta_vspace/pyswipGOODZ/* metta_vspace/pyswip/
+./MeTTa ./examples/ --clean
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+git status metta_vspace/pyswip
+git add metta_vspace/pyswip/metta_eval.*
+git add metta_vspace/pyswip/*.pl
+git status metta_vspace/pyswip
