@@ -1105,3 +1105,84 @@ git add reports/
 git add reports/
 git add git status .
 git status .
+git commit -am  reports/cuRRent
+git push logicmoo 
+git push origin 
+cp reports/cuRRent/interp_88/ reports/cuRRent/interp_77/ -a
+cp -a examples/interp_88 examples/interp_77 
+./MeTTa examples/interp_88/ --clean
+./MeTTa examples/interp_88/metta-morph_tests/match_feval.metta --clean
+./MeTTa examples/interp_88/
+./MeTTa examples/interp_88/ --clean
+./MeTTa examples/interp_88/
+./MeTTa examples/interp_88/ --clean
+./MeTTa examples/interp_88/metta-morph_tests/states_spaces.metta
+./MeTTa examples/interp_88/metta-morph_tests/supercollapse.metta
+./MeTTa examples/interp_88/
+./MeTTa examples/interp_88/metta-morph_tests/match_superposed_spaces.metta
+./MeTTa examples/interp_88 --clean
+./MeTTa examples/interp_88/metta-morph_tests/states_spaces.metta
+cp -a metta_vspace/pyswip metta_vspace/pyswip_88 
+./MeTTa examples/interp_88/ --clean
+./MeTTa examples/interp_88/metta-morph_tests/zeroargs.metta
+./MeTTa examples/interp_88/metta-morph_tests/ --clean
+./MeTTa examples/interp_88/metta-morph_tests/peano.metta
+./MeTTa examples/interp_88/ --clean
+rm ~/.config/swi-prolog/dir-history/F5XXA5BPNRXWO2LDNVXW6X3XN5ZGW43QMFRWKL3QMFRWW427ON4XGL3MN5TWSY3NN5XV633QMVXGG33HF5GWKVCUMEXXM43QMFRWKLLNMV2HIY*
+./MeTTa examples/interp_88/ --clean
+./scripts/test_in_metta.sh -n --report=Y
+./MeTTa examples/interp_88/ --clean
+grep needs -R metta_vspace --include="&.pl"
+grep needs -R metta_vspace --include="*.pl"
+grep needs -R metta_vspace --include="*l.pl"
+grep dont -R metta_vspace --include="*l.pl"
+grep not_ -R metta_vspace --include="*l.pl"
+grep expect -R metta_vspace --include="*l.pl"
+grep special -R metta_vspace --include="*l.pl"
+grep Unspe -R metta_vspace --include="*l.pl"
+grep Unspe -R metta_vspace --include="*.pl"
+grep Un -R metta_vspace --include="*.pl"
+grep "%U" -R metta_vspace --include="*.pl"
+grep nonspec -R metta_vspace --include="*.pl"
+grep :is_non_eval_kind -R metta_vspace --include="*.pl"
+grep is_non_eval_kind -R metta_vspace --include="*.pl"
+cp metta_vspace/pyswip_6l/metta_types.pl metta_vspace/pyswip_6l/metta_data.pl
+vi '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta
+vi '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta'
+vi '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta'
+vi '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleB.metta'
+vi '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta'
+vi '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta'
+grep nd_ignore -R metta_vspace
+./MeTTa examples/interp_88/ 
+\
+./MeTTa examples/interp_88/ 
+./MeTTa examples/interp_88/ --clean
+./MeTTa examples/interp_88/
+./MeTTa examples/interp_88/ --clean
+cls ; ./MeTTa examples/interp_88/ --clean
+cp metta_vspace/pyswip metta_vspace/pyswip_loopy
+cp metta_vspace/pyswip metta_vspace/pyswip_loopy -a
+cls ; ./MeTTa examples/interp_88/ --clean
+cls ; ./MeTTa examples/interp_88/metta-morph_tests/sequential_nested.metta
+cls ; ./MeTTa examples/interp_88/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/interp_88/metta-morph_tests/match_superposed_spaces.metta
+cls ; ./MeTTa examples/interp_88/ --clean
+git add metta_vspace/pyswip_7h/
+git add metta_vspace/pyswip_88
+git add metta_vspace/pyswip_6l
+git add reports/
+git add examples/
+git status .
+mv reports/cuRRent/interp_88 reports/cuRRent/interp_89
+git checkout reports/cuRRent/interp_88
+mv reports/cuRRent/interp_88 reports/cuRRent/interp_77
+git add reports/cuRRent/interp_77/
+mv reports/cuRRent/interp_89/ reports/cuRRent/interp_88
+git add reports/cuRRent/interp_88/
+git mv metta_vspace/pyswip_88 metta_vspace/pyswip_77
+git status .
+git add reports/
+git status .
+./scripts/test_in_metta.sh --n --report=Y
+git add reports/

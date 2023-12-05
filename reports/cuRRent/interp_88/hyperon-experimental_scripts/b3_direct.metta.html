@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta')
+1=[()]
+2=[()]
+3=[()]
+4=0.10user 0.01system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 33356maxresident)k
+4=0inputs+0outputs (0major+3497minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta', 3, [[]]).
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Example from OpenCog Classic wiki on PLN Backward Chaining
+;; No explicit backward chaining is needed
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; facts
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[croaks,'Fritz'],'T'])
+</span><span class="ansi38-255165000">  (= 
+    (croaks Fritz) T)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[eat_flies,'Fritz'],'T'])
+</span><span class="ansi38-255165000">  (= 
+    (eat_flies Fritz) T)
+</span>
+
+;; Rules
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['And','T','T'],'T'])
+</span><span class="ansi38-255165000">  (= 
+    (And T T) T)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[frog,X],['And',[croaks,X],[eat_flies,X]]])
+</span><span class="ansi38-255165000">  (= 
+    (frog $X) 
+    (And 
+      (croaks $X) 
+      (eat_flies $X)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[green,X],[frog,X]])
+</span><span class="ansi38-255165000">  (= 
+    (green $X) 
+    (frog $X))
+</span>
+
+;; Conclusion from facts and rules
+<span class="ansi38-013099040">!(assertEqual 
+  (green Fritz) T)
+
+</span><span class="ansi38-250144246">; !(green Fritz)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[green,'Fritz'],OUT).
+
+</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01</h3>
+; 
+; EVAL TEST
+; took 0.000133 secs. (132.60 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (True) 
+    (T)))
+</span>; Evaluation took 0.001 secs. (1.49 milliseconds) 
+Deterministic: <span class="ansi33">
+  (got 
+    (True) expected 
+    (T))
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This is not just functional programming,
+;; because we can do inference
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ift,'T',Then],Then])
+</span><span class="ansi38-255165000">  (= 
+    (ift T $Then) $Then)
+</span>
+
+<span class="ansi38-013099040">!(assertEqual 
+  (ift 
+    (green $X) $X) Fritz)
+
+</span><span class="ansi38-250144246">; !(ift 
+  (green $X) $X)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[ift,[green,X],X],OUT).
+
+</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02</h3>
+; 
+; EVAL TEST
+; took 0.000190 secs. (189.80 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    ( (ift True Fritz)) 
+    (Fritz)))
+</span>; Evaluation took 0.002 secs. (1.59 milliseconds) 
+Deterministic: <span class="ansi33">
+  (got 
+    ( (ift True Fritz)) expected 
+    (Fritz))
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; We can also use expressions with `=` in `match`
+;; NOTE: `=` is not an ordinary symbol, and declarative reasoning over expressions
+;; with it may work differently from that over purely symbolic expressions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (= 
+      ($P Fritz) T) $P) 
+  (croaks eat_flies))
+
+</span><span class="ansi38-250144246">; !(match &self 
+  (= 
+    ($P Fritz) T) $P)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[=,[P,'Fritz'],'T'],P],OUT).
+
+</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03</h3>
+; 
+; EVAL TEST
+; took 0.000049 secs. (48.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (croaks eat_flies) 
+    (croaks eat_flies)))
+</span>; Evaluation took 0.001 secs. (1.47 milliseconds) 
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 288,636 inferences, 0.142 CPU in 0.142 seconds (100% CPU, 2035322 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 2
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta.html" )
+
+</pre>
+</body>
+
+</html>

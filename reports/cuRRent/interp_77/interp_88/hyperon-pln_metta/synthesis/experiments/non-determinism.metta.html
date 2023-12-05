@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta')
+1=[42, 441]
+2=[2, 2, 4, 3]
+3=0.19user 0.01system 0:00.21elapsed 99%CPU (0avgtext+0avgdata 33196maxresident)k
+3=0inputs+0outputs (0major+3531minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta', 1, [42, 441]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta', 2, [2, 2, 4, 3]).
+
+;;; Define foo, a mixture of double and power of 2.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foo,[->,'Number','Number']])
+</span><span class="ansi38-255165000">  (: foo 
+    (-> Number Number))
+</span>; (add-atom &self 
+    (: foo 
+      (-> Number Number)))
+; (type-method is_asserted_space metta_assertdb_add)
+
+
+%~ debugm(user,show_success(user,user:assertz_if_new(metta_arity('&self',foo,2))))
+%~ debugm(user,show_success(user,user:assertz_if_new(metta_params('&self',foo,['Number','Number']))))
+%~ debugm(user,show_success(user,user:assertz_if_new(metta_last('&self',foo,'Number'))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[foo,X],[+,X,X]])
+</span><span class="ansi38-255165000">  (= 
+    (foo $X) 
+    (+ $X $X))
+</span>; (add-atom &self 
+    (= 
+      (foo $X) 
+      (+ $X $X)))
+; (type-method is_asserted_space metta_assertdb_add)
+
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[foo,X],[*,X,X]])
+</span><span class="ansi38-255165000">  (= 
+    (foo $X) 
+    (* $X $X))
+</span>; (add-atom &self 
+    (= 
+      (foo $X) 
+      (* $X $X)))
+; (type-method is_asserted_space metta_assertdb_add)
+
+
+;;; (= (foo $x) (superpose ((+ $x $x) (* $x $x))))
+;;; Test foo
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(foo 21)
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (foo 21) 
+  (42 441))
+
+</span><span class="ansi38-250144246">; !(foo 21)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[foo,21],OUT).
+
+</span><h3 id="EXPERIMENTS.NON-DETERMINISM.01">;; EXPERIMENTS.NON-DETERMINISM.01</h3>
+; 
+; EVAL TEST
+; took 0.000108 secs. (108.30 microseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (42 
+      (* 21 21)) 
+    (42 441)))
+</span>; Evaluation took 0.002 secs. (1.89 milliseconds) 
+Deterministic: <span class="ansi33">
+  (got 
+    (42 
+      (* 21 21)) expected 
+    (42 441))
+
+</span>;; [42, 441]
+;;; Define bar, a mixture of increment by 1 and factorial.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,bar,[->,'Number','Number']])
+</span><span class="ansi38-255165000">  (: bar 
+    (-> Number Number))
+</span>; (add-atom &self 
+    (: bar 
+      (-> Number Number)))
+; (type-method is_asserted_space metta_assertdb_add)
+
+
+%~ debugm(user,show_success(user,user:assertz_if_new(metta_arity('&self',bar,2))))
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta:69 
+%~ debugm(user,show_success(user,user:assertz_if_new(metta_params('&self',bar,['Number','Number']))))
+%~ debugm(user,show_success(user,user:assertz_if_new(metta_last('&self',bar,'Number'))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[bar,X],[+,X,1]])
+</span><span class="ansi38-255165000">  (= 
+    (bar $X) 
+    (+ $X 1))
+</span>; (add-atom &self 
+    (= 
+      (bar $X) 
+      (+ $X 1)))
+; (type-method is_asserted_space metta_assertdb_add)
+
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[bar,X],[if,[==,X,0],1,[*,X,[bar,[-,X,1]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (bar $X) 
+    (if 
+      (== $X 0) 1 
+      (* $X 
+        (bar 
+          (- $X 1)))))
+</span>; (add-atom &self 
+    (= 
+      (bar $X) 
+      (if 
+        (== $X 0) 1 
+        (* $X 
+          (bar 
+            (- $X 1))))))
+; (type-method is_asserted_space metta_assertdb_add)
+
+
+;;; Test bar
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(bar 2)
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (bar 2) 
+  (2 2 4 3))
+
+</span><span class="ansi38-250144246">; !(bar 2)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[bar,2],OUT).
+
+</span><h3 id="EXPERIMENTS.NON-DETERMINISM.02">;; EXPERIMENTS.NON-DETERMINISM.02</h3>
+; 
+; EVAL TEST
+; took 0.002 secs. (2.05 milliseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (3 
+      (* 2 2) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1))) 
+    (2 3 4)))
+</span>; Evaluation took 0.005 secs. (5.49 milliseconds) 
+Deterministic: <span class="ansi33">
+  (got 
+    (3 
+      (* 2 2) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1)) 
+      (* 2 
+        (* 1 1))) expected 
+    (2 3 4))
+
+</span><span class="ansi32">% 336,367 inferences, 0.143 CPU in 0.143 seconds (100% CPU, 2344745 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 2
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html" )
+
+</pre>
+</body>
+
+</html>

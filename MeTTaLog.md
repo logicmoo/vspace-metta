@@ -8,428 +8,452 @@ Jump to [MeTTaLog Installation Guide](https://github.com/logicmoo/vspace-metta/b
 
 | Pass | Fail |Percent| Directory                                        |
 |------|------|-------|--------------------------------------------------|
-|    65|    85|    43%| reports/cuRRent/interp_1a/metta-morph_tests -    |
-|   126|    98|    56%| reports/cuRRent/interp_2a/metta-morph_tests -    |
-|    65|   103|    38%| reports/cuRRent/interp_3y/metta-morph_tests -    |
-|    65|   100|    39%| reports/cuRRent/interp_88/metta-morph_tests -    |
-|   318|    74|    81%| reports/cuRRent/interp_1a/hyperon-experimental_scripts - |
-|   252|    79|    76%| reports/cuRRent/interp_2a/hyperon-experimental_scripts - |
-|   252|    79|    76%| reports/cuRRent/interp_3y/hyperon-experimental_scripts - |
-|   318|    74|    81%| reports/cuRRent/interp_88/hyperon-experimental_scripts - |
-|    43|    19|    69%| reports/cuRRent/interp_1a/hyperon-mettalog_sanity - |
-|    43|    17|    71%| reports/cuRRent/interp_2a/hyperon-mettalog_sanity - |
-|    43|    17|    71%| reports/cuRRent/interp_3y/hyperon-mettalog_sanity - |
-|    48|    20|    70%| reports/cuRRent/interp_88/hyperon-mettalog_sanity - |
-|    38|    17|    69%| reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments - |
-|    52|    29|    64%| reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments - |
-|    52|    29|    64%| reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments - |
-|    50|    18|    73%| reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments - |
-|    38|    23|    62%| reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis - |
-|    52|    35|    59%| reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis - |
-|    52|    35|    59%| reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis - |
-|    50|    24|    67%| reports/cuRRent/interp_88/hyperon-pln_metta/synthesis - |
-|     0|     6|     0%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation - |
-|     0|     3|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/orientation - |
-|     0|     3|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/orientation - |
-|     0|     6|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation - |
-|     0|     6|     0%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located - |
-|     0|     3|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/located - |
-|     0|     3|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/located - |
-|     0|     6|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located - |
-|     0|    10|     0%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower - |
-|     0|    10|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower - |
-|     0|    10|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower - |
-|     0|    10|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower - |
-|     0|    22|     0%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo - |
-|     0|    16|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo - |
-|     0|    16|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo - |
-|     0|    22|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo - |
+|   122|    52|    70%| reports/cuRRent/interp_1a/metta-morph_tests -    |
+|   214|    48|    81%| reports/cuRRent/interp_2a/metta-morph_tests -    |
+|   130|    68|    65%| reports/cuRRent/interp_3y/metta-morph_tests -    |
+|   122|    71|    63%| reports/cuRRent/interp_77/metta-morph_tests -    |
+|    65|     6|    91%| reports/cuRRent/interp_88/metta-morph_tests -    |
+|   336|    83|    80%| reports/cuRRent/interp_1a/hyperon-experimental_scripts - |
+|   266|    81|    76%| reports/cuRRent/interp_2a/hyperon-experimental_scripts - |
+|   266|    81|    76%| reports/cuRRent/interp_3y/hyperon-experimental_scripts - |
+|   336|    83|    80%| reports/cuRRent/interp_77/hyperon-experimental_scripts - |
+|   174|    37|    82%| reports/cuRRent/interp_88/hyperon-experimental_scripts - |
+|    45|    18|    71%| reports/cuRRent/interp_1a/hyperon-mettalog_sanity - |
+|    46|    15|    75%| reports/cuRRent/interp_2a/hyperon-mettalog_sanity - |
+|    46|    15|    75%| reports/cuRRent/interp_3y/hyperon-mettalog_sanity - |
+|    51|    19|    72%| reports/cuRRent/interp_77/hyperon-mettalog_sanity - |
+|    26|     8|    76%| reports/cuRRent/interp_88/hyperon-mettalog_sanity - |
+|    43|    25|    63%| reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments - |
+|    62|    36|    63%| reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments - |
+|    62|    36|    63%| reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments - |
+|    55|    26|    67%| reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments - |
+|    30|    18|    62%| reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments - |
+|    45|    31|    59%| reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis - |
+|    64|    42|    60%| reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis - |
+|    64|    42|    60%| reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis - |
+|    57|    32|    64%| reports/cuRRent/interp_77/hyperon-pln_metta/synthesis - |
+|    31|    21|    59%| reports/cuRRent/interp_88/hyperon-pln_metta/synthesis - |
+|    12|     4|    75%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation - |
+|     6|     1|    85%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/orientation - |
+|     6|     1|    85%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/orientation - |
+|    12|     4|    75%| reports/cuRRent/interp_77/hyperon-pln_metta/sumo/orientation - |
+|     6|     1|    85%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation - |
+|    10|     6|    62%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located - |
+|     5|     3|    62%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/located - |
+|     5|     3|    62%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/located - |
+|    10|     6|    62%| reports/cuRRent/interp_77/hyperon-pln_metta/sumo/located - |
+|     5|     3|    62%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located - |
+|    10|    10|    50%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower - |
+|    10|    10|    50%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower - |
+|    10|    10|    50%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower - |
+|    10|    10|    50%| reports/cuRRent/interp_77/hyperon-pln_metta/sumo/john-carry-flower - |
+|     5|     5|    50%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower - |
+|    32|    20|    61%| reports/cuRRent/interp_1a/hyperon-pln_metta/sumo - |
+|    21|    14|    60%| reports/cuRRent/interp_2a/hyperon-pln_metta/sumo - |
+|    21|    14|    60%| reports/cuRRent/interp_3y/hyperon-pln_metta/sumo - |
+|    32|    20|    61%| reports/cuRRent/interp_77/hyperon-pln_metta/sumo - |
+|    16|     9|    64%| reports/cuRRent/interp_88/hyperon-pln_metta/sumo - |
 |     2|     0|   100%| reports/cuRRent/interp_1a/hyperon-pln_metta/subtyping - |
 |     2|     0|   100%| reports/cuRRent/interp_2a/hyperon-pln_metta/subtyping - |
 |     2|     0|   100%| reports/cuRRent/interp_3y/hyperon-pln_metta/subtyping - |
-|     2|     0|   100%| reports/cuRRent/interp_88/hyperon-pln_metta/subtyping - |
-|     0|     0|     0%| reports/cuRRent/interp_1a/hyperon-pln_metta/match - |
-|     0|     0|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/match - |
-|     0|     0|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/match - |
-|     0|     0|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/match - |
-|    39|     0|   100%| reports/cuRRent/interp_1a/hyperon-pln_metta/hol - |
-|    38|     0|   100%| reports/cuRRent/interp_2a/hyperon-pln_metta/hol - |
-|    38|     0|   100%| reports/cuRRent/interp_3y/hyperon-pln_metta/hol - |
-|    38|     0|   100%| reports/cuRRent/interp_88/hyperon-pln_metta/hol - |
-|    39|    55|    41%| reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer - |
-|    48|    32|    60%| reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer - |
-|    48|    32|    60%| reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer - |
-|    48|    46|    51%| reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer - |
-|     0|     0|     0%| reports/cuRRent/interp_1a/hyperon-pln_metta/equal - |
-|     0|     0|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/equal - |
-|     0|     0|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/equal - |
-|     0|     0|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/equal - |
-|     3|     6|    33%| reports/cuRRent/interp_1a/hyperon-pln_metta/entail - |
-|     0|     6|     0%| reports/cuRRent/interp_2a/hyperon-pln_metta/entail - |
-|     0|     6|     0%| reports/cuRRent/interp_3y/hyperon-pln_metta/entail - |
-|     0|     6|     0%| reports/cuRRent/interp_88/hyperon-pln_metta/entail - |
-|    14|     9|    60%| reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types - |
-|    20|    10|    66%| reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types - |
-|    20|    10|    66%| reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types - |
-|    14|     9|    60%| reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types - |
-|     9|     4|    69%| reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue - |
-|    11|    10|    52%| reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue - |
-|    11|    10|    52%| reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue - |
-|    18|     8|    69%| reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue - |
-|     6|     5|    54%| reports/cuRRent/interp_1a/hyperon-pln_metta/common/formula - |
-|    11|    10|    52%| reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula - |
-|    11|    10|    52%| reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula - |
-|    12|    10|    54%| reports/cuRRent/interp_88/hyperon-pln_metta/common/formula - |
-|    56|    12|    82%| reports/cuRRent/interp_1a/hyperon-pln_metta/common - |
-|    96|    33|    74%| reports/cuRRent/interp_2a/hyperon-pln_metta/common - |
-|    96|    33|    74%| reports/cuRRent/interp_3y/hyperon-pln_metta/common - |
-|   105|    23|    82%| reports/cuRRent/interp_88/hyperon-pln_metta/common - |
-|    30|    15|    66%| reports/cuRRent/interp_1a/hyperon-pln_metta/backward-chainer - |
-|    36|    22|    62%| reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer - |
-|    36|    22|    62%| reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer - |
-|    60|    30|    66%| reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer - |
-|   221|   142|    60%| reports/cuRRent/interp_1a/hyperon-pln_metta -    |
-|   292|   154|    65%| reports/cuRRent/interp_2a/hyperon-pln_metta -    |
-|   292|   154|    65%| reports/cuRRent/interp_3y/hyperon-pln_metta -    |
-|   317|   160|    66%| reports/cuRRent/interp_88/hyperon-pln_metta -    |
+|     2|     0|   100%| reports/cuRRent/interp_77/hyperon-pln_metta/subtyping - |
+|     1|     0|   100%| reports/cuRRent/interp_88/hyperon-pln_metta/subtyping - |
+|    12|     8|    60%| reports/cuRRent/interp_1a/hyperon-pln_metta/match - |
+|    12|     8|    60%| reports/cuRRent/interp_2a/hyperon-pln_metta/match - |
+|    12|     8|    60%| reports/cuRRent/interp_3y/hyperon-pln_metta/match - |
+|    12|     8|    60%| reports/cuRRent/interp_77/hyperon-pln_metta/match - |
+|     4|     3|    57%| reports/cuRRent/interp_88/hyperon-pln_metta/match - |
+|    49|     0|   100%| reports/cuRRent/interp_1a/hyperon-pln_metta/hol - |
+|    48|     0|   100%| reports/cuRRent/interp_2a/hyperon-pln_metta/hol - |
+|    48|     0|   100%| reports/cuRRent/interp_3y/hyperon-pln_metta/hol - |
+|    48|     0|   100%| reports/cuRRent/interp_77/hyperon-pln_metta/hol - |
+|     4|     0|   100%| reports/cuRRent/interp_88/hyperon-pln_metta/hol - |
+|    47|    50|    48%| reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer - |
+|    64|    25|    71%| reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer - |
+|    64|    25|    71%| reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer - |
+|    56|    41|    57%| reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer - |
+|    32|    18|    64%| reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer - |
+|     4|     4|    50%| reports/cuRRent/interp_1a/hyperon-pln_metta/equal - |
+|     4|     4|    50%| reports/cuRRent/interp_2a/hyperon-pln_metta/equal - |
+|     4|     4|    50%| reports/cuRRent/interp_3y/hyperon-pln_metta/equal - |
+|     4|     4|    50%| reports/cuRRent/interp_77/hyperon-pln_metta/equal - |
+|     2|     2|    50%| reports/cuRRent/interp_88/hyperon-pln_metta/equal - |
+|    14|     7|    66%| reports/cuRRent/interp_1a/hyperon-pln_metta/entail - |
+|    12|     6|    66%| reports/cuRRent/interp_2a/hyperon-pln_metta/entail - |
+|    12|     6|    66%| reports/cuRRent/interp_3y/hyperon-pln_metta/entail - |
+|    12|     7|    63%| reports/cuRRent/interp_77/hyperon-pln_metta/entail - |
+|     6|     3|    66%| reports/cuRRent/interp_88/hyperon-pln_metta/entail - |
+|    26|    16|    61%| reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types - |
+|    40|    24|    62%| reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types - |
+|    40|    24|    62%| reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types - |
+|    26|    16|    61%| reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types - |
+|    22|    12|    64%| reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types - |
+|    20|     0|   100%| reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue - |
+|    27|     4|    87%| reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue - |
+|    27|     4|    87%| reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue - |
+|    34|     2|    94%| reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue - |
+|    15|     0|   100%| reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue - |
+|    13|     0|   100%| reports/cuRRent/interp_1a/hyperon-pln_metta/common/formula - |
+|    18|     0|   100%| reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula - |
+|    18|     0|   100%| reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula - |
+|    19|     5|    79%| reports/cuRRent/interp_77/hyperon-pln_metta/common/formula - |
+|    13|     0|   100%| reports/cuRRent/interp_88/hyperon-pln_metta/common/formula - |
+|    83|     3|    96%| reports/cuRRent/interp_1a/hyperon-pln_metta/common - |
+|   133|    16|    89%| reports/cuRRent/interp_2a/hyperon-pln_metta/common - |
+|   133|    16|    89%| reports/cuRRent/interp_3y/hyperon-pln_metta/common - |
+|   137|    12|    91%| reports/cuRRent/interp_77/hyperon-pln_metta/common - |
+|    76|     3|    96%| reports/cuRRent/interp_88/hyperon-pln_metta/common - |
+|    35|    14|    71%| reports/cuRRent/interp_1a/hyperon-pln_metta/backward-chainer - |
+|    41|    21|    66%| reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer - |
+|    41|    21|    66%| reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer - |
+|    65|    29|    69%| reports/cuRRent/interp_77/hyperon-pln_metta/backward-chainer - |
+|    35|    14|    71%| reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer - |
+|   349|   153|    69%| reports/cuRRent/interp_1a/hyperon-pln_metta -    |
+|   441|   160|    73%| reports/cuRRent/interp_2a/hyperon-pln_metta -    |
+|   441|   160|    73%| reports/cuRRent/interp_3y/hyperon-pln_metta -    |
+|   451|   169|    72%| reports/cuRRent/interp_77/hyperon-pln_metta -    |
+|   229|    85|    72%| reports/cuRRent/interp_88/hyperon-pln_metta -    |
 |     0|     0|     0%| reports/cuRRent/performance -                    |
-|  2760|  1375|    66%| reports -                                        |
-|  2760|  1375|    66%| reports/cuRRent -                                |
-|   647|   320|    66%| reports/cuRRent/interp_1a -                      |
-|   713|   348|    67%| reports/cuRRent/interp_2a -                      |
-|   652|   353|    64%| reports/cuRRent/interp_3y -                      |
-|   748|   354|    67%| reports/cuRRent/interp_88 -                      |
+|  4156|  1412|    74%| reports -                                        |
+|  4156|  1412|    74%| reports/cuRRent -                                |
+|   852|   306|    73%| reports/cuRRent/interp_1a -                      |
+|   967|   304|    76%| reports/cuRRent/interp_2a -                      |
+|   883|   324|    73%| reports/cuRRent/interp_3y -                      |
+|   960|   342|    73%| reports/cuRRent/interp_77 -                      |
+|   494|   136|    78%| reports/cuRRent/interp_88 -                      |
 
 <details><summary>Expand for Core Summaries</summary>
 
 |Pass |Fail |File                               |GitHub Link                                                                                                                       |
 |-----|-----|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 |  10 |  21 | forward-chainer-xp.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
-|  10 |  21 | forward-chainer-xp.metta          |[reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
-|  10 |  21 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
-|  10 |  21 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
-|  10 |  21 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
-|  10 |  21 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
-|  17 |  16 | if.metta                          |[reports/cuRRent/interp_2a/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/if.html)|
-|  1  |  16 | if.metta                          |[reports/cuRRent/interp_3y/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/if.html)|
-|  1  |  16 | if.metta                          |[reports/cuRRent/interp_88/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/if.html)|
-|  30 |  15 | backward-chainer-xp.metta         |[reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html)|
-|  30 |  15 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_1a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
-|  30 |  15 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
-|  30 |  15 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
-|  30 |  15 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
+|  10 |  21 | forward-chainer-xp.metta          |[reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
+|  15 |  20 | if.metta                          |[reports/cuRRent/interp_2a/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/if.html)|
+|  1  |  20 | if.metta                          |[reports/cuRRent/interp_3y/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/if.html)|
+|  1  |  20 | if.metta                          |[reports/cuRRent/interp_77/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/if.html)|
+|  16 |  18 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
+|  16 |  18 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
+|  16 |  18 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
+|  16 |  18 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
+|  16 |  18 | forward-chainer-xp.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|
+|  30 |  15 | backward-chainer-xp.metta         |[reports/cuRRent/interp_77/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html)|
+|  35 |  14 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_1a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
+|  35 |  14 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
+|  35 |  14 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
+|  35 |  14 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_77/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
+|  35 |  14 | backward-chainer-xp.metta.metta   |[reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html)|
+|  57 |  13 | types.metta                       |[reports/cuRRent/interp_2a/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types.html)|
+|  1  |  13 | types.metta                       |[reports/cuRRent/interp_1a/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types.html)|
+|  1  |  13 | types.metta                       |[reports/cuRRent/interp_3y/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types.html)|
+|  1  |  13 | types.metta                       |[reports/cuRRent/interp_77/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/types.html)|
 |  7  |  11 | d4_type_prop.metta                |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d4_type_prop.html)|
 |  7  |  11 | d4_type_prop.metta                |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d4_type_prop.html)|
 |  5  |  11 | forward-chainer-test.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
-|  0  |  11 | synthesize-via-unify-test.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html)|
-|  0  |  11 | synthesize-via-unify-test.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html)|
-|  40 |  10 | types.metta                       |[reports/cuRRent/interp_2a/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types.html)|
-|  1  |  10 | types.metta                       |[reports/cuRRent/interp_1a/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types.html)|
-|  1  |  10 | types.metta                       |[reports/cuRRent/interp_3y/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types.html)|
-|  1  |  10 | types.metta                       |[reports/cuRRent/interp_88/metta-morph_tests/types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types.html)|
+|  4  |  11 | synthesize-via-unify-test.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html)|
+|  4  |  11 | synthesize-via-unify-test.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.html)|
+|  2  |  11 | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
+|  2  |  11 | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
+|  2  |  11 | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
+|  2  |  11 | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
+|  2  |  11 | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
 |  10 |  8  | d2_higherfunc.metta               |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d2_higherfunc.html)|
 |  10 |  8  | d2_higherfunc.metta               |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d2_higherfunc.html)|
 |  6  |  8  | d1_gadt.metta                     |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d1_gadt.html)|
-|  6  |  8  | d1_gadt.metta                     |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.html)|
-|  6  |  8  | d1_gadt.metta.metta               |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d1_gadt.metta.html)|
-|  6  |  8  | d1_gadt.metta.metta               |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d1_gadt.metta.html)|
-|  6  |  8  | d1_gadt.metta.metta               |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d1_gadt.metta.html)|
-|  6  |  8  | d1_gadt.metta.metta               |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html)|
-|  10 |  7  | forward-chainer-xp.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
-|  10 |  7  | forward-chainer-xp.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
+|  6  |  8  | d1_gadt.metta                     |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d1_gadt.html)|
+|  16 |  7  | forward-chainer-xp.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
+|  16 |  7  | forward-chainer-xp.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-xp.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
+|  12 |  7  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
 |  6  |  7  | backward-chainer-xp.metta         |[reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html)|
 |  6  |  7  | backward-chainer-xp.metta         |[reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/backward-chainer/backward-chainer-xp.html)|
 |  21 |  6  | d2_higherfunc.metta               |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d2_higherfunc.html)|
-|  21 |  6  | d2_higherfunc.metta               |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.html)|
-|  21 |  6  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
-|  21 |  6  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
-|  21 |  6  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
-|  21 |  6  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
+|  21 |  6  | d2_higherfunc.metta               |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d2_higherfunc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d2_higherfunc.html)|
+|  12 |  6  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d4_type_prop.metta.html)|
+|  12 |  6  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d4_type_prop.metta.html)|
+|  12 |  6  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d4_type_prop.metta.html)|
+|  12 |  6  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d4_type_prop.metta.html)|
+|  12 |  6  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html)|
 |  2  |  6  | match_void.metta                  |[reports/cuRRent/interp_1a/metta-morph_tests/match_void.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_void.html)|
-|  2  |  6  | match_void.metta                  |[reports/cuRRent/interp_2a/metta-morph_tests/match_void.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_void.html)|
 |  2  |  6  | match_void.metta                  |[reports/cuRRent/interp_3y/metta-morph_tests/match_void.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_void.html)|
-|  2  |  6  | match_void.metta                  |[reports/cuRRent/interp_88/metta-morph_tests/match_void.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.html)|
-|  2  |  6  | match_void.metta.metta            |[reports/cuRRent/interp_1a/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_void.metta.html)|
-|  2  |  6  | match_void.metta.metta            |[reports/cuRRent/interp_2a/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_void.metta.html)|
-|  2  |  6  | match_void.metta.metta            |[reports/cuRRent/interp_3y/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_void.metta.html)|
-|  2  |  6  | match_void.metta.metta            |[reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html)|
+|  2  |  6  | match_void.metta                  |[reports/cuRRent/interp_77/metta-morph_tests/match_void.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/match_void.html)|
 |  1  |  6  | sequential_nested.metta           |[reports/cuRRent/interp_1a/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/sequential_nested.html)|
-|  1  |  6  | sequential_nested.metta           |[reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.html)|
-|  1  |  6  | sequential_nested.metta           |[reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.html)|
-|  1  |  6  | sequential_nested.metta           |[reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.html)|
-|  1  |  6  | sequential_nested.metta.metta     |[reports/cuRRent/interp_1a/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/sequential_nested.metta.html)|
-|  1  |  6  | sequential_nested.metta.metta     |[reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.metta.html)|
-|  1  |  6  | sequential_nested.metta.metta     |[reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.metta.html)|
-|  1  |  6  | sequential_nested.metta.metta     |[reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html)|
+|  1  |  6  | sequential_nested.metta           |[reports/cuRRent/interp_77/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/sequential_nested.html)|
 |  13 |  5  | d4_type_prop.metta                |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d4_type_prop.html)|
-|  13 |  5  | d4_type_prop.metta                |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.html)|
-|  13 |  5  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d4_type_prop.metta.html)|
-|  13 |  5  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d4_type_prop.metta.html)|
-|  13 |  5  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d4_type_prop.metta.html)|
-|  13 |  5  | d4_type_prop.metta.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html)|
-|  9  |  5  | collapse.metta                    |[reports/cuRRent/interp_2a/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/collapse.html)|
-|  6  |  5  | DeductionFormulaTest.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.html)|
-|  6  |  5  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
-|  6  |  5  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
-|  6  |  5  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
-|  6  |  5  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
-|  5  |  5  | DeductionFormulaTest.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.html)|
-|  5  |  5  | DeductionFormulaTest.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.html)|
+|  13 |  5  | d4_type_prop.metta                |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d4_type_prop.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d4_type_prop.html)|
+|  7  |  5  | match_superposed_spaces.metta     |[reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.html)|
+|  7  |  5  | match_superposed_spaces.metta     |[reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.html)|
+|  7  |  5  | match_superposed_spaces.metta     |[reports/cuRRent/interp_77/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/match_superposed_spaces.html)|
+|  6  |  5  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
+|  6  |  5  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
+|  6  |  5  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
+|  6  |  5  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
+|  6  |  5  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
+|  6  |  5  | DeductionFormulaTest.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/common/formula/DeductionFormulaTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/formula/DeductionFormulaTest.html)|
+|  5  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
+|  5  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
+|  5  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
+|  5  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_77/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
+|  5  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
+|  5  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
+|  5  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
+|  5  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
+|  5  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
 |  5  |  5  | NumTest.metta                     |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/NumTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/NumTest.html)|
 |  5  |  5  | NumTest.metta                     |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/NumTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/NumTest.html)|
-|  1  |  5  | collapse.metta                    |[reports/cuRRent/interp_1a/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/collapse.html)|
-|  1  |  5  | collapse.metta                    |[reports/cuRRent/interp_3y/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/collapse.html)|
-|  1  |  5  | collapse.metta                    |[reports/cuRRent/interp_88/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/collapse.html)|
 |  1  |  5  | unify-via-case.metta              |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-case.html)|
 |  1  |  5  | unify-via-case.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-case.html)|
 |  1  |  5  | unify-via-case.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-case.html)|
-|  1  |  5  | unify-via-case.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.html)|
+|  1  |  5  | unify-via-case.metta              |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-case.html)|
 |  1  |  5  | unify-via-case.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html)|
 |  1  |  5  | unify-via-case.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html)|
 |  1  |  5  | unify-via-case.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html)|
+|  1  |  5  | unify-via-case.metta.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html)|
 |  1  |  5  | unify-via-case.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html)|
-|  0  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
-|  0  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
-|  0  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
-|  0  |  5  | john-carry-flower-test.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.html)|
-|  0  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
-|  0  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
-|  0  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
-|  0  |  5  | john-carry-flower-test.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html)|
-|  0  |  5  | match_superposed_spaces.metta     |[reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.html)|
-|  0  |  5  | match_superposed_spaces.metta     |[reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.html)|
-|  0  |  5  | match_superposed_spaces.metta     |[reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.html)|
-|  0  |  5  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.metta.html)|
-|  0  |  5  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.metta.html)|
-|  0  |  5  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.metta.html)|
-|  0  |  5  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html)|
 |  4  |  4  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
 |  4  |  4  | OrderedSetTest.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/OrderedSetTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/OrderedSetTest.html)|
 |  4  |  4  | OrderedSetTest.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/OrderedSetTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/OrderedSetTest.html)|
-|  4  |  4  | types.metta.metta                 |[reports/cuRRent/interp_1a/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types.metta.html)|
-|  4  |  4  | types.metta.metta                 |[reports/cuRRent/interp_2a/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types.metta.html)|
-|  4  |  4  | types.metta.metta                 |[reports/cuRRent/interp_3y/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types.metta.html)|
-|  4  |  4  | types.metta.metta                 |[reports/cuRRent/interp_88/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types.metta.html)|
+|  4  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.html)|
+|  4  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.html)|
+|  4  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_77/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/superpose_nested.html)|
 |  3  |  4  | d3_deptypes.metta                 |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d3_deptypes.html)|
-|  3  |  4  | d3_deptypes.metta                 |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.html)|
-|  3  |  4  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d3_deptypes.metta.html)|
-|  3  |  4  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d3_deptypes.metta.html)|
-|  3  |  4  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d3_deptypes.metta.html)|
-|  3  |  4  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html)|
+|  3  |  4  | d3_deptypes.metta                 |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d3_deptypes.html)|
 |  2  |  4  | states_spaces.metta               |[reports/cuRRent/interp_1a/metta-morph_tests/states_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/states_spaces.html)|
 |  2  |  4  | states_spaces.metta               |[reports/cuRRent/interp_3y/metta-morph_tests/states_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/states_spaces.html)|
-|  2  |  4  | states_spaces.metta               |[reports/cuRRent/interp_88/metta-morph_tests/states_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.html)|
-|  2  |  4  | states_spaces.metta.metta         |[reports/cuRRent/interp_1a/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/states_spaces.metta.html)|
-|  2  |  4  | states_spaces.metta.metta         |[reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.metta.html)|
-|  2  |  4  | states_spaces.metta.metta         |[reports/cuRRent/interp_3y/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/states_spaces.metta.html)|
-|  2  |  4  | states_spaces.metta.metta         |[reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html)|
+|  2  |  4  | states_spaces.metta               |[reports/cuRRent/interp_77/metta-morph_tests/states_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/states_spaces.html)|
 |  2  |  4  | TruthValueTest.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/TruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/TruthValueTest.html)|
 |  2  |  4  | TruthValueTest.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/TruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/TruthValueTest.html)|
-|  1  |  4  | states_spaces.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.html)|
 |  0  |  4  | nalifier.metta                    |[reports/cuRRent/interp_3y/metta-morph_tests/nalifier.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/nalifier.html)|
-|  0  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.html)|
-|  0  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.html)|
-|  0  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.html)|
-|  0  |  4  | superpose_nested.metta            |[reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.html)|
-|  0  |  4  | superpose_nested.metta.metta      |[reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.metta.html)|
-|  0  |  4  | superpose_nested.metta.metta      |[reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.metta.html)|
-|  0  |  4  | superpose_nested.metta.metta      |[reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.metta.html)|
-|  0  |  4  | superpose_nested.metta.metta      |[reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html)|
+|  24 |  3  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
+|  24 |  3  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
+|  24 |  3  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
+|  24 |  3  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
+|  24 |  3  | d2_higherfunc.metta.metta         |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html)|
 |  18 |  3  | b5_types_prelim.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b5_types_prelim.html)|
 |  18 |  3  | b5_types_prelim.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b5_types_prelim.html)|
+|  18 |  3  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
+|  18 |  3  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
+|  18 |  3  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
+|  18 |  3  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_77/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
+|  18 |  3  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
 |  16 |  3  | f1_imports.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_imports.html)|
-|  16 |  3  | f1_imports.metta                  |[reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.html)|
-|  16 |  3  | f1_imports.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_imports.metta.html)|
-|  16 |  3  | f1_imports.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_imports.metta.html)|
-|  16 |  3  | f1_imports.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_imports.metta.html)|
-|  16 |  3  | f1_imports.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html)|
+|  16 |  3  | f1_imports.metta                  |[reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_imports.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_imports.html)|
 |  14 |  3  | 00_lang_case.metta                |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/00_lang_case.html)|
-|  14 |  3  | 00_lang_case.metta                |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.html)|
-|  14 |  3  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/00_lang_case.metta.html)|
-|  14 |  3  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/00_lang_case.metta.html)|
-|  14 |  3  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/00_lang_case.metta.html)|
-|  14 |  3  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html)|
-|  5  |  3  | collapse.metta.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/collapse.metta.html)|
-|  5  |  3  | collapse.metta.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/collapse.metta.html)|
-|  5  |  3  | collapse.metta.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/collapse.metta.html)|
-|  5  |  3  | collapse.metta.metta              |[reports/cuRRent/interp_88/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/collapse.metta.html)|
+|  14 |  3  | 00_lang_case.metta                |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/00_lang_case.html)|
+|  11 |  3  | d1_gadt.metta.metta               |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d1_gadt.metta.html)|
+|  11 |  3  | d1_gadt.metta.metta               |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d1_gadt.metta.html)|
+|  11 |  3  | d1_gadt.metta.metta               |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d1_gadt.metta.html)|
+|  11 |  3  | d1_gadt.metta.metta               |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d1_gadt.metta.html)|
+|  11 |  3  | d1_gadt.metta.metta               |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html)|
+|  7  |  3  | match_superposed_spaces.metta     |[reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.html)|
+|  6  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e3_match_states.metta.html)|
+|  6  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e3_match_states.metta.html)|
+|  6  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e3_match_states.metta.html)|
+|  6  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_77/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/e3_match_states.metta.html)|
+|  6  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html)|
+|  6  |  3  | orientation-test.metta            |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.html)|
+|  6  |  3  | orientation-test.metta            |[reports/cuRRent/interp_77/hyperon-pln_metta/sumo/orientation/orientation-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/sumo/orientation/orientation-test.html)|
+|  5  |  3  | c2_spaces.metta                   |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.html)|
+|  5  |  3  | c2_spaces.metta                   |[reports/cuRRent/interp_77/hyperon-experimental_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/c2_spaces.html)|
+|  5  |  3  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
+|  5  |  3  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
+|  5  |  3  | located-test.metta                |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.html)|
+|  5  |  3  | located-test.metta                |[reports/cuRRent/interp_77/hyperon-pln_metta/sumo/located/located-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/sumo/located/located-test.html)|
+|  5  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.metta.html)|
+|  5  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/located/located-test.metta.html)|
+|  5  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/located/located-test.metta.html)|
+|  5  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_77/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/sumo/located/located-test.metta.html)|
+|  5  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html)|
+|  4  |  3  | c2_spaces.metta.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.metta.html)|
+|  4  |  3  | c2_spaces.metta.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c2_spaces.metta.html)|
+|  4  |  3  | c2_spaces.metta.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c2_spaces.metta.html)|
+|  4  |  3  | c2_spaces.metta.metta             |[reports/cuRRent/interp_77/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/c2_spaces.metta.html)|
+|  4  |  3  | c2_spaces.metta.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html)|
+|  4  |  3  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
+|  4  |  3  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
+|  4  |  3  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
+|  4  |  3  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
+|  4  |  3  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
+|  4  |  3  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
+|  4  |  3  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
 |  4  |  3  | supercollapse.metta               |[reports/cuRRent/interp_1a/metta-morph_tests/supercollapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/supercollapse.html)|
-|  4  |  3  | supercollapse.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.html)|
 |  4  |  3  | supercollapse.metta               |[reports/cuRRent/interp_3y/metta-morph_tests/supercollapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/supercollapse.html)|
-|  4  |  3  | supercollapse.metta               |[reports/cuRRent/interp_88/metta-morph_tests/supercollapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.html)|
-|  4  |  3  | supercollapse.metta.metta         |[reports/cuRRent/interp_1a/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/supercollapse.metta.html)|
-|  4  |  3  | supercollapse.metta.metta         |[reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.metta.html)|
-|  4  |  3  | supercollapse.metta.metta         |[reports/cuRRent/interp_3y/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/supercollapse.metta.html)|
-|  4  |  3  | supercollapse.metta.metta         |[reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html)|
+|  4  |  3  | supercollapse.metta               |[reports/cuRRent/interp_77/metta-morph_tests/supercollapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/supercollapse.html)|
 |  2  |  3  | a1_symbols.metta                  |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a1_symbols.html)|
 |  2  |  3  | a1_symbols.metta                  |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a1_symbols.html)|
 |  2  |  3  | c2_spaces.metta                   |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c2_spaces.html)|
 |  2  |  3  | c2_spaces.metta                   |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c2_spaces.html)|
 |  1  |  3  | 04_match_list_like_space.metta    |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/04_match_list_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/04_match_list_like_space.html)|
-|  1  |  3  | 04_match_list_like_space.metta    |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.html)|
+|  1  |  3  | 04_match_list_like_space.metta    |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/04_match_list_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/04_match_list_like_space.html)|
 |  1  |  3  | 04_match_list_like_space.metta.metta|[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/04_match_list_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/04_match_list_like_space.metta.html)|
 |  1  |  3  | 04_match_list_like_space.metta.metta|[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/04_match_list_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/04_match_list_like_space.metta.html)|
 |  1  |  3  | 04_match_list_like_space.metta.metta|[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/04_match_list_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/04_match_list_like_space.metta.html)|
+|  1  |  3  | 04_match_list_like_space.metta.metta|[reports/cuRRent/interp_77/hyperon-mettalog_sanity/04_match_list_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/04_match_list_like_space.metta.html)|
 |  1  |  3  | 04_match_list_like_space.metta.metta|[reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html)|
 |  1  |  3  | 05_match_superpose_element_like_space.metta|[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html)|
-|  1  |  3  | 05_match_superpose_element_like_space.metta|[reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html)|
+|  1  |  3  | 05_match_superpose_element_like_space.metta|[reports/cuRRent/interp_77/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html)|
 |  1  |  3  | 05_match_superpose_element_like_space.metta.metta|[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html)|
 |  1  |  3  | 05_match_superpose_element_like_space.metta.metta|[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html)|
 |  1  |  3  | 05_match_superpose_element_like_space.metta.metta|[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html)|
+|  1  |  3  | 05_match_superpose_element_like_space.metta.metta|[reports/cuRRent/interp_77/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html)|
 |  1  |  3  | 05_match_superpose_element_like_space.metta.metta|[reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html)|
 |  1  |  3  | e3_match_states.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e3_match_states.html)|
 |  1  |  3  | e3_match_states.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e3_match_states.html)|
 |  1  |  3  | e3_match_states.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e3_match_states.html)|
-|  1  |  3  | e3_match_states.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.html)|
-|  1  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e3_match_states.metta.html)|
-|  1  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e3_match_states.metta.html)|
-|  1  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e3_match_states.metta.html)|
-|  1  |  3  | e3_match_states.metta.metta       |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
-|  0  |  3  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
-|  0  |  3  | located-test.metta                |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.html)|
-|  0  |  3  | located-test.metta                |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.html)|
-|  0  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/located/located-test.metta.html)|
-|  0  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/located/located-test.metta.html)|
-|  0  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/located/located-test.metta.html)|
-|  0  |  3  | located-test.metta.metta          |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html)|
-|  0  |  3  | match_superposed_spaces.metta     |[reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.html)|
-|  0  |  3  | orientation-test.metta            |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.html)|
-|  0  |  3  | orientation-test.metta            |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.html)|
-|  0  |  3  | orientation-test.metta.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
-|  0  |  3  | orientation-test.metta.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
-|  0  |  3  | orientation-test.metta.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
-|  0  |  3  | orientation-test.metta.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
-|  0  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.html)|
-|  0  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.html)|
-|  0  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.html)|
-|  0  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.html)|
-|  0  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
-|  0  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
-|  0  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
-|  0  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
-|  14 |  2  | forward-chainer-test.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
-|  14 |  2  | forward-chainer-test.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
-|  14 |  2  | forward-chainer-test.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
-|  14 |  2  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
-|  14 |  2  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
-|  14 |  2  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
-|  14 |  2  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
+|  1  |  3  | e3_match_states.metta             |[reports/cuRRent/interp_77/hyperon-experimental_scripts/e3_match_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/e3_match_states.html)|
+|  1  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.html)|
+|  1  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.html)|
+|  1  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.html)|
+|  1  |  3  | UnifyTest.metta                   |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/UnifyTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/UnifyTest.html)|
+|  1  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
+|  1  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
+|  1  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
+|  1  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
+|  1  |  3  | UnifyTest.metta.metta             |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html)|
+|  20 |  2  | f1_imports.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html)|
+|  14 |  2  | f1_imports.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_imports.metta.html)|
+|  14 |  2  | f1_imports.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_imports.metta.html)|
+|  14 |  2  | f1_imports.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_imports.metta.html)|
+|  14 |  2  | f1_imports.metta.metta            |[reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_imports.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_imports.metta.html)|
+|  14 |  2  | forward-chainer-test.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
 |  12 |  2  | 00_lang_case.metta                |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/00_lang_case.html)|
 |  12 |  2  | 00_lang_case.metta                |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/00_lang_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/00_lang_case.html)|
+|  10 |  2  | NumTest.metta.metta               |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/NumTest.metta.html)|
+|  10 |  2  | NumTest.metta.metta               |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/NumTest.metta.html)|
+|  10 |  2  | NumTest.metta.metta               |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/NumTest.metta.html)|
+|  10 |  2  | NumTest.metta.metta               |[reports/cuRRent/interp_77/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/NumTest.metta.html)|
+|  10 |  2  | NumTest.metta.metta               |[reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html)|
 |  9  |  2  | b4_nondeterm.metta                |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b4_nondeterm.html)|
-|  9  |  2  | b4_nondeterm.metta                |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.html)|
-|  9  |  2  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
-|  9  |  2  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
-|  9  |  2  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
-|  9  |  2  | b4_nondeterm.metta.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html)|
-|  9  |  2  | TruthValueTest.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.html)|
-|  9  |  2  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
-|  9  |  2  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
-|  9  |  2  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
-|  9  |  2  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
-|  4  |  2  | a3_twoside.metta                  |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.html)|
-|  4  |  2  | a3_twoside.metta                  |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.html)|
+|  9  |  2  | b4_nondeterm.metta                |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b4_nondeterm.html)|
+|  8  |  2  | match_void.metta                  |[reports/cuRRent/interp_2a/metta-morph_tests/match_void.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_void.html)|
+|  8  |  2  | match_void.metta.metta            |[reports/cuRRent/interp_1a/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_void.metta.html)|
+|  8  |  2  | match_void.metta.metta            |[reports/cuRRent/interp_2a/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_void.metta.html)|
+|  8  |  2  | match_void.metta.metta            |[reports/cuRRent/interp_3y/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_void.metta.html)|
+|  8  |  2  | match_void.metta.metta            |[reports/cuRRent/interp_77/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/match_void.metta.html)|
+|  8  |  2  | match_void.metta.metta            |[reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html)|
+|  6  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
+|  6  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
+|  6  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
+|  6  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
+|  6  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
+|  5  |  2  | c3_pln_stv.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.html)|
+|  5  |  2  | c3_pln_stv.metta                  |[reports/cuRRent/interp_77/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/c3_pln_stv.html)|
+|  5  |  2  | EvidentialTruthValueTest.metta    |[reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
+|  5  |  2  | ImplicationDirectIntroductionEntailTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html)|
+|  4  |  2  | a3_twoside.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.html)|
+|  4  |  2  | a3_twoside.metta                  |[reports/cuRRent/interp_77/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/a3_twoside.html)|
 |  3  |  2  | 03-soring-via-insert.metta        |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/03-soring-via-insert.html)|
 |  3  |  2  | 03-soring-via-insert.metta        |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/03-soring-via-insert.html)|
+|  3  |  2  | b3_direct.metta                   |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.html)|
+|  3  |  2  | b3_direct.metta                   |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b3_direct.html)|
+|  3  |  2  | c3_pln_stv.metta                  |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.html)|
+|  3  |  2  | c3_pln_stv.metta                  |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.html)|
+|  3  |  2  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
+|  3  |  2  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
+|  3  |  2  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
+|  3  |  2  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_77/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
+|  3  |  2  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
+|  3  |  2  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
 |  3  |  2  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
-|  3  |  2  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
-|  3  |  2  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
-|  3  |  2  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
-|  3  |  2  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
-|  3  |  2  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
-|  3  |  2  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
-|  3  |  2  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
+|  3  |  2  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
+|  2  |  2  | a3_twoside.metta                  |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.html)|
+|  2  |  2  | a3_twoside.metta                  |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.html)|
+|  2  |  2  | a3_twoside.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.metta.html)|
+|  2  |  2  | a3_twoside.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.metta.html)|
+|  2  |  2  | a3_twoside.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.metta.html)|
+|  2  |  2  | a3_twoside.metta.metta            |[reports/cuRRent/interp_77/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/a3_twoside.metta.html)|
+|  2  |  2  | a3_twoside.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html)|
 |  2  |  2  | DeductionDTLTest.metta            |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionDTLTest.html)|
 |  2  |  2  | DeductionDTLTest.metta            |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionDTLTest.html)|
-|  2  |  2  | DeductionDTLTest.metta            |[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.html)|
-|  2  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
-|  2  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
-|  2  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
-|  2  |  2  | DeductionDTLTest.metta.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html)|
-|  2  |  2  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
-|  2  |  2  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
-|  2  |  2  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
-|  2  |  2  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
-|  2  |  2  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
-|  2  |  2  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
-|  2  |  2  | ModusPonensDTLTest.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html)|
-|  0  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.html)|
-|  0  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.html)|
-|  0  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.html)|
-|  0  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.html)|
-|  0  |  2  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.metta.html)|
-|  0  |  2  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.metta.html)|
-|  0  |  2  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.metta.html)|
-|  0  |  2  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
-|  0  |  2  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
-|  0  |  2  | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
-|  0  |  2  | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
-|  0  |  2  | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
-|  0  |  2  | synthesize-via-unify-test.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html)|
+|  2  |  2  | DeductionDTLTest.metta            |[reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/DeductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/DeductionDTLTest.html)|
+|  2  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.html)|
+|  2  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.html)|
+|  2  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.html)|
+|  2  |  2  | e1_kb_write.metta                 |[reports/cuRRent/interp_77/hyperon-experimental_scripts/e1_kb_write.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/e1_kb_write.html)|
+|  2  |  2  | ModusPonensDTLTest.metta          |[reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.html)|
+|  1  |  2  | b3_direct.metta.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.metta.html)|
+|  1  |  2  | b3_direct.metta.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b3_direct.metta.html)|
+|  1  |  2  | b3_direct.metta.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b3_direct.metta.html)|
+|  1  |  2  | b3_direct.metta.metta             |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b3_direct.metta.html)|
+|  1  |  2  | b3_direct.metta.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html)|
+|  1  |  2  | DeductionEqualTest.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.html)|
+|  1  |  2  | DeductionEqualTest.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.html)|
+|  1  |  2  | DeductionEqualTest.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.html)|
+|  1  |  2  | DeductionEqualTest.metta          |[reports/cuRRent/interp_77/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/equal/DeductionEqualTest.html)|
+|  1  |  2  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
+|  1  |  2  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
+|  1  |  2  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
+|  1  |  2  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_77/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
+|  1  |  2  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
 |  20 |  1  | b5_types_prelim.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b5_types_prelim.html)|
-|  20 |  1  | b5_types_prelim.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.html)|
+|  20 |  1  | b5_types_prelim.metta             |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b5_types_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b5_types_prelim.html)|
 |  20 |  1  | b5_types_prelim.metta.metta       |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b5_types_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b5_types_prelim.metta.html)|
 |  20 |  1  | b5_types_prelim.metta.metta       |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b5_types_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b5_types_prelim.metta.html)|
 |  20 |  1  | b5_types_prelim.metta.metta       |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b5_types_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b5_types_prelim.metta.html)|
+|  20 |  1  | b5_types_prelim.metta.metta       |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b5_types_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b5_types_prelim.metta.html)|
 |  20 |  1  | b5_types_prelim.metta.metta       |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html)|
 |  20 |  1  | c1_grounded_basic.metta           |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c1_grounded_basic.html)|
-|  20 |  1  | c1_grounded_basic.metta           |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.html)|
-|  20 |  1  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
-|  20 |  1  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
-|  20 |  1  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
-|  20 |  1  | c1_grounded_basic.metta.metta     |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html)|
+|  20 |  1  | c1_grounded_basic.metta           |[reports/cuRRent/interp_77/hyperon-experimental_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/c1_grounded_basic.html)|
+|  16 |  1  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/00_lang_case.metta.html)|
+|  16 |  1  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/00_lang_case.metta.html)|
+|  16 |  1  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/00_lang_case.metta.html)|
+|  16 |  1  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/00_lang_case.metta.html)|
+|  16 |  1  | 00_lang_case.metta.metta          |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html)|
+|  13 |  1  | synthesize-via-type-checking.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html)|
+|  13 |  1  | synthesize-via-type-checking.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html)|
+|  13 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
+|  13 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
+|  13 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
+|  13 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
+|  13 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
 |  12 |  1  | c1_grounded_basic.metta           |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c1_grounded_basic.html)|
 |  12 |  1  | c1_grounded_basic.metta           |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c1_grounded_basic.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c1_grounded_basic.html)|
-|  12 |  1  | synthesize-via-type-checking.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html)|
-|  12 |  1  | synthesize-via-type-checking.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html)|
-|  12 |  1  | synthesize-via-type-checking.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html)|
-|  12 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
-|  12 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
-|  12 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
-|  12 |  1  | synthesize-via-type-checking.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html)|
+|  12 |  1  | synthesize-via-type-checking.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.html)|
+|  11 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
+|  11 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
+|  11 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
+|  11 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
+|  11 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
 |  10 |  1  | d1_gadt.metta                     |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d1_gadt.html)|
 |  10 |  1  | d1_gadt.metta                     |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d1_gadt.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d1_gadt.html)|
-|  10 |  1  | OrderedSetTest.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.html)|
-|  10 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
-|  10 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
-|  10 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
-|  10 |  1  | OrderedSetTest.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html)|
+|  10 |  1  | OrderedSetTest.metta              |[reports/cuRRent/interp_77/hyperon-pln_metta/common/OrderedSetTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/OrderedSetTest.html)|
 |  8  |  1  | e2_states.metta                   |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e2_states.html)|
-|  8  |  1  | e2_states.metta                   |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.html)|
-|  8  |  1  | e2_states.metta.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e2_states.metta.html)|
-|  8  |  1  | e2_states.metta.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e2_states.metta.html)|
-|  8  |  1  | e2_states.metta.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e2_states.metta.html)|
-|  8  |  1  | e2_states.metta.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html)|
-|  7  |  1  | NumTest.metta.metta               |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/NumTest.metta.html)|
-|  7  |  1  | NumTest.metta.metta               |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/NumTest.metta.html)|
-|  7  |  1  | NumTest.metta.metta               |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/NumTest.metta.html)|
-|  7  |  1  | NumTest.metta.metta               |[reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html)|
+|  8  |  1  | e2_states.metta                   |[reports/cuRRent/interp_77/hyperon-experimental_scripts/e2_states.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/e2_states.html)|
+|  8  |  1  | states_spaces.metta.metta         |[reports/cuRRent/interp_1a/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/states_spaces.metta.html)|
+|  8  |  1  | states_spaces.metta.metta         |[reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.metta.html)|
+|  8  |  1  | states_spaces.metta.metta         |[reports/cuRRent/interp_3y/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/states_spaces.metta.html)|
+|  8  |  1  | states_spaces.metta.metta         |[reports/cuRRent/interp_77/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/states_spaces.metta.html)|
+|  8  |  1  | states_spaces.metta.metta         |[reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html)|
 |  6  |  1  | d3_deptypes.metta                 |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d3_deptypes.html)|
 |  6  |  1  | d3_deptypes.metta                 |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d3_deptypes.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d3_deptypes.html)|
-|  6  |  1  | ImplicationDirectIntroductionDTLTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html)|
-|  6  |  1  | ImplicationDirectIntroductionDTLTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.html)|
-|  6  |  1  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
-|  6  |  1  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
-|  6  |  1  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
-|  6  |  1  | ImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html)|
+|  6  |  1  | orientation-test.metta.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
+|  6  |  1  | orientation-test.metta.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
+|  6  |  1  | orientation-test.metta.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
+|  6  |  1  | orientation-test.metta.metta      |[reports/cuRRent/interp_77/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
+|  6  |  1  | orientation-test.metta.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html)|
 |  4  |  1  | b2_backchain.metta                |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b2_backchain.html)|
-|  4  |  1  | b2_backchain.metta                |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.html)|
+|  4  |  1  | b2_backchain.metta                |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b2_backchain.html)|
 |  4  |  1  | b2_backchain.metta.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b2_backchain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b2_backchain.metta.html)|
 |  4  |  1  | b2_backchain.metta.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b2_backchain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b2_backchain.metta.html)|
 |  4  |  1  | b2_backchain.metta.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b2_backchain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b2_backchain.metta.html)|
+|  4  |  1  | b2_backchain.metta.metta          |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b2_backchain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b2_backchain.metta.html)|
 |  4  |  1  | b2_backchain.metta.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html)|
 |  3  |  1  | b1_equal_chain.metta              |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b1_equal_chain.html)|
 |  3  |  1  | b1_equal_chain.metta              |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b1_equal_chain.html)|
@@ -437,404 +461,499 @@ Jump to [MeTTaLog Installation Guide](https://github.com/logicmoo/vspace-metta/b
 |  3  |  1  | b2_backchain.metta                |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b2_backchain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b2_backchain.html)|
 |  3  |  1  | b4_nondeterm.metta                |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b4_nondeterm.html)|
 |  3  |  1  | b4_nondeterm.metta                |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b4_nondeterm.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b4_nondeterm.html)|
+|  3  |  1  | DeductionEntailTest.metta         |[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.html)|
+|  3  |  1  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
+|  3  |  1  | synthesize-via-superpose.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.html)|
+|  3  |  1  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
+|  3  |  1  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
+|  3  |  1  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
+|  3  |  1  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
+|  3  |  1  | synthesize-via-superpose.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html)|
 |  2  |  1  | b3_direct.metta                   |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b3_direct.html)|
 |  2  |  1  | b3_direct.metta                   |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b3_direct.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
+|  2  |  1  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
+|  2  |  1  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e1_kb_write.metta.html)|
+|  2  |  1  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e1_kb_write.metta.html)|
+|  2  |  1  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e1_kb_write.metta.html)|
+|  2  |  1  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_77/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/e1_kb_write.metta.html)|
+|  2  |  1  | e1_kb_write.metta.metta           |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html)|
+|  1  |  1  | 02-curried-plus.metta             |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.html)|
+|  1  |  1  | 02-curried-plus.metta             |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.html)|
+|  1  |  1  | 02-curried-plus.metta             |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.html)|
+|  1  |  1  | 02-curried-plus.metta             |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/02-curried-plus.html)|
 |  1  |  1  | 04_match_list_like_space.metta    |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/04_match_list_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/04_match_list_like_space.html)|
 |  1  |  1  | 04_match_list_like_space.metta    |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/04_match_list_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/04_match_list_like_space.html)|
 |  1  |  1  | 05_match_superpose_element_like_space.metta|[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html)|
 |  1  |  1  | 05_match_superpose_element_like_space.metta|[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/05_match_superpose_element_like_space.html)|
-|  1  |  1  | EqualityTypeTest.metta            |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.html)|
-|  1  |  1  | EqualityTypeTest.metta            |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.html)|
-|  1  |  1  | EqualityTypeTest.metta            |[reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.html)|
-|  1  |  1  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
-|  1  |  1  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
-|  1  |  1  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
-|  1  |  1  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
+|  1  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.html)|
+|  1  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.html)|
+|  1  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_77/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/add_atom_match.html)|
+|  1  |  1  | DeductionEntailTest.metta         |[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.html)|
+|  1  |  1  | DeductionEntailTest.metta         |[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.html)|
+|  1  |  1  | DeductionEntailTest.metta         |[reports/cuRRent/interp_77/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/entail/DeductionEntailTest.html)|
+|  1  |  1  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
+|  1  |  1  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
+|  1  |  1  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
+|  1  |  1  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_77/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
+|  1  |  1  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
+|  1  |  1  | DeductionMatchTest.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.html)|
+|  1  |  1  | DeductionMatchTest.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.html)|
+|  1  |  1  | DeductionMatchTest.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.html)|
+|  1  |  1  | DeductionMatchTest.metta          |[reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionMatchTest.html)|
+|  1  |  1  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
+|  1  |  1  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
+|  1  |  1  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
+|  1  |  1  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
+|  1  |  1  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
+|  1  |  1  | EqualityTypeTest.metta            |[reports/cuRRent/interp_77/hyperon-pln_metta/common/EqualityTypeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/EqualityTypeTest.html)|
 |  1  |  1  | if.metta                          |[reports/cuRRent/interp_1a/metta-morph_tests/if.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/if.html)|
-|  0  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.html)|
-|  0  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.html)|
-|  0  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.html)|
-|  0  |  1  | add_atom_match.metta              |[reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.html)|
-|  0  |  1  | add_atom_match.metta.metta        |[reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.metta.html)|
-|  0  |  1  | add_atom_match.metta.metta        |[reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.metta.html)|
-|  0  |  1  | add_atom_match.metta.metta        |[reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.metta.html)|
-|  0  |  1  | add_atom_match.metta.metta        |[reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.metta.html)|
-|  0  |  1  | match_feval.metta                 |[reports/cuRRent/interp_1a/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_feval.html)|
-|  0  |  1  | match_feval.metta                 |[reports/cuRRent/interp_2a/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_feval.html)|
-|  0  |  1  | match_feval.metta                 |[reports/cuRRent/interp_3y/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_feval.html)|
-|  0  |  1  | match_feval.metta                 |[reports/cuRRent/interp_88/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_feval.html)|
-|  0  |  1  | match_feval.metta.metta           |[reports/cuRRent/interp_1a/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_feval.metta.html)|
-|  0  |  1  | match_feval.metta.metta           |[reports/cuRRent/interp_2a/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_feval.metta.html)|
-|  0  |  1  | match_feval.metta.metta           |[reports/cuRRent/interp_3y/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_feval.metta.html)|
-|  0  |  1  | match_feval.metta.metta           |[reports/cuRRent/interp_88/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_feval.metta.html)|
+|  1  |  1  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
+|  1  |  1  | match_feval.metta                 |[reports/cuRRent/interp_1a/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_feval.html)|
+|  1  |  1  | match_feval.metta                 |[reports/cuRRent/interp_3y/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_feval.html)|
+|  1  |  1  | match_feval.metta                 |[reports/cuRRent/interp_77/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/match_feval.html)|
+|  1  |  1  | nested_parameters.metta           |[reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.html)|
+|  1  |  1  | nested_parameters.metta           |[reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.html)|
+|  1  |  1  | nested_parameters.metta           |[reports/cuRRent/interp_77/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/nested_parameters.html)|
+|  1  |  1  | states_spaces.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/states_spaces.html)|
+|  1  |  1  | structure-tests.metta             |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/structure-tests.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/structure-tests.html)|
+|  0  |  1  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
+|  0  |  1  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
+|  0  |  1  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
+|  0  |  1  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
+|  0  |  1  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
+|  0  |  1  | minnars.metta                     |[reports/cuRRent/interp_2a/metta-morph_tests/minnars.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/minnars.html)|
+|  0  |  1  | minnars.metta.metta               |[reports/cuRRent/interp_1a/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/minnars.metta.html)|
+|  0  |  1  | minnars.metta.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/minnars.metta.html)|
+|  0  |  1  | minnars.metta.metta               |[reports/cuRRent/interp_3y/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/minnars.metta.html)|
+|  0  |  1  | minnars.metta.metta               |[reports/cuRRent/interp_77/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/minnars.metta.html)|
+|  0  |  1  | minnars.metta.metta               |[reports/cuRRent/interp_88/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/minnars.metta.html)|
 |  0  |  1  | nalifier.metta                    |[reports/cuRRent/interp_1a/metta-morph_tests/nalifier.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/nalifier.html)|
 |  0  |  1  | nalifier.metta                    |[reports/cuRRent/interp_2a/metta-morph_tests/nalifier.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/nalifier.html)|
-|  0  |  1  | nalifier.metta                    |[reports/cuRRent/interp_88/metta-morph_tests/nalifier.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nalifier.html)|
+|  0  |  1  | nalifier.metta                    |[reports/cuRRent/interp_77/metta-morph_tests/nalifier.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/nalifier.html)|
 |  0  |  1  | nalifier.metta.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/nalifier.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/nalifier.metta.html)|
 |  0  |  1  | nalifier.metta.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/nalifier.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/nalifier.metta.html)|
 |  0  |  1  | nalifier.metta.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/nalifier.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/nalifier.metta.html)|
+|  0  |  1  | nalifier.metta.metta              |[reports/cuRRent/interp_77/metta-morph_tests/nalifier.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/nalifier.metta.html)|
 |  0  |  1  | nalifier.metta.metta              |[reports/cuRRent/interp_88/metta-morph_tests/nalifier.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nalifier.metta.html)|
-|  0  |  1  | structure-tests.metta             |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.html)|
-|  0  |  1  | structure-tests.metta             |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.html)|
-|  0  |  1  | structure-tests.metta             |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.html)|
-|  0  |  1  | structure-tests.metta.metta       |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/structure-tests.metta.html)|
-|  0  |  1  | structure-tests.metta.metta       |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.metta.html)|
-|  0  |  1  | structure-tests.metta.metta       |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.metta.html)|
-|  0  |  1  | structure-tests.metta.metta       |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.metta.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.html)|
-|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html)|
-|  19 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.metta.html)|
+|  0  |  1  | nested_parameters.metta           |[reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.html)|
+|  0  |  1  | nested_parameters.metta.metta     |[reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.metta.html)|
+|  0  |  1  | nested_parameters.metta.metta     |[reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.metta.html)|
+|  0  |  1  | nested_parameters.metta.metta     |[reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.metta.html)|
+|  0  |  1  | nested_parameters.metta.metta     |[reports/cuRRent/interp_77/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/nested_parameters.metta.html)|
+|  0  |  1  | nested_parameters.metta.metta     |[reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.metta.html)|
+|  22 |  0  | ListTest.metta                    |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.html)|
+|  22 |  0  | ListTest.metta                    |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.html)|
+|  22 |  0  | ListTest.metta                    |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.html)|
+|  22 |  0  | ListTest.metta                    |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.html)|
+|  22 |  0  | ListTest.metta                    |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.html)|
+|  22 |  0  | ListTest.metta                    |[reports/cuRRent/interp_77/hyperon-pln_metta/hol/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/hol/ListTest.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_77/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/ListTest.metta.html)|
+|  22 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_77/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/hol/ListTest.metta.html)|
+|  20 |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html)|
+|  19 |  0  | ListTest.metta                    |[reports/cuRRent/interp_77/hyperon-pln_metta/common/ListTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/ListTest.html)|
+|  16 |  0  | forward-chainer-test.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
+|  16 |  0  | forward-chainer-test.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.html)|
+|  16 |  0  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
+|  16 |  0  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
+|  16 |  0  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
+|  16 |  0  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
+|  16 |  0  | forward-chainer-test.metta.metta  |[reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html)|
+|  15 |  0  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
+|  15 |  0  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
+|  15 |  0  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
+|  15 |  0  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
+|  13 |  0  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
+|  13 |  0  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
+|  13 |  0  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
+|  13 |  0  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_77/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
+|  13 |  0  | DeductionFormulaTest.metta.metta  |[reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html)|
+|  11 |  0  | e2_states.metta.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/e2_states.metta.html)|
+|  11 |  0  | e2_states.metta.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/e2_states.metta.html)|
+|  11 |  0  | e2_states.metta.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/e2_states.metta.html)|
+|  11 |  0  | e2_states.metta.metta             |[reports/cuRRent/interp_77/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/e2_states.metta.html)|
+|  11 |  0  | e2_states.metta.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html)|
+|  10 |  0  | TruthValueTest.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html)|
+|  9  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_moduleA.metta.html)|
+|  9  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_moduleA.metta.html)|
+|  9  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_moduleA.metta.html)|
+|  9  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_moduleA.metta.html)|
+|  9  |  0  | sequential_nested.metta           |[reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.html)|
+|  9  |  0  | sequential_nested.metta           |[reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.html)|
+|  9  |  0  | sequential_nested.metta.metta     |[reports/cuRRent/interp_1a/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/sequential_nested.metta.html)|
+|  9  |  0  | sequential_nested.metta.metta     |[reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/sequential_nested.metta.html)|
+|  9  |  0  | sequential_nested.metta.metta     |[reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/sequential_nested.metta.html)|
+|  9  |  0  | sequential_nested.metta.metta     |[reports/cuRRent/interp_77/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/sequential_nested.metta.html)|
+|  9  |  0  | sequential_nested.metta.metta     |[reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html)|
+|  9  |  0  | TruthValueTest.metta              |[reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/TruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/TruthValueTest.html)|
+|  9  |  0  | types.metta.metta                 |[reports/cuRRent/interp_1a/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types.metta.html)|
+|  9  |  0  | types.metta.metta                 |[reports/cuRRent/interp_2a/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types.metta.html)|
+|  9  |  0  | types.metta.metta                 |[reports/cuRRent/interp_3y/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types.metta.html)|
+|  9  |  0  | types.metta.metta                 |[reports/cuRRent/interp_77/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/types.metta.html)|
+|  8  |  0  | collapse.metta                    |[reports/cuRRent/interp_2a/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/collapse.html)|
+|  8  |  0  | collapse.metta.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/collapse.metta.html)|
+|  8  |  0  | collapse.metta.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/collapse.metta.html)|
+|  8  |  0  | collapse.metta.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/collapse.metta.html)|
+|  8  |  0  | collapse.metta.metta              |[reports/cuRRent/interp_77/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/collapse.metta.html)|
 |  7  |  0  | a1_symbols.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a1_symbols.html)|
-|  7  |  0  | a1_symbols.metta                  |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.html)|
+|  7  |  0  | a1_symbols.metta                  |[reports/cuRRent/interp_77/hyperon-experimental_scripts/a1_symbols.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/a1_symbols.html)|
 |  7  |  0  | a1_symbols.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a1_symbols.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a1_symbols.metta.html)|
 |  7  |  0  | a1_symbols.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a1_symbols.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a1_symbols.metta.html)|
 |  7  |  0  | a1_symbols.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a1_symbols.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a1_symbols.metta.html)|
+|  7  |  0  | a1_symbols.metta.metta            |[reports/cuRRent/interp_77/hyperon-experimental_scripts/a1_symbols.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/a1_symbols.metta.html)|
 |  7  |  0  | a1_symbols.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html)|
+|  7  |  0  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d3_deptypes.metta.html)|
+|  7  |  0  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d3_deptypes.metta.html)|
+|  7  |  0  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d3_deptypes.metta.html)|
+|  7  |  0  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d3_deptypes.metta.html)|
+|  7  |  0  | d3_deptypes.metta.metta           |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html)|
+|  7  |  0  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_superposed_spaces.metta.html)|
+|  7  |  0  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_superposed_spaces.metta.html)|
+|  7  |  0  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_superposed_spaces.metta.html)|
+|  7  |  0  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_77/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/match_superposed_spaces.metta.html)|
+|  7  |  0  | match_superposed_spaces.metta.metta|[reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html)|
+|  7  |  0  | supercollapse.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.html)|
+|  7  |  0  | supercollapse.metta.metta         |[reports/cuRRent/interp_1a/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/supercollapse.metta.html)|
+|  7  |  0  | supercollapse.metta.metta         |[reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/supercollapse.metta.html)|
+|  7  |  0  | supercollapse.metta.metta         |[reports/cuRRent/interp_3y/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/supercollapse.metta.html)|
+|  7  |  0  | supercollapse.metta.metta         |[reports/cuRRent/interp_77/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/supercollapse.metta.html)|
+|  7  |  0  | supercollapse.metta.metta         |[reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html)|
 |  7  |  0  | unify-via-let.metta               |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-let.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-let.html)|
 |  7  |  0  | unify-via-let.metta               |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.html)|
 |  7  |  0  | unify-via-let.metta               |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-let.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-let.html)|
-|  7  |  0  | unify-via-let.metta               |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.html)|
+|  7  |  0  | unify-via-let.metta               |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-let.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-let.html)|
 |  7  |  0  | unify-via-let.metta.metta         |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html)|
 |  7  |  0  | unify-via-let.metta.metta         |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html)|
 |  7  |  0  | unify-via-let.metta.metta         |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html)|
+|  7  |  0  | unify-via-let.metta.metta         |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html)|
 |  7  |  0  | unify-via-let.metta.metta         |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html)|
 |  6  |  0  | b1_equal_chain.metta              |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b1_equal_chain.html)|
-|  6  |  0  | b1_equal_chain.metta              |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.html)|
+|  6  |  0  | b1_equal_chain.metta              |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b1_equal_chain.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b1_equal_chain.html)|
 |  6  |  0  | b1_equal_chain.metta.metta        |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b1_equal_chain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b1_equal_chain.metta.html)|
 |  6  |  0  | b1_equal_chain.metta.metta        |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b1_equal_chain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b1_equal_chain.metta.html)|
 |  6  |  0  | b1_equal_chain.metta.metta        |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b1_equal_chain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b1_equal_chain.metta.html)|
+|  6  |  0  | b1_equal_chain.metta.metta        |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b1_equal_chain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b1_equal_chain.metta.html)|
 |  6  |  0  | b1_equal_chain.metta.metta        |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html)|
-|  5  |  0  | 03-soring-via-insert.metta        |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.html)|
+|  5  |  0  | 03-soring-via-insert.metta        |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/03-soring-via-insert.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/03-soring-via-insert.html)|
 |  5  |  0  | 03-soring-via-insert.metta.metta  |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/03-soring-via-insert.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/03-soring-via-insert.metta.html)|
 |  5  |  0  | 03-soring-via-insert.metta.metta  |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/03-soring-via-insert.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/03-soring-via-insert.metta.html)|
 |  5  |  0  | 03-soring-via-insert.metta.metta  |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/03-soring-via-insert.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/03-soring-via-insert.metta.html)|
+|  5  |  0  | 03-soring-via-insert.metta.metta  |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/03-soring-via-insert.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/03-soring-via-insert.metta.html)|
 |  5  |  0  | 03-soring-via-insert.metta.metta  |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html)|
 |  5  |  0  | b0_chaining_prelim.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b0_chaining_prelim.html)|
-|  5  |  0  | b0_chaining_prelim.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.html)|
+|  5  |  0  | b0_chaining_prelim.metta          |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b0_chaining_prelim.html)|
 |  5  |  0  | b0_chaining_prelim.metta.metta    |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b0_chaining_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b0_chaining_prelim.metta.html)|
 |  5  |  0  | b0_chaining_prelim.metta.metta    |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b0_chaining_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b0_chaining_prelim.metta.html)|
 |  5  |  0  | b0_chaining_prelim.metta.metta    |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b0_chaining_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b0_chaining_prelim.metta.html)|
+|  5  |  0  | b0_chaining_prelim.metta.metta    |[reports/cuRRent/interp_77/hyperon-experimental_scripts/b0_chaining_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/b0_chaining_prelim.metta.html)|
 |  5  |  0  | b0_chaining_prelim.metta.metta    |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html)|
-|  5  |  0  | c2_spaces.metta                   |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.html)|
-|  5  |  0  | c2_spaces.metta                   |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.html)|
-|  5  |  0  | c2_spaces.metta.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c2_spaces.metta.html)|
-|  5  |  0  | c2_spaces.metta.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c2_spaces.metta.html)|
-|  5  |  0  | c2_spaces.metta.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c2_spaces.metta.html)|
-|  5  |  0  | c2_spaces.metta.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html)|
-|  5  |  0  | c3_pln_stv.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.html)|
-|  5  |  0  | c3_pln_stv.metta                  |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.html)|
-|  5  |  0  | c3_pln_stv.metta                  |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.html)|
-|  5  |  0  | c3_pln_stv.metta                  |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.html)|
-|  5  |  0  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
-|  5  |  0  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
-|  5  |  0  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
-|  5  |  0  | c3_pln_stv.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html)|
+|  5  |  0  | DeductionFormulaTest.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/formula/DeductionFormulaTest.html)|
+|  5  |  0  | DeductionFormulaTest.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/formula/DeductionFormulaTest.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
+|  5  |  0  | EvidentialTruthValueTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html)|
 |  5  |  0  | types2.metta                      |[reports/cuRRent/interp_1a/metta-morph_tests/types2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types2.html)|
 |  5  |  0  | types2.metta                      |[reports/cuRRent/interp_2a/metta-morph_tests/types2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types2.html)|
 |  5  |  0  | types2.metta                      |[reports/cuRRent/interp_3y/metta-morph_tests/types2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types2.html)|
-|  5  |  0  | types2.metta                      |[reports/cuRRent/interp_88/metta-morph_tests/types2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.html)|
+|  5  |  0  | types2.metta                      |[reports/cuRRent/interp_77/metta-morph_tests/types2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/types2.html)|
 |  5  |  0  | types2.metta.metta                |[reports/cuRRent/interp_1a/metta-morph_tests/types2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types2.metta.html)|
 |  5  |  0  | types2.metta.metta                |[reports/cuRRent/interp_2a/metta-morph_tests/types2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types2.metta.html)|
 |  5  |  0  | types2.metta.metta                |[reports/cuRRent/interp_3y/metta-morph_tests/types2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types2.metta.html)|
+|  5  |  0  | types2.metta.metta                |[reports/cuRRent/interp_77/metta-morph_tests/types2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/types2.metta.html)|
 |  5  |  0  | types2.metta.metta                |[reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html)|
-|  4  |  0  | a3_twoside.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.html)|
-|  4  |  0  | a3_twoside.metta                  |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.html)|
-|  4  |  0  | a3_twoside.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a3_twoside.metta.html)|
-|  4  |  0  | a3_twoside.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a3_twoside.metta.html)|
-|  4  |  0  | a3_twoside.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a3_twoside.metta.html)|
-|  4  |  0  | a3_twoside.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html)|
-|  3  |  0  | b3_direct.metta                   |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.html)|
-|  3  |  0  | b3_direct.metta                   |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.html)|
-|  3  |  0  | b3_direct.metta.metta             |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/b3_direct.metta.html)|
-|  3  |  0  | b3_direct.metta.metta             |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b3_direct.metta.html)|
-|  3  |  0  | b3_direct.metta.metta             |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b3_direct.metta.html)|
-|  3  |  0  | b3_direct.metta.metta             |[reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html)|
-|  3  |  0  | DeductionEntailTest.metta         |[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.html)|
-|  3  |  0  | MaybeTest.metta                   |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.html)|
-|  3  |  0  | MaybeTest.metta                   |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.html)|
-|  3  |  0  | MaybeTest.metta                   |[reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.html)|
-|  3  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/MaybeTest.metta.html)|
-|  3  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.metta.html)|
-|  3  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.metta.html)|
-|  3  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html)|
+|  4  |  0  | MaybeTest.metta                   |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.html)|
+|  4  |  0  | MaybeTest.metta                   |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.html)|
+|  4  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/MaybeTest.metta.html)|
+|  4  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/MaybeTest.metta.html)|
+|  4  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/MaybeTest.metta.html)|
+|  4  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_77/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/MaybeTest.metta.html)|
+|  4  |  0  | MaybeTest.metta.metta             |[reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html)|
+|  4  |  0  | superpose_nested.metta            |[reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.html)|
+|  4  |  0  | superpose_nested.metta.metta      |[reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/superpose_nested.metta.html)|
+|  4  |  0  | superpose_nested.metta.metta      |[reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/superpose_nested.metta.html)|
+|  4  |  0  | superpose_nested.metta.metta      |[reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/superpose_nested.metta.html)|
+|  4  |  0  | superpose_nested.metta.metta      |[reports/cuRRent/interp_77/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/superpose_nested.metta.html)|
+|  4  |  0  | superpose_nested.metta.metta      |[reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html)|
+|  3  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html)|
+|  3  |  0  | MaybeTest.metta                   |[reports/cuRRent/interp_77/hyperon-pln_metta/common/MaybeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/MaybeTest.html)|
 |  2  |  0  | 01_lang_inc.metta                 |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/01_lang_inc.html)|
-|  2  |  0  | 01_lang_inc.metta                 |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.html)|
+|  2  |  0  | 01_lang_inc.metta                 |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/01_lang_inc.html)|
 |  2  |  0  | 01_lang_inc.metta.metta           |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/01_lang_inc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/01_lang_inc.metta.html)|
 |  2  |  0  | 01_lang_inc.metta.metta           |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta.html)|
 |  2  |  0  | 01_lang_inc.metta.metta           |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/01_lang_inc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/01_lang_inc.metta.html)|
+|  2  |  0  | 01_lang_inc.metta.metta           |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/01_lang_inc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/01_lang_inc.metta.html)|
 |  2  |  0  | 01_lang_inc.metta.metta           |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html)|
 |  2  |  0  | b0_chaining_prelim.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/b0_chaining_prelim.html)|
 |  2  |  0  | b0_chaining_prelim.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/b0_chaining_prelim.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/b0_chaining_prelim.html)|
+|  2  |  0  | EqualityTypeTest.metta            |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.html)|
+|  2  |  0  | EqualityTypeTest.metta            |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.html)|
+|  2  |  0  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
+|  2  |  0  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
+|  2  |  0  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
+|  2  |  0  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_77/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
+|  2  |  0  | EqualityTypeTest.metta.metta      |[reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html)|
 |  2  |  0  | f1_moduleA.metta                  |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_moduleA.html)|
 |  2  |  0  | f1_moduleA.metta                  |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_moduleA.html)|
 |  2  |  0  | f1_moduleA.metta                  |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_moduleA.html)|
-|  2  |  0  | f1_moduleA.metta                  |[reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.html)|
-|  2  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/f1_moduleA.metta.html)|
-|  2  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/f1_moduleA.metta.html)|
-|  2  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/f1_moduleA.metta.html)|
-|  2  |  0  | f1_moduleA.metta.metta            |[reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html)|
+|  2  |  0  | f1_moduleA.metta                  |[reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_moduleA.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/f1_moduleA.html)|
 |  2  |  0  | let_superpose_list.metta          |[reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list.html)|
 |  2  |  0  | let_superpose_list.metta          |[reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list.html)|
-|  2  |  0  | let_superpose_list.metta          |[reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.html)|
+|  2  |  0  | let_superpose_list.metta          |[reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list.html)|
 |  2  |  0  | let_superpose_list.metta.metta    |[reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list.metta.html)|
 |  2  |  0  | let_superpose_list.metta.metta    |[reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list.metta.html)|
 |  2  |  0  | let_superpose_list.metta.metta    |[reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list.metta.html)|
+|  2  |  0  | let_superpose_list.metta.metta    |[reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list.metta.html)|
 |  2  |  0  | let_superpose_list.metta.metta    |[reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.metta.html)|
+|  2  |  0  | ListTest.metta.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.metta.html)|
+|  2  |  0  | NatTest.metta                     |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.html)|
+|  2  |  0  | NatTest.metta                     |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.html)|
+|  2  |  0  | NatTest.metta                     |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.html)|
+|  2  |  0  | NatTest.metta                     |[reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatTest.html)|
+|  2  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.metta.html)|
+|  2  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.metta.html)|
+|  2  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.metta.html)|
+|  2  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatTest.metta.html)|
+|  2  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.metta.html)|
 |  2  |  0  | non-determinism.metta             |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/non-determinism.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/non-determinism.html)|
 |  2  |  0  | non-determinism.metta             |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/non-determinism.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/non-determinism.html)|
 |  2  |  0  | non-determinism.metta             |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/non-determinism.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/non-determinism.html)|
-|  2  |  0  | non-determinism.metta             |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.html)|
+|  2  |  0  | non-determinism.metta             |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/non-determinism.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/non-determinism.html)|
 |  2  |  0  | non-determinism.metta.metta       |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html)|
 |  2  |  0  | non-determinism.metta.metta       |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html)|
 |  2  |  0  | non-determinism.metta.metta       |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html)|
+|  2  |  0  | non-determinism.metta.metta       |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html)|
 |  2  |  0  | non-determinism.metta.metta       |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html)|
 |  2  |  0  | synthesize-via-unify-test-longer.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.html)|
 |  2  |  0  | synthesize-via-unify-test-longer.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.html)|
+|  2  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
+|  2  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
+|  2  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
+|  2  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
+|  2  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
 |  2  |  0  | zeroargs.metta                    |[reports/cuRRent/interp_1a/metta-morph_tests/zeroargs.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/zeroargs.html)|
 |  2  |  0  | zeroargs.metta                    |[reports/cuRRent/interp_2a/metta-morph_tests/zeroargs.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/zeroargs.html)|
 |  2  |  0  | zeroargs.metta                    |[reports/cuRRent/interp_3y/metta-morph_tests/zeroargs.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/zeroargs.html)|
-|  2  |  0  | zeroargs.metta                    |[reports/cuRRent/interp_88/metta-morph_tests/zeroargs.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/zeroargs.html)|
+|  2  |  0  | zeroargs.metta                    |[reports/cuRRent/interp_77/metta-morph_tests/zeroargs.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/zeroargs.html)|
 |  2  |  0  | zeroargs.metta.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/zeroargs.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/zeroargs.metta.html)|
 |  2  |  0  | zeroargs.metta.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/zeroargs.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/zeroargs.metta.html)|
 |  2  |  0  | zeroargs.metta.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/zeroargs.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/zeroargs.metta.html)|
+|  2  |  0  | zeroargs.metta.metta              |[reports/cuRRent/interp_77/metta-morph_tests/zeroargs.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/zeroargs.metta.html)|
 |  2  |  0  | zeroargs.metta.metta              |[reports/cuRRent/interp_88/metta-morph_tests/zeroargs.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/zeroargs.metta.html)|
 |  1  |  0  | 01_lang_inc.metta                 |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/01_lang_inc.html)|
 |  1  |  0  | 01_lang_inc.metta                 |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/01_lang_inc.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/01_lang_inc.html)|
-|  1  |  0  | 02-curried-plus.metta             |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.html)|
-|  1  |  0  | 02-curried-plus.metta             |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.html)|
-|  1  |  0  | 02-curried-plus.metta             |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.html)|
-|  1  |  0  | 02-curried-plus.metta             |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.html)|
-|  1  |  0  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
-|  1  |  0  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
-|  1  |  0  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
-|  1  |  0  | 02-curried-plus.metta.metta       |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.metta.html)|
 |  1  |  0  | a2_opencoggy.metta                |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a2_opencoggy.html)|
 |  1  |  0  | a2_opencoggy.metta                |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a2_opencoggy.html)|
 |  1  |  0  | a2_opencoggy.metta                |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a2_opencoggy.html)|
-|  1  |  0  | a2_opencoggy.metta                |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a2_opencoggy.html)|
+|  1  |  0  | a2_opencoggy.metta                |[reports/cuRRent/interp_77/hyperon-experimental_scripts/a2_opencoggy.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/a2_opencoggy.html)|
 |  1  |  0  | a2_opencoggy.metta.metta          |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/a2_opencoggy.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/a2_opencoggy.metta.html)|
 |  1  |  0  | a2_opencoggy.metta.metta          |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/a2_opencoggy.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/a2_opencoggy.metta.html)|
 |  1  |  0  | a2_opencoggy.metta.metta          |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/a2_opencoggy.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/a2_opencoggy.metta.html)|
+|  1  |  0  | a2_opencoggy.metta.metta          |[reports/cuRRent/interp_77/hyperon-experimental_scripts/a2_opencoggy.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/a2_opencoggy.metta.html)|
 |  1  |  0  | a2_opencoggy.metta.metta          |[reports/cuRRent/interp_88/hyperon-experimental_scripts/a2_opencoggy.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a2_opencoggy.metta.html)|
+|  1  |  0  | add_atom_match.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.html)|
+|  1  |  0  | add_atom_match.metta.metta        |[reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/add_atom_match.metta.html)|
+|  1  |  0  | add_atom_match.metta.metta        |[reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/add_atom_match.metta.html)|
+|  1  |  0  | add_atom_match.metta.metta        |[reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/add_atom_match.metta.html)|
+|  1  |  0  | add_atom_match.metta.metta        |[reports/cuRRent/interp_77/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/add_atom_match.metta.html)|
+|  1  |  0  | add_atom_match.metta.metta        |[reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.metta.html)|
 |  1  |  0  | and_or.metta                      |[reports/cuRRent/interp_1a/metta-morph_tests/and_or.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/and_or.html)|
 |  1  |  0  | and_or.metta                      |[reports/cuRRent/interp_2a/metta-morph_tests/and_or.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/and_or.html)|
 |  1  |  0  | and_or.metta                      |[reports/cuRRent/interp_3y/metta-morph_tests/and_or.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/and_or.html)|
-|  1  |  0  | and_or.metta                      |[reports/cuRRent/interp_88/metta-morph_tests/and_or.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/and_or.html)|
+|  1  |  0  | and_or.metta                      |[reports/cuRRent/interp_77/metta-morph_tests/and_or.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/and_or.html)|
 |  1  |  0  | and_or.metta.metta                |[reports/cuRRent/interp_1a/metta-morph_tests/and_or.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/and_or.metta.html)|
 |  1  |  0  | and_or.metta.metta                |[reports/cuRRent/interp_2a/metta-morph_tests/and_or.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/and_or.metta.html)|
 |  1  |  0  | and_or.metta.metta                |[reports/cuRRent/interp_3y/metta-morph_tests/and_or.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/and_or.metta.html)|
+|  1  |  0  | and_or.metta.metta                |[reports/cuRRent/interp_77/metta-morph_tests/and_or.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/and_or.metta.html)|
 |  1  |  0  | and_or.metta.metta                |[reports/cuRRent/interp_88/metta-morph_tests/and_or.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/and_or.metta.html)|
+|  1  |  0  | collapse.metta                    |[reports/cuRRent/interp_1a/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/collapse.html)|
+|  1  |  0  | collapse.metta                    |[reports/cuRRent/interp_3y/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/collapse.html)|
+|  1  |  0  | collapse.metta                    |[reports/cuRRent/interp_77/metta-morph_tests/collapse.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/collapse.html)|
+|  1  |  0  | collapse.metta.metta              |[reports/cuRRent/interp_88/metta-morph_tests/collapse.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/collapse.metta.html)|
+|  1  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.html)|
+|  1  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.html)|
+|  1  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.html)|
+|  1  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d5_auto_types.html)|
+|  1  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.metta.html)|
+|  1  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.metta.html)|
+|  1  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.metta.html)|
+|  1  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_77/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-experimental_scripts/d5_auto_types.metta.html)|
+|  1  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.metta.html)|
+|  1  |  0  | factorial.metta                   |[reports/cuRRent/interp_2a/metta-morph_tests/factorial.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/factorial.html)|
+|  1  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_1a/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/factorial.metta.html)|
+|  1  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_2a/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/factorial.metta.html)|
+|  1  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_3y/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/factorial.metta.html)|
+|  1  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_77/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/factorial.metta.html)|
+|  1  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_88/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/factorial.metta.html)|
 |  1  |  0  | identity.metta                    |[reports/cuRRent/interp_1a/metta-morph_tests/identity.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/identity.html)|
 |  1  |  0  | identity.metta                    |[reports/cuRRent/interp_2a/metta-morph_tests/identity.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/identity.html)|
 |  1  |  0  | identity.metta                    |[reports/cuRRent/interp_3y/metta-morph_tests/identity.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/identity.html)|
-|  1  |  0  | identity.metta                    |[reports/cuRRent/interp_88/metta-morph_tests/identity.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/identity.html)|
+|  1  |  0  | identity.metta                    |[reports/cuRRent/interp_77/metta-morph_tests/identity.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/identity.html)|
 |  1  |  0  | identity.metta.metta              |[reports/cuRRent/interp_1a/metta-morph_tests/identity.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/identity.metta.html)|
 |  1  |  0  | identity.metta.metta              |[reports/cuRRent/interp_2a/metta-morph_tests/identity.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/identity.metta.html)|
 |  1  |  0  | identity.metta.metta              |[reports/cuRRent/interp_3y/metta-morph_tests/identity.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/identity.metta.html)|
+|  1  |  0  | identity.metta.metta              |[reports/cuRRent/interp_77/metta-morph_tests/identity.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/identity.metta.html)|
 |  1  |  0  | identity.metta.metta              |[reports/cuRRent/interp_88/metta-morph_tests/identity.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/identity.metta.html)|
 |  1  |  0  | if.metta.metta                    |[reports/cuRRent/interp_1a/metta-morph_tests/if.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/if.metta.html)|
 |  1  |  0  | if.metta.metta                    |[reports/cuRRent/interp_2a/metta-morph_tests/if.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/if.metta.html)|
 |  1  |  0  | if.metta.metta                    |[reports/cuRRent/interp_3y/metta-morph_tests/if.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/if.metta.html)|
+|  1  |  0  | if.metta.metta                    |[reports/cuRRent/interp_77/metta-morph_tests/if.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/if.metta.html)|
 |  1  |  0  | if.metta.metta                    |[reports/cuRRent/interp_88/metta-morph_tests/if.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/if.metta.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
+|  1  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
 |  1  |  0  | InTest.metta                      |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/InTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/InTest.html)|
 |  1  |  0  | InTest.metta                      |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/InTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/InTest.html)|
-|  1  |  0  | InTest.metta                      |[reports/cuRRent/interp_88/hyperon-pln_metta/common/InTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/InTest.html)|
+|  1  |  0  | InTest.metta                      |[reports/cuRRent/interp_77/hyperon-pln_metta/common/InTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/InTest.html)|
 |  1  |  0  | InTest.metta.metta                |[reports/cuRRent/interp_1a/hyperon-pln_metta/common/InTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/common/InTest.metta.html)|
 |  1  |  0  | InTest.metta.metta                |[reports/cuRRent/interp_2a/hyperon-pln_metta/common/InTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/common/InTest.metta.html)|
 |  1  |  0  | InTest.metta.metta                |[reports/cuRRent/interp_3y/hyperon-pln_metta/common/InTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/common/InTest.metta.html)|
+|  1  |  0  | InTest.metta.metta                |[reports/cuRRent/interp_77/hyperon-pln_metta/common/InTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/common/InTest.metta.html)|
 |  1  |  0  | InTest.metta.metta                |[reports/cuRRent/interp_88/hyperon-pln_metta/common/InTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/InTest.metta.html)|
 |  1  |  0  | letlet.metta                      |[reports/cuRRent/interp_1a/metta-morph_tests/letlet.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/letlet.html)|
 |  1  |  0  | letlet.metta                      |[reports/cuRRent/interp_2a/metta-morph_tests/letlet.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/letlet.html)|
 |  1  |  0  | letlet.metta                      |[reports/cuRRent/interp_3y/metta-morph_tests/letlet.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/letlet.html)|
-|  1  |  0  | letlet.metta                      |[reports/cuRRent/interp_88/metta-morph_tests/letlet.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/letlet.html)|
+|  1  |  0  | letlet.metta                      |[reports/cuRRent/interp_77/metta-morph_tests/letlet.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/letlet.html)|
 |  1  |  0  | letlet.metta.metta                |[reports/cuRRent/interp_1a/metta-morph_tests/letlet.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/letlet.metta.html)|
 |  1  |  0  | letlet.metta.metta                |[reports/cuRRent/interp_2a/metta-morph_tests/letlet.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/letlet.metta.html)|
 |  1  |  0  | letlet.metta.metta                |[reports/cuRRent/interp_3y/metta-morph_tests/letlet.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/letlet.metta.html)|
+|  1  |  0  | letlet.metta.metta                |[reports/cuRRent/interp_77/metta-morph_tests/letlet.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/letlet.metta.html)|
 |  1  |  0  | letlet.metta.metta                |[reports/cuRRent/interp_88/metta-morph_tests/letlet.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/letlet.metta.html)|
 |  1  |  0  | let_superpose_list2.metta         |[reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list2.html)|
 |  1  |  0  | let_superpose_list2.metta         |[reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list2.html)|
 |  1  |  0  | let_superpose_list2.metta         |[reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list2.html)|
-|  1  |  0  | let_superpose_list2.metta         |[reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list2.html)|
+|  1  |  0  | let_superpose_list2.metta         |[reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list2.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list2.html)|
 |  1  |  0  | let_superpose_list2.metta.metta   |[reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_list2.metta.html)|
 |  1  |  0  | let_superpose_list2.metta.metta   |[reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list2.metta.html)|
 |  1  |  0  | let_superpose_list2.metta.metta   |[reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_list2.metta.html)|
+|  1  |  0  | let_superpose_list2.metta.metta   |[reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/let_superpose_list2.metta.html)|
 |  1  |  0  | let_superpose_list2.metta.metta   |[reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list2.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list2.metta.html)|
 |  1  |  0  | let_superpose_list.metta          |[reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_list.html)|
+|  1  |  0  | match_feval.metta                 |[reports/cuRRent/interp_2a/metta-morph_tests/match_feval.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_feval.html)|
+|  1  |  0  | match_feval.metta.metta           |[reports/cuRRent/interp_1a/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/match_feval.metta.html)|
+|  1  |  0  | match_feval.metta.metta           |[reports/cuRRent/interp_2a/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/match_feval.metta.html)|
+|  1  |  0  | match_feval.metta.metta           |[reports/cuRRent/interp_3y/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/match_feval.metta.html)|
+|  1  |  0  | match_feval.metta.metta           |[reports/cuRRent/interp_77/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/match_feval.metta.html)|
+|  1  |  0  | match_feval.metta.metta           |[reports/cuRRent/interp_88/metta-morph_tests/match_feval.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_feval.metta.html)|
 |  1  |  0  | multifunction.metta               |[reports/cuRRent/interp_1a/metta-morph_tests/multifunction.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/multifunction.html)|
 |  1  |  0  | multifunction.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/multifunction.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/multifunction.html)|
 |  1  |  0  | multifunction.metta               |[reports/cuRRent/interp_3y/metta-morph_tests/multifunction.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/multifunction.html)|
-|  1  |  0  | multifunction.metta               |[reports/cuRRent/interp_88/metta-morph_tests/multifunction.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/multifunction.html)|
+|  1  |  0  | multifunction.metta               |[reports/cuRRent/interp_77/metta-morph_tests/multifunction.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/multifunction.html)|
 |  1  |  0  | multifunction.metta.metta         |[reports/cuRRent/interp_1a/metta-morph_tests/multifunction.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/multifunction.metta.html)|
 |  1  |  0  | multifunction.metta.metta         |[reports/cuRRent/interp_2a/metta-morph_tests/multifunction.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/multifunction.metta.html)|
 |  1  |  0  | multifunction.metta.metta         |[reports/cuRRent/interp_3y/metta-morph_tests/multifunction.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/multifunction.metta.html)|
+|  1  |  0  | multifunction.metta.metta         |[reports/cuRRent/interp_77/metta-morph_tests/multifunction.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/multifunction.metta.html)|
 |  1  |  0  | multifunction.metta.metta         |[reports/cuRRent/interp_88/metta-morph_tests/multifunction.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/multifunction.metta.html)|
 |  1  |  0  | NatSimpleTest.metta               |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatSimpleTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatSimpleTest.html)|
-|  1  |  0  | nested_parameters.metta           |[reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.html)|
-|  1  |  0  | nested_parameters.metta           |[reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.html)|
-|  1  |  0  | nested_parameters.metta           |[reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.html)|
-|  1  |  0  | nested_parameters.metta           |[reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.html)|
-|  1  |  0  | nested_parameters.metta.metta     |[reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/nested_parameters.metta.html)|
-|  1  |  0  | nested_parameters.metta.metta     |[reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/nested_parameters.metta.html)|
-|  1  |  0  | nested_parameters.metta.metta     |[reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/nested_parameters.metta.html)|
-|  1  |  0  | nested_parameters.metta.metta     |[reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.metta.html)|
 |  1  |  0  | peano.metta                       |[reports/cuRRent/interp_1a/metta-morph_tests/peano.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/peano.html)|
 |  1  |  0  | peano.metta                       |[reports/cuRRent/interp_2a/metta-morph_tests/peano.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/peano.html)|
 |  1  |  0  | peano.metta                       |[reports/cuRRent/interp_3y/metta-morph_tests/peano.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/peano.html)|
-|  1  |  0  | peano.metta                       |[reports/cuRRent/interp_88/metta-morph_tests/peano.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/peano.html)|
+|  1  |  0  | peano.metta                       |[reports/cuRRent/interp_77/metta-morph_tests/peano.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/peano.html)|
 |  1  |  0  | peano.metta.metta                 |[reports/cuRRent/interp_1a/metta-morph_tests/peano.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/peano.metta.html)|
 |  1  |  0  | peano.metta.metta                 |[reports/cuRRent/interp_2a/metta-morph_tests/peano.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/peano.metta.html)|
 |  1  |  0  | peano.metta.metta                 |[reports/cuRRent/interp_3y/metta-morph_tests/peano.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/peano.metta.html)|
+|  1  |  0  | peano.metta.metta                 |[reports/cuRRent/interp_77/metta-morph_tests/peano.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/peano.metta.html)|
 |  1  |  0  | peano.metta.metta                 |[reports/cuRRent/interp_88/metta-morph_tests/peano.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/peano.metta.html)|
+|  1  |  0  | structure-tests.metta             |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.html)|
+|  1  |  0  | structure-tests.metta             |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.html)|
+|  1  |  0  | structure-tests.metta.metta       |[reports/cuRRent/interp_1a/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-mettalog_sanity/structure-tests.metta.html)|
+|  1  |  0  | structure-tests.metta.metta       |[reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-mettalog_sanity/structure-tests.metta.html)|
+|  1  |  0  | structure-tests.metta.metta       |[reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-mettalog_sanity/structure-tests.metta.html)|
+|  1  |  0  | structure-tests.metta.metta       |[reports/cuRRent/interp_77/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-mettalog_sanity/structure-tests.metta.html)|
+|  1  |  0  | structure-tests.metta.metta       |[reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.metta.html)|
 |  1  |  0  | subtyping-test.metta              |[reports/cuRRent/interp_1a/hyperon-pln_metta/subtyping/subtyping-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/subtyping/subtyping-test.html)|
 |  1  |  0  | subtyping-test.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/subtyping/subtyping-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/subtyping/subtyping-test.html)|
 |  1  |  0  | subtyping-test.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/subtyping/subtyping-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/subtyping/subtyping-test.html)|
-|  1  |  0  | subtyping-test.metta              |[reports/cuRRent/interp_88/hyperon-pln_metta/subtyping/subtyping-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/subtyping/subtyping-test.html)|
+|  1  |  0  | subtyping-test.metta              |[reports/cuRRent/interp_77/hyperon-pln_metta/subtyping/subtyping-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/subtyping/subtyping-test.html)|
 |  1  |  0  | subtyping-test.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/subtyping/subtyping-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/subtyping/subtyping-test.metta.html)|
 |  1  |  0  | subtyping-test.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/subtyping/subtyping-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/subtyping/subtyping-test.metta.html)|
 |  1  |  0  | subtyping-test.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/subtyping/subtyping-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/subtyping/subtyping-test.metta.html)|
+|  1  |  0  | subtyping-test.metta.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/subtyping/subtyping-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/subtyping/subtyping-test.metta.html)|
 |  1  |  0  | subtyping-test.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/subtyping/subtyping-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/subtyping/subtyping-test.metta.html)|
 |  1  |  0  | types3.metta                      |[reports/cuRRent/interp_1a/metta-morph_tests/types3.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types3.html)|
 |  1  |  0  | types3.metta                      |[reports/cuRRent/interp_2a/metta-morph_tests/types3.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types3.html)|
 |  1  |  0  | types3.metta                      |[reports/cuRRent/interp_3y/metta-morph_tests/types3.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types3.html)|
-|  1  |  0  | types3.metta                      |[reports/cuRRent/interp_88/metta-morph_tests/types3.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types3.html)|
+|  1  |  0  | types3.metta                      |[reports/cuRRent/interp_77/metta-morph_tests/types3.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/types3.html)|
 |  1  |  0  | types3.metta.metta                |[reports/cuRRent/interp_1a/metta-morph_tests/types3.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/types3.metta.html)|
 |  1  |  0  | types3.metta.metta                |[reports/cuRRent/interp_2a/metta-morph_tests/types3.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/types3.metta.html)|
 |  1  |  0  | types3.metta.metta                |[reports/cuRRent/interp_3y/metta-morph_tests/types3.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/types3.metta.html)|
+|  1  |  0  | types3.metta.metta                |[reports/cuRRent/interp_77/metta-morph_tests/types3.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/types3.metta.html)|
 |  1  |  0  | types3.metta.metta                |[reports/cuRRent/interp_88/metta-morph_tests/types3.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types3.metta.html)|
-|  0  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.html)|
-|  0  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.html)|
-|  0  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.html)|
-|  0  |  0  | d5_auto_types.metta               |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.html)|
-|  0  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-experimental_scripts/d5_auto_types.metta.html)|
-|  0  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-experimental_scripts/d5_auto_types.metta.html)|
-|  0  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-experimental_scripts/d5_auto_types.metta.html)|
-|  0  |  0  | d5_auto_types.metta.metta         |[reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.metta.html)|
-|  0  |  0  | DeductionEntailTest.metta         |[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.html)|
-|  0  |  0  | DeductionEntailTest.metta         |[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.html)|
-|  0  |  0  | DeductionEntailTest.metta         |[reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.html)|
-|  0  |  0  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
-|  0  |  0  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
-|  0  |  0  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
-|  0  |  0  | DeductionEntailTest.metta.metta   |[reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.metta.html)|
-|  0  |  0  | DeductionEqualTest.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.html)|
-|  0  |  0  | DeductionEqualTest.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.html)|
-|  0  |  0  | DeductionEqualTest.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.html)|
-|  0  |  0  | DeductionEqualTest.metta          |[reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.html)|
-|  0  |  0  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
-|  0  |  0  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
-|  0  |  0  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
-|  0  |  0  | DeductionEqualTest.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html)|
+|  1  |  0  | types.metta.metta                 |[reports/cuRRent/interp_88/metta-morph_tests/types.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types.metta.html)|
 |  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.html)|
 |  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.html)|
 |  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html)|
 |  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html)|
 |  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html)|
+|  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html)|
 |  0  |  0  | DeductionImplicationDirectIntroductionDTLTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | DeductionImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | DeductionMatchTest.metta          |[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.html)|
-|  0  |  0  | DeductionMatchTest.metta          |[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.html)|
-|  0  |  0  | DeductionMatchTest.metta          |[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.html)|
-|  0  |  0  | DeductionMatchTest.metta          |[reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.html)|
-|  0  |  0  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
-|  0  |  0  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
-|  0  |  0  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
-|  0  |  0  | DeductionMatchTest.metta.metta    |[reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.metta.html)|
-|  0  |  0  | factorial.metta                   |[reports/cuRRent/interp_2a/metta-morph_tests/factorial.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/factorial.html)|
-|  0  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_1a/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/factorial.metta.html)|
-|  0  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_2a/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/factorial.metta.html)|
-|  0  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_3y/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/factorial.metta.html)|
-|  0  |  0  | factorial.metta.metta             |[reports/cuRRent/interp_88/metta-morph_tests/factorial.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/factorial.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionEqualTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
-|  0  |  0  | ImplicationDirectIntroductionMatchTest.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html)|
 |  0  |  0  | let_superpose_if_case.metta       |[reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_if_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_if_case.html)|
 |  0  |  0  | let_superpose_if_case.metta       |[reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_if_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_if_case.html)|
 |  0  |  0  | let_superpose_if_case.metta       |[reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_if_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_if_case.html)|
-|  0  |  0  | let_superpose_if_case.metta       |[reports/cuRRent/interp_88/metta-morph_tests/let_superpose_if_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_if_case.html)|
+|  0  |  0  | let_superpose_if_case.metta       |[reports/cuRRent/interp_77/metta-morph_tests/let_superpose_if_case.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/let_superpose_if_case.html)|
 |  0  |  0  | let_superpose_if_case.metta.metta |[reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_if_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/let_superpose_if_case.metta.html)|
 |  0  |  0  | let_superpose_if_case.metta.metta |[reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_if_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/let_superpose_if_case.metta.html)|
 |  0  |  0  | let_superpose_if_case.metta.metta |[reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_if_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/let_superpose_if_case.metta.html)|
+|  0  |  0  | let_superpose_if_case.metta.metta |[reports/cuRRent/interp_77/metta-morph_tests/let_superpose_if_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/metta-morph_tests/let_superpose_if_case.metta.html)|
 |  0  |  0  | let_superpose_if_case.metta.metta |[reports/cuRRent/interp_88/metta-morph_tests/let_superpose_if_case.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_if_case.metta.html)|
-|  0  |  0  | minnars.metta                     |[reports/cuRRent/interp_2a/metta-morph_tests/minnars.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/minnars.html)|
-|  0  |  0  | minnars.metta.metta               |[reports/cuRRent/interp_1a/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/metta-morph_tests/minnars.metta.html)|
-|  0  |  0  | minnars.metta.metta               |[reports/cuRRent/interp_2a/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/metta-morph_tests/minnars.metta.html)|
-|  0  |  0  | minnars.metta.metta               |[reports/cuRRent/interp_3y/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/metta-morph_tests/minnars.metta.html)|
-|  0  |  0  | minnars.metta.metta               |[reports/cuRRent/interp_88/metta-morph_tests/minnars.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/minnars.metta.html)|
 |  0  |  0  | NatSimpleTest.metta               |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatSimpleTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatSimpleTest.html)|
 |  0  |  0  | NatSimpleTest.metta               |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatSimpleTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatSimpleTest.html)|
-|  0  |  0  | NatSimpleTest.metta               |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatSimpleTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatSimpleTest.html)|
+|  0  |  0  | NatSimpleTest.metta               |[reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatSimpleTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatSimpleTest.html)|
 |  0  |  0  | NatSimpleTest.metta.metta         |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatSimpleTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatSimpleTest.metta.html)|
 |  0  |  0  | NatSimpleTest.metta.metta         |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatSimpleTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatSimpleTest.metta.html)|
 |  0  |  0  | NatSimpleTest.metta.metta         |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatSimpleTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatSimpleTest.metta.html)|
+|  0  |  0  | NatSimpleTest.metta.metta         |[reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatSimpleTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/hol/NatSimpleTest.metta.html)|
 |  0  |  0  | NatSimpleTest.metta.metta         |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatSimpleTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatSimpleTest.metta.html)|
-|  0  |  0  | NatTest.metta                     |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.html)|
-|  0  |  0  | NatTest.metta                     |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.html)|
-|  0  |  0  | NatTest.metta                     |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.html)|
-|  0  |  0  | NatTest.metta                     |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.html)|
-|  0  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/hol/NatTest.metta.html)|
-|  0  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/hol/NatTest.metta.html)|
-|  0  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/hol/NatTest.metta.html)|
-|  0  |  0  | NatTest.metta.metta               |[reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.metta.html)|
 |  0  |  0  | self-contained-synthesize.metta   |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.html)|
 |  0  |  0  | self-contained-synthesize.metta   |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.html)|
 |  0  |  0  | self-contained-synthesize.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html)|
 |  0  |  0  | self-contained-synthesize.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html)|
 |  0  |  0  | self-contained-synthesize.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html)|
+|  0  |  0  | self-contained-synthesize.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html)|
 |  0  |  0  | self-contained-synthesize.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/self-contained-synthesize.metta.html)|
 |  0  |  0  | SynthesizeTest.metta              |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/SynthesizeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/SynthesizeTest.html)|
 |  0  |  0  | SynthesizeTest.metta              |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/SynthesizeTest.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/SynthesizeTest.html)|
 |  0  |  0  | SynthesizeTest.metta.metta        |[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html)|
 |  0  |  0  | SynthesizeTest.metta.metta        |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html)|
 |  0  |  0  | SynthesizeTest.metta.metta        |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html)|
+|  0  |  0  | SynthesizeTest.metta.metta        |[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html)|
 |  0  |  0  | SynthesizeTest.metta.metta        |[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/SynthesizeTest.metta.html)|
 |  0  |  0  | synthesize-via-case-test.metta    |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.html)|
 |  0  |  0  | synthesize-via-case-test.metta    |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.html)|
 |  0  |  0  | synthesize-via-case-test.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html)|
 |  0  |  0  | synthesize-via-case-test.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html)|
 |  0  |  0  | synthesize-via-case-test.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html)|
+|  0  |  0  | synthesize-via-case-test.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html)|
 |  0  |  0  | synthesize-via-case-test.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-case-test.metta.html)|
 |  0  |  0  | synthesize-via-let-test.metta     |[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.html)|
 |  0  |  0  | synthesize-via-let-test.metta     |[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.html)|
 |  0  |  0  | synthesize-via-let-test.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html)|
 |  0  |  0  | synthesize-via-let-test.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html)|
 |  0  |  0  | synthesize-via-let-test.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html)|
+|  0  |  0  | synthesize-via-let-test.metta.metta|[reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_77/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html)|
 |  0  |  0  | synthesize-via-let-test.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html)|
-|  0  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_1a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
-|  0  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_2a/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
-|  0  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_3y/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
-|  0  |  0  | synthesize-via-unify-test-longer.metta.metta|[reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html)|
 |  0  |  0  | test_list_concatenation.metta.metta|[reports/cuRRent/performance/test_list_concatenation.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/performance/test_list_concatenation.metta.html)|
 
 </details>
@@ -842,531 +961,7772 @@ Jump to [MeTTaLog Installation Guide](https://github.com/logicmoo/vspace-metta/b
  
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.01) | (assertEqual (bc_bare A kb_bare rb_bare Z)) | (A) | (A) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.02) | (assertEqual (bc_bare B kb_bare rb_bare (fromNumber 1))) | (B) | (B) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.03) | (assertEqual (bc_bare C kb_bare rb_bare (fromNumber 2))) | (C) | (C) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.04) | (assertEqualToResult (bc_bare D kb_bare rb_bare (fromNumber 4))) | () | () |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.05) | (assertEqual (bc_eq A kb_eq Z)) | (A) | (A) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.06) | (assertEqual (bc_eq B kb_eq (fromNumber 1))) | (B) | (B) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.07) | (assertEqualToResult (bc_eq C kb_eq (fromNumber 2))) | (C) | (C) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.08) | (assertEqual (bc_eq (â A B) kb_eq (fromNumber 0))) | ((â A B)) | ((â A B)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.09) | (assertEqual (bc_eq (â B C) kb_eq (fromNumber 0))) | ((â B C)) | ((â B C)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.101) | (exec "=== Bare Entail ===") | ("=== Bare Entail ===") | ("=== Bare Entail ===") |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.106) | (exec "=== Equality ===") | ("=== Equality ===") | ("=== Equality ===") |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.10) | (assertEqual (bc_eq (â A C) kb_eq (fromNumber 2))) | () | ((â A C)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.113](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.113) | (exec "=== Bare Entail Match ===") | ("=== Bare Entail Match ===") | ("=== Bare Entail Match ===") |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.115](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.115) | (exec (add-atom &kb_bem (â A B))) | (()) | (True) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.116](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.116) | (exec (add-atom &kb_bem (â B C))) | (()) | (True) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.117](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.117) | (exec (add-atom &kb_bem A)) | (()) | (True) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.119](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.119) | (exec (add-atom &rb_bem (â¢ (â $P $Q) $P $Q))) | (()) | (True) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.11) | (assertEqual (bc_bem A Z)) | (A) | (A) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.120](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.120) | (exec (add-atom &rb_bem (â¢ (â $P $Q) (â $Q $R) (â $P $R)))) | (()) | (True) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.127](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.127) | (exec "=== Equality Match ===") | ("=== Equality Match ===") | ("=== Equality Match ===") |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.129](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.129) | (exec (add-atom &kb_em (â A B))) | (()) | (True) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.12) | (assertEqual (bc_bem B (fromNumber 1))) | (B) | (B) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.130](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.130) | (exec (add-atom &kb_em (â B C))) | (()) | (True) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.131](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.131) | (exec (add-atom &kb_em A)) | (()) | (True) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.138](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.138) | (exec "=== DTL Equality Match ===") | ("=== DTL Equality Match ===") | ("=== DTL Equality Match ===") |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.13) | (assertEqualToResult (bc_bem C (fromNumber 2))) | (C) | (C) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.140](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.140) | (exec (add-atom &kb_dem (: ab (â A B)))) | (()) | (True) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.141](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.141) | (exec (add-atom &kb_dem (: bc (â B C)))) | (()) | (True) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.142](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.142) | (exec (add-atom &kb_dem (: a A))) | (()) | (True) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.14) | (assertEqual (bc_bem (â A B) (fromNumber 0))) | ((â A B)) | ((â A B)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.15) | (assertEqual (bc_bem (â B C) (fromNumber 0))) | ((â B C)) | ((â B C)) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.16) | (assertEqual (bc_bem (â A C) (fromNumber 2))) | () | ((â A C)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.17) | (assertEqual (bc_em A Z)) | (A) | (A) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.18) | (assertEqual (bc_em B (fromNumber 1))) | (B) | (B) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.19) | (assertEqualToResult (bc_em C (fromNumber 2))) | (C) | (C) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.20) | (assertEqual (bc_em (â A B) (fromNumber 0))) | ((â A B)) | ((â A B)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.21) | (assertEqual (bc_em (â B C) (fromNumber 0))) | ((â B C)) | ((â B C)) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.22) | (assertEqual (bc_em (â A C) (fromNumber 2))) | () | ((â A C)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.23) | (assertEqual (bc_dem (: $Prf A) Z)) | ((: a A)) | ((: a A)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.24) | (assertEqual (bc_dem (: $Prf (â A B)) Z)) | ((: ab (â A B))) | ((: ab (â A B))) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.25) | (assertEqual (bc_dem (: $Prf B) (fromNumber 1))) | ((: (ModusPonens ab a) B)) | ((: (ModusPonens ab a) B)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.26) | (assertEqualToResult (bc_dem (: $Prf C) (fromNumber 2))) | ((: (ModusPonens bc (ModusPonens ab a)) C) (: (ModusPonens (Deduction ab bc) a) C)) | ((: (ModusPonens bc (ModusPonens ab a)) C) (: (ModusPonens (Deduction ab bc) a) C)) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.27](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.27) | (assertEqual (bc_dem (: $Prf (â A B)) (fromNumber 0))) | ((: ab (â A B))) | ((: ab (â A B))) |
-| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.28](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.28) | (assertEqual (bc_dem (: $Prf (â B C)) (fromNumber 0))) | ((: bc (â B C))) | ((: bc (â B C))) |
-| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.29](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.29) | (assertEqual (bc_dem (: $Prf (â A C)) (fromNumber 2))) | () | ((: (Deduction ab bc) (â A C))) |
-| PASS | [COMMON.EQUALITYTYPETEST.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html#COMMON.EQUALITYTYPETEST.102) | (exec (foo (Refl T42))) | (True) | (True) |
-| FAIL | [COMMON.EQUALITYTYPETEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html#COMMON.EQUALITYTYPETEST.103) | (exec (bar (Refl T42))) | ((Error T42 BadType)) | (True) |
-| PASS | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/InTest.metta.html#COMMON.INTEST.01) | (assertEqual (synthesize (: $Proof (â Z â)) kb rb Z)) | ((: NotInEmpty (â Z â))) | ((: NotInEmpty (â Z â))) |
-| PASS | [COMMON.LISTTEST.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.102) | (exec ("============ Test insert ============")) | (("============ Test insert ============")) | (("============ Test insert ============")) |
-| PASS | [COMMON.LISTTEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.103) | (exec (insert 1 ())) | ((Cons 1 ())) | ((Cons 1 ())) |
-| PASS | [COMMON.LISTTEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.104) | (exec (insert 2 (insert 1 ()))) | ((Cons 1 (Cons 2 ()))) | ((Cons 1 (Cons 2 ())) (Cons 1 (Cons 2 ()))) |
-| PASS | [COMMON.LISTTEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.105) | (exec (insert 3 (insert 2 (insert 1 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ()))) (Cons 1 (Cons 2 (Cons 3 ())))) |
-| PASS | [COMMON.LISTTEST.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.106) | (exec (== (Cons 1 ()) (Cons 1 ()))) | (True) | (True) |
-| PASS | [COMMON.LISTTEST.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.107) | (exec ("============ Test sort ============")) | (("============ Test sort ============")) | (("============ Test sort ============")) |
-| PASS | [COMMON.LISTTEST.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.108) | (exec (sort (Cons 1 ()))) | ((Cons 1 ())) | ((Cons 1 ())) |
-| PASS | [COMMON.LISTTEST.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.109) | (exec (sort (Cons 2 (Cons 1 ())))) | ((Cons 1 (Cons 2 ()))) | ((Cons 1 (Cons 2 ()))) |
-| PASS | [COMMON.LISTTEST.110](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.110) | (exec (sort (Cons 3 (Cons 1 (Cons 2 ()))))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) |
-| PASS | [COMMON.LISTTEST.111](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.111) | (exec ("============ Test elem ============")) | (("============ Test elem ============")) | (("============ Test elem ============")) |
-| PASS | [COMMON.LISTTEST.112](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.112) | (exec (elem 1 (Cons 3 (Cons 1 (Cons 2 ()))))) | (True) | (True) |
-| PASS | [COMMON.LISTTEST.113](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.113) | (exec (elem 5 (Cons 3 (Cons 1 (Cons 2 ()))))) | (False) | (False) |
-| PASS | [COMMON.LISTTEST.114](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.114) | (exec ("============ Test uniq ============")) | (("============ Test uniq ============")) | (("============ Test uniq ============")) |
-| PASS | [COMMON.LISTTEST.115](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.115) | (exec (uniq (Cons 2 (Cons 3 (Cons 1 (Cons 2 ())))))) | ((Cons 2 (Cons 3 (Cons 1 ())))) | ((Cons 2 (Cons 3 (Cons 1 ())))) |
-| PASS | [COMMON.LISTTEST.116](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.116) | (exec (uniq (Cons 2 (Cons 3 (Cons 3 (Cons 2 ())))))) | ((Cons 2 (Cons 3 ()))) | ((Cons 2 (Cons 3 ()))) |
-| PASS | [COMMON.LISTTEST.117](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.117) | (exec ("============ Test insert_uniq ============")) | (("============ Test insert_uniq ============")) | (("============ Test insert_uniq ============")) |
-| PASS | [COMMON.LISTTEST.118](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.118) | (exec (insert_uniq 2 (insert_uniq 1 ()))) | ((Cons 1 (Cons 2 ()))) | ((Cons 1 (Cons 2 ())) (Cons 1 (Cons 2 ()))) |
-| PASS | [COMMON.LISTTEST.119](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.119) | (exec (insert_uniq 3 (insert_uniq 2 (insert_uniq 1 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ()))) (Cons 1 (Cons 2 (Cons 3 ())))) |
-| PASS | [COMMON.LISTTEST.120](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.120) | (exec (insert_uniq 2 (insert_uniq 3 (insert_uniq 2 (insert_uniq 1 ()))))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ()))) (Cons 1 (Cons 2 (Cons 3 ())))) |
-| PASS | [COMMON.MAYBETEST.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.102) | (exec (Maybe< (Just 10) (Just 20))) | (True) | (True) |
-| PASS | [COMMON.MAYBETEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.103) | (exec (Maybe< (Just 10) Nothing)) | (False) | (False) |
-| PASS | [COMMON.MAYBETEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.104) | (exec (Maybe< Nothing (Just 10))) | (True) | (True) |
-| PASS | [COMMON.NUMTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.01) | (assertEqual (fromNumber 1)) | ((S Z)) | ((S Z)) |
-| PASS | [COMMON.NUMTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.02) | (assertEqual (fromNat (S (S Z)))) | (2) | (2) |
-| PASS | [COMMON.NUMTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.03) | (assertEqual (ceil 2.4)) | (3) | (3) |
-| PASS | [COMMON.NUMTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.04) | (assertEqual (abs -10)) | (10) | (10) |
-| PASS | [COMMON.NUMTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.05) | (assertEqual (approxEq 10 10.0001 0.001)) | (True) | (True) |
-| PASS | [COMMON.NUMTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.06) | (assertEqual (approxEq 10 10.0001 1.0e-9)) | (False) | (False) |
-| FAIL | [COMMON.NUMTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.07) | (assertEqual (â©» Z (S Z))) | (True (< Z (S Z))) | (True) |
-| PASS | [COMMON.NUMTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.08) | (assertEqual (synthesize (: $Proof (â Z (S Z))) kb rb Z)) | ((: ZeroLTSucc (â Z (S Z)))) | ((: ZeroLTSucc (â Z (S Z)))) |
-| PASS | [COMMON.ORDEREDSETTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.01) | (assertEqual (elem 1 â)) | (False) | (False) |
-| PASS | [COMMON.ORDEREDSETTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.02) | (assertEqual (elem 1 (insert 1 â))) | (True) | (True) |
-| PASS | [COMMON.ORDEREDSETTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.03) | (assertEqual (elem 1 (insert 2 â))) | (False) | (False) |
-| PASS | [COMMON.ORDEREDSETTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.04) | (assertEqual (elem 1 (insert 1 (insert 2 â)))) | (True) | (True) |
-| PASS | [COMMON.ORDEREDSETTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.05) | (assertEqual (elem 1 (insert 2 (insert 3 â)))) | (False) | (False) |
-| PASS | [COMMON.ORDEREDSETTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.06) | (assertEqual (elem 2 (insert 1 (insert 2 (insert 3 â))))) | (True) | (True) |
-| PASS | [COMMON.ORDEREDSETTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.07) | (assertEqual (insert 1 â)) | ((:: 1 â)) | ((:: 1 â)) |
-| PASS | [COMMON.ORDEREDSETTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.08) | (assertEqual (insert 2 (insert 1 â))) | ((:: 1 (:: 2 â))) | ((:: 1 (:: 2 â))) |
-| PASS | [COMMON.ORDEREDSETTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.09) | (assertEqual (insert 3 (insert 2 (insert 1 â)))) | ((:: 1 (:: 2 (:: 3 â)))) | ((:: 1 (:: 2 (:: 3 â)))) |
-| PASS | [COMMON.ORDEREDSETTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.10) | (assertEqual (insert 2 (insert 3 (insert 2 (insert 1 â))))) | ((:: 1 (:: 2 (:: 3 â)))) | ((:: 1 (:: 2 (:: 3 â)))) |
-| FAIL | [COMMON.ORDEREDSETTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.11) | (assertEqual (insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z â))))) | ((:: Z (:: (S Z) (:: (S (S Z)) â))) (:: Z (:: (S Z) (:: (S (S Z)) (:: (S Z) â)))) (:: (S Z) (:: ... | ((:: Z (:: (S Z) (:: (S (S Z)) â)))) |
-| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.01) | (assertEqual (synthesize (: $Proof (â (â P Q) $Tv)) kb rb Z)) | ((: PQm (â (â P Q) (STV 0.8 0.4)))) | ((: PQm (â (â P Q) (STV 0.8 0.4)))) |
-| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.02) | (assertEqual (synthesize (: $Proof (â (â Q R) $Tv)) kb rb Z)) | ((: QRm (â (â Q R) (STV 0.9 0.5)))) | ((: QRm (â (â Q R) (STV 0.9 0.5)))) |
-| FAIL | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.102) | (exec "===== Test synthesizer ====") | (()) | ("===== Test synthesizer ====") |
-| FAIL | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.105) | (exec (synthesize (: $Proof (â (â P R) $Tv)) kb rb (S Z))) | (()) | ((: (Deduction Pm Qm Rm PQm QRm) (â (â P R) (STV 0.7 0.1)))) |
-| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.103) | (exec "===== Test base rule (built-in type checker) =====") | ("===== Test base rule (built-in type checker) =====") | ("===== Test base rule (built-in type checker) =====") |
-| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.104) | (exec (base_prf)) | ((base_prf)) | ((base_prf)) |
-| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.105) | (exec (get-type base_prf)) | ((≞ (→ P Q) (ETV (:: (S (S Z)) ∅) (STV 0 0.5)))) | ((â (â P Q) (ETV (:: (S (S Z)) â) (STV 0 0.5)))) |
-| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.106) | (exec "===== Test recursive rule (built-in type checker) =====") | ("===== Test recursive rule (built-in type checker) =====") | ("===== Test recursive rule (built-in type checker) =====") |
-| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.107) | (exec (recursive_prf)) | ((recursive_prf)) | ((recursive_prf)) |
-| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.108) | (exec (get-type recursive_prf)) | ((≞ (→ P Q) $Etv_C35_797)) | () |
-| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.109) | (exec "===== Prove that 2 < 7 (synthesizer) =====") | ("===== Prove that 2 < 7 (synthesizer) =====") | ("===== Prove that 2 < 7 (synthesizer) =====") |
-| PASS | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.103) | (exec "===== Test synthesizer ====") | ("===== Test synthesizer ====") | ("===== Test synthesizer ====") |
-| PASS | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.104) | (exec (synthesize (: $Proof (â (big cow) (STV $S $C))) kb rb (fromNumber 0))) | ((: cow_is_big (≞ (big cow) (STV 0.99 0.99)))) | ((: cow_is_big (â (big cow) (STV 0.99 0.99)))) |
-| FAIL | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.105) | (exec (synthesize (: $Proof (â (chase cow dog) (STV $S $C))) kb rb (fromNumber 1))) | ((: (ModusPonens cow_is_big x_is_big_chases_dog) (≞ (chase cow dog) (STV 0.9821 0.99))) (let* (((: $... | () |
-| FAIL | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.106) | (exec (synthesize (: $Proof (â (see cow rabbit) (STV $S $C))) kb rb (fromNumber 2))) | ((: (ModusPonens (ModusPonens cow_is_big x_is_big_chases_dog) cow_chases_dog_sees_rabbit) (≞ (see co... | () |
-| FAIL | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.105) | (exec ("========== Test formula ==========")) | () | (("========== Test formula ==========")) |
-| FAIL | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.106) | (exec (idi_formula (Bl True) (Bl False) (STV 1 0))) | (("========== Test inductive rule ==========")) | ((idi_formula (Bl True) (Bl False) (STV 1 0))) |
-| FAIL | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.107) | (exec ("========== Test axiom ==========")) | () | (("========== Test axiom ==========")) |
-| PASS | [EXPERIMENTS.NON-DETERMINISM.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html#EXPERIMENTS.NON-DETERMINISM.101) | (exec (foo 21)) | (42 441) | (42 441) |
-| PASS | [EXPERIMENTS.NON-DETERMINISM.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html#EXPERIMENTS.NON-DETERMINISM.102) | (exec (bar 2)) | (2 2 4 3) | (3 4 2) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.101) | (exec (. (superpose (f g)) (superpose (f g)))) | ((. f f) (. f g) (. g f) (. g g)) | ((. f f) (. f g) (. g f) (. g g)) |
-| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.102) | (exec (well-typed (. (superpose (f g)) (superpose (f g))))) | ("True," "True," "True," True) | (True) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.103) | (exec (g "42")) | (True) | (True) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.104) | (exec ((. g f) 42)) | (True) | (True True) |
-| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.105) | (exec (superpose ((. f f) (. f g) (. g f) (. g g) (. h g)))) | ((Error f BadType) (Error g BadType) (. g f) (Error g BadType) (. h g)) | ((. f f) (. f g) (. g f) (. g g) (. h g)) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.102) | (exec ("Unit Tests")) | (("Unit Tests")) | (("Unit Tests")) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.103) | (exec (map inc (Cons 2 (Cons 3 (Cons 1 ()))))) | ((Cons 3 (Cons 4 (Cons 2 ())))) | ((Cons 3 (Cons 4 (Cons 2 ())))) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.104) | (exec (filter even (Cons 2 (Cons 3 (Cons 1 ()))))) | ((Cons 2 ())) | ((Cons 2 ())) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.105) | (exec (interleave () ())) | (()) | (()) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.106) | (exec (interleave (Cons 1 (Cons 2 ())) (Cons "a" (Cons "b" ())))) | ((Cons 1 (Cons "a" (Cons 2 (Cons "b" ()))))) | ((Cons 1 (Cons "a" (Cons 2 (Cons "b" ()))))) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.107) | (exec (prodWith * () (Cons 2 ()))) | (()) | (()) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.108) | (exec (prodWith * (Cons 1 ()) ())) | (()) | (()) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.109) | (exec (prodWith * (Cons 1 ()) (Cons 2 ()))) | ((Cons 2 ())) | ((Cons 2 ())) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.110](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.110) | (exec (prodWith * (Cons 1 (Cons 2 ())) (Cons 3 (Cons 4 ())))) | ((Cons 3 (Cons 4 (Cons 6 (Cons 8 ()))))) | ((Cons 3 (Cons 4 (Cons 6 (Cons 8 ()))))) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.111](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.111) | (exec (prodWith . (Cons g ()) (Cons f ()))) | ((Cons (. g f) ())) | ((Cons (. g f) ())) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.112](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.112) | (exec (prodWith . (Cons f ()) (Cons g ()))) | ((Cons (. f g) ())) | ((Cons (. f g) ())) |
-| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.113](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.113) | (exec (prodWith . (Cons f (Cons g ())) (Cons f (Cons g ())))) | ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) ()))))) | ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) ()))))) |
-| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.114](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.114) | (exec (synthesize (functions) (fromNumber 2))) | ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) ()))))) | ((trace! (info (variables (prgs (trace! (synthesize= (Cons f (Cons g ())) (S Z) (Cons f (Cons g ()))) (Cons f (Cons g ())))) (cmbs (prodWith . (Cons f (Cons g ())) (trace! (synthesize= (Cons f (Cons |
-| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.01) | (assertEqualToResult (record synthesize ((: $Term $Type) Z))) | ((â· synthesize (True Z) (synthesize True Z))) | ((: f (-> Number String)) (: g (-> String Bool)) (: h (-> Bool Number))) |
-| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.02) | (assertEqualToResult (record synthesize ((: $Term (-> Number String)) Z))) | ((â· synthesize ((: $_353600 (-> Number String)) Z) (synthesize (: $_353600 (-> Number String)) Z))... | ((: f (-> Number String))) |
-| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.101) | (exec (case (Link $X B) (((Link A $Y) (Link $X $Y))))) | ((Link A B)) | ((Link $_428770 B)) |
-| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.102) | (exec (case (-> $X B) (((-> A $Y) (-> $X $Y))))) | ((-> A B)) | ((-> $_469068 B)) |
-| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.103) | (exec (case (f $X) (((Link A $Y) (Link $X $Y))))) | ((Link A B)) | ((Link $_1630 B)) |
-| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.104) | (exec (case (Link $X B) (((g $Y) (Link $X $Y))))) | () | ((Link $_48334 B)) |
-| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.105) | (exec (case (superpose ((Link $X B) (Node A) (Link $X C))) (((Link A $Y) (Link $X $Y))))) | ((Link A B) (Link A C)) | ((Link $_96690 B) (Link $_96666 C)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-CASE.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.106) | (exec (case (g $Y) (($Z (case (f $X) (($Z $Z))))))) | ((Link A B)) | ((Link A B)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.101) | (exec (let (Link A $Y) (Link $X B) (Link $X $Y))) | ((Link A B)) | ((Link A B)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.102) | (exec (let (-> A $Y) (-> $X B) (-> $X $Y))) | ((-> A B)) | ((-> A B)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.103) | (exec (let (Link A $Y) (f $X) (Link $X $Y))) | ((Link A B)) | ((Link A B)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.104) | (exec (let (g $Y) (Link $X B) (Link $X $Y))) | () | () |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.105) | (exec (let* (($Gy (g $Y)) ($Gy (Link $X B))) (Link $X $Y))) | ((Link A B)) | ((Link A B)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.106) | (exec (let (Link A $Y) (superpose ((Link $X B) (Node A) (Link $X C))) (Link $X $Y))) | ((Link A B) (Link A C)) | ((Link A B) (Link A C)) |
-| PASS | [EXPERIMENTS.UNIFY-VIA-LET.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.107) | (exec (let* (($Z (g $Y)) ($Z (f $X))) $Z)) | ((Link A B)) | ((Link A B)) |
-| PASS | [FORMULA.DEDUCTIONFORMULATEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.01) | (assertEqualToResult (max 3 4)) | (4) | (4) |
-| PASS | [FORMULA.DEDUCTIONFORMULATEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.02) | (assertEqualToResult (min 3 4)) | (3) | (3) |
-| PASS | [FORMULA.DEDUCTIONFORMULATEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.03) | (assertEqualToResult (and True True)) | (True) | (True) |
-| PASS | [FORMULA.DEDUCTIONFORMULATEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.04) | (assertEqualToResult (or True False)) | (True) | (True) |
-| PASS | [FORMULA.DEDUCTIONFORMULATEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.05) | (assertEqualToResult (<= 5 4)) | (False) | (False) |
-| FAIL | [FORMULA.DEDUCTIONFORMULATEST.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.108) | (exec (clamp 2 0 1)) | (0.5555555555555556) | (1 1) |
-| FAIL | [FORMULA.DEDUCTIONFORMULATEST.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.109) | (exec (smallest-intersection-probability 0.9 0.6)) | (False) | (0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.555555|
-| FAIL | [FORMULA.DEDUCTIONFORMULATEST.110](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.110) | (exec (conditional-probability-consistency 0.9 0.6 0.5)) | (0) | (False) |
-| FAIL | [FORMULA.DEDUCTIONFORMULATEST.111](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.111) | (exec (simple-deduction-strength-formula 0.9 0.6 0.5 0.3 0.4)) | (True) | (0) |
-| PASS | [FORMULA.DEDUCTIONFORMULATEST.112](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.112) | (exec (conditional-probability-consistency 0.2 0.3 1)) | (True) | (True) |
-| FAIL | [FORMULA.DEDUCTIONFORMULATEST.113](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.113) | (exec (conditional-probability-consistency 0.3 0.4 0.9)) | ((STV 0.9 0.1)) | (True) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.101) | (exec "=== Entail ===") | ("=== Entail ===") | ("=== Entail ===") |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.102) | (exec (fc_entail (â¢ A) kb_entail rb_entail (fromNumber 2))) | ((⊢ A)) | ((â¢ A)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.103) | (exec (fc_entail (â¢ (â A B)) kb_entail rb_entail (fromNumber 2))) | ((⊢ (→ A B))) | ((â¢ (â A B))) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.104) | (exec (let (â¢ (â $X $Y)) (kb_entail) (fc_entail (â¢ (â $X $Y)) kb_entail rb_entail (fromNumber 2)))) | ((⊢ (→ A B)) (⊢ (→ B C))) | ((â¢ (â A B)) (â¢ (â B C))) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.105) | (exec "=== Bare entail ===") | ("=== Bare entail ===") | ("=== Bare entail ===") |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.106) | (exec (fc_bare A kb_bare rb_bare (fromNumber 2))) | (A) | (A B C) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.107) | (exec (fc_bare (â A B) kb_bare rb_bare (fromNumber 2))) | ((→ A B)) | ((â A B)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.108) | (exec (let (â $X $Y) (kb_bare) (fc_bare (â $X $Y) kb_bare rb_bare (fromNumber 2)))) | ((→ A B) (→ B C)) | ((â A B) (â B C)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.109) | (exec "=== Equality ===") | ("=== Equality ===") | ("=== Equality ===") |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.110](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.110) | (exec (fc_eq A kb_eq (fromNumber 2))) | (A) | (A B C) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.111](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.111) | (exec (fc_eq (â A B) kb_eq (fromNumber 2))) | ((→ A B)) | ((â A B)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.112](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.112) | (exec (let (â $X $Y) (kb_eq) (fc_eq (â $X $Y) kb_eq (fromNumber 2)))) | ((→ A B) (→ B C)) | ((â A B) (â B C)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.113](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.113) | (exec "=== DTL ===") | ("=== DTL ===") | ("=== DTL ===") |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.114](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.114) | (exec (fc_dtl (: a A) kb_dtl rb_dtl (fromNumber 2))) | ((: a A)) | ((: a A)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.115](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.115) | (exec (fc_dtl (: ab (â A B)) kb_dtl rb_dtl (fromNumber 2))) | ((: ab (→ A B))) | ((: ab (â A B))) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.116](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.116) | (exec (let (: $Prf (â $X $Y)) (kb_dtl) (fc_dtl (: $Prf (â $X $Y)) kb_dtl rb_dtl (fromNumber 2)))) | ((: ab (→ A B)) (: bc (→ B C))) | ((: ab (â A B)) (: bc (â B C))) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.01) | (assertEqualToResult (fc_entail (â¢ A) kb_entail rb_entail (fromNumber 2))) | ((â¢ A)) | ((â¢ A) (â¢ B) (â¢ C)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.02) | (assertEqualToResult (fc_entail (â¢ (â A B)) kb_entail rb_entail (fromNumber 2))) | ((â¢ (â A B))) | ((â¢ B) (â¢ C) (â¢ (â A B))) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.03) | (assertEqualToResult (let (â¢ (â $X $Y)) (kb_entail) (fc_entail (â¢ (â $X $Y)) kb_entail rb_entail (fromNumber 2)))) | ((â¢ (â A B)) (â¢ (â B C))) | ((â¢ B) (â¢ C) (â¢ (â A B)) (â¢ (â B C))) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.04) | (assertEqualToResult (fc_bare A kb_bare rb_bare (fromNumber 2))) | (A B C) | (A B C) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.05) | (assertEqualToResult (fc_bare (â A B) kb_bare rb_bare (fromNumber 2))) | ((â A B)) | (B C (â A B)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.06) | (assertEqualToResult (let (â $X $Y) (kb_bare) (fc_bare (â $X $Y) kb_bare rb_bare (fromNumber 2)))) | ((â A B) (â B C)) | (B C (â A B) (â B C)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.07) | (assertEqualToResult (fc_eq A kb_eq (fromNumber 2))) | (A B C) | (A B C) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.08) | (assertEqualToResult (fc_eq (â A B) kb_eq (fromNumber 2))) | ((â A B)) | (B C (â A B)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.09) | (assertEqualToResult (let (â $X $Y) (kb_eq) (fc_eq (â $X $Y) kb_eq (fromNumber 2)))) | ((â A B) (â B C)) | (B C (â A B) (â B C)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.101) | (exec "=== Entail ===") | ("=== Entail ===") | ("=== Entail ===") |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.105) | (exec "=== Bare Entail ===") | ("=== Bare Entail ===") | ("=== Bare Entail ===") |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.109) | (exec "=== Equality ===") | ("=== Equality ===") | ("=== Equality ===") |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.10) | (assertEqualToResult (fc_bem A (fromNumber 2))) | (A B C) | (A B C) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.113](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.113) | (exec "=== Bare Entail Match ===") | ("=== Bare Entail Match ===") | ("=== Bare Entail Match ===") |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.115](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.115) | (exec (add-atom &kb_bem (â A B))) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.116](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.116) | (exec (add-atom &kb_bem (â B C))) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.117](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.117) | (exec (add-atom &kb_bem A)) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.119](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.119) | (exec (add-atom &rb_bem (â¢ (â $P $Q) $P $Q))) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.11) | (assertEqualToResult (fc_bem (â A B) (fromNumber 2))) | ((â A B)) | (B C (â A B)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.123](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.123) | (exec "=== Equality Match ===") | ("=== Equality Match ===") | ("=== Equality Match ===") |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.125](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.125) | (exec (add-atom &kb_em (â A B))) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.126](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.126) | (exec (add-atom &kb_em (â B C))) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.127](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.127) | (exec (add-atom &kb_em A)) | (()) | (True) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.12) | (assertEqualToResult (match &kb_bem (â $X $Y) (fc_bem (â $X $Y) (fromNumber 2)))) | ((â A B) (â B C)) | (B C (â A B) (â B C)) |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.131](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.131) | (exec "=== DTL ===") | ("=== DTL ===") | ("=== DTL ===") |
-| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.13) | (assertEqualToResult (fc_em A (fromNumber 2))) | (A B C) | (A B C) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.14) | (assertEqualToResult (fc_em (â A B) (fromNumber 2))) | ((â A B)) | (B C (â A B)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.15) | (assertEqualToResult (match &kb_em (â $X $Y) (fc_em (â $X $Y) (fromNumber 2)))) | ((â A B) (â B C)) | (B C (â A B) (â B C)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.16) | (assertEqualToResult (fc_dtl (: a A) kb_dtl rb_dtl (fromNumber 2))) | ((: a A)) | ((: a A) (: (ModusPonens ab a) B) (: (ModusPonens bc (ModusPonens ab a)) C)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.17) | (assertEqualToResult (fc_dtl (: ab (â A B)) kb_dtl rb_dtl (fromNumber 2))) | ((: ab (â A B))) | ((: ab (â A B)) (: (ModusPonens ab a) B) (: (ModusPonens bc (ModusPonens ab a)) C)) |
-| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.18) | (assertEqualToResult (let (: $Prf (â $X $Y)) (kb_dtl) (fc_dtl (: $Prf (â $X $Y)) kb_dtl rb_dtl (fromNumber 2)))) | ((: ab (â A B)) (: bc (â B C))) | ((: ab (â A B)) (: bc (â B C)) (: (ModusPonens ab a) B) (: (ModusPonens bc (ModusPonens ab a)) C)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.01) | (assertEqualToResult (match &self (($X leaf2) leaf3) $X)) | (leaf1 (leaf0 leaf1)) | (leaf1 (leaf0 leaf1)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.02) | (assertEqualToResult (match &self ($Who is a $What) ($Who the $What))) | ((Sam the frog) (Sophia the robot) (Tom the cat)) | ((Sam the frog) (Sophia the robot) (Tom the cat)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.03) | (assertEqualToResult (match &self (:= (Green $Who) True) ($Who is really green))) | ((Sam is really green)) | ((Sam is really green)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.04) | (assertEqualToResult (match &self (:= ($Color $Who) True) ($Who is really $Color))) | ((Sam is really Green) (Tom is really White)) | ((Sam is really Green) (Tom is really White)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.05) | (assertEqualToResult (match &self (:= ($Color $Who) $Tv) ("It's" $Tv that $Who is $Color))) | (("It's" False that Tom is Green) ("It's" True that Sam is Green) ("It's" True that Tom is White)) | (("It's" False that Tom is Green) ("It's" True that Sam is Green) ("It's" True that Tom is White)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06) | (assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv)) | (False) | (False) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.07) | (assertEqualToResult (match &self (isa $Color color) $Color)) | (blue green red) | (blue green red) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a2_opencoggy.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01) | (assertEqualToResult (match &self (EvaluationLink (PredicateNode "eats") (ListLink $X (ConceptNode "flies"))) $X)) | ((ConceptNode "Fritz") (ConceptNode "Sam")) | ((ConceptNode "Fritz") (ConceptNode "Sam")) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01) | (assertEqualToResult (match &self (implies (Frog Sam) $What) $What)) | ((Eats-flies Sam) (Green Sam)) | ((Eats-flies Sam) (Green Sam)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02) | (assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P))) | ((Sam might be Frog)) | ((Sam might be Frog)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03) | (assertEqualToResult (match &self (and (Frog $X) (implies (Frog $X) $Y)) $Y)) | ((Eats-flies Sam) (Green Sam)) | ((Eats-flies Sam) (Green Sam)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04) | (assertEqualToResult (match &self (and (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P))) | ((Then it is definitely Frog)) | ((Then it is definitely Frog)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01) | (assertEqualToResult (match &self (:= (S K K x) $R) $R)) | ((K x (K x))) | ((K x (K x))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02) | (assertEqualToResult (match &self (:= (K x (K x)) $R) $R)) | (x) | (x) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03) | (assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2))) | (x) | (x) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04) | (assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) $R)) | ((Add (S (S Z)) Z)) | ((Add (S (S Z)) Z)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05) | (assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2))) | ((S (S Z))) | ((S (S Z))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.01) | (assertEqual (S K K x)) | (x) | (x) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.02) | (assertEqualToResult (expression without known equalities)) | ((expression without known equalities)) | ((expression without known equalities)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.03) | (assertEqual (Add (S Z) (S Z))) | ((S (S Z))) | ((S (S Z))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.04) | (assertEqual (Something? (Add (S Z) (S Z)))) | ((Something? (S (S Z)))) | ((Something? (S (S Z)))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.05) | (assertEqual (eq (S K K x) x)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.06) | (assertEqualToResult (eq Green Blue)) | ((eq Green Blue)) | ((eq Green Blue)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.01) | (assertEqualToResult (Frog Sam)) | (True) | ((Frog Sam)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.02) | (assertEqual (frog Sam)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.03) | (assertEqualToResult (frog Fritz)) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.04) | (assertEqual (deduce (Evaluation (mortal Plato)))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.05) | (assertEqual (explain (Evaluation (mortal Plato)))) | (((mortal Plato) proven by ((human Plato) proven by True))) | (((mortal Plato) proven by ((human Plato) proven by True))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01) | (assertEqual (green Fritz)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02) | (assertEqual (ift (green $X) $X)) | (Fritz) | (Fritz) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03) | (assertEqualToResult (match &self (= ($P Fritz) True) $P)) | (croaks eat_flies) | (croaks eat_flies) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.01) | (assertEqual (match &self (= (color) $X) $X)) | (green red yellow) | (green red yellow) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.02) | (assertEqual (collapse (match &self (= (shape) $X) $X))) | (()) | (()) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.03) | (assertEqual (color)) | (green red yellow) | (green red yellow) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.04) | (assertEqual (color)) | (green red yellow) | (green red yellow) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.05) | (assertEqual (collapse (shape))) | (((shape))) | (((shape))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.06) | (assertEqualToResult (shape)) | ((shape)) | ((shape)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.07) | (assertEqualToResult (pair (bin) (bin))) | ((A A) (A B) (B A) (B B)) | ((A A) (A B) (B A) (B B)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.08) | (assertEqual (find-equal (color) (foo))) | (red) | (red) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.09) | (assertEqualToResult (rev A (superpose (B C D)))) | ((B A) (C A) (D A)) | ((B A) (C A) (D A)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.10) | (assertEqual (is (air dry))) | ((start humidifier) (stop ventilation)) | ((start humidifier) (start kettle) (stop ventilation)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.11) | (assertEqual (is (air wet))) | ((start ventilation) (stop humidifier)) | ((start ventilation) (stop humidifier) (stop kettle)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.01) | (assertEqual (Add S Z)) | (S) | (S) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.03) | (assertEqual (Add (S Z) Z)) | ((S Z)) | ((S Z)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.04) | (assertEqual (Add Z (S Z))) | ((S Z)) | ((S Z)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.05) | (assertEqual (Add Something Z)) | (Something) | (Something) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.06) | (assertEqualToResult (Add Z Ten)) | ((Add Z Ten)) | ((Add Z Ten)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.07) | (assertEqualToResult (Cons (S Z) (Cons Z ()))) | ((Cons (S Z) (Cons Z ()))) | ((Cons (S Z) (Cons Z ()))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.09) | (assertEqual (eq (Add Z Z) Z)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.10) | (assertEqualToResult (eq Z (S Z))) | ((eq Z (S Z))) | ((eq Z (S Z))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.12) | (assertEqual (of-same-type Color Shape)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.13) | (assertEqual (of-same-type Green Red)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.16) | (assertEqual (Green $Who)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.17) | (assertEqual (match &self (Green $Who) $Who)) | (Sam) | (Sam) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.18) | (assertEqual (match &self (Green $Who) (Green $Who))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.19) | (assertEqual (let $R (Add (S Z) Z) (match &self (= (eq $R (S Z)) $Tv) $Tv))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.20) | (assertEqualToResult (match &self (= (eq (Add (S Z) Z) (S Z)) $Tv) $Tv)) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.21) | (assertEqual (let (S (S $R)) (Add (S Z) (S Z)) $R)) | (Z) | (Z) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.22) | (assertEqual (let* (($R1 (Add Z Z)) ($R2 (Add $R1 (S Z))) ($R3 (Add $R2 (S Z)))) (match &self (= (eq (S (S Z)) $R3) $Tv) $Tv))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.23) | (assertEqual (eqa (Add Z Z) (Add Z Z))) | (True) | (True) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.24) | (assertEqualToResult (eqa Z (Add Z Z))) | (True) | ((eqa Z (Add Z Z))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.25) | (assertEqual (eq Z (Add Z Z))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.26) | (assertEqual (let $Z (Add Z Z) (eqa Z $Z))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.01) | (assertEqualToResult (+ 2 (* 3 5.5))) | (18.5) | (18.5) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.02) | (assertEqualToResult (- 8 (/ 4 6.4))) | (7.375) | (7.375) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.03) | (assertEqualToResult (% 21 17)) | (4) | (4) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.04) | (assertEqualToResult (< 4 (+ 2 (* 3 5)))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.05) | (assertEqualToResult (and (> 4 2) (< 4 3))) | (False) | (False) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.06) | (assertEqualToResult (ln (+ 2 2))) | ((ln 4)) | ((ln 4)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.07) | (assertEqualToResult (> 4 (+ ln 2))) | ((> 4 (+ ln 2))) | ((> 4 (+ ln 2))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.08) | (assertEqualToResult (> 4 (+ $X 2))) | ((> 4 (+ $_13318 2))) | ((> 4 (+ $_5770 2))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.09) | (assertEqualToResult (== 4 (+ 2 2))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.10) | (assertEqualToResult (== 2 3)) | (False) | (False) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.11) | (assertEqualToResult (== (A B) (A B))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.12) | (assertEqualToResult (== (A B) (A (B C)))) | (False) | (False) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.13) | (assertEqualToResult (== 4 (+ ln 2))) | (False) | (False) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.16) | (assertEqualToResult (sqr 4)) | (16) | (16) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.17) | (assertEqual (+ (superpose (1 2 3)) 1)) | (2 3 4) | (2 3 4) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.18) | (assertEqualToResult (bin)) | (0 1) | (0 1) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.19) | (assertEqualToResult (+ 1 (bin))) | (1 2) | (1 2) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.20) | (assertEqualToResult (let $X (+ 2 3) (* $X $X))) | (25) | (25) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.21) | (assertEqual (fact 5)) | (120) | (120) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.22) | (assertEqualToResult (fact 5)) | (120) | (120) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.23) | (assertEqualToResult (let $True (gen 3) (if (== (subsum (:: 3 (:: 7 (:: 5 nil))) $True) 8) $True (superpose ())))) | () | ((:: 1 (:: 0 (:: 1 nil)))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.01) | (assertEqualToResult (match &kb (and ($Obj is $Prop) ($Prop is-a Color) ($Obj is-a Planet)) (Color of Planet $Obj is $Prop))) | ((Color of Planet Mars is Red)) | ((Color of Planet Mars is Red)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.02) | (assertEqualToResult (match &self ($P is-a Color) $P)) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.03) | (assertEqual (match &kb (and (Venus orbit $X au) (Mars orbit $Y au)) (- $Y $X))) | (0.8) | (0.8) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.04) | (assertEqualToResult (match &kb ($Prop is-a Color) (match &self ($Obj is $Prop) $Obj))) | (Ball) | (Ball) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.05) | (assertEqualToResult (match &self (and ($Obj is $Prop) ($Prop is-a Color) ($Obj is-a Planet)) (Color of Planet $Obj is $Prop))) | ((Color of Planet Mars is Red)) | ((Color of Planet Mars is Red)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.01) | (assertEqual (TV (And (PA) (PB)))) | ((stv 0.3 0.8)) | ((stv 0.3 0.8)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.02) | (assertEqual (TV (FA))) | ((stv 0.4 0.8)) | ((stv 0.4 0.8)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.03) | (assertEqual (TV (croaks Fritz))) | ((stv 0.95 0.85)) | ((stv 0.95 0.85)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.04) | (assertEqual (TV (frog Fritz))) | ((stv 0.783 0.68)) | ((stv 0.783 0.68)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.05) | (assertEqual (TV (green Fritz))) | ((stv 0.7047 0.68)) | ((stv 0.7047 0.68)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.01) | (assertEqual (get-type 5)) | (Number) | (Number) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.02) | (assertEqual (get-type (+ 5 7))) | (Number) | (Number) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.03) | (assertEqual (get-type +)) | (Symbol) | ((-> Number Number Number)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.04) | (assertEqualToResult (get-type (+ 5 "4"))) | (Number) | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.05) | (assertEqualToResult (get-type (+ -))) | ((Symbol Symbol)) | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.06) | (assertEqual (get-type Either)) | (Type) | (Type) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.07) | (assertEqual (get-type (Left 5))) | (Either) | (Either) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.08) | (assertEqual (get-type (isLeft (Right 5)))) | (Bool) | (Bool) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.09) | (assertEqualToResult (get-type (isLeft 5))) | (Bool) | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.10) | (assertEqual (get-type (LeftP 5))) | () | ((EitherP Number)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.11) | (assertEqual (get-type (pair (LeftP 5) "String"))) | () | ((Pair (EitherP Number) String)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.12) | (assertEqual (get-type (Cons 5 (Cons 6 ())))) | () | ((List Number)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.13) | (assertEqualToResult (get-type (Cons 5 (Cons "6" ())))) | () | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.14) | (assertEqual (let (List $True) (get-type (Cons 5 (Cons 6 ()))) $True)) | () | (Number) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.01) | (assertEqual (get-type (curry +))) | () | ((-> Number (-> Number Number))) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.02) | (assertEqual (get-type ((curry +) 2))) | () | ((-> Number Number)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.03) | (assertEqualToResult ((curry +) 2)) | (((curry +) 2)) | (((curry +) 2)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.04) | (assertEqual (((curry +) 2) 3)) | (5) | (5) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.05) | (assertEqual (get-type (curry-a + 2))) | () | ((-> Number Number)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.06) | (assertEqual (get-type ((curry-a + 2) 3))) | (Number) | (Number) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.07) | (assertEqualToResult (get-type ((curry-a + 2) "S"))) | (Number) | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.08) | (assertEqual ((curry-a + 2) 3)) | (5) | (5) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.09) | (assertEqualToResult (is-socrates)) | ((curry-a is Socrates)) | ((curry-a is Socrates)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.10) | (assertEqual ((curry-a is Socrates) Human)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.11) | (assertEqual ((is-socrates) Human)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.12) | (assertEqual ((lambda $X (+ $X 1)) 2)) | (3) | (3) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.13) | (assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7))) | (9) | (9) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.14) | (assertEqual ((inc) 5)) | (6) | (6) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.15) | (assertEqual (fmap (curry-a + 2) (Something 5))) | ((Something 7)) | ((Something 7)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.16) | (assertEqual (fmap (curry-a + 2) (Nothing))) | ((Nothing)) | ((Nothing)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.17) | (assertEqual (get-type (fmap (curry-a + 1) (Left 5)))) | () | ((Either Number)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.18) | (assertEqual (fmap (curry-a + 2) (UntypedC 5))) | ((UntypedC 7)) | ((UntypedC 7)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.19) | (assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null))))) | ((UntypedC 7 (UntypedC 10 (Null)))) | ((UntypedC 7 (UntypedC 10 (Null)))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.20) | (assertEqualToResult (get-type (fmap (curry-a + 2) (Left "5")))) | () | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.21) | (assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC "5")))) | ((Symbol Number)) | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.22) | (assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5)))) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.23) | (assertEqual (fmap-i (curry-a - 7) (Right 3))) | ((Right 4)) | ((Right 4)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.24) | (assertEqual (fmap-i (curry-a * 2) (Cons 3 (Cons 4 ())))) | ((Cons 6 (Cons 8 ()))) | ((Cons 6 (Cons 8 ()))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.25) | (assertEqualToResult (fmap-i (curry-a + 2) (Untyped 5))) | ((fmap-i (curry-a + 2) (Untyped 5))) | ((fmap-i (curry-a + 2) (Untyped 5))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.26) | (assertEqual (insert 3 (insert 2 (insert 1 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.27](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.27) | (assertEqual (sort (Cons 3 (Cons 1 (Cons 2 ()))))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.01) | (assertEqual (get-type (Cons 0 (Cons 1 ())))) | () | ((Vec Number (S (S Z)))) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.02) | (assertEqual (get-type (drop (Cons 1 ())))) | (Z) | ((Vec Number Z)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.03) | (assertEqual (drop (Cons 2 (Cons 1 ())))) | ((Cons 1 ())) | ((Cons 1 ())) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.04) | (assertEqualToResult (get-type (drop ()))) | () | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.05) | (assertEqual (get-type (ConsN "1" (ConsN "2" NilN)))) | () | ((VecN String 2)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.06) | (assertEqual (get-type (dropN (ConsN "1" NilN)))) | () | ((VecN String 0)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.07) | (assertEqualToResult (dropN NilN)) | ((dropN NilN)) | ((dropN NilN)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.01) | (assertEqual (get-type (Mortal Plato))) | (Type) | (Type) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.02) | (assertEqual (get-type (HumansAreMortal SocratesIsHuman))) | () | ((Mortal Socrates)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.03) | (assertEqualToResult (get-type (HumansAreMortal (Human Socrates)))) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.04) | (assertEqual (get-type (= SocratesIsMortal (HumansAreMortal SocratesIsHuman)))) | (Type) | (Type) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.05) | (assertEqual (get-type (= (Mortal Socrates) (Mortal Plato)))) | (Type) | (Type) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.06) | (assertEqualToResult (get-type (= SocratesIsMortal (HumansAreMortal PlatoIsHuman)))) | (Type) | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.07) | (assertEqualToResult (get-type (= SocratesIsHuman PlatoIsHuman))) | (Type) | () |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.08) | (assertEqualToResult (get-type (= SocratesIsHuman SocratesIsMortal))) | (Type) | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.09) | (assertEqual (= SocratesIsMortal (HumansAreMortal SocratesIsHuman))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.10) | (assertEqual (= (+ 1 1) (- 3 1))) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.11) | (assertEqual (= (Mortal Socrates) True)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.12) | (assertEqualToResult (= (Mortal Plato) True)) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.13) | (assertEqual (= (Mortal Plato) True)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.14) | (assertEqualToResult (= (Human Sam) True)) | () | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.15) | (assertEqualToResult (Mortal Plato)) | ((Mortal Plato)) | ((Mortal Plato)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.16) | (assertEqual (= (= $X $X) True)) | () | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.17) | (assertEqual (Mortal Plato)) | (True) | (True) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.18) | (assertEqualToResult (ift (Mortal $X) $X)) | (Plato Socrates) | (Plato Socrates) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.01) | (assertEqualToResult (ift (green $X) (add-atom &kb (Green $X)))) | (True) | (()) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.02) | (assertEqualToResult (match &kb (Green $X) $X)) | (Fritz) | (Fritz Sam) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.01) | (assertEqual (get-state (get-token))) | ((A B)) | ((A B)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.02) | (assertEqual (get-token)) | ((State  (A B) $_53086)) | ((State  (A B) $_54298)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.03) | (assertEqual (get-type (new-state 2))) | ((StateMonad Number)) | ((StateMonad Number)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.04) | (assertEqual (get-type (change-state! (new-state "S") "V"))) | ((StateMonad String)) | ((StateMonad String)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.05) | (assertEqual (let $V (new-state 1) (get-type $V))) | ((StateMonad Number)) | ((StateMonad Number)) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.06) | (assertEqual (get-type &state-token)) | ((StateMonad (Symbol Symbol))) | ((StateMonad Expression)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.09) | (assertEqual (get-state (get-token))) | ((C D)) | ((C D)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.10) | (assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1)))) | ((State  2 $_448614)) | ((State  2 $_449164)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.11) | (assertEqual (let $Tnso (new-state 1) $Tnso)) | ((State  1 $_477900)) | ((State  1 $_478456)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01) | (assertEqual (get-state (status (Goal lunch-order)))) | (inactive) | (inactive) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02) | (assertEqual (get-state (status (Goal lunch-order)))) | (inactive) | (active) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03) | (assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal)) | () | (meditation) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04) | (assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ()))) | () | (lunch-order) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01) | (assertEqual ((let $X (get-atoms &self) (get-type $X)))) | (((let $_509880 (get-atoms &self) (get-type $_509880)))) | ((Symbol)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02) | (assertEqual (if (> 1 2) 1 2)) | (2) | (2) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03) | (assertEqual (+ 1 2)) | (3) | (3) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.04) | (assertEqual (if True "S" "F")) | ("S") | ("S") |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.05) | (assertEqual (match &m (= (f 2) $X) $X)) | ((g 3)) | ((g 3)) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.06) | (assertEqual (+ 1 2)) | (3) | (3) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.07) | (assertEqual (if True "S" "F")) | ("S") | ("S") |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08) | (assertEqual (g 2)) | (102) | (102) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.09) | (assertEqual (f 2)) | (103) | (103) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.101) | (exec (get-type &self)) | (hyperon::space::DynSpace) | (Symbol) |
-| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.10) | (assertEqual &m) | (&m) | () |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.11) | (assertEqual (== (let* (($X (collapse (get-atoms &m))) ($Y (car-atom $X))) (get-type $Y)) (get-type &self))) | (False) | (False) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12) | (assertEqual (if (> 1 2) 1 2)) | (2) | (2) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13) | (assertEqual (g 2)) | (102) | (102) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14) | (assertEqual (f 2)) | (103) | (103) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15) | (assertEqualToResult (dup 2)) | (12 102) | (12 102) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16) | (assertEqual (g 2)) | (102) | (102) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17) | (assertEqual (f 2)) | (103) | (103) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18) | (assertEqualToResult (dup 2)) | (12 102) | (12 102) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01) | (assertEqual (+ 1 2)) | (3) | (3) |
-| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02) | (assertEqual (if True "S" "F")) | ("S") | ("S") |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.01) | (assertEqual (+ 1 (superpose (1 2 3)))) | (2 3 4) | (2 3 4) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.02) | (assertEqual (+ 1 (superpose (1 2 3)))) | (2 3 4) | (2 3 4) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.03) | (assertEqual ((superpose (1 2 3)))) | ((1) (2) (3)) | ((1) (2) (3)) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.04) | (assertEqual (case (+ 1 5) ((5 Error) (6 OK) (6 Error)))) | (OK) | (OK) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.05) | (assertEqual (case (+ 1 5) (($X (+ 1 $X))))) | (7) | (7) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.06) | (assertEqual (case 5 ((6 OK)))) | () | () |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.07) | (assertEqual (case (+ 1 (superpose (1 2 3))) ((3 OK-3) (4 OK-4)))) | (OK-3 OK-4) | (OK-3 OK-4) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.08) | (assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X))))) | (3 4 5) | (3 4 5) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.09) | (assertEqualToResult (superpose ())) | () | () |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.10) | (assertEqualToResult (collapse (superpose ()))) | (()) | (()) |
-| FAIL | [HYPERON-METTALOG-SANITY.00-LANG-CASE.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.11) | (assertEqualToResult (superpose ((nop 1)))) | (Empty) | () |
-| FAIL | [HYPERON-METTALOG-SANITY.00-LANG-CASE.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.12) | (assertEqualToResult (collapse (superpose ((nop 1))))) | ((Empty)) | (()) |
-| FAIL | [HYPERON-METTALOG-SANITY.00-LANG-CASE.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.13) | (assertEqualToResult (match &self ($Rel A $X) ($Rel A $X))) | (True) | ((Rel-P A B) (Rel-Q A C)) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.14) | (assertEqualToResult (superpose ((Rel-P B) (Rel-Q C)))) | ((Rel-P B) (Rel-Q C)) | ((Rel-P B) (Rel-Q C)) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.15) | (assertEqual (match &self ($Rel A $X) ($Rel $X))) | ((Rel-P B) (Rel-Q C)) | ((Rel-P B) (Rel-Q C)) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.16) | (assertEqual (superpose ((P B) (Q C)))) | ((P B) (Q C)) | ((P B) (Q C)) |
-| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.17) | (assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match)))) | (no-match) | (no-match) |
-| PASS | [HYPERON-METTALOG-SANITY.01-LANG-INC.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html#HYPERON-METTALOG-SANITY.01-LANG-INC.01) | (assertEqual (maybe-inc Nothing)) | (Nothing) | (Nothing) |
-| PASS | [HYPERON-METTALOG-SANITY.01-LANG-INC.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html#HYPERON-METTALOG-SANITY.01-LANG-INC.02) | (assertEqual (maybe-inc (Just 2))) | ((Just 3)) | ((Just 3)) |
-| PASS | [HYPERON-METTALOG-SANITY.02-CURRIED-PLUS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.metta.html#HYPERON-METTALOG-SANITY.02-CURRIED-PLUS.01) | (assertEqualToResult ((inc) 2)) | (3) | (3) |
-| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.01) | (assertEqual (Cons 1 ())) | ((Cons 1 ())) | ((Cons 1 ())) |
-| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.02) | (assertEqual (insert 1 ())) | ((Cons 1 ())) | ((Cons 1 ())) |
-| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.03) | (assertEqual (insert 2 (insert 1 ()))) | ((Cons 1 (Cons 2 ()))) | ((Cons 1 (Cons 2 ()))) |
-| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.04) | (assertEqual (insert 1 (insert 2 ()))) | ((Cons 1 (Cons 2 ()))) | ((Cons 1 (Cons 2 ()))) |
-| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.05) | (assertEqual (insert 3 (insert 2 (insert 1 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) | ((Cons 1 (Cons 2 (Cons 3 ())))) |
-| FAIL | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.01) | (assertEqualToResult (match (kb) ($SS A_List $X) ($SS A_List $X))) | () | ((SS-P_List A_List B_List) (SS-Q_List A_List C_List)) |
-| FAIL | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.02) | (assertEqual (match (kb) ($Rel A_List $X) ($Rel $X))) | () | ((SS-P_List B_List) (SS-Q_List C_List)) |
-| FAIL | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.03) | (assertEqual (superpose ((P_List B_List) (Q_List C_List)))) | ((P_List B_List) (Q_List C_List)) | () |
-| PASS | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.04) | (assertEqual (case (match (kb) ($Rel B_List $X) ($Rel $X)) (((SS-P_List $Y) (P_List $Y)) ((SS-Q_List $Y) (Q_List $Y)) (%void% no-match)))) | (no-match) | (no-match) |
-| FAIL | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.01) | (assertEqualToResult (match (kb) ($SS A_Each $X) ($SS A_Each $X))) | () | ((SS-P_Each A_Each B_Each) (SS-Q_Each A_Each C_Each)) |
-| FAIL | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.02) | (assertEqual (match (kb) ($Rel A_Each $X) ($Rel $X))) | () | ((SS-P_Each B_Each) (SS-Q_Each C_Each)) |
-| FAIL | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.03) | (assertEqual (superpose ((P_Each B_Each) (Q_Each C_Each)))) | ((P_Each B_Each) (Q_Each C_Each)) | () |
-| PASS | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.04) | (assertEqual (case (match (kb) ($Rel B_Each $X) ($Rel $X)) (((SS-P_Each $Y) (P_Each $Y)) ((SS-Q_Each $Y) (Q_Each $Y)) (%void% no-match)))) | (no-match) | (no-match) |
-| FAIL | [HYPERON-METTALOG-SANITY.STRUCTURE-TESTS.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.metta.html#HYPERON-METTALOG-SANITY.STRUCTURE-TESTS.101) | (exec (collapse (superpose ((superpose (1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3)) (superpose (1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3)) (superpose (4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6| ((1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 ... | ((1 2 3 4 5 6 7 8 9)) |
-| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.103) | (exec (match &kb $X (add-atom &labelled-kb (: (WitnessOf $X) $X)))) | (()) | (True) |
-| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.104) | (exec (synthesize (: $Proof (instance JohnsCarry Transfer)) kb rb (fromNumber 2))) | (()) | () |
-| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.105) | (exec (synthesize (: $Proof (â§ (instance JohnsCarry Transfer) (objectTransferred JohnsCarry JohnsVase) (orientation JohnsFlower JohnsVase Inside))) kb rb (fromNumber 3))) | (() () () () () () () () () () () () () () () () () () () () () () ()) | () |
-| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.106) | (exec (synthesize (: $Proof (objectTransferred JohnsCarry JohnsFlower)) kb rb (fromNumber 4))) | ((: (ModusPonens (WitnessOf (⟹ (∧ (subclass Carrying Transfer) (instance JohnsCarry Carrying)) (inst... | () |
-| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.107) | (exec (synthesize (: $Proof (â§ (instance $C Carrying) (agent $C John) (instance $False Flower) (objectTransferred $C $False))) kb rb (fromNumber 5))) | ((let* (((: $Proof1_C35_5582 (⟹ $X_C35_5505 (∧ (instance JohnsCarry Transfer) (objectTransferred Joh... | () |
-| FAIL | [LOCATED.LOCATED-TEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.103) | (exec (match &kb $X (add-atom &labelled-kb (: (WitnessOf $X) $X)))) | (()) | (True) |
-| FAIL | [LOCATED.LOCATED-TEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.104) | (exec (synthesize (: $Proof (located John JohnsHouse)) kb rb (S Z))) | (()) | () |
-| FAIL | [LOCATED.LOCATED-TEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.105) | (exec (synthesize (: $Proof (located John SanJose)) kb rb (fromNumber 3))) | (() () () () () () () () () () ()) | () |
-| FAIL | [METTA-MORPH-TESTS.ADD-ATOM-MATCH.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.metta.html#METTA-MORPH-TESTS.ADD-ATOM-MATCH.01) | (assertEqualToResult (sequential ((add-atom &self (man mortal)) (match &self ($A mortal) (mortal $A))))) | (True (mortal man)) | ((mortal man)) |
-| PASS | [METTA-MORPH-TESTS.AND-OR.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/and_or.metta.html#METTA-MORPH-TESTS.AND-OR.101) | (exec (If (or (and True False) True) 1 2)) | (1) | (1 1) |
-| PASS | [METTA-MORPH-TESTS.COLLAPSE.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/collapse.metta.html#METTA-MORPH-TESTS.COLLAPSE.101) | (exec (collapse (1 2 3))) | (((1 2 3))) | (((1 2 3))) |
-| PASS | [METTA-MORPH-TESTS.IDENTITY.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/identity.metta.html#METTA-MORPH-TESTS.IDENTITY.101) | (exec (f 1)) | (1) | (1) |
-| PASS | [METTA-MORPH-TESTS.IF.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/if.metta.html#METTA-MORPH-TESTS.IF.101) | (exec (If (> 1 2) (3 4) (5 6))) | ((5 6)) | ((5 6) (5 6)) |
-| PASS | [METTA-MORPH-TESTS.LETLET.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/letlet.metta.html#METTA-MORPH-TESTS.LETLET.101) | (exec (let $True (1.0 0.9) (let* ((($F1 $C1) $True)) ($F1 $C1)))) | ((1.0 0.9)) | ((1.0 0.9)) |
-| PASS | [METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.metta.html#METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.01) | (assertEqual (wuza 5)) | ((10 4) (10 5)) | ((10 4) (10 5)) |
-| PASS | [METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.metta.html#METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.101) | (exec (wuza 5)) | ((10 4) (10 5)) | ((10 4) (10 5)) |
-| PASS | [METTA-MORPH-TESTS.LET-SUPERPOSE-LIST2.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list2.metta.html#METTA-MORPH-TESTS.LET-SUPERPOSE-LIST2.01) | (assertEqual (wuzaL 2 (3 4))) | ((4 3) (4 4)) | ((4 3) (4 4)) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-FEVAL.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_feval.metta.html#METTA-MORPH-TESTS.MATCH-FEVAL.101) | (exec (match &self (= (f $X) $Y) $Y)) | ((* 2 $X)) | ((* 2 $_422964)) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.01) | (assertEqualToResult (match &attentional_focus $Num1 $Num1)) | (()) | (1) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.02) | (assertEqualToResult (match &concepts $Num1 $Num1)) | (()) | (2) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.03) | (assertEqualToResult (match (superpose (&attentional_focus &concepts)) $Num1 $Num1)) | (()) | (1 2) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.102) | (exec (add-atom &attentional_focus 1)) | (()) | (True) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.104) | (exec (add-atom &concepts 2)) | (()) | (True) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.103) | (exec (add-atom &belief_events belief1)) | (()) | (True) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.104) | (exec (case (match &belief_events $Num1 $Num1) ((%void% 42)))) | () | (42) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.105) | (exec (case (match &belief_events $Num1 $Num1) ((belief1 yes) (%void% 42)))) | (yes) | (42) |
-| PASS | [METTA-MORPH-TESTS.MATCH-VOID.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.106) | (exec (case (match &goal_events $Num1 $Num1) ((%void% 42)))) | (42) | (42) |
-| PASS | [METTA-MORPH-TESTS.MATCH-VOID.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.107) | (exec (case (match &goal_events $Num1 $Num1) ((goal1 yes) (%void% 42)))) | (42) | (42) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.108) | (exec (add-atom &goal_events goal1)) | (()) | (True) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.109) | (exec (case (match &goal_events $Num1 $Num1) ((goal1 yes) (%void% 42)))) | (yes) | (42) |
-| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.110](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.110) | (exec (case (match &goal_events $Num1 $Num1) ((%void% 42)))) | () | (42) |
-| PASS | [METTA-MORPH-TESTS.MULTIFUNCTION.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/multifunction.metta.html#METTA-MORPH-TESTS.MULTIFUNCTION.101) | (exec (g 42 (1 2))) | (1764 1764) | (1764 1764) |
-| FAIL | [METTA-MORPH-TESTS.NALIFIER.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nalifier.metta.html#METTA-MORPH-TESTS.NALIFIER.101) | (exec (let ($S $EV) (choiceQuery (((ExtSet sam) --> duck) ((ExtSet sam) --> swan) ((ExtSet sam) --> dog))) $S)) | ((((ExtSet sam) --> duck) (1.0 0.618320610687023))) | ((x (1.0 0.0))) |
-| PASS | [METTA-MORPH-TESTS.NESTED-PARAMETERS.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.metta.html#METTA-MORPH-TESTS.NESTED-PARAMETERS.101) | (exec (Truth_Deduction (1.0 0.9) (1.0 0.9))) | ((1.0 0.81)) | ((1.0 0.81)) |
-| PASS | [METTA-MORPH-TESTS.PEANO.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/peano.metta.html#METTA-MORPH-TESTS.PEANO.101) | (exec (Add (S (S Z)) (S (S (S Z))))) | ((S (S (S (S (S Z)))))) | ((S (S (S (S (S Z)))))) |
-| FAIL | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.102) | (exec (sequential ((increment) (increment)))) | (2 3) | (3 5 7) |
-| FAIL | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.103) | (exec (sequential ((increment) (increment) (increment)))) | (4 5 6) | (9 11 13 15) |
-| FAIL | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.104) | (exec (sequential ((sequential ((increment) (increment) (increment)))))) | (7 8 9) | (17 19 21 23 25) |
-| FAIL | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.105) | (exec (sequential ((sequential ((increment) (increment) (increment))) (sequential ((increment) (increment) (increment)))))) | (10 11 12 13 14 15) | (27 29 31 33 35 37 39 41 43) |
-| FAIL | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.106) | (exec (sequential ((sequential ((increment) (increment) (increment))) (increment) (increment) (increment)))) | (16 17 18 19 20 21) | (45 47 49 51 53 55 57 59) |
-| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.107) | (exec (do (sequential ((sequential ((increment) (increment) (increment))) (increment) (increment) (increment))))) | () | () |
-| FAIL | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.109](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.109) | (exec (get-state &var)) | (28) | (79) |
-| PASS | [METTA-MORPH-TESTS.STATES-SPACES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.01) | (assertEqual (match &WU $Num1 $Num1)) | (()) | (()) |
-| PASS | [METTA-MORPH-TESTS.STATES-SPACES.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.104) | (exec (get-state &FIFO)) | (45) | (45) |
-| FAIL | [METTA-MORPH-TESTS.STATES-SPACES.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.105) | (exec (add-atom &WU a)) | (()) | (True) |
-| FAIL | [METTA-MORPH-TESTS.STATES-SPACES.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.106) | (exec (match &WU $Num1 $Num1)) | (a) | (()) |
-| FAIL | [METTA-MORPH-TESTS.STATES-SPACES.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.107) | (exec (add-atom &WU b)) | (()) | (True) |
-| FAIL | [METTA-MORPH-TESTS.STATES-SPACES.108](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.108) | (exec (remove-atom &WU a)) | (()) | (True) |
-| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.101) | (exec (TupleConcat (a b c) (e f g))) | ((a b c e f g)) | ((a b c e f g)) |
-| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.102) | (exec (TupleConcat () (e f g))) | ((e f g)) | ((e f g)) |
-| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.103) | (exec (TupleConcat (a b c) ())) | ((a b c)) | ((a b c)) |
-| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.104) | (exec (range 1 1)) | (()) | (() ()) |
-| FAIL | [METTA-MORPH-TESTS.SUPERCOLLAPSE.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.105) | (exec (range 1 3)) | ((1 2)) | ((1 range 2 3) (1 range 2 3)) |
-| FAIL | [METTA-MORPH-TESTS.SUPERCOLLAPSE.106](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.106) | (exec (range 2 6)) | ((2 3 4 5)) | ((2 range 3 6) (2 range 3 6)) |
-| FAIL | [METTA-MORPH-TESTS.SUPERCOLLAPSE.107](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.107) | (exec (range 1 10)) | ((1 2 3 4 5 6 7 8 9)) | ((1 range 2 10) (1 range 2 10)) |
-| FAIL | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.101) | (exec (superpose (a b c))) | ("a," "b," c) | (a b c) |
-| FAIL | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.102) | (exec (superpose ((superpose (a b c))))) | ("a," "b," c) | (a b c) |
-| FAIL | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.103) | (exec (superpose ((superpose (a b c)) (superpose (x y z))))) | ("a," "b," "c," "x," "y," z) | (a b c x y z) |
-| FAIL | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.104) | (exec (superpose ((superpose (a b c)) x y z))) | ("a," "b," "c," "x," "y," z) | (a b c x y z) |
-| PASS | [METTA-MORPH-TESTS.TYPES.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types.metta.html#METTA-MORPH-TESTS.TYPES.101) | (exec (f 42)) | (42) | (42) |
-| PASS | [METTA-MORPH-TESTS.TYPES2.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.101) | (exec (get-type lion1)) | (Lion) | (Lion) |
-| PASS | [METTA-MORPH-TESTS.TYPES2.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.102) | (exec (reproduce lion1 lion2)) | (childlion) | (childlion) |
-| PASS | [METTA-MORPH-TESTS.TYPES2.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.103) | (exec (get-type Lion)) | (Cat) | (Cat) |
-| PASS | [METTA-MORPH-TESTS.TYPES2.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.104) | (exec (match &self (: Lion $Num1) $Num1)) | (Cat) | (Cat) |
-| PASS | [METTA-MORPH-TESTS.TYPES2.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.105) | (exec (match &self (: reproduce $Num1) $Num1)) | ((-> Lion Lion Lion)) | ((-> Lion Lion Lion)) |
-| PASS | [METTA-MORPH-TESTS.TYPES3.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types3.metta.html#METTA-MORPH-TESTS.TYPES3.101) | (exec (match &self (GreaterThan $X $Y) (If (and (== (get-type $X) Number) (== (get-type $Y) Number)) (If (EqualOrGreater $X $Y) yay)))) | (yay) | (yay) |
-| PASS | [METTA-MORPH-TESTS.ZEROARGS.101](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/zeroargs.metta.html#METTA-MORPH-TESTS.ZEROARGS.101) | (exec (z)) | ((z)) | ((z)) |
-| PASS | [METTA-MORPH-TESTS.ZEROARGS.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/zeroargs.metta.html#METTA-MORPH-TESTS.ZEROARGS.102) | (exec (f)) | (42) | (42) |
-| FAIL | [ORIENTATION.ORIENTATION-TEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.103) | (exec (match &kb $X (add-atom &labelled-kb (: (WitnessOf $X) $X)))) | (()) | (True) |
-| FAIL | [ORIENTATION.ORIENTATION-TEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.104) | (exec (synthesize (: $Proof (orientation A B Right)) kb rb Z)) | (()) | () |
-| FAIL | [ORIENTATION.ORIENTATION-TEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.105) | (exec (synthesize (: $Proof (orientation A C Right)) kb rb (fromNumber 2))) | (() () () () () () () () () () () ()) | () |
-| PASS | [SUBTYPING.SUBTYPING-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/subtyping/subtyping-test.metta.html#SUBTYPING.SUBTYPING-TEST.01) | (assertEqual (synthesize (: $Proof (: felix Cat)) kb rb Z)) | ((: fC (: felix Cat))) | ((: fC (: felix Cat))) |
-| FAIL | [SYNTHESIS.UNIFYTEST.102](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.102) | (exec (unify (Link $X B) (Link A $Y) (Link $X $Y))) | ((Link A B)) | ((Link A $_58332)) |
-| FAIL | [SYNTHESIS.UNIFYTEST.103](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.103) | (exec (unify* (((Link $X B $Z) (Link A $Y $Z)) ($Z C)) (Link $X $Y $Z))) | ((Link A B C)) | () |
-| FAIL | [SYNTHESIS.UNIFYTEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.104) | (exec (unify* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) (: -> (-> $B $C) (-> $A $B) (-> $A $C))) ((: ($Ructor $Proof1 $Proof2) $Conclusion) (: $Term (-> Number Bool))) ((: $Proof1 $Premise1)| ((: (. $Proof1 $Proof2) (-> Number Bool))) | () |
-| FAIL | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.104](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.104) | (exec (mode (ETV (Singleton 42) (STV 0.1 0.2)))) | (0.2) | (0.1) |
-| FAIL | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.105](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.105) | (exec (mean (ETV (Singleton 42) (STV 0.1 0.9)))) | (9.000000000000002) | (0.14) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.01) | (assertEqual (count->confidence 1)) | (0.5) | (0.5) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.02) | (assertEqual (count->confidence 10)) | (0.9090909090909091) | (0.9090909090909091) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.03) | (assertEqual (confidence->count 0.9)) | (9.000000000000002) | (9.000000000000002) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.04) | (assertEqual (mode (STV 0.1 0.2))) | (0.1) | (0.1) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.05) | (assertEqual (mean (STV 0.1 0.9))) | (0.14) | (0.14) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.06) | (assertEqual (confidence (STV 0.1 0.2))) | (0.2) | (0.2) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.07) | (assertEqual (count (STV 0.1 0.9))) | (9.000000000000002) | (9.000000000000002) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.08) | (assertEqual (inc-neg-count (STV 1 0))) | ((STV 0.0 0.5)) | ((STV 0 0.5)) |
-| PASS | [TRUTHVALUE.TRUTHVALUETEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.09) | (assertEqual (inc-pos-count (STV 1 0))) | ((STV 1.0 0.5)) | ((STV 1 0.5)) |
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(- |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(* |||||
+(* |||||
+(* |||||
+(* |||||
+(* |||||
+(* |||||
+(* |||||
+(* |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(<= |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(∧ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(:: |||||
+(:: |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(⟹ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(/ |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(< |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(→ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+(⟹ |||||
+(⟹ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(+ |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(. |||||
+(. |||||
+(: -> |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(== |||||
+(== |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+(⟹ |||||
+... | ||||
+... | ||||
+(+ |||||
+(. |||||
+(... | ||||
+(: |||||
+(: |||||
+(: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(:: |||||
+(= |||||
+(= |||||
+(== |||||
+(=== |||||
+(=== |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+... | () ||||
+... | () ||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+(. |||||
+(. |||||
+(. |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(:: |||||
+(:: |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(:= |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(== |||||
+(=== |||||
+(=== |||||
+(∧ |||||
+(∧ |||||
+(∧ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(≞ |||||
+(⍃ |||||
+(⍃ |||||
+(⍃ |||||
+... | ||||
+(+ |||||
+(. |||||
+(... | ||||
+(... | ||||
+(... | ||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(: |||||
+(:: |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(= |||||
+(== |||||
+(== |||||
+(== |||||
+(== |||||
+(⊢ |||||
+... | ||||
+... | ||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (: |||||
+( (≞ |||||
+( (≞ |||||
+( (⊢ |||||
+( (⊢ |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(()) |||||
+(... |||||
+... | ||||
+... | ||||
+(: $_... | ||||
+(. $_108790 h) |||||
+(: $_12598 |||||
+(: $_12598 |||||
+(: $_12598 |||||
+(: $_12598 |||||
+( ( (: $_12598 |||||
+( ( (: $_12598 |||||
+( ( (: $_12598 |||||
+( ( (: $_12598 |||||
+(: $_12606 |||||
+(: $_12606 |||||
+(: $_12606 |||||
+(: $_12606 |||||
+( ( (: $_12606 |||||
+( ( (: $_12606 |||||
+( ( (: $_12606 |||||
+( ( (: $_12606 |||||
+(<= $_12664 |||||
+(<= $_12664 |||||
+(<= $_12664 |||||
+(<= $_12664 |||||
+(* $_12664 $_12892) |||||
+(* $_12664 $_12892) |||||
+(* $_12664 $_12892) |||||
+(* $_12664 $_12892) |||||
+(<= $_12672 |||||
+(<= $_12672 |||||
+(<= $_12672 |||||
+(<= $_12672 |||||
+(* $_12672 $_12900) |||||
+(* $_12672 $_12900) |||||
+(* $_12672 $_12900) |||||
+(* $_12672 $_12900) |||||
+(: $_12826 |||||
+(: $_12826 |||||
+(: $_12826 |||||
+(: $_12826 |||||
+( (: $_12826 |||||
+( (: $_12826 |||||
+( (: $_12826 |||||
+( (: $_12826 |||||
+(: $_12834 |||||
+(: $_12834 |||||
+(: $_12834 |||||
+(: $_12834 |||||
+( (: $_12834 |||||
+( (: $_12834 |||||
+( (: $_12834 |||||
+( (: $_12834 |||||
+(<= $_12892 |||||
+(<= $_12892 |||||
+(<= $_12892 |||||
+(<= $_12892 |||||
+(<= $_12900 |||||
+(<= $_12900 |||||
+(<= $_12900 |||||
+(<= $_12900 |||||
+( (: $_136242 |||||
+(-> $_155656 String)) |||||
+(: $_16978 |||||
+( ( (: $_16978 |||||
+(: $_17022 |||||
+( ( (: $_17022 |||||
+(: $_17884 |||||
+(: $_17884 |||||
+( ( (: $_17884 |||||
+( ( (: $_17884 |||||
+(: $_17928 |||||
+(: $_17928 |||||
+( ( (: $_17928 |||||
+( ( (: $_17928 |||||
+(: $_18820 |||||
+(: $_18820 |||||
+(: $_18820 |||||
+( (: $_18820 |||||
+( (: $_18820 |||||
+( ( (: $_18820 |||||
+(: $_18864 |||||
+(: $_18864 |||||
+(: $_18864 |||||
+( (: $_18864 |||||
+( (: $_18864 |||||
+( ( (: $_18864 |||||
+(⍃ $_18898 |||||
+(⍃ $_18898 |||||
+(⍃ $_18898 |||||
+(⍃ $_18898 |||||
+(⍃ $_18898 |||||
+(⍃ $_18898 |||||
+(:: $_18898 $_18916) |||||
+(:: $_18898 $_18916) |||||
+(:: $_18898 $_18916) |||||
+(:: $_18898 $_18916) |||||
+(:: $_18898 $_18916) |||||
+(:: $_18898 $_18916) |||||
+(:: $_18898 $_18916)) |||||
+(:: $_18898 $_18916)) |||||
+(:: $_18898 $_18916)) |||||
+(⍃ $_18942 |||||
+(⍃ $_18942 |||||
+(⍃ $_18942 |||||
+(⍃ $_18942 |||||
+(⍃ $_18942 |||||
+(⍃ $_18942 |||||
+(:: $_18942 $_18960) |||||
+(:: $_18942 $_18960) |||||
+(:: $_18942 $_18960) |||||
+(:: $_18942 $_18960) |||||
+(:: $_18942 $_18960) |||||
+(:: $_18942 $_18960) |||||
+(:: $_18942 $_18960)) |||||
+(:: $_18942 $_18960)) |||||
+(:: $_18942 $_18960)) |||||
+(* $_18946 |||||
+(* $_18946 |||||
+(* $_18946 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18964 |||||
+(* $_18990 |||||
+(* $_18990 |||||
+(* $_18990 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(* $_19008 |||||
+(: $_19144 |||||
+(: $_19144 |||||
+(: $_19144 |||||
+( (: $_19144 |||||
+( (: $_19144 |||||
+( (: $_19144 |||||
+(: $_19188 |||||
+(: $_19188 |||||
+(: $_19188 |||||
+( (: $_19188 |||||
+( (: $_19188 |||||
+( (: $_19188 |||||
+(: $_20542 |||||
+(: $_20542 |||||
+( ( (: $_20542 |||||
+( ( (: $_20542 |||||
+(: $_20586 |||||
+(: $_20586 |||||
+( ( (: $_20586 |||||
+( ( (: $_20586 |||||
+(: $_22658 |||||
+( ( (: $_22658 |||||
+( (: $_234520 |||||
+(: $_23600 |||||
+(: $_23600 |||||
+( ( (: $_23600 |||||
+( ( (: $_23600 |||||
+(: $_24180 |||||
+(: $_24180 |||||
+(: $_24180 |||||
+(: $_24180 |||||
+(: $_24180 |||||
+(: $_24180 |||||
+(: $_24180 |||||
+( (: $_24180 |||||
+( (: $_24180 |||||
+( ( (: $_24180 |||||
+( ( (: $_24180 |||||
+( ( (: $_24180 |||||
+( ( (: $_24180 |||||
+( ( (: $_24180 |||||
+(: $_24574 |||||
+( ( (: $_24574 |||||
+(: $_24618 |||||
+( ( (: $_24618 |||||
+(: $_24766 |||||
+(: $_24766 |||||
+(: $_24766 |||||
+( (: $_24766 |||||
+( ( (: $_24766 |||||
+( ( (: $_24766 |||||
+(: $_24810 |||||
+(: $_24810 |||||
+(: $_24810 |||||
+( (: $_24810 |||||
+( ( (: $_24810 |||||
+( ( (: $_24810 |||||
+(⍃ $_24844 |||||
+(⍃ $_24844 |||||
+(⍃ $_24844 |||||
+(⍃ $_24844 |||||
+(⍃ $_24844 |||||
+(⍃ $_24844 |||||
+(:: $_24844 $_24862) |||||
+(:: $_24844 $_24862) |||||
+(:: $_24844 $_24862) |||||
+(:: $_24844 $_24862) |||||
+(:: $_24844 $_24862) |||||
+(:: $_24844 $_24862) |||||
+(:: $_24844 $_24862)) |||||
+(:: $_24844 $_24862)) |||||
+(:: $_24844 $_24862)) |||||
+(⍃ $_24888 |||||
+(⍃ $_24888 |||||
+(⍃ $_24888 |||||
+(⍃ $_24888 |||||
+(⍃ $_24888 |||||
+(⍃ $_24888 |||||
+(:: $_24888 $_24906) |||||
+(:: $_24888 $_24906) |||||
+(:: $_24888 $_24906) |||||
+(:: $_24888 $_24906) |||||
+(:: $_24888 $_24906) |||||
+(:: $_24888 $_24906) |||||
+(:: $_24888 $_24906)) |||||
+(:: $_24888 $_24906)) |||||
+(:: $_24888 $_24906)) |||||
+(* $_24892 |||||
+(* $_24892 |||||
+(* $_24892 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24910 |||||
+(* $_24936 |||||
+(* $_24936 |||||
+(* $_24936 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(* $_24954 |||||
+(: $_25090 |||||
+(: $_25090 |||||
+(: $_25090 |||||
+( (: $_25090 |||||
+( (: $_25090 |||||
+( (: $_25090 |||||
+(: $_25134 |||||
+(: $_25134 |||||
+(: $_25134 |||||
+( (: $_25134 |||||
+( (: $_25134 |||||
+( (: $_25134 |||||
+(: $_290678 |||||
+(: $_290678 |||||
+( ( (: $_290678 |||||
+( ( (: $_290678 |||||
+(: $_32376 |||||
+(: $_32376 |||||
+( ( (: $_32376 |||||
+( ( (: $_32376 |||||
+( (: $_325178 |||||
+(: $_32628 |||||
+(: $_32628 |||||
+( (: $_32628 |||||
+( (: $_32628 |||||
+(⍃ $_32706 |||||
+(⍃ $_32706 |||||
+(⍃ $_32706 |||||
+(⍃ $_32706 |||||
+(:: $_32706 $_32724) |||||
+(:: $_32706 $_32724) |||||
+(:: $_32706 $_32724) |||||
+(:: $_32706 $_32724) |||||
+(:: $_32706 $_32724)) |||||
+(:: $_32706 $_32724)) |||||
+(* $_32754 |||||
+(* $_32754 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(* $_32772 |||||
+(: $_36684 |||||
+( ( (: $_36684 |||||
+(: $_36912 |||||
+( (: $_36912 |||||
+(⍃ $_36990 |||||
+(⍃ $_36990 |||||
+(:: $_36990 $_37008) |||||
+(:: $_36990 $_37008) |||||
+(:: $_36990 $_37008)) |||||
+(* $_37038 |||||
+(* $_37056 |||||
+(* $_37056 |||||
+(* $_37056 |||||
+(* $_37056 |||||
+(: $_37272 |||||
+( (: $_37272 |||||
+(: $_432214 |||||
+( ( (: $_432214 |||||
+( (: $_446014 $_446020) |||||
+(. $_45068 h) |||||
+(-> $_45092 String)) |||||
+(. $_468982 $_469296) |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+(: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+( ( (: $_50252 |||||
+(-> $_504992 Bool))... | ||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(* $_50732 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99))))) |||||
+(< $_51082 1) $_51082 1) 0.99)))))) |||||
+(< $_51082 1) $_51082 1) 0.99)))))) |||||
+(: $_5260 |||||
+( ( (: $_5260 |||||
+(⟹ $_5290 |||||
+(⟹ $_5290 |||||
+( (: $_5656 $_5290) |||||
+(: $_5656 $_5290) kb rb |||||
+(: $_65646 |||||
+(: $_65646 |||||
+( ( (: $_65646 |||||
+( ( (: $_65646 |||||
+(⟹ $_66030 |||||
+(⟹ $_66030 |||||
+(⟹ $_66030 |||||
+(⟹ $_66030 |||||
+( (: $_67434 $_66030) |||||
+( (: $_67434 $_66030) |||||
+(: $_67434 $_66030) kb rb |||||
+(: $_67434 $_66030) kb rb |||||
+(+ $_86778 2))) |||||
+(+ $_86778 2))) | ||||
+(: $_96860 $_96866) ... | ||||
+( (: $_96860 $_96866) Z) |||||
+(-> $A $B) |||||
+($A mortal) |||||
+(-> $B $C) |||||
+($Color $Who) $Tv) |||||
+($Color $Who) T) |||||
+( ( ($F1 $C1) $T)) |||||
+(. $G h) |||||
+(. $G h) |||||
+($Gy |||||
+( ($Gy |||||
+(-> $In Bool)) |||||
+(-> $In String)) |||||
+(-> $In String)) |||||
+($Obj is $Prop) |||||
+($Obj is $Prop) |||||
+($Obj is-a Planet)) |||||
+($Obj is-a Planet)) |||||
+( ($P |||||
+($P $A) $Patv) |||||
+($P $X) |||||
+($P $X) |||||
+($P $X) |||||
+( ($Pa |||||
+($Pq |||||
+($Pq |||||
+(-> $Premise1 $Premise2 $Conclusion)) |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf |||||
+(: $Prf B) |||||
+(: $Prf C) |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+(: $Proof |||||
+($Prop is-a Color) |||||
+($Prop is-a Color) |||||
+($Prop is-a Color) |||||
+($Q |||||
+($Qa |||||
+($Qr |||||
+($R |||||
+(:= $R $R2) $R2))) |   ( (S ||||
+( ($R1 |||||
+($R2 |||||
+($R3 |||||
+($Rel $X)) |||||
+($Rel $X)) |||||
+($Rel $X)) |||||
+($Rel $X))) |   ( (Rel-P B) ||||
+($Rel A $X) |||||
+($Rel A $X) |||||
+($Rel A $X))) |   ( (Rel-P A B) ||||
+($Rel A_Each $X) |||||
+($Rel A_List $X) |||||
+($Rel B $X) |||||
+($Rel B_Each $X) |||||
+($Rel B_List $X) |||||
+( ( (: $Ructor |||||
+($S $EV) |||||
+($SS A_Each $X) |||||
+($SS A_List $X) |||||
+( (: $Term |||||
+( (: $Term |||||
+( (: $Term |||||
+( (: $Term $Type) |||||
+( (: $Term $Type) Z))) |   ( (â· synthesize ||||
+($Who is a $What) |||||
+($Who is really $Color))) |   ( (Sam is really Green) ||||
+($Who the $What))) |   ( (Sam the frog) ||||
+( ($X |||||
+( ($X |||||
+( ($X |||||
+(+ $X $Y)) |||||
+($X $Y) |||||
+(+ $X 2))) |   ( (> 4 ||||
+(-> $X B) |||||
+(-> $X B) |||||
+( ($X leaf2) leaf3) $X)) |   (leaf1 ||||
+($Y |||||
+($Z |||||
+( ($Z |||||
+( ($Z |||||
+($Z C)) |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(> 0 |||||
+(* 0 |||||
+(:: 0 |||||
+(0) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.5) |||||
+(< 0 0.7) |||||
+(< 0 0.7) |||||
+(< 0 0.8) |||||
+(< 0 0.8) |||||
+(< 0 0.9) |||||
+(< 0 0.9) |||||
+(0 1) |||||
+(0.1) |||||
+(0.1) |||||
+(0.14) |||||
+(0.14) |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(* 0.2 |||||
+(0.2) |||||
+(0.2) |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(* 0.5 |||||
+(0.5) |||||
+(* 0.5 $_12892))) |||||
+(* 0.5 $_12900))) |||||
+(/ 0.5 0.5)))))) |||||
+(/ 0.5 0.5)))))) |||||
+(/ 0.5 0.5))) 0 |||||
+(/ 0.5 0.5))) 0 |||||
+(/ 0.5 0.5)) 1 |||||
+(/ 0.5 0.5)) 1 |||||
+(/ 0.5 0.5)) 1 |||||
+(/ 0.5 0.5)) 1 |||||
+(+ 0.5 0.5) 1) 0.5))) $_12664) |||||
+(+ 0.5 0.5) 1) 0.5))) $_12672) |||||
+(+ 0.5 0.5) 1) 0.5))) 0 |||||
+(+ 0.5 0.5) 1) 0.5))) 0 |||||
+(+ 0.5 0.5) 1) 0.5)) 1 |||||
+(+ 0.5 0.5) 1) 0.5)) 1 |||||
+(+ 0.5 0.5) 1) 0.5)) 1 |||||
+(+ 0.5 0.5) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5))) $_12664) |||||
+(+ 0.5 0.7) 1) 0.5))) $_12672) |||||
+(+ 0.5 0.7) 1) 0.5))) $_12892) |||||
+(+ 0.5 0.7) 1) 0.5))) $_12900) |||||
+(+ 0.5 0.7) 1) 0.5))) 0 |||||
+(+ 0.5 0.7) 1) 0.5))) 0 |||||
+(+ 0.5 0.7) 1) 0.5))) 0 |||||
+(+ 0.5 0.7) 1) 0.5))) 0 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.7) 1) 0.5)) 1 |||||
+(+ 0.5 0.8) 1) 0.5))) $_12664) |||||
+(+ 0.5 0.8) 1) 0.5))) $_12672) |||||
+(+ 0.5 0.8) 1) 0.5))) 0 |||||
+(+ 0.5 0.8) 1) 0.5))) 0 |||||
+(+ 0.5 0.8) 1) 0.5)) 1 |||||
+(+ 0.5 0.8) 1) 0.5)) 1 |||||
+(+ 0.5 0.8) 1) 0.5)) 1 |||||
+(+ 0.5 0.8) 1) 0.5)) 1 |||||
+(+ 0.5 0.9) 1) 0.5))) $_12664) |||||
+(+ 0.5 0.9) 1) 0.5))) $_12672) |||||
+(+ 0.5 0.9) 1) 0.5))) 0 |||||
+(+ 0.5 0.9) 1) 0.5))) 0 |||||
+(+ 0.5 0.9) 1) 0.5)) 1 |||||
+(+ 0.5 0.9) 1) 0.5)) 1 |||||
+(+ 0.5 0.9) 1) 0.5)) 1 |||||
+(+ 0.5 0.9) 1) 0.5)) 1 |||||
+(0.5555555555555556) |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(* 0.6666666666666666 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(- 0.7 |||||
+(* 0.7 $_12892))) |||||
+(* 0.7 $_12900))) |||||
+(/ 0.7 0.5)))))) |||||
+(/ 0.7 0.5)))))) |||||
+(/ 0.7 0.5))))))) |||||
+(/ 0.7 0.5))))))) |||||
+(/ 0.7 0.5))) 0 |||||
+(/ 0.7 0.5))) 0 |||||
+(/ 0.7 0.5))) 0 |||||
+(/ 0.7 0.5))) 0 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.5)) 1 |||||
+(/ 0.7 0.7))))))) |||||
+(/ 0.7 0.7))))))) |||||
+(/ 0.7 0.7))) 0 |||||
+(/ 0.7 0.7))) 0 |||||
+(/ 0.7 0.7)) 1 |||||
+(/ 0.7 0.7)) 1 |||||
+(/ 0.7 0.7)) 1 |||||
+(/ 0.7 0.7)) 1 |||||
+(+ 0.7 0.7) 1) 0.7))) $_12892) |||||
+(+ 0.7 0.7) 1) 0.7))) $_12900) |||||
+(+ 0.7 0.7) 1) 0.7))) 0 |||||
+(+ 0.7 0.7) 1) 0.7))) 0 |||||
+(+ 0.7 0.7) 1) 0.7)) 1 |||||
+(+ 0.7 0.7) 1) 0.7)) 1 |||||
+(+ 0.7 0.7) 1) 0.7)) 1 |||||
+(+ 0.7 0.7) 1) 0.7)) 1 |||||
+(/ 0.7 0.8))))))) |||||
+(/ 0.7 0.8))))))) |||||
+(/ 0.7 0.8))) 0 |||||
+(/ 0.7 0.8))) 0 |||||
+(/ 0.7 0.8)) 1 |||||
+(/ 0.7 0.8)) 1 |||||
+(/ 0.7 0.8)) 1 |||||
+(/ 0.7 0.8)) 1 |||||
+(/ 0.7 0.9))))))) |||||
+(/ 0.7 0.9))))))) |||||
+(/ 0.7 0.9))) 0 |||||
+(/ 0.7 0.9))) 0 |||||
+(/ 0.7 0.9)) 1 |||||
+(/ 0.7 0.9)) 1 |||||
+(/ 0.7 0.9)) 1 |||||
+(/ 0.7 0.9)) 1 |||||
+(0.8) |||||
+(* 0.8 $_12892))) |||||
+(* 0.8 $_12900))) |||||
+(/ 0.8 0.5)))))) |||||
+(/ 0.8 0.5)))))) |||||
+(/ 0.8 0.5))) 0 |||||
+(/ 0.8 0.5))) 0 |||||
+(/ 0.8 0.5)) 1 |||||
+(/ 0.8 0.5)) 1 |||||
+(/ 0.8 0.5)) 1 |||||
+(/ 0.8 0.5)) 1 |||||
+(+ 0.8 0.7) 1) 0.8))) $_12892) |||||
+(+ 0.8 0.7) 1) 0.8))) $_12900) |||||
+(+ 0.8 0.7) 1) 0.8))) 0 |||||
+(+ 0.8 0.7) 1) 0.8))) 0 |||||
+(+ 0.8 0.7) 1) 0.8)) 1 |||||
+(+ 0.8 0.7) 1) 0.8)) 1 |||||
+(+ 0.8 0.7) 1) 0.8)) 1 |||||
+(+ 0.8 0.7) 1) 0.8)) 1 |||||
+(* 0.9 $_12892))) |||||
+(* 0.9 $_12900))) |||||
+(/ 0.9 0.5)))))) |||||
+(/ 0.9 0.5)))))) |||||
+(/ 0.9 0.5))) 0 |||||
+(/ 0.9 0.5))) 0 |||||
+(/ 0.9 0.5)) 1 |||||
+(/ 0.9 0.5)) 1 |||||
+(/ 0.9 0.5)) 1 |||||
+(/ 0.9 0.5)) 1 |||||
+(+ 0.9 0.7) 1) 0.9))) $_12892) |||||
+(+ 0.9 0.7) 1) 0.9))) $_12900) |||||
+(+ 0.9 0.7) 1) 0.9))) 0 |||||
+(+ 0.9 0.7) 1) 0.9))) 0 |||||
+(+ 0.9 0.7) 1) 0.9)) 1 |||||
+(+ 0.9 0.7) 1) 0.9)) 1 |||||
+(+ 0.9 0.7) 1) 0.9)) 1 |||||
+(+ 0.9 0.7) 1) 0.9)) 1 |||||
+(0.9090909090909091) |||||
+(< 0.9999 0.5) 0.7 |||||
+(< 0.9999 0.5) 0.7 |||||
+(< 0.9999 0.7) 0.7 |||||
+(< 0.9999 0.7) 0.7 |||||
+(< 0.9999 0.8) 0.7 |||||
+(< 0.9999 0.8) 0.7 |||||
+(< 0.9999 0.9) 0.7 |||||
+(< 0.9999 0.9) 0.7 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(* -1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(< 1 |||||
+(* 1 |||||
+(* 1 |||||
+(+ 1 |||||
+(1)) |||||
+(1 |||||
+(+ 1 |||||
+(+ 1 |||||
+(+ 1 |||||
+(+ 1 |||||
+(+ 1 |||||
+( (:: 1 |||||
+( (:: 1 |||||
+( (:: 1 |||||
+( (:: 1 |||||
+(1) |||||
+(1) |||||
+(1) |||||
+(1) |||||
+(- 1 $_12664) |||||
+(- 1 $_12664) |||||
+(- 1 $_12664) |||||
+(- 1 $_12664) |||||
+(- 1 $_12672) |||||
+(- 1 $_12672) |||||
+(- 1 $_12672) |||||
+(- 1 $_12672) |||||
+(10) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)) |||||
+(- 1.0 $_18964)))) |||||
+(- 1.0 $_18964)))) |||||
+(- 1.0 $_18964)))) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964) 0) |||||
+(- 1.0 $_18964))) 1) |||||
+(- 1.0 $_18964))) 1) |||||
+(- 1.0 $_18964))) 1) |||||
+(- 1.0 $_18964))) 1)) |||||
+(- 1.0 $_18964))) 1)) |||||
+(- 1.0 $_18964))) 1)) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964)) 1.0e-9) |||||
+(- 1.0 $_18964))) 1) 1.0))))))) |||||
+(- 1.0 $_18964))) 1) 1.0))))))) |||||
+(- 1.0 $_18964))) 1) 1.0))))))) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)) |||||
+(- 1.0 $_19008)))) |||||
+(- 1.0 $_19008)))) |||||
+(- 1.0 $_19008)))) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008) 0) |||||
+(- 1.0 $_19008))) 1) |||||
+(- 1.0 $_19008))) 1) |||||
+(- 1.0 $_19008))) 1) |||||
+(- 1.0 $_19008))) 1)) |||||
+(- 1.0 $_19008))) 1)) |||||
+(- 1.0 $_19008))) 1)) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008)) 1.0e-9) |||||
+(- 1.0 $_19008))) 1) 1.0))))))) |||||
+(- 1.0 $_19008))) 1) 1.0))))))) |||||
+(- 1.0 $_19008))) 1) 1.0))))))) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910)) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910) 0) |||||
+(- 1.0 $_24910)))) 1) |||||
+(- 1.0 $_24910)))) 1) |||||
+(- 1.0 $_24910)))) 1) |||||
+(- 1.0 $_24910))) 1) |||||
+(- 1.0 $_24910))) 1) |||||
+(- 1.0 $_24910))) 1) |||||
+(- 1.0 $_24910))) 1)) |||||
+(- 1.0 $_24910))) 1)) |||||
+(- 1.0 $_24910))) 1)) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910)) 1.0e-9) |||||
+(- 1.0 $_24910))) 1) 1.0))))))) |||||
+(- 1.0 $_24910))) 1) 1.0))))))) |||||
+(- 1.0 $_24910))) 1) 1.0)))))))) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954)) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954) 0) |||||
+(- 1.0 $_24954)))) 1) |||||
+(- 1.0 $_24954)))) 1) |||||
+(- 1.0 $_24954)))) 1) |||||
+(- 1.0 $_24954))) 1) |||||
+(- 1.0 $_24954))) 1) |||||
+(- 1.0 $_24954))) 1) |||||
+(- 1.0 $_24954))) 1)) |||||
+(- 1.0 $_24954))) 1)) |||||
+(- 1.0 $_24954))) 1)) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954)) 1.0e-9) |||||
+(- 1.0 $_24954))) 1) 1.0))))))) |||||
+(- 1.0 $_24954))) 1) 1.0))))))) |||||
+(- 1.0 $_24954))) 1) 1.0)))))))) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)) |||||
+(- 1.0 $_32772)))) |||||
+(- 1.0 $_32772)))) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772) 0) |||||
+(- 1.0 $_32772))) 1) |||||
+(- 1.0 $_32772))) 1) |||||
+(- 1.0 $_32772))) 1)) |||||
+(- 1.0 $_32772))) 1)) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772)) 1.0e-9) |||||
+(- 1.0 $_32772))) 1) 1.0))))))) |||||
+(- 1.0 $_32772))) 1) 1.0))))))) |||||
+(- 1.0 $_37056)) |||||
+(- 1.0 $_37056)) |||||
+(- 1.0 $_37056)) |||||
+(- 1.0 $_37056)) |||||
+(- 1.0 $_37056) 0) |||||
+(- 1.0 $_37056) 0) |||||
+(- 1.0 $_37056) 0) |||||
+(- 1.0 $_37056) 0) |||||
+(- 1.0 $_37056)))) 1) |||||
+(- 1.0 $_37056))) 1) |||||
+(- 1.0 $_37056))) 1)) |||||
+(- 1.0 $_37056)) 1.0e-9) |||||
+(- 1.0 $_37056)) 1.0e-9) |||||
+(- 1.0 $_37056)) 1.0e-9) |||||
+(- 1.0 $_37056)) 1.0e-9) |||||
+(- 1.0 $_37056))) 1) 1.0)))))))) |||||
+(1.0 0.0))) | ||||
+( ( (1.0 0.37946790052053214) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)) |||||
+(- 1.0 0.5)))) |||||
+(- 1.0 0.5)))) |||||
+(- 1.0 0.5)))) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5) 0) |||||
+(- 1.0 0.5))) 1) |||||
+(- 1.0 0.5))) 1) |||||
+(- 1.0 0.5))) 1) |||||
+(- 1.0 0.5))) 1)) |||||
+(- 1.0 0.5))) 1)) |||||
+(- 1.0 0.5))) 1)) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5)) 1.0e-9) |||||
+(- 1.0 0.5))) 1) 1.0))))))) |||||
+(- 1.0 0.5))) 1) 1.0))))))) |||||
+(- 1.0 0.5))) 1) 1.0))))))) |||||
+(1.0 0.618320610687023))) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)) |||||
+(- 1.0 0.6666666666666666)))) |||||
+(- 1.0 0.6666666666666666)))) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666) 0) |||||
+(- 1.0 0.6666666666666666))) 1) |||||
+(- 1.0 0.6666666666666666))) 1) |||||
+(- 1.0 0.6666666666666666))) 1)) |||||
+(- 1.0 0.6666666666666666))) 1)) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666)) 1.0e-9) |||||
+(- 1.0 0.6666666666666666))) 1) 1.0))))))) |||||
+(- 1.0 0.6666666666666666))) 1) 1.0))))))) |||||
+( (1.0 0.81)) |||||
+(1.0 0.9)) |||||
+(1.0 0.9) |||||
+(1.0 0.9) |||||
+( (1.0 0.9)) |||||
+(1.0 0.9))) |   ( ( (* 1.0 1.0) 0.81) ||||
+( (* 1.0 1.0) 0.81) |||||
+( (* 1.0 1.0) 0.81)) | ||||
+(10 11 12 13 14 15) |||||
+(102) |||||
+(102) |||||
+(102) |||||
+(103) |||||
+(103) |||||
+(103) |||||
+( (10 4) |||||
+( (10 4) |||||
+(- 1 0.5)))) |||||
+(- 1 0.5)))) |||||
+(10 5)) |||||
+(10 5)) |||||
+(10 5)) | ||||
+(10 5)) | ||||
+(- 1 0.7)))) |||||
+(- 1 0.7)))) |||||
+(- 1 0.8)))) |||||
+(- 1 0.8)))) |||||
+(- 1 0.9)))) |||||
+(- 1 0.9)))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(- 1 0.99))) |||||
+(+ 1 1) |||||
+( (+ 1 1) 3)))))) |||||
+(> 1 2) |||||
+( (1 2)) |||||
+(1 2) |||||
+(1 2) |||||
+(120) |||||
+(120) |||||
+(12 102) |||||
+(12 102) |||||
+(1 2 3))) |||||
+(1 2 3))) |||||
+(1 2 3)))) | ||||
+( ( (1 2 3))) |||||
+(1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3)) |||||
+( (1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 4 5 6 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9 7 8 9)) |||||
+( (1 2 3 4 5 6 7 8 9)) |||||
+(1 2 3)))) |   ( ( (superpose ||||
+(+ 1 5) |||||
+(+ 1 5) |||||
+(16) |||||
+(16 17 18 19 20 21) |||||
+(1764) |||||
+(18.5) |||||
+( (:: 1 â)) |||||
+(:: 1 nil)))) |||||
+(+ 2 |||||
+(:: 2 |||||
+(:: 2 |||||
+(:: 2 |||||
+(:: 2 |||||
+(+ 2 |||||
+(2) |||||
+(2) |||||
+(2) |||||
+(2) |||||
+( (* 2 $_189508)) |||||
+(2 1 3 4))) |||||
+(+ 2 3) |||||
+(2 3) |||||
+(2 3 4) |||||
+(2 3 4) |||||
+(2 3 4) |||||
+(2 3 4) |||||
+( (2 3 4 5)) |||||
+(25) |||||
+(28) |||||
+(:: 2 â))) |||||
+(:: 2 â))) | ||||
+(:: 3 |||||
+(3) |||||
+(3) |||||
+(3) |||||
+(3) |||||
+(3) |||||
+(3) |||||
+(3) |||||
+(3 4) |||||
+(3 4))) |   ( (4 3) ||||
+(3 4 5) |||||
+(3628800) |||||
+(:: 3 â)))) |||||
+(:: 3 â)))) |||||
+(:: 3 â)))) | ||||
+(:: 3 â)))) | ||||
+( (3 OK-3) |||||
+(< 4 |||||
+(== 4 |||||
+(== 4 |||||
+(> 4 |||||
+(> 4 |||||
+( (> 4 |||||
+( (> 4 |||||
+(4) |||||
+(4) |||||
+(> 4 2) |||||
+(42) |||||
+(42) |||||
+(42) |||||
+(42) |||||
+(42 441) |||||
+(∉ 42 Empty)) |||||
+(∉ 42 Empty)) |||||
+( (4 3) |||||
+(4 4)) |||||
+(4 4)) | ||||
+(45) |||||
+(4 5 6) |||||
+(5) |||||
+(5) |||||
+( (5 6)) |||||
+( (5 Error) |||||
+(:: 5 nil))) $T) 8) $T |||||
+(6) |||||
+(6 OK) |||||
+(:: 7 |||||
+(7) |||||
+(7.375) |||||
+(7 8 9) |||||
+(- 8 |||||
+(9) |||||
+(9.000000000000002) |||||
+(9.000000000000002) |||||
+(9.000000000000002) |||||
+(a) |||||
+(A |||||
+( (⊢ A)) |||||
+(A) |||||
+(A) |||||
+(A) |||||
+(A) |||||
+(A) |||||
+(A) |||||
+(â |||||
+(â |||||
+(â§ |||||
+(â§ |||||
+(â§ |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â |||||
+(â... | () ||||
+... |   ( (â ||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+(â¢ |||||
+( (â¢ A) |||||
+(â¢ A) kb_entail rb_entail |||||
+(â¢ A) kb_entail rb_entail |||||
+(â¢ B) |||||
+( (â¢ B) |||||
+( (â¢ B) |||||
+(â¢ C) |||||
+(â¢ C) |||||
+(â¢ C)) |||||
+(â $P $Ptv) |||||
+(â $P $Q) |||||
+(â $Q $Qtv) |||||
+(â $Q $R) |||||
+(â $R $Rtv) |||||
+(â $X $Y) |||||
+(â $X $Y) |||||
+(â $X $Y)) |||||
+(â $X $Y)) |||||
+(â $X $Y)) |||||
+(â $X $Y)) |||||
+(â $X $Y) |||||
+(â $X $Y) |||||
+(â $X $Y) |||||
+(â $X $Y) |||||
+(â $X $Y) |||||
+(â $X $Y) |||||
+(â $X $Y) kb_bare rb_bare |||||
+(â $X $Y) kb_bare rb_bare |||||
+(â $X $Y)) kb_dtl rb_dtl |||||
+(â $X $Y)) kb_dtl rb_dtl |||||
+(â $X $Y)) kb_entail rb_entail |||||
+(â $X $Y)) kb_entail rb_entail |||||
+(â $X $Y) kb_eq |||||
+(â $X $Y) kb_eq |||||
+( ( (-> A $Y) |||||
+(-> A $Y) |||||
+(â¹ |||||
+(â¹ |||||
+( (: a A) |||||
+( (: a A)) |||||
+( (: a A)) |||||
+( (A A) |||||
+(â A B)) |||||
+(â A B) |||||
+(â A B) |||||
+(â A B) |||||
+(â A B) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B))) |||||
+(â A B))) |||||
+(â A B))) |||||
+(â A B))) | ||||
+(â A B))) | ||||
+(â A B))) | ||||
+(â A B))) | ||||
+(â A B))) | ||||
+(â A B))) | ||||
+(â A B) |||||
+(â A B) |||||
+(â A B) |||||
+(â A B) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) |||||
+(â A B)) | ||||
+(â A B)) | ||||
+( (â A B)) |||||
+( (â A B)) |||||
+( (â A B)) |||||
+(â A B) kb_bare rb_bare |||||
+(â A B) kb_bare rb_bare |||||
+(â A B)) kb_dtl rb_dtl |||||
+(â A B)) kb_dtl rb_dtl |||||
+(â A B)) kb_entail rb_entail |||||
+(â A B)) kb_entail rb_entail |||||
+(â A B) kb_eq |||||
+(â A B) kb_eq |||||
+(â A B) kb_eq |||||
+(â A B)) Z)) |   ( (: ab ||||
+(â A C)) |||||
+(â A C) |||||
+(â A C) |||||
+(â A C))) |||||
+( (â A C)) |||||
+( (â A C)) |||||
+( (â A C)) |||||
+(â A C) kb_eq |||||
+(: a A) kb_dtl rb_dtl |||||
+(: a A) kb_dtl rb_dtl |||||
+(: ab |||||
+(: ab |||||
+(: ab |||||
+( (: ab |||||
+( (: ab |||||
+( (: ab |||||
+( (: ab |||||
+( (: ab |||||
+( (: ab |||||
+(→ A B)) |||||
+(→ A B)) |||||
+(→ A B))) |||||
+(→ A B))) |||||
+(A B) |||||
+(A B) |||||
+(A B) |||||
+( (-> A B)) |||||
+( (-> A B)) |||||
+( (→ A B) |||||
+( (→ A B) |||||
+( (→ A B)) |||||
+( (→ A B)) |||||
+( (A B)) |||||
+(A B) $_317998)) |||||
+(A B) $_317998)) | ||||
+(a b c)) |||||
+(a b c) |||||
+( (a b c)) |||||
+(a b c) |||||
+(a b c) |||||
+(A B C) |||||
+(A B C) |||||
+(A B C) |||||
+(A B C) |||||
+(â B C)) |||||
+(â B C) |||||
+(â B C) |||||
+(â B C)) |||||
+(â B C))) |||||
+(â B C))) |||||
+(â B C))) | ||||
+(â B C))) | ||||
+(â B C))) | ||||
+(â B C))) | ||||
+(â B C))) | ||||
+(â B C)) |||||
+(â B C)) |||||
+(â B C)) |||||
+(â B C)) |||||
+(â B C)) | ||||
+(â B C)) | ||||
+(â B C)) | ||||
+(â B C)) | ||||
+( (â B C)) |||||
+( (â B C)) |||||
+( (â B C)) |||||
+( (a b c e f g)) |||||
+(â B C) kb_eq |||||
+(a b c x y z) |||||
+(a b c x y z) |||||
+(active) |||||
+(Add |||||
+(Add |||||
+(Add |||||
+(Add |||||
+(Add |||||
+(Add |||||
+(Add |||||
+(Add |||||
+(Add |||||
+( (Add |||||
+(Add $R1 |||||
+(Add $R2 |||||
+(add-atom &kb |||||
+(add-atom &kb_bem |||||
+(add-atom &kb_bem |||||
+(add-atom &kb_bem |||||
+(add-atom &kb_bem |||||
+(add-atom &kb_dem |||||
+(add-atom &kb_dem |||||
+(add-atom &kb_dem |||||
+(add-atom &kb_em |||||
+(add-atom &kb_em |||||
+(add-atom &kb_em |||||
+(add-atom &kb_em |||||
+(add-atom &labelled-kb |||||
+(add-atom &labelled-kb |||||
+(add-atom &labelled-kb |||||
+(add-atom &rb_bem |||||
+(add-atom &rb_bem |||||
+(add-atom &rb_bem |||||
+( (add-atom &self |||||
+(Add Z |||||
+( (Add Z Ten)) |||||
+(Add Z Z)) |||||
+(Add Z Z) |||||
+(Add Z Z) |||||
+(Add Z Z))) |||||
+(agent $_5080 John) |||||
+(agent $_5080 John) |||||
+(agent $_5080 John) |||||
+(agent $C John) |||||
+(agent JohnsCarry John)) |||||
+(agent JohnsCarry John) |||||
+(air dry))) |   ( (start humidifier) ||||
+(air wet))) |   ( (start ventilation) ||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+(and |||||
+( (and |||||
+( (and |||||
+(And |||||
+(â P |||||
+(â P |||||
+(app $Xs Nil) $Xs)) kb rb |||||
+(â P Q) |||||
+(â P Q) |||||
+(â P Q) |||||
+(â P Q) |||||
+(â P Q) |||||
+(â P Q) $Etv)) kb rb |||||
+(â P Q) $Etv)) kb rb |||||
+(â P Q) $Etv)) kb rb |||||
+(â P Q) $Tv)) $Tv)) |   ( (ETV Empty ||||
+(â P Q) $Tv)) kb rb Z)) |   ( (: PQm ||||
+(â P R) |||||
+(â P R) |||||
+(â P R) |||||
+(â P R) |||||
+(â P R) $Tv)) kb rb |||||
+(â P R) $Tv)) kb rb |||||
+(â Q |||||
+(â Q |||||
+(â Q R) |||||
+(â Q R) |||||
+(â Q R) $Tv)) kb rb Z)) |   ( (: QRm ||||
+(â R |||||
+(â R |||||
+(â Z |||||
+(â Z |||||
+(â Z |||||
+(â©» Z |||||
+(â Z â))) |||||
+(â Z â))) | ||||
+(â Z â)) kb rb Z)) |   ( (: NotInEmpty ||||
+(B... | () ||||
+(B) |||||
+(B) |||||
+(B) |||||
+(B) |||||
+(B A) |||||
+( (B A) |||||
+(Ball) |||||
+("=== Bare entail ===") |||||
+("=== Bare Entail ===") |||||
+("=== Bare Entail ===") |||||
+("=== Bare Entail Match ===") |||||
+("=== Bare Entail Match ===") |||||
+( (: Base_plus |||||
+( (base_prf)) |||||
+(B B)) |||||
+(: bc |||||
+(: bc |||||
+(: bc |||||
+(: bc |||||
+(: bc |||||
+( (: bc |||||
+(→ B C))) |||||
+(→ B C))) |||||
+(→ B C)) |||||
+(→ B C)) |||||
+(B C |||||
+(B C |||||
+(B C |||||
+(B C |||||
+(B C |||||
+(B C |||||
+(B C |||||
+(B C |||||
+(bc_bare B kb_bare rb_bare |||||
+(bc_bare C kb_bare rb_bare |||||
+(bc_bare D kb_bare rb_bare |||||
+(bc_bem |||||
+(bc_bem |||||
+(bc_bem |||||
+(bc_bem B |||||
+(bc_bem C |||||
+(B C D)) A)) | ||||
+(bc_dem |||||
+(bc_dem |||||
+(bc_dem |||||
+(bc_dem |||||
+(bc_dem |||||
+(bc_dem |||||
+(bc_dem |||||
+(B C D)))) |   ( ( (superpose ||||
+(bc_em |||||
+(bc_em |||||
+(bc_em |||||
+(bc_em B |||||
+(bc_em C |||||
+(bc_eq |||||
+(bc_eq |||||
+(bc_eq |||||
+(bc_eq B kb_eq |||||
+(bc_eq C kb_eq |||||
+( (belief1 yes) |||||
+(big $_84918) |||||
+(big $_84918) |||||
+(big $_84918) |||||
+(big $_84918) |||||
+(big cow) |||||
+(big cow) |||||
+(big cow) |||||
+(big rabbit) |||||
+(big rabbit) |||||
+(big rabbit) |||||
+(big rabbit) |||||
+(bin) |||||
+(BinaryConjunctionIntroduction |||||
+(BinaryConjunctionIntroduction |||||
+(BinaryConjunctionIntroduction |||||
+(BinaryConjunctionIntroduction |||||
+(BinaryConjunctionIntroduction |||||
+(BinaryConjunctionIntroduction |||||
+(BinaryConjunctionIntroduction |||||
+( (bin) B)) | ||||
+(bin))) |   ( ( (bin) A) ||||
+(bind! &attentional_focus |||||
+(bind! &belief_events |||||
+(bind! &concepts |||||
+(bind! &FIFO |||||
+(bind! &goal_events |||||
+(bind! &kb |||||
+(bind! &kb_bem |||||
+(bind! &kb_bem |||||
+(bind! &kb_dem |||||
+(bind! &kb_em |||||
+(bind! &kb_em |||||
+(bind! &labelled-kb |||||
+(bind! &labelled-kb |||||
+(bind! &labelled-kb |||||
+(bind! &rb_bem |||||
+(bind! &rb_bem |||||
+(bind! &state-active |||||
+(bind! &state-token |||||
+(bind! &var |||||
+(bind! &WU |||||
+(Bl False))) |||||
+(Bl False)) |||||
+(Bl False)) |||||
+(Bl False)) |||||
+(Bl False) |||||
+(Bl False) |||||
+(Bl False) |||||
+(Bl True))) |||||
+(Bl True)) |||||
+(Bl True) |||||
+(Bl True) |||||
+(Bl True) |||||
+(blue green red) |||||
+(Bool) |||||
+(-> Bool Bool))) |||||
+(-> Bool Number))) |||||
+(-> Bool String)) |||||
+(-> Bool String))) |||||
+(-> Bool String))) |||||
+(C) |||||
+(C) |||||
+(C) |||||
+(C) |||||
+(C A) |||||
+(car-atom $X))) |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case |||||
+(case 5 |||||
+(Cat) |||||
+(Cat) |||||
+( ( (cat x sky) --> like) |||||
+( (C D)) |||||
+(change-state! |||||
+(change-state! |||||
+(change-state! $X |||||
+(change-state! &state-token |||||
+( (change-state! &var |||||
+(chase $_84918 dog)) |||||
+(chase $_84918 dog)) |||||
+(chase $_84918 dog)) |||||
+(chase $_84918 dog)) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog)) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase cow dog) |||||
+(chase rabbit cow) |||||
+(chase rabbit cow) |||||
+(chase rabbit cow) |||||
+(chase rabbit cow) |||||
+(chase rabbit dog) |||||
+(chase rabbit dog) |||||
+(chase rabbit dog) |||||
+(chase rabbit dog) |||||
+(childlion) |||||
+(choiceQuery |||||
+(collapse |||||
+(collapse |||||
+(collapse |||||
+(collapse |||||
+(collapse |||||
+(collapse |||||
+(collapse |||||
+(color) |||||
+( (Color of Planet Mars is Red)) |||||
+( (Color of Planet Mars is Red)) |||||
+(ConceptNode flies))) $X)) |   ( (ConceptNode Sam) ||||
+(ConceptNode Fritz)) | ||||
+( (ConceptNode Fritz) |||||
+(ConceptNode Sam)) |||||
+(confidence |||||
+(confidence |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons |||||
+(Cons ... | ||||
+( (Cons |||||
+( (Cons |||||
+( (Cons |||||
+( (Cons |||||
+( (Cons |||||
+(Cons 0 |||||
+(Cons 1 |||||
+(Cons 1 |||||
+(Cons 1 |||||
+(Cons 1 |||||
+(Cons 1 |||||
+(Cons 1 |||||
+(Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+( (Cons 1 |||||
+(Cons 1 Nil)))) |||||
+(Cons 1 Nil)))) | ||||
+(Cons 1 Nil) |||||
+(Cons 1 Nil) |||||
+( (Cons 1 Nil)) |||||
+( (Cons 1 Nil)) |||||
+( (Cons 1 Nil)) |||||
+( (Cons 1 Nil)) |||||
+( (Cons 1 Nil)) |||||
+(Cons 1 Nil)))) |   ( (Cons 1 ||||
+(Cons 1 Nil))))) |   ( (Cons 2 Nil) ||||
+(Cons 1 Nil))))) |   ( (Cons 3 ||||
+(Cons 1 Nil)))) |   ( (Vec Number ||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+(Cons 2 |||||
+( (Cons 2 |||||
+( (Cons 2 |||||
+(Cons 2 Nil)) |||||
+(Cons 2 Nil)) |||||
+(Cons 2 Nil)))) |||||
+(Cons 2 Nil)))) | ||||
+(Cons 2 Nil))) |||||
+(Cons 2 Nil))) |||||
+(Cons 2 Nil))) |||||
+(Cons 2 Nil))) |||||
+(Cons 2 Nil))) |||||
+(Cons 2 Nil))) | ||||
+(Cons 2 Nil))) | ||||
+(Cons 2 Nil))) | ||||
+(Cons 2 Nil))) | ||||
+(Cons 2 Nil))) | ||||
+(Cons 2 Nil) |||||
+(Cons 2 Nil) |||||
+(Cons 2 Nil) |||||
+(Cons 2 Nil) |||||
+( (Cons 2 Nil)) |||||
+( (Cons 2 Nil)) |||||
+(Cons 2 Nil))))) |   ( (Cons 1 ||||
+(Cons 2 Nil))))) |   ( (Cons 1 ||||
+(Cons 2 Nil)))))) |   ( (Cons 2 ||||
+(Cons 2 Nil)))))) |   ( (Cons 2 ||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+(Cons 3 |||||
+( (Cons 3 |||||
+( (Cons 3 |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) |||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil)))) | ||||
+(Cons 3 Nil))) |||||
+(Cons 3 Nil))) | ||||
+(Cons 4 |||||
+(Cons 4 |||||
+(Cons 4 |||||
+(Cons 4 |||||
+(Cons 4 Nil)))) |   ( (Cons 3 ||||
+(Cons 4 Nil)))) |   ( (Cons 6 ||||
+(Cons 5 |||||
+(Cons 5 |||||
+(Cons 5 |||||
+(Cons 6 |||||
+(Cons 6 |||||
+( (Cons 6 |||||
+(Cons 8 Nil))))) |||||
+(Cons 8 Nil))))) | ||||
+(Cons 8 Nil))) |||||
+(Cons 8 Nil))) | ||||
+(Cons a |||||
+(Cons a |||||
+(Cons a |||||
+(Cons b Nil))))) |||||
+(Cons b Nil))))) | ||||
+(Cons b Nil)))) |   ( (Cons 1 ||||
+(Cons f |||||
+(Cons f |||||
+(Cons f Nil) |||||
+(Cons f Nil))) |   ( (Cons ||||
+(Cons g Nil)) |||||
+(Cons g Nil) |||||
+(Cons g Nil)))) |   ( (Cons ||||
+(Cons g Nil))) |   ( (Cons ||||
+(ConsN 1 |||||
+(ConsN 1 NilN)))) |   ( (VecN String 0) ||||
+(ConsN 2 NilN)))) |   ( (VecN String 2) ||||
+(Cons Z Nil))) |||||
+(Cons Z Nil))) | ||||
+(Cons Z Nil))) |   ( (Cons ||||
+(count |||||
+(count |||||
+( (: cow_is_big |||||
+(croaks eat_flies) |||||
+(c-tv |||||
+( ( (curry +) 2)) |||||
+(curry-a + 1) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a * 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a + 2) |||||
+(curry-a - 7) |||||
+( (curry-a is Socrates)) |||||
+(curry +))) |   ( (-> Number ||||
+(D A)) |||||
+(deduce |||||
+(deduction |||||
+( (deduction |||||
+(Deduction ab bc) |||||
+(Deduction ab bc) a) C)) |||||
+(deduction-formula |||||
+( (deduction_match GroundingSpace-0x5601b8f47dd8)) |||||
+(Deduction Pm Pm Rm $_12598 $_12826) |||||
+(Deduction Pm Pm Rm $_12606 $_12834) |||||
+(Deduction Pm PQm Rm $_12598 $_12826) |||||
+(Deduction Pm PQm Rm $_12606 $_12834) |||||
+(Deduction Pm Qm Rm PQm QRm) |||||
+(Deduction Pm Qm Rm PQm QRm) |||||
+(Deduction Pm Qm Rm PQm QRm) |||||
+(Deduction Pm Qm Rm PQm QRm) |||||
+(Deduction Pm QRm Rm $_12598 $_12826) |||||
+(Deduction Pm QRm Rm $_12606 $_12834) |||||
+(Deduction Pm Rm Rm $_12598 $_12826) |||||
+(Deduction Pm Rm Rm $_12606 $_12834) |||||
+(do |||||
+(drop |||||
+(drop |||||
+(dropN |||||
+( (dropN NilN)) |||||
+("=== DTL ===") |||||
+("=== DTL ===") |||||
+("=== DTL Equality Match ===") |||||
+(Eats-flies $X))) |||||
+(Eats-flies Sam)) | ||||
+( (Eats-flies Sam) |||||
+( (Eats-flies Sam) |||||
+( (e f g)) |||||
+(Either) |||||
+( (Either Number)) |||||
+( (EitherP Number)) |||||
+(EitherP Number) String)) |||||
+(EitherP Number) String)) | ||||
+(elem 1 |||||
+(elem 1 |||||
+(elem 1 |||||
+(elem 1 |||||
+(elem 1 |||||
+(elem 2 |||||
+(elem 5 |||||
+("=== Entail ===") |||||
+("=== Entail ===") |||||
+(eq |||||
+(eq |||||
+(eq |||||
+(eq $R |||||
+(eqa |||||
+(eqa Z |||||
+( (eqa Z |||||
+( (eq Green Blue)) |||||
+("=== Equality ===") |||||
+("=== Equality ===") |||||
+("=== Equality ===") |||||
+("=== Equality Match ===") |||||
+("=== Equality Match ===") |||||
+(eq Z |||||
+(eq Z |||||
+( (eq Z |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(ETV |||||
+(Evaluation |||||
+(Evaluation |||||
+(EvaluationLink |||||
+(explain |||||
+( (expression without known equalities)) |||||
+( ( (ExtSet garfield) --> cat) |||||
+( (ExtSet sam) --> dog))) $S)) |   ( (x ||||
+( ( (ExtSet sam) --> duck) |||||
+( ( ( (ExtSet sam) --> duck) |||||
+( (ExtSet sam) --> swan) |||||
+(: f |||||
+( (: f |||||
+( (: f |||||
+( (: f |||||
+(F) |||||
+(f $X) |||||
+(f $X) |||||
+(f $X) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+(False) |||||
+( (: fC |||||
+(fc_bare |||||
+(fc_bare |||||
+(fc_bare |||||
+(fc_bare |||||
+(fc_bare A kb_bare rb_bare |||||
+(fc_bare A kb_bare rb_bare |||||
+(fc_bem |||||
+(fc_bem |||||
+(fc_bem A |||||
+(fc_dtl |||||
+(fc_dtl |||||
+(fc_dtl |||||
+(fc_dtl |||||
+(fc_dtl |||||
+(fc_dtl |||||
+(fc_em |||||
+(fc_em |||||
+(fc_em A |||||
+(fc_entail |||||
+(fc_entail |||||
+(fc_entail |||||
+(fc_entail |||||
+(fc_entail |||||
+(fc_entail |||||
+(fc_eq |||||
+(fc_eq |||||
+(fc_eq |||||
+(fc_eq |||||
+(fc_eq A kb_eq |||||
+(fc_eq A kb_eq |||||
+(: felix Cat))) |||||
+(: felix Cat))) | ||||
+(: felix Cat)) kb rb Z)) |   ( (: fC ||||
+(. f f) |||||
+(. f f) |||||
+(. f f) |||||
+(. f f) |||||
+( (. f f) |||||
+(f g)) |||||
+(. f g) |||||
+(. f g) |||||
+(. f g) |||||
+(. f g) |||||
+(f g)) |||||
+(. f g) |||||
+(. f g) |||||
+(f g)))) |   ( (. f f) ||||
+(. f g) Nil)) |||||
+(. f g) Nil)) | ||||
+(. f h) |||||
+(. f h) |||||
+(. f h) |||||
+(filter even |||||
+(find-equal |||||
+(fmap |||||
+(fmap |||||
+(fmap |||||
+(fmap |||||
+(fmap |||||
+(fmap |||||
+(fmap |||||
+(fmap |||||
+(fmap-i |||||
+(fmap-i |||||
+(fmap-i |||||
+( (fmap-i |||||
+(foo |||||
+(Fritz) |||||
+(Fritz Sam) |||||
+(Frog $X) |||||
+( (Frog Sam)) |||||
+(Frog Sam) $What) $What)) |   ( (Green Sam) ||||
+(fromNat |||||
+(fromNumber 0))) |   ( (: ab ||||
+(fromNumber 0))) |   ( (: bc ||||
+(fromNumber 0))) |   ( (: cow_is_big ||||
+(fromNumber 1) |||||
+(fromNumber 2) |||||
+(fromNumber 2) |||||
+(fromNumber 2) |||||
+(fromNumber 2)))) |   ( (â¢ ||||
+(fromNumber 2)))) |   ( (â¢ ||||
+(fromNumber 2))) |   ( (â¢ ||||
+(fromNumber 2))) |   ( (â¢ ||||
+(fromNumber 2)))) |   ( (â A B) ||||
+(fromNumber 2)))) |   ( (â A B) ||||
+(fromNumber 2)))) |   ( (â A B) ||||
+(fromNumber 2)))) |   ( (â A B) ||||
+(fromNumber 2)))) |   ( (: ab ||||
+(fromNumber 2)))) |   ( (: ab ||||
+(fromNumber 2))) |   ( (: ab ||||
+(fromNumber 2))) |   ( (: ab ||||
+(fromNumber 2)))) |   ( (â B C) ||||
+(fromNumber 2)))) |   ( (â B C) ||||
+(fromNumber 2)))) |   ( (â· synthesize ||||
+(fromNumber 2))) |   ( (Cons ||||
+(fromNumber 3) |||||
+(fromNumber 3)))) |   ( (â· synthesize ||||
+(fromNumber 3)))) |   ( (â· synthesize ||||
+(fromNumber 3)))) |   ( (â· synthesize ||||
+(fromNumber 3))) kb rb |||||
+(fromNumber 3))) kb rb |||||
+(fromNumber 7))) kb rb |||||
+(fromNumber 7))) kb rb |||||
+(fromNumber 7))) kb rb |||||
+(functions) |||||
+(: g |||||
+(. g $_155638) |||||
+(. g $F) |||||
+(g $Y)) |||||
+(g $Y)) |||||
+( ( (g $Y) |||||
+(g $Y) |||||
+(g $Y) |||||
+( (g 3)) |||||
+(g 42 |||||
+(gen 3) |||||
+(get-atoms &m))) |||||
+(get-atoms &self) |||||
+(get-atoms &self) |||||
+(get-state |||||
+(get-state |||||
+(get-state |||||
+(get-state |||||
+(get-state |||||
+(get-token)) |   ( (State  ||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type |||||
+(get-type $_251794)))) | ||||
+(get-type $X)))) |   ( ( (let $_251794 ||||
+(get-type $X) Number) |||||
+(get-type $Y)) |||||
+(get-type $Y) Number)) |||||
+(get-type base_prf)) |   ( (â ||||
+( ( (get-type &self))) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) |||||
+(. g f) $_405696) |||||
+(. g f) $Type) |||||
+(. g f) h) |||||
+(. g f) h) |||||
+(. g f)) h) |||||
+(. g f) h) |||||
+(. g f) Nil)) |||||
+(. g f) Nil)) | ||||
+(. g g)) |||||
+(. g g)) | ||||
+(. g g) Nil))))) |||||
+(. g g) Nil))))) |||||
+(Goal $Goal))) active) $Goal |||||
+( (goal1 yes) |||||
+( (goal1 yes) |||||
+(GreaterThan $X $Y) |||||
+(Green $Who) |||||
+(Green $Who) T) |||||
+(green $X) |||||
+(Green $X)) |||||
+(Green Sam)) |||||
+(Green Sam)) |||||
+(Green Sam)) |||||
+(green yellow red) |||||
+(: h |||||
+( (human Plato) proven by True))) |||||
+( (human Plato) proven by True))) | ||||
+(HumansAreMortal |||||
+(hyperon::space::DynSpace) |||||
+(idi_axiom) |||||
+(idi_axiom) |||||
+(IDIBase P2 $_16978) |||||
+(IDIBase P2 $_17022) |||||
+(IDIBase P2 $_22658) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) |||||
+(IDIBase P2 Q2) $_24180) |||||
+(IDIBase P3 $_17884) |||||
+(IDIBase P3 $_17928) |||||
+(IDIBase P3 $_23600) |||||
+(IDIBase P3 Q3) |||||
+(IDIBase P3 Q3) |||||
+(IDIBase P3 Q3) |||||
+(IDIBase P3 Q3) |||||
+(IDIBase P3 Q3) $_24180) |||||
+(IDIBase P7 $_17884) |||||
+(IDIBase P7 $_17928) |||||
+(IDIBase P7 $_23600) |||||
+(IDIBase P7 Q7) |||||
+(IDIBase P7 Q7) |||||
+(IDIBase P7 Q7) |||||
+(IDIBase P7 Q7) $_24180) |||||
+(idi_formula |||||
+(idi_formula |||||
+( (idi_formula |||||
+(idi_induction |||||
+(idi_induction |||||
+( (idi_induction_match GroundingSpace-0x556b30951348)) |||||
+(IDIRecursive P2 $_24574 $_24766 $_25090) |||||
+(IDIRecursive P2 $_24618 $_24810 $_25134) |||||
+(IDIRecursive P2 $_36684 $_36912 $_37272) |||||
+(IDIRecursive P2 Q2 |||||
+(IDIRecursive P2 Q2 |||||
+(IDIRecursive P2 Q2 |||||
+(IDIRecursive P2 Q2 |||||
+(IDIRecursive P2 Q2 |||||
+(IDIRecursive P2 Q2 $_18820 $_19144) |||||
+(IDIRecursive P2 Q2 $_18864 $_19188) |||||
+(IDIRecursive P3 $_20542 $_18820 $_19144) |||||
+(IDIRecursive P3 $_20586 $_18864 $_19188) |||||
+(IDIRecursive P3 $_32376 $_32628 $_24180) |||||
+(IDIRecursive P3 Q3 |||||
+(IDIRecursive P3 Q3 |||||
+(IDIRecursive P3 Q3 |||||
+(IDIRecursive P3 Q3 $_24766 $_25090) |||||
+(IDIRecursive P3 Q3 $_24810 $_25134) |||||
+(IDIRecursive P7 $_20542 $_18820 $_19144) |||||
+(IDIRecursive P7 $_20586 $_18864 $_19188) |||||
+(IDIRecursive P7 $_32376 $_32628 $_24180) |||||
+(IDIRecursive P7 Q7 |||||
+(IDIRecursive P7 Q7 |||||
+(IDIRecursive P7 Q7 |||||
+(IDIRecursive P7 Q7 |||||
+(IDIRecursive P7 Q7 $_24766 $_25090) |||||
+(IDIRecursive P7 Q7 $_24810 $_25134) |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(if |||||
+(If |||||
+(If |||||
+(If |||||
+(ift |||||
+(ift |||||
+(ift |||||
+(ift True |||||
+(ift True |||||
+(ift True |||||
+(implies |||||
+(implies |||||
+(implies |||||
+(implies |||||
+(implies |||||
+(inactive) |||||
+(inc-neg-count |||||
+(inc-pos-count |||||
+(increment) |||||
+(increment))) |||||
+( (increment) |||||
+(increment) |||||
+(increment) |||||
+(increment) |||||
+(increment))) |||||
+(increment))) |||||
+( (increment) |||||
+( (increment) |||||
+( (increment) |||||
+( (increment) |||||
+(increment) |||||
+(increment) |||||
+(increment) |||||
+(increment) |||||
+( (increment) |||||
+( (increment) |||||
+(insert |||||
+(insert |||||
+(insert |||||
+(insert 1 |||||
+(insert 1 |||||
+(insert 1 |||||
+(insert 1 â))))) |   ( (:: 1 ||||
+(insert 1 â)))) |   ( (:: 1 ||||
+(insert 1 â))) |   ( (:: 1 ||||
+(insert 1 Nil)))) |   ( (Cons 1 ||||
+(insert 1 Nil)))) |   ( (Cons 1 ||||
+(insert 1 Nil)))) |   ( (Cons 1 ||||
+(insert 1 Nil))) |   ( (Cons 1 ||||
+(insert 1 Nil))) |   ( (Cons 1 ||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 |||||
+(insert 2 Nil))) |   ( (Cons 1 ||||
+(insert 3 |||||
+(insert 3 |||||
+(insert 3 |||||
+(insert 3 |||||
+(insert 3 |||||
+(insert 42 Empty) |||||
+(insert_uniq 1 Nil))))) |   ( (Cons 1 ||||
+(insert_uniq 1 Nil)))) |   ( (Cons 1 ||||
+(insert_uniq 1 Nil))) |   ( (Cons 1 ||||
+(insert_uniq 2 |||||
+(insert_uniq 2 |||||
+(insert_uniq 2 |||||
+(insert_uniq 2 |||||
+(insert_uniq 3 |||||
+(insert_uniq 3 |||||
+(insert Z â))))) |   ( (:: Z ||||
+(instance $_5080 Carrying) |||||
+(instance $_5080 Carrying) |||||
+(instance $_5080 Carrying) |||||
+(instance $_5140 Flower) |||||
+(instance $_5140 Flower) |||||
+(instance $_5140 Flower) |||||
+(instance $C Carrying) |||||
+(instance $F Flower) |||||
+(instance JohnsCarry Carrying)) |||||
+(instance JohnsCarry Carrying)) |||||
+(instance JohnsCarry Carrying)))) |||||
+(instance JohnsCarry Carrying)) |||||
+(instance JohnsCarry Carrying)) |||||
+(instance JohnsCarry Carrying)))) |||||
+(instance JohnsCarry Carrying)) |||||
+(instance JohnsCarry Carrying)))) |||||
+(instance JohnsCarry Carrying)))) |||||
+(instance JohnsCarry Carrying)))) |||||
+(instance JohnsCarry Carrying)) |||||
+(instance JohnsCarry Carrying) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer))) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer))) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer))) |||||
+(instance JohnsCarry Transfer))) |||||
+(instance JohnsCarry Transfer))) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer) |||||
+(instance JohnsCarry Transfer))) |||||
+(instance JohnsCarry Transfer)) kb rb |||||
+(instance JohnsFlower Flower)) |||||
+(instance JohnsFlower Flower) |||||
+(interleave |||||
+(is |||||
+(is |||||
+(isLeft |||||
+("It's" $Tv that $Who is $Color))) |   ( ("It's" T that Sam is Green) ||||
+("It's" F that Tom is Green)... | ||||
+( ("It's" F that Tom is Green) |||||
+("It's" T that Sam is Green) |||||
+("It's" T that Tom is White) |||||
+("It's" T that Tom is White)) |||||
+(Just 10) |||||
+( (Just 3)) |||||
+(kb) |||||
+(kb) |||||
+(kb) |||||
+(kb) |||||
+(kb) |||||
+(kb) |||||
+(kb_bare) |||||
+(kb_bare) |||||
+(kb_dtl) |||||
+(kb_dtl) |||||
+(kb_entail) |||||
+(kb_entail) |||||
+(kb_eq) |||||
+(kb_eq) |||||
+(K x |||||
+(K x))) |||||
+(K x))) | ||||
+( (K x |||||
+( (lambda |||||
+( (lambda $X |||||
+(leaf0 leaf1)) |||||
+(leaf0 leaf1)) | ||||
+(leaf1 |||||
+(LeftP 5) String))) |   ( (Pair ||||
+(let* |||||
+(let* |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let* |||||
+(let $PR |||||
+(let $R |||||
+(let $T |||||
+(let $T |||||
+(let $Tnso |||||
+(let $V |||||
+( (let $X |||||
+(let $X |||||
+(let $X |||||
+(let $Z |||||
+(Link $_375976 C)) | ||||
+(Link $X $Y))))) |   ( (Link $_376000 B) ||||
+(Link $X $Y))) |   ( (Link A B) ||||
+(Link $X B))) |||||
+( (Link $X B) |||||
+( (Link $X B) |||||
+(Link $X B) |||||
+(Link $X B) |||||
+(Link $X B) |||||
+(Link $X B) |||||
+(Link $X B) |||||
+( ( (Link $X B $Z) |||||
+(Link $X C))) |||||
+(Link $X C))) |||||
+( ( (Link A $Y) |||||
+( ( (Link A $Y) |||||
+( ( (Link A $Y) |||||
+(Link A $Y) |||||
+(Link A $Y) |||||
+(Link A $Y) |||||
+(Link A $Y) |||||
+(Link A $Y $Z)) |||||
+( (Link A B) |||||
+( (Link A B) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B)) |||||
+( (Link A B C)) |||||
+(Link A C)) |||||
+(Link A C)) |||||
+(Link A C)) | ||||
+(Lion) |||||
+( (-> Lion Lion Lion)) |||||
+(List $T) |||||
+(ListLink $X |||||
+( (List Number)) |||||
+(ln |||||
+(+ ln 2))) |||||
+(+ ln 2))) | ||||
+(+ ln 2))) |   ( (> 4 ||||
+( (ln 4)) |||||
+(located $_291086 JohnsHouse)) |||||
+(located $_291086 JohnsHouse)) |||||
+(located $_291086 JohnsHouse))) |||||
+(located $_291086 JohnsHouse))) |||||
+(located $_291086 JohnsHouse))) kb rb Z))) |||||
+(located $_291086 JohnsHouse))) kb rb Z))) |||||
+(located John $_291086) |||||
+(located John $_291086) |||||
+(located John $_291086) |||||
+(located John $_291086) |||||
+(located John $_291086) |||||
+(located John $_291086) |||||
+(located John JohnsHouse))) |||||
+(located John JohnsHouse) |||||
+(located John JohnsHouse))) |||||
+(located John JohnsHouse))) |||||
+(located John JohnsHouse)))) |||||
+(located John JohnsHouse)))) |||||
+(located John JohnsHouse)) |||||
+(located John JohnsHouse)) |||||
+(located John JohnsHouse))) $_290678) |||||
+(located John JohnsHouse))) $_290678) |||||
+(located John JohnsHouse)) kb rb |||||
+(located John JohnsHouse)) kb rb |||||
+(located John SanJose))) |||||
+(located John SanJose)))) |||||
+(located John SanJose)) |||||
+(located John SanJose))) $_432214) |||||
+(located John SanJose)) kb rb |||||
+(located JohnsHouse SanJose)) |||||
+(located JohnsHouse SanJose)))) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lookahead)) |||||
+(lunch-order) |||||
+(man mortal)) |||||
+(map inc |||||
+(Mars orbit $Y au)) |||||
+(match |||||
+(match |||||
+(match |||||
+(match |||||
+(match |||||
+(match |||||
+(match |||||
+(match &belief_events $Num1 $Num1) |||||
+(match &belief_events $Num1 $Num1) |||||
+(match &goal_events $Num1 $Num1) |||||
+(match &goal_events $Num1 $Num1) |||||
+(match &goal_events $Num1 $Num1) |||||
+(match &goal_events $Num1 $Num1) |||||
+(match &kb |||||
+(match &kb |||||
+(match &kb |||||
+(match &kb |||||
+(match &kb $X |||||
+(match &kb $X |||||
+(match &kb $X |||||
+(match &kb_bem |||||
+(match &kb_em |||||
+(match &m |||||
+(match &s... |   ( (â ||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(match &self |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(max-count) |||||
+(Maybe< |||||
+(Maybe< |||||
+(maybe-inc |||||
+(Maybe< Nothing |||||
+(mean |||||
+(mean |||||
+(meditation) |||||
+(min $_12682 $_12910))))) |||||
+(min $_12682 $_12910))))) |||||
+(min $_12682 $_12910))))) |||||
+(min $_12682 $_12910))))) |||||
+(min $_12690 $_12918))))) |||||
+(min $_12690 $_12918))))) |||||
+(min $_12690 $_12918))))) |||||
+(min $_12690 $_12918))))) |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.1 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.3 |||||
+(min 0.4 |||||
+(min 0.4 |||||
+(min 0.5 |||||
+(min 0.5 |||||
+(mode |||||
+(mode |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens |||||
+(ModusPonens $_5260 $_5656) |||||
+(ModusPonens $_65646 $_67434) |||||
+(ModusPonens $_65646 $_67434) |||||
+(ModusPonens ab a) B) |||||
+(ModusPonens ab a) B) |||||
+(ModusPonens ab a) B) |||||
+(ModusPonens ab a) B)) |||||
+(ModusPonens ab a)) C) |||||
+(ModusPonens ab a)) C)) |||||
+(ModusPonens ab a)) C)) |||||
+(ModusPonens ab a)) C)) |||||
+(ModusPonens bc |||||
+(ModusPonens bc |||||
+(ModusPonens bc |||||
+(ModusPonens bc |||||
+(ModusPonens cow_chases_dog_sees_rabbit $_50252) |||||
+(ModusPonens cow_chases_dog_sees_rabbit $_50252) |||||
+(ModusPonens cow_is_big x_is_big_chases_dog) |||||
+(ModusPonens cow_is_big x_is_big_chases_dog) |||||
+(ModusPonens cow_is_big x_is_big_chases_dog) cow_chases_dog_sees_rabbit) |||||
+(ModusPonens cow_needs_dog $_50252) |||||
+(ModusPonens cow_needs_dog $_50252) |||||
+(ModusPonens dog_sees_rabbit $_50252) |||||
+(ModusPonens dog_sees_rabbit $_50252) |||||
+(ModusPonens rabbit_chases_cow $_50252) |||||
+(ModusPonens rabbit_chases_cow $_50252) |||||
+(ModusPonens rabbit_chases_dog $_50252) |||||
+(ModusPonens rabbit_chases_dog $_50252) |||||
+(ModusPonens rabbit_is_big $_50252) |||||
+(ModusPonens rabbit_is_big $_50252) |||||
+(ModusPonens rabbit_sees_dog $_50252) |||||
+(ModusPonens rabbit_sees_dog $_50252) |||||
+(ModusPonens x_is_big_chases_dog $_50252) |||||
+(ModusPonens x_is_big_chases_dog $_50252) |||||
+( (mortal man)) |||||
+( (Mortal Plato)) |||||
+(mortal Plato)))) |   ( ( (mortal Plato) proven by ||||
+( ( (mortal Plato) proven by |||||
+(Mortal Socrates) |||||
+( (Mortal Socrates)) |||||
+(need cow dog) |||||
+(need cow dog) |||||
+(need cow dog) |||||
+(need cow dog) |||||
+(new-state |||||
+(new-state 1) |||||
+(new-state 1) |||||
+(Nil) |||||
+(Nil) |||||
+(Nil) |||||
+(Node A) |||||
+(Node A) |||||
+(no-match) |||||
+(no-match) |||||
+(no-match) |||||
+(nop |||||
+(nop |||||
+(nop |||||
+( (Nothing)) |||||
+(Nothing) |||||
+( (: NotInEmpty |||||
+(Null)))) |||||
+(Null)))) | ||||
+(Null))))) |   ( (UntypedC 7 ||||
+( (-> Number |||||
+(Number) |||||
+(Number) |||||
+(Number) |||||
+(Number) |||||
+(-> Number $_108820)) |||||
+(-> Number $Out)) |||||
+(-> Number Bool)) |||||
+(-> Number Bool)) |||||
+(-> Number Bool)) |||||
+(-> Number Bool)) |||||
+(-> Number Bool))) |||||
+(-> Number Bool))) |||||
+(-> Number Bool))) |||||
+(-> Number Bool))) |||||
+(-> Number Number))) |||||
+(-> Number Number))) | ||||
+( (-> Number Number)) |||||
+( (-> Number Number)) |||||
+( (-> Number Number Number)) |||||
+(-> Number String)) |||||
+(-> Number String)) |||||
+(-> Number String))) |||||
+(-> Number String))) |||||
+(-> Number String)) Z) |||||
+(-> Number String)) Z))) |   ( (â· synthesize ||||
+(objectTransferred $_5080 $_5140)))) |||||
+(objectTransferred $_5080 $_5140))))) |||||
+(objectTransferred $_5080 $_5140)))) kb rb |||||
+(objectTransferred JohnsCarry JohnsFlower))) |||||
+(objectTransferred JohnsCarry JohnsFlower))) |||||
+(objectTransferred JohnsCarry JohnsFlower))) |||||
+(objectTransferred JohnsCarry JohnsFlower))) |||||
+(objectTransferred JohnsCarry JohnsFlower)) kb rb |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase)) |||||
+(objectTransferred JohnsCarry JohnsVase)) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase)) |||||
+(objectTransferred JohnsCarry JohnsVase)) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(objectTransferred JohnsCarry JohnsVase) |||||
+(OK) |||||
+(OK-3 OK-4) |||||
+(or |||||
+(orientation A B Right) |||||
+(orientation A B Right)) |||||
+(orientation A B Right)) |||||
+(orientation A B Right)) |||||
+(orientation A B Right))) |||||
+(orientation A B Right))) | ||||
+(orientation A B Right)) kb rb Z)) |   ( (: ||||
+(orientation A C Right))) |||||
+(orientation A C Right))) |||||
+(orientation A C Right)) kb rb |||||
+(orientation C B Left)) |||||
+(orientation C B Left)))) |||||
+(orientation John JohnsH... | ||||
+(orientation John JohnsH... | ||||
+(orientation John JohnsHouse Inside) |||||
+(orientation John JohnsHouse Inside))) |||||
+(orientation John JohnsHouse Inside) |||||
+(orientation John JohnsHouse Inside) |||||
+(orientation John JohnsHouse Inside))) |||||
+(orientation John JohnsHouse Inside))) |||||
+(orientation John SanJose Inside) |||||
+(orientation John SanJose Inside)) |||||
+(orientation John SanJose Inside)) kb rb |||||
+(orientation JohnsFlower JohnsVase Inside)) |||||
+(orientation JohnsFlower JohnsVase Inside)))) |||||
+(orientation JohnsFlower JohnsVase Inside)))) |||||
+(orientation JohnsFlower JohnsVase Inside)) |||||
+(orientation JohnsFlower JohnsVase Inside))))) |||||
+(orientation JohnsFlower JohnsVase Inside)))) |||||
+(orientation JohnsFlower JohnsVase Inside))) |||||
+(orientation JohnsFlower JohnsVase Inside))) |||||
+(orientation JohnsFlower JohnsVase Inside))))) |||||
+(orientation JohnsFlower JohnsVase Inside))))) |||||
+(orientation JohnsFlower JohnsVase Inside))) |||||
+(orientation JohnsFlower JohnsVase Inside))) |||||
+(orientation JohnsFlower JohnsVase Inside)))) kb rb |||||
+(orientation JohnsFlower JohnsVase Inside)))) kb rb |||||
+(→ P |||||
+(→ P |||||
+(→ P |||||
+(→ P |||||
+(→ P |||||
+(→ P |||||
+(→ P |||||
+(→ P |||||
+(P)) |||||
+(≞ P |||||
+(≞ P |||||
+(≞ P |||||
+(≞ P |||||
+(P $Y)) |||||
+(P 42) |||||
+(P 42) |||||
+(PA))))) | ||||
+(PA) |||||
+(pair |||||
+(pair |||||
+( (Pair |||||
+(PB))) |||||
+( (P B) |||||
+( (P B) |||||
+(PB)))) |   ( (stv ||||
+(P_Each $Y)) |||||
+( (P_Each B_Each) |||||
+(Plato Socrates) |||||
+(P_List $Y)) |||||
+( (P_List B_List) |||||
+(plus Z $_340504) $_340504))) |||||
+(plus Z $_340504) $_340504))) | ||||
+(plus Z $Y) $Y)) kb rb Z)) |   ( (: Base_plus ||||
+(→ P P) |||||
+(→ P P) |||||
+(→ P P) |||||
+(→ P P) |||||
+(→ P Q)) |||||
+(→ P Q)) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q)) |||||
+(→ P Q)) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(PQ)) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) |||||
+(→ P Q) $_189316)) |||||
+( (: PQm |||||
+(→ P Q) R) |||||
+(→ P Q) R) |||||
+(→ P Q) R) |||||
+(→ P Q) R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(→ P R) |||||
+(PredicateNode eats) |||||
+(prodWith * |||||
+(prodWith * |||||
+(prodWith * |||||
+(prodWith . |||||
+(prodWith . |||||
+(prodWith . |||||
+(prodWith * Nil |||||
+("===== Prove P→Q using base , recursive and order rules (synthesizer) =====") |||||
+("===== Prove P→Q using base rule (synthesizer) =====") |||||
+("===== Prove that 2 < 3 (synthesizer) =====") |||||
+("===== Prove that 2 < 7 (synthesizer) =====") |||||
+("===== Prove that 5 < 7 (synthesizer) =====") |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(⊷ Q |||||
+(Q)) |||||
+(≞ Q |||||
+(≞ Q |||||
+(≞ Q |||||
+(≞ Q |||||
+(≞ Q |||||
+(Q $Y)) |||||
+(Q 42) |||||
+(Q 42) |||||
+(Q 42) |||||
+(Q 42) |||||
+(Q C)) |||||
+(Q C)) | ||||
+(Q C)))) |   ( (P B) ||||
+(Q_Each C_Each)) | () ||||
+(Q_Each C_Each)))) |   ( (P_Each B_Each) ||||
+(Q_List C_List)) | () ||||
+(Q_List C_List)))) |   ( (P_List B_List) ||||
+(→ Q R)) |||||
+(→ Q R)) |||||
+(→ Q R)) |||||
+(→ Q R)) |||||
+(→ Q R) |||||
+(QR))) |||||
+(→ Q R) |||||
+(→ Q R) |||||
+(→ Q R) |||||
+( (: QRm |||||
+(→ Q R) R) |||||
+(→ Q R) R) |||||
+(→ Q R) R) |||||
+(→ Q R) R) |||||
+(QuaternaryConjunctionIntroduction |||||
+(Question |||||
+(R)) |||||
+(≞ R |||||
+(≞ R |||||
+(≞ R |||||
+(≞ R |||||
+(≞ R |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+(record synthesize |||||
+( (recursive_prf)) |||||
+(red) |||||
+(red yellow green) |||||
+(red yellow green) |||||
+( ( (Rel-P $Y) |||||
+( (Rel-P A B) |||||
+( (Rel-P B) |||||
+( (Rel-P B) |||||
+( (Rel-P B) |||||
+( (Rel-Q $Y) |||||
+(Rel-Q A C)) |||||
+(Rel-Q A C)) | ||||
+(Rel-Q C)) |||||
+(Rel-Q C)) |||||
+(Rel-Q C)) | ||||
+(Rel-Q C)) | ||||
+(Rel-Q C)))) |   ( (Rel-P B) ||||
+(rev A |||||
+( (Right 4)) |||||
+(→ R R) |||||
+(→ R R) |||||
+(→ R R) |||||
+(→ R R) |||||
+(→ R S) |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S... | ||||
+(≞ S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+(S |||||
+( (S |||||
+( (S |||||
+( (S |||||
+(S) |||||
+(S) |||||
+(S) |||||
+(S) |||||
+(S $R)) |||||
+(Sam) |||||
+( (Sam is really green)) |||||
+( (Sam is really Green) |||||
+( (Sam might be Frog)) |||||
+( (Sam the frog) |||||
+(see cow rabbit)) |||||
+(see cow rabbit)) |||||
+(see cow rabbit)) |||||
+(see cow rabbit)) |||||
+(see cow rabbit) |||||
+(see cow rabbit) |||||
+(see dog rabbit) |||||
+(see dog rabbit) |||||
+(see dog rabbit) |||||
+(see dog rabbit) |||||
+(see rabbit dog) |||||
+(see rabbit dog) |||||
+(see rabbit dog) |||||
+(see rabbit dog) |||||
+(Sentence |||||
+( (Sentence |||||
+( (sequential |||||
+(sequential |||||
+( (sequential |||||
+( (sequential |||||
+( (sequential |||||
+(sequential |||||
+(sequential |||||
+(sequential |||||
+(sequential |||||
+(sequential |||||
+(sequential |||||
+(sequential |||||
+(sequential |||||
+( ( (shape))) |||||
+( (shape)) |||||
+(Singleton 42) |||||
+(Singleton 42) |||||
+(Singleton 42) |||||
+(Singleton 42) |||||
+(S K K x) $R) |||||
+(S K K x) $R) $R)) |   ( (K x ||||
+(= SocratesIsMortal |||||
+(= SocratesIsMortal |||||
+(= SocratesIsMortal |||||
+(Something? |||||
+( (Something? |||||
+(Something) |||||
+( (Something 7)) |||||
+(Sophia the robot) |||||
+(Sophia the robot)) | ||||
+(sort |||||
+(sort |||||
+(sort |||||
+(sort |||||
+( ( (SS-P_Each $Y) |||||
+( (SS-P_Each A_Each B_Each) |||||
+( (SS-P_Each B_Each) |||||
+( ( (SS-P_List $Y) |||||
+( (SS-P_List A_List B_List) |||||
+( (SS-P_List B_List) |||||
+( (SS-Q_Each $Y) |||||
+(SS-Q_Each A_Each C_Each)) |||||
+(SS-Q_Each C_Each)) |||||
+( (SS-Q_List $Y) |||||
+(SS-Q_List A_List C_List)) |||||
+(SS-Q_List C_List)) |||||
+(start humidifier)) |||||
+(start kettle) |||||
+(start kettle) |||||
+(start ventilation)) |||||
+( (State  |||||
+( (State  1 $_103840)) |||||
+( (State  2 $_78698)) |||||
+( (State 28)) |||||
+( (State 45)) |||||
+( (StateMonad Expression)) |||||
+( (StateMonad Number)) |||||
+( (StateMonad Number)) |||||
+( (StateMonad String)) |||||
+(status |||||
+(status |||||
+(status |||||
+(status |||||
+(status |||||
+(stop humidifier)) |||||
+(stop humidifier) |||||
+(stop kettle)... | ||||
+( (stop kettle) |||||
+(stop ventilation))) | ||||
+( (stop ventilation) |||||
+(-> String Bool)) |||||
+(-> String Number Number)) kb rb |||||
+(-> String Number Number)) kb rb |||||
+(s-tv |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV |||||
+(STV $_12664 $_12682))) |||||
+(STV $_12664 $_12682))) |||||
+(STV $_12664 $_12682))) |||||
+(STV $_12664 $_12682))) |||||
+(STV $_12664 $_12682))) kb rb Z)) |||||
+(STV $_12664 $_12682))) kb rb Z)) |||||
+(STV $_12664 $_12682))) kb rb Z)) |||||
+(STV $_12664 $_12682))) kb rb Z)) |||||
+(STV $_12672 $_12690))) |||||
+(STV $_12672 $_12690))) |||||
+(STV $_12672 $_12690))) |||||
+(STV $_12672 $_12690))) |||||
+(STV $_12672 $_12690))) kb rb Z)) |||||
+(STV $_12672 $_12690))) kb rb Z)) |||||
+(STV $_12672 $_12690))) kb rb Z)) |||||
+(STV $_12672 $_12690))) kb rb Z)) |||||
+(STV $_12892 $_12910))) |||||
+(STV $_12892 $_12910))) |||||
+(STV $_12892 $_12910))) |||||
+(STV $_12892 $_12910))) |||||
+(STV $_12892 $_12910))) kb rb Z))) |||||
+(STV $_12892 $_12910))) kb rb Z))) |||||
+(STV $_12892 $_12910))) kb rb Z))) |||||
+(STV $_12892 $_12910))) kb rb Z))) |||||
+(STV $_12900 $_12918))) |||||
+(STV $_12900 $_12918))) |||||
+(STV $_12900 $_12918))) |||||
+(STV $_12900 $_12918))) |||||
+(STV $_12900 $_12918))) kb rb Z))) |||||
+(STV $_12900 $_12918))) kb rb Z))) |||||
+(STV $_12900 $_12918))) kb rb Z))) |||||
+(STV $_12900 $_12918))) kb rb Z))) |||||
+(STV $_18946 $_18964)))) |||||
+(STV $_18946 $_18964)))) |||||
+(STV $_18946 $_18964)))) |||||
+(STV $_18946 $_18964)))) kb rb Z)) |||||
+(STV $_18946 $_18964)))) kb rb Z)) |||||
+(STV $_18946 $_18964)))) kb rb Z)) |||||
+(STV $_18990 $_19008)))) |||||
+(STV $_18990 $_19008)))) |||||
+(STV $_18990 $_19008)))) |||||
+(STV $_18990 $_19008)))) kb rb Z)) |||||
+(STV $_18990 $_19008)))) kb rb Z)) |||||
+(STV $_18990 $_19008)))) kb rb Z)) |||||
+(STV $_24892 $_24910)))) |||||
+(STV $_24892 $_24910)))) |||||
+(STV $_24892 $_24910)))) |||||
+(STV $_24892 $_24910)))) kb rb Z)) |||||
+(STV $_24892 $_24910)))) kb rb Z)) |||||
+(STV $_24892 $_24910)))) kb rb Z)) |||||
+(STV $_24936 $_24954)))) |||||
+(STV $_24936 $_24954)))) |||||
+(STV $_24936 $_24954)))) |||||
+(STV $_24936 $_24954)))) kb rb Z)) |||||
+(STV $_24936 $_24954)))) kb rb Z)) |||||
+(STV $_24936 $_24954)))) kb rb Z)) |||||
+(STV $_32754 $_32772)))) |||||
+(STV $_32754 $_32772)))) |||||
+(STV $_32754 $_32772)))) kb rb |||||
+(STV $_32754 $_32772)))) kb rb |||||
+(STV $_37038 $_37056)))) |||||
+(STV $_37038 $_37056)))) kb rb |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $_50732 $_51082))) kb rb Z))) |||||
+(STV $S $C))) kb rb |||||
+(STV $S $C))) kb rb |||||
+(STV $S $C))) kb rb |||||
+(STV $S $C))) kb rb |||||
+(STV 0.0 0.5) |||||
+(STV 0.0 0.5) |||||
+(STV 0.0 0.5) |||||
+(STV 0.0 0.5) |||||
+(STV 0 0.5))))) |||||
+(STV 0 0.5))))) |||||
+(STV 0 0.5))))) |||||
+(STV 0 0.5))))) |||||
+(STV 0 0.5))))) |||||
+(STV 0 0.5))))) |||||
+(STV 0 0.5)))) |||||
+(STV 0 0.5)))) |||||
+(STV 0 0.5)))) |||||
+(STV 0 0.5)))) |||||
+( (STV 0 0.5)) |||||
+(STV 0.2 0.3) |||||
+(STV 0.3 0.2) |||||
+( (stv 0.3 0.8)) |||||
+(STV 0.4 0.1) |||||
+( (stv 0.4 0.8)) |||||
+(STV 0.5 0.6666666666666666)))) |||||
+(STV 0.5 0.6666666666666666)))) |||||
+(STV 0.6666666666666666 0.75)))) |||||
+(STV 0.7 0.1)))) | ||||
+(STV 0.7 0.1)))) | ||||
+( (stv 0.7047 0.68)) |||||
+( (stv 0.783 0.68)) |||||
+(STV 0.8 0.1))) |||||
+(STV 0.8 0.1))) |||||
+(STV 0.8 0.4)))) |||||
+(STV 0.8 0.4)))) | ||||
+(STV 0.9 0.1) |||||
+(STV 0.9 0.1) |||||
+(STV 0.9 0.1) |||||
+(STV 0.9 0.1) |||||
+( (STV 0.9 0.1)) |||||
+(STV 0.9 0.5)))) |||||
+(STV 0.9 0.5)))) | ||||
+(STV 0.9 0.7))) |   ( (STV 0.9 0.1) ||||
+( (stv 0.95 0.85)) |||||
+(STV 0.975859 0.99)))) |||||
+(STV 0.9821 0.99))) |||||
+(STV 0.9821 0.99))) |||||
+(STV 0.99 0.99)))) |||||
+(STV 0.99 0.99)))) | ||||
+(STV 1 0))))) |||||
+(STV 1 0))))) |||||
+(STV 1 0))))) |||||
+(STV 1 0))))) |||||
+(STV 1 0))))) |||||
+(STV 1 0))))) |||||
+(STV 1 0)))))) |||||
+(STV 1 0)))))) |||||
+(STV 1 0))) |||||
+(STV 1 0))) | ||||
+(STV 1 0))) | () ||||
+(STV 1.0 0.5) |||||
+(STV 1.0 0.5) |||||
+(STV 1.0 0.5) |||||
+(STV 1.0 0.5) |||||
+(STV 1.0 0.6666666666666666)))) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.1)) |||||
+(STV 1 0.5))))) |||||
+(STV 1 0.5))))) |||||
+(STV 1 0.5))))) |||||
+(STV 1 0.5)) |||||
+(STV 1 0.5))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)) |||||
+(STV 1 0.5)) |||||
+(STV 1 0.5)) |||||
+(STV 1 0.5)) |||||
+(STV 1 0.5)) |||||
+(STV 1 0.5))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5)))) |||||
+(STV 1 0.5) |||||
+( (STV 1 0.5)) |||||
+(STV 1 0))) |   ( (idi_formula ||||
+(STV 1 0))) |   ( (STV 0.0 0.5) ||||
+(STV 1 0))) |   ( (STV 1.0 0.5) ||||
+(subclass Carrying Transfer) |||||
+(subclass Carrying Transfer) |||||
+(subclass Carrying Transfer)) |||||
+(subclass Carrying Transfer) |||||
+(subclass Carrying Transfer) |||||
+(subclass Carrying Transfer)) |||||
+(subclass Carrying Transfer) |||||
+(subclass Carrying Transfer)) |||||
+(subclass Carrying Transfer)) |||||
+(subclass Carrying Transfer)) |||||
+(subsum |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity |||||
+(SuccMonotonicity ZeroLTSucc))) |||||
+(SuccMonotonicity ZeroLTSucc)))) |||||
+(SuccMonotonicity ZeroLTSucc)))) |||||
+(SuccMonotonicity ZeroLTSucc))) |||||
+(SuccMonotonicity ZeroLTSucc))) |||||
+(SuccMonotonicity ZeroLTSucc))) |||||
+(SuccMonotonicity ZeroLTSucc)) |||||
+(SuccMonotonicity ZeroLTSucc)) |||||
+(SuccMonotonicity ZeroLTSucc)) |||||
+(SuccMonotonicity ZeroLTSucc) |||||
+(SuccMonotonicity ZeroLTSucc) |||||
+(SuccMonotonicity ZeroLTSucc))) $_24180) |||||
+(SuccMonotonicity ZeroLTSucc))) $_24180) |||||
+(superpose |||||
+(superpose |||||
+( (superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+( (superpose |||||
+( (superpose |||||
+( (superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+( (superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+(superpose |||||
+( ( (superpose |||||
+(synthe... | ||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(synthesize |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) ∅)) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) ∅) |||||
+(S Z))))))) ∅) |||||
+(S Z))))))) ∅) |||||
+(S Z))))))))) |||||
+(S Z))))))))) |||||
+(S Z))))))))) |||||
+(S Z))))))))) |||||
+(S Z))))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) |||||
+(S Z))))))) ∅) |||||
+(S Z))))))) ∅) |||||
+(S Z))))))) ∅) |||||
+(S Z)) ∅))) |||||
+(S Z)) ∅))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) ∅)) |||||
+(S Z)))))))))) |||||
+(S Z)))))))))) |||||
+(S Z)))))))))) |||||
+(S Z)) |||||
+(S Z)) ∅)) |||||
+(S Z)) ∅))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) ∅) |||||
+(S Z))) ∅) |||||
+(S Z))) ∅) |||||
+(S Z))) ∅)) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z)))))) |||||
+(S Z))))))) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) ∅) |||||
+(S Z)) ∅) |||||
+(S Z)) ∅) |||||
+(S Z)) ∅)) |||||
+(S Z)) ∅)) |||||
+(S Z))) |||||
+(S Z))) ∅) |||||
+(S Z))) ∅) |||||
+(S Z))) ∅) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)) ∅) |||||
+(S Z)) ∅) |||||
+(S Z)) ∅) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z))))) |||||
+(S Z)) ∅) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z)))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) |||||
+(S Z)))))) | ||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) |||||
+(S Z)))) | ||||
+(S Z)))) | ||||
+(S Z)))) | ||||
+(S Z))... | ||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) |||||
+(S Z))) | ||||
+(S Z))) | ||||
+(S Z))) | ||||
+(S Z))) | ||||
+(S Z))) |   ( (: ||||
+(S Z))) |   ( (: ||||
+(S Z))) |   ( (: ||||
+(S Z))) |   ( (: ||||
+(S Z))) |   ( (: ||||
+( (S Z)) |||||
+( (S Z)) |||||
+( (S Z)) |||||
+(S Z)) $R) |||||
+(S Z)) $R) $R)) |   ( (Add ||||
+(S Z)) â) |||||
+(S Z)) â))) |||||
+(S Z)) â)))) |||||
+(S Z)))) |   ( (â· synthesize ||||
+(S Z)))) |   ( (â· synthesize ||||
+(S Z)))) |   ( (â· synthesize ||||
+(S Z)))) |   ( (â· synthesize ||||
+(S Z)))) |   ( (â· synthesize ||||
+(S Z))) |   ( (eq Z ||||
+(S Z))))))) False)) |||||
+(S Z))))))) False)) |||||
+(S Z))))))) False)) |||||
+(S Z))))))) False)) |||||
+(S Z))))))) False)) |||||
+(S Z))))))) False)) |||||
+(S Z))) False)) |||||
+(S Z))) False)) |||||
+(S Z))) False)) |||||
+(S Z))) False)) |||||
+(S Z))) False)) |||||
+(S Z))) False)) |||||
+(S Z))))))) False)) kb rb |||||
+(S Z))))))) False)) kb rb |||||
+(S Z))) False)) kb rb |||||
+(S Z))) False)) kb rb |||||
+(S Z))))))) False)) kb rb Z)) |||||
+(S Z))))))) False)) kb rb Z)) |||||
+(S Z))))))) False)) kb rb Z))) |||||
+(S Z))))))) False)) kb rb Z))) |||||
+(S Z))) False)) kb rb Z)) |||||
+(S Z))) False)) kb rb Z)) |||||
+(S Z))) False)) kb rb Z))) |||||
+(S Z))) False)) kb rb Z))) |||||
+(S Z))))))))) kb rb |||||
+(S Z))))) kb rb |||||
+(S Z)))) kb rb |||||
+(S Z)))) kb rb |||||
+(S Z)))) kb rb |||||
+(S Z)))) kb rb |||||
+(S Z)))) kb rb |||||
+(S Z)))) kb rb |||||
+(S Z))))))))) kb rb Z))) |||||
+(S Z))))))))) kb rb Z))) |||||
+(S Z))))))))) kb rb Z))) |||||
+(S Z))))))))) kb rb Z))) |||||
+(S Z))))) kb rb Z))) |||||
+(S Z))))) kb rb Z))) |||||
+(S Z))))) kb rb Z))) |||||
+(S Z))))) kb rb Z))) |||||
+(S Z)))) kb rb Z))) |||||
+(S Z)))) kb rb Z))) |||||
+(S Z)))) kb rb Z))) |||||
+(S Z)))) kb rb Z))) |||||
+(S Z))) kb rb Z)) |   ( (: ZeroLTSucc ||||
+(S Z))))) |   ( (S ||||
+(S Z))) |   ( (S ||||
+(S Z)))) |   ( (Something? ||||
+(S Z)) True)) |||||
+(S Z)) True)) |||||
+(S Z)) True)) |||||
+(S Z)) True)) |||||
+(S Z)) True)) |||||
+(S Z)) True)) |||||
+(S Z))) |   (True ||||
+(S Z)) True)) kb rb |||||
+(S Z)) True)) kb rb |||||
+(S Z)) True)) kb rb Z)) |||||
+(S Z)) True)) kb rb Z)) |||||
+(S Z)) True)) kb rb Z))) |||||
+(S Z)) True)) kb rb Z))) |||||
+(S Z) Z) |||||
+(S Z) Z) |||||
+(S Z)) Z)) |||||
+(S Z)) Z)) | ||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+(T) |||||
+( ("========== Test axiom ==========")) |||||
+("===== Test base rule (built-in type checker) =====") |||||
+( ("============ Test elem ============")) |||||
+( ("========== Test formula ==========")) |||||
+( ("========== Test inductive rule ==========")) |||||
+( ("============ Test insert ============")) |||||
+( ("============ Test insert_uniq ============")) |||||
+("===== Test recursive rule (built-in type checker) =====") |||||
+( ("============ Test sort ============")) |||||
+("===== Test synthesizer ====") |||||
+("===== Test synthesizer ====") |||||
+( ("============ Test uniq ============")) |||||
+( (Then it is definitely Frog)) |||||
+(Tom is really White)) |||||
+(Tom is really White)) | ||||
+(Tom the cat) |||||
+(Tom the cat)) |||||
+(TrinaryConjunctionIntroduction |||||
+(TrinaryConjunctionIntroduction |||||
+(TrinaryConjunctionIntroduction |||||
+(TrinaryConjunctionIntroduction |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(True) |||||
+(Truth_Deduction |||||
+(TupleConcat |||||
+(TupleConcat |||||
+(TupleConcat () |||||
+(TV |||||
+(TV |||||
+(TV |||||
+(TV |||||
+(TV |||||
+(TV |||||
+(TV |||||
+(Type) |||||
+(Type) |||||
+(Type) |||||
+(Type) |||||
+(unify |||||
+(unify* |||||
+(unify* |||||
+(uniq |||||
+(uniq |||||
+( ("Unit Tests")) |||||
+(Untyped 5))) |||||
+(Untyped 5))) | ||||
+(Untyped 5))) |   ( (fmap-i ||||
+(UntypedC |||||
+(UntypedC 10 |||||
+(UntypedC 10 |||||
+(UntypedC 5 |||||
+( (UntypedC 7 |||||
+( (UntypedC 7)) |||||
+(UntypedC 8 |||||
+(VecN String 0)) | ||||
+( (VecN String 0)) |||||
+(VecN String 2)) | ||||
+( (VecN String 2)) |||||
+( (Vec Number |||||
+( (Vec Number Z)) |||||
+(Venus orbit $X au) |||||
+(well-typed |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(WitnessOf |||||
+(wuza 5)) |   ( (10 4) ||||
+(wuza 5)) |   ( (10 4) ||||
+(wuzaL 2 |||||
+(x) |||||
+(x) |||||
+(x) |||||
+(yay) |||||
+(yes) |||||
+(yes) |||||
+( (z)) |||||
+(< Z |||||
+( (:: Z |||||
+(Z) |||||
+( (: ZeroLTSucc |||||
+... | () | |||
+(-> $A $C))) ... | () | |||
+($F1 $C1)))) |   ( (1.0 0.9)) | |||
+($Obj is $Prop) $Obj))) |   (Ball) | |||
+($P Fritz) T) $P)) |   (croaks eat_flies) | |||
+(: $Prf A) Z)) |   ( (: a A)) | |||
+($Q $A) $Qatv... | () | |||
+(:= $R $R2) $R2))) |   (x) | |||
+($Rel $X))) | () | |||
+($Rel $X))) | () | |||
+($SS A_Each $X))) | () | |||
+($SS A_List $X))) | () | |||
+($Who is really green))) |   ( (Sam is really green)) | |||
+(* $X $X))) |   (25) | |||
+(= $X $X) T)) | () | |||
+(-> $X $Y))))) |   ( (-> $_242272 B)) | |||
+(-> $X $Y))) |   ( (-> A B)) | |||
+(+ $X 1)) 2)) |   (3) | |||
+($X might be $P))) |   ( (Sam might be Frog)) | |||
+(- $Y $X))) | () | |||
+( ($Z $Z))))))) |   ( (Link A B)) | |||
+(+ 1 $X))))) |   (3 4 5) | |||
+(+ 1 $X))))) |   (7) | |||
+(> 1 2) 1 2)) |   (2) | |||
+(> 1 2) 1 2)) |   (2) | |||
+(1 2))) |   (1764 1764) | |||
+(+ 1 2)) |   (3) | |||
+(+ 1 2)) |   (3) | |||
+(+ 1 2)) |   (3) | |||
+(1 2 3)) 1)) |   (2) | |||
+(1 2 3))) |   ( ( (1 2 3))) | |||
+(1 2 3 1 2 3 1 2 3 1 2 ... |   ( (1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3... | |||
+(1 2 3)))) |   (2 3 4) | |||
+(1 2 3)))) |   (2 3 4) | |||
+(% 21 17)) |   (4) | |||
+(+ 2 2))) |   ( (ln 4)) | |||
+(+ 2 2))) |   (True False) | |||
+(== 2 3)) |   (False) | |||
+(2 7))) |   (9) | |||
+(- 3 1))) |   (False) | |||
+(* 3 5.5))) |   (18.5) | |||
+(* 3 5)))) |   (True True True) | |||
+(< 4 3))) |   (False) | |||
+(/ 4 6.4))) |   (7.375) | |||
+(4 OK-4)))) |   (OK-3 OK-4) | |||
+(<= 5 4)) |   (False) | |||
+(5 6))) |   ( (5 6)) | |||
+(+ 5 7))) |   (Number) | |||
+(6 Error)))) |   (OK) | |||
+(â $P $Q) $P $Q))) | () | |||
+(â $P $Q) $P $Q))) | () | |||
+(â $P $R)))) | () | |||
+(: a A))) | () | |||
+(â A B)))) | () | |||
+(â A B))) | () | |||
+(â A B))) | () | |||
+(â A B))) | () | |||
+(â A B))) | () | |||
+(A B)))) | () | |||
+(â B C)))) | () | |||
+(â B C))) | () | |||
+(â B C))) | () | |||
+(â B C))) | () | |||
+(â B C))) | () | |||
+(a b c))))) |   (a b c) | |||
+(a b c) ())) |   ( (a b c)) | |||
+(a b c))) |   (a b c) | |||
+(a b c)) x y z))) |   (a b c x y z) | |||
+(abs -10)) |   (10) | |||
+(A B))) |   (True) | |||
+(add-atom &attentional_focus 1)) | () | |||
+(add-atom &belief_events belief1)) | () | |||
+(add-atom &concepts 2)) | () | |||
+(add-atom &goal_events goal1)) | () | |||
+(add-atom &kb_bem A)) | () | |||
+(add-atom &kb_bem A)) | () | |||
+(add-atom &kb_em A)) | () | |||
+(add-atom &kb_em A)) | () | |||
+(add-atom &WU a)) | () | |||
+(add-atom &WU b)) | () | |||
+(Add Something Z)) |   (Something) | |||
+(Add S Z)) |   (S) | |||
+(Add Z Ten)) |   ( (Add Z Ten)) | |||
+(Add Z Z))) |   (T) | |||
+(Add Z Z))) |   (T) | |||
+(Add Z Z))) |   (T) | |||
+(Add Z Z) Z)) |   (T) | |||
+(and True False) True) 1 2)) |   (1) | |||
+(and True True)) |   (True) | |||
+(approxEq 10 10.0001 0.001)) |   (True) | |||
+(approxEq 10 10.0001 1.0e-9)) |   (False) | |||
+(â P... |   (True) | |||
+(&attentional_focus &concepts)) $Num1 $Num1)) |   (1 2) | |||
+(bar 2)) |   (3 4 2 2 2 2 4 4) | |||
+(base_prf)) |   ( (base_prf)) | |||
+(bc_bare A kb_bare rb_bare Z)) |   (A) | |||
+(bc_bem A Z)) |   (A) | |||
+(bc_em A Z)) |   (A) | |||
+(bc_eq A kb_eq Z)) |   (A) | |||
+(B C)))) |   (False) | |||
+(bin)) |   (0 1) | |||
+(bin))) |   (1 2) | |||
+(C D)))) | () | |||
+(ceil 2.4)) |   (3) | |||
+(change-state! &FIFO 45)) |   ( (State  45 $_240354)) | |||
+(change-state! &state-active inactive))) | () | |||
+(clamp 2 0 1)) |   (1 1) | |||
+(color) $X) $X)) |   (green yellow red) | |||
+(color)) |   (green yellow red) | |||
+(color)) |   (green yellow red) | |||
+(Color of Planet $Obj is $Prop))) | () | |||
+(Color of Planet $Obj is $Prop))) | () | |||
+(conditional-probability-consistency 0.2 0.3 1)) |   (True) | |||
+(conditional-probability-consistency 0.3 0.4 0.9)) |   (True) | |||
+(conditional-probability-consistency 0.9 0.6 0.5)) |   (False) | |||
+(confidence->count 0.9)) |   (9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002) | |||
+(Cons 1 Nil)))) |   ( (Cons 1 Nil)) | |||
+(Cons 1 Nil))) |   ( (Cons 1 Nil)) | |||
+(Cons 1 Nil)) |   ( (Cons 1 Nil)) | |||
+(Cons 1 Nil) Nil)) |   (Nil) | |||
+(Cons 1 Nil))) |   (True) | |||
+(Cons 1 Nil)))) |   ( (Vec Number Z)) | |||
+(Cons 2 Nil))) |   ( (Cons 2 Nil)) | |||
+(Cons 2 Nil))))) |   (False) | |||
+(Cons 2 Nil))) |   (Nil) | |||
+(Cons 2 Nil))))) |   (True) | |||
+(Cons 6 Nil))) $T)) |   (Number) | |||
+(Cons 6 Nil)))) |   ( (List Number)) | |||
+(count->confidence 10)) |   (0.9090909090909091 0.9090909090909091 0.9090909090909091) | |||
+(count->confidence 1)) |   (0.5 0.5 0.5) | |||
+(croaks Fritz))) |   ( (stv 0.95 0.85)) | |||
+( ( (curry +) 2) 3)) |   (5) | |||
+( (curry +) 2)) |   ( ( (curry +) 2)) | |||
+( (curry +) 2))) |   ( (-> Number Number)) | |||
+( (curry-a + 2) 3)) |   (5) | |||
+( (curry-a + 2) 3))) |   (Number) | |||
+(curry-a + 2))) |   ( (-> Number Number)) | |||
+( (curry-a is Socrates) Human)) |   (True) | |||
+(deduction_match &self)) | () | |||
+(dropN NilN)) |   ( (dropN NilN)) | |||
+(dup 2)) |   (102 12) | |||
+(dup 2)) |   (102 12) | |||
+(e f g))) |   ( (a b c e f g)) | |||
+(e f g))) |   ( (e f g)) | |||
+(elem 1 â)) |   (False) | |||
+(eqa Z $Z))) |   (T) | |||
+(eq Green Blue)) |   ( (eq Green Blue)) | |||
+(expression without known equalities)) |   ( (expression without known equalities)) | |||
+(f $X) $Y) $Y)) |   ( (* 2 $_189508)) | |||
+(f $X))) $Z)) |   ( (Link A B)) | |||
+(f 1)) |   (1) | |||
+(f 2) $X) $X)) |   ( (g 3)) | |||
+(f 2)) |   (103 103) | |||
+(f 2)) |   (103 103) | |||
+(f 2)) |   (103 103) | |||
+(f)) |   (42) | |||
+(f 42)) |   (42) | |||
+(FA))) | () | |||
+(facF 10)) |   (3628800 3628800 3628800 3628800 3628800 3628800 3628800 3628800 3628800 3628800 3628800 3628800 3... | |||
+(fact 5)) |   (120 120 120 120 120 120 120 120 120 120 120) | |||
+(fact 5)) |   (120 120 120 120 120 120 120 120 120 120 120) | |||
+(f g))))) |   (True True True True) | |||
+(foo))) | () | |||
+(foo 21)) |   (42 441) | |||
+(Frog $X) $Y)) $Y)) | () | |||
+(frog Fritz))) |   ( (stv 0.783 0.68)) | |||
+(Frog Sam)) |   ( (Frog Sam)) | |||
+(frog Sam)) |   (T) | |||
+(fromNumber 0))) |   ( (â A B)) | |||
+(fromNumber 0))) |   ( (â A B)) | |||
+(fromNumber 0))) |   ( (â A B)) | |||
+(fromNumber 0))) |   ( (â B C)) | |||
+(fromNumber 0))) |   ( (â B C)) | |||
+(fromNumber 0))) |   ( (â B C)) | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1))) | () | |||
+(fromNumber 1)) |   ( (S Z)) | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) | () | |||
+(fromNumber 2))) |   (A) | |||
+(fromNumber 2))) |   (A) | |||
+(fromNumber 2))) |   (A) | |||
+(fromNumber 2))) |   (A) | |||
+(fromNumber 2))) |   (A) | |||
+(fromNumber 2))) |   (A) | |||
+(fromNumber 2))) |   ( (â¢ A)) | |||
+(fromNumber 2))) |   ( (â¢ A)) | |||
+(fromNumber 2))) |   ( (: a A)) | |||
+(fromNumber 2))) |   ( (: a A)) | |||
+(fromNumber 2))) |   ( (â A B)) | |||
+(fromNumber 2))) |   ( (â A B)) | |||
+(fromNumber 2))) |   ( (â A B)) | |||
+(fromNumber 2))) |   ( (â A B)) | |||
+(fromNumber 2))) |   ( (â A B)) | |||
+(fromNumber 2))) |   ( (â A B)) | |||
+(fromNumber 3))) | () | |||
+(fromNumber 3))) | () | |||
+(fromNumber 4))) | () | |||
+(fromNumber 4))) | () | |||
+(fromNumber 5))) | () | |||
+(g 2)) |   (102) | |||
+(g 2)) |   (102) | |||
+(g 2)) |   (102) | |||
+(g 42)) |   (True) | |||
+(get-state $X) 1)))) |   ( (State  2 $_78698)) | |||
+(get-state &FIFO)) |   (45) | |||
+(get-state &var)) |   (28) | |||
+(get-state &var)))))) |   ( (State  28 $_474270)) | |||
+(get-token))) |   ( (A B)) | |||
+(get-token))) |   ( (C D)) | |||
+(get-type $V))) |   ( (StateMonad Number)) | |||
+(get-type 5)) |   (Number) | |||
+(get-type Either)) |   (Type) | |||
+(get-type lion1)) |   (Lion) | |||
+(get-type Lion)) |   (Cat) | |||
+(get-type +)) |   ( (-> Number Number Number)) | |||
+(get-type recursive_prf)) | () | |||
+(get-type &self))) |   (False False False False False False False False) | |||
+(get-type &self)) |   (hyperon::space::DynSpace) | |||
+(get-type &state-token)) |   ( (StateMonad Expression)) | |||
+( (. g f) 42)) |   (True False) | |||
+(Goal $Goal)) &state-active) $Goal)) | () | |||
+(Goal lunch-order)) active))) | () | |||
+(Goal lunch-order)))) |   (inactive) | |||
+(Goal lunch-order)))) |   (inactive) | |||
+(Green $Who) $Who)) |   (Sam) | |||
+(Green $Who))) |   (T) | |||
+(Green $Who)) |   (T) | |||
+(Green $X)))) | () | |||
+(Green $X) $X)) |   (Fritz) | |||
+(green $X) $X)) |   ( (ift True Fritz)) | |||
+(green Fritz))) |   ( (stv 0.7047 0.68)) | |||
+(green Fritz)) |   (True) | |||
+(Green Tom) $Tv) $Tv)) |   (F) | |||
+(HumansAreMortal SocratesIsHuman))) |   (False) | |||
+(HumansAreMortal SocratesIsHuman))) |   ( (Mortal Socrates)) | |||
+(HumansAreMortal SocratesIsHuman)))) |   (Type) | |||
+(idi_induction_match &self)) | () | |||
+(if True S F)) | () | |||
+(if True S F)) |   (S) | |||
+(if True S F)) |   (S) | |||
+(if True S F)) |   (S) | |||
+(import! &kb c2_spaces_kb.metta)) | () | |||
+(import! &kb john-carry-flower.kif.metta)) | () | |||
+(import! &kb located.kif.metta)) | () | |||
+(import! &kb orientation.kif.metta)) | () | |||
+(import! &rb "../rule-base.metta")) | () | |||
+(import! &rb "../rule-base.metta")) | () | |||
+(import! &rb "../rule-base.metta")) | () | |||
+(import! &self c2_spaces_kb.metta)) | () | |||
+(import! &self "../../common/Num.metta")) | () | |||
+(import! &self "../../common/Record.metta")) | () | |||
+(import! &self "../../common/Record.metta")) | () | |||
+(import! &self "../common/Record.metta")) | () | |||
+(import! &self EqualityType.metta)) | () | |||
+(import! &self f1_moduleC.metta)) | () | |||
+(import! &self f1_moduleC.metta)) | () | |||
+(import! &self f1_moduleC.metta)) | () | |||
+(import! &self List.metta)) | () | |||
+(import! &self Maybe.metta)) | () | |||
+(import! &self Num.metta)) | () | |||
+(import! &self Unify.metta)) | () | |||
+(in... |   (10 11 12 13 14 15) | |||
+( (inc) 2)) |   ( ( (inc) 2)) | |||
+( (inc) 5)) |   ( ( (inc) 5)) | |||
+(increment)... |   (16 17 18 19 20 21) | |||
+(increment)))) |   (2 3) | |||
+(increment)))) |   (4 5 6) | |||
+(increment)))))) |   (7 8 9) | |||
+(insert 1 â)) |   ( (:: 1 â)) | |||
+(insert 1 â))) |   (True) | |||
+(insert 1 Nil)) |   ( (Cons 1 Nil)) | |||
+(insert 1 Nil)) |   ( (Cons 1 Nil)) | |||
+(insert 2 â))) |   (False) | |||
+(insert 2 â)))) |   (True) | |||
+(insert 3 â)))) |   (False) | |||
+(insert 3 â))))) |   (True) | |||
+(interleave Nil Nil)) |   (Nil) | |||
+(isa $Color color) $Color)) |   (red green blue) | |||
+(is-socrates)) |   ( (curry-a is Socrates)) | |||
+( (is-socrates) Human)) |   ( ( (is-socrates) Human)) | |||
+(Just 10) Nothing)) |   (False) | |||
+(Just 10))) |   (True) | |||
+(Just 20))) |   (True) | |||
+(Just 2))) |   ( (Just 3)) | |||
+(K x)) $R) $R)) |   (x) | |||
+(Left 5))) |   (Either) | |||
+(Left 5)))) |   ( (Either Number)) | |||
+(LeftP 5))) |   ( (EitherP Number)) | |||
+(Link $X $Y $Z))) | () | |||
+(Link $X $Y))))) |   ( (Link $_206026 B)) | |||
+(Link $X $Y))))) |   ( (Link $_291378 B)) | |||
+(Link $X $Y))) |   ( (Link A $_372798)) | |||
+(Link $X $Y))) |   ( (Link A B)) | |||
+(Link $X $Y))) |   ( (Link A B)) | |||
+(Link $X $Y))) |   ( (Link A B)) | |||
+(: Lion $Num1) $Num1)) |   (Cat) | |||
+(+ ln 2))) |   (False) | |||
+(match &attentional_focus $Num1 $Num1)) |   (1) | |||
+(match &concepts $Num1 $Num1)) |   (2) | |||
+(match &WU $Num1 $Num1)) |   (a) | |||
+(max 3 4)) |   (4) | |||
+(maybe-inc Nothing)) |   (Nothing) | |||
+(min 3 4)) |   (3) | |||
+(mortal $A))))) |   ( (mortal man)) | |||
+(Mortal $X) $X)) |   (Socrates Plato) | |||
+(Mortal Plato)) |   ( (Mortal Plato)) | |||
+(Mortal Plato)) |   (T) | |||
+(mortal Plato)))) |   (True) | |||
+(Mortal Plato) T)) |   (T) | |||
+(Mortal Plato)))) |   (Type) | |||
+(Mortal Plato))) |   (Type) | |||
+(Mortal Socrates) T)) |   (T) | |||
+(new-goal-status! lunch-order inactive)) | () | |||
+(new-goal-status! meditation inactive)) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-space))) | () | |||
+(new-state 1))) | () | |||
+(new-state 1) $Tnso)) |   ( (State  1 $_103840)) | |||
+(new-state 2))) |   ( (StateMonad Number)) | |||
+(new-state 42))) | () | |||
+(new-state active))) | () | |||
+(new-state S) V))) |   ( (StateMonad String)) | |||
+( (nop 1))))) | () | |||
+(Nothing))) |   ( (Nothing)) | |||
+(objectTransferred $C $F)... | () | |||
+(of-same-type Color Shape)) |   (T) | |||
+(of-same-type Green Red)) |   (T) | |||
+(orientation JohnsFlower... | () | |||
+(orientation JohnsFlower... | () | |||
+(or True False)) |   (True) | |||
+(pragma! type-check auto)) | () | |||
+(Q_Each $Y)) ... |   (no-match) | |||
+(Q_List $Y)) ... |   (no-match) | |||
+(range 1 1)) | () | |||
+(range 1 10)) |   ( (1 2 3 4 5 6 7 8 9)) | |||
+(range 1 3)) |   ( (1 2)) | |||
+(range 2 6)) |   ( (2 3 4 5)) | |||
+(recursive_prf)) |   ( (recursive_prf)) | |||
+(Refl T42))) |   (True) | |||
+(remove-atom &WU a)) | () | |||
+(: reproduce $Num1) $Num1)) |   ( (-> Lion Lion Lion)) | |||
+(reproduce lion1 lion2)) |   (childlion) | |||
+(Right 3))) |   ( (Right 4)) | |||
+(Right 5)))) |   (Bool) | |||
+(shape))) |   ( ( (shape))) | |||
+(shape)) |   ( (shape)) | |||
+(simple-deduction-strength-formula 0.9 0.6 0.5 0.3 0.4)) |   (0) | |||
+(S K K x)) |   (x) | |||
+(S K K x) x)) |   (T) | |||
+(smallest-intersection-probability 0.9 0.6)) |   (0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.5555555555555556 0.... | |||
+(Something 5))) |   ( (Something 7)) | |||
+(sqr 4)) |   (16) | |||
+(STV 0.1 0.2)))) |   (0.1) | |||
+(STV 0.1 0.2))) |   (0.1) | |||
+(STV 0.1 0.2)))) |   (0.2) | |||
+(STV 0.1 0.2))) |   (0.2) | |||
+(STV 0.1 0.9)))) |   (0.14 0.14 0.14 0.14 0.14 0.14 0.14 0.14) | |||
+(STV 0.1 0.9))) |   (0.14 0.14 0.14 0.14 0.14 0.14 0.14 0.14) | |||
+(STV 0.1 0.9)))) |   (9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002) | |||
+(STV 0.1 0.9))) |   (9.000000000000002 9.000000000000002 9.000000000000002 9.000000000000002) | |||
+(superpose ())))) | () | |||
+(superpose ()))) | () | |||
+(superpose ()))) | () | |||
+(S Z)) $R)) |   (Z) | |||
+(S Z)) $Tv) $Tv))) |   (T) | |||
+(S Z)))) |   (2) | |||
+(S Z))) |   ( (S Z)) | |||
+(S Z) Z)) |   ( (S Z)) | |||
+... |   (T) | |||
+("========== Test axiom ==========")) |   ( ("========== Test axiom ==========")) | |||
+("============ Test elem ============")) |   ( ("============ Test elem ============")) | |||
+("========== Test formula ==========")) |   ( ("========== Test formula ==========")) | |||
+("========== Test inductive rule ==========")) |   ( ("========== Test inductive rule ==========")) | |||
+("============ Test insert ============")) |   ( ("============ Test insert ============")) | |||
+("============ Test insert_uniq ============")) |   ( ("============ Test insert_uniq ============")) | |||
+("============ Test sort ============")) |   ( ("============ Test sort ============")) | |||
+("============ Test uniq ============")) |   ( ("============ Test uniq ============")) | |||
+(Then it is de... | () | |||
+... |   (True) | |||
+("Unit Tests")) |   ( ("Unit Tests")) | |||
+(UntypedC 5))) |   ( (UntypedC 7)) | |||
+(%void% 42)))) |   (42) | |||
+( (%void% 42)))) |   (42) | |||
+(%void% 42)))) |   (yes) | |||
+(%void% 42)))) |   (yes) | |||
+(%void% no-match)))) |   (no-match) | |||
+(WitnessOf $X) $X)))) | () | |||
+(WitnessOf $X) $X)))) | () | |||
+(WitnessOf $X) $X)))) | () | |||
+(x y z))))) |   (a b c x y z) | |||
+... |   (yay) | |||
+(z)) |   ( (z)) | |||
+($P is-a Color) $P)) | () | () |||
+(+ 5 4))) |   (Number) | () |||
+( (6 OK)))) | () | () |||
+(Cons 6 Nil)))) | () | () |||
+( (curry-a + 2) S))) |   (Number) | () |||
+(drop Nil))) | () | () |||
+(frog Fritz)) | () | () |||
+(fromNumber 3))) | () | () |||
+(fromNumber 4))) | () | () |||
+(Human Sam) T)) | () | () |||
+(HumansAreMortal PlatoIsHuman)))) |   (Bool) | () |||
+(Human Socrates)))) | () | () |||
+(incremen... | () | () |||
+(isLeft 5))) |   (Bool) | () |||
+(Left 5)))) | () | () |||
+(Link $X $Y))) | () | () |||
+(Link $X $Y))))) |   ( (Link $_337294 B)) | () |||
+(match &WU $Num1 $Num1)) |   (b) | () |||
+(Mortal Plato) T)) | () | () |||
+( (nop 1)))) | () | () |||
+(Null) 5)))) | () | () |||
+(+ -))) |   (Number) | () |||
+(shape) $X) $X))) | () | () |||
+(= SocratesIsHuman PlatoIsHuman))) |   (Bool) | () |||
+(= SocratesIsHuman SocratesIsMortal))) |   (Bool) | () |||
+(superpose ())) | () | () |||
+(S Z)) $Tv) $Tv)) | () | () |||
+(UntypedC 5)))) | () | () |||
+( (%void% 42)))) |   (42) | () |||
+( (%void% 42)))) |   (42) | () |||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.01) |   (assertEqualToResult "=== Bare Entail ===") |   ("=== Bare Entail ===") | 
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.02) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.03) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.04) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.05) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.06) |   (assertEqualToResult "=== Equality ===") |   ("=== Equality ===") | 
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.07) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.08) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.09) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.10) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.11) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.12) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.13) |   (assertEqualToResult "=== Bare Entail Match ===") |   ("=== Bare Entail Match ===") | 
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.14) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.15) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.16) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.17) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.18) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.19) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.20) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.21) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.22) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.23) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.24) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.25) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.26) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.27](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.27) |   (assertEqualToResult "=== Equality Match ===") |   ("=== Equality Match ===") | 
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.28](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.28) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.29](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.29) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.30](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.30) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.31](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.31) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.32](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.32) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.33](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.33) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.34](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.34) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.35](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.35) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.36](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.36) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.37](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.37) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.38](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.38) |   (assertEqualToResult "=== DTL Equality Match ===") |   ("=== DTL Equality Match ===") | 
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.39](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.39) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.40](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.40) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.41](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.41) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.42](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.42) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.43](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.43) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.44](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.44) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.45](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.45) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.46](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.46) |   (assertEqualToResult ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.47](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.47) |   (assertEqual ||
+| PASS | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.48](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.48) |   (assertEqual ||
+| FAIL | [BACKWARD-CHAINER.BACKWARD-CHAINER-XP.49](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html#BACKWARD-CHAINER.BACKWARD-CHAINER-XP.49) |   (assertEqual ||
+| PASS | [COMMON.EQUALITYTYPETEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html#COMMON.EQUALITYTYPETEST.01) |   (assertEqualToResult ||
+| PASS | [COMMON.EQUALITYTYPETEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.html#COMMON.EQUALITYTYPETEST.02) |   (assertEqualToResult ||
+| PASS | [COMMON.INTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/InTest.metta.html#COMMON.INTEST.01) |   (assertEqual ||
+| PASS | [COMMON.LISTTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.01) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.02) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.03) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.04) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.05) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.06) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.07) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.08) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.09) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.10) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.11) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.12) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.13) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.14) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.15) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.16) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.17) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.18) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.19) |   (assertEqualToResult ||
+| PASS | [COMMON.LISTTEST.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/ListTest.metta.html#COMMON.LISTTEST.20) |   (assertEqualToResult ||
+| PASS | [COMMON.MAYBETEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.01) |   (assertEqualToResult ||
+| PASS | [COMMON.MAYBETEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.02) |   (assertEqualToResult ||
+| PASS | [COMMON.MAYBETEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.03) |   (assertEqualToResult ||
+| PASS | [COMMON.MAYBETEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/MaybeTest.metta.html#COMMON.MAYBETEST.04) |   (assertEqualToResult ||
+| PASS | [COMMON.NUMTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.01) |   (assertEqualToResult ||
+| PASS | [COMMON.NUMTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.02) |   (import! &self) | () | 
+| PASS | [COMMON.NUMTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.03) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.04) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.05) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.06) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.07) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.08) |   (assertEqual ||
+| FAIL | [COMMON.NUMTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.09) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.10) |   (assertEqual ||
+| PASS | [COMMON.NUMTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.11) |   (assertEqual ||
+| FAIL | [COMMON.NUMTEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/NumTest.metta.html#COMMON.NUMTEST.12) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.01) |   (import! &self) | () | 
+| PASS | [COMMON.ORDEREDSETTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.02) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.03) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.04) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.05) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.06) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.07) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.08) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.09) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.10) |   (assertEqual ||
+| PASS | [COMMON.ORDEREDSETTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.11) |   (assertEqual ||
+| FAIL | [COMMON.ORDEREDSETTEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/OrderedSetTest.metta.html#COMMON.ORDEREDSETTEST.12) |   (assertEqual ||
+| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.01) |   (import! &self) | () | 
+| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.02) |   (import! &self) | () | 
+| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.03) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.04) |   (assertEqualToResult "===== Test synthesizer ====") |   ("===== Test synthesizer ====") | 
+| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.05) |   (assertEqual ||
+| PASS | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.06) |   (assertEqual ||
+| FAIL | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.07) |   (assertEqualToResult ||
+| FAIL | [DEPENDENT-TYPES.DEDUCTIONDTLTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html#DEPENDENT-TYPES.DEDUCTIONDTLTEST.08) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.01) |   (import! &self) | () | 
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.02) |   (import! &self) | () | 
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.03) |   (assertEqualToResult "===== Test base rule (built-in type checker) =====") |   ("===== Test base rule (built-in type checker) =====") | 
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.04) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.05) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.06) |   (assertEqualToResult "===== Test recursive rule (built-in type checker) =====") |   ("===== Test recursive rule (built-in type checker) =====") | 
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.07) |   (assertEqualToResult ||
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.08) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.09) |   (assertEqualToResult "===== Prove that 2 < 7 (synthesizer) =====") |   ("===== Prove that 2 < 7 (synthesizer) =====") | 
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.10) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.11) |   (assertEqualToResult "===== Prove that 2 < 3 (synthesizer) =====") |   ("===== Prove that 2 < 3 (synthesizer) =====") | 
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.12) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.13) |   (assertEqualToResult "===== Prove that 5 < 7 (synthesizer) =====") |   ("===== Prove that 5 < 7 (synthesizer) =====") | 
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.14) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.15) |   (assertEqualToResult "===== Prove Pâ\x86\\x92\Q using base rule (synthesizer) =====") |   ("===== Prove Pâ\x86\\x92\Q using base rule (synthesizer) =====") | 
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.16) |   (assertEqualToResult ||
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.17) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.18) |   (assertEqualToResult "===== Prove Pâ\x86\\x92\Q using base, recursive and order rules (synthesizer) =====") |   ("===== Prove Pâ\x86\\x92\Q using base, recursive and order rules (synthesizer) =====") | 
+| FAIL | [DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTLTest.metta.html#DEPENDENT-TYPES.IMPLICATIONDIRECTINTRODUCTIONDTLTEST.19) |   (assertEqualToResult ||
+| PASS | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.01) |   (import! &self) | () | 
+| PASS | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.02) |   (import! &self) | () | 
+| PASS | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.03) |   (assertEqualToResult "===== Test synthesizer ====") |   ("===== Test synthesizer ====") | 
+| PASS | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.04) |   (assertEqualToResult ||
+| FAIL | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.05) |   (assertEqualToResult ||
+| FAIL | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.06) |   (assertEqualToResult ||
+| FAIL | [DEPENDENT-TYPES.MODUSPONENSDTLTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html#DEPENDENT-TYPES.MODUSPONENSDTLTEST.07) |   (assertEqualToResult ||
+| PASS | [ENTAIL.DEDUCTIONENTAILTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.metta.html#ENTAIL.DEDUCTIONENTAILTEST.01) |   (import! &self) | () | 
+| FAIL | [ENTAIL.DEDUCTIONENTAILTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/DeductionEntailTest.metta.html#ENTAIL.DEDUCTIONENTAILTEST.02) |   (assertEqualToResult ||
+| PASS | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.01) |   (import! &self) | () | 
+| PASS | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.02) |   (assertEqualToResult ||
+| PASS | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.03) |   (assertEqualToResult ||
+| PASS | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.04) |   (assertEqualToResult ||
+| FAIL | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.05) |   (assertEqualToResult ||
+| PASS | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.06) |   (assertEqualToResult ||
+| FAIL | [ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html#ENTAIL.IMPLICATIONDIRECTINTRODUCTIONENTAILTEST.07) |   (assertEqualToResult ||
+| PASS | [EQUAL.DEDUCTIONEQUALTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html#EQUAL.DEDUCTIONEQUALTEST.01) |   (import! &self) | () | 
+| FAIL | [EQUAL.DEDUCTIONEQUALTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html#EQUAL.DEDUCTIONEQUALTEST.02) |   (assertEqualToResult ||
+| FAIL | [EQUAL.DEDUCTIONEQUALTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/DeductionEqualTest.metta.html#EQUAL.DEDUCTIONEQUALTEST.03) |   (assertEqualToResult ||
+| PASS | [EQUAL.IMPLICATIONDIRECTINTRODUCTIONEQUALTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/equal/ImplicationDirectIntroductionEqualTest.metta.html#EQUAL.IMPLICATIONDIRECTINTRODUCTIONEQUALTEST.01) |   (import! &self) | () | 
+| PASS | [EXPERIMENTS.NON-DETERMINISM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html#EXPERIMENTS.NON-DETERMINISM.01) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.NON-DETERMINISM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html#EXPERIMENTS.NON-DETERMINISM.02) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.01) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.02) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.03) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-superpose.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-SUPERPOSE.04) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.01) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.02) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.03) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.04) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.05) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.06) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.07) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.08) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.09) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.10) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.11) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.12) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.13) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.14) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.01) |   (import! &self) | () | 
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.02) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.03) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.04) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.05) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.06) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.07) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.08) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.09) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.10) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.11) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.12) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST.13) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST-LONGER.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST-LONGER.01) |   (import! &self) | () | 
+| PASS | [EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST-LONGER.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test-longer.metta.html#EXPERIMENTS.SYNTHESIZE-VIA-UNIFY-TEST-LONGER.02) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.01) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.02) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.03) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.04) |   (assertEqualToResult ||
+| FAIL | [EXPERIMENTS.UNIFY-VIA-CASE.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.05) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-CASE.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html#EXPERIMENTS.UNIFY-VIA-CASE.06) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.01) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.02) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.03) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.04) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.05) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.06) |   (assertEqualToResult ||
+| PASS | [EXPERIMENTS.UNIFY-VIA-LET.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.html#EXPERIMENTS.UNIFY-VIA-LET.07) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.01) |   (import! &self) | () | 
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.02) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.03) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.04) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.05) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.06) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.07) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.08) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.09) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.10) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.11) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.12) |   (assertEqualToResult ||
+| PASS | [FORMULA.DEDUCTIONFORMULATEST.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/formula/DeductionFormulaTest.metta.html#FORMULA.DEDUCTIONFORMULATEST.13) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.01) |   (assertEqualToResult "=== Entail ===") |   ("=== Entail ===") | 
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.02) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.03) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.04) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.05) |   (assertEqualToResult "=== Bare entail ===") |   ("=== Bare entail ===") | 
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.06) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.07) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.08) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.09) |   (assertEqualToResult "=== Equality ===") |   ("=== Equality ===") | 
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.10) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.11) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.12) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.13) |   (assertEqualToResult "=== DTL ===") |   ("=== DTL ===") | 
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.14) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.15) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-TEST.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-TEST.16) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.01) |   (assertEqualToResult "=== Entail ===") |   ("=== Entail ===") | 
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.02) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.03) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.04) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.05) |   (assertEqualToResult "=== Bare Entail ===") |   ("=== Bare Entail ===") | 
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.06) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.07) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.08) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.09) |   (assertEqualToResult "=== Equality ===") |   ("=== Equality ===") | 
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.10) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.11) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.12) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.13) |   (assertEqualToResult "=== Bare Entail Match ===") |   ("=== Bare Entail Match ===") | 
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.14) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.15) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.16) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.17) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.18) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.19) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.20) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.21) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.22) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.23) |   (assertEqualToResult "=== Equality Match ===") |   ("=== Equality Match ===") | 
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.24) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.25) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.26) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.27](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.27) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.28](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.28) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.29](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.29) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.30](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.30) |   (assertEqualToResult ||
+| PASS | [FORWARD-CHAINER.FORWARD-CHAINER-XP.31](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.31) |   (assertEqualToResult "=== DTL ===") |   ("=== DTL ===") | 
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.32](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.32) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.33](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.33) |   (assertEqualToResult ||
+| FAIL | [FORWARD-CHAINER.FORWARD-CHAINER-XP.34](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html#FORWARD-CHAINER.FORWARD-CHAINER-XP.34) |   (assertEqualToResult ||
+| PASS | [HOL.LISTTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.metta.html#HOL.LISTTEST.01) |   (import! &self) | () | () |
+| PASS | [HOL.LISTTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/ListTest.metta.html#HOL.LISTTEST.02) |   (assertEqualToResult ||
+| PASS | [HOL.NATTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.metta.html#HOL.NATTEST.01) |   (import! &self) | () | () |
+| PASS | [HOL.NATTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/hol/NatTest.metta.html#HOL.NATTEST.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.04) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.05) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a1_symbols.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.07) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a2_opencoggy.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/a3_twoside.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b1_equal_chain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.06) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.03) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b2_backchain.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.05) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b3_direct.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.06) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.07) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.08) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.09) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.10) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b4_nondeterm.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.11) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.06) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.07) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.09) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.10) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.12) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.13) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.16) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.17) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.18) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.19) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.20) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.21) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.22) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.23) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.24) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.25) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/b5_types_prelim.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.B5-TYPES-PRELIM.26) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.04) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.05) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.06) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.07) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.08) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.09) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.10) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.11) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.12) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.13) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.16) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.17) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.18) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.19) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.20) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.21) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.22) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c1_grounded_basic.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C1-GROUNDED-BASIC.23) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.01) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.03) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.05) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.06) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c2_spaces.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C2-SPACES.07) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.01) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/c3_pln_stv.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.03) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.04) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.05) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.06) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.07) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.08) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.09) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.10) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.11) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.12) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.13) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d1_gadt.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.14) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.06) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.07) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.08) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.09) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.10) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.11) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.12) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.13) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.14) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.15) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.16) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.17) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.18) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.19) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.20) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.21) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.22) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.23](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.23) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.24](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.24) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.25](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.25) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.26](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.26) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.27](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d2_higherfunc.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.27) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.04) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.06) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d3_deptypes.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.07) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.01) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.05) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.06) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.07) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.08) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.09) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.10) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.11) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.12) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.13) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.14) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.15) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.16) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.17) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d4_type_prop.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D4-TYPE-PROP.18) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.D5-AUTO-TYPES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/d5_auto_types.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.D5-AUTO-TYPES.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.02) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e1_kb_write.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E1-KB-WRITE.03) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.04) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.06) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.07) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.10) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.11) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.12) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e2_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.13) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.05) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.06) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.07) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.08) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/e3_match_states.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.09) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01) |   (assertEqualToResult ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.07) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13) |   (assertEqual ||
+| FAIL | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14) |   (assertEqual &m) |   (&m) | 
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.19](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.19) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.20](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.20) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.21](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.21) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.22](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_imports.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.22) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.03) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.05) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.06) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.07) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.09) |   (assertEqualToResult ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.10) |   (assertEqual ||
+| PASS | [HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html#HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.11) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.01) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.02) |   (assertEqual ||
+| FAIL | [HYPERON-METTALOG-SANITY.00-LANG-CASE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.03) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.04) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.05) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.06) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.07) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.08) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.09) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.10) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.11](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.11) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.12](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.12) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.13](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.13) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.14](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.14) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.15](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.15) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.16](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.16) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.00-LANG-CASE.17](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/00_lang_case.metta.html#HYPERON-METTALOG-SANITY.00-LANG-CASE.17) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.01-LANG-INC.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html#HYPERON-METTALOG-SANITY.01-LANG-INC.01) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.01-LANG-INC.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html#HYPERON-METTALOG-SANITY.01-LANG-INC.02) |   (assertEqual ||
+| FAIL | [HYPERON-METTALOG-SANITY.02-CURRIED-PLUS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/02-curried-plus.metta.html#HYPERON-METTALOG-SANITY.02-CURRIED-PLUS.01) |   (assertEqualToResult ||
+| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.01) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.02) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.03) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.04) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/03-soring-via-insert.metta.html#HYPERON-METTALOG-SANITY.03-SORING-VIA-INSERT.05) |   (assertEqual ||
+| FAIL | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.01) |   (assertEqualToResult ||
+| FAIL | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.02) |   (assertEqual ||
+| FAIL | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.03) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/04_match_list_like_space.metta.html#HYPERON-METTALOG-SANITY.04-MATCH-LIST-LIKE-SPACE.04) |   (assertEqual ||
+| FAIL | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.01) |   (assertEqualToResult ||
+| FAIL | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.02) |   (assertEqual ||
+| FAIL | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.03) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta.html#HYPERON-METTALOG-SANITY.05-MATCH-SUPERPOSE-ELEMENT-LIKE-SPACE.04) |   (assertEqual ||
+| PASS | [HYPERON-METTALOG-SANITY.STRUCTURE-TESTS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-mettalog_sanity/structure-tests.metta.html#HYPERON-METTALOG-SANITY.STRUCTURE-TESTS.01) |   (assertEqualToResult ||
+| PASS | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.01) |   (import! &self) | () | 
+| PASS | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.02) |   (assertEqualToResult ||
+| PASS | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.03) |   (assertEqualToResult ||
+| PASS | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.04) |   (assertEqualToResult ||
+| PASS | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.05) |   (assertEqualToResult ||
+| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.06) |   (assertEqualToResult ||
+| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.07) |   (assertEqualToResult ||
+| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.08) |   (assertEqualToResult ||
+| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.09) |   (assertEqualToResult ||
+| FAIL | [JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html#JOHN-CARRY-FLOWER.JOHN-CARRY-FLOWER-TEST.10) |   (assertEqualToResult ||
+| PASS | [LOCATED.LOCATED-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.01) |   (import! &self) | () | 
+| PASS | [LOCATED.LOCATED-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.02) |   (assertEqualToResult ||
+| PASS | [LOCATED.LOCATED-TEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.03) |   (assertEqualToResult ||
+| PASS | [LOCATED.LOCATED-TEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.04) |   (assertEqualToResult ||
+| PASS | [LOCATED.LOCATED-TEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.05) |   (assertEqualToResult ||
+| FAIL | [LOCATED.LOCATED-TEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.06) |   (assertEqualToResult ||
+| FAIL | [LOCATED.LOCATED-TEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.07) |   (assertEqualToResult ||
+| FAIL | [LOCATED.LOCATED-TEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/located/located-test.metta.html#LOCATED.LOCATED-TEST.08) |   (assertEqualToResult ||
+| PASS | [MATCH.DEDUCTIONIMPLICATIONDIRECTINTRODUCTIONMATCHTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html#MATCH.DEDUCTIONIMPLICATIONDIRECTINTRODUCTIONMATCHTEST.01) |   (import! &self) | () | 
+| PASS | [MATCH.DEDUCTIONIMPLICATIONDIRECTINTRODUCTIONMATCHTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html#MATCH.DEDUCTIONIMPLICATIONDIRECTINTRODUCTIONMATCHTEST.02) |   (import! &self) | () | 
+| FAIL | [MATCH.DEDUCTIONIMPLICATIONDIRECTINTRODUCTIONMATCHTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html#MATCH.DEDUCTIONIMPLICATIONDIRECTINTRODUCTIONMATCHTEST.03) |   (assertEqualToResult ||
+| PASS | [MATCH.DEDUCTIONMATCHTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.metta.html#MATCH.DEDUCTIONMATCHTEST.01) |   (import! &self) | () | 
+| FAIL | [MATCH.DEDUCTIONMATCHTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/DeductionMatchTest.metta.html#MATCH.DEDUCTIONMATCHTEST.02) |   (assertEqualToResult ||
+| PASS | [MATCH.IMPLICATIONDIRECTINTRODUCTIONMATCHTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html#MATCH.IMPLICATIONDIRECTINTRODUCTIONMATCHTEST.01) |   (import! &self) | () | 
+| FAIL | [MATCH.IMPLICATIONDIRECTINTRODUCTIONMATCHTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html#MATCH.IMPLICATIONDIRECTINTRODUCTIONMATCHTEST.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.ADD-ATOM-MATCH.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/add_atom_match.metta.html#METTA-MORPH-TESTS.ADD-ATOM-MATCH.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.AND-OR.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/and_or.metta.html#METTA-MORPH-TESTS.AND-OR.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.COLLAPSE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/collapse.metta.html#METTA-MORPH-TESTS.COLLAPSE.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.FACTORIAL.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/factorial.metta.html#METTA-MORPH-TESTS.FACTORIAL.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.IDENTITY.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/identity.metta.html#METTA-MORPH-TESTS.IDENTITY.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.IF.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/if.metta.html#METTA-MORPH-TESTS.IF.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.LETLET.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/letlet.metta.html#METTA-MORPH-TESTS.LETLET.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.metta.html#METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list.metta.html#METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.02) |   (assertEqual ||
+| PASS | [METTA-MORPH-TESTS.LET-SUPERPOSE-LIST2.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/let_superpose_list2.metta.html#METTA-MORPH-TESTS.LET-SUPERPOSE-LIST2.01) |   (assertEqual ||
+| PASS | [METTA-MORPH-TESTS.MATCH-FEVAL.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_feval.metta.html#METTA-MORPH-TESTS.MATCH-FEVAL.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.03) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.05) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.06) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_superposed_spaces.metta.html#METTA-MORPH-TESTS.MATCH-SUPERPOSED-SPACES.07) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.03) |   (assertEqualToResult ||
+| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.05) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.06) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.07) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.08) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MATCH-VOID.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.09) |   (assertEqualToResult ||
+| FAIL | [METTA-MORPH-TESTS.MATCH-VOID.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/match_void.metta.html#METTA-MORPH-TESTS.MATCH-VOID.10) |   (assertEqualToResult ||
+| FAIL | [METTA-MORPH-TESTS.MINNARS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/minnars.metta.html#METTA-MORPH-TESTS.MINNARS.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.MULTIFUNCTION.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/multifunction.metta.html#METTA-MORPH-TESTS.MULTIFUNCTION.01) |   (assertEqualToResult ||
+| FAIL | [METTA-MORPH-TESTS.NALIFIER.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nalifier.metta.html#METTA-MORPH-TESTS.NALIFIER.01) |   (assertEqualToResult ||
+| FAIL | [METTA-MORPH-TESTS.NESTED-PARAMETERS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/nested_parameters.metta.html#METTA-MORPH-TESTS.NESTED-PARAMETERS.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.PEANO.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/peano.metta.html#METTA-MORPH-TESTS.PEANO.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.03) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.05) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.06) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.07) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.08) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SEQUENTIAL-NESTED.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/sequential_nested.metta.html#METTA-MORPH-TESTS.SEQUENTIAL-NESTED.09) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.03) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.05) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.06) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.07) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.STATES-SPACES.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.08) |   (assertEqualToResult ||
+| FAIL | [METTA-MORPH-TESTS.STATES-SPACES.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/states_spaces.metta.html#METTA-MORPH-TESTS.STATES-SPACES.09) |   (assertEqual ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.03) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.05) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.06) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERCOLLAPSE.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/supercollapse.metta.html#METTA-MORPH-TESTS.SUPERCOLLAPSE.07) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.03) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.SUPERPOSE-NESTED.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/superpose_nested.metta.html#METTA-MORPH-TESTS.SUPERPOSE-NESTED.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types.metta.html#METTA-MORPH-TESTS.TYPES.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES2.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES2.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.02) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES2.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.03) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES2.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.04) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES2.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types2.metta.html#METTA-MORPH-TESTS.TYPES2.05) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.TYPES3.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/types3.metta.html#METTA-MORPH-TESTS.TYPES3.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.ZEROARGS.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/zeroargs.metta.html#METTA-MORPH-TESTS.ZEROARGS.01) |   (assertEqualToResult ||
+| PASS | [METTA-MORPH-TESTS.ZEROARGS.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/metta-morph_tests/zeroargs.metta.html#METTA-MORPH-TESTS.ZEROARGS.02) |   (assertEqualToResult ||
+| PASS | [ORIENTATION.ORIENTATION-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.01) |   (import! &self) | () | 
+| PASS | [ORIENTATION.ORIENTATION-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.02) |   (assertEqualToResult ||
+| PASS | [ORIENTATION.ORIENTATION-TEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.03) |   (assertEqualToResult ||
+| PASS | [ORIENTATION.ORIENTATION-TEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.04) |   (assertEqualToResult ||
+| PASS | [ORIENTATION.ORIENTATION-TEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.05) |   (assertEqualToResult ||
+| PASS | [ORIENTATION.ORIENTATION-TEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.06) |   (assertEqualToResult ||
+| FAIL | [ORIENTATION.ORIENTATION-TEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html#ORIENTATION.ORIENTATION-TEST.07) |   (assertEqualToResult ||
+| PASS | [SUBTYPING.SUBTYPING-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/subtyping/subtyping-test.metta.html#SUBTYPING.SUBTYPING-TEST.01) |   (assertEqual ||
+| PASS | [SYNTHESIS.UNIFYTEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.01) |   (assertEqualToResult ||
+| FAIL | [SYNTHESIS.UNIFYTEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.02) |   (assertEqualToResult ||
+| FAIL | [SYNTHESIS.UNIFYTEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.03) |   (assertEqualToResult ||
+| FAIL | [SYNTHESIS.UNIFYTEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/synthesis/UnifyTest.metta.html#SYNTHESIS.UNIFYTEST.04) |   (assertEqualToResult ||
+| PASS | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.01) |   (import! &self) | () | 
+| PASS | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.02) |   (assertEqualToResult ||
+| PASS | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.03) |   (assertEqualToResult ||
+| PASS | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.04) |   (assertEqualToResult ||
+| PASS | [TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html#TRUTHVALUE.EVIDENTIALTRUTHVALUETEST.05) |   (assertEqualToResult ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.01) |   (import! &self) | () | 
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.02) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.03) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.04](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.04) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.05](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.05) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.06](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.06) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.07](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.07) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.08](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.08) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.09](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.09) |   (assertEqual ||
+| PASS | [TRUTHVALUE.TRUTHVALUETEST.10](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/interp_88/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html#TRUTHVALUE.TRUTHVALUETEST.10) |   (assertEqual ||
 
 
 
 
 Test Results:
-358 Passed,
-158 Failed,
-516 Total,
-69.38% Passed
+494 Passed,
+136 Failed,
+630 Total,
+78.41% Passed
  
 ## Installation Guide
 
