@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.metta')
+1=[(10 4), (10 5)]
+2=[()]
+3=0.12user 0.00system 0:00.13elapsed 99%CPU (0avgtext+0avgdata 33220maxresident)k
+3=0inputs+0outputs (0major+3514minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.metta', 1, [[10, 4], ',', [10, 5]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.metta', 2, [[]]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[wuza,X],['let*',[[Y,[*,2,X]],[Z,[superpose,[4,5]]]],[Y,Z]])
+</span><span class="ansi38-255165000">  (= 
+    (wuza $X) 
+    (let* 
+      ( ($Y 
+          (* 2 $X)) 
+        ($Z 
+          (superpose 
+            (4 5)))) 
+      ($Y $Z)))
+</span>
+
+<span class="ansi38-000068000">!(wuza 5)
+
+</span>; Evaluation took 0.430 ms. (430.00 microseconds) 
+<span class="ansi33">  (10 4)
+
+</span>; Evaluation took 1.02 ms.
+<span class="ansi33">  (10 5)
+
+</span><span class="ansi36">
+! (assertEqualToResult 
+    (wuza 5) 
+    ( (10 4) 
+      (10 5)))
+(@ ! 
+  (assertEqual 
+    ( (10 4) 
+      (10 5)) 
+    ( (10 4) 
+      (10 5))))
+write_pass_fail_result("METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.101",exec,[wuza,5],'PASS',[[10,4],[10,5]],[[10,4],[10,5]])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(assertEqual 
+  (wuza 5) 
+  (superpose 
+    ( (10 4) 
+      (10 5))))
+
+</span><h3 id="METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.01">;; METTA-MORPH-TESTS.LET-SUPERPOSE-LIST.01</h3>
+; 
+; EVAL TEST
+; took 0.824 ms. (824.30 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (10 4) 
+      (10 5)) 
+    ( (10 4) 
+      (10 5))))
+</span>        -->(0,'&self',[wuza,5],depth(2))
+          -->(1,'&self',['let*',[[_439030,[*,2,5]],[_439066,[superpose,[4,5]]]],[_439030,_439066]],depth(3))
+              -->(2,'&self',['let*',[[_439030,[*,2,5]],[_439066,4]],[_439030,_439066]],depth(5))
+                  -->(3,'&self',[*,2,5],depth(7))
+                  <--(3,retval(10))
+                  -->(4,'&self',['let*',[[_439066,4]],[10,_439066]],depth(7))
+                      -->(5,'&self',['let*',[],[10,4]],depth(9))
+                          -->(6,'&self',[10,4],depth(11))
+                      <--(5,retval([10,4]))
+                        -->(7,'&self',[10,4],depth(10))
+                  <--(4,retval([10,4]))
+                    -->(8,'&self',[10,4],depth(8))
+              <--(2,retval([10,4]))
+                -->(9,'&self',[10,4],depth(6))
+            -->(10,'&self',[10,4],depth(4))
+              -->(11,'&self',['let*',[[_439030,[*,2,5]],[_439066,5]],[_439030,_439066]],depth(5))
+                  -->(12,'&self',[*,2,5],depth(7))
+                  <--(12,retval(10))
+                  -->(13,'&self',['let*',[[_439066,5]],[10,_439066]],depth(7))
+                      -->(14,'&self',['let*',[],[10,5]],depth(9))
+                          -->(15,'&self',[10,5],depth(11))
+                      <--(14,retval([10,5]))
+                        -->(16,'&self',[10,5],depth(10))
+                  <--(13,retval([10,5]))
+                    -->(17,'&self',[10,5],depth(8))
+              <--(11,retval([10,5]))
+                -->(18,'&self',[10,5],depth(6))
+          <--(1,retval([10,5]))
+            -->(19,'&self',[10,5],depth(4))
+        <--(0,retval(['let*',[[_439288,[*,2,5]],[_439324,[superpose,[4,5]]]],[_439288,_439324]]))
+        -->(20,'&self',[superpose,[[10,4],[10,5]]],depth(2))
+            -->(21,'&self',[10,4],depth(4))
+          -->(22,'&self',[10,4],depth(3))
+            -->(23,'&self',[10,5],depth(4))
+        <--(20,retval([10,5]))
+          -->(24,'&self',[10,5],depth(3))
+; Trace took 3.10 ms.
+; Evaluation took 5.12 ms.
+<span class="ansi33"> Empty
+
+</span><span class="ansi32">% 268,005 inferences, 0.122 CPU in 0.122 seconds (100% CPU, 2188266 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 2
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_3y/metta-morph_tests/let_superpose_list.html" )
+
+</pre>
+</body>
+
+</html>

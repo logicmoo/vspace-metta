@@ -190,3 +190,67 @@ version_info=main_6fe8593d24ddc37ab6ab53c731982bfdb96e345c_20231127123249_with_u
 Mon Dec 4 05:21:50 AM PST 2023
 version_info=main_021f865fe47e7aec198cf20a5591798d4aff7bf7_20231204052150_with_uncommitted_changes
  
+ 
+Mon Dec 4 02:43:35 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204144335_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 02:46:46 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204144646_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 02:47:24 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204144724_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 02:48:40 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204144840_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 02:48:45 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204144845_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 02:53:04 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204145304_with_uncommitted_changes
+ 
+FAILING METTA-MORPH-TESTS.ADD-ATOM-MATCH.01)
+Now FAIL
+Now PASS
+PASSING METTA-MORPH-TESTS.AND-OR.101)
+ 
+Mon Dec 4 02:54:31 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204145431_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 02:58:05 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204145805_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 03:33:38 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204153338_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 03:33:41 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204153341_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 03:36:05 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204153605_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 03:38:14 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204153814_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 03:46:02 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204154602_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 03:49:29 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204154929_with_uncommitted_changes
+ 
+ 
+Mon Dec 4 04:15:38 PM PST 2023
+version_info=main_9a63a8fc612761baa01483096cd1bf659ec95da0_20231204161537_with_uncommitted_changes
+ 

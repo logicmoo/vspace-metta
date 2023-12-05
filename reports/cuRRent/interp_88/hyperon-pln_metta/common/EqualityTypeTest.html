@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta')
+1=[()]
+2=[True]
+3=[(Error T42 BadType)]
+4=0.15user 0.01system 0:00.17elapsed 99%CPU (0avgtext+0avgdata 33416maxresident)k
+4=0inputs+0outputs (0major+3527minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta', 2, ['True']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta', 3, [['Error', 'T42', 'BadType']]).
+
+;;; Import ===
+<span class="ansi38-000068000">!(import! &self EqualityType.metta)
+
+</span>      -->(0,'&self',['import!','&self','EqualityType.metta'],depth(1))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta')
+;; Define various subterms
+;;; Define (homogeneous) equality type, also called propositional equality
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,===,[->,A,A,'Type']])
+</span><span class="ansi38-255165000">  (: === 
+    (-> $A $A Type))
+</span>
+
+;; Define Refl, the reflexivity constructor of ===
+;;
+;; Note that to define Refl properly we'd need
+;;
+;; (: Refl (-> (: $x $a) (=== $x $x)))
+;;
+;; which is not possible as inlining (: $x $a) is not supported yet.
+;; Instead we define it as
+;;
+;; (: Refl (-> $x (=== $x $x)))
+;;
+;; However that requires to use a workaround consisting of assigning
+;; to each term a subterm.  Such as
+;;
+;; (: Term42 42)
+;;
+;; allowing us to use Refl as follows
+;;
+;; (Refl Term42)
+;;
+;; the proof by reflexivity of
+;;
+;; (=== 42 42)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Refl',[->,X,[===,X,X]]])
+</span><span class="ansi38-255165000">  (: Refl 
+    (-> $X 
+      (=== $X $X)))
+</span>
+
+      <--(0,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>;; What about
+;;
+;; (: Refl (=== $x $x))
+;;
+;; ?
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'TTrue','True'])
+</span><span class="ansi38-255165000">  (: TTrue True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'T42',42])
+</span><span class="ansi38-255165000">  (: T42 42)
+</span>
+
+;; Define dummy functions to type check equality type
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foo,[->,[===,42,42],'Bool']])
+</span><span class="ansi38-255165000">  (: foo 
+    (-> 
+      (=== 42 42) Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[foo,Prf],'True')
+</span><span class="ansi38-255165000">  (= 
+    (foo $Prf) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,bar,[->,[===,'True','True'],'Bool']])
+</span><span class="ansi38-255165000">  (: bar 
+    (-> 
+      (=== True True) Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[bar,Prf],'True')
+</span><span class="ansi38-255165000">  (= 
+    (bar $Prf) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,baz,[->,[===,42,'True'],'Bool']])
+</span><span class="ansi38-255165000">  (: baz 
+    (-> 
+      (=== 42 True) Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[baz,Prf],'False')
+</span><span class="ansi38-255165000">  (= 
+    (baz $Prf) False)
+</span>
+
+;; Test equality type
+<span class="ansi38-000068000">!(foo 
+  (Refl T42))
+
+</span>      -->(1,'&self',[foo,['Refl','T42']],depth(1))
+          -->(2,'&self',['Refl','T42'],depth(3))
+<span class="ansi33"> True
+
+</span>      <--(1,retval('True'))
+<span class="ansi36">
+! (assertEqualToResult 
+    (foo 
+      (Refl T42)) 
+    (True))
+(@ ! 
+  (assertEqual 
+    (True) 
+    (True)))
+write_pass_fail_result("COMMON.EQUALITYTYPETEST.102",exec,[foo,['Refl','T42']],'PASS',['True'],['True'])
+
+</span>
+
+--------------------------------------------------------------------------
+; Should succeed
+<span class="ansi38-000068000">!(bar 
+  (Refl T42))
+
+</span>      -->(3,'&self',[bar,['Refl','T42']],depth(1))
+          -->(4,'&self',['Refl','T42'],depth(3))
+<span class="ansi33"> True
+
+</span>      <--(3,retval('True'))
+<span class="ansi31">
+! (assertEqualToResult 
+    (bar 
+      (Refl T42)) 
+    ( (Error T42 BadType)))
+(@ ! 
+  (assertEqual 
+    (True) 
+    ( (Error T42 BadType))))
+write_pass_fail_result("COMMON.EQUALITYTYPETEST.103",exec,[bar,['Refl','T42']],'FAIL',[['Error','T42','BadType']],['True'])
+
+</span>
+
+--------------------------------------------------------------------------
+; Should fail
+<span class="ansi38-000068000">!(bar 
+  (Refl TTrue))
+
+</span>      -->(5,'&self',[bar,['Refl','TTrue']],depth(1))
+          -->(6,'&self',['Refl','TTrue'],depth(3))
+<span class="ansi33"> True
+
+</span>      <--(5,retval('True'))
+; Should succeed
+<span class="ansi38-000068000">!(baz 
+  (Refl T42))
+
+</span>      -->(7,'&self',[baz,['Refl','T42']],depth(1))
+          -->(8,'&self',['Refl','T42'],depth(3))
+<span class="ansi33"> False
+
+</span>      <--(7,retval('False'))
+<span class="ansi32">% 325,686 inferences, 0.141 CPU in 0.141 seconds (100% CPU, 2306111 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi31">Failures: 1
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/common/EqualityTypeTest.html" )
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi35 { color: #E850A8; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta')
+1=[()]
+2=[(Link A B)]
+3=[(Link A B C)]
+4=[(: (. $proof1 $proof2) (-> Number Bool))]
+5=0.77user 0.00system 0:00.78elapsed 99%CPU (0avgtext+0avgdata 34588maxresident)k
+5=0inputs+0outputs (0major+3854minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta', 2, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta', 3, [['Link', 'A', 'B', 'C']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta', 4, [[:, ['.', Proof1, Proof2], [->, 'Number', 'Bool']]]).
+
+;;; Import module
+<span class="ansi38-000068000">!(import! &self Unify.metta)
+
+</span>    -->(0,'&self',['import!','&self','Unify.metta'],depth(0))
+%~ Unify.metta:1 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/Unify.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/Unify.metta')
+;;; Test unify.
+;;; Should output (Link A B)
+;;; TODO: this should be revised as there is now a unify function in
+;;; the standard library.
+;;; Implement a unifier.  Like with `let` the left term must be an
+;;; Atom, so if it is function it will not be evaluated.  The
+;;; implementation however uses `case`, not `let`, that way it filters
+;;; out terms which have not been fully rewritten.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,unify,[[->,'Atom',A,A,A]])
+</span><span class="ansi38-255165000">(: unify 
+  (-> Atom $A $A $A))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[unify,Lterm,Rterm,Rewrite],[case,Rterm,[[Lterm,Rewrite]]])
+</span><span class="ansi38-255165000">(= 
+  (unify $Lterm $Rterm $Rewrite) 
+  (case $Rterm 
+    ( ($Lterm $Rewrite))))
+</span>
+
+;;; Definition of `unify*`
+;;; Similar to `unify`, but it takes a tuple containing pairs of terms to unify,
+;;; and a rewrite term.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'unify*',[[->,'Atom',A,A]])
+</span><span class="ansi38-255165000">(: unify* 
+  (-> Atom $A $A))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['unify*',Pairs,Rewrite],[case,Pairs,[[[],Rewrite],[Pairs,['let*',[[Head,['car-atom',Pairs]],[Tail,['cdr-atom',Pairs]]],[case,Head,[[[Lterm,Rterm],[unify,Lterm,Rterm,['unify*',Tail,Rewrite]]]]]]]]])
+</span><span class="ansi38-255165000">(= 
+  (unify* $Pairs $Rewrite) 
+  (case $Pairs 
+    ( (() $Rewrite) 
+      ($Pairs 
+        (let* 
+          ( ($Head 
+              (car-atom $Pairs)) 
+            ($Tail 
+              (cdr-atom $Pairs))) 
+          (case $Head 
+            ( ( ($Lterm $Rterm) 
+                (unify $Lterm $Rterm 
+                  (unify* $Tail $Rewrite))))))))))
+</span>
+
+    <--(0,retval('Empty'))
+      -->(0,'&self','Empty',depth(1))
+; Evaluation took 42.06 milliseconds.
+<span class="ansi33">Deterministic: Empty
+
+</span>;;; Base case
+;;; Recursive step
+;; By using a case we guaranty
+;; that ill-formed inputs (non
+;; tuple of pairs) will be
+;; discarded
+<span class="ansi38-000068000">!(unify 
+  (Link $X B) 
+  (Link A $Y) 
+  (Link $X $Y))
+
+</span>    -->(0,'&self',[unify,['Link',_381616,'B'],['Link','A',_381932],['Link',_381616,_381932]],depth(0))
+      -->(1,'&self',[case,['Link','A',_381932],[[['Link',_381616,'B'],['Link',_381616,_381932]]]],depth(1))
+        -->(2,'&self',['Link','A',_381932],depth(2))
+        -->(3,'&self',['Link','A',_388870],depth(2))
+      <--(1,retval(['Link','A',_390192]))
+        -->(1,'&self',['Link','A',_388870],depth(2))
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  Y B) 
+  (=  X $_381616))
+</span>
+(Link A $_388870)
+
+More Solutions? <span class="ansi35"> l
+
+</span>    <--(0,retval([case,['Link','A',_388184],[[['Link',_388214,'B'],['Link',_388214,_388184]]]]))
+<span class="ansi33"> $_380858
+
+</span>;;; Test unify*.
+;;; Unify `Link $x B $z` with `Link A $y $z`, and `$z` with `C`
+;;; Should output (Link A B C)
+<span class="ansi38-000068000">!(unify* 
+  ( ( (Link $X B $Z) 
+      (Link A $Y $Z)) 
+    ($Z C)) 
+  (Link $X $Y $Z))
+
+</span>    -->(0,'&self',['unify*',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']],['Link',_413692,_414292,_413984]],depth(0))
+      -->(1,'&self',[case,[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']],[[[],['Link',_413692,_414292,_413984]],[[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']],['let*',[[_421620,['car-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]]],[_421650,['cdr-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]]]],[case,_421620,[[[_421710,_421716],[unify,_421710,_421716,['unify*',_421650,['Link',_413692,_414292,_413984]]]]]]]]]],depth(1))
+        -->(2,'&self',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']],depth(2))
+          -->(3,'&self',[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],depth(3))
+            -->(4,'&self',['Link',_413692,'B',_413984],depth(4))
+            -->(5,'&self',['Link','A',_414292,_413984],depth(4))
+          -->(6,'&self',[_413984,'C'],depth(3))
+        -->(7,'&self',['let*',[[_423852,['car-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]]],[_423882,['cdr-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]]]],[case,_423852,[[[_423942,_423948],[unify,_423942,_423948,['unify*',_423882,['Link',_413692,_414292,_413984]]]]]]],depth(2))
+          -->(8,'&self',['car-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]],depth(3))
+          <--(8,retval([['Link',_428446,'B',_428458],['Link','A',_428482,_428458]]))
+            -->(8,'&self',[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],depth(4))
+              -->(9,'&self',['Link',_413692,'B',_413984],depth(5))
+              -->(10,'&self',['Link','A',_414292,_413984],depth(5))
+          -->(11,'&self',['let*',[[_423882,['cdr-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]]]],[case,[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[[[_423942,_423948],[unify,_423942,_423948,['unify*',_423882,['Link',_413692,_414292,_413984]]]]]]],depth(3))
+            -->(12,'&self',['cdr-atom',[[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[_413984,'C']]],depth(4))
+            <--(12,retval([[_431746,'C']]))
+              -->(12,'&self',[[_413984,'C']],depth(5))
+                -->(13,'&self',[_413984,'C'],depth(6))
+            -->(14,'&self',['let*',[],[case,[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[[[_423942,_423948],[unify,_423942,_423948,['unify*',[[_413984,'C']],['Link',_413692,_414292,_413984]]]]]]],depth(4))
+              -->(15,'&self',[case,[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],[[[_423942,_423948],[unify,_423942,_423948,['unify*',[[_413984,'C']],['Link',_413692,_414292,_413984]]]]]],depth(5))
+                -->(16,'&self',[['Link',_413692,'B',_413984],['Link','A',_414292,_413984]],depth(6))
+                  -->(17,'&self',['Link',_413692,'B',_413984],depth(7))
+                  -->(18,'&self',['Link','A',_414292,_413984],depth(7))
+                -->(19,'&self',[unify,['Link',_413692,'B',_413984],['Link','A',_414292,_413984],['unify*',[[_434298,'C']],['Link',_434322,_434328,_434298]]],depth(6))
+                  -->(20,'&self',[case,['Link','A',_414292,_413984],[[['Link',_413692,'B',_413984],['unify*',[[_434298,'C']],['Link',_434322,_434328,_434298]]]]],depth(7))
+                    -->(21,'&self',['Link','A',_414292,_413984],depth(8))
+                    -->(22,'&self',['unify*',[[_438242,'C']],['Link',_438266,_438272,_438242]],depth(8))
+                      -->(23,'&self',[case,[[_438242,'C']],[[[],['Link',_438266,_438272,_438242]],[[[_438242,'C']],['let*',[[_439804,['car-atom',[[_438242,'C']]]],[_439834,['cdr-atom',[[_438242,'C']]]]],[case,_439804,[[[_439894,_439900],[unify,_439894,_439900,['unify*',_439834,['Link',_438266,_438272,_438242]]]]]]]]]],depth(9))
+                        -->(24,'&self',[[_438242,'C']],depth(10))
+                          -->(25,'&self',[_438242,'C'],depth(11))
+                        -->(26,'&self',['let*',[[_441706,['car-atom',[[_438242,'C']]]],[_441736,['cdr-atom',[[_438242,'C']]]]],[case,_441706,[[[_441796,_441802],[unify,_441796,_441802,['unify*',_441736,['Link',_441862,_441868,_438242]]]]]]],depth(10))
+                          -->(27,'&self',['car-atom',[[_438242,'C']]],depth(11))
+                          <--(27,retval([_444194,'C']))
+                            -->(27,'&self',[_438242,'C'],depth(12))
+                          -->(28,'&self',['let*',[[_441736,['cdr-atom',[[_438242,'C']]]]],[case,[_438242,'C'],[[[_441796,_441802],[unify,_441796,_441802,['unify*',_441736,['Link',_441862,_441868,_438242]]]]]]],depth(11))
+                            -->(29,'&self',['cdr-atom',[[_438242,'C']]],depth(12))
+                            <--(29,retval([]))
+                              -->(29,'&self',[],depth(13))
+                            -->(30,'&self',['let*',[],[case,[_438242,'C'],[[[_441796,_441802],[unify,_441796,_441802,['unify*',[],['Link',_441862,_441868,_438242]]]]]]],depth(12))
+                              -->(31,'&self',[case,[_438242,'C'],[[[_441796,_441802],[unify,_441796,_441802,['unify*',[],['Link',_441862,_441868,_438242]]]]]],depth(13))
+                                -->(32,'&self',[_438242,'C'],depth(14))
+                                -->(33,'&self',[unify,_438242,'C',['unify*',[],['Link',_447774,_447780,_447786]]],depth(14))
+                                  -->(34,'&self',[case,'C',[[_438242,['unify*',[],['Link',_447774,_447780,_447786]]]]],depth(15))
+                                    -->(35,'&self',['unify*',[],['Link',_450040,_450046,_450052]],depth(16))
+                                      -->(36,'&self',[case,[],[[[],['Link',_450040,_450046,_450052]],[[],['let*',[[_450978,['car-atom',[]]],[_451008,['cdr-atom',[]]]],[case,_450978,[[[_451068,_451074],[unify,_451068,_451074,['unify*',_451008,['Link',_450040,_450046,_450052]]]]]]]]]],depth(17))
+                                        -->(37,'&self',['Link',_452922,_452928,_452934],depth(18))
+                                      <--(36,retval(['Link',_453698,_453704,_453710]))
+                                        -->(36,'&self',['Link',_452922,_452928,_452934],depth(18))
+                                    -->(37,'&self',['Link',_452922,_452928,_452934],depth(16))
+                                -->(38,'&self',['Link',_452922,_452928,_452934],depth(14))
+                              -->(39,'&self',['Link',_452922,_452928,_452934],depth(13))
+                            -->(40,'&self',['Link',_452922,_452928,_452934],depth(12))
+                          -->(41,'&self',['Link',_452922,_452928,_452934],depth(11))
+                        -->(42,'&self',['Link',_452922,_452928,_452934],depth(10))
+                    -->(43,'&self',['Link',_452922,_452928,_452934],depth(8))
+                -->(44,'&self',['Link',_452922,_452928,_452934],depth(6))
+              -->(45,'&self',['Link',_452922,_452928,_452934],depth(5))
+            -->(46,'&self',['Link',_452922,_452928,_452934],depth(4))
+          -->(47,'&self',['Link',_452922,_452928,_452934],depth(3))
+        -->(48,'&self',['Link',_452922,_452928,_452934],depth(2))
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  Y B) 
+  (=  Z $_413984) 
+  (=  X $_413692))
+</span>
+(Link $_452922 $_452928 $_452934)
+
+More Solutions? <span class="ansi35"> l
+
+</span>                                    <--(35,retval([case,[],[[[],['Link',_451792,_451798,_451804]],[[],['let*',[[_451846,['car-atom',[]]],[_451876,['cdr-atom',[]]]],[case,_451846,[[[_451936,_451942],[unify,_451936,_451942,['unify*',_451876,['Link',_451792,_451798,_451804]]]]]]]]]]))
+                                  <--(34,retval(['Link',_454512,_454518,_454524]))
+                                <--(33,retval([case,'C',[[_449378,['unify*',[],['Link',_449414,_449420,_449426]]]]]))
+                              <--(31,retval(['Link',_455184,_455190,_455196]))
+                            <--(30,retval(['Link',_455852,_455858,_455864]))
+                          <--(28,retval(['Link',_456520,_456526,_456532]))
+                        <--(26,retval(['Link',_457188,_457194,_457200]))
+                      <--(23,retval(['Link',_457856,_457862,_457868]))
+                    <--(22,retval([case,[[_440660,'C']],[[[],['Link',_440702,_440708,_440660]],[[[_440660,'C']],['let*',[[_440756,['car-atom',[[_440660,'C']]]],[_440786,['cdr-atom',[[_440660,'C']]]]],[case,_440756,[[[_440846,_440852],[unify,_440846,_440852,['unify*',_440786,['Link',_440702,_440708,_440660]]]]]]]]]]))
+                  <--(20,retval(['Link',_458528,_458534,_458540]))
+                <--(19,retval([case,['Link','A',_437436,_437442],[[['Link',_437472,'B',_437442],['unify*',[[_437514,'C']],['Link',_437538,_437544,_437514]]]]]))
+              <--(15,retval(['Link',_459200,_459206,_459212]))
+            <--(14,retval(['Link',_459868,_459874,_459880]))
+          <--(11,retval(['Link',_460536,_460542,_460548]))
+        <--(7,retval(['Link',_461204,_461210,_461216]))
+      <--(1,retval(['Link',_461872,_461878,_461884]))
+    <--(0,retval([case,[[['Link',_422620,'B',_422632],['Link','A',_422656,_422632]],[_422632,'C']],[[[],['Link',_422620,_422656,_422632]],[[[['Link',_422620,'B',_422632],['Link','A',_422656,_422632]],[_422632,'C']],['let*',[[_422770,['car-atom',[[['Link',_422620,'B',_422632],['Link','A',_422656,_422632]],[_422632,'C']]]],[_422800,['cdr-atom',[[['Link',_422620,'B',_422632],['Link','A',_422656,_422632]],[_422632,'C']]]]],[case,_422770,[[[_422860,_422866],[unify,_422860,_422866,['unify*',_422800,['Link',_422620,_422656,_422632]]]]]]]]]]))
+<span class="ansi33"> $_412918
+
+</span>;;; Test complex unify* query
+;;; After a series of unifications, it should define the function composition `(. g f)`
+;;; having type `(-> Number Bool)`
+<span class="ansi38-000068000">!(unify* 
+  ( ( (: $Ructor 
+        (-> $Premise1 $Premise2 $Conclusion)) 
+      (: -> 
+        (-> $B $C) 
+        (-> $A $B) 
+        (-> $A $C))) 
+    ( (: 
+        ($Ructor $Proof1 $Proof2) $Conclusion) 
+      (: $Term 
+        (-> Number Bool))) 
+    ( (: $Proof1 $Premise1) 
+      (: g 
+        (-> String Bool))) 
+    ( (: $Proof2 $Premise2) 
+      (: f 
+        (-> Number String)))) 
+  (: $Term 
+    (-> Number Bool)))
+
+</span>    -->(0,'&self',['unify*',[[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],[[:,_505234,_502138],[:,g,[->,'String','Bool']]],[[:,_505548,_502464],[:,f,[->,'Number','String']]]],[:,_506212,[->,'Number','Bool']]],depth(0))
+      -->(1,'&self',[case,[[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],[[:,_505234,_502138],[:,g,[->,'String','Bool']]],[[:,_505548,_502464],[:,f,[->,'Number','String']]]],[[[],[:,_506212,[->,'Number','Bool']]],[[[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],[[:,_505234,_502138],[:,g,[->,'String','Bool']]],[[:,_505548,_502464],[:,f,[->,'Number','String']]]],['let*',[[_517614,['car-atom',[[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],[[:,_505234,_502138],[:,g,[->,'String','Bool']]],[[:,_505548,_502464],[:,f,[->,'Number','String']]]]]],[_517644,['cdr-atom',[[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],[[:,_505234,_502138],[:,g,[->,'String','Bool']]],[[:,_505548,_502464],[:,f,[->,'Number','String']]]]]]],[case,_517614,[[[_517704,_517710],[unify,_517704,_517710,['unify*',_517644,[:,_506212,[->,'Number','Bool']]]]]]]]]]],depth(1))
+        -->(2,'&self',[[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],[[:,_505234,_502138],[:,g,[->,'String','Bool']]],[[:,_505548,_502464],[:,f,[->,'Number','String']]]],depth(2))
+          -->(3,'&self',[[:,_501808,[->,_502138,_502464,_502790]],[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]]],depth(3))
+          <--(3,retval(fail))
+          -->(3,'&self',[:,->,[->,_503168,_503452],[->,_503752,_503168],[->,_503752,_503452]],depth(3))
+          <--(3,retval(fail))
+          -->(3,'&self',[->,_503168,_503452],depth(3))
+          -->(4,'&self',[->,_503752,_503168],depth(3))
+          -->(5,'&self',[->,_503752,_503452],depth(3))
+          -->(6,'&self',[[:,[_501808,_505234,_505548],_502790],[:,_506212,[->,'Number','Bool']]],depth(3))
+          -->(7,'&self',[[:,_2306,_2096],[:,g,[->,'String','Bool']]],depth(3))
+          -->(8,'&self',[[:,_2324,_2114],[:,f,[->,'Number','String']]],depth(3))
+        -->(9,'&self',['let*',[[_7270,['car-atom',[[[:,_2066,[->,_2096,_2114,_2132]],[:,->,[->,_2180,_2198],[->,_2228,_2180],[->,_2228,_2198]]],[[:,[_2066,_2306,_2324],_2132],[:,_2360,[->,'Number','Bool']]],[[:,_2306,_2096],[:,g,[->,'String','Bool']]],[[:,_2324,_2114],[:,f,[->,'Number','String']]]]]],[_7300,['cdr-atom',[[[:,_2066,[->,_2096,_2114,_2132]],[:,->,[->,_2180,_2198],[->,_2228,_2180],[->,_2228,_2198]]],[[:,[_2066,_2306,_2324],_2132],[:,_2360,[->,'Number','Bool']]],[[:,_2306,_2096],[:,g,[->,'String','Bool']]],[[:,_2324,_2114],[:,f,[->,'Number','String']]]]]]],[case,_7270,[[[_7360,_7366],[unify,_7360,_7366,['unify*',_7300,[:,_2360,[->,'Number','Bool']]]]]]]],depth(2))
+          -->(10,'&self',['car-atom',[[[:,_2066,[->,_2096,_2114,_2132]],[:,->,[->,_2180,_2198],[->,_2228,_2180],[->,_2228,_2198]]],[[:,[_2066,_2306,_2324],_2132],[:,_2360,[->,'Number','Bool']]],[[:,_2306,_2096],[:,g,[->,'String','Bool']]],[[:,_2324,_2114],[:,f,[->,'Number','String']]]]],depth(3))
+          <--(10,retval([[:,_11752,[->,_11770,_11776,_11782]],[:,->,[->,_11818,_11824],[->,_11842,_11818],[->,_11842,_11824]]]))
+            -->(10,'&self',[[:,_2066,[->,_2096,_2114,_2132]],[:,->,[->,_2180,_2198],[->,_2228,_2180],[->,_2228,_2198]]],depth(4))
+            <--(10,retval(fail))
+        <--(9,retval(fail))
+      <--(1,retval(fail))
+    <--(0,retval([case,[[[:,_5628,[->,_5646,_5652,_5658]],[:,->,[->,_5694,_5700],[->,_5718,_5694],[->,_5718,_5700]]],[[:,[_5628,_5784,_5790],_5658],[:,_5814,[->,'Number','Bool']]],[[:,_5784,_5646],[:,g,[->,'String','Bool']]],[[:,_5790,_5652],[:,f,[->,'Number','String']]]],[[[],[:,_5814,[->,'Number','Bool']]],[[[[:,_5628,[->,_5646,_5652,_5658]],[:,->,[->,_5694,_5700],[->,_5718,_5694],[->,_5718,_5700]]],[[:,[_5628,_5784,_5790],_5658],[:,_5814,[->,'Number','Bool']]],[[:,_5784,_5646],[:,g,[->,'String','Bool']]],[[:,_5790,_5652],[:,f,[->,'Number','String']]]],['let*',[[_6084,['car-atom',[[[:,_5628,[->,_5646,_5652,_5658]],[:,->,[->,_5694,_5700],[->,_5718,_5694],[->,_5718,_5700]]],[[:,[_5628,_5784,_5790],_5658],[:,_5814,[->,'Number','Bool']]],[[:,_5784,_5646],[:,g,[->,'String','Bool']]],[[:,_5790,_5652],[:,f,[->,'Number','String']]]]]],[_6114,['cdr-atom',[[[:,_5628,[->,_5646,_5652,_5658]],[:,->,[->,_5694,_5700],[->,_5718,_5694],[->,_5718,_5700]]],[[:,[_5628,_5784,_5790],_5658],[:,_5814,[->,'Number','Bool']]],[[:,_5784,_5646],[:,g,[->,'String','Bool']]],[[:,_5790,_5652],[:,f,[->,'Number','String']]]]]]],[case,_6084,[[[_6174,_6180],[unify,_6174,_6180,['unify*',_6114,[:,_5814,[->,'Number','Bool']]]]]]]]]]]))
+no results<span class="ansi33"> $_2022
+
+</span><span class="ansi32">% 363,239 inferences, 0.169 CPU in 0.169 seconds (100% CPU, 2143528 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/UnifyTest.html" )
+
+</pre>
+</body>
+
+</html>

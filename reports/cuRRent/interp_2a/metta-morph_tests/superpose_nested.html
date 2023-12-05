@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi35 { color: #E850A8; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta')
+1=[a, b, c]
+2=[a, b, c]
+3=[a, b, c, x, y, z]
+4=[a, b, c, x, y, z]
+5=0.11user 0.01system 0:00.13elapsed 98%CPU (0avgtext+0avgdata 32736maxresident)k
+5=0inputs+0outputs (0major+3450minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta', 1, ['a,', 'b,', c]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta', 2, ['a,', 'b,', c]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta', 3, ['a,', 'b,', 'c,', 'x,', 'y,', z]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta', 4, ['a,', 'b,', 'c,', 'x,', 'y,', z]).
+
+<span class="ansi38-000068000">!(superpose 
+  (a b c))
+
+</span>    -->(0,'&self',[superpose,[a,b,c]],depth(0))
+      -->(1,'&self',a,depth(1))
+; Evaluation took 0.163 ms. (163.10 microseconds) 
+<span class="ansi33">NDet Result(1): a
+
+</span>More Solutions? <span class="ansi35"> l
+
+</span>      -->(2,'&self',b,depth(1))
+; Evaluation took 0.517 ms. (517.40 microseconds) 
+<span class="ansi33">NDet Result(2): b
+
+</span>    <--(0,retval(c))
+      -->(0,'&self',c,depth(1))
+; Evaluation took 0.767 ms. (766.50 microseconds) 
+<span class="ansi33">Last Result(3): c
+
+</span><span class="ansi38-000068000">!(superpose 
+  ( (superpose 
+      (a b c))))
+
+</span>    -->(0,'&self',[superpose,[[superpose,[a,b,c]]]],depth(0))
+      -->(1,'&self',[superpose,[a,b,c]],depth(1))
+        -->(2,'&self',a,depth(2))
+      -->(3,'&self',a,depth(1))
+<span class="ansi33">NDet Result(1): a
+
+</span>More Solutions? <span class="ansi35"> l
+
+</span>        -->(4,'&self',b,depth(2))
+      -->(5,'&self',b,depth(1))
+<span class="ansi33">NDet Result(2): b
+
+</span>      <--(1,retval(c))
+        -->(1,'&self',c,depth(2))
+    <--(0,retval(c))
+      -->(0,'&self',c,depth(1))
+<span class="ansi33">Last Result(3): c
+
+</span><span class="ansi38-000068000">!(superpose 
+  ( (superpose 
+      (a b c)) 
+    (superpose 
+      (x y z))))
+
+</span>    -->(1,'&self',[superpose,[[superpose,[a,b,c]],[superpose,[x,y,z]]]],depth(0))
+      -->(2,'&self',[superpose,[a,b,c]],depth(1))
+        -->(3,'&self',a,depth(2))
+      -->(4,'&self',a,depth(1))
+<span class="ansi33">NDet Result(1): a
+
+</span>More Solutions? <span class="ansi35"> l
+
+</span>        -->(5,'&self',b,depth(2))
+      -->(6,'&self',b,depth(1))
+<span class="ansi33">NDet Result(2): b
+
+</span>      <--(2,retval(c))
+        -->(2,'&self',c,depth(2))
+      -->(3,'&self',c,depth(1))
+<span class="ansi33">NDet Result(3): c
+
+</span>      -->(4,'&self',[superpose,[x,y,z]],depth(1))
+        -->(5,'&self',x,depth(2))
+      -->(6,'&self',x,depth(1))
+<span class="ansi33">NDet Result(4): x
+
+</span>        -->(7,'&self',y,depth(2))
+      -->(8,'&self',y,depth(1))
+<span class="ansi33">NDet Result(5): y
+
+</span>      <--(4,retval(z))
+        -->(4,'&self',z,depth(2))
+    <--(1,retval(z))
+      -->(1,'&self',z,depth(1))
+<span class="ansi33">Last Result(6): z
+
+</span><span class="ansi38-000068000">!(superpose 
+  ( (superpose 
+      (a b c)) x y z))
+
+</span>    -->(2,'&self',[superpose,[[superpose,[a,b,c]],x,y,z]],depth(0))
+      -->(3,'&self',[superpose,[a,b,c]],depth(1))
+        -->(4,'&self',a,depth(2))
+      -->(5,'&self',a,depth(1))
+<span class="ansi33">NDet Result(1): a
+
+</span>More Solutions? <span class="ansi35"> l
+
+</span>        -->(6,'&self',b,depth(2))
+      -->(7,'&self',b,depth(1))
+<span class="ansi33">NDet Result(2): b
+
+</span>      <--(3,retval(c))
+        -->(3,'&self',c,depth(2))
+      -->(4,'&self',c,depth(1))
+<span class="ansi33">NDet Result(3): c
+
+</span>      -->(5,'&self',x,depth(1))
+<span class="ansi33">NDet Result(4): x
+
+</span>      -->(6,'&self',y,depth(1))
+<span class="ansi33">NDet Result(5): y
+
+</span>    <--(2,retval(z))
+      -->(2,'&self',z,depth(1))
+<span class="ansi33">Last Result(6): z
+
+</span><span class="ansi32">% 250,902 inferences, 0.142 CPU in 0.142 seconds (100% CPU, 1767578 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/superpose_nested.html" )
+Script started on 2023-12-04 14:28:41-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 75 swipl --debug=true -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl -- --python=enable --html --repl=false --test-retval=true examples/interp_88/metta-morph_tests/zeroargs.metta --halt=true" TERM="xterm" TTY="/dev/pts/4" COLUMNS="125" LINES="49"]
+^C
+Script done on 2023-12-04 14:28:43-08:00 [COMMAND_EXIT_CODE="130"]
+
+</pre>
+</body>
+
+</html>

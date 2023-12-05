@@ -1,0 +1,727 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-017068017 { color: #114411; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta')
+1=[()]
+2=[()]
+3=0.11user 0.00system 0:00.12elapsed 98%CPU (0avgtext+0avgdata 33136maxresident)k
+3=0inputs+0outputs (0major+3474minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta', 2, [[]]).
+
+;; a functional example
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['maybe-inc',X],[case,X,[[['Just',V],['Just',[+,1,V]]],['Nothing','Nothing']]])
+</span><span class="ansi38-255165000">(= 
+  (maybe-inc $X) 
+  (case $X 
+    ( ( (Just $V) 
+        (Just 
+          (+ 1 $V))) 
+      (Nothing Nothing))))
+</span>
+
+<span class="ansi38-000068000">!(assertEqual 
+  (maybe-inc Nothing) Nothing)
+
+</span>    -->(0,'&self',[assertEqual,['maybe-inc','Nothing'],'Nothing'],depth(0))
+<span class="ansi38-017068017">[assertEqual,['maybe-inc','Nothing'],'Nothing']
+</span><h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.01">;; HYPERON-METTALOG-SANITY.01-LANG-INC.01</h3>
+      -->(1,'&self',['maybe-inc','Nothing'],depth(1))
+        -->(2,'&self',[case,'Nothing',[[['Just',_229722],['Just',[+,1,_229722]]],['Nothing','Nothing']]],depth(2))
+        <--(2,retval('Nothing'))
+          -->(2,'&self','Nothing',depth(3))
+      <--(1,retval([case,'Nothing',[[['Just',_230134],['Just',[+,1,_230134]]],['Nothing','Nothing']]]))
+; 
+; EVAL TEST
+; took 0.621 ms. (620.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Nothing) 
+    (Nothing)))
+</span>    <--(0,retval('Empty'))
+      -->(0,'&self','Empty',depth(1))
+; Evaluation took 2.74 milliseconds.
+%~ catch_warn(apply(plus,[['S',_254722],_254728,_254734])) -->
+%~   error(type_error(integer,['S',_270708]),context(system:plus/3,Context_Kw)).
+<span class="ansi33">Deterministic: Empty
+
+</span>                              -->(35,'&self',['S',_2820],depth(13))
+                          -->(36,'&self',['S',[plus,_2820,_2880]],depth(11))
+                              -->(37,'&self',[plus,_2820,_2880],depth(13))
+<span class="ansi38-000068000">!(assertEqual 
+  (maybe-inc 
+    (Just 2)) 
+  (Just 3))
+
+</span>    -->(0,'&self',[assertEqual,['maybe-inc',['Just',2]],['Just',3]],depth(0))
+<span class="ansi38-017068017">[assertEqual,['maybe-inc',['Just',2]],['Just',3]]
+</span><h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.02">;; HYPERON-METTALOG-SANITY.01-LANG-INC.02</h3>
+      -->(1,'&self',['maybe-inc',['Just',2]],depth(1))
+        -->(2,'&self',[case,['Just',2],[[['Just',_249734],['Just',[+,1,_249734]]],['Nothing','Nothing']]],depth(2))
+          -->(3,'&self',['Just',2],depth(3))
+          <--(3,retval(fail))
+        <--(2,retval(fail))
+      <--(1,retval([case,['Just',2],[[['Just',_250170],['Just',[+,1,_250170]]],['Nothing','Nothing']]]))
+    <--(0,retval(fail))
+%~ error(existence_error(procedure,eval_args80/4),context(efbug/2,_251340))
+no results<span class="ansi33"> $_241256
+
+</span><span class="ansi32">% 248,769 inferences, 0.103 CPU in 0.103 seconds (100% CPU, 2416641 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-mettalog_sanity/01_lang_inc.html" )
+%~ catch_warn(apply(plus,[_279802,_279808,_279814])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+              <--(5,retval([:,'Rec_plus',[===,[plus,['S',_285396],_285402],['S',[plus,_285396,_285402]]]]))
+                -->(38,'&self',[:,'Rec_plus',[===,[plus,['S',_2820],_2880],['S',[plus,_2820,_2880]]]],depth(6))
+                    -->(39,'&self',[===,[plus,['S',_2820],_2880],['S',[plus,_2820,_2880]]],depth(8))
+                        -->(40,'&self',[plus,['S',_2820],_2880],depth(10))
+                            -->(41,'&self',['S',_2820],depth(12))
+ ; (is_cmd_option halt --halt=true True)
+%~ catch_warn(apply(plus,[['S',_326688],_326694,_326700])) -->
+%~   error(type_error(integer,['S',_342674]),context(system:plus/3,Context_Kw)).
+                            -->(42,'&self',['S',_2820],depth(12))
+                        -->(43,'&self',['S',[plus,_2820,_2880]],depth(10))
+                            -->(44,'&self',[plus,_2820,_2880],depth(12))
+
+Script done on 2023-12-04 14:04:16-08:00 [COMMAND_EXIT_CODE="7"]
+%~ catch_warn(apply(plus,[_351134,_351140,_351146])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                        -->(45,'&self',[plus,['S',_2820],_2880],depth(10))
+                            -->(46,'&self',['S',_2820],depth(12))
+%~ catch_warn(apply(plus,[['S',_396986],_396992,_396998])) -->
+%~   error(type_error(integer,['S',_412972]),context(system:plus/3,Context_Kw)).
+                            -->(47,'&self',['S',_2820],depth(12))
+                        -->(48,'&self',['S',[plus,_2820,_2880]],depth(10))
+                            -->(49,'&self',[plus,_2820,_2880],depth(12))
+%~ catch_warn(apply(plus,[_422066,_422072,_422078])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+            <--(4,retval([superpose,[[:,'EqRefl',[===,_3258,_3258]],[:,'Base_plus',[===,[plus,'Z',_3318],_3318]],[:,'Rec_plus',[===,[plus,['S',_3258],_3318],['S',[plus,_3258,_3318]]]]]]))
+        <--(3,retval([:,'Base_plus',[===,[plus,'Z',_95148],_95148]]))
+      <--(2,retval([let,[:,_2428,[===,[plus,'Z',_2464],_2464]],[kb],[:,_2428,[===,[plus,'Z',_2464],_2464]]]))
+;; Prove that 1 + 0 = 1
+;;
+;; They are many possible proof trees, the simplest one seems to be
+;;
+;;                                                   -----------------(Base_plus)
+;;                                                   (=== (plus Z Z) Z)
+;; ----------------------------------(Rec_plus)  -------------------------(UnaryEqStruct)
+;; (=== (plus (S Z) Z) (S (plus Z Z)))           (=== (S (plus Z Z)) (S Z))
+;; -----------------------------------------------------------------------(EqTrans)
+;;                     (=== (plus (S Z) Z) (S Z))
+;;
+;; or in MeTTa format:
+;;
+;; (EqTrans Rec_plus (UnaryEqStructPres Base_plus))
+;;
+;; The second simplest one seems to be
+;;
+;;                                                -----------------(Base_plus)
+;;                                                (=== (plus Z Z) Z)
+;; ----------------------------------(EqRefl)  -------------------------(UnaryEqStruct)  ----------------------------------(Rec_plus)
+;; (=== (plus (S Z) Z) (plus (S Z) Z))         (=== (S (plus Z Z)) (S Z))                (=== (plus (S Z) Z) (S (plus Z Z)))
+;; ------------------------------------------------------------------------------------------------------------------------(BinaryRepl)
+;;                                                (=== (plus (S Z) Z) (S Z))
+;; or in MeTTa format:
+;;
+;; (BinaryRepl EqRefl (UnaryEqStruct Base_plus) Rec_plus) (=== (plus (S Z) Z) (S Z)))
+<span class="ansi38-000068000">!(synthesize 
+  (: $Proof 
+    (=== 
+      (plus 
+        (S Z) Z) 
+      (S Z))) kb rb 
+  (fromNumber 2))
+
+</span>      -->(50,'&self',[synthesize,[:,_492278,[===,[plus,['S','Z'],'Z'],['S','Z']]],kb,rb,[fromNumber,2]],depth(1))
+          -->(51,'&self',['S','Z'],depth(3))
+        -->(52,'&self',[let,[:,_492278,[===,[plus,['S','Z'],'Z'],['S','Z']]],[kb],[:,_492278,[===,[plus,['S','Z'],'Z'],['S','Z']]]],depth(2))
+            -->(53,'&self',[kb],depth(4))
+              -->(54,'&self',[superpose,[[:,'EqRefl',[===,_496290,_496290]],[:,'Base_plus',[===,[plus,'Z',_496350],_496350]],[:,'Rec_plus',[===,[plus,['S',_496290],_496350],['S',[plus,_496290,_496350]]]]]],depth(5))
+                  -->(55,'&self',[:,'EqRefl',[===,_496290,_496290]],depth(7))
+                      -->(56,'&self',[===,_496290,_496290],depth(9))
+                -->(57,'&self',[:,'EqRefl',[===,_496290,_496290]],depth(6))
+                    -->(58,'&self',[===,_496290,_496290],depth(8))
+                  -->(59,'&self',[:,'Base_plus',[===,[plus,'Z',_496350],_496350]],depth(7))
+                      -->(60,'&self',[===,[plus,'Z',_496350],_496350],depth(9))
+                          -->(61,'&self',[plus,'Z',_496350],depth(11))
+%~ catch_warn(apply(plus,['Z',_518374,_518380])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                          -->(62,'&self',[plus,'Z',_3564],depth(11))
+%~ catch_warn(apply(plus,['Z',_23458,_23464])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                -->(63,'&self',[:,'Base_plus',[===,[plus,'Z',_3564],_3564]],depth(6))
+                    -->(64,'&self',[===,[plus,'Z',_3564],_3564],depth(8))
+                        -->(65,'&self',[plus,'Z',_3564],depth(10))
+%~ catch_warn(apply(plus,['Z',_47644,_47650])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                        -->(66,'&self',[plus,'Z',_3564],depth(10))
+%~ catch_warn(apply(plus,['Z',_69946,_69952])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                  -->(67,'&self',[:,'Rec_plus',[===,[plus,['S',_3504],_3564],['S',[plus,_3504,_3564]]]],depth(7))
+                      -->(68,'&self',[===,[plus,['S',_3504],_3564],['S',[plus,_3504,_3564]]],depth(9))
+                          -->(69,'&self',[plus,['S',_3504],_3564],depth(11))
+                              -->(70,'&self',['S',_3504],depth(13))
+%~ catch_warn(apply(plus,[['S',_116210],_116216,_116222])) -->
+%~   error(type_error(integer,['S',_132196]),context(system:plus/3,Context_Kw)).
+                              -->(71,'&self',['S',_3504],depth(13))
+                          -->(72,'&self',['S',[plus,_3504,_3564]],depth(11))
+                              -->(73,'&self',[plus,_3504,_3564],depth(13))
+%~ catch_warn(apply(plus,[_140656,_140662,_140668])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                          -->(74,'&self',[plus,['S',_3504],_3564],depth(11))
+                              -->(75,'&self',['S',_3504],depth(13))
+%~ catch_warn(apply(plus,[['S',_185874],_185880,_185886])) -->
+%~   error(type_error(integer,['S',_201860]),context(system:plus/3,Context_Kw)).
+                              -->(76,'&self',['S',_3504],depth(13))
+                          -->(77,'&self',['S',[plus,_3504,_3564]],depth(11))
+                              -->(78,'&self',[plus,_3504,_3564],depth(13))
+%~ catch_warn(apply(plus,[_210320,_210326,_210332])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+              <--(54,retval([:,'Rec_plus',[===,[plus,['S',_215914],_215920],['S',[plus,_215914,_215920]]]]))
+                -->(79,'&self',[:,'Rec_plus',[===,[plus,['S',_3504],_3564],['S',[plus,_3504,_3564]]]],depth(6))
+                    -->(80,'&self',[===,[plus,['S',_3504],_3564],['S',[plus,_3504,_3564]]],depth(8))
+                        -->(81,'&self',[plus,['S',_3504],_3564],depth(10))
+                            -->(82,'&self',['S',_3504],depth(12))
+%~ catch_warn(apply(plus,[['S',_257840],_257846,_257852])) -->
+%~   error(type_error(integer,['S',_273826]),context(system:plus/3,Context_Kw)).
+                            -->(83,'&self',['S',_3504],depth(12))
+                        -->(84,'&self',['S',[plus,_3504,_3564]],depth(10))
+                            -->(85,'&self',[plus,_3504,_3564],depth(12))
+%~ catch_warn(apply(plus,[_282286,_282292,_282298])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                        -->(86,'&self',[plus,['S',_3504],_3564],depth(10))
+                            -->(87,'&self',['S',_3504],depth(12))
+%~ catch_warn(apply(plus,[['S',_327504],_327510,_327516])) -->
+%~   error(type_error(integer,['S',_343490]),context(system:plus/3,Context_Kw)).
+                            -->(88,'&self',['S',_3504],depth(12))
+                        -->(89,'&self',['S',[plus,_3504,_3564]],depth(10))
+                            -->(90,'&self',[plus,_3504,_3564],depth(12))
+%~ catch_warn(apply(plus,[_351950,_351956,_351962])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+            <--(53,retval([superpose,[[:,'EqRefl',[===,_3942,_3942]],[:,'Base_plus',[===,[plus,'Z',_4002],_4002]],[:,'Rec_plus',[===,[plus,['S',_3942],_4002],['S',[plus,_3942,_4002]]]]]]))
+        <--(52,retval(fail))
+      <--(50,retval([let,[:,_3088,[===,[plus,['S','Z'],'Z'],['S','Z']]],[kb],[:,_3088,[===,[plus,['S','Z'],'Z'],['S','Z']]]]))
+;; Prove that 1 + 1 = 2
+;;
+;; The two simplest proof trees are the same as 1 + 0 = 1.
+;;
+;;
+;; They are many possible proof trees, the simplest is the same as the
+;; one for 1 + 0 = 1, that is:
+;;
+;;                                                         -----------------------(Base_plus)
+;;                                                         (=== (plus Z (S Z) (S Z)
+;; ------------------------------------------(Rec_plus)  ----------------------------(UnaryEqStruct)
+;; (=== (plus (S Z) (S Z)) (S (plus (S Z) Z)))           (=== (S (plus Z Z)) (S (S Z))
+;; ----------------------------------------------------------------------------------(EqTrans)
+;;                          (=== (plus (S Z) (S Z)) (S (S Z)))
+;;
+;; or in MeTTa format:
+;;
+;; (EqTrans Rec_plus (UnaryEqStructPres Base_plus))
+;;
+;; This is due to the left recursive definition of plus.  The proof
+;; tree of 1 + N = (S N) where N is any large number would be equally
+;; simple.
+<span class="ansi38-000068000">!(synthesize 
+  (: $Proof 
+    (=== 
+      (plus 
+        (S Z) 
+        (S Z)) 
+      (S 
+        (S Z)))) kb rb 
+  (fromNumber 2))
+
+</span>      -->(91,'&self',[synthesize,[:,_398374,[===,[plus,['S','Z'],['S','Z']],['S',['S','Z']]]],kb,rb,[fromNumber,2]],depth(1))
+          -->(92,'&self',['S','Z'],depth(3))
+        -->(93,'&self',[let,[:,_398374,[===,[plus,['S','Z'],['S','Z']],['S',['S','Z']]]],[kb],[:,_398374,[===,[plus,['S','Z'],['S','Z']],['S',['S','Z']]]]],depth(2))
+            -->(94,'&self',[kb],depth(4))
+              -->(95,'&self',[superpose,[[:,'EqRefl',[===,_402466,_402466]],[:,'Base_plus',[===,[plus,'Z',_402526],_402526]],[:,'Rec_plus',[===,[plus,['S',_402466],_402526],['S',[plus,_402466,_402526]]]]]],depth(5))
+                  -->(96,'&self',[:,'EqRefl',[===,_402466,_402466]],depth(7))
+                      -->(97,'&self',[===,_402466,_402466],depth(9))
+                -->(98,'&self',[:,'EqRefl',[===,_402466,_402466]],depth(6))
+                    -->(99,'&self',[===,_402466,_402466],depth(8))
+                  -->(100,'&self',[:,'Base_plus',[===,[plus,'Z',_402526],_402526]],depth(7))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+%~ catch_warn(apply(plus,['Z',_424252,_424258])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_446168,_446174])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_468722,_468728])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_490638,_490644])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_19592],_19598,_19604])) -->
+%~   error(type_error(integer,['S',_35578]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_42932,_42938,_42944])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_87254],_87260,_87266])) -->
+%~   error(type_error(integer,['S',_103240]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_110600,_110606,_110612])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_155534],_155540,_155546])) -->
+%~   error(type_error(integer,['S',_171520]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_178880,_178886,_178892])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_223212],_223218,_223224])) -->
+%~   error(type_error(integer,['S',_239198]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_247192,_247198,_247204])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+;; Prove that 1 + 10 = 11
+<span class="ansi38-000068000">!(synthesize 
+  (: $Proof 
+    (=== 
+      (plus 
+        (fromNumber 1) 
+        (fromNumber 10)) 
+      (fromNumber 11))) kb rb 
+  (fromNumber 2))
+
+</span>      -->(0,'&self',[synthesize,[:,_310278,[===,[plus,[fromNumber,1],[fromNumber,10]],[fromNumber,11]]],kb,rb,[fromNumber,2]],depth(1))
+          -->(1,'&self',[fromNumber,1],depth(3))
+            -->(2,'&self',[if,[<=,1,0],'Z',['S',[fromNumber,[-,1,1]]]],depth(4))
+                -->(3,'&self',[<=,1,0],depth(6))
+                  -->(4,'&self',[or,[<,1,0],[==,1,0]],depth(7))
+                      -->(5,'&self',[<,1,0],depth(9))
+                      <--(5,retval('False'))
+                      -->(6,'&self',[==,1,0],depth(9))
+                      <--(6,retval('False'))
+                  <--(4,retval('False'))
+                -->(7,'&self',['S',[fromNumber,[-,1,1]]],depth(6))
+                    -->(8,'&self',[fromNumber,[-,1,1]],depth(8))
+                        -->(9,'&self',[-,1,1],depth(10))
+                        <--(9,retval(0))
+                        -->(10,'&self',[fromNumber,0],depth(10))
+                          -->(11,'&self',[if,[<=,0,0],'Z',['S',[fromNumber,[-,0,1]]]],depth(11))
+                              -->(12,'&self',[<=,0,0],depth(13))
+                                -->(13,'&self',[or,[<,0,0],[==,0,0]],depth(14))
+                                    -->(14,'&self',[<,0,0],depth(16))
+                                    <--(14,retval('False'))
+                                    -->(15,'&self',[==,0,0],depth(16))
+                                    <--(15,retval('True'))
+                                <--(13,retval('True'))
+                  -->(16,'&self',['S','Z'],depth(7))
+              -->(17,'&self',['S','Z'],depth(5))
+          -->(18,'&self',[synthesize,[:,_310278,[===,[plus,['S','Z'],[fromNumber,10]],[fromNumber,11]]],kb,rb,[fromNumber,2]],depth(3))
+              -->(19,'&self',['S','Z'],depth(5))
+            -->(20,'&self',[let,[:,_310278,[===,[plus,['S','Z'],[fromNumber,10]],[fromNumber,11]]],[kb],[:,_310278,[===,[plus,['S','Z'],[fromNumber,10]],[fromNumber,11]]]],depth(4))
+                -->(21,'&self',[kb],depth(6))
+                  -->(22,'&self',[superpose,[[:,'EqRefl',[===,_326844,_326844]],[:,'Base_plus',[===,[plus,'Z',_326904],_326904]],[:,'Rec_plus',[===,[plus,['S',_326844],_326904],['S',[plus,_326844,_326904]]]]]],depth(7))
+                      -->(23,'&self',[:,'EqRefl',[===,_326844,_326844]],depth(9))
+                          -->(24,'&self',[===,_326844,_326844],depth(11))
+                    -->(25,'&self',[:,'EqRefl',[===,_326844,_326844]],depth(8))
+                        -->(26,'&self',[===,_326844,_326844],depth(10))
+                      -->(27,'&self',[:,'Base_plus',[===,[plus,'Z',_326904],_326904]],depth(9))
+                          -->(28,'&self',[===,[plus,'Z',_326904],_326904],depth(11))
+                              -->(29,'&self',[plus,'Z',_326904],depth(13))
+%~ catch_warn(apply(plus,['Z',_348928,_348934])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                              -->(30,'&self',[plus,'Z',_326904],depth(13))
+%~ catch_warn(apply(plus,['Z',_371232,_371238])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                    -->(31,'&self',[:,'Base_plus',[===,[plus,'Z',_326904],_326904]],depth(8))
+                        -->(32,'&self',[===,[plus,'Z',_326904],_326904],depth(10))
+                            -->(33,'&self',[plus,'Z',_326904],depth(12))
+%~ catch_warn(apply(plus,['Z',_394786,_394792])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                            -->(34,'&self',[plus,'Z',_326904],depth(12))
+%~ catch_warn(apply(plus,['Z',_417724,_417730])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                      -->(35,'&self',[:,'Rec_plus',[===,[plus,['S',_326844],_326904],['S',[plus,_326844,_326904]]]],depth(9))
+                          -->(36,'&self',[===,[plus,['S',_326844],_326904],['S',[plus,_326844,_326904]]],depth(11))
+                              -->(37,'&self',[plus,['S',_326844],_326904],depth(13))
+                                  -->(38,'&self',['S',_326844],depth(15))
+%~ catch_warn(apply(plus,[['S',_463996],_464002,_464008])) -->
+%~   error(type_error(integer,['S',_479982]),context(system:plus/3,Context_Kw)).
+                                  -->(39,'&self',['S',_326844],depth(15))
+                              -->(40,'&self',['S',[plus,_326844,_326904]],depth(13))
+                                  -->(41,'&self',[plus,_326844,_326904],depth(15))
+%~ catch_warn(apply(plus,[_489076,_489082,_489088])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                              -->(42,'&self',[plus,['S',_326844],_326904],depth(13))
+                                  -->(43,'&self',['S',_326844],depth(15))
+%~ catch_warn(apply(plus,[['S',_20738],_20744,_20750])) -->
+%~   error(type_error(integer,['S',_36724]),context(system:plus/3,Context_Kw)).
+                                  -->(44,'&self',['S',_5740],depth(15))
+                              -->(45,'&self',['S',[plus,_5740,_5800]],depth(13))
+                                  -->(46,'&self',[plus,_5740,_5800],depth(15))
+%~ catch_warn(apply(plus,[_45178,_45184,_45190])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                  <--(22,retval([:,'Rec_plus',[===,[plus,['S',_50768],_50774],['S',[plus,_50768,_50774]]]]))
+                    -->(47,'&self',[:,'Rec_plus',[===,[plus,['S',_5740],_5800],['S',[plus,_5740,_5800]]]],depth(8))
+                        -->(48,'&self',[===,[plus,['S',_5740],_5800],['S',[plus,_5740,_5800]]],depth(10))
+                            -->(49,'&self',[plus,['S',_5740],_5800],depth(12))
+                                -->(50,'&self',['S',_5740],depth(14))
+%~ catch_warn(apply(plus,[['S',_92054],_92060,_92066])) -->
+%~   error(type_error(integer,['S',_108040]),context(system:plus/3,Context_Kw)).
+                                -->(51,'&self',['S',_5740],depth(14))
+                            -->(52,'&self',['S',[plus,_5740,_5800]],depth(12))
+                                -->(53,'&self',[plus,_5740,_5800],depth(14))
+%~ catch_warn(apply(plus,[_116500,_116506,_116512])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                            -->(54,'&self',[plus,['S',_5740],_5800],depth(12))
+                                -->(55,'&self',['S',_5740],depth(14))
+%~ catch_warn(apply(plus,[['S',_161718],_161724,_161730])) -->
+%~   error(type_error(integer,['S',_177704]),context(system:plus/3,Context_Kw)).
+                                -->(56,'&self',['S',_5740],depth(14))
+                            -->(57,'&self',['S',[plus,_5740,_5800]],depth(12))
+                                -->(58,'&self',[plus,_5740,_5800],depth(14))
+%~ catch_warn(apply(plus,[_186164,_186170,_186176])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                <--(21,retval([superpose,[[:,'EqRefl',[===,_6178,_6178]],[:,'Base_plus',[===,[plus,'Z',_6238],_6238]],[:,'Rec_plus',[===,[plus,['S',_6178],_6238],['S',[plus,_6178,_6238]]]]]]))
+            <--(20,retval(fail))
+          <--(18,retval([let,[:,_5312,[===,[plus,['S','Z'],[fromNumber,10]],[fromNumber,11]]],[kb],[:,_5312,[===,[plus,['S','Z'],[fromNumber,10]],[fromNumber,11]]]]))
+                              <--(12,retval([or,[<,0,0],[==,0,0]]))
+                          <--(11,retval('Z'))
+                        <--(10,retval([if,[<=,0,0],'Z',['S',[fromNumber,[-,0,1]]]]))
+                      -->(59,'&self',[if,[<=,[-,1,1],0],'Z',['S',[fromNumber,[-,[-,1,1],1]]]],depth(9))
+                          -->(60,'&self',[<=,[-,1,1],0],depth(11))
+                              -->(61,'&self',[-,1,1],depth(13))
+                              <--(61,retval(0))
+                              -->(62,'&self',[<=,0,0],depth(13))
+                                -->(63,'&self',[or,[<,0,0],[==,0,0]],depth(14))
+                                    -->(64,'&self',[<,0,0],depth(16))
+                                    <--(64,retval('False'))
+                                    -->(65,'&self',[==,0,0],depth(16))
+                                    <--(65,retval('True'))
+                                <--(63,retval('True'))
+                              <--(62,retval([or,[<,0,0],[==,0,0]]))
+                            -->(66,'&self',[or,[<,[-,1,1],0],[==,[-,1,1],0]],depth(12))
+                                -->(67,'&self',[<,[-,1,1],0],depth(14))
+                                    -->(68,'&self',[-,1,1],depth(16))
+                                    <--(68,retval(0))
+                                    -->(69,'&self',[<,0,0],depth(16))
+                                    <--(69,retval('False'))
+                                    -->(70,'&self',[-,1,1],depth(16))
+                                    <--(70,retval(0))
+                                <--(67,retval('False'))
+                                -->(71,'&self',[==,[-,1,1],0],depth(14))
+                                    -->(72,'&self',[-,1,1],depth(16))
+                                    <--(72,retval(0))
+                                    -->(73,'&self',[==,0,0],depth(16))
+                                    <--(73,retval('True'))
+                                <--(71,retval('True'))
+                            <--(66,retval('True'))
+                          <--(60,retval([or,[<,[-,1,1],0],[==,[-,1,1],0]]))
+                      <--(59,retval('Z'))
+                    <--(8,retval([if,[<=,[-,1,1],0],'Z',['S',[fromNumber,[-,[-,1,1],1]]]]))
+                <--(7,retval(['S','Z']))
+                <--(3,retval([or,[<,1,0],[==,1,0]]))
+            <--(2,retval(['S','Z']))
+          <--(1,retval([if,[<=,1,0],'Z',['S',[fromNumber,[-,1,1]]]]))
+        -->(74,'&self',[let,[:,_2566,[===,[plus,[fromNumber,1],[fromNumber,10]],[fromNumber,11]]],[kb],[:,_2566,[===,[plus,[fromNumber,1],[fromNumber,10]],[fromNumber,11]]]],depth(2))
+            -->(75,'&self',[kb],depth(4))
+              -->(76,'&self',[superpose,[[:,'EqRefl',[===,_204090,_204090]],[:,'Base_plus',[===,[plus,'Z',_204150],_204150]],[:,'Rec_plus',[===,[plus,['S',_204090],_204150],['S',[plus,_204090,_204150]]]]]],depth(5))
+                  -->(77,'&self',[:,'EqRefl',[===,_204090,_204090]],depth(7))
+                      -->(78,'&self',[===,_204090,_204090],depth(9))
+                -->(79,'&self',[:,'EqRefl',[===,_204090,_204090]],depth(6))
+                    -->(80,'&self',[===,_204090,_204090],depth(8))
+                  -->(81,'&self',[:,'Base_plus',[===,[plus,'Z',_204150],_204150]],depth(7))
+                      -->(82,'&self',[===,[plus,'Z',_204150],_204150],depth(9))
+                          -->(83,'&self',[plus,'Z',_204150],depth(11))
+%~ catch_warn(apply(plus,['Z',_225818,_225824])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                          -->(84,'&self',[plus,'Z',_204150],depth(11))
+%~ catch_warn(apply(plus,['Z',_248122,_248128])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                -->(85,'&self',[:,'Base_plus',[===,[plus,'Z',_204150],_204150]],depth(6))
+                    -->(86,'&self',[===,[plus,'Z',_204150],_204150],depth(8))
+                        -->(87,'&self',[plus,'Z',_204150],depth(10))
+%~ catch_warn(apply(plus,['Z',_271676,_271682])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                        -->(88,'&self',[plus,'Z',_204150],depth(10))
+%~ catch_warn(apply(plus,['Z',_293980,_293986])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                  -->(89,'&self',[:,'Rec_plus',[===,[plus,['S',_204090],_204150],['S',[plus,_204090,_204150]]]],depth(7))
+                      -->(90,'&self',[===,[plus,['S',_204090],_204150],['S',[plus,_204090,_204150]]],depth(9))
+                          -->(91,'&self',[plus,['S',_204090],_204150],depth(11))
+                              -->(92,'&self',['S',_204090],depth(13))
+%~ catch_warn(apply(plus,[['S',_340252],_340258,_340264])) -->
+%~   error(type_error(integer,['S',_356238]),context(system:plus/3,Context_Kw)).
+                              -->(93,'&self',['S',_204090],depth(13))
+                          -->(94,'&self',['S',[plus,_204090,_204150]],depth(11))
+                              -->(95,'&self',[plus,_204090,_204150],depth(13))
+%~ catch_warn(apply(plus,[_364698,_364704,_364710])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                          -->(96,'&self',[plus,['S',_204090],_204150],depth(11))
+                              -->(97,'&self',['S',_204090],depth(13))
+%~ catch_warn(apply(plus,[['S',_410550],_410556,_410562])) -->
+%~   error(type_error(integer,['S',_426536]),context(system:plus/3,Context_Kw)).
+                              -->(98,'&self',['S',_204090],depth(13))
+                          -->(99,'&self',['S',[plus,_204090,_204150]],depth(11))
+                              -->(100,'&self',[plus,_204090,_204150],depth(13))
+%~ catch_warn(apply(plus,[_434996,_435002,_435008])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+              <--(76,retval([:,'Rec_plus',[===,[plus,['S',_440590],_440596],['S',[plus,_440590,_440596]]]]))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+%~ catch_warn(apply(plus,[['S',_481534],_481540,_481546])) -->
+%~   error(type_error(integer,['S',_497520]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_504880,_504886,_504892])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_32926],_32932,_32938])) -->
+%~   error(type_error(integer,['S',_48912]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_56266,_56272,_56278])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+;; Prove that 2 + 2 = 4
+;;
+;;
+;;                                                                          --------------------------------------------------(Rec_plus)              ---------------------------------(Base_plus)
+;;                                                                          (=== (plus (S Z) (S (S Z))) (S (plus Z (S (S Z)))))                       (=== (plus Z (S (S Z))) (S (S Z)))
+;; ----------------------------------------------------------(Rec_plus)  ----------------------------------------------------------(UnaryEqStruct) -----------------------------------------(UnaryEqStruct)
+;; (=== (plus (S (S Z)) (S (S Z))) (S (plus (S Z) (S (S Z)))))           (=== (S (plus (S Z) (S (S Z)))) (S (S (plus Z (S (S Z))))))               (=== (S (plus Z (S (S Z)))) (S (S (S Z))))
+;; --------------------------------------------------------------------------------------------------------------------------------(EqTrans)   -------------------------------------------------(UnaryEqStruct)
+;;                                    (=== (plus (S (S Z)) (S (S Z))) (S (S (plus Z (S (S Z))))))                                              (=== (S (S (plus Z (S (S Z))))) (S (S (S (S Z)))))
+;; ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------(EqTrans)
+;;                                                                           (=== (plus (S (S Z)) (S (S Z))) (S (S (S (S Z)))))
+;;
+;; or in MeTTa format:
+;;
+;; (EqTrans (EqTrans Rec_plus (UnaryEqStruct Rec_plus)) (UnaryEqStruct (UnaryEqStruct Base_plus)))
+<span class="ansi38-000068000">!(synthesize 
+  (: $Proof 
+    (=== 
+      (plus 
+        (fromNumber 2) 
+        (fromNumber 2)) 
+      (fromNumber 4))) kb rb 
+  (fromNumber 3))
+
+</span>      -->(0,'&self',[synthesize,[:,_78862,[===,[plus,[fromNumber,2],[fromNumber,2]],[fromNumber,4]]],kb,rb,[fromNumber,3]],depth(1))
+          -->(1,'&self',[fromNumber,2],depth(3))
+            -->(2,'&self',[if,[<=,2,0],'Z',['S',[fromNumber,[-,2,1]]]],depth(4))
+                -->(3,'&self',[<=,2,0],depth(6))
+                  -->(4,'&self',[or,[<,2,0],[==,2,0]],depth(7))
+                      -->(5,'&self',[<,2,0],depth(9))
+                      <--(5,retval('False'))
+                      -->(6,'&self',[==,2,0],depth(9))
+                      <--(6,retval('False'))
+                  <--(4,retval('False'))
+                -->(7,'&self',['S',[fromNumber,[-,2,1]]],depth(6))
+                    -->(8,'&self',[fromNumber,[-,2,1]],depth(8))
+                        -->(9,'&self',[-,2,1],depth(10))
+                        <--(9,retval(1))
+                        -->(10,'&self',[fromNumber,1],depth(10))
+                          -->(11,'&self',[if,[<=,1,0],'Z',['S',[fromNumber,[-,1,1]]]],depth(11))
+                              -->(12,'&self',[<=,1,0],depth(13))
+                                -->(13,'&self',[or,[<,1,0],[==,1,0]],depth(14))
+                                    -->(14,'&self',[<,1,0],depth(16))
+                                    <--(14,retval('False'))
+                                    -->(15,'&self',[==,1,0],depth(16))
+                                    <--(15,retval('False'))
+                                <--(13,retval('False'))
+                              -->(16,'&self',['S',[fromNumber,[-,1,1]]],depth(13))
+                                  -->(17,'&self',[fromNumber,[-,1,1]],depth(15))
+                                      -->(18,'&self',[-,1,1],depth(17))
+                                      <--(18,retval(0))
+                                      -->(19,'&self',[fromNumber,0],depth(17))
+                                        -->(20,'&self',[if,[<=,0,0],'Z',['S',[fromNumber,[-,0,1]]]],depth(18))
+                                            -->(21,'&self',[<=,0,0],depth(20))
+                                              -->(22,'&self',[or,[<,0,0],[==,0,0]],depth(21))
+                                                  -->(23,'&self',[<,0,0],depth(23))
+                                                  <--(23,retval('False'))
+                                                  -->(24,'&self',[==,0,0],depth(23))
+                                                  <--(24,retval('True'))
+                                              <--(22,retval('True'))
+                                -->(25,'&self',['S','Z'],depth(14))
+                            -->(26,'&self',['S','Z'],depth(12))
+                      -->(27,'&self',['S','Z'],depth(9))
+                  -->(28,'&self',['S',['S','Z']],depth(7))
+                      -->(29,'&self',['S','Z'],depth(9))
+              -->(30,'&self',['S',['S','Z']],depth(5))
+                  -->(31,'&self',['S','Z'],depth(7))
+          -->(32,'&self',[synthesize,[:,_78862,[===,[plus,['S',['S','Z']],['S',['S','Z']]],[fromNumber,4]]],kb,rb,[fromNumber,3]],depth(3))
+              -->(33,'&self',['S','Z'],depth(5))
+            -->(34,'&self',[let,[:,_78862,[===,[plus,['S',['S','Z']],['S',['S','Z']]],[fromNumber,4]]],[kb],[:,_78862,[===,[plus,['S',['S','Z']],['S',['S','Z']]],[fromNumber,4]]]],depth(4))
+                -->(35,'&self',[kb],depth(6))
+                  -->(36,'&self',[superpose,[[:,'EqRefl',[===,_103432,_103432]],[:,'Base_plus',[===,[plus,'Z',_103492],_103492]],[:,'Rec_plus',[===,[plus,['S',_103432],_103492],['S',[plus,_103432,_103492]]]]]],depth(7))
+                      -->(37,'&self',[:,'EqRefl',[===,_103432,_103432]],depth(9))
+                          -->(38,'&self',[===,_103432,_103432],depth(11))
+                    -->(39,'&self',[:,'EqRefl',[===,_103432,_103432]],depth(8))
+                        -->(40,'&self',[===,_103432,_103432],depth(10))
+                      -->(41,'&self',[:,'Base_plus',[===,[plus,'Z',_103492],_103492]],depth(9))
+                          -->(42,'&self',[===,[plus,'Z',_103492],_103492],depth(11))
+                              -->(43,'&self',[plus,'Z',_103492],depth(13))
+%~ catch_warn(apply(plus,['Z',_125516,_125522])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                              -->(44,'&self',[plus,'Z',_103492],depth(13))
+%~ catch_warn(apply(plus,['Z',_147820,_147826])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                    -->(45,'&self',[:,'Base_plus',[===,[plus,'Z',_103492],_103492]],depth(8))
+                        -->(46,'&self',[===,[plus,'Z',_103492],_103492],depth(10))
+                            -->(47,'&self',[plus,'Z',_103492],depth(12))
+%~ catch_warn(apply(plus,['Z',_171374,_171380])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                            -->(48,'&self',[plus,'Z',_103492],depth(12))
+%~ catch_warn(apply(plus,['Z',_193678,_193684])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+                      -->(49,'&self',[:,'Rec_plus',[===,[plus,['S',_103432],_103492],['S',[plus,_103432,_103492]]]],depth(9))
+                          -->(50,'&self',[===,[plus,['S',_103432],_103492],['S',[plus,_103432,_103492]]],depth(11))
+                              -->(51,'&self',[plus,['S',_103432],_103492],depth(13))
+                                  -->(52,'&self',['S',_103432],depth(15))
+%~ catch_warn(apply(plus,[['S',_239950],_239956,_239962])) -->
+%~   error(type_error(integer,['S',_255936]),context(system:plus/3,Context_Kw)).
+                                  -->(53,'&self',['S',_103432],depth(15))
+                              -->(54,'&self',['S',[plus,_103432,_103492]],depth(13))
+                                  -->(55,'&self',[plus,_103432,_103492],depth(15))
+%~ catch_warn(apply(plus,[_265030,_265036,_265042])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                              -->(56,'&self',[plus,['S',_103432],_103492],depth(13))
+                                  -->(57,'&self',['S',_103432],depth(15))
+%~ catch_warn(apply(plus,[['S',_310248],_310254,_310260])) -->
+%~   error(type_error(integer,['S',_326234]),context(system:plus/3,Context_Kw)).
+                                  -->(58,'&self',['S',_103432],depth(15))
+                              -->(59,'&self',['S',[plus,_103432,_103492]],depth(13))
+                                  -->(60,'&self',[plus,_103432,_103492],depth(15))
+%~ catch_warn(apply(plus,[_335328,_335334,_335340])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                  <--(36,retval([:,'Rec_plus',[===,[plus,['S',_340922],_340928],['S',[plus,_340922,_340928]]]]))
+                    -->(61,'&self',[:,'Rec_plus',[===,[plus,['S',_103432],_103492],['S',[plus,_103432,_103492]]]],depth(8))
+                        -->(62,'&self',[===,[plus,['S',_103432],_103492],['S',[plus,_103432,_103492]]],depth(10))
+                            -->(63,'&self',[plus,['S',_103432],_103492],depth(12))
+                                -->(64,'&self',['S',_103432],depth(14))
+%~ catch_warn(apply(plus,[['S',_382214],_382220,_382226])) -->
+%~   error(type_error(integer,['S',_398200]),context(system:plus/3,Context_Kw)).
+                                -->(65,'&self',['S',_103432],depth(14))
+                            -->(66,'&self',['S',[plus,_103432,_103492]],depth(12))
+                                -->(67,'&self',[plus,_103432,_103492],depth(14))
+%~ catch_warn(apply(plus,[_406660,_406666,_406672])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                            -->(68,'&self',[plus,['S',_103432],_103492],depth(12))
+                                -->(69,'&self',['S',_103432],depth(14))
+%~ catch_warn(apply(plus,[['S',_451878],_451884,_451890])) -->
+%~   error(type_error(integer,['S',_467864]),context(system:plus/3,Context_Kw)).
+                                -->(70,'&self',['S',_103432],depth(14))
+                            -->(71,'&self',['S',[plus,_103432,_103492]],depth(12))
+                                -->(72,'&self',[plus,_103432,_103492],depth(14))
+%~ catch_warn(apply(plus,[_476324,_476330,_476336])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+                <--(35,retval([superpose,[[:,'EqRefl',[===,_103906,_103906]],[:,'Base_plus',[===,[plus,'Z',_103966],_103966]],[:,'Rec_plus',[===,[plus,['S',_103906],_103966],['S',[plus,_103906,_103966]]]]]]))
+            <--(34,retval(fail))
+          <--(32,retval([let,[:,_102396,[===,[plus,['S',['S','Z']],['S',['S','Z']]],[fromNumber,4]]],[kb],[:,_102396,[===,[plus,['S',['S','Z']],['S',['S','Z']]],[fromNumber,4]]]]))
+                                            <--(21,retval([or,[<,0,0],[==,0,0]]))
+                                        <--(20,retval('Z'))
+                                      <--(19,retval([if,[<=,0,0],'Z',['S',[fromNumber,[-,0,1]]]]))
+                                    -->(73,'&self',[if,[<=,[-,1,1],0],'Z',['S',[fromNumber,[-,[-,1,1],1]]]],depth(16))
+                                        -->(74,'&self',[<=,[-,1,1],0],depth(18))
+                                            -->(75,'&self',[-,1,1],depth(20))
+                                            <--(75,retval(0))
+                                            -->(76,'&self',[<=,0,0],depth(20))
+                                              -->(77,'&self',[or,[<,0,0],[==,0,0]],depth(21))
+                                                  -->(78,'&self',[<,0,0],depth(23))
+                                                  <--(78,retval('False'))
+                                                  -->(79,'&self',[==,0,0],depth(23))
+                                                  <--(79,retval('True'))
+                                              <--(77,retval('True'))
+                                            <--(76,retval([or,[<,0,0],[==,0,0]]))
+                                          -->(80,'&self',[or,[<,[-,1,1],0],[==,[-,1,1],0]],depth(19))
+                                              -->(81,'&self',[<,[-,1,1],0],depth(21))
+                                                  -->(82,'&self',[-,1,1],depth(23))
+                                                  <--(82,retval(0))
+                                                  -->(83,'&self',[<,0,0],depth(23))
+                                                  <--(83,retval('False'))
+                                                  -->(84,'&self',[-,1,1],depth(23))
+                                                  <--(84,retval(0))
+                                              <--(81,retval('False'))
+                                              -->(85,'&self',[==,[-,1,1],0],depth(21))
+                                                  -->(86,'&self',[-,1,1],depth(23))
+                                                  <--(86,retval(0))
+                                                  -->(87,'&self',[==,0,0],depth(23))
+                                                  <--(87,retval('True'))
+                                              <--(85,retval('True'))
+                                          <--(80,retval('True'))
+                                        <--(74,retval([or,[<,[-,1,1],0],[==,[-,1,1],0]]))
+                                    <--(73,retval('Z'))
+                                  <--(17,retval([if,[<=,[-,1,1],0],'Z',['S',[fromNumber,[-,[-,1,1],1]]]]))
+                              <--(16,retval(['S','Z']))
+                              <--(12,retval([or,[<,1,0],[==,1,0]]))
+                          <--(11,retval(['S','Z']))
+                        <--(10,retval([if,[<=,1,0],'Z',['S',[fromNumber,[-,1,1]]]]))
+                      -->(88,'&self',[if,[<=,[-,2,1],0],'Z',['S',[fromNumber,[-,[-,2,1],1]]]],depth(9))
+                          -->(89,'&self',[<=,[-,2,1],0],depth(11))
+                              -->(90,'&self',[-,2,1],depth(13))
+                              <--(90,retval(1))
+                              -->(91,'&self',[<=,1,0],depth(13))
+                                -->(92,'&self',[or,[<,1,0],[==,1,0]],depth(14))
+                                    -->(93,'&self',[<,1,0],depth(16))
+                                    <--(93,retval('False'))
+                                    -->(94,'&self',[==,1,0],depth(16))
+                                    <--(94,retval('False'))
+                                <--(92,retval('False'))
+                          -->(95,'&self',['S',[fromNumber,[-,[-,2,1],1]]],depth(11))
+                              -->(96,'&self',[fromNumber,[-,[-,2,1],1]],depth(13))
+                                  -->(97,'&self',[-,2,1],depth(15))
+                                  <--(97,retval(1))
+                                  -->(98,'&self',[fromNumber,[-,1,1]],depth(15))
+                                      -->(99,'&self',[-,1,1],depth(17))
+                                      <--(99,retval(0))
+                                      -->(100,'&self',[fromNumber,0],depth(17))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+%~ catch_warn(apply(plus,['Z',_38312,_38318])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_60226,_60232])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_82298,_82304])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_104212,_104218])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_148818],_148824,_148830])) -->
+%~   error(type_error(integer,['S',_164804]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_172164,_172170,_172176])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_217130],_217136,_217142])) -->
+%~   error(type_error(integer,['S',_233116]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_240476,_240482,_240488])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_285600],_285606,_285612])) -->
+%~   error(type_error(integer,['S',_301586]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_308946,_308952,_308958])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_353278],_353284,_353290])) -->
+%~   error(type_error(integer,['S',_369264]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_376624,_376630,_376636])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+<span class="ansi32">% 27,183,707 inferences, 7.214 CPU in 7.219 seconds (100% CPU, 3768085 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/hol/NatSimpleTest.metta" 0)
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/hol/NatSimpleTest.html" )
+
+</pre>
+</body>
+
+</html>

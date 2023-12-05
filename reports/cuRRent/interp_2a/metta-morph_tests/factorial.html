@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/factorial.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/factorial.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/factorial.metta')
+1=[3628800]
+2=0.88user 0.01system 0:00.89elapsed 100%CPU (0avgtext+0avgdata 35676maxresident)k
+2=0inputs+0outputs (0major+4121minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/factorial.metta', 1, [3628800]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'If',[[->,'Bool','Atom','Atom','Atom']])
+</span><span class="ansi38-255165000">(: If 
+  (-> Bool Atom Atom Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['If',Cond,Then,Else],[if,Cond,Then,Else])
+</span><span class="ansi38-255165000">(= 
+  (If $Cond $Then $Else) 
+  (if $Cond $Then $Else))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[facF,N],['If',[==,N,0],1,[*,N,[facF,[-,N,1]]]])
+</span><span class="ansi38-255165000">(= 
+  (facF $N) 
+  (If 
+    (== $N 0) 1 
+    (* $N 
+      (facF 
+        (- $N 1)))))
+</span>
+
+<span class="ansi38-000068000">!(facF 10)
+
+</span>    -->(0,'&self',[facF,10],depth(0))
+      -->(1,'&self',['If',[==,10,0],1,[*,10,[facF,[-,10,1]]]],depth(1))
+        -->(2,'&self',[==,10,0],depth(2))
+        <--(2,retval('False'))
+        -->(2,'&self',[*,10,[facF,[-,10,1]]],depth(2))
+        <--(2,retval(fail))
+      <--(1,retval(fail))
+    <--(0,retval(['If',[==,10,0],1,[*,10,[facF,[-,10,1]]]]))
+%~ error(existence_error(procedure,eval_args80/4),context(efbug/2,_252668))
+no results<span class="ansi33"> $_241876
+
+</span><span class="ansi32">% 249,117 inferences, 0.108 CPU in 0.110 seconds (98% CPU, 2303137 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/factorial.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/factorial.html" )
+
+</pre>
+</body>
+
+</html>

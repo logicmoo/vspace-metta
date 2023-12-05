@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi35 { color: #E850A8; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta')
+1=[(Link A B)]
+2=[(-> A B)]
+3=[(Link A B)]
+4=[]
+5=[(Link A B)]
+6=[(Link A B), (Link A C)]
+7=[(Link A B)]
+8=0.24user 0.01system 0:00.25elapsed 99%CPU (0avgtext+0avgdata 32840maxresident)k
+8=0inputs+0outputs (0major+3464minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 1, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 2, [[->, 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 3, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 5, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 6, [['Link', 'A', 'B'], ',', ['Link', 'A', 'C']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 7, [['Link', 'A', 'B']]).
+
+;;; Simple unification
+<span class="ansi38-000068000">!(let 
+  (Link A $Y) 
+  (Link $X B) 
+  (Link $X $Y))
+
+</span>    -->(0,'&self',[let,['Link','A',_224444],['Link',_224744,'B'],['Link',_224744,_224444]],depth(0))
+      -->(1,'&self',['Link',_224744,'B'],depth(1))
+      -->(2,'&self',['Link','A','B'],depth(1))
+    <--(0,retval(['Link','A','B']))
+      -->(0,'&self',['Link','A','B'],depth(1))
+; Evaluation took 0.504 ms. (504.30 microseconds) 
+<span class="ansi33">Deterministic: </span><span class="ansi32">( (=  X A) 
+  (=  Y B))
+</span>
+(Link A B)
+
+;; [(Link A B)]
+;;; Simple unification with the arrow operator
+<span class="ansi38-000068000">!(let 
+  (-> A $Y) 
+  (-> $X B) 
+  (-> $X $Y))
+
+</span>    -->(0,'&self',[let,[->,'A',_251292],[->,_251592,'B'],[->,_251592,_251292]],depth(0))
+      -->(1,'&self',[->,_251592,'B'],depth(1))
+      -->(2,'&self',[->,'A','B'],depth(1))
+    <--(0,retval([->,'A','B']))
+      -->(0,'&self',[->,'A','B'],depth(1))
+<span class="ansi33">Deterministic: </span><span class="ansi32">( (=  X A) 
+  (=  Y B))
+</span>
+(-> A B)
+
+;; [(-> A B)]
+;;; When using `let`, the second argument gets evaluated before binding, so
+;;; unifying a term with the result of a function (right-handside of `let`) works
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[f,X],['Link',X,'B'])
+</span><span class="ansi38-255165000">(= 
+  (f $X) 
+  (Link $X B))
+</span>
+
+<span class="ansi38-000068000">!(let 
+  (Link A $Y) 
+  (f $X) 
+  (Link $X $Y))
+
+</span>    -->(1,'&self',[let,['Link','A',_289570],[f,_289870],['Link',_289870,_289570]],depth(0))
+      -->(2,'&self',[f,_289870],depth(1))
+        -->(3,'&self',['Link',_289870,'B'],depth(2))
+      -->(4,'&self',['Link','A','B'],depth(1))
+      -->(5,'&self',['Link','A','B'],depth(1))
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  X A) 
+  (=  Y B))
+</span>
+(Link A B)
+
+More Solutions? <span class="ansi35"> l
+
+</span>      <--(2,retval(['Link',_296086,'B']))
+    <--(1,retval(['Link','A','B']))
+<span class="ansi33"> $_288804
+
+</span>;; [(Link A B)]
+;;; But unifying a left-handside function term shouldn't work
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,[g,Y],['Link','A',Y])
+</span><span class="ansi38-255165000">(= 
+  (g $Y) 
+  (Link A $Y))
+</span>
+
+<span class="ansi38-000068000">!(let 
+  (g $Y) 
+  (Link $X B) 
+  (Link $X $Y))
+
+</span>    -->(1,'&self',[let,[g,_329558],['Link',_329858,'B'],['Link',_329858,_329558]],depth(0))
+      -->(2,'&self',['Link',_329858,'B'],depth(1))
+    <--(1,retval(fail))
+no results<span class="ansi33"> $_328800
+
+</span>;; []
+;;; We would need to force evaluation of the first term `(g $y) for this
+;;; unification to work. For example by including it in its own binding
+;;; on the right hand side:
+<span class="ansi38-000068000">!(let* 
+  ( ($Gy 
+      (g $Y)) 
+    ($Gy 
+      (Link $X B))) 
+  (Link $X $Y))
+
+</span>    -->(1,'&self',['let*',[[_350892,[g,_351198]],[_350892,['Link',_351792,'B']]],['Link',_351792,_351198]],depth(0))
+      -->(2,'&self',[g,_351198],depth(1))
+        -->(3,'&self',['Link','A',_351198],depth(2))
+      -->(4,'&self',['let*',[[['Link','A',_351198],['Link',_351792,'B']]],['Link',_351792,_351198]],depth(1))
+        -->(5,'&self',['Link',_351792,'B'],depth(2))
+        -->(6,'&self',['let*',[],['Link','A','B']],depth(2))
+          -->(7,'&self',['Link','A','B'],depth(3))
+        <--(6,retval(['Link','A','B']))
+          -->(6,'&self',['Link','A','B'],depth(3))
+      <--(4,retval(['Link','A','B']))
+        -->(4,'&self',['Link','A','B'],depth(2))
+      -->(5,'&self',['Link','A','B'],depth(1))
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  X A) 
+  (=  Y B) 
+  (=  Gy 
+    (Link A B)))
+</span>
+(Link A B)
+
+More Solutions? <span class="ansi35"> l
+
+</span>      <--(2,retval(['Link','A',_358502]))
+    <--(1,retval(['Link','A','B']))
+<span class="ansi33"> $_350134
+
+</span>;; [(Link A B)]
+;;; Simple multi-unification via superpose
+<span class="ansi38-000068000">!(let 
+  (Link A $Y) 
+  (superpose 
+    ( (Link $X B) 
+      (Node A) 
+      (Link $X C))) 
+  (Link $X $Y))
+
+</span>    -->(1,'&self',[let,['Link','A',_381530],[superpose,[['Link',_381854,'B'],['Node','A'],['Link',_381854,'C']]],['Link',_381854,_381530]],depth(0))
+      -->(2,'&self',[superpose,[['Link',_381854,'B'],['Node','A'],['Link',_381854,'C']]],depth(1))
+        -->(3,'&self',['Link',_381854,'B'],depth(2))
+        -->(4,'&self',['Link',_381854,'B'],depth(2))
+      -->(5,'&self',['Link','A','B'],depth(1))
+      -->(6,'&self',['Link','A','B'],depth(1))
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  X A) 
+  (=  Y B))
+</span>
+(Link A B)
+
+More Solutions? <span class="ansi35"> l
+
+</span>        -->(7,'&self',['Node','A'],depth(2))
+        -->(8,'&self',['Node','A'],depth(2))
+        -->(9,'&self',['Link',_381854,'C'],depth(2))
+      <--(2,retval(['Link',_396240,'C']))
+        -->(2,'&self',['Link',_381854,'C'],depth(2))
+      -->(3,'&self',['Link','A','C'],depth(1))
+    <--(1,retval(['Link','A','C']))
+      -->(1,'&self',['Link','A','C'],depth(1))
+<span class="ansi33">Last Result(2): </span><span class="ansi32">( (=  X A) 
+  (=  Y C))
+</span>
+(Link A C)
+
+;; [(Link A B), (Link A C)]
+;;; Unify results of functions (via an intermediate variable, $z)
+<span class="ansi38-000068000">!(let* 
+  ( ($Z 
+      (g $Y)) 
+    ($Z 
+      (f $X))) $Z)
+
+</span>    -->(2,'&self',['let*',[[_410112,[g,_410412]],[_410112,[f,_411000]]],_410112],depth(0))
+      -->(3,'&self',[g,_410412],depth(1))
+        -->(4,'&self',['Link','A',_410412],depth(2))
+      -->(5,'&self',['let*',[[['Link','A',_410412],[f,_411000]]],['Link','A',_410412]],depth(1))
+        -->(6,'&self',[f,_411000],depth(2))
+          -->(7,'&self',['Link',_411000,'B'],depth(3))
+        -->(8,'&self',['let*',[],['Link','A','B']],depth(2))
+          -->(9,'&self',['Link','A','B'],depth(3))
+        <--(8,retval(['Link','A','B']))
+          -->(8,'&self',['Link','A','B'],depth(3))
+        -->(9,'&self',['Link','A','B'],depth(2))
+      -->(10,'&self',['Link','A','B'],depth(1))
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  X A) 
+  (=  Y B) 
+  (=  Z 
+    (Link A B)))
+</span>
+(Link A B)
+
+More Solutions? <span class="ansi35"> l
+
+</span>        <--(6,retval(['Link',_418936,'B']))
+      <--(5,retval(['Link','A','B']))
+      <--(3,retval(['Link','A',_417150]))
+    <--(2,retval(['Link','A','B']))
+<span class="ansi33"> $_409354
+
+</span><span class="ansi32">% 318,762 inferences, 0.145 CPU in 0.145 seconds (100% CPU, 2200286 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/hyperon-pln_metta/synthesis/experiments/unify-via-let.html" )
+
+</pre>
+</body>
+
+</html>

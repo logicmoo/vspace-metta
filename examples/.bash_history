@@ -534,3 +534,11 @@ fg
 cd ../../
 vi ../performance/.mettalogrc 
 cd ..
+./MeTTa --v2a ./examples/interp_2a --clean
+cd examples/
+rm -rf interp_v1
+rm -rf interp_GOODY/
+rm -rf interp_current/
+cp -a interp_2a interp_1
+cp -a interp_2a interp_3y
+cp -a interp_2a interp_current

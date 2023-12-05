@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi35 { color: #E850A8; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/types3.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/types3.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/types3.metta')
+1=[yay]
+2=0.12user 0.01system 0:00.13elapsed 99%CPU (0avgtext+0avgdata 33168maxresident)k
+2=0inputs+0outputs (0major+3506minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+ is_cmd_option(halt,'--halt=true',true)
+
+Script done on 2023-12-04 14:27:50-08:00 [COMMAND_EXIT_CODE="7"]
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/types3.metta', 1, [yay]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'If',[[->,'Bool','Atom','Atom']])
+</span><span class="ansi38-255165000">(: If 
+  (-> Bool Atom Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['If','True',Then],Then)
+</span><span class="ansi38-255165000">(= 
+  (If True $Then) $Then)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['If','False',Then],[let,X,0,[let,X,1,X]])
+</span><span class="ansi38-255165000">(= 
+  (If False $Then) 
+  (let $X 0 
+    (let $X 1 $X)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',:,'If',[[->,'Bool','Atom','Atom','Atom']])
+</span><span class="ansi38-255165000">(: If 
+  (-> Bool Atom Atom Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['If',Cond,Then,Else],[if,Cond,Then,Else])
+</span><span class="ansi38-255165000">(= 
+  (If $Cond $Then $Else) 
+  (if $Cond $Then $Else))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self','GreaterThan',42,[21])
+</span><span class="ansi38-255165000">(GreaterThan 42 21)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['EqualOrGreater',X,Y],[or,[>,X,Y],[==,X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (EqualOrGreater $X $Y) 
+  (or 
+    (> $X $Y) 
+    (== $X $Y)))
+</span>
+
+<span class="ansi38-000068000">!(match &self 
+  (GreaterThan $X $Y) 
+  (If 
+    (and 
+      (== 
+        (get-type $X) Number) 
+      (== 
+        (get-type $Y) Number)) 
+    (If 
+      (EqualOrGreater $X $Y) yay)))
+
+</span>    -->(0,'&self',[match,'&self',['GreaterThan',_296966,_297250],['If',[and,[==,['get-type',_296966],'Number'],[==,['get-type',_297250],'Number']],['If',['EqualOrGreater',_296966,_297250],yay]]],depth(0))
+      -->(1,'&self',['If',[and,[==,['get-type',42],'Number'],[==,['get-type',21],'Number']],['If',['EqualOrGreater',42,21],yay]],depth(1))
+        -->(2,'&self',[and,[==,['get-type',42],'Number'],[==,['get-type',21],'Number']],depth(2))
+          -->(3,'&self',[==,['get-type',42],'Number'],depth(3))
+          <--(3,retval('False'))
+        <--(2,retval('False'))
+      <--(1,retval([]))
+      -->(1,'&self',[],depth(1))
+; Evaluation took 1.70 milliseconds.
+<span class="ansi33">NDet Result(1): </span><span class="ansi32">( (=  Y 21) 
+  (=  X 42))
+</span>
+()
+
+More Solutions? <span class="ansi35"> l
+
+</span>    <--(0,retval([]))
+<span class="ansi33"> $_296200
+
+</span><span class="ansi32">% 272,652 inferences, 0.109 CPU in 0.109 seconds (100% CPU, 2508042 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/types3.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/types3.html" )
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta')
+1=[(Link A B)]
+2=[(-> A B)]
+3=[(Link A B)]
+4=[]
+5=[(Link A B)]
+6=[(Link A B), (Link A C)]
+7=[(Link A B)]
+8=0.24user 0.01system 0:00.25elapsed 99%CPU (0avgtext+0avgdata 32840maxresident)k
+8=0inputs+0outputs (0major+3464minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 1, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 2, [[->, 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 3, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 4, []).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 5, [['Link', 'A', 'B']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 6, [['Link', 'A', 'B'], ',', ['Link', 'A', 'C']]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta', 7, [['Link', 'A', 'B']]).
+
+;;; Simple unification
+<span class="ansi38-000068000">!(let 
+  (Link A $Y) 
+  (Link $X B) 
+  (Link $X $Y))
+
+</span>      -->(0,'&self',[let,['Link','A',_339348],['Link',_339648,'B'],['Link',_339648,_339348]],depth(1))
+          -->(1,'&self',['Link',_339648,'B'],depth(3))
+          -->(2,'&self',['Link','A','B'],depth(3))
+      <--(0,retval(['Link','A','B']))
+        -->(3,'&self',['Link','A','B'],depth(2))
+<span class="ansi33">  (Link A B)
+</span><span class="ansi32">['X'='A','Y'='B']
+</span>
+
+<span class="ansi36">
+! (assertEqualToResult 
+    (let 
+      (Link A $Y) 
+      (Link $X B) 
+      (Link $X $Y)) 
+    ( (Link A B)))
+(@ ! 
+  (assertEqual 
+    ( (Link A B)) 
+    ( (Link A B))))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.101",exec,[let,['Link','A',Y],['Link',X,'B'],['Link',X,Y]],'PASS',[['Link','A','B']],[['Link','A','B']])
+
+</span>
+
+--------------------------------------------------------------------------
+; [(Link A B)]
+;; Simple unification with the arrow operator
+<span class="ansi38-000068000">!(let 
+  (-> A $Y) 
+  (-> $X B) 
+  (-> $X $Y))
+
+</span>      -->(4,'&self',[let,[->,'A',_384462],[->,_384762,'B'],[->,_384762,_384462]],depth(1))
+          -->(5,'&self',[->,_384762,'B'],depth(3))
+          -->(6,'&self',[->,'A','B'],depth(3))
+      <--(4,retval([->,'A','B']))
+        -->(7,'&self',[->,'A','B'],depth(2))
+<span class="ansi33">  (-> A B)
+</span><span class="ansi32">['X'='A','Y'='B']
+</span>
+
+<span class="ansi36">
+! (assertEqualToResult 
+    (let 
+      (-> A $Y) 
+      (-> $X B) 
+      (-> $X $Y)) 
+    ( (-> A B)))
+(@ ! 
+  (assertEqual 
+    ( (-> A B)) 
+    ( (-> A B))))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.102",exec,[let,[->,'A',Y],[->,X,'B'],[->,X,Y]],'PASS',[[->,'A','B']],[[->,'A','B']])
+
+</span>
+
+--------------------------------------------------------------------------
+; [(-> A B)]
+;; When using `let`, the second argument gets evaluated before binding, so
+;; unifying a term with the result of a function (right-handside of `let`) works
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[f,X],['Link',X,'B'])
+</span><span class="ansi38-255165000">  (= 
+    (f $X) 
+    (Link $X B))
+</span>
+
+<span class="ansi38-000068000">!(let 
+  (Link A $Y) 
+  (f $X) 
+  (Link $X $Y))
+
+</span>      -->(8,'&self',[let,['Link','A',_439824],[f,_440124],['Link',_440124,_439824]],depth(1))
+          -->(9,'&self',[f,_440124],depth(3))
+            -->(10,'&self',['Link',_440124,'B'],depth(4))
+          -->(11,'&self',['Link','A','B'],depth(3))
+        -->(12,'&self',['Link','A','B'],depth(2))
+<span class="ansi33">  (Link A B)
+</span><span class="ansi32">['X'='A','Y'='B']
+</span>
+
+          <--(9,retval(['Link',_443128,'B']))
+      <--(8,retval(['Link','A','B']))
+<span class="ansi36">
+! (assertEqualToResult 
+    (let 
+      (Link A $Y) 
+      (f $X) 
+      (Link $X $Y)) 
+    ( (Link A B)))
+(@ ! 
+  (assertEqual 
+    ( (Link A B)) 
+    ( (Link A B))))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.103",exec,[let,['Link','A',Y],[f,X],['Link',X,Y]],'PASS',[['Link','A','B']],[['Link','A','B']])
+
+</span>
+
+--------------------------------------------------------------------------
+; [(Link A B)]
+;; But unifying a left-handside function term shouldn't work
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,Y],['Link','A',Y])
+</span><span class="ansi38-255165000">  (= 
+    (g $Y) 
+    (Link A $Y))
+</span>
+
+<span class="ansi38-000068000">!(let 
+  (g $Y) 
+  (Link $X B) 
+  (Link $X $Y))
+
+</span>      -->(13,'&self',[let,[g,_493144],['Link',_493444,'B'],['Link',_493444,_493144]],depth(1))
+          -->(14,'&self',['Link',_493444,'B'],depth(3))
+      <--(13,retval(fail))
+<span class="ansi36">
+! (assertEqualToResult 
+    (let 
+      (g $Y) 
+      (Link $X B) 
+      (Link $X $Y)) ())
+(@ ! 
+  (assertEqual () ()))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.104",exec,[let,[g,Y],['Link',X,'B'],['Link',X,Y]],'PASS',[],[])
+
+</span>
+
+--------------------------------------------------------------------------
+; []
+;; We would need to force evaluation of the first term `(g $y) for this
+;; unification to work. For example by including it in its own binding
+;; on the right hand side:
+<span class="ansi38-000068000">!(let* 
+  ( ($Gy 
+      (g $Y)) 
+    ($Gy 
+      (Link $X B))) 
+  (Link $X $Y))
+
+</span>      -->(15,'&self',['let*',[[_5404,[g,_5710]],[_5404,['Link',_6304,'B']]],['Link',_6304,_5710]],depth(1))
+          -->(16,'&self',[g,_5710],depth(3))
+            -->(17,'&self',['Link','A',_5710],depth(4))
+          -->(18,'&self',['let*',[[['Link','A',_5710],['Link',_6304,'B']]],['Link',_6304,_5710]],depth(3))
+              -->(19,'&self',['Link',_6304,'B'],depth(5))
+              -->(20,'&self',['let*',[],['Link','A','B']],depth(5))
+                  -->(21,'&self',['Link','A','B'],depth(7))
+              <--(20,retval(['Link','A','B']))
+                -->(22,'&self',['Link','A','B'],depth(6))
+          <--(18,retval(['Link','A','B']))
+            -->(23,'&self',['Link','A','B'],depth(4))
+        -->(24,'&self',['Link','A','B'],depth(2))
+<span class="ansi33">  (Link A B)
+</span><span class="ansi32">['X'='A','Y'='B','Gy'=['Link','A','B']]
+</span>
+
+          <--(16,retval(['Link','A',_9382]))
+      <--(15,retval(['Link','A','B']))
+<span class="ansi36">
+! (assertEqualToResult 
+    (let* 
+      ( ($Gy 
+          (g $Y)) 
+        ($Gy 
+          (Link $X B))) 
+      (Link $X $Y)) 
+    ( (Link A B)))
+(@ ! 
+  (assertEqual 
+    ( (Link A B)) 
+    ( (Link A B))))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.105",exec,['let*',[[Gy,[g,Y]],[Gy,['Link',X,'B']]],['Link',X,Y]],'PASS',[['Link','A','B']],[['Link','A','B']])
+
+</span>
+
+--------------------------------------------------------------------------
+; [(Link A B)]
+;; Simple multi-unification via superpose
+<span class="ansi38-000068000">!(let 
+  (Link A $Y) 
+  (superpose 
+    ( (Link $X B) 
+      (Node A) 
+      (Link $X C))) 
+  (Link $X $Y))
+
+</span>      -->(25,'&self',[let,['Link','A',_50054],[superpose,[['Link',_50378,'B'],['Node','A'],['Link',_50378,'C']]],['Link',_50378,_50054]],depth(1))
+          -->(26,'&self',[let,['Link','A',_50054],['Link',_50378,'B'],['Link',_50378,_50054]],depth(3))
+              -->(27,'&self',['Link',_50378,'B'],depth(5))
+              -->(28,'&self',['Link','A','B'],depth(5))
+          <--(26,retval(['Link','A','B']))
+            -->(29,'&self',['Link','A','B'],depth(4))
+        -->(30,'&self',['Link','A','B'],depth(2))
+<span class="ansi33">  (Link A B)
+</span><span class="ansi32">['X'='A','Y'='B']
+</span>
+
+          -->(31,'&self',[let,['Link','A',_50054],['Node','A'],['Link',_50378,_50054]],depth(3))
+              -->(32,'&self',['Node','A'],depth(5))
+          <--(31,retval(fail))
+          -->(33,'&self',[let,['Link','A',_50054],['Link',_50378,'C'],['Link',_50378,_50054]],depth(3))
+              -->(34,'&self',['Link',_50378,'C'],depth(5))
+              -->(35,'&self',['Link','A','C'],depth(5))
+          <--(33,retval(['Link','A','C']))
+            -->(36,'&self',['Link','A','C'],depth(4))
+      <--(25,retval(['Link','A','C']))
+        -->(37,'&self',['Link','A','C'],depth(2))
+<span class="ansi33">  (Link A C)
+</span><span class="ansi32">['X'='A','Y'='C']
+</span>
+
+<span class="ansi36">
+! (assertEqualToResult 
+    (let 
+      (Link A $Y) 
+      (superpose 
+        ( (Link $X B) 
+          (Node A) 
+          (Link $X C))) 
+      (Link $X $Y)) 
+    ( (Link A B) 
+      (Link A C)))
+(@ ! 
+  (assertEqual 
+    ( (Link A B) 
+      (Link A C)) 
+    ( (Link A B) 
+      (Link A C))))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.106",exec,[let,['Link','A',Y],[superpose,[['Link',X,'B'],['Node','A'],['Link',X,'C']]],['Link',X,Y]],'PASS',[['Link','A','B'],['Link','A','C']],[['Link','A','B'],['Link','A','C']])
+
+</span>
+
+--------------------------------------------------------------------------
+; [(Link A B), (Link A C)]
+;; Unify results of functions (via an intermediate variable, $z)
+<span class="ansi38-000068000">!(let* 
+  ( ($Z 
+      (g $Y)) 
+    ($Z 
+      (f $X))) $Z)
+
+</span>      -->(38,'&self',['let*',[[_94102,[g,_94402]],[_94102,[f,_94990]]],_94102],depth(1))
+          -->(39,'&self',[g,_94402],depth(3))
+            -->(40,'&self',['Link','A',_94402],depth(4))
+          -->(41,'&self',['let*',[[['Link','A',_94402],[f,_94990]]],['Link','A',_94402]],depth(3))
+              -->(42,'&self',[f,_94990],depth(5))
+                -->(43,'&self',['Link',_94990,'B'],depth(6))
+              -->(44,'&self',['let*',[],['Link','A','B']],depth(5))
+                  -->(45,'&self',['Link','A','B'],depth(7))
+              <--(44,retval(['Link','A','B']))
+                -->(46,'&self',['Link','A','B'],depth(6))
+            -->(47,'&self',['Link','A','B'],depth(4))
+        -->(48,'&self',['Link','A','B'],depth(2))
+<span class="ansi33">  (Link A B)
+</span><span class="ansi32">['X'='A','Y'='B','Z'=['Link','A','B']]
+</span>
+
+              <--(42,retval(['Link',_99336,'B']))
+          <--(41,retval(['Link','A','B']))
+          <--(39,retval(['Link','A',_97764]))
+      <--(38,retval(['Link','A','B']))
+<span class="ansi36">
+! (assertEqualToResult 
+    (let* 
+      ( ($Z 
+          (g $Y)) 
+        ($Z 
+          (f $X))) $Z) 
+    ( (Link A B)))
+(@ ! 
+  (assertEqual 
+    ( (Link A B)) 
+    ( (Link A B))))
+write_pass_fail_result("EXPERIMENTS.UNIFY-VIA-LET.107",exec,['let*',[[Z,[g,Y]],[Z,[f,X]]],Z],'PASS',[['Link','A','B']],[['Link','A','B']])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 378,010 inferences, 0.161 CPU in 0.161 seconds (100% CPU, 2345749 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 7
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1/hyperon-pln_metta/synthesis/experiments/unify-via-let.html" )
+
+</pre>
+</body>
+
+</html>

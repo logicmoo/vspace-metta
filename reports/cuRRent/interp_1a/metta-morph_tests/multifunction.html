@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/multifunction.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/multifunction.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/multifunction.metta')
+1=[1764, 1764]
+2=0.10user 0.01system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 32944maxresident)k
+2=0inputs+0outputs (0major+3489minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/multifunction.metta', 1, [1764, ',', 1764]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,X],X)
+</span><span class="ansi38-255165000">  (= 
+    (g $X) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,X],[*,2,X])
+</span><span class="ansi38-255165000">  (= 
+    (g $X) 
+    (* 2 $X))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,test,[Y,Z]],[*,[*,1,Y],Z])
+</span><span class="ansi38-255165000">  (= 
+    (g test 
+      ($Y $Z)) 
+    (* 
+      (* 1 $Y) $Z))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,3,[Y,Z]],[*,Y,Z])
+</span><span class="ansi38-255165000">  (= 
+    (g 3 
+      ($Y $Z)) 
+    (* $Y $Z))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,X,[Y,Z]],[*,[*,X,Y],42])
+</span><span class="ansi38-255165000">  (= 
+    (g $X 
+      ($Y $Z)) 
+    (* 
+      (* $X $Y) 42))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,X,[Y,Z]],[*,[*,42,X],Y])
+</span><span class="ansi38-255165000">  (= 
+    (g $X 
+      ($Y $Z)) 
+    (* 
+      (* 42 $X) $Y))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_defn('&self',[g,a,[Y,w]],Y)
+</span><span class="ansi38-255165000">  (= 
+    (g a 
+      ($Y w)) $Y)
+</span>
+
+<span class="ansi38-000068000">!(g 42 
+  (1 2))
+
+</span>      -->(0,'&self',[g,42,[1,2]],depth(1))
+          -->(1,'&self',[1,2],depth(3))
+        -->(2,'&self',[*,[*,42,1],42],depth(2))
+            -->(3,'&self',[*,42,1],depth(4))
+            <--(3,retval(42))
+            -->(4,'&self',[*,42,42],depth(4))
+            <--(4,retval(1764))
+<span class="ansi33"> 1764
+
+</span>            -->(5,'&self',[*,42,1],depth(4))
+            <--(5,retval(42))
+        <--(2,retval(1764))
+        -->(6,'&self',[*,[*,42,42],1],depth(2))
+            -->(7,'&self',[*,42,42],depth(4))
+            <--(7,retval(1764))
+            -->(8,'&self',[*,1764,1],depth(4))
+            <--(8,retval(1764))
+<span class="ansi33"> 1764
+
+</span>            -->(9,'&self',[*,42,42],depth(4))
+            <--(9,retval(1764))
+        <--(6,retval(1764))
+      <--(0,retval([*,[*,42,42],1]))
+<span class="ansi36">
+! (assertEqualToResult 
+    (g 42 
+      (1 2)) 
+    (1764 1764))
+(@ ! 
+  (assertEqual 
+    (1764 1764) 
+    (1764 1764)))
+write_pass_fail_result("METTA-MORPH-TESTS.MULTIFUNCTION.101",exec,[g,42,[1,2]],'PASS',[1764,1764],[1764,1764])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 274,794 inferences, 0.102 CPU in 0.102 seconds (100% CPU, 2703481 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/multifunction.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/multifunction.html" )
+% init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip_2a/metta_interp.pl')).
+; libswipl: [swipl,--debug=true,-l,/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip_2a/metta_interp.pl,--,--python=enable,--html,--repl=false,--test-retval=true,examples/interp_2a/metta-morph_tests/types3.metta,--halt=true]
+%~ began_loon(default)
+ ; (is_cmd_option python --python=enable enable)
+ ; (is_cmd_option html --html True)
+ ; (is_cmd_option repl --repl=false False)
+ ; (is_cmd_option test-retval --test-retval=true True)
+
+; (load_metta_file &self "examples/interp_2a/metta-morph_tests/types3.metta")
+doing(cat /dev/null > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi")
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/peano.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/peano.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/peano.metta')
+1=[(S (S (S (S (S Z)))))]
+2=0.11user 0.01system 0:00.13elapsed 100%CPU (0avgtext+0avgdata 33052maxresident)k
+2=0inputs+0outputs (0major+3500minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/peano.metta', 1, [['S', ['S', ['S', ['S', ['S', 'Z']]]]]]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['Add',X,'Z'],X)
+</span><span class="ansi38-255165000">(= 
+  (Add $X Z) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',=,['Add',X,['S',Y]],['Add',['S',X],Y])
+</span><span class="ansi38-255165000">(= 
+  (Add $X 
+    (S $Y)) 
+  (Add 
+    (S $X) $Y))
+</span>
+
+<span class="ansi38-000068000">!(Add 
+  (S 
+    (S Z)) 
+  (S 
+    (S 
+      (S Z))))
+
+</span>    -->(0,'&self',['Add',['S',['S','Z']],['S',['S',['S','Z']]]],depth(0))
+      -->(1,'&self',['Add',['S',['S',['S','Z']]],['S',['S','Z']]],depth(1))
+        -->(2,'&self',['Add',['S',['S',['S',['S','Z']]]],['S','Z']],depth(2))
+          -->(3,'&self',['Add',['S',['S',['S',['S',['S','Z']]]]],'Z'],depth(3))
+            -->(4,'&self',['S',['S',['S',['S',['S','Z']]]]],depth(4))
+            <--(4,retval(fail))
+          <--(3,retval(['S',['S',['S',['S',['S','Z']]]]]))
+        <--(2,retval(['Add',['S',['S',['S',['S',['S','Z']]]]],'Z']))
+      <--(1,retval(['Add',['S',['S',['S',['S','Z']]]],['S','Z']]))
+    <--(0,retval(['Add',['S',['S',['S','Z']]],['S',['S','Z']]]))
+%~ error(existence_error(procedure,eval_args80/4),context(efbug/2,_235162))
+no results<span class="ansi33"> $_226076
+
+</span><span class="ansi32">% 239,706 inferences, 0.094 CPU in 0.095 seconds (99% CPU, 2543567 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/peano.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_2a/metta-morph_tests/peano.html" )
+
+</pre>
+</body>
+
+</html>

@@ -955,3 +955,153 @@ git status metta_vspace/pyswip
 git add metta_vspace/pyswip/metta_eval.*
 git add metta_vspace/pyswip/*.pl
 git status metta_vspace/pyswip
+git commit -am metta_vspace/pyswip/metta_testing.pl
+git push logicmoo 
+git push origin 
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cp metta_vspace/pyswip_1/metta_eval.pl metta_vspace/pyswip/
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cp metta_vspace/pyswipGOODY/metta_eval.pl metta_vspace/pyswip/
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cp metta_vspace/pyswip2a/metta_eval.pl metta_vspace/pyswip/
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cp metta_vspace/pyswip_1/metta_eval.pl metta_vspace/pyswip/
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cp metta_vspace/pyswip_34/metta_eval.pl metta_vspace/pyswip/
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --vGOODY ./examples/compat/hyperon-pln/metta/common/ --clean
+cp metta_vspace/pyswipGOODY/metta_eval.pl metta_vspace/pyswip/
+./MeTTa --vGOODY ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v4a ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v44444444r ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v4444444r ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v_44444444r ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v_4444444r ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+grep adjust_args . -R
+grep adjust_args metta_vspace -R
+grep adjust_args metta_vspace -R --include="*.pl"
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+grep adjust_args metta_vspace -R --include="*.pl"
+./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+fg
+kill -9 swipl
+killall -9 swipl
+reset
+cls ; ./MeTTa --v2a
+cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/
+cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --cleab
+cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --v_34 ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --v_35 ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --vGOODY5 ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --vGOODY ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --vGOODY ./examples --clean
+cls ; ./MeTTa --vGOODY ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --vGOOD ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa --v_1 ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+ls metta_vspace
+cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean --v_1
+cls ; ./MeTTa ./examples/ --clean --v_1
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean --v_1
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean
+cp metta_vspace/pyswip metta_vspace/pyswip_from -a
+\cp metta_vspace/pyswip_1/* metta_vspace/pyswip/
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ ./examples/compat/hyperon-pln/metta/common/ --clean 
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ ./examples/compat/hyperon-pln/metta/common/ --clean --v_1
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean --v_1
+vi /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b5_types_prelim.metta
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --v_1
+cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --v_1 --clean
+cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean --v_1
+cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean --vGOODY
+cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean --v2a
+cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
+cp ./examples/compat/hyperon-pln/metta/common/ -a ./examples/interp/
+cp ./examples/compat/hyperon-experimental/python/tests/ -a ./examples/interp/
+cp examples/interp/ examples/interp_v1 -a
+cp examples/interp/ examples/interp_2a -a
+cp examples/interp/ examples/interp_GOODY -a
+./MeTTa --v_1 examples/interp_v1 --clean
+./MeTTa --v2a examples/interp_2a --clean
+./MeTTa --v_1 examples/interp_v1/ --clean
+./MeTTa --v2a ./examples/interp_2a/ --clean
+./scripts/total_loonits.sh 
+watch ./scripts/total_loonits.sh 
+find  reports/cuRRent/compat -name "*.html"
+find examples/compat -name "*.html"
+./scripts/total_loonits.sh 
+find examples/compat/ -name "*.html" -delete 
+./scripts/total_loonits.sh 
+find examples/interp/ -name "*.html" -delete 
+./MeTTa --vGOODY ./examples/interp_GOODY/ --clean
+./MeTTa --v2a ./examples/interp_2a --clean
+watch ./scripts/total_loonits.sh 
+./MeTTa ./examples/interp --clean
+./MeTTa --v2a ./examples/interp_2a --clean
+cp -a interp_2a interp_current
+cd ..
+metta examples/interp/test_scripts/00_lang_case.metta
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+ls
+./MeTTa --v_1 examples/interp_1/ --clean --fresh
+./MeTTa --v_2a examples/interp_2a/ --fresh --clean
+rm -rf examples/interp_2a/
+cp -a examples/interp_1 examples/interp_2a 
+./MeTTa --v_1 examples/interp_1/ --clean
+mv examples/interp_1/ examples/interp_1a
+./MeTTa --v_2a examples/interp_2a/ --clean 
+./MeTTa --v_1 examples/interp_1a/ 
+./MeTTa --v_1a examples/interp_1a/ 
+./MeTTa --v_2a examples/interp_2a/ 
+mk examples/interp_1a/metta-morph_tests
+mkdir examples/interp_1a/metta-morph_tests
+cp -a examples/interp_1a examples/interp_88
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+./MeTTa examples/interp_88 --clean 
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+./MeTTa --v_2a examples/interp_2a/ 
+./MeTTa --v_3y examples/interp_3y/
+./scripts/test_in_metta.sh -n --report=Y
+git add reports/
+cp pyswip/metta_reader.pl pyswip_3y/
+cd ..
+./scripts/test_in_metta.sh -n --report=Y
+./MeTTa examples/interp_88 
+git add reports/
+git status examples/
+git add examples/
+git status examples/
+./scripts/test_in_metta.sh -n --report=Y
+git status .
+git add metta_vspace/pyswip_2a/
+git add metta_vspace/pyswip_3y
+git add metta_vspace/pyswip/
+ls  reports/cuRRent/interp_88/hyperon-pln_metta/entail/
+./scripts/test_in_metta.sh -n --report=Y
+ls  reports/cuRRent/interp_88/hyperon-pln_metta/entail/
+git add reports/
+git status .
+git add etta_vspace/pyswip_1/
+git add metta_vspace/pyswip_1/
+git add metta_vspace/pyswip_1
+git add -U metta_vspace/pyswip_1
+git add -u metta_vspace/pyswip_1
+git add -u metta_vspace/pyswip_1/
+git status .
+git add reports/
+./scripts/test_in_metta.sh -n --report=Y
+./MeTTa examples/interp_88 --clean
+git add reports/
+git add git status .
+git status .
