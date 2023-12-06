@@ -1,7 +1,7 @@
 ﻿# MeTTaLOG Test Outputs by Filename
 
 #### **Hyperon MeTTaLog Sanity Tests**
-- **[`hyperon-mettalog_sanity`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity)**: Sanity and basic tests for Hyperon MeTTaLog.
+- **[`hyperon-mettalog_sanity/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-mettalog_sanity)**: Sanity and basic tests for Hyperon MeTTaLog.
    - [`00_lang_case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta.html): `case` statment tests.
    - [`00_lang_ok_to_redefine.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/00_lang_ok_to_redefine.metta.html): Tests for language redefinition capabilities.
    - [`01_lang_inc.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta.html): Increment functions and their usage in language testing.
@@ -12,7 +12,7 @@
 
 #### **Hyperon Experimental Scripts**
 
-- **[`hyperon-experimental_scripts`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts)**: Scripts for experimenting with advanced concepts in Hyperon.
+- **[`hyperon-experimental_scripts/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-experimental_scripts)**: Scripts for experimenting with advanced concepts in Hyperon.
    - [`_e2_states_dia.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/_e2_states_dia.metta.html): State diagrams and their representation.
    - [`a1_symbols.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/a1_symbols.metta.html): Exploration of symbol usage and manipulation.
    - [`d4_type_prop.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/d4_type_prop.metta.html): Type properties and their applications in logic.
@@ -42,7 +42,7 @@
 
 ### **Flybase Tests**
 
-- **[`flybase`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
+- **[`flybase/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
    - [`flybase-vspace.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
    - [`flybase-loader-size-estimates.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-loader-size-estimates.metta.html): Size estimates and optimizations for the Flybase loader.
    - [`flybase-mined-flat.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-mined-flat.metta.html): Flat structure representation of mined data in Flybase.
@@ -56,7 +56,7 @@
 
 ## Hyperon Miner Examples
 
-- **[`extended_compat/hyperon-miner/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/hyperon-miner/):** Hyperon miner directory
+- **[`extended_compat/hyperon-miner/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/hyperon-miner/):** Hyperon miner directory
     - [`data/sample.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/hyperon-miner/data/sample.metta.html): Sample data for Hyperon miner testing.
     - [`utils/MinerUtils.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/hyperon-miner/utils/MinerUtils.metta.html): Utility functions for Hyperon mining operations.
    - [`match/MinerMatchTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/hyperon-miner/match/MinerMatchTest.metta.html): Test cases for Hyperon miner matching algorithms.
@@ -64,7 +64,7 @@
 
 #### **Metta-Morph Tests**
 
-- **[`metta-morph_tests`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests)**: Test cases exploring various features and functionalities in MeTTa.
+- **[`metta-morph_tests/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/metta-morph_tests)**: Test cases exploring various features and functionalities in MeTTa.
    - [`minnars.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/minnars.metta.html): Tests and examples for MinNARS implementation.
    - [`sequential_nested.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/sequential_nested.metta.html): Experiments with sequential and nested structures.
    - [`peano.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/peano.metta.html): Implementations and tests for Peano arithmetic.
@@ -95,7 +95,7 @@
 
 #### **Performance and Testing**
 
-- **[`performance`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/performance)**: Performance testing and benchmarking scripts.
+- **[`performance/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/performance)**: Performance testing and benchmarking scripts.
    - [`fwgc2.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/performance/fwgc2.metta.html): Second version of the Farmer-Wolf-Goat-Cabbage problem.
    - [`pathfinding-edge.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/performance/pathfinding-edge.metta.html): Edge-based pathfinding algorithms and tests.
    - [`test_list_concatenation.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/performance/test_list_concatenation.metta.html): Tests for list concatenation performance.
@@ -119,9 +119,9 @@
 
 #### **Feature Demonstrations**
 
-- **[`features`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/features)**: Feature demonstrations and examples.
+- **[`features/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/features)**: Feature demonstrations and examples.
    - [`send-more-money.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/features/send-more-money.metta.html): SEND+MORE=MONEY problem solution.
-   - [`compiler`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/features/compiler)**: Addresses compiler-related examples and tests.
+   - [`compiler/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/features/compiler)**: Addresses compiler-related examples and tests.
 	   - [`compiler/define_if_like.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/features/compiler/define_if_like.metta.html): Compiler features for defining 'if'-like structures.
 	   - [`compiler/00a_lang_compiled_case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/features/compiler/00a_lang_compiled_case.metta.html): Compiled language case studies.
    - [`reverse-arithmetic.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/features/reverse-arithmetic.metta.html): Demonstrations of reverse arithmetic operations.
@@ -133,41 +133,41 @@
 ## Extended Compatibility Examples
 
 ### Combinator Logic Experiments
-- **[`extended_compat/metta-combinator_logic_experiments/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-combinator_logic_experiments/):** Combinator Logic Experiments Directory
+- **[`extended_compat/metta-combinator_logic_experiments/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/metta-combinator_logic_experiments/):** Combinator Logic Experiments Directory
    - [`y_comb_examples.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-combinator_logic_experiments/y_comb_examples.metta.html): Examples and experiments with Y combinators.
 
 ### Logic
-- **[`extended_compat/metta-logic/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-logic/):** Metta Logic Directory
+- **[`extended_compat/metta-logic/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/metta-logic/):** Metta Logic Directory
    - [`puzzle.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-logic/puzzle.metta.html): Logic puzzles and solutions in Metta.
    - [`all_any.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-logic/all_any.metta.html): Implementations of universal and existential quantifiers.
    - [`memb.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-logic/memb.metta.html): Member checking functions in logical expressions.
 
 ### SICP Book Examples
-- **[`extended_compat/metta-SICP_book/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-SICP_book/):** SICP Book Examples in Metta
+- **[`extended_compat/metta-SICP_book/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/metta-SICP_book/):** SICP Book Examples in Metta
   - [Chapter 1.1](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-SICP_book/chapter_1_1.metta.html)
   - [Chapter 1.2](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-SICP_book/chapter_1_2.metta.html)
   - [Chapter 1.3](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-SICP_book/chapter_1_3.metta.html)
 
 ### Recursion Schemes
-- **[`extended_compat/metta-recursion-schemes/src/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-recursion-schemes/src/):** Recursion Schemes in Metta
+- **[`extended_compat/metta-recursion-schemes/src/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/metta-recursion-schemes/src/):** Recursion Schemes in Metta
    - [`schemes.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-recursion-schemes/src/schemes.metta.html): Various recursion schemes implemented in Metta.
    - [`base.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-recursion-schemes/src/base.metta.html): Base functions and utilities for recursion schemes.
    - [`expression.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-recursion-schemes/src/expression.metta.html): Expression handling in recursion schemes.
    - [`benchmark.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-recursion-schemes/src/benchmark.metta.html): Benchmark tests for recursion scheme implementations.
 
 ### Probabilistic Dependent Types
-- **[`extended_compat/metta-prob-dep-types/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-prob-dep-types/):** Probabilistic Dependent Types in Metta
+- **[`extended_compat/metta-prob-dep-types/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/metta-prob-dep-types/):** Probabilistic Dependent Types in Metta
    - [`prob_dep_types.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-prob-dep-types/prob_dep_types.metta.html): Definitions and examples of probabilistic dependent types.
    - [`inf_order_probs.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/metta-prob-dep-types/inf_order_probs.metta.html): Infinite order probabilities and their applications.
 
 ## NARS (Non-Axiomatic Reasoning System) examples.
 
-- **[`nars`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars)**: Dedicated to NARS (Non-Axiomatic Reasoning System) examples.
-    - [`nars_v0`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/nars_v0): Original version tests.
-    - [`current`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/current): Houses the current iteration tests.
-    - [`prev`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/prev): Includes tests from previous versions.
-    - [`new`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/new): Houses the newest set of examples.
-    - [`extra_tests`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/extra_tests): Additional, perhaps experimental, tests.
+- **[`nars/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/nars)**: Dedicated to NARS (Non-Axiomatic Reasoning System) examples.
+    - [`nars_v0/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/nars/nars_v0): Original version tests.
+    - [`current/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/nars/current): Houses the current iteration tests.
+    - [`prev/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/nars/prev): Includes tests from previous versions.
+    - [`new/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/nars/new): Houses the newest set of examples.
+    - [`extra_tests/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/extended_compat/nars/extra_tests): Additional, perhaps experimental, tests.
         - [`RUN_minnars_trimmed.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/nars_extras/RUN_minnars_trimmed.metta.html): Trimmed version of MinNARS execution script.
         - [`NARS_BuildTupleCounts.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/nars_extras/NARS_BuildTupleCounts.metta.html): Script for building tuple counts in NARS.
         - [`TestNARS_listing.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/extended_compat/nars/nars_extras/TestNARS_listing.metta.html): Test listings and scripts for NARS.
@@ -176,15 +176,15 @@
 #### **Synthesis and Logic Group**
 
 This group of directories explores various representational methods for porting PLN to MeTTa.
-- **[`baseline_compat/hyperon-pln_metta/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/):** Hyperon PLN Metta Base Compatibility
+- **[`baseline_compat/hyperon-pln_metta/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/):** Hyperon PLN Metta Base Compatibility
 
-- **[`entail`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/entail)**: Here, rules are expressed with the symbol `?`.
+- **[`entail/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/entail)**: Here, rules are expressed with the symbol `?`.
    - [`DeductionEntailTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta.html): Tests for deduction entailment in MeTTa.
    - [`ImplicationDirectIntroductionEntail.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntail.metta.html): Direct implication introduction entailment logic.
    - [`ImplicationDirectIntroductionEntailTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/entail/ImplicationDirectIntroductionEntailTest.metta.html): Tests for direct implication introduction entailment.
    - [`DeductionEntail.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/entail/DeductionEntail.metta.html): Logic for deduction entailment in MeTTa.
 
-- **[`common`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/common)**: Contains common definitions for PLN in MeTTa.
+- **[`common/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/common)**: Contains common definitions for PLN in MeTTa.
    - [`Num.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/common/Num.metta.html): Numerical utilities and definitions.
    - [`Record.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/common/Record.metta.html): Record structures and related logic.
    - [`DeductionFormula.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/common/formula/DeductionFormula.metta.html): Formulae for logical deduction.
@@ -211,12 +211,12 @@ This group of directories explores various representational methods for porting 
    - [`InTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/common/InTest.metta.html): Tests for element inclusion logic.
    - [`BelieveMe.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/common/BelieveMe.metta.html): Logic for belief representation.
 
-- **[`HOL`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/hol)**: Showcases HOL (Higher-Order Logic) operations.
+- **[`HOL/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/hol)**: Showcases HOL (Higher-Order Logic) operations.
    - [`ListTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/hol/ListTest.metta.html): Test cases for list operations in HOL.
    - [`NatTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/hol/NatTest.metta.html): Test cases for natural number operations in HOL.
    - [`NatSimpleTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/hol/NatSimpleTest.metta.html): Simplified tests for natural numbers in HOL.
 
-- **[`dependent-types`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/dependent-types)**: Concentrates on representing rules as type constructors.
+- **[`dependent-types/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/dependent-types)**: Concentrates on representing rules as type constructors.
    - [`ModusPonensDTLTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/dependent-types/ModusPonensDTLTest.metta.html): Test cases for modus ponens in dependent type logic.
    - [`ImplicationDirectIntroductionDTL.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/dependent-types/ImplicationDirectIntroductionDTL.metta.html): Direct implication introduction in dependent type logic.
    - [`DeductionImplicationDirectIntroductionDTLTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/dependent-types/DeductionImplicationDirectIntroductionDTLTest.metta.html): Tests for deduction and direct implication introduction.
@@ -225,31 +225,31 @@ This group of directories explores various representational methods for porting 
    - [`DeductionDTLTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/dependent-types/DeductionDTLTest.metta.html): Tests for deduction in dependent type language.
    - [`ModusPonensDTL.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/dependent-types/ModusPonensDTL.metta.html): Modus ponens implementation in dependent type language.
 
-- **[`forward-chainer`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/forward-chainer)**: Focuses on forward-chaining logic.
+- **[`forward-chainer/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/forward-chainer)**: Focuses on forward-chaining logic.
    - [`forward-chainer-test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.html): Test cases for forward-chaining logic.
    - [`forward-chainer-xp.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html): Experimental forward-chaining implementations.
 
-- **[`subtyping`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/subtyping)**: Showcases subtyping operations.
+- **[`subtyping/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/subtyping)**: Showcases subtyping operations.
    - [`rule-base.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/subtyping/rule-base.metta.html): Base rules for subtyping operations.
    - [`subtyping-test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta.html): Test cases for subtyping.
 
-- **[`sumo`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo)**: Houses SUMO (Suggested Upper Merged Ontology) examples.
+- **[`sumo/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/sumo)**: Houses SUMO (Suggested Upper Merged Ontology) examples.
     - [`load-suo-kif.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/load-suo-kif.metta.html): Logic for loading SUMO KIF files.
     - [`rule-base.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/rule-base.metta.html): Base rules for SUMO logic.
-    - **[`sumo/john-carry-flower`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/john-carry-flower)**: Narrative logic examples.
+    - **[`sumo/john-carry-flower/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/sumo/john-carry-flower)**: Narrative logic examples.
       - [`john-carry-flower-test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower-test.metta.html): Test cases for the John carrying a flower narrative.
       - [`john-carry-flower.kif.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/john-carry-flower/john-carry-flower.kif.metta.html): KIF narrative for John carrying a flower.
-    - **[`sumo/orientation`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/orientation)**: Related to spatial orientation.
+    - **[`sumo/orientation/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/sumo/orientation)**: Related to spatial orientation.
       - [`orientation-test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/orientation/orientation-test.metta.html): Tests for orientation logic in SUMO.
       - [`orientation.kif.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/orientation/orientation.kif.metta.html): Knowledge Interchange Format files for orientation.
-    - **[`sumo/located`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/located)**: Pertains to location-based logic.
+    - **[`sumo/located/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/sumo/located)**: Pertains to location-based logic.
       - [`located-test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/located/located-test.metta.html): Tests for location-based logic in SUMO.
       - [`located.kif.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/located/located.kif.metta.html): KIF files for location-based logic.
-    - **[`sumo/route-between`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/sumo/route-between)**: Deals with routing logic.
+    - **[`sumo/route-between/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/sumo/route-between)**: Deals with routing logic.
 
 #### **Synthesis Experiments**
 
-- **[`synthesis/experiments`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/synthesis/experiments)**: Experiments in program synthesis.
+- **[`synthesis/experiments/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments)**: Experiments in program synthesis.
    - [`synthesize-via-unify-test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-unify-test.metta.html): Tests for synthesis through unification.
    - [`unify-via-case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta.html): Unification via `case` operator construct.
    - [`synthesize-via-case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-case.metta.html): Synthesis through `case` operator construct.
@@ -266,7 +266,7 @@ This group of directories explores various representational methods for porting 
 
 #### **Match and Unify Operations**
 
-- **[`match`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/match)**: Logic for matching and unification.
+- **[`match/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/baseline_compat/hyperon-pln_metta/match)**: Logic for matching and unification.
    - [`DeductionImplicationDirectIntroductionMatchTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/match/DeductionImplicationDirectIntroductionMatchTest.metta.html): Tests for matching in deduction and direct implication introduction.
    - [`DeductionMatch.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/match/DeductionMatch.metta.html): Logic for deduction matching.
    - [`ImplicationDirectIntroductionMatchTest.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/match/ImplicationDirectIntroductionMatchTest.metta.html): Tests for direct implication introduction matching.
@@ -275,7 +275,7 @@ This group of directories explores various representational methods for porting 
 
 ## Python Compatibility - Hyperon Experimental Python
 
-- **[`python_compat/hyperon-experimental_python/sandbox/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/):** Hyperon Experimental Python Sandbox
+- **[`python_compat/hyperon-experimental_python/sandbox/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/python_compat/hyperon-experimental_python/sandbox/):** Hyperon Experimental Python Sandbox
    - [`resolve/r.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/resolve/r.metta.html): Resolution algorithms in Hyperon Python sandbox.
    - [`sql_space/sql_space_test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/sql_space/sql_space_test.metta.html): Test scripts for SQL space integration in Hyperon.
    - [`neurospace/test_assist.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/neurospace/test_assist.metta.html): Assistant scripts for neurospace simulations.
@@ -283,7 +283,7 @@ This group of directories explores various representational methods for porting 
    - [`numpy/nm_test.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta.html): Numpy integration tests in Hyperon Python environment.
    - [`das_gate/test_das.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/das_gate/test_das.metta.html): Test scripts for DAS gate functionality in Hyperon.
 
-- **[`python_compat/extend/`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/extend/):** Extensions in Python Compatibility Layer for NARS
+- **[`python_compat/extend/`](https://github.com/logicmoo/vspace-metta/tree/main/examples/python_compat/extend/):** Extensions in Python Compatibility Layer for NARS
 	   - [`example6.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/extend/example6.metta.html): Example script 6 for Python compatibility layer.
 	   - [`compileme.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/extend/compileme.metta.html): Compilation scripts for Python compatibility extensions.
 	   - [`example2.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/extend/example2.metta.html): Example script 2 for extended functionalities.
