@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta')
+1=[]
+2=0.11user 0.00system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 28456maxresident)k
+2=0inputs+0outputs (0major+3293minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta', 1, []).
+
+;; Move a disk from peg X to peg Y.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[move,X,Y],[if,[and,['not-empty',X],['can-place',Y,X]],[seq,['remove-top',X],['place-top',Y,X]],nop]])
+</span><span class="ansi38-255165000">  (= 
+    (move $X $Y) 
+    (if 
+      (and 
+        (not-empty $X) 
+        (can-place $Y $X)) 
+      (seq 
+        (remove-top $X) 
+        (place-top $Y $X)) nop))
+</span>
+
+;; Check if peg is not empty
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['not-empty',X],[neq,[top,X],'None']])
+</span><span class="ansi38-255165000">  (= 
+    (not-empty $X) 
+    (neq 
+      (top $X) None))
+</span>
+
+;; Check if a disk can be placed on a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['can-place',Y,X],[or,[eq,[top,Y],'None'],[<,[top,X],[top,Y]]]])
+</span><span class="ansi38-255165000">  (= 
+    (can-place $Y $X) 
+    (or 
+      (eq 
+        (top $Y) None) 
+      (< 
+        (top $X) 
+        (top $Y))))
+</span>
+
+;; Remove the top disk from a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['remove-top',X],[',',[assign,X,[rest,X]],'True']])
+</span><span class="ansi38-255165000">  (= 
+    (remove-top $X) 
+    (and 
+      (assign $X 
+        (rest $X)) True))
+</span>
+
+;; Place the top disk from peg X onto peg Y
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['place-top',Y,X],[',',[assign,Y,[cons,[top,X],Y]],'True']])
+</span><span class="ansi38-255165000">  (= 
+    (place-top $Y $X) 
+    (and 
+      (assign $Y 
+        (cons 
+          (top $X) $Y)) True))
+</span>
+
+;; Get the top of a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[top,X],[head,X]])
+</span><span class="ansi38-255165000">  (= 
+    (top $X) 
+    (head $X))
+</span>
+
+;; Get the rest of a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rest,X],[tail,X]])
+</span><span class="ansi38-255165000">  (= 
+    (rest $X) 
+    (tail $X))
+</span>
+
+;; Towers of Hanoi test
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],[move,Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],[move,Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]]])
+</span><span class="ansi38-255165000">  (= 
+    (hanoi $N $Src $Aux $Dest) 
+    (if 
+      (eq $N 1) 
+      (move $Src $Dest) 
+      (seq 
+        (hanoi 
+          (- $N 1) $Src $Dest $Aux) 
+        (move $Src $Dest) 
+        (hanoi 
+          (- $N 1) $Aux $Src $Dest))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[hanoi_test],[let,[[src,[quote,[3,2,1]]],[aux,[quote,[]]],[dest,[quote,[]]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[quote,[3,2,1]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (hanoi_test) 
+    (let 
+      ( (src 
+          (quote 
+            (3 2 1))) 
+        (aux 
+          (quote ())) 
+        (dest 
+          (quote ()))) 
+      (hanoi 3 src aux dest) 
+      (assertEqual dest 
+        (quote 
+          (3 2 1)))))
+</span>
+
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(hanoi_test)
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (hanoi_test) ())
+
+</span><span class="ansi38-250144246">; !(hanoi_test)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[hanoi_test],OUT).
+
+</span>      -->(0,eval('&self',[assertEqualToResult,[hanoi_test],[]],RET),depth(1))
+<h3 id="PERFORMANCE.HANOI-ONE-SPACE.01">;; PERFORMANCE.HANOI-ONE-SPACE.01</h3>
+          -->(1,eval('&self',[hanoi_test],RET),depth(3))
+          <--(1,retval([let,[[src,[quote,[3,2,1]]],[aux,[quote,[]]],[dest,[quote,[]]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[quote,[3,2,1]]]]))
+            -->(2,eval('&self',[let,[[src,[quote,[3,2,1]]],[aux,[quote,[]]],[dest,[quote,[]]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[quote,[3,2,1]]]],RET),depth(4))
+                -->(3,eval('&self',[hanoi,3,src,aux,dest],RET),depth(6))
+                  -->(4,eval('&self',[if,[eq,3,1],[move,src,dest],[seq,[hanoi,[-,3,1],src,dest,aux],[move,src,dest],[hanoi,[-,3,1],aux,src,dest]]],RET),depth(7))
+                      -->(5,eval('&self',[eq,3,1],RET),depth(9))
+                      -->(6,eval('&self',[move,src,dest],RET),depth(9))
+                        -->(7,eval('&self',[if,[and,['not-empty',src],['can-place',dest,src]],[seq,['remove-top',src],['place-top',dest,src]],nop],RET),depth(10))
+                            -->(8,eval('&self',[and,['not-empty',src],['can-place',dest,src]],RET),depth(12))
+                                -->(9,eval('&self',['not-empty',src],RET),depth(14))
+                                  -->(10,eval('&self',[neq,[top,src],'None'],RET),depth(15))
+                                      -->(11,eval('&self',[top,src],RET),depth(17))
+                                        -->(12,eval('&self',[head,src],RET),depth(18))
+                                    -->(13,eval('&self',[neq,[head,src],'None'],RET),depth(16))
+                                        -->(14,eval('&self',[head,src],RET),depth(18))
+                                        -->(15,eval('&self',[head,src],RET),depth(18))
+                                      -->(16,eval('&self',[head,src],RET),depth(17))
+                                    -->(17,eval('&self',[head,src],RET),depth(16))
+                                -->(18,eval('&self',['can-place',dest,src],RET),depth(14))
+                                  -->(19,eval('&self',[or,[eq,[top,dest],'None'],[<,[top,src],[top,dest]]],RET),depth(15))
+                                      -->(20,eval('&self',[eq,[top,dest],'None'],RET),depth(17))
+                                          -->(21,eval('&self',[top,dest],RET),depth(19))
+                                            -->(22,eval('&self',[head,dest],RET),depth(20))
+                                        -->(23,eval('&self',[eq,[head,dest],'None'],RET),depth(18))
+                                            -->(24,eval('&self',[head,dest],RET),depth(20))
+                                            -->(25,eval('&self',[head,dest],RET),depth(20))
+                                          -->(26,eval('&self',[head,dest],RET),depth(19))
+                            -->(27,eval('&self',[seq,['remove-top',src],['place-top',dest,src]],RET),depth(12))
+                                -->(28,eval('&self',['remove-top',src],RET),depth(14))
+                                  -->(29,eval('&self',[',',[assign,src,[rest,src]],'True'],RET),depth(15))
+                                      -->(30,eval('&self',[assign,src,[rest,src]],RET),depth(17))
+                                          -->(31,eval('&self',[rest,src],RET),depth(19))
+                                            -->(32,eval('&self',[tail,src],RET),depth(20))
+                                        -->(33,eval('&self',[assign,src,[tail,src]],RET),depth(18))
+                                            -->(34,eval('&self',[tail,src],RET),depth(20))
+                                            -->(35,eval('&self',[tail,src],RET),depth(20))
+                                          -->(36,eval('&self',[tail,src],RET),depth(19))
+                                -->(37,eval('&self',['place-top',dest,src],RET),depth(14))
+                                  -->(38,eval('&self',[',',[assign,dest,[cons,[top,src],dest]],'True'],RET),depth(15))
+                                      -->(39,eval('&self',[assign,dest,[cons,[top,src],dest]],RET),depth(17))
+                                          -->(40,eval('&self',[cons,[top,src],dest],RET),depth(19))
+                                              -->(41,eval('&self',[top,src],RET),depth(21))
+                                                -->(42,eval('&self',[head,src],RET),depth(22))
+                                            -->(43,eval('&self',[cons,[head,src],dest],RET),depth(20))
+                                                -->(44,eval('&self',[head,src],RET),depth(22))
+                                                -->(45,eval('&self',[head,src],RET),depth(22))
+                                              -->(46,eval('&self',[head,src],RET),depth(21))
+                                        -->(47,eval('&self',[assign,dest,[cons,[head,src],dest]],RET),depth(18))
+                                            -->(48,eval('&self',[cons,[head,src],dest],RET),depth(20))
+                                                -->(49,eval('&self',[head,src],RET),depth(22))
+                                                -->(50,eval('&self',[head,src],RET),depth(22))
+                                            -->(51,eval('&self',[cons,[head,src],dest],RET),depth(20))
+                                                -->(52,eval('&self',[head,src],RET),depth(22))
+                                                -->(53,eval('&self',[head,src],RET),depth(22))
+                                          -->(54,eval('&self',[cons,[head,src],dest],RET),depth(19))
+                                              -->(55,eval('&self',[head,src],RET),depth(21))
+                                              -->(56,eval('&self',[head,src],RET),depth(21))
+                              -->(57,eval('&self',[seq,'True','True'],RET),depth(13))
+                          -->(58,eval('&self',[seq,'True','True'],RET),depth(11))
+                    -->(59,eval('&self',[seq,'True','True'],RET),depth(8))
+                                              <--(41,retval([head,src]))
+                                          <--(40,retval([cons,[head,src],dest]))
+                                      <--(39,retval([assign,dest,[cons,[head,src],dest]]))
+                                  <--(38,retval('True'))
+                                <--(37,retval([',',[assign,dest,[cons,[top,src],dest]],'True']))
+                                          <--(31,retval([tail,src]))
+                                      <--(30,retval([assign,src,[tail,src]]))
+                                  <--(29,retval('True'))
+                                <--(28,retval([',',[assign,src,[rest,src]],'True']))
+                            <--(27,retval([seq,'True','True']))
+                                          <--(21,retval([head,dest]))
+                                      <--(20,retval([eq,[head,dest],'None']))
+                                      -->(60,eval('&self',[<,[top,src],[top,dest]],RET),depth(17))
+                                          -->(61,eval('&self',[top,src],RET),depth(19))
+                                            -->(62,eval('&self',[head,src],RET),depth(20))
+                                          -->(63,eval('&self',[top,dest],RET),depth(19))
+                                            -->(64,eval('&self',[head,dest],RET),depth(20))
+                                          -->(65,eval('&self',[head,src],RET),depth(19))
+                                          -->(66,eval('&self',[head,dest],RET),depth(19))
+                                          <--(63,retval([head,dest]))
+                                          <--(61,retval([head,src]))
+                                          -->(67,eval('&self',[top,src],RET),depth(19))
+                                            -->(68,eval('&self',[head,src],RET),depth(20))
+                                          -->(69,eval('&self',[top,dest],RET),depth(19))
+                                            -->(70,eval('&self',[head,dest],RET),depth(20))
+                                        -->(71,eval('&self',[<,[head,src],[head,dest]],RET),depth(18))
+                                            -->(72,eval('&self',[head,src],RET),depth(20))
+                                            -->(73,eval('&self',[head,dest],RET),depth(20))
+                                            -->(74,eval('&self',[head,src],RET),depth(20))
+                                            -->(75,eval('&self',[head,dest],RET),depth(20))
+                                            -->(76,eval('&self',[head,src],RET),depth(20))
+                                            -->(77,eval('&self',[head,dest],RET),depth(20))
+                                            -->(78,eval('&self',[head,src],RET),depth(20))
+                                            -->(79,eval('&self',[head,dest],RET),depth(20))
+                                          -->(80,eval('&self',[head,src],RET),depth(19))
+                                          -->(81,eval('&self',[head,dest],RET),depth(19))
+                            -->(82,eval('&self',[seq,['remove-top',src],['place-top',dest,src]],RET),depth(12))
+                                -->(83,eval('&self',['remove-top',src],RET),depth(14))
+                                  -->(84,eval('&self',[',',[assign,src,[rest,src]],'True'],RET),depth(15))
+                                      -->(85,eval('&self',[assign,src,[rest,src]],RET),depth(17))
+                                          -->(86,eval('&self',[rest,src],RET),depth(19))
+                                            -->(87,eval('&self',[tail,src],RET),depth(20))
+                                        -->(88,eval('&self',[assign,src,[tail,src]],RET),depth(18))
+                                            -->(89,eval('&self',[tail,src],RET),depth(20))
+                                            -->(90,eval('&self',[tail,src],RET),depth(20))
+                                          -->(91,eval('&self',[tail,src],RET),depth(19))
+                                -->(92,eval('&self',['place-top',dest,src],RET),depth(14))
+                                  -->(93,eval('&self',[',',[assign,dest,[cons,[top,src],dest]],'True'],RET),depth(15))
+                                      -->(94,eval('&self',[assign,dest,[cons,[top,src],dest]],RET),depth(17))
+                                          -->(95,eval('&self',[cons,[top,src],dest],RET),depth(19))
+                                              -->(96,eval('&self',[top,src],RET),depth(21))
+                                                -->(97,eval('&self',[head,src],RET),depth(22))
+                                            -->(98,eval('&self',[cons,[head,src],dest],RET),depth(20))
+                                                -->(99,eval('&self',[head,src],RET),depth(22))
+                                                -->(100,eval('&self',[head,src],RET),depth(22))
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+; EVAL TEST
+; took 0.099 secs. (99.11 milliseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  () ()))
+</span>Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 949,178 inferences, 0.237 CPU in 0.237 seconds (100% CPU, 4004153 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta.html" )
+
+</pre>
+</body>
+
+</html>

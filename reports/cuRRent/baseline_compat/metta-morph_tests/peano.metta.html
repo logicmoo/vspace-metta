@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta')
+1=[(S (S (S (S (S Z)))))]
+2=0.11user 0.01system 0:00.13elapsed 100%CPU (0avgtext+0avgdata 33052maxresident)k
+2=0inputs+0outputs (0major+3500minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta', 1, [['S', ['S', ['S', ['S', ['S', 'Z']]]]]]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Add',X,'Z'],X])
+</span><span class="ansi38-255165000">  (= 
+    (Add $X Z) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Add',X,['S',Y]],['Add',['S',X],Y]])
+</span><span class="ansi38-255165000">  (= 
+    (Add $X 
+      (S $Y)) 
+    (Add 
+      (S $X) $Y))
+</span>
+
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(Add 
+  (S 
+    (S Z)) 
+  (S 
+    (S 
+      (S Z))))
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (Add 
+    (S 
+      (S Z)) 
+    (S 
+      (S 
+        (S Z)))) 
+  ( (S 
+      (S 
+        (S 
+          (S 
+            (S Z)))))))
+
+</span><span class="ansi38-250144246">; !(Add 
+  (S 
+    (S Z)) 
+  (S 
+    (S 
+      (S Z))))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Add',['S',['S','Z']],['S',['S',['S','Z']]]],OUT).
+
+</span>      -->(0,eval('&self',[assertEqualToResult,['Add',['S',['S','Z']],['S',['S',['S','Z']]]],[['S',['S',['S',['S',['S','Z']]]]]]],RET),depth(1))
+<h3 id="METTA-MORPH-TESTS.PEANO.01">;; METTA-MORPH-TESTS.PEANO.01</h3>
+          -->(1,eval('&self',['Add',['S',['S','Z']],['S',['S',['S','Z']]]],RET),depth(3))
+          <--(1,retval(['Add',['S',['S',['S','Z']]],['S',['S','Z']]]))
+            -->(2,eval('&self',['Add',['S',['S',['S','Z']]],['S',['S','Z']]],RET),depth(4))
+            <--(2,retval(['Add',['S',['S',['S',['S','Z']]]],['S','Z']]))
+              -->(3,eval('&self',['Add',['S',['S',['S',['S','Z']]]],['S','Z']],RET),depth(5))
+              <--(3,retval(['Add',['S',['S',['S',['S',['S','Z']]]]],'Z']))
+                -->(4,eval('&self',['Add',['S',['S',['S',['S',['S','Z']]]]],'Z'],RET),depth(6))
+                  -->(5,eval('&self',['S',['S',['S',['S',['S','Z']]]]],RET),depth(7))
+                      -->(6,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(9))
+                          -->(7,eval('&self',['S',['S',['S','Z']]],RET),depth(11))
+                              -->(8,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(9,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(10,eval('&self',['S','Z'],RET),depth(15))
+                              -->(11,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(12,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(13,eval('&self',['S','Z'],RET),depth(15))
+                          -->(14,eval('&self',['S',['S',['S','Z']]],RET),depth(11))
+                              -->(15,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(16,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(17,eval('&self',['S','Z'],RET),depth(15))
+                              -->(18,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(19,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(20,eval('&self',['S','Z'],RET),depth(15))
+                      -->(21,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(9))
+                          -->(22,eval('&self',['S',['S',['S','Z']]],RET),depth(11))
+                              -->(23,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(24,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(25,eval('&self',['S','Z'],RET),depth(15))
+                              -->(26,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(27,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(28,eval('&self',['S','Z'],RET),depth(15))
+                          -->(29,eval('&self',['S',['S',['S','Z']]],RET),depth(11))
+                              -->(30,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(31,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(32,eval('&self',['S','Z'],RET),depth(15))
+                              -->(33,eval('&self',['S',['S','Z']],RET),depth(13))
+                                  -->(34,eval('&self',['S','Z'],RET),depth(15))
+                                  -->(35,eval('&self',['S','Z'],RET),depth(15))
+                    -->(36,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(8))
+                        -->(37,eval('&self',['S',['S',['S','Z']]],RET),depth(10))
+                            -->(38,eval('&self',['S',['S','Z']],RET),depth(12))
+                                -->(39,eval('&self',['S','Z'],RET),depth(14))
+                                -->(40,eval('&self',['S','Z'],RET),depth(14))
+                            -->(41,eval('&self',['S',['S','Z']],RET),depth(12))
+                                -->(42,eval('&self',['S','Z'],RET),depth(14))
+                                -->(43,eval('&self',['S','Z'],RET),depth(14))
+                        -->(44,eval('&self',['S',['S',['S','Z']]],RET),depth(10))
+                            -->(45,eval('&self',['S',['S','Z']],RET),depth(12))
+                                -->(46,eval('&self',['S','Z'],RET),depth(14))
+                                -->(47,eval('&self',['S','Z'],RET),depth(14))
+                            -->(48,eval('&self',['S',['S','Z']],RET),depth(12))
+                                -->(49,eval('&self',['S','Z'],RET),depth(14))
+                                -->(50,eval('&self',['S','Z'],RET),depth(14))
+                  -->(51,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(7))
+                      -->(52,eval('&self',['S',['S',['S','Z']]],RET),depth(9))
+                          -->(53,eval('&self',['S',['S','Z']],RET),depth(11))
+                              -->(54,eval('&self',['S','Z'],RET),depth(13))
+                              -->(55,eval('&self',['S','Z'],RET),depth(13))
+                          -->(56,eval('&self',['S',['S','Z']],RET),depth(11))
+                              -->(57,eval('&self',['S','Z'],RET),depth(13))
+                              -->(58,eval('&self',['S','Z'],RET),depth(13))
+                      -->(59,eval('&self',['S',['S',['S','Z']]],RET),depth(9))
+                          -->(60,eval('&self',['S',['S','Z']],RET),depth(11))
+                              -->(61,eval('&self',['S','Z'],RET),depth(13))
+                              -->(62,eval('&self',['S','Z'],RET),depth(13))
+                          -->(63,eval('&self',['S',['S','Z']],RET),depth(11))
+                              -->(64,eval('&self',['S','Z'],RET),depth(13))
+                              -->(65,eval('&self',['S','Z'],RET),depth(13))
+                -->(66,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(6))
+                    -->(67,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
+                        -->(68,eval('&self',['S',['S','Z']],RET),depth(10))
+                            -->(69,eval('&self',['S','Z'],RET),depth(12))
+                            -->(70,eval('&self',['S','Z'],RET),depth(12))
+                        -->(71,eval('&self',['S',['S','Z']],RET),depth(10))
+                            -->(72,eval('&self',['S','Z'],RET),depth(12))
+                            -->(73,eval('&self',['S','Z'],RET),depth(12))
+                    -->(74,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
+                        -->(75,eval('&self',['S',['S','Z']],RET),depth(10))
+                            -->(76,eval('&self',['S','Z'],RET),depth(12))
+                            -->(77,eval('&self',['S','Z'],RET),depth(12))
+                        -->(78,eval('&self',['S',['S','Z']],RET),depth(10))
+                            -->(79,eval('&self',['S','Z'],RET),depth(12))
+                            -->(80,eval('&self',['S','Z'],RET),depth(12))
+              -->(81,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(5))
+                  -->(82,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
+                      -->(83,eval('&self',['S',['S','Z']],RET),depth(9))
+                          -->(84,eval('&self',['S','Z'],RET),depth(11))
+                          -->(85,eval('&self',['S','Z'],RET),depth(11))
+                      -->(86,eval('&self',['S',['S','Z']],RET),depth(9))
+                          -->(87,eval('&self',['S','Z'],RET),depth(11))
+                          -->(88,eval('&self',['S','Z'],RET),depth(11))
+                  -->(89,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
+                      -->(90,eval('&self',['S',['S','Z']],RET),depth(9))
+                          -->(91,eval('&self',['S','Z'],RET),depth(11))
+                          -->(92,eval('&self',['S','Z'],RET),depth(11))
+                      -->(93,eval('&self',['S',['S','Z']],RET),depth(9))
+                          -->(94,eval('&self',['S','Z'],RET),depth(11))
+                          -->(95,eval('&self',['S','Z'],RET),depth(11))
+                <--(4,retval(['S',['S',['S',['S',['S','Z']]]]]))
+; 
+; EVAL TEST
+; took 0.063 secs. (63.17 milliseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (S 
+        (S 
+          (S 
+            (S 
+              (S Z)))))) 
+    ( (S 
+        (S 
+          (S 
+            (S 
+              (S Z))))))))
+</span>      <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 637,934 inferences, 0.154 CPU in 0.154 seconds (100% CPU, 4142749 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta.html" )
+
+</pre>
+</body>
+
+</html>

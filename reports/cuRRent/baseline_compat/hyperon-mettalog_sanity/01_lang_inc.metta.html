@@ -26,17 +26,17 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta")
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta')
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta')
 1=[()]
 2=[()]
 3=0.11user 0.00system 0:00.12elapsed 98%CPU (0avgtext+0avgdata 33136maxresident)k
 3=0inputs+0outputs (0major+3474minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta', 1, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta', 2, [[]]).
 
 ;; a functional example
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['maybe-inc',X],[case,X,[[['Just',V],['Just',[+,1,V]]],['Nothing','Nothing']]]])
@@ -55,15 +55,18 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span><span class="ansi38-250144246">; !(maybe-inc Nothing)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['maybe-inc','Nothing'],OUT).
 
-</span><h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.01">;; HYPERON-METTALOG-SANITY.01-LANG-INC.01</h3>
+</span>      -->(0,eval('&self',[assertEqual,['maybe-inc','Nothing'],'Nothing'],RET),depth(1))
+<h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.01">;; HYPERON-METTALOG-SANITY.01-LANG-INC.01</h3>
+          -->(1,eval('&self',['maybe-inc','Nothing'],RET),depth(3))
+          <--(1,retval('Nothing'))
 ; 
 ; EVAL TEST
-; took 0.000039 secs. (39.20 microseconds) 
+; took 0.001 secs. (1.04 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (Nothing) 
     (Nothing)))
-</span>; Evaluation took 0.001 secs. (1.19 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -75,25 +78,38 @@ Deterministic: <span class="ansi33">Empty
   (Just 2))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['maybe-inc',['Just',2]],OUT).
 
-</span><h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.02">;; HYPERON-METTALOG-SANITY.01-LANG-INC.02</h3>
+</span>      -->(0,eval('&self',[assertEqual,['maybe-inc',['Just',2]],['Just',3]],RET),depth(1))
+<h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.02">;; HYPERON-METTALOG-SANITY.01-LANG-INC.02</h3>
+          -->(1,eval('&self',['maybe-inc',['Just',2]],RET),depth(3))
+          <--(1,retval([case,['Just',2],[[['Just',_274100],['Just',[+,1,_274100]]],['Nothing','Nothing']]]))
+            -->(2,eval('&self',[case,['Just',2],[[['Just',_273950],['Just',[+,1,_273950]]],['Nothing','Nothing']]],RET),depth(4))
+                -->(3,eval('&self',['Just',2],RET),depth(6))
+                -->(4,eval('&self',['Just',[+,1,2]],RET),depth(6))
+                    -->(5,eval('&self',[+,1,2],RET),depth(8))
+                    <--(5,retval(3))
+                <--(4,retval(['Just',3]))
+                  -->(6,eval('&self',['Just',3],RET),depth(7))
+            <--(2,retval(['Just',3]))
+              -->(7,eval('&self',['Just',3],RET),depth(5))
+          -->(8,eval('&self',['Just',3],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.000340 secs. (339.80 microseconds) 
+; took 0.007 secs. (6.75 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     ( (Just 3)) 
     ( (Just 3))))
-</span>; Evaluation took 0.002 secs. (1.75 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 246,252 inferences, 0.098 CPU in 0.098 seconds (100% CPU, 2525146 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta" 0)
+</span><span class="ansi32">% 302,152 inferences, 0.110 CPU in 0.110 seconds (100% CPU, 2758407 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2
 </span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-mettalog_sanity/01_lang_inc.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta.html" )
 
 </pre>
 </body>

@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta:1 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta')
+1=[False]
+2=[False]
+3=0.60user 0.02system 0:00.62elapsed 100%CPU (0avgtext+0avgdata 34104maxresident)k
+3=0inputs+0outputs (0major+3749minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta', 1, ['False']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta', 2, ['False']).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foldl,[->,'Atom','Atom','Atom',T]])
+</span><span class="ansi38-255165000">  (: foldl 
+    (-> Atom Atom Atom $T))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[foldl,List,Init,Op],[if,[==,[],List],Init,['let*',[[Head,['car-atom',List]],[Tail,['cdr-atom',List]]],[Op,Head,[foldl,Tail,Init,Op]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (foldl $List $Init $Op) 
+    (if 
+      (== () $List) $Init 
+      (let* 
+        ( ($Head 
+            (car-atom $List)) 
+          ($Tail 
+            (cdr-atom $List))) 
+        ($Op $Head 
+          (foldl $Tail $Init $Op)))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,all,[->,'Atom','Bool']])
+</span><span class="ansi38-255165000">  (: all 
+    (-> Atom Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[all,A],[foldl,A,'True',and]])
+</span><span class="ansi38-255165000">  (= 
+    (all $A) 
+    (foldl $A True and))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,any,[->,'Atom','Bool']])
+</span><span class="ansi38-255165000">  (: any 
+    (-> Atom Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[any,A],[if,[==,[],A],'False',['let*',[[Tail,['cdr-atom',A]],[Head,['car-atom',A]]],[if,Head,'True',[any,Tail]]]]])
+</span><span class="ansi38-255165000">  (= 
+    (any $A) 
+    (if 
+      (== () $A) False 
+      (let* 
+        ( ($Tail 
+            (cdr-atom $A)) 
+          ($Head 
+            (car-atom $A))) 
+        (if $Head True 
+          (any $Tail)))))
+</span>
+
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(any 
+  (False False False False))
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (any 
+    (False False False False)) 
+  (False))
+
+</span><span class="ansi38-250144246">; !(any 
+  (False False False False))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[any,['False','False','False','False']],OUT).
+
+</span>      -->(0,eval('&self',[assertEqualToResult,[any,['False','False','False','False']],['False']],RET),depth(1))
+<h3 id="LOGIC.ALL-ANY.01">;; LOGIC.ALL-ANY.01</h3>
+          -->(1,eval('&self',[any,['False','False','False','False']],RET),depth(3))
+          <--(1,retval([if,[==,[],['False','False','False','False']],'False',['let*',[[_311006,['cdr-atom',['False','False','False','False']]],[_311036,['car-atom',['False','False','False','False']]]],[if,_311036,'True',[any,_311006]]]]))
+            -->(2,eval('&self',[if,[==,[],['False','False','False','False']],'False',['let*',[[_310784,['cdr-atom',['False','False','False','False']]],[_310814,['car-atom',['False','False','False','False']]]],[if,_310814,'True',[any,_310784]]]],RET),depth(4))
+                -->(3,eval('&self',[==,[],['False','False','False','False']],RET),depth(6))
+                    -->(4,eval('&self',['False','False','False','False'],RET),depth(8))
+                <--(3,retval('False'))
+                -->(5,eval('&self',['let*',[[_310784,['cdr-atom',['False','False','False','False']]],[_310814,['car-atom',['False','False','False','False']]]],[if,_310814,'True',[any,_310784]]],RET),depth(6))
+                    -->(6,eval('&self',['cdr-atom',['False','False','False','False']],RET),depth(8))
+                    <--(6,retval(['False','False','False']))
+                      -->(7,eval('&self',['False','False','False'],RET),depth(9))
+                    -->(8,eval('&self',['let*',[[_310814,['car-atom',['False','False','False','False']]]],[if,_310814,'True',[any,['False','False','False']]]],RET),depth(8))
+                        -->(9,eval('&self',['car-atom',['False','False','False','False']],RET),depth(10))
+                        <--(9,retval('False'))
+                        -->(10,eval('&self',['let*',[],[if,'False','True',[any,['False','False','False']]]],RET),depth(10))
+                            -->(11,eval('&self',[if,'False','True',[any,['False','False','False']]],RET),depth(12))
+                                -->(12,eval('&self',[any,['False','False','False']],RET),depth(14))
+                                <--(12,retval([if,[==,[],['False','False','False']],'False',['let*',[[_451372,['cdr-atom',['False','False','False']]],[_451402,['car-atom',['False','False','False']]]],[if,_451402,'True',[any,_451372]]]]))
+                                  -->(13,eval('&self',[if,[==,[],['False','False','False']],'False',['let*',[[_451156,['cdr-atom',['False','False','False']]],[_451186,['car-atom',['False','False','False']]]],[if,_451186,'True',[any,_451156]]]],RET),depth(15))
+                                      -->(14,eval('&self',[==,[],['False','False','False']],RET),depth(17))
+                                          -->(15,eval('&self',['False','False','False'],RET),depth(19))
+                                      <--(14,retval('False'))
+                                      -->(16,eval('&self',['let*',[[_451156,['cdr-atom',['False','False','False']]],[_451186,['car-atom',['False','False','False']]]],[if,_451186,'True',[any,_451156]]],RET),depth(17))
+                                          -->(17,eval('&self',['cdr-atom',['False','False','False']],RET),depth(19))
+                                          <--(17,retval(['False','False']))
+                                            -->(18,eval('&self',['False','False'],RET),depth(20))
+                                          -->(19,eval('&self',['let*',[[_5922,['car-atom',['False','False','False']]]],[if,_5922,'True',[any,['False','False']]]],RET),depth(19))
+                                              -->(20,eval('&self',['car-atom',['False','False','False']],RET),depth(21))
+                                              <--(20,retval('False'))
+                                              -->(21,eval('&self',['let*',[],[if,'False','True',[any,['False','False']]]],RET),depth(21))
+                                                  -->(22,eval('&self',[if,'False','True',[any,['False','False']]],RET),depth(23))
+                                                      -->(23,eval('&self',[any,['False','False']],RET),depth(25))
+                                                      <--(23,retval([if,[==,[],['False','False']],'False',['let*',[[_31146,['cdr-atom',['False','False']]],[_31176,['car-atom',['False','False']]]],[if,_31176,'True',[any,_31146]]]]))
+                                                        -->(24,eval('&self',[if,[==,[],['False','False']],'False',['let*',[[_30936,['cdr-atom',['False','False']]],[_30966,['car-atom',['False','False']]]],[if,_30966,'True',[any,_30936]]]],RET),depth(26))
+                                                            -->(25,eval('&self',[==,[],['False','False']],RET),depth(28))
+                                                                -->(26,eval('&self',['False','False'],RET),depth(30))
+                                                            <--(25,retval('False'))
+                                                            -->(27,eval('&self',['let*',[[_30936,['cdr-atom',['False','False']]],[_30966,['car-atom',['False','False']]]],[if,_30966,'True',[any,_30936]]],RET),depth(28))
+                                                                -->(28,eval('&self',['cdr-atom',['False','False']],RET),depth(30))
+                                                                <--(28,retval(['False']))
+                                                                  -->(29,eval('&self',['False'],RET),depth(31))
+                                                                -->(30,eval('&self',['let*',[[_30966,['car-atom',['False','False']]]],[if,_30966,'True',[any,['False']]]],RET),depth(30))
+                                                                    -->(31,eval('&self',['car-atom',['False','False']],RET),depth(32))
+                                                                    <--(31,retval('False'))
+                                                                    -->(32,eval('&self',['let*',[],[if,'False','True',[any,['False']]]],RET),depth(32))
+                                                                        -->(33,eval('&self',[if,'False','True',[any,['False']]],RET),depth(34))
+                                                                            -->(34,eval('&self',[any,['False']],RET),depth(36))
+                                                                            <--(34,retval([if,[==,[],['False']],'False',['let*',[[_89812,['cdr-atom',['False']]],[_89842,['car-atom',['False']]]],[if,_89842,'True',[any,_89812]]]]))
+                                                                              -->(35,eval('&self',[if,[==,[],['False']],'False',['let*',[[_89608,['cdr-atom',['False']]],[_89638,['car-atom',['False']]]],[if,_89638,'True',[any,_89608]]]],RET),depth(37))
+                                                                                  -->(36,eval('&self',[==,[],['False']],RET),depth(39))
+                                                                                      -->(37,eval('&self',['False'],RET),depth(41))
+                                                                                  <--(36,retval('False'))
+                                                                                  -->(38,eval('&self',['let*',[[_89608,['cdr-atom',['False']]],[_89638,['car-atom',['False']]]],[if,_89638,'True',[any,_89608]]],RET),depth(39))
+                                                                                      -->(39,eval('&self',['cdr-atom',['False']],RET),depth(41))
+                                                                                      <--(39,retval([]))
+                                                                                      -->(40,eval('&self',['let*',[[_89638,['car-atom',['False']]]],[if,_89638,'True',[any,[]]]],RET),depth(41))
+                                                                                          -->(41,eval('&self',['car-atom',['False']],RET),depth(43))
+                                                                                          <--(41,retval('False'))
+                                                                                          -->(42,eval('&self',['let*',[],[if,'False','True',[any,[]]]],RET),depth(43))
+                                                                                              -->(43,eval('&self',[if,'False','True',[any,[]]],RET),depth(45))
+                                                                                                  -->(44,eval('&self',[any,[]],RET),depth(47))
+                                                                                                  <--(44,retval([if,[==,[],[]],'False',['let*',[[_123242,['cdr-atom',[]]],[_123272,['car-atom',[]]]],[if,_123272,'True',[any,_123242]]]]))
+                                                                                                    -->(45,eval('&self',[if,[==,[],[]],'False',['let*',[[_123044,['cdr-atom',[]]],[_123074,['car-atom',[]]]],[if,_123074,'True',[any,_123044]]]],RET),depth(48))
+                                                                                                        -->(46,eval('&self',[==,[],[]],RET),depth(50))
+                                                                                                        <--(46,retval('True'))
+                                                                                                    <--(45,retval('False'))
+                                                                                              <--(43,retval('False'))
+                                                                                          <--(42,retval('False'))
+                                                                                      <--(40,retval('False'))
+                                                                                  <--(38,retval('False'))
+                                                                              <--(35,retval('False'))
+                                                                        <--(33,retval('False'))
+                                                                    <--(32,retval('False'))
+                                                                <--(30,retval('False'))
+                                                            <--(27,retval('False'))
+                                                        <--(24,retval('False'))
+                                                  <--(22,retval('False'))
+                                              <--(21,retval('False'))
+                                          <--(19,retval('False'))
+                                      <--(16,retval('False'))
+                                  <--(13,retval('False'))
+                            <--(11,retval('False'))
+                        <--(10,retval('False'))
+                    <--(8,retval('False'))
+                <--(5,retval('False'))
+            <--(2,retval('False'))
+; 
+; EVAL TEST
+; took 0.034 secs. (34.11 milliseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (False) 
+    (False)))
+</span>      <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(all 
+  (True True True False))
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (all 
+    (True True True False)) 
+  (False))
+
+</span><span class="ansi38-250144246">; !(all 
+  (True True True False))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[all,['True','True','True','False']],OUT).
+
+</span>      -->(0,eval('&self',[assertEqualToResult,[all,['True','True','True','False']],['False']],RET),depth(1))
+<h3 id="LOGIC.ALL-ANY.02">;; LOGIC.ALL-ANY.02</h3>
+          -->(1,eval('&self',[all,['True','True','True','False']],RET),depth(3))
+            -->(2,eval('&self',[foldl,['True','True','True','False'],'True',and],RET),depth(4))
+              -->(3,eval('&self',[if,[==,[],['True','True','True','False']],'True',['let*',[[_430860,['car-atom',['True','True','True','False']]],[_430890,['cdr-atom',['True','True','True','False']]]],[and,_430860,[foldl,_430890,'True',and]]]],RET),depth(5))
+                  -->(4,eval('&self',[==,[],['True','True','True','False']],RET),depth(7))
+                      -->(5,eval('&self',['True','True','True','False'],RET),depth(9))
+                  <--(4,retval('False'))
+                  -->(6,eval('&self',['let*',[[_430860,['car-atom',['True','True','True','False']]],[_430890,['cdr-atom',['True','True','True','False']]]],[and,_430860,[foldl,_430890,'True',and]]],RET),depth(7))
+                      -->(7,eval('&self',['car-atom',['True','True','True','False']],RET),depth(9))
+                      <--(7,retval('True'))
+                      -->(8,eval('&self',['let*',[[_430890,['cdr-atom',['True','True','True','False']]]],[and,'True',[foldl,_430890,'True',and]]],RET),depth(9))
+                          -->(9,eval('&self',['cdr-atom',['True','True','True','False']],RET),depth(11))
+                          <--(9,retval(['True','True','False']))
+                            -->(10,eval('&self',['True','True','False'],RET),depth(12))
+                          -->(11,eval('&self',['let*',[],[and,'True',[foldl,['True','True','False'],'True',and]]],RET),depth(11))
+                              -->(12,eval('&self',[and,'True',[foldl,['True','True','False'],'True',and]],RET),depth(13))
+                                  -->(13,eval('&self',[foldl,['True','True','False'],'True',and],RET),depth(15))
+                                    -->(14,eval('&self',[if,[==,[],['True','True','False']],'True',['let*',[[_56536,['car-atom',['True','True','False']]],[_56566,['cdr-atom',['True','True','False']]]],[and,_56536,[foldl,_56566,'True',and]]]],RET),depth(16))
+                                        -->(15,eval('&self',[==,[],['True','True','False']],RET),depth(18))
+                                            -->(16,eval('&self',['True','True','False'],RET),depth(20))
+                                        <--(15,retval('False'))
+                                        -->(17,eval('&self',['let*',[[_56536,['car-atom',['True','True','False']]],[_56566,['cdr-atom',['True','True','False']]]],[and,_56536,[foldl,_56566,'True',and]]],RET),depth(18))
+                                            -->(18,eval('&self',['car-atom',['True','True','False']],RET),depth(20))
+                                            <--(18,retval('True'))
+                                            -->(19,eval('&self',['let*',[[_56566,['cdr-atom',['True','True','False']]]],[and,'True',[foldl,_56566,'True',and]]],RET),depth(20))
+                                                -->(20,eval('&self',['cdr-atom',['True','True','False']],RET),depth(22))
+                                                <--(20,retval(['True','False']))
+                                                  -->(21,eval('&self',['True','False'],RET),depth(23))
+                                                -->(22,eval('&self',['let*',[],[and,'True',[foldl,['True','False'],'True',and]]],RET),depth(22))
+                                                    -->(23,eval('&self',[and,'True',[foldl,['True','False'],'True',and]],RET),depth(24))
+                                                        -->(24,eval('&self',[foldl,['True','False'],'True',and],RET),depth(26))
+                                                          -->(25,eval('&self',[if,[==,[],['True','False']],'True',['let*',[[_150828,['car-atom',['True','False']]],[_150858,['cdr-atom',['True','False']]]],[and,_150828,[foldl,_150858,'True',and]]]],RET),depth(27))
+                                                              -->(26,eval('&self',[==,[],['True','False']],RET),depth(29))
+                                                                  -->(27,eval('&self',['True','False'],RET),depth(31))
+                                                              <--(26,retval('False'))
+                                                              -->(28,eval('&self',['let*',[[_150828,['car-atom',['True','False']]],[_150858,['cdr-atom',['True','False']]]],[and,_150828,[foldl,_150858,'True',and]]],RET),depth(29))
+                                                                  -->(29,eval('&self',['car-atom',['True','False']],RET),depth(31))
+                                                                  <--(29,retval('True'))
+                                                                  -->(30,eval('&self',['let*',[[_150858,['cdr-atom',['True','False']]]],[and,'True',[foldl,_150858,'True',and]]],RET),depth(31))
+                                                                      -->(31,eval('&self',['cdr-atom',['True','False']],RET),depth(33))
+                                                                      <--(31,retval(['False']))
+                                                                        -->(32,eval('&self',['False'],RET),depth(34))
+                                                                      -->(33,eval('&self',['let*',[],[and,'True',[foldl,['False'],'True',and]]],RET),depth(33))
+                                                                          -->(34,eval('&self',[and,'True',[foldl,['False'],'True',and]],RET),depth(35))
+                                                                              -->(35,eval('&self',[foldl,['False'],'True',and],RET),depth(37))
+                                                                                -->(36,eval('&self',[if,[==,[],['False']],'True',['let*',[[_209310,['car-atom',['False']]],[_209340,['cdr-atom',['False']]]],[and,_209310,[foldl,_209340,'True',and]]]],RET),depth(38))
+                                                                                    -->(37,eval('&self',[==,[],['False']],RET),depth(40))
+                                                                                        -->(38,eval('&self',['False'],RET),depth(42))
+                                                                                    <--(37,retval('False'))
+                                                                                    -->(39,eval('&self',['let*',[[_209310,['car-atom',['False']]],[_209340,['cdr-atom',['False']]]],[and,_209310,[foldl,_209340,'True',and]]],RET),depth(40))
+                                                                                        -->(40,eval('&self',['car-atom',['False']],RET),depth(42))
+                                                                                        <--(40,retval('False'))
+                                                                                        -->(41,eval('&self',['let*',[[_209340,['cdr-atom',['False']]]],[and,'False',[foldl,_209340,'True',and]]],RET),depth(42))
+                                                                                            -->(42,eval('&self',['cdr-atom',['False']],RET),depth(44))
+                                                                                            <--(42,retval([]))
+                                                                                            -->(43,eval('&self',['let*',[],[and,'False',[foldl,[],'True',and]]],RET),depth(44))
+                                                                                                -->(44,eval('&self',[and,'False',[foldl,[],'True',and]],RET),depth(46))
+                                                                                                <--(44,retval('False'))
+                                                                                            <--(43,retval('False'))
+                                                                                        <--(41,retval('False'))
+                                                                                    <--(39,retval('False'))
+                                                                                <--(36,retval('False'))
+                                                                              <--(35,retval([if,[==,[],['False']],'True',['let*',[[_209520,['car-atom',['False']]],[_209550,['cdr-atom',['False']]]],[and,_209520,[foldl,_209550,'True',and]]]]))
+                                                                          <--(34,retval('False'))
+                                                                      <--(33,retval('False'))
+                                                                  <--(30,retval('False'))
+                                                              <--(28,retval('False'))
+                                                          <--(25,retval('False'))
+                                                        <--(24,retval([if,[==,[],['True','False']],'True',['let*',[[_151044,['car-atom',['True','False']]],[_151074,['cdr-atom',['True','False']]]],[and,_151044,[foldl,_151074,'True',and]]]]))
+                                                    <--(23,retval('False'))
+                                                <--(22,retval('False'))
+                                            <--(19,retval('False'))
+                                        <--(17,retval('False'))
+                                    <--(14,retval('False'))
+                                  <--(13,retval([if,[==,[],['True','True','False']],'True',['let*',[[_56758,['car-atom',['True','True','False']]],[_56788,['cdr-atom',['True','True','False']]]],[and,_56758,[foldl,_56788,'True',and]]]]))
+                              <--(12,retval('False'))
+                          <--(11,retval('False'))
+                      <--(8,retval('False'))
+                  <--(6,retval('False'))
+              <--(3,retval('False'))
+            <--(2,retval([if,[==,[],['True','True','True','False']],'True',['let*',[[_9020,['car-atom',['True','True','True','False']]],[_9050,['cdr-atom',['True','True','True','False']]]],[and,_9020,[foldl,_9050,'True',and]]]]))
+          <--(1,retval([foldl,['True','True','True','False'],'True',and]))
+; 
+; EVAL TEST
+; took 0.038 secs. (38.27 milliseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (False) 
+    (False)))
+</span>      <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 640,591 inferences, 0.190 CPU in 0.190 seconds (100% CPU, 3367604 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 2
+</span><span class="ansi32">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/all_any.metta.html" )
+
+</pre>
+</body>
+
+</html>

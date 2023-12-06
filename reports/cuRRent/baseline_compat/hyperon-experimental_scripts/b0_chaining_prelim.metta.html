@@ -50,10 +50,9 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta:1 
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta')
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta')
 1=[()]
 2=[()]
 3=[()]
@@ -63,11 +62,11 @@
 6=0inputs+0outputs (0major+3474minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta', 1, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta', 2, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta', 3, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta', 4, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta', 5, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta', 4, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta', 5, [[]]).
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -112,17 +111,27 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
     (S K K x) $R) $R)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['S','K','K',x],R],R],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_275864],_275864],[['K',x,['K',x]]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01</h3>
+          -->(1,eval('&self',[match,'&self',[:=,['S','K','K',x],_275864],_275864],RET),depth(3))
+              -->(2,eval('&self',['K',x,['K',x]],RET),depth(5))
+                  -->(3,eval('&self',['K',x],RET),depth(7))
+                  -->(4,eval('&self',['K',x],RET),depth(7))
+          <--(1,retval(['K',x,['K',x]]))
+            -->(5,eval('&self',['K',x,['K',x]],RET),depth(4))
+                -->(6,eval('&self',['K',x],RET),depth(6))
+                -->(7,eval('&self',['K',x],RET),depth(6))
+              -->(8,eval('&self',['K',x],RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000159 secs. (159.00 microseconds) 
+; took 0.008 secs. (7.80 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     ( (K x 
         (K x))) 
     ( (K x 
         (K x)))))
-</span>; Evaluation took 0.002 secs. (1.63 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; A second matching step; the result of the previous
@@ -140,15 +149,18 @@ Deterministic: <span class="ansi33">Empty
       (K x)) $R) $R)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['K',x,['K',x]],R],R],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_485604],_485604],[x]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02</h3>
+          -->(1,eval('&self',[match,'&self',[:=,['K',x,['K',x]],_485604],_485604],RET),depth(3))
+          <--(1,retval(x))
 ; 
 ; EVAL TEST
-; took 0.000047 secs. (47.50 microseconds) 
+; took 0.001 secs. (1.15 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (x) 
     (x)))
-</span>; Evaluation took 0.001 secs. (1.18 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Combined reduction via matching in two steps
@@ -167,15 +179,20 @@ Deterministic: <span class="ansi33">Empty
     (:= $R $R2) $R2))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['S','K','K',x],R],[match,'&self',[:=,R,R2],R2]],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_38548],[match,'&self',[:=,_38548,_39152],_39152]],[x]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03</h3>
+          -->(1,eval('&self',[match,'&self',[:=,['S','K','K',x],_38548],[match,'&self',[:=,_38548,_39152],_39152]],RET),depth(3))
+              -->(2,eval('&self',[match,'&self',[:=,['K',x,['K',x]],_39152],_39152],RET),depth(5))
+              <--(2,retval(x))
+          <--(1,retval(x))
 ; 
 ; EVAL TEST
-; took 0.000077 secs. (76.70 microseconds) 
+; took 0.002 secs. (1.79 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (x) 
     (x)))
-</span>; Evaluation took 0.001 secs. (1.37 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -213,10 +230,30 @@ Deterministic: <span class="ansi33">Empty
       (S Z)) $R) $R)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],R],R],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_147182],_147182],[['Add',['S',['S','Z']],'Z']]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04</h3>
+          -->(1,eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_147182],_147182],RET),depth(3))
+              -->(2,eval('&self',['Add',['S',['S','Z']],'Z'],RET),depth(5))
+                  -->(3,eval('&self',['S',['S','Z']],RET),depth(7))
+                      -->(4,eval('&self',['S','Z'],RET),depth(9))
+                      -->(5,eval('&self',['S','Z'],RET),depth(9))
+                  -->(6,eval('&self',['S',['S','Z']],RET),depth(7))
+                      -->(7,eval('&self',['S','Z'],RET),depth(9))
+                      -->(8,eval('&self',['S','Z'],RET),depth(9))
+          <--(1,retval(['Add',['S',['S','Z']],'Z']))
+            -->(9,eval('&self',['Add',['S',['S','Z']],'Z'],RET),depth(4))
+                -->(10,eval('&self',['S',['S','Z']],RET),depth(6))
+                    -->(11,eval('&self',['S','Z'],RET),depth(8))
+                    -->(12,eval('&self',['S','Z'],RET),depth(8))
+                -->(13,eval('&self',['S',['S','Z']],RET),depth(6))
+                    -->(14,eval('&self',['S','Z'],RET),depth(8))
+                    -->(15,eval('&self',['S','Z'],RET),depth(8))
+              -->(16,eval('&self',['S',['S','Z']],RET),depth(5))
+                  -->(17,eval('&self',['S','Z'],RET),depth(7))
+                  -->(18,eval('&self',['S','Z'],RET),depth(7))
 ; 
 ; EVAL TEST
-; took 0.000109 secs. (108.50 microseconds) 
+; took 0.013 secs. (13.20 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     ( (Add 
@@ -225,7 +262,7 @@ Deterministic: <span class="ansi33">Empty
     ( (Add 
         (S 
           (S Z)) Z))))
-</span>; Evaluation took 0.002 secs. (1.69 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Two steps together
@@ -249,27 +286,43 @@ Deterministic: <span class="ansi33">Empty
     (:= $R $R2) $R2))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],R],[match,'&self',[:=,R,R2],R2]],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_496022],[match,'&self',[:=,_496022,_496626],_496626]],[['S',['S','Z']]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05</h3>
+          -->(1,eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_496022],[match,'&self',[:=,_496022,_496626],_496626]],RET),depth(3))
+              -->(2,eval('&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_496626],_496626],RET),depth(5))
+                  -->(3,eval('&self',['S',['S','Z']],RET),depth(7))
+                      -->(4,eval('&self',['S','Z'],RET),depth(9))
+                      -->(5,eval('&self',['S','Z'],RET),depth(9))
+              <--(2,retval(['S',['S','Z']]))
+                -->(6,eval('&self',['S',['S','Z']],RET),depth(6))
+                    -->(7,eval('&self',['S','Z'],RET),depth(8))
+                    -->(8,eval('&self',['S','Z'],RET),depth(8))
+                  -->(9,eval('&self',['S','Z'],RET),depth(7))
+          <--(1,retval(['S',['S','Z']]))
+            -->(10,eval('&self',['S',['S','Z']],RET),depth(4))
+                -->(11,eval('&self',['S','Z'],RET),depth(6))
+                -->(12,eval('&self',['S','Z'],RET),depth(6))
+              -->(13,eval('&self',['S','Z'],RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000098 secs. (97.60 microseconds) 
+; took 0.010 secs. (9.91 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     ( (S 
         (S Z))) 
     ( (S 
         (S Z)))))
-</span>; Evaluation took 0.002 secs. (1.59 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 338,727 inferences, 0.158 CPU in 0.158 seconds (100% CPU, 2141932 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta" 0)
+</span><span class="ansi32">% 579,212 inferences, 0.187 CPU in 0.187 seconds (100% CPU, 3102587 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 5
 </span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b0_chaining_prelim.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta.html" )
 
 </pre>
 </body>

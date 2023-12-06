@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -45,9 +44,9 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta")
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta')
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta')
 1=[()]
 2=[()]
 3=[()]
@@ -55,9 +54,9 @@
 4=0inputs+0outputs (0major+3497minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta', 1, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta', 2, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta', 3, [[]]).
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -102,19 +101,31 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span><span class="ansi38-250144246">; !(green Fritz)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[green,'Fritz'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01</h3>
+</span>      -->(0,eval('&self',[assertEqual,[green,'Fritz'],'T'],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.01</h3>
+          -->(1,eval('&self',[green,'Fritz'],RET),depth(3))
+          <--(1,retval([frog,'Fritz']))
+            -->(2,eval('&self',[frog,'Fritz'],RET),depth(4))
+              -->(3,eval('&self',['And',[croaks,'Fritz'],[eat_flies,'Fritz']],RET),depth(5))
+                  -->(4,eval('&self',[croaks,'Fritz'],RET),depth(7))
+                  -->(5,eval('&self',[eat_flies,'Fritz'],RET),depth(7))
+                  <--(5,retval('T'))
+                  <--(4,retval('T'))
+                  -->(6,eval('&self',[eat_flies,'Fritz'],RET),depth(7))
+                  -->(7,eval('&self',[croaks,'Fritz'],RET),depth(7))
+                  <--(7,retval('T'))
+                  <--(6,retval('T'))
+              <--(3,retval('T'))
+            <--(2,retval(['And',[croaks,'Fritz'],[eat_flies,'Fritz']]))
 ; 
 ; EVAL TEST
-; took 0.000133 secs. (132.60 microseconds) 
-<span class="ansi31">(@ loonit_failureR 
+; took 0.007 secs. (6.55 milliseconds) 
+<span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
-    (True) 
+    (T T) 
     (T)))
-</span>; Evaluation took 0.001 secs. (1.49 milliseconds) 
-Deterministic: <span class="ansi33">
-  (got 
-    (True) expected 
-    (T))
+</span>      <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -134,19 +145,33 @@ Deterministic: <span class="ansi33">
   (green $X) $X)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[ift,[green,X],X],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02</h3>
+</span>      -->(0,eval('&self',[assertEqual,[ift,[green,_451970],_451970],'Fritz'],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.02</h3>
+          -->(1,eval('&self',[ift,[green,_451970],_451970],RET),depth(3))
+              -->(2,eval('&self',[green,_451970],RET),depth(5))
+                -->(3,eval('&self',[frog,_451970],RET),depth(6))
+                  -->(4,eval('&self',['And',[croaks,_451970],[eat_flies,_451970]],RET),depth(7))
+                      -->(5,eval('&self',[croaks,_451970],RET),depth(9))
+                      -->(6,eval('&self',[eat_flies,'Fritz'],RET),depth(9))
+                    -->(7,eval('&self',['And','T','T'],RET),depth(8))
+            -->(8,eval('&self',[ift,'T','Fritz'],RET),depth(4))
+            <--(8,retval('Fritz'))
+                    <--(7,retval('T'))
+                      <--(6,retval('T'))
+                      <--(5,retval('T'))
+                  <--(4,retval(['And','T','T']))
+                <--(3,retval(['And',[croaks,_5478],[eat_flies,_5478]]))
+              <--(2,retval([frog,_5274]))
+          <--(1,retval([ift,'T','Fritz']))
 ; 
 ; EVAL TEST
-; took 0.000190 secs. (189.80 microseconds) 
-<span class="ansi31">(@ loonit_failureR 
+; took 0.006 secs. (6.16 milliseconds) 
+<span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
-    ( (ift True Fritz)) 
+    (Fritz) 
     (Fritz)))
-</span>; Evaluation took 0.002 secs. (1.59 milliseconds) 
-Deterministic: <span class="ansi33">
-  (got 
-    ( (ift True Fritz)) expected 
-    (Fritz))
+</span>      <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -165,25 +190,28 @@ Deterministic: <span class="ansi33">
     ($P Fritz) T) $P)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[=,[P,'Fritz'],'T'],P],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[=,[_88314,'Fritz'],'T'],_88314],[croaks,eat_flies]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B3-DIRECT.03</h3>
+          -->(1,eval('&self',[match,'&self',[=,[_88314,'Fritz'],'T'],_88314],RET),depth(3))
+          <--(1,retval(eat_flies))
 ; 
 ; EVAL TEST
-; took 0.000049 secs. (48.70 microseconds) 
+; took 0.002 secs. (1.89 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (croaks eat_flies) 
     (croaks eat_flies)))
-</span>; Evaluation took 0.001 secs. (1.47 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 288,636 inferences, 0.142 CPU in 0.142 seconds (100% CPU, 2035322 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta" 0)
+</span><span class="ansi32">% 383,629 inferences, 0.149 CPU in 0.149 seconds (100% CPU, 2569461 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 2
+<span class="ansi32">Successes: 3
+</span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/b3_direct.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b3_direct.metta.html" )
 
 </pre>
 </body>

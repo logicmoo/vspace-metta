@@ -1312,3 +1312,28 @@ find prev_reports/
 git add reports/
 git add examples/
 git status .
+git commit -am "pre_reports"
+git status .
+./MeTTa examples/baseline_compat/ --clean
+./scripts/total_loonits.sh 
+./MeTTa examples
+ls examples/
+ls examples/fe
+ls examples/extended_compat/
+ls examples/extended_compat/*
+find examples/extended_compat/
+find examples/extended_compat/ --type d
+find examples/extended_compat/ -type d
+find examples/extended_compat/ -type d 
+find examples/extended_compat/hyperon-miner/
+find examples/extended_compat/hyperon-miner/ -name "*.metta"
+find examples/extended_compat/metta-examples/ -name "*.metta"
+find examples/ -name "*.metta"
+cls
+find examples/ -name "*.metta"
+git add examples/
+git status .
+./scripts/test_in_metta.sh --no --report=Y
+git add reports/
+git status .
+./scripts/test_in_metta.sh --no --report=Y

@@ -49,9 +49,9 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta")
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta')
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta')
 1=[()]
 2=[()]
 3=[()]
@@ -59,9 +59,9 @@
 4=0inputs+0outputs (0major+3553minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta', 1, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta', 2, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta', 3, [[]]).
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -77,10 +77,11 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleC.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','f1_moduleC.metta'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01</h3>
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta:1 
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta')
+</span>      -->(0,eval('&self',[assertEqualToResult,['import!','&self','f1_moduleC.metta'],[[]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.01</h3>
+          -->(1,eval('&self',['import!','&self','f1_moduleC.metta'],RET),depth(3))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta')
 ;; FIXME? stdlib space is not available at importing time -
 ;; only tokens / grounded operations work, while symbolic functions
 ;; (like `if`) don't work.
@@ -111,13 +112,14 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
       (__g)))
 </span>
 
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.009 secs. (9.37 milliseconds) 
+; took 0.010 secs. (9.90 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>; Evaluation took 0.011 secs. (10.52 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -126,15 +128,18 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(+ 1 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[+,1,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02</h3>
+</span>      -->(0,eval('&self',[assertEqual,[+,1,2],3],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.02</h3>
+          -->(1,eval('&self',[+,1,2],RET),depth(3))
+          <--(1,retval(3))
 ; 
 ; EVAL TEST
-; took 0.000071 secs. (70.70 microseconds) 
+; took 0.001 secs. (1.37 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (3) 
     (3)))
-</span>; Evaluation took 0.001 secs. (1.15 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -143,15 +148,18 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(if True S F)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[if,'True','S','F'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.03</h3>
+</span>      -->(0,eval('&self',[assertEqual,[if,'True','S','F'],'S'],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.03</h3>
+          -->(1,eval('&self',[if,'True','S','F'],RET),depth(3))
+          <--(1,retval('S'))
 ; 
 ; EVAL TEST
-; took 0.000040 secs. (39.90 microseconds) 
+; took 0.002 secs. (1.57 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (S) 
     (S)))
-</span>; Evaluation took 0.001 secs. (1.31 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[dup,X],[if,[==,X,0],[+,X,10],[g,X]]])
@@ -178,14 +186,14 @@ Deterministic: <span class="ansi33">Empty
         (+ 1 $X))))
 </span>
 
-<span class="ansi32">% 297,908 inferences, 0.113 CPU in 0.113 seconds (100% CPU, 2626253 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta" 0)
+<span class="ansi32">% 333,288 inferences, 0.121 CPU in 0.121 seconds (100% CPU, 2751947 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
 </span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta.html" )
 
 </pre>
 </body>

@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/memb.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/memb.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/memb.metta')
+1=[None, None, None, None, 2, None]
+2=0.27user 0.01system 0:00.28elapsed 100%CPU (0avgtext+0avgdata 33244maxresident)k
+2=0inputs+0outputs (0major+3567minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/memb.metta', 1, ['None', 'None', 'None', 'None', 2, 'None']).
+
+;; list membership
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,eq,[->,'Atom','Atom','Bool']])
+</span><span class="ansi38-255165000">  (: eq 
+    (-> Atom Atom Bool))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[eq,X,Y],'False'])
+</span><span class="ansi38-255165000">  (= 
+    (eq $X $Y) False)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[eq,X,X],'True'])
+</span><span class="ansi38-255165000">  (= 
+    (eq $X $X) True)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[memb,X,'Nil'],'False'])
+</span><span class="ansi38-255165000">  (= 
+    (memb $X Nil) False)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[memb,X,['Cons',H,Tail]],[or,[eq,X,H],[memb,X,Tail]]])
+</span><span class="ansi38-255165000">  (= 
+    (memb $X 
+      (Cons $H $Tail)) 
+    (or 
+      (eq $X $H) 
+      (memb $X $Tail)))
+</span>
+
+;; find X that is member of both lists
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(let $Res 
+  (and 
+    (memb $X 
+      (Cons 0 
+        (Cons 2 Nil))) 
+    (memb $X 
+      (Cons 2 
+        (Cons 3 Nil)))) 
+  (if $Res $X None))
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (let $Res 
+    (and 
+      (memb $X 
+        (Cons 0 
+          (Cons 2 Nil))) 
+      (memb $X 
+        (Cons 2 
+          (Cons 3 Nil)))) 
+    (if $Res $X None)) 
+  (None None None None 2 None))
+
+</span><span class="ansi38-250144246">; !(let $Res 
+  (and 
+    (memb $X 
+      (Cons 0 
+        (Cons 2 Nil))) 
+    (memb $X 
+      (Cons 2 
+        (Cons 3 Nil)))) 
+  (if $Res $X None))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,Res,[and,[memb,X,['Cons',0,['Cons',2,'Nil']]],[memb,X,['Cons',2,['Cons',3,'Nil']]]],[if,Res,X,'None']],OUT).
+
+</span>      -->(0,eval('&self',[assertEqualToResult,[let,_263194,[and,[memb,_263522,['Cons',0,['Cons',2,'Nil']]],[memb,_263522,['Cons',2,['Cons',3,'Nil']]]],[if,_263194,_263522,'None']],['None','None','None','None',2,'None']],RET),depth(1))
+<h3 id="LOGIC.MEMB.01">;; LOGIC.MEMB.01</h3>
+          -->(1,eval('&self',[let,_263194,[and,[memb,_263522,['Cons',0,['Cons',2,'Nil']]],[memb,_263522,['Cons',2,['Cons',3,'Nil']]]],[if,_263194,_263522,'None']],RET),depth(3))
+              -->(2,eval('&self',[and,[memb,_263522,['Cons',0,['Cons',2,'Nil']]],[memb,_263522,['Cons',2,['Cons',3,'Nil']]]],RET),depth(5))
+                  -->(3,eval('&self',[memb,_263522,['Cons',0,['Cons',2,'Nil']]],RET),depth(7))
+                  <--(3,retval([or,[eq,_279346,0],[memb,_279346,['Cons',2,'Nil']]]))
+                    -->(4,eval('&self',[or,[eq,_263522,0],[memb,_263522,['Cons',2,'Nil']]],RET),depth(8))
+                        -->(5,eval('&self',[eq,_263522,0],RET),depth(10))
+                  -->(6,eval('&self',[memb,0,['Cons',2,['Cons',3,'Nil']]],RET),depth(7))
+                  <--(6,retval([or,[eq,0,2],[memb,0,['Cons',3,'Nil']]]))
+                    -->(7,eval('&self',[or,[eq,0,2],[memb,0,['Cons',3,'Nil']]],RET),depth(8))
+                        -->(8,eval('&self',[eq,0,2],RET),depth(10))
+                        <--(8,retval('False'))
+                        -->(9,eval('&self',[memb,0,['Cons',3,'Nil']],RET),depth(10))
+                        <--(9,retval([or,[eq,0,3],[memb,0,'Nil']]))
+                          -->(10,eval('&self',[or,[eq,0,3],[memb,0,'Nil']],RET),depth(11))
+                              -->(11,eval('&self',[eq,0,3],RET),depth(13))
+                              <--(11,retval('False'))
+                              -->(12,eval('&self',[memb,0,'Nil'],RET),depth(13))
+                              <--(12,retval('False'))
+                          <--(10,retval('False'))
+                    <--(7,retval('False'))
+                        <--(5,retval('True'))
+                        -->(13,eval('&self',[memb,_263522,['Cons',2,'Nil']],RET),depth(10))
+                        <--(13,retval([or,[eq,_411648,2],[memb,_411648,'Nil']]))
+                          -->(14,eval('&self',[or,[eq,_263522,2],[memb,_263522,'Nil']],RET),depth(11))
+                              -->(15,eval('&self',[eq,_263522,2],RET),depth(13))
+                  -->(16,eval('&self',[memb,2,['Cons',2,['Cons',3,'Nil']]],RET),depth(7))
+                  <--(16,retval([or,[eq,2,2],[memb,2,['Cons',3,'Nil']]]))
+                    -->(17,eval('&self',[or,[eq,2,2],[memb,2,['Cons',3,'Nil']]],RET),depth(8))
+                        -->(18,eval('&self',[eq,2,2],RET),depth(10))
+              -->(19,eval('&self',[if,'True',2,'None'],RET),depth(5))
+              <--(19,retval(2))
+                        <--(18,retval('True'))
+                        -->(20,eval('&self',[memb,2,['Cons',3,'Nil']],RET),depth(10))
+                        <--(20,retval([or,[eq,2,3],[memb,2,'Nil']]))
+                          -->(21,eval('&self',[or,[eq,2,3],[memb,2,'Nil']],RET),depth(11))
+                              -->(22,eval('&self',[eq,2,3],RET),depth(13))
+                              <--(22,retval('False'))
+                              -->(23,eval('&self',[memb,2,'Nil'],RET),depth(13))
+                              <--(23,retval('False'))
+                          <--(21,retval('False'))
+                    <--(17,retval('True'))
+                              <--(15,retval('True'))
+                              -->(24,eval('&self',[memb,_2358,'Nil'],RET),depth(13))
+                              <--(24,retval('False'))
+                          <--(14,retval('True'))
+                    <--(4,retval('True'))
+              <--(2,retval('True'))
+          <--(1,retval(2))
+; 
+; EVAL TEST
+; took 0.018 secs. (18.46 milliseconds) 
+<span class="ansi31">(@ loonit_failureR 
+  (equal_enough_for_test  
+    (2) 
+    (2 None)))
+</span>      <--(0,retval([got,[2],expected,[2,'None']]))
+        -->(25,eval('&self',[got,[2],expected,[2,'None']],RET),depth(2))
+            -->(26,eval('&self',[2,'None'],RET),depth(4))
+            -->(27,eval('&self',[2,'None'],RET),depth(4))
+          -->(28,eval('&self',[2,'None'],RET),depth(3))
+Deterministic: <span class="ansi33">
+  (got 
+    (2) expected 
+    (2 None))
+
+</span><span class="ansi32">% 397,730 inferences, 0.120 CPU in 0.120 seconds (100% CPU, 3309469 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/memb.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 0
+</span><span class="ansi31">Failures: 1
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/memb.metta.html" )
+
+</pre>
+</body>
+
+</html>

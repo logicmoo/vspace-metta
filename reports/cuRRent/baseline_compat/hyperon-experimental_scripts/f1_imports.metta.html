@@ -179,26 +179,27 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta")
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta')
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta:1 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta')
 1=[hyperon::space::DynSpace]
 2=[()]
 3=[()]
 4=[()]
-5=[(Error (assertEqual (match GroundingSpace-0x563027ff2388 (= (f 2) $x) $x) (g 3)) 
+5=[(Error (assertEqual (match GroundingSpace-0x5586710d6ba8 (= (f 2) $x) $x) (g 3)) 
 5=Expected: [(g 3)]
 5=Got: []
 6=Missed result: (g 3))]
-6=0.13user 0.01system 0:00.15elapsed 99%CPU (0avgtext+0avgdata 33832maxresident)k
-6=0inputs+0outputs (0major+3640minor)pagefaults 0swaps
+6=0.14user 0.01system 0:00.15elapsed 100%CPU (0avgtext+0avgdata 33880maxresident)k
+6=0inputs+0outputs (0major+3639minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta', 1, ['hyperon::space::DynSpace']).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta', 2, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta', 3, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta', 4, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta', 5, [end_of_file]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta', 1, ['hyperon::space::DynSpace']).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta', 4, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta', 5, [end_of_file]).
 
 ;; NOTE: This test won't work outside the test environment because it relies on
 ;;  specific atoms in a specific order in the space, and loading the default environment's
@@ -221,15 +222,18 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span><span class="ansi38-250144246">; !(get-type &self)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type','&self'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,['get-type','&self'],['hyperon::space::DynSpace']],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.01</h3>
+          -->(1,eval('&self',['get-type','&self'],RET),depth(3))
+          <--(1,retval('hyperon::space::DynSpace'))
 ; 
 ; EVAL TEST
-; took 0.000068 secs. (68.40 microseconds) 
+; took 0.000882 secs. (881.60 microseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (hyperon::space::DynSpace) 
     (hyperon::space::DynSpace)))
-</span>; Evaluation took 0.001 secs. (1.29 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -244,23 +248,123 @@ Deterministic: <span class="ansi33">Empty
     (get-type $X)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[let,X,['get-atoms','&self'],['get-type',X]]],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02</h3>
+</span>      -->(0,eval('&self',[assertEqual,[[let,_292534,['get-atoms','&self'],['get-type',_292534]]],[['get-type','&self']]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.02</h3>
+          -->(1,eval('&self',[[let,_292534,['get-atoms','&self'],['get-type',_292534]]],RET),depth(3))
+              -->(2,eval('&self',[let,_292534,['get-atoms','&self'],['get-type',_292534]],RET),depth(5))
+                  -->(3,eval('&self',['get-atoms','&self'],RET),depth(7))
+                  <--(3,retval(fail))
+              <--(2,retval(fail))
+          -->(4,eval('&self',[['get-type','&self']],RET),depth(3))
+              -->(5,eval('&self',['get-type','&self'],RET),depth(5))
+              <--(5,retval('hyperon::space::DynSpace'))
 ; 
 ; EVAL TEST
-; took 0.000141 secs. (140.60 microseconds) 
+; took 0.001 secs. (1.48 milliseconds) 
 <span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ( (let $_251794 
-          (get-atoms &self) 
-          (get-type $_251794)))) 
-    ( ( (get-type &self)))))
-</span>; Evaluation took 0.002 secs. (2.07 milliseconds) 
+  (equal_enough_for_test  () 
+    ( (hyperon::space::DynSpace))))
+</span>      <--(0,retval([got,[],[expected(_324002)],[['hyperon::space::DynSpace']]]))
+        -->(6,eval('&self',[got,[],[expected(_323926)],[['hyperon::space::DynSpace']]],RET),depth(2))
+            -->(7,eval('&self',[expected(_323926)],RET),depth(4))
+                -->(8,eval('&self',expected(_323926),RET),depth(6))
+                    -->(9,eval('&self',expected(_323926),RET),depth(8))
+                        -->(10,eval('&self',expected(_323926),RET),depth(10))
+                            -->(11,eval('&self',expected(_323926),RET),depth(12))
+                                -->(12,eval('&self',expected(_323926),RET),depth(14))
+                                    -->(13,eval('&self',expected(_323926),RET),depth(16))
+                                        -->(14,eval('&self',expected(_323926),RET),depth(18))
+                                            -->(15,eval('&self',expected(_323926),RET),depth(20))
+                                                -->(16,eval('&self',expected(_323926),RET),depth(22))
+                                                    -->(17,eval('&self',expected(_323926),RET),depth(24))
+                                                        -->(18,eval('&self',expected(_323926),RET),depth(26))
+                                                            -->(19,eval('&self',expected(_323926),RET),depth(28))
+                                                                -->(20,eval('&self',expected(_323926),RET),depth(30))
+                                                                    -->(21,eval('&self',expected(_323926),RET),depth(32))
+                                                                        -->(22,eval('&self',expected(_323926),RET),depth(34))
+                                                                            -->(23,eval('&self',expected(_323926),RET),depth(36))
+                                                                                -->(24,eval('&self',expected(_323926),RET),depth(38))
+                                                                                    -->(25,eval('&self',expected(_323926),RET),depth(40))
+                                                                                        -->(26,eval('&self',expected(_323926),RET),depth(42))
+                                                                                            -->(27,eval('&self',expected(_323926),RET),depth(44))
+                                                                                                -->(28,eval('&self',expected(_323926),RET),depth(46))
+                                                                                                    -->(29,eval('&self',expected(_323926),RET),depth(48))
+                                                                                                        -->(30,eval('&self',expected(_323926),RET),depth(50))
+                                                                                                            -->(31,eval('&self',expected(_323926),RET),depth(52))
+                                                                                                                -->(32,eval('&self',expected(_323926),RET),depth(54))
+                                                                                                                    -->(33,eval('&self',expected(_323926),RET),depth(56))
+                                                                                                                        -->(34,eval('&self',expected(_323926),RET),depth(58))
+                                                                                                                            -->(35,eval('&self',expected(_323926),RET),depth(60))
+                                                                                                                                -->(36,eval('&self',expected(_323926),RET),depth(62))
+                                                                                                                                    -->(37,eval('&self',expected(_323926),RET),depth(64))
+                                                                                                                                        -->(38,eval('&self',expected(_323926),RET),depth(66))
+                                                                                                                                            -->(39,eval('&self',expected(_323926),RET),depth(68))
+                                                                                                                                                -->(40,eval('&self',expected(_323926),RET),depth(70))
+                                                                                                                                                    -->(41,eval('&self',expected(_323926),RET),depth(72))
+                                                                                                                                                        -->(42,eval('&self',expected(_323926),RET),depth(74))
+                                                                                                                                                            -->(43,eval('&self',expected(_323926),RET),depth(76))
+                                                                                                                                                                -->(44,eval('&self',expected(_323926),RET),depth(78))
+                                                                                                                                                                    -->(45,eval('&self',expected(_323926),RET),depth(80))
+                                                                                                                                                                        -->(46,eval('&self',expected(_323926),RET),depth(82))
+                                                                                                                                                                            -->(47,eval('&self',expected(_323926),RET),depth(84))
+                                                                                                                                                                                -->(48,eval('&self',expected(_323926),RET),depth(86))
+                                                                                                                                                                                    -->(49,eval('&self',expected(_323926),RET),depth(88))
+                                                                                                                                                                                        -->(50,eval('&self',expected(_323926),RET),depth(90))
+                                                                                                                                                                                            -->(51,eval('&self',expected(_323926),RET),depth(92))
+                                                                                                                                                                                                -->(52,eval('&self',expected(_323926),RET),depth(94))
+                                                                                                                                                                                                    -->(53,eval('&self',expected(_323926),RET),depth(96))
+                                                                                                                                                                                                        -->(54,eval('&self',expected(_323926),RET),depth(98))
+            -->(55,eval('&self',[['hyperon::space::DynSpace']],RET),depth(4))
+                -->(56,eval('&self',['hyperon::space::DynSpace'],RET),depth(6))
+            -->(57,eval('&self',[expected(_323926)],RET),depth(4))
+                -->(58,eval('&self',expected(_323926),RET),depth(6))
+                    -->(59,eval('&self',expected(_323926),RET),depth(8))
+                        -->(60,eval('&self',expected(_323926),RET),depth(10))
+                            -->(61,eval('&self',expected(_323926),RET),depth(12))
+                                -->(62,eval('&self',expected(_323926),RET),depth(14))
+                                    -->(63,eval('&self',expected(_323926),RET),depth(16))
+                                        -->(64,eval('&self',expected(_323926),RET),depth(18))
+                                            -->(65,eval('&self',expected(_323926),RET),depth(20))
+                                                -->(66,eval('&self',expected(_323926),RET),depth(22))
+                                                    -->(67,eval('&self',expected(_323926),RET),depth(24))
+                                                        -->(68,eval('&self',expected(_323926),RET),depth(26))
+                                                            -->(69,eval('&self',expected(_323926),RET),depth(28))
+                                                                -->(70,eval('&self',expected(_323926),RET),depth(30))
+                                                                    -->(71,eval('&self',expected(_323926),RET),depth(32))
+                                                                        -->(72,eval('&self',expected(_323926),RET),depth(34))
+                                                                            -->(73,eval('&self',expected(_323926),RET),depth(36))
+                                                                                -->(74,eval('&self',expected(_323926),RET),depth(38))
+                                                                                    -->(75,eval('&self',expected(_323926),RET),depth(40))
+                                                                                        -->(76,eval('&self',expected(_323926),RET),depth(42))
+                                                                                            -->(77,eval('&self',expected(_323926),RET),depth(44))
+                                                                                                -->(78,eval('&self',expected(_323926),RET),depth(46))
+                                                                                                    -->(79,eval('&self',expected(_323926),RET),depth(48))
+                                                                                                        -->(80,eval('&self',expected(_323926),RET),depth(50))
+                                                                                                            -->(81,eval('&self',expected(_323926),RET),depth(52))
+                                                                                                                -->(82,eval('&self',expected(_323926),RET),depth(54))
+                                                                                                                    -->(83,eval('&self',expected(_323926),RET),depth(56))
+                                                                                                                        -->(84,eval('&self',expected(_323926),RET),depth(58))
+                                                                                                                            -->(85,eval('&self',expected(_323926),RET),depth(60))
+                                                                                                                                -->(86,eval('&self',expected(_323926),RET),depth(62))
+                                                                                                                                    -->(87,eval('&self',expected(_323926),RET),depth(64))
+                                                                                                                                        -->(88,eval('&self',expected(_323926),RET),depth(66))
+                                                                                                                                            -->(89,eval('&self',expected(_323926),RET),depth(68))
+                                                                                                                                                -->(90,eval('&self',expected(_323926),RET),depth(70))
+                                                                                                                                                    -->(91,eval('&self',expected(_323926),RET),depth(72))
+                                                                                                                                                        -->(92,eval('&self',expected(_323926),RET),depth(74))
+                                                                                                                                                            -->(93,eval('&self',expected(_323926),RET),depth(76))
+                                                                                                                                                                -->(94,eval('&self',expected(_323926),RET),depth(78))
+                                                                                                                                                                    -->(95,eval('&self',expected(_323926),RET),depth(80))
+                                                                                                                                                                        -->(96,eval('&self',expected(_323926),RET),depth(82))
+                                                                                                                                                                            -->(97,eval('&self',expected(_323926),RET),depth(84))
+                                                                                                                                                                                -->(98,eval('&self',expected(_323926),RET),depth(86))
+                                                                                                                                                                                    -->(99,eval('&self',expected(_323926),RET),depth(88))
+                                                                                                                                                                                        -->(100,eval('&self',expected(_323926),RET),depth(90))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ( (let $_251794 
-          (get-atoms &self) 
-          (get-type $_251794)))) expected 
-    ( ( (get-type &self))))
+  (got () 
+    ( (expected  $_323926)) 
+    ( (hyperon::space::DynSpace)))
 
 </span>;; stdlib is already loaded
 <span class="ansi38-013099040">!(assertEqual 
@@ -271,15 +375,20 @@ Deterministic: <span class="ansi33">
   (> 1 2) 1 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[if,[>,1,2],1,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03</h3>
+</span>      -->(0,eval('&self',[assertEqual,[if,[>,1,2],1,2],2],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.03</h3>
+          -->(1,eval('&self',[if,[>,1,2],1,2],RET),depth(3))
+              -->(2,eval('&self',[>,1,2],RET),depth(5))
+              <--(2,retval('False'))
+          <--(1,retval(2))
 ; 
 ; EVAL TEST
-; took 0.000180 secs. (180.20 microseconds) 
+; took 0.003 secs. (3.01 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (2) 
     (2)))
-</span>; Evaluation took 0.001 secs. (1.32 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -296,9 +405,11 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &m f1_moduleA.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&m','f1_moduleA.metta'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.04</h3>
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta')
+</span>      -->(0,eval('&self',[assertEqualToResult,['import!','&m','f1_moduleA.metta'],[[]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.04</h3>
+          -->(1,eval('&self',['import!','&m','f1_moduleA.metta'],RET),depth(3))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta')
 1=[()]
 2=[()]
 3=[()]
@@ -306,9 +417,9 @@ Deterministic: <span class="ansi33">Empty
 4=0inputs+0outputs (0major+3553minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta', 1, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta', 2, [[]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta', 3, [[]]).
 
 ;; It's first atom is a space
 ;;!(assertEqual
@@ -343,9 +454,11 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleC.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&m',['import!','&self','f1_moduleC.metta'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.05</h3>
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta')
+</span>      -->(2,eval('&m',[assertEqualToResult,['import!','&self','f1_moduleC.metta'],[[]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.05</h3>
+          -->(3,eval('&m',['import!','&self','f1_moduleC.metta'],RET),depth(3))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta')
 ;; FIXME? stdlib space is not available at importing time -
 ;; only tokens / grounded operations work, while symbolic functions
 ;; (like `if`) don't work.
@@ -390,13 +503,14 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
         (__g))))
 
 
+          <--(3,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.010 secs. (10.20 milliseconds) 
+; took 0.011 secs. (10.64 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>; Evaluation took 0.011 secs. (11.26 milliseconds) 
+</span>      <--(2,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -405,15 +519,18 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(+ 1 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&m',[+,1,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.06</h3>
+</span>      -->(4,eval('&m',[assertEqual,[+,1,2],3],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.06</h3>
+          -->(5,eval('&m',[+,1,2],RET),depth(3))
+          <--(5,retval(3))
 ; 
 ; EVAL TEST
-; took 0.000058 secs. (58.40 microseconds) 
+; took 0.001 secs. (1.16 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (3) 
     (3)))
-</span>; Evaluation took 0.001 secs. (1.18 milliseconds) 
+</span>      <--(4,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -422,15 +539,18 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(if True S F)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&m',[if,'True','S','F'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.07</h3>
+</span>      -->(6,eval('&m',[assertEqual,[if,'True','S','F'],'S'],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.07</h3>
+          -->(7,eval('&m',[if,'True','S','F'],RET),depth(3))
+          <--(7,retval('S'))
 ; 
 ; EVAL TEST
-; took 0.000043 secs. (42.70 microseconds) 
+; took 0.002 secs. (1.64 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (S) 
     (S)))
-</span>; Evaluation took 0.001 secs. (1.19 milliseconds) 
+</span>      <--(6,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&m',[=,[dup,X],[if,[==,X,0],[+,X,10],[g,X]]])
@@ -475,13 +595,14 @@ Deterministic: <span class="ansi33">Empty
           (+ 1 $X)))))
 
 
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.039 secs. (38.57 milliseconds) 
+; took 0.043 secs. (43.41 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>; Evaluation took 0.040 secs. (39.61 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -495,15 +616,30 @@ Last Result(1): <span class="ansi33">Empty
     (f 2) $X) $X)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&m',[=,[f,2],X],X],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08</h3>
+</span>      -->(0,eval('&self',[assertEqual,[match,'&m',[=,[f,2],_462200],_462200],[g,3]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.08</h3>
+          -->(1,eval('&self',[match,'&m',[=,[f,2],_462200],_462200],RET),depth(3))
+              -->(2,eval('&self',[if,[<,2,0],[-,0,2],[g,[+,1,2]]],RET),depth(5))
+                  -->(3,eval('&self',[<,2,0],RET),depth(7))
+                  -->(4,eval('&self',[g,[+,1,2]],RET),depth(7))
+                      -->(5,eval('&self',[+,1,2],RET),depth(9))
+                      <--(5,retval(3))
+                  <--(4,retval([g,3]))
+                    -->(6,eval('&self',[g,3],RET),depth(8))
+                -->(7,eval('&self',[g,3],RET),depth(6))
+            -->(8,eval('&self',[g,3],RET),depth(4))
+                  <--(3,retval('False'))
+              <--(2,retval([g,3]))
+          <--(1,retval([g,3]))
+          -->(9,eval('&self',[g,3],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.000263 secs. (262.50 microseconds) 
+; took 0.009 secs. (8.80 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     ( (g 3)) 
     ( (g 3))))
-</span>; Evaluation took 0.001 secs. (1.49 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Importing the same space into `&self` should break nothing
@@ -514,8 +650,9 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleA.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','f1_moduleA.metta'],OUT).
 
-</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleA.metta')
+</span>      -->(0,eval('&self',['import!','&self','f1_moduleA.metta'],RET),depth(1))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleA.metta')
 ;; Now indirectly imported `g` works and `f` fully works
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -531,9 +668,11 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleC.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','f1_moduleC.metta'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.09</h3>
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta')
+</span>      -->(1,eval('&self',[assertEqualToResult,['import!','&self','f1_moduleC.metta'],[[]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.09</h3>
+          -->(2,eval('&self',['import!','&self','f1_moduleC.metta'],RET),depth(3))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta')
 ;; FIXME? stdlib space is not available at importing time -
 ;; only tokens / grounded operations work, while symbolic functions
 ;; (like `if`) don't work.
@@ -564,13 +703,14 @@ Deterministic: <span class="ansi33">Empty
       (__g)))
 </span>
 
+          <--(2,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.010 secs. (9.62 milliseconds) 
+; took 0.009 secs. (9.42 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>; Evaluation took 0.011 secs. (10.61 milliseconds) 
+</span>      <--(1,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -579,15 +719,18 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(+ 1 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[+,1,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.10">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.10</h3>
+</span>      -->(3,eval('&self',[assertEqual,[+,1,2],3],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.10">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.10</h3>
+          -->(4,eval('&self',[+,1,2],RET),depth(3))
+          <--(4,retval(3))
 ; 
 ; EVAL TEST
-; took 0.000048 secs. (48.00 microseconds) 
+; took 0.001 secs. (1.29 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (3) 
     (3)))
-</span>; Evaluation took 0.001 secs. (1.23 milliseconds) 
+</span>      <--(3,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -596,15 +739,18 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(if True S F)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[if,'True','S','F'],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.11">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.11</h3>
+</span>      -->(5,eval('&self',[assertEqual,[if,'True','S','F'],'S'],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.11">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-MODULEA.11</h3>
+          -->(6,eval('&self',[if,'True','S','F'],RET),depth(3))
+          <--(6,retval('S'))
 ; 
 ; EVAL TEST
-; took 0.000037 secs. (37.40 microseconds) 
+; took 0.002 secs. (1.64 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (S) 
     (S)))
-</span>; Evaluation took 0.001 secs. (1.09 milliseconds) 
+</span>      <--(5,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[dup,X],[if,[==,X,0],[+,X,10],[g,X]]])
@@ -631,7 +777,7 @@ Deterministic: <span class="ansi33">Empty
         (+ 1 $X))))
 </span>
 
-; Evaluation took 0.031 secs. (31.25 milliseconds) 
+      <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -640,15 +786,22 @@ Last Result(1): <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(g 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[g,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12</h3>
+</span>      -->(0,eval('&self',[assertEqual,[g,2],102],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.12</h3>
+          -->(1,eval('&self',[g,2],RET),depth(3))
+            -->(2,eval('&self',[+,2,['__g']],RET),depth(4))
+                -->(3,eval('&self',['__g'],RET),depth(6))
+                <--(3,retval(100))
+            <--(2,retval(102))
+          <--(1,retval([+,2,['__g']]))
 ; 
 ; EVAL TEST
-; took 0.000099 secs. (99.30 microseconds) 
+; took 0.002 secs. (2.16 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (102) 
     (102)))
-</span>; Evaluation took 0.001 secs. (1.22 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -657,15 +810,30 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(f 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[f,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13</h3>
+</span>      -->(0,eval('&self',[assertEqual,[f,2],103],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.13</h3>
+          -->(1,eval('&self',[f,2],RET),depth(3))
+          <--(1,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
+            -->(2,eval('&self',[if,[<,2,0],[-,0,2],[g,[+,1,2]]],RET),depth(4))
+                -->(3,eval('&self',[<,2,0],RET),depth(6))
+                -->(4,eval('&self',[g,[+,1,2]],RET),depth(6))
+                  -->(5,eval('&self',[+,[+,1,2],['__g']],RET),depth(7))
+                      -->(6,eval('&self',[+,1,2],RET),depth(9))
+                      <--(6,retval(3))
+                      -->(7,eval('&self',['__g'],RET),depth(9))
+                      <--(7,retval(100))
+                  <--(5,retval(103))
+                <--(4,retval([+,[+,1,2],['__g']]))
+                <--(3,retval('False'))
+            <--(2,retval(103))
 ; 
 ; EVAL TEST
-; took 0.000482 secs. (481.50 microseconds) 
+; took 0.006 secs. (5.55 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
-    (103 103) 
+    (103) 
     (103)))
-</span>; Evaluation took 0.002 secs. (1.54 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; MeTTLog:  xlisting('&self').
@@ -687,19 +855,151 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !&m
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self','&m',OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14</h3>
+</span>      -->(0,eval('&self',[assertEqual,'&m',['let*',[[_276040,[collapse,['get-atoms','&self']]],[_276372,['cdr-atom',_276040]],[_276960,['cdr-atom',_276372]]],['car-atom',_276960]]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.14</h3>
+          -->(1,eval('&self',['let*',[[_276040,[collapse,['get-atoms','&self']]],[_276372,['cdr-atom',_276040]],[_276960,['cdr-atom',_276372]]],['car-atom',_276960]],RET),depth(3))
+              -->(2,eval('&self',[collapse,['get-atoms','&self']],RET),depth(5))
+                  -->(3,eval('&self',['get-atoms','&self'],RET),depth(7))
+                        -->(4,eval('&self',['__g'],RET),depth(10))
+                        <--(4,retval(100))
+                        -->(5,eval('&self',[g,_397472],RET),depth(10))
+                          -->(6,eval('&self',[+,_397472,['__g']],RET),depth(11))
+                              -->(7,eval('&self',['__g'],RET),depth(13))
+                              <--(7,retval(100))
+                              -->(8,eval('&self',['__g'],RET),depth(13))
+                            -->(9,eval('&self',[+,_397472,100],RET),depth(12))
+                        -->(10,eval('&self',[+,_7992,['__g']],RET),depth(10))
+                            -->(11,eval('&self',['__g'],RET),depth(12))
+                            <--(11,retval(100))
+                            -->(12,eval('&self',['__g'],RET),depth(12))
+                          -->(13,eval('&self',[+,_7992,100],RET),depth(11))
+                      -->(14,eval('&self',[+,_7992,100],RET),depth(9))
+                      -->(15,eval('&self',[+,_7992,100],RET),depth(9))
+                            <--(12,retval(100))
+                        <--(10,retval([+,_83386,100]))
+                              <--(8,retval(100))
+                          <--(6,retval([+,_10124,100]))
+                        <--(5,retval([+,_9388,['__g']]))
+                        -->(16,eval('&self',[dup,_8970],RET),depth(10))
+                          -->(17,eval('&self',[if,[==,_8970,0],[+,_8970,10],[g,_8970]],RET),depth(11))
+                              -->(18,eval('&self',[==,_8970,0],RET),depth(13))
+                              <--(18,retval('True'))
+                              -->(19,eval('&self',[+,0,10],RET),depth(13))
+                              <--(19,retval(10))
+                          <--(17,retval(10))
+                        -->(20,eval('&self',[if,[==,0,0],[+,0,10],[g,0]],RET),depth(10))
+                            -->(21,eval('&self',[==,0,0],RET),depth(12))
+                            <--(21,retval('True'))
+                            -->(22,eval('&self',[+,0,10],RET),depth(12))
+                            <--(22,retval(10))
+                        <--(20,retval(10))
+                        <--(16,retval([if,[==,_211076,0],[+,_211076,10],[g,_211076]]))
+                  <--(3,retval([=,[f,_416748],[if,[<,_416748,0],[-,0,_416748],[g,[+,1,_416748]]]]))
+                        -->(23,eval('&self',[f,_350436],RET),depth(10))
+                        <--(23,retval([if,[<,_424590,0],[-,0,_424590],[g,[+,1,_424590]]]))
+                          -->(24,eval('&self',[if,[<,_350436,0],[-,0,_350436],[g,[+,1,_350436]]],RET),depth(11))
+                              -->(25,eval('&self',[<,_350436,0],RET),depth(13))
+                              -->(26,eval('&self',[-,0,_350436],RET),depth(13))
+                              <--(26,retval(fail))
+                          <--(24,retval(fail))
+              <--(2,retval([[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_462152,100],[+,_462152,100]],[=,10,10],[:,f,[->,'Number','Number']]]))
+                -->(27,eval('&self',[[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_461840,100],[+,_461840,100]],[=,10,10],[:,f,[->,'Number','Number']]],RET),depth(6))
+                        -->(28,eval('&self',[+,_9842,100],RET),depth(10))
+                        -->(29,eval('&self',[+,_9842,100],RET),depth(10))
+                      -->(30,eval('&self',[+,_9842,100],RET),depth(9))
+                      -->(31,eval('&self',[+,_9842,100],RET),depth(9))
+              -->(32,eval('&self',['let*',[[_2056,['cdr-atom',[[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_9842,100],[+,_9842,100]],[=,10,10],[:,f,[->,'Number','Number']]]]],[_2098,['cdr-atom',_2056]]],['car-atom',_2098]],RET),depth(5))
+                  -->(33,eval('&self',['cdr-atom',[[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_9842,100],[+,_9842,100]],[=,10,10],[:,f,[->,'Number','Number']]]],RET),depth(7))
+                  <--(33,retval([[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_364654,100],[+,_364654,100]],[=,10,10],[:,f,[->,'Number','Number']]]))
+                    -->(34,eval('&self',[[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_9842,100],[+,_9842,100]],[=,10,10],[:,f,[->,'Number','Number']]],RET),depth(8))
+                            -->(35,eval('&self',[+,_9842,100],RET),depth(12))
+                            -->(36,eval('&self',[+,_9842,100],RET),depth(12))
+                          -->(37,eval('&self',[+,_3702,100],RET),depth(11))
+                          -->(38,eval('&self',[+,_3702,100],RET),depth(11))
+                  -->(39,eval('&self',['let*',[[_2098,['cdr-atom',[[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_3702,100],[+,_3702,100]],[=,10,10],[:,f,[->,'Number','Number']]]]]],['car-atom',_2098]],RET),depth(7))
+                      -->(40,eval('&self',['cdr-atom',[[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_3702,100],[+,_3702,100]],[=,10,10],[:,f,[->,'Number','Number']]]],RET),depth(9))
+                      <--(40,retval([[:,g,[->,'Number','Numer']],[=,[+,_207088,100],[+,_207088,100]],[=,10,10],[:,f,[->,'Number','Number']]]))
+                        -->(41,eval('&self',[[:,g,[->,'Number','Numer']],[=,[+,_3702,100],[+,_3702,100]],[=,10,10],[:,f,[->,'Number','Number']]],RET),depth(10))
+                                -->(42,eval('&self',[+,_3702,100],RET),depth(14))
+                                -->(43,eval('&self',[+,_3702,100],RET),depth(14))
+                              -->(44,eval('&self',[+,_3702,100],RET),depth(13))
+                              -->(45,eval('&self',[+,_3702,100],RET),depth(13))
+                      -->(46,eval('&self',['let*',[],['car-atom',[[:,g,[->,'Number','Numer']],[=,[+,_3702,100],[+,_3702,100]],[=,10,10],[:,f,[->,'Number','Number']]]]],RET),depth(9))
+                          -->(47,eval('&self',['car-atom',[[:,g,[->,'Number','Numer']],[=,[+,_3702,100],[+,_3702,100]],[=,10,10],[:,f,[->,'Number','Number']]]],RET),depth(11))
+                          <--(47,retval([:,g,[->,'Number','Numer']]))
+                      <--(46,retval([:,g,[->,'Number','Numer']]))
+                  <--(39,retval([:,g,[->,'Number','Numer']]))
+              <--(32,retval([:,g,[->,'Number','Numer']]))
+          <--(1,retval([:,g,[->,'Number','Numer']]))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.30 milliseconds) 
+; took 0.118 secs. (118.47 milliseconds) 
 <span class="ansi31">(@ loonit_failureR 
   (equal_enough_for_test  
     (&m) 
-    (False)))
-</span>; Evaluation took 0.004 secs. (3.64 milliseconds) 
+    ( (: g 
+        (-> Number Numer)))))
+</span>      <--(0,retval([got,['&m'],[expected(_339558)],[[:,g,[->,'Number','Numer']]]]))
+        -->(48,eval('&self',[got,['&m'],[expected(_339476)],[[:,g,[->,'Number','Numer']]]],RET),depth(2))
+            -->(49,eval('&self',['&m'],RET),depth(4))
+            -->(50,eval('&self',[expected(_339476)],RET),depth(4))
+                -->(51,eval('&self',expected(_339476),RET),depth(6))
+                    -->(52,eval('&self',expected(_339476),RET),depth(8))
+                        -->(53,eval('&self',expected(_339476),RET),depth(10))
+                            -->(54,eval('&self',expected(_339476),RET),depth(12))
+                                -->(55,eval('&self',expected(_339476),RET),depth(14))
+                                    -->(56,eval('&self',expected(_339476),RET),depth(16))
+                                        -->(57,eval('&self',expected(_339476),RET),depth(18))
+                                            -->(58,eval('&self',expected(_339476),RET),depth(20))
+                                                -->(59,eval('&self',expected(_339476),RET),depth(22))
+                                                    -->(60,eval('&self',expected(_339476),RET),depth(24))
+                                                        -->(61,eval('&self',expected(_339476),RET),depth(26))
+                                                            -->(62,eval('&self',expected(_339476),RET),depth(28))
+                                                                -->(63,eval('&self',expected(_339476),RET),depth(30))
+                                                                    -->(64,eval('&self',expected(_339476),RET),depth(32))
+                                                                        -->(65,eval('&self',expected(_339476),RET),depth(34))
+                                                                            -->(66,eval('&self',expected(_339476),RET),depth(36))
+                                                                                -->(67,eval('&self',expected(_339476),RET),depth(38))
+                                                                                    -->(68,eval('&self',expected(_339476),RET),depth(40))
+                                                                                        -->(69,eval('&self',expected(_339476),RET),depth(42))
+                                                                                            -->(70,eval('&self',expected(_339476),RET),depth(44))
+                                                                                                -->(71,eval('&self',expected(_339476),RET),depth(46))
+                                                                                                    -->(72,eval('&self',expected(_339476),RET),depth(48))
+                                                                                                        -->(73,eval('&self',expected(_339476),RET),depth(50))
+                                                                                                            -->(74,eval('&self',expected(_339476),RET),depth(52))
+                                                                                                                -->(75,eval('&self',expected(_339476),RET),depth(54))
+                                                                                                                    -->(76,eval('&self',expected(_339476),RET),depth(56))
+                                                                                                                        -->(77,eval('&self',expected(_339476),RET),depth(58))
+                                                                                                                            -->(78,eval('&self',expected(_339476),RET),depth(60))
+                                                                                                                                -->(79,eval('&self',expected(_339476),RET),depth(62))
+                                                                                                                                    -->(80,eval('&self',expected(_339476),RET),depth(64))
+                                                                                                                                        -->(81,eval('&self',expected(_339476),RET),depth(66))
+                                                                                                                                            -->(82,eval('&self',expected(_339476),RET),depth(68))
+                                                                                                                                                -->(83,eval('&self',expected(_339476),RET),depth(70))
+                                                                                                                                                    -->(84,eval('&self',expected(_339476),RET),depth(72))
+                                                                                                                                                        -->(85,eval('&self',expected(_339476),RET),depth(74))
+                                                                                                                                                            -->(86,eval('&self',expected(_339476),RET),depth(76))
+                                                                                                                                                                -->(87,eval('&self',expected(_339476),RET),depth(78))
+                                                                                                                                                                    -->(88,eval('&self',expected(_339476),RET),depth(80))
+                                                                                                                                                                        -->(89,eval('&self',expected(_339476),RET),depth(82))
+                                                                                                                                                                            -->(90,eval('&self',expected(_339476),RET),depth(84))
+                                                                                                                                                                                -->(91,eval('&self',expected(_339476),RET),depth(86))
+                                                                                                                                                                                    -->(92,eval('&self',expected(_339476),RET),depth(88))
+                                                                                                                                                                                        -->(93,eval('&self',expected(_339476),RET),depth(90))
+                                                                                                                                                                                            -->(94,eval('&self',expected(_339476),RET),depth(92))
+                                                                                                                                                                                                -->(95,eval('&self',expected(_339476),RET),depth(94))
+                                                                                                                                                                                                    -->(96,eval('&self',expected(_339476),RET),depth(96))
+                                                                                                                                                                                                        -->(97,eval('&self',expected(_339476),RET),depth(98))
+            -->(98,eval('&self',[[:,g,[->,'Number','Numer']]],RET),depth(4))
+            -->(99,eval('&self',['&m'],RET),depth(4))
+            -->(100,eval('&self',[expected(_339476)],RET),depth(4))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
   (got 
-    (&m) expected 
-    (False))
+    (&m) 
+    ( (expected  $_7590)) 
+    ( (: g 
+        (-> Number Numer))))
 
 </span>;; NOTE: now the first atom, which was a space, is removed from `&m`,
 ;; because we load modules only once, and we collect atoms-spaces to
@@ -726,15 +1026,80 @@ Deterministic: <span class="ansi33">
   (get-type &self))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[==,['let*',[[X,[collapse,['get-atoms','&m']]],[Y,['car-atom',X]]],['get-type',Y]],['get-type','&self']],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15</h3>
+</span>      -->(0,eval('&self',[assertEqual,[==,['let*',[[_36616,[collapse,['get-atoms','&m']]],[_36948,['car-atom',_36616]]],['get-type',_36948]],['get-type','&self']],'False'],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.15</h3>
+          -->(1,eval('&self',[==,['let*',[[_36616,[collapse,['get-atoms','&m']]],[_36948,['car-atom',_36616]]],['get-type',_36948]],['get-type','&self']],RET),depth(3))
+              -->(2,eval('&self',['let*',[[_36616,[collapse,['get-atoms','&m']]],[_36948,['car-atom',_36616]]],['get-type',_36948]],RET),depth(5))
+                  -->(3,eval('&self',[collapse,['get-atoms','&m']],RET),depth(7))
+                      -->(4,eval('&self',['get-atoms','&m'],RET),depth(9))
+                            -->(5,eval('&self',['__g'],RET),depth(12))
+                            <--(5,retval(100))
+                            -->(6,eval('&self',[g,_59124],RET),depth(12))
+                              -->(7,eval('&self',[+,_59124,['__g']],RET),depth(13))
+                                  -->(8,eval('&self',['__g'],RET),depth(15))
+                                  <--(8,retval(100))
+                                  -->(9,eval('&self',['__g'],RET),depth(15))
+                                -->(10,eval('&self',[+,_59124,100],RET),depth(14))
+                            -->(11,eval('&self',[+,_59124,['__g']],RET),depth(12))
+                                -->(12,eval('&self',['__g'],RET),depth(14))
+                                <--(12,retval(100))
+                                -->(13,eval('&self',['__g'],RET),depth(14))
+                              -->(14,eval('&self',[+,_59124,100],RET),depth(13))
+                          -->(15,eval('&self',[+,_59124,100],RET),depth(11))
+                          -->(16,eval('&self',[+,_59124,100],RET),depth(11))
+                                <--(13,retval(100))
+                            <--(11,retval([+,_354964,100]))
+                                  <--(9,retval(100))
+                              <--(7,retval([+,_265032,100]))
+                            <--(6,retval([+,_232092,['__g']]))
+                            -->(17,eval('&self',[dup,_59016],RET),depth(12))
+                              -->(18,eval('&self',[if,[==,_59016,0],[+,_59016,10],[g,_59016]],RET),depth(13))
+                                  -->(19,eval('&self',[==,_59016,0],RET),depth(15))
+                                  <--(19,retval('True'))
+                                  -->(20,eval('&self',[+,0,10],RET),depth(15))
+                                  <--(20,retval(10))
+                              <--(18,retval(10))
+                            -->(21,eval('&self',[if,[==,0,0],[+,0,10],[g,0]],RET),depth(12))
+                                -->(22,eval('&self',[==,0,0],RET),depth(14))
+                                <--(22,retval('True'))
+                                -->(23,eval('&self',[+,0,10],RET),depth(14))
+                                <--(23,retval(10))
+                            <--(21,retval(10))
+                            <--(17,retval([if,[==,_11518,0],[+,_11518,10],[g,_11518]]))
+                      <--(4,retval([=,[f,_170726],[if,[<,_170726,0],[-,0,_170726],[g,[+,1,_170726]]]]))
+                            -->(24,eval('&self',[f,_4246],RET),depth(12))
+                            <--(24,retval([if,[<,_178424,0],[-,0,_178424],[g,[+,1,_178424]]]))
+                              -->(25,eval('&self',[if,[<,_4246,0],[-,0,_4246],[g,[+,1,_4246]]],RET),depth(13))
+                                  -->(26,eval('&self',[<,_4246,0],RET),depth(15))
+                                  -->(27,eval('&self',[-,0,_4246],RET),depth(15))
+                                  <--(27,retval(fail))
+                              <--(25,retval(fail))
+                  <--(3,retval([[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_211906,100],[+,_211906,100]],[=,10,10],[:,f,[->,'Number','Number']]]))
+                    -->(28,eval('&self',[[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_211594,100],[+,_211594,100]],[=,10,10],[:,f,[->,'Number','Number']]],RET),depth(8))
+                            -->(29,eval('&self',[+,_211594,100],RET),depth(12))
+                            -->(30,eval('&self',[+,_211594,100],RET),depth(12))
+                          -->(31,eval('&self',[+,_211594,100],RET),depth(11))
+                          -->(32,eval('&self',[+,_6466,100],RET),depth(11))
+                  -->(33,eval('&self',['let*',[[_2056,['car-atom',[[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_6466,100],[+,_6466,100]],[=,10,10],[:,f,[->,'Number','Number']]]]]],['get-type',_2056]],RET),depth(7))
+                      -->(34,eval('&self',['car-atom',[[:,'__g',[->,'Number']],[=,100,100],[:,g,[->,'Number','Numer']],[=,[+,_6466,100],[+,_6466,100]],[=,10,10],[:,f,[->,'Number','Number']]]],RET),depth(9))
+                      <--(34,retval([:,'__g',[->,'Number']]))
+                      -->(35,eval('&self',['let*',[],['get-type',[:,'__g',[->,'Number']]]],RET),depth(9))
+                          -->(36,eval('&self',['get-type',[:,'__g',[->,'Number']]],RET),depth(11))
+                          <--(36,retval('Expression'))
+                      <--(35,retval('Expression'))
+                  <--(33,retval('Expression'))
+              <--(2,retval('Expression'))
+              -->(37,eval('&self',['get-type','&self'],RET),depth(5))
+              <--(37,retval('hyperon::space::DynSpace'))
+          <--(1,retval('False'))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (4.10 milliseconds) 
+; took 0.057 secs. (56.90 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
-    (False False False False False False False False) 
+    (False) 
     (False)))
-</span>; Evaluation took 0.006 secs. (5.74 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Let's check that `if` from stdlib is not duplicated and gives only one result
@@ -746,15 +1111,20 @@ Deterministic: <span class="ansi33">Empty
   (> 1 2) 1 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[if,[>,1,2],1,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16</h3>
+</span>      -->(0,eval('&self',[assertEqual,[if,[>,1,2],1,2],2],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.16</h3>
+          -->(1,eval('&self',[if,[>,1,2],1,2],RET),depth(3))
+              -->(2,eval('&self',[>,1,2],RET),depth(5))
+              <--(2,retval('False'))
+          <--(1,retval(2))
 ; 
 ; EVAL TEST
-; took 0.000146 secs. (145.60 microseconds) 
+; took 0.002 secs. (2.40 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (2) 
     (2)))
-</span>; Evaluation took 0.001 secs. (1.40 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -766,8 +1136,9 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleB.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','f1_moduleB.metta'],OUT).
 
-</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleB.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleB.metta')
+</span>      -->(0,eval('&self',['import!','&self','f1_moduleB.metta'],RET),depth(1))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleB.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleB.metta')
 ;; `g` from moduleC imported via two paths as well as `f`, which uses `g`,
 ;; are not duplicated and produce deterministic results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -779,8 +1150,9 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleC.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','f1_moduleC.metta'],OUT).
 
-</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta')
+</span>      -->(1,eval('&self',['import!','&self','f1_moduleC.metta'],RET),depth(1))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta')
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
@@ -807,7 +1179,7 @@ Deterministic: <span class="ansi33">Empty
       (__g)))
 </span>
 
-; Evaluation took 0.009 secs. (9.14 milliseconds) 
+      <--(1,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[dup,X],[if,[==,X,0],[g,X],[+,X,10]]])
@@ -819,7 +1191,7 @@ Deterministic: <span class="ansi33">Empty
       (+ $X 10)))
 </span>
 
-; Evaluation took 0.016 secs. (16.45 milliseconds) 
+      <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -828,15 +1200,22 @@ Last Result(1): <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(g 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[g,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17</h3>
+</span>      -->(0,eval('&self',[assertEqual,[g,2],102],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.17</h3>
+          -->(1,eval('&self',[g,2],RET),depth(3))
+            -->(2,eval('&self',[+,2,['__g']],RET),depth(4))
+                -->(3,eval('&self',['__g'],RET),depth(6))
+                <--(3,retval(100))
+            <--(2,retval(102))
+          <--(1,retval([+,2,['__g']]))
 ; 
 ; EVAL TEST
-; took 0.000088 secs. (88.20 microseconds) 
+; took 0.002 secs. (2.07 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (102) 
     (102)))
-</span>; Evaluation took 0.001 secs. (1.13 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -845,15 +1224,30 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(f 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[f,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18</h3>
+</span>      -->(0,eval('&self',[assertEqual,[f,2],103],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.18</h3>
+          -->(1,eval('&self',[f,2],RET),depth(3))
+            -->(2,eval('&self',[if,[<,2,0],[-,0,2],[g,[+,1,2]]],RET),depth(4))
+                -->(3,eval('&self',[<,2,0],RET),depth(6))
+                -->(4,eval('&self',[g,[+,1,2]],RET),depth(6))
+                  -->(5,eval('&self',[+,[+,1,2],['__g']],RET),depth(7))
+                      -->(6,eval('&self',[+,1,2],RET),depth(9))
+                      <--(6,retval(3))
+                      -->(7,eval('&self',['__g'],RET),depth(9))
+                      <--(7,retval(100))
+                  <--(5,retval(103))
+                <--(4,retval([+,[+,1,2],['__g']]))
+                <--(3,retval('False'))
+            <--(2,retval(103))
+          <--(1,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
 ; 
 ; EVAL TEST
-; took 0.000415 secs. (414.80 microseconds) 
+; took 0.005 secs. (5.37 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
-    (103 103) 
+    (103) 
     (103)))
-</span>; Evaluation took 0.001 secs. (1.43 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Function declared in different imported modules will still produce
@@ -865,15 +1259,34 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(dup 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[dup,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.19">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.19</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[dup,2],[12,102]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.19">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.19</h3>
+          -->(1,eval('&self',[dup,2],RET),depth(3))
+            -->(2,eval('&self',[if,[==,2,0],[+,2,10],[g,2]],RET),depth(4))
+                -->(3,eval('&self',[==,2,0],RET),depth(6))
+                <--(3,retval('False'))
+                -->(4,eval('&self',[g,2],RET),depth(6))
+                  -->(5,eval('&self',[+,2,['__g']],RET),depth(7))
+                      -->(6,eval('&self',['__g'],RET),depth(9))
+                      <--(6,retval(100))
+                  <--(5,retval(102))
+                <--(4,retval([+,2,['__g']]))
+            <--(2,retval(102))
+          <--(1,retval([if,[==,2,0],[g,2],[+,2,10]]))
+            -->(7,eval('&self',[if,[==,2,0],[g,2],[+,2,10]],RET),depth(4))
+                -->(8,eval('&self',[==,2,0],RET),depth(6))
+                <--(8,retval('False'))
+                -->(9,eval('&self',[+,2,10],RET),depth(6))
+                <--(9,retval(12))
+            <--(7,retval(12))
 ; 
 ; EVAL TEST
-; took 0.000217 secs. (216.50 microseconds) 
+; took 0.007 secs. (7.10 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (102 12) 
     (12 102)))
-</span>; Evaluation took 0.001 secs. (1.31 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Let's import f1_moduleB.metta once more using a different path.
@@ -884,8 +1297,9 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self "../hyperon-experimental_scripts/f1_moduleB.metta")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','../hyperon-experimental_scripts/f1_moduleB.metta'],OUT).
 
-</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleB.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleB.metta')
+</span>      -->(0,eval('&self',['import!','&self','../hyperon-experimental_scripts/f1_moduleB.metta'],RET),depth(1))
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleB.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleB.metta')
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
@@ -895,8 +1309,10 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self f1_moduleC.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','f1_moduleC.metta'],OUT).
 
-</span>%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_moduleC.metta')
+</span>      -->(1,eval('&self',['import!','&self','f1_moduleC.metta'],RET),depth(1))
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleB.metta:8 
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_moduleC.metta')
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Example file used by f1_imports.metta
@@ -923,7 +1339,7 @@ Deterministic: <span class="ansi33">Empty
       (__g)))
 </span>
 
-; Evaluation took 0.008 secs. (8.47 milliseconds) 
+      <--(1,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[dup,X],[if,[==,X,0],[g,X],[+,X,10]]])
@@ -935,7 +1351,7 @@ Deterministic: <span class="ansi33">Empty
       (+ $X 10)))
 </span>
 
-; Evaluation took 0.015 secs. (15.12 milliseconds) 
+      <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -944,15 +1360,22 @@ Last Result(1): <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(g 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[g,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.20">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.20</h3>
+</span>      -->(0,eval('&self',[assertEqual,[g,2],102],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.20">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.20</h3>
+          -->(1,eval('&self',[g,2],RET),depth(3))
+            -->(2,eval('&self',[+,2,['__g']],RET),depth(4))
+                -->(3,eval('&self',['__g'],RET),depth(6))
+                <--(3,retval(100))
+            <--(2,retval(102))
+          <--(1,retval([+,2,['__g']]))
 ; 
 ; EVAL TEST
-; took 0.000088 secs. (87.70 microseconds) 
+; took 0.002 secs. (2.05 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (102) 
     (102)))
-</span>; Evaluation took 0.001 secs. (1.21 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqual 
@@ -961,15 +1384,30 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(f 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[f,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.21">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.21</h3>
+</span>      -->(0,eval('&self',[assertEqual,[f,2],103],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.21">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.21</h3>
+          -->(1,eval('&self',[f,2],RET),depth(3))
+            -->(2,eval('&self',[if,[<,2,0],[-,0,2],[g,[+,1,2]]],RET),depth(4))
+                -->(3,eval('&self',[<,2,0],RET),depth(6))
+                -->(4,eval('&self',[g,[+,1,2]],RET),depth(6))
+                  -->(5,eval('&self',[+,[+,1,2],['__g']],RET),depth(7))
+                      -->(6,eval('&self',[+,1,2],RET),depth(9))
+                      <--(6,retval(3))
+                      -->(7,eval('&self',['__g'],RET),depth(9))
+                      <--(7,retval(100))
+                  <--(5,retval(103))
+                <--(4,retval([+,[+,1,2],['__g']]))
+                <--(3,retval('False'))
+            <--(2,retval(103))
+          <--(1,retval([if,[<,2,0],[-,0,2],[g,[+,1,2]]]))
 ; 
 ; EVAL TEST
-; took 0.000326 secs. (325.60 microseconds) 
+; took 0.005 secs. (5.40 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
-    (103 103) 
+    (103) 
     (103)))
-</span>; Evaluation took 0.001 secs. (1.44 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(assertEqualToResult 
@@ -979,25 +1417,44 @@ Deterministic: <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(dup 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[dup,2],OUT).
 
-</span><h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.22">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.22</h3>
+</span>      -->(0,eval('&self',[assertEqualToResult,[dup,2],[12,102]],RET),depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.22">;; HYPERON-EXPERIMENTAL-SCRIPTS.F1-IMPORTS.22</h3>
+          -->(1,eval('&self',[dup,2],RET),depth(3))
+            -->(2,eval('&self',[if,[==,2,0],[+,2,10],[g,2]],RET),depth(4))
+                -->(3,eval('&self',[==,2,0],RET),depth(6))
+                <--(3,retval('False'))
+                -->(4,eval('&self',[g,2],RET),depth(6))
+                  -->(5,eval('&self',[+,2,['__g']],RET),depth(7))
+                      -->(6,eval('&self',['__g'],RET),depth(9))
+                      <--(6,retval(100))
+                  <--(5,retval(102))
+                <--(4,retval([+,2,['__g']]))
+            <--(2,retval(102))
+          <--(1,retval([if,[==,2,0],[g,2],[+,2,10]]))
+            -->(7,eval('&self',[if,[==,2,0],[g,2],[+,2,10]],RET),depth(4))
+                -->(8,eval('&self',[==,2,0],RET),depth(6))
+                <--(8,retval('False'))
+                -->(9,eval('&self',[+,2,10],RET),depth(6))
+                <--(9,retval(12))
+            <--(7,retval(12))
 ; 
 ; EVAL TEST
-; took 0.000209 secs. (209.20 microseconds) 
+; took 0.008 secs. (7.77 milliseconds) 
 <span class="ansi36">(@ loonit_success 
   (equal_enough_for_test  
     (102 12) 
     (12 102)))
-</span>; Evaluation took 0.001 secs. (1.26 milliseconds) 
+</span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 765,483 inferences, 0.529 CPU in 0.529 seconds (100% CPU, 1446852 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta" 0)
+</span><span class="ansi32">% 2,287,204 inferences, 0.848 CPU in 0.848 seconds (100% CPU, 2697298 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 20
 </span><span class="ansi31">Failures: 2
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-experimental_scripts/f1_imports.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/f1_imports.metta.html" )
 
 </pre>
 </body>

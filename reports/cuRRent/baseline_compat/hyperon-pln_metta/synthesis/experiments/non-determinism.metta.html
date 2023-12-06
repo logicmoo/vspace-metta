@@ -9,10 +9,8 @@
 .body_background { background-color: #000000; }
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
-.ansi1 { font-weight: bold; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
-.ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -22,8 +20,6 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
@@ -36,8 +32,6 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
@@ -45,18 +39,11 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta:1 
-%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.answers',
-%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta')
-1=[42, 441]
-2=[2, 2, 4, 3]
-3=0.19user 0.01system 0:00.21elapsed 99%CPU (0avgtext+0avgdata 33196maxresident)k
-3=0inputs+0outputs (0major+3531minor)pagefaults 0swaps
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/non-determinism.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/non-determinism.metta')
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta', 1, [42, 441]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta', 2, [2, 2, 4, 3]).
 
 ;;; Define foo, a mixture of double and power of 2.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foo,[->,'Number','Number']])
@@ -78,26 +65,20 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 ;;; (= (foo $x) (superpose ((+ $x $x) (* $x $x))))
 ;;; Test foo
-<span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(foo 21)
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (foo 21) 
-  (42 441))
+<span class="ansi38-013099040">!(foo 21)
 
 </span><span class="ansi38-250144246">; !(foo 21)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[foo,21],OUT).
 
-</span><h3 id="EXPERIMENTS.NON-DETERMINISM.01">;; EXPERIMENTS.NON-DETERMINISM.01</h3>
-; 
-; EVAL TEST
-; took 0.000198 secs. (198.30 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (42 441) 
-    (42 441)))
-</span>; Evaluation took 0.001 secs. (1.31 milliseconds) 
-Deterministic: <span class="ansi33">Empty
+</span>      -->(0,eval('&self',[foo,21],RET),depth(1))
+        -->(1,eval('&self',[+,21,21],RET),depth(2))
+        <--(1,retval(42))
+NDet Result(0): <span class="ansi33">42
+
+</span>      <--(0,retval([*,21,21]))
+        -->(2,eval('&self',[*,21,21],RET),depth(2))
+        <--(2,retval(441))
+Last Result(1): <span class="ansi33">441
 
 </span>;; [42, 441]
 ;;; Define bar, a mixture of increment by 1 and factorial.
@@ -123,35 +104,65 @@ Deterministic: <span class="ansi33">Empty
 </span>
 
 ;;; Test bar
-<span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bar 2)
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bar 2) 
-  (2 2 4 3))
+<span class="ansi38-013099040">!(bar 2)
 
 </span><span class="ansi38-250144246">; !(bar 2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[bar,2],OUT).
 
-</span><h3 id="EXPERIMENTS.NON-DETERMINISM.02">;; EXPERIMENTS.NON-DETERMINISM.02</h3>
-; 
-; EVAL TEST
-; took 0.002 secs. (1.63 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (3 4 2 2 2 2 4 4) 
-    (2 3 4)))
-</span>; Evaluation took 0.003 secs. (2.82 milliseconds) 
-Deterministic: <span class="ansi33">Empty
+</span>      -->(0,eval('&self',[bar,2],RET),depth(1))
+        -->(1,eval('&self',[+,2,1],RET),depth(2))
+        <--(1,retval(3))
+NDet Result(0): <span class="ansi33">3
 
-</span><span class="ansi32">% 282,192 inferences, 0.106 CPU in 0.106 seconds (100% CPU, 2666432 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta" 0)
-<span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 2
-</span><span class="ansi32">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html" )
+</span>      <--(0,retval([if,[==,2,0],1,[*,2,[bar,[-,2,1]]]]))
+        -->(2,eval('&self',[if,[==,2,0],1,[*,2,[bar,[-,2,1]]]],RET),depth(2))
+            -->(3,eval('&self',[==,2,0],RET),depth(4))
+            <--(3,retval('False'))
+            -->(4,eval('&self',[*,2,[bar,[-,2,1]]],RET),depth(4))
+                -->(5,eval('&self',[bar,[-,2,1]],RET),depth(6))
+                  -->(6,eval('&self',[+,[-,2,1],1],RET),depth(7))
+                      -->(7,eval('&self',[-,2,1],RET),depth(9))
+                      <--(7,retval(1))
+NDet Result(1): <span class="ansi33">4
+
+</span>                  <--(6,retval(2))
+                <--(5,retval([if,[==,[-,2,1],0],1,[*,[-,2,1],[bar,[-,[-,2,1],1]]]]))
+                  -->(8,eval('&self',[if,[==,[-,2,1],0],1,[*,[-,2,1],[bar,[-,[-,2,1],1]]]],RET),depth(7))
+                      -->(9,eval('&self',[==,[-,2,1],0],RET),depth(9))
+                          -->(10,eval('&self',[-,2,1],RET),depth(11))
+                          <--(10,retval(1))
+                      <--(9,retval('False'))
+                      -->(11,eval('&self',[*,[-,2,1],[bar,[-,[-,2,1],1]]],RET),depth(9))
+                          -->(12,eval('&self',[-,2,1],RET),depth(11))
+                          <--(12,retval(1))
+                          -->(13,eval('&self',[bar,[-,[-,2,1],1]],RET),depth(11))
+                            -->(14,eval('&self',[+,[-,[-,2,1],1],1],RET),depth(12))
+                                -->(15,eval('&self',[-,[-,2,1],1],RET),depth(14))
+                                    -->(16,eval('&self',[-,2,1],RET),depth(16))
+                                    <--(16,retval(1))
+NDet Result(2): <span class="ansi33">2
+
+</span>                                <--(15,retval(0))
+                            <--(14,retval(1))
+                          <--(13,retval([if,[==,[-,[-,2,1],1],0],1,[*,[-,[-,2,1],1],[bar,[-,[-,[-,2,1],1],1]]]]))
+                            -->(17,eval('&self',[if,[==,[-,[-,2,1],1],0],1,[*,[-,[-,2,1],1],[bar,[-,[-,[-,2,1],1],1]]]],RET),depth(12))
+                                -->(18,eval('&self',[==,[-,[-,2,1],1],0],RET),depth(14))
+                                    -->(19,eval('&self',[-,[-,2,1],1],RET),depth(16))
+                                        -->(20,eval('&self',[-,2,1],RET),depth(18))
+                                        <--(20,retval(1))
+NDet Result(3): <span class="ansi33">2
+
+</span>                                    <--(19,retval(0))
+                                <--(18,retval('True'))
+                            <--(17,retval(1))
+                      <--(11,retval(1))
+                  <--(8,retval(1))
+            <--(4,retval(2))
+        <--(2,retval(2))
+<span class="ansi32">% 211,397 inferences, 0.065 CPU in 0.065 seconds (100% CPU, 3244938 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/non-determinism.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/non-determinism.metta.html" )
 
 </pre>
 </body>
