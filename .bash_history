@@ -1352,3 +1352,5 @@ git diff reports/README.md
 git commit -am relinks
 git push
 git push logicmoo 
+git commit -am relinks2
+git push logicmoo 

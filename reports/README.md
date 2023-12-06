@@ -18,8 +18,8 @@ The `examples` directory houses a variety of sub-directories, each focusing on s
    - [`flybase-deduced-types.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-types.metta.html): Type definitions and structures deduced in Flybase.
 
 #### **Hyperon MeTTaLog Sanity Tests**
-- **[`hyperon-mettalog_sanity`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity)**: Sanity checks and basic tests for Hyperon Mettalog.
-   - [`00_lang_case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta.html): Case studies in language design and implementation.
+- **[`hyperon-mettalog_sanity`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity)**: Sanity and basic tests for Hyperon MeTTaLog.
+   - [`00_lang_case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta.html): `case` statment tests.
    - [`00_lang_ok_to_redefine.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/00_lang_ok_to_redefine.metta.html): Tests for language redefinition capabilities.
    - [`01_lang_inc.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta.html): Increment functions and their usage in language testing.
    - [`02-curried-plus.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/02-curried-plus.metta.html): Implementations and tests for curried addition functions.
