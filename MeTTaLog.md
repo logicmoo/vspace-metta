@@ -35,6 +35,8 @@ Jump to [MeTTaLog Installation Guide](https://github.com/logicmoo/vspace-metta/b
 |   510|   113|    81%| reports/cuRRent/baseline_compat -                |
 
 
+# [REPORTS BY FILE](reports/README.md)
+
 |Pass |Fail |File                               |GitHub Link                                                                                                                       |
 |-----|-----|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 |  16 |  18 | forward-chainer-xp.metta.metta    |[reports/cuRRent/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-xp.metta.html)|

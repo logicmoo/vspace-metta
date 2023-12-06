@@ -1357,3 +1357,4 @@ git push logicmoo
 git commit -am relinks3
 git push logicmoo 
 ./MeTTa examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta
+git commit -am PASS_FAIL
