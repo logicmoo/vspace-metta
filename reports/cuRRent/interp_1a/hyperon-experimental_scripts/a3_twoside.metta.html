@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta')
+1=[()]
+2=[()]
+3=[()]
+4=[()]
+5=0.11user 0.00system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 33220maxresident)k
+5=0inputs+0outputs (0major+3494minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta', 1, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta', 2, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta', 3, [[]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta', 4, [[]]).
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Variables can appear in knowledge base entries
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Green',X]])
+</span><span class="ansi38-255165000">  (implies 
+    (Frog $X) 
+    (Green $X))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Eats-flies',X]])
+</span><span class="ansi38-255165000">  (implies 
+    (Frog $X) 
+    (Eats-flies $X))
+</span>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Bound variables on both sides will be substituted
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (implies 
+      (Frog Sam) $What) $What) 
+  ( (Green Sam) 
+    (Eats-flies Sam)))
+
+</span>      -->(0,'&self',[assertEqualToResult,[match,'&self',[implies,['Frog','Sam'],_431136],_431136],[['Green','Sam'],['Eats-flies','Sam']]],depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01</h3>
+          -->(1,'&self',[match,'&self',[implies,['Frog','Sam'],_431136],_431136],depth(3))
+            -->(2,'&self',['Green','Sam'],depth(4))
+            -->(3,'&self',['Eats-flies','Sam'],depth(4))
+          <--(1,retval(['Eats-flies','Sam']))
+; 
+; EVAL TEST
+; took 0.000564 secs. (564.50 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (Eats-flies Sam) 
+      (Green Sam)) 
+    ( (Eats-flies Sam) 
+      (Green Sam))))
+</span>      <--(0,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span><span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (implies 
+      ($P $X) 
+      (Green Sam)) 
+    ($X might be $P)) 
+  ( (Sam might be Frog)))
+
+</span>      -->(4,'&self',[assertEqualToResult,[match,'&self',[implies,[_479192,_479476],['Green','Sam']],[_479476,might,be,_479192]],[['Sam',might,be,'Frog']]],depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02</h3>
+          -->(5,'&self',[match,'&self',[implies,[_479192,_479476],['Green','Sam']],[_479476,might,be,_479192]],depth(3))
+            -->(6,'&self',['Sam',might,be,'Frog'],depth(4))
+          <--(5,retval(['Sam',might,be,'Frog']))
+; 
+; EVAL TEST
+; took 0.000526 secs. (525.70 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (Sam might be Frog)) 
+    ( (Sam might be Frog))))
+</span>      <--(4,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Composite queries
+; The comma is used to form a conjunction of queries with shared
+; variables, which should be satisfied simultaneously.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Some facts
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
+</span><span class="ansi38-255165000">  (Frog Sam)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Robot','Sophia'])
+</span><span class="ansi38-255165000">  (Robot Sophia)
+</span>
+
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (and 
+      (Frog $X) 
+      (implies 
+        (Frog $X) $Y)) $Y) 
+  ( (Green Sam) 
+    (Eats-flies Sam)))
+
+</span>      -->(7,'&self',[assertEqualToResult,[match,'&self',[',',['Frog',_19130],[implies,['Frog',_19130],_19726]],_19726],[['Green','Sam'],['Eats-flies','Sam']]],depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03</h3>
+          -->(8,'&self',[match,'&self',[',',['Frog',_19130],[implies,['Frog',_19130],_19726]],_19726],depth(3))
+            -->(9,'&self',['Green','Sam'],depth(4))
+            -->(10,'&self',['Eats-flies','Sam'],depth(4))
+          <--(8,retval(['Eats-flies','Sam']))
+; 
+; EVAL TEST
+; took 0.000525 secs. (525.00 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (Eats-flies Sam) 
+      (Green Sam)) 
+    ( (Eats-flies Sam) 
+      (Green Sam))))
+</span>      <--(7,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Variables in queries can remain unbound
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="ansi38-000068000">!(assertEqualToResult 
+  (match &self 
+    (and 
+      (implies 
+        ($P $X) 
+        (Green $X)) 
+      (implies 
+        ($P $X) 
+        (Eats-flies $X))) 
+    (Then it is definitely $P)) 
+  ( (Then it is definitely Frog)))
+
+</span>      -->(11,'&self',[assertEqualToResult,[match,'&self',[',',[implies,[_59500,_59784],['Green',_59784]],[implies,[_59500,_59784],['Eats-flies',_59784]]],['Then',it,is,definitely,_59500]],[['Then',it,is,definitely,'Frog']]],depth(1))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04</h3>
+          -->(12,'&self',[match,'&self',[',',[implies,[_59500,_59784],['Green',_59784]],[implies,[_59500,_59784],['Eats-flies',_59784]]],['Then',it,is,definitely,_59500]],depth(3))
+            -->(13,'&self',['Then',it,is,definitely,'Frog'],depth(4))
+          <--(12,retval(['Then',it,is,definitely,'Frog']))
+; 
+; EVAL TEST
+; took 0.000361 secs. (361.10 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    ( (Then it is definitely Frog)) 
+    ( (Then it is definitely Frog))))
+</span>      <--(11,retval('Empty'))
+<span class="ansi33"> Empty
+
+</span><span class="ansi32">% 327,594 inferences, 0.172 CPU in 0.172 seconds (100% CPU, 1903625 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/hyperon-experimental_scripts/a3_twoside.metta.html" )
+
+</pre>
+</body>
+
+</html>

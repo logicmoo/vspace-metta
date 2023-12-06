@@ -22,3 +22,7 @@ ls
 find v_1/
 git add .
 git status .
+find . -type f -name "*.html" -exec sh -c 'mv "$1" "$(echo "$1" | sed "s/\.html$/.metta.html/")"' sh {} \;
+cd ../reports/
+find . -type f -name "*.metta.html" -exec sh -c 'mv "$1" "$(echo "$1" | sed "s/\.metta\.html$/.html/")"' sh {} \;
+find . -type f -name "*.html" -exec sh -c 'mv "$1" "$(echo "$1" | sed "s/\.html$/.metta.html/")"' sh {} \;

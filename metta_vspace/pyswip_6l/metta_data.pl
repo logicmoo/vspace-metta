@@ -313,7 +313,7 @@ get_operator_typedef1(Self,Op,Params,RetType):-
    metta_type(Self,Op,['->'|List]),
    append(Params,[RetType],List).
 get_operator_typedef2(Self,Op,Params,RetType):-
-  wdmsg(missing(get_operator_typedef2(Self,Op,Params,RetType))),!,fail.
+  nop(wdmsg(missing(get_operator_typedef2(Self,Op,Params,RetType)))),!,fail.
 
 is_metta_data_functor(F):-
   current_self(Self),is_metta_data_functor(Self,F).
@@ -322,7 +322,7 @@ is_metta_data_functor(F):-
 is_special_builtin('case').
 is_special_builtin(':').
 
-is_special_builtin('=').
+%is_special_builtin('=').
 is_special_builtin('->').
 is_special_builtin('bind!').
 %is_special_builtin('new-space').
@@ -337,12 +337,12 @@ is_special_builtin('match').
 is_special_builtin('call').
 is_special_builtin('let').
 is_special_builtin('let*').
-%is_special_builtin('nop').
+is_special_builtin('nop').
 is_special_builtin('assertEqual').
 is_special_builtin('assertEqualToResult').
 is_special_builtin('collapse').
 is_special_builtin('superpose').
-is_special_builtin('==').
+%is_special_builtin('==').
 
 is_metta_builtin(Special):- is_special_builtin(Special).
 

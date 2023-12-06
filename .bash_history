@@ -1186,3 +1186,94 @@ git add reports/
 git status .
 ./scripts/test_in_metta.sh --n --report=Y
 git add reports/
+git commit -am "./MeTTa --v_77"
+git push logicmoo 
+watch ./scripts/total_loonits.sh 
+find metta_vspacey -type f -name "*.bak" -exec sh -c 'mkdir -p metta_vspace_sommeeee/ $(dirname "{}") && mv "{}" metta_vspace_sommeeee/"{}"' \;
+find metta_vspace/ -type f -name "*.bak" -exec sh -c 'mkdir -p metta_vspace_sommeeee/ $(dirname "{}") && mv "{}" metta_vspace_sommeeee/"{}"' \;
+find metta_vspace/ -type f -name "*.bak" -exec sh -c 'mkdir -p \'metta_vspace_sommeeee/$(dirname "{}")\' && mv "{}" "metta_vspace_sommeeee/{}"' \;
+find metta_vspace/ -type f -name "*.bak" -exec sh -c 'mkdir -p "metta_vspace_sommeeee/$(dirname "{}")" && mv "{}" "metta_vspace_sommeeee/{}"' \;
+'
+"
+'
+find metta_vspace/ -type f -name "*.bak" -exec sh -c 'mkdir -p \'metta_vspace_sommeeee/$(dirname "{}")\' && mv "{}" "metta_vspace_sommeeee/{}"' \;
+find metta_vspace/ -type f -name "*.bak" -exec sh -c 'mkdir -p "/metta_vspace.bak/$(dirname "$1")" && mv "$1" "/metta_vspace.bak/$1"' sh {} \;
+ls
+mv metta_vspace?* metta_vspace_sommeeee/
+ls
+ls metta_vspace_sommeeee/
+mv metta_vspace_sommeeee/metta_vspace
+ls metta_vspace_sommeeee/metta_vspace
+ls metta_vspace_sommeeee/metta_vspace/pyswip
+cp metta_vspace/pyswip metta_vspace/pyswip_saved_fav -a
+cp -a examples/interp_88  examples/interp_80
+cp -a reports/cuRRent/interp_88 reports/cuRRent/interp_80
+./MeTTa examples/interp_88/ --clean
+find examples/ -name "*.html" -not -name "*.metta.html"
+find examples/ -name "*.html"
+find . -type f -name "*.html" -exec sh -c 'mv "$1" "$(echo "$1" | sed "s/\.html$/.metta.html/")"' sh {} \;
+cd ..
+cp examples/interp_1a -a examples/interp_sv
+./MeTTa --v_saved_fav examples/interp_sv/ --clean
+./MeTTa examples/interp_88/ --clean
+cp pyswip/metta_reader.pl pyswip_1a/
+cd ..
+./MeTTa --v_1a examples/interp_1a/ 
+./MeTTa --v_1a examples/interp_1a/ --clean
+./MeTTa --v_saved_fav examples/interp_sv/ 
+./MeTTa examples/interp_88/
+./MeTTa examples/interp_88/ --clean
+watch ./scripts/total_loonits.sh 
+find  examples/interp_2a -name "*.html"  
+find  examples/interp_2a -name "*.html"  -delete
+find  examples/interp_3y/ -name "*.html"  -delete
+./scripts/total_loonits.sh 
+find  examples/interp_77/hyperon-* -name "*.html"  -delete
+./scripts/total_loonits.sh 
+find reports/
+./MeTTa --v_saved_fav examples/interp_sv/  --clean
+mv examples/interp_sv/ examples/interp_00
+./MeTTa --v_saved_fav examples/interp_00/
+./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/subtyping/ --clean
+./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ --clean
+cls ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ 
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/  --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/sumo/  --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ --clean --fresh
+cls ; ./MeTTa --v_saved_fav examples/interp_00/ --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/metta-morph_tests/types3.metta
+mv metta_vspace/pyswip metta_vspace/pyswip_88
+cp -a metta_vspace/pyswip_saved_fav metta_vspace/pyswip
+cls ; ./MeTTa --v_saved_fav --exec=rtrace  examples/interp_00/metta-morph_tests/types3.metta
+cls ; ./MeTTa --v_saved_fav examples/interp_00/metta-morph_tests/types3.metta
+cls ; ./MeTTa --v_saved_fav --exec=rtrace  examples/interp_00/metta-morph_tests/types3.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/types3.metta
+make.
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/types3.metta
+echo 'export LANG=C' >> ~/.bashrc && exec "$BASH"
+echo 'export LANG=C' >> ~/.bashrc && exec "$BASH"
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/types3.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/
+cls ; ./MeTTa examples/interp_00/ --clean
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/supercollapse.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/nested_parameters.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/supercollapse.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/nested_parameters.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/supercollapse.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/nested_parameters.metta
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/interp_00 --clean
+watch ./scripts/total_loonits.sh 
+./scripts/test_in_metta.sh --no --report=Y
+git status .
+git add reports/
+git status .
+git checkout examples/
+git add examples/
+git status .

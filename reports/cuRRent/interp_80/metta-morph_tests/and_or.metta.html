@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/metta-morph_tests/and_or.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/metta-morph_tests/and_or.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/metta-morph_tests/and_or.metta')
+1=[1]
+2=0.08user 0.02system 0:00.11elapsed 98%CPU (0avgtext+0avgdata 33208maxresident)k
+2=0inputs+0outputs (0major+3513minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/metta-morph_tests/and_or.metta', 1, [1]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom']])
+</span><span class="ansi38-255165000">  (: If 
+    (-> Bool Atom Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If','True',Then],Then])
+</span><span class="ansi38-255165000">  (= 
+    (If True $Then) $Then)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If','False',Then],[let,X,0,[let,X,1,X]]])
+</span><span class="ansi38-255165000">  (= 
+    (If False $Then) 
+    (let $X 0 
+      (let $X 1 $X)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
+</span><span class="ansi38-255165000">  (: If 
+    (-> Bool Atom Atom Atom))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If',Cond,Then,Else],[if,Cond,Then,Else]])
+</span><span class="ansi38-255165000">  (= 
+    (If $Cond $Then $Else) 
+    (if $Cond $Then $Else))
+</span>
+
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(If 
+  (or 
+    (and True False) True) 1 2)
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (If 
+    (or 
+      (and True False) True) 1 2) 
+  (1))
+
+</span><span class="ansi38-250144246">; !(If 
+  (or 
+    (and True False) True) 1 2)
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['If',[or,[and,'True','False'],'True'],1,2],OUT).
+
+</span><h3 id="METTA-MORPH-TESTS.AND-OR.01">;; METTA-MORPH-TESTS.AND-OR.01</h3>
+; 
+; EVAL TEST
+; took 0.000164 secs. (164.20 microseconds) 
+<span class="ansi36">(@ loonit_success 
+  (equal_enough_for_test  
+    (1) 
+    (1)))
+</span>; Evaluation took 0.001 secs. (1.50 milliseconds) 
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 256,054 inferences, 0.104 CPU in 0.104 seconds (100% CPU, 2469430 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/metta-morph_tests/and_or.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_88/metta-morph_tests/and_or.metta.html" )
+
+</pre>
+</body>
+
+</html>

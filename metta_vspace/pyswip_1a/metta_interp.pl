@@ -58,10 +58,11 @@ option_value_def('trace-on-overtime',20.0).
 option_value_def('trace-on-overflow',false).
 option_value_def('trace-on-error',true).
 option_value_def('trace-on-load',true).
+option_value_def('trace-on-exec',true).
+option_value_def('trace-on-eval',true).
 option_value_def('trace-on-fail',false).
 option_value_def('trace-on-pass',false).
-option_value_def('trace-on-eval',false).
-option_value_def('trace-on-exec',true).
+
 
 
 
@@ -322,14 +323,14 @@ start_html_of(_Filename):-
   sformat(S,'cat /dev/null > "~w"',[TEE_FILE]),
 
   writeln(doing(S)),
-  shell(S))).
+  ignore(shell(S)))).
 
 save_html_of(_Filename):- \+ tee_file(_TEE_FILE),!.
 save_html_of(_):- \+ has_loonit_results, \+ option_value('html',true).
 save_html_of(Filename):-
  must_det_ll((
   file_name_extension(Base,_,Filename),
-  file_name_extension(Base,html,HtmlFilename),
+  file_name_extension(Base,'metta.html',HtmlFilename),
   loonit_reset,
   tee_file(TEE_FILE),
   sformat(S,'ansi2html -u < "~w" > "~w" ',[TEE_FILE,HtmlFilename]),
@@ -710,7 +711,16 @@ subst_vars_not_last(A,B):-
   subst_vars(A,B),
   nb_setarg(N,B,E),!.
 
-silent_loading:- false.
+con_write(W):-check_silent_loading, write(W).
+con_writeq(W):-check_silent_loading, writeq(W).
+writeqln(Q):- check_silent_loading,write(' '),con_writeq(Q),connl.
+
+connlf:- check_silent_loading, format('~N').
+connl:- check_silent_loading,nl.
+% check_silent_loading:- silent_loading,!,trace,break.
+check_silent_loading.
+silent_loading:- is_converting,!.
+silent_loading:- \+ option_value('trace-on-load',true), !.
 
 assert_to_metta(_):- reached_file_max,!.
 assert_to_metta(OBO):-
@@ -1036,6 +1046,10 @@ arg_types(L,R,LR):- append(L,R,LR).
 loon:- loon(typein).
 
 catch_red_ignore(G):- ignore(catch_red(G)).
+
+:- export(loon/1).
+:- public(loon/1).
+
 loon(Why):- began_loon(_),!,assert(began_loon(Why)),wdmsg(skip_loon(Why)).
 loon(Why):-
   assert(began_loon(Why)),
@@ -1047,13 +1061,22 @@ loon(Why):-
   (option_value('prolog',true)->true;
     (run_cmd_args,(option_value('repl',false)->true;repl), loonit_report, maybe_halt(7)))]),!.
 
-:- export(loon/1).
-:- public(loon/1).
 %loon:- time(loon_metta('./examples/compat/test_scripts/*.metta')),fail.
 %loon:- repl, (option_value('halt',false)->true;halt(7)).
 maybe_halt(Seven):- option_value('repl',true),!,halt(Seven).
 maybe_halt(Seven):- option_value('halt',true),!,halt(Seven).
 maybe_halt(Seven):- wdmsg(maybe_halt(Seven)).
+
+is_compiling:- current_prolog_flag(os_argv,ArgV),member(E,ArgV),
+  (E==qcompile_mettalog;E==qsave_program),!.
+is_compiled:- current_prolog_flag(os_argv,ArgV),\+ member('swipl',ArgV),!.
+is_converting:- nb_current('convert','True'),!.
+is_converting:- current_prolog_flag(os_argv,ArgV), member('--convert',ArgV),!.
+show_os_argv:- current_prolog_flag(os_argv,ArgV),write('; libswipl: '),writeln(ArgV).
+is_pyswip:- current_prolog_flag(os_argv,ArgV),member( './',ArgV).
+%  libswipl: ['./','-q',--home=/usr/local/lib/swipl]
+
+:- initialization(show_os_argv).
 
 :- initialization(loon(restore),restore).
 :- initialization(loon(program),program).

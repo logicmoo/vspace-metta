@@ -175,36 +175,56 @@ loonit_assert_source_tf(Src,Goal,Check,TF):-
           once((TF='True', trace_on_pass);(TF='False', trace_on_fail)),
      with_debug(metta(eval),time_eval('Trace',OrigGoal)))).
 
+sort_result(Res,Res):- \+ compound(Res),!.
+sort_result([And|Res1],Res):- is_and(And),!,sort_result(Res1,Res).
+sort_result([T,And|Res1],Res):- is_and(And),!,sort_result([T|Res1],Res).
+sort_result([H|T],[HH|TT]):- !, sort_result(H,HH),sort_result(T,TT).
+sort_result(Res,Res).
 
-unify_enough(L,L):-!.
-unify_enough(L,C):- is_list(L),into_list_args(C,CC),!,unify_lists(CC,L).
-unify_enough(C,L):- is_list(L),into_list_args(C,CC),!,unify_lists(CC,L).
-unify_enough(C,L):- \+ compound(C),!,L=C.
-unify_enough(L,C):- \+ compound(C),!,L=C.
-unify_enough(L,C):- into_list_args(L,LL),into_list_args(C,CC),!,unify_lists(CC,LL).
+unify_enough(L,L).
+%unify_enough(L,C):- is_list(L),into_list_args(C,CC),!,unify_lists(CC,L).
+%unify_enough(C,L):- is_list(L),into_list_args(C,CC),!,unify_lists(CC,L).
+%unify_enough(C,L):- \+ compound(C),!,L=C.
+%unify_enough(L,C):- \+ compound(C),!,L=C.
+unify_enough(L,C):- into_list_args(L,LL),into_list_args(C,CC),unify_lists(CC,LL).
 
-unify_lists(C,L):- \+ compound(C),!,L=C.
-unify_lists(L,C):- \+ compound(C),!,L=C.
-unify_lists([C|CC],[L|LL]):- equal_enouf(L,C),!,unify_lists(CC,LL).
+%unify_lists(C,L):- \+ compound(C),!,L=C.
+%unify_lists(L,C):- \+ compound(C),!,L=C.
+unify_lists(L,L):-!.
+unify_lists([C|CC],[L|LL]):- unify_enough(L,C),!,unify_lists(CC,LL).
 
-equal_enough(R,V):- is_list(R),is_list(V),sort(R,RR),sort(V,VV),!,equal_enouf(RR,VV).
+equal_enough(R,V):- is_list(R),is_list(V),sort(R,RR),sort(V,VV),!,equal_enouf(RR,VV),!.
 equal_enough(R,V):- copy_term(R,RR),copy_term(V,VV),equal_enouf(R,V),!,R=@=RR,V=@=VV.
 
-equal_enough_for_test(X,Y):- equal_enough(X,Y),!.
-equal_enough_for_test(X,Y):- subst_vars(X,XX),subst_vars(Y,YY),!,equal_enouf(XX,YY).
+%s_empty(X):- var(X),!.
+s_empty(X):- var(X),!,fail.
+is_empty('Empty').
+is_empty([]).
+is_empty([X]):-!,is_empty(X).
+equal_enough_for_test(X,Y):- is_empty(X),!,is_empty(Y).
+equal_enough_for_test(X,Y):- must_det_ll((subst_vars(X,XX),subst_vars(Y,YY))),!,equal_enough_for_test2(XX,YY),!.
+equal_enough_for_test2(X,Y):- equal_enough(X,Y).
 
-equal_enouf(R,V):- R=@=V, !.
-equal_enouf(R,V):- (var(R),var(V)),!, R=V.
+equal_enouf(R,V):- is_ftVar(R), is_ftVar(V), R=V,!.
+equal_enouf(X,Y):- is_empty(X),!,is_empty(Y).
+equal_enouf(R,V):- R=@=V, R=V, !.
+equal_enouf(_,V):- V=@='...',!.
+equal_enouf(L,C):- is_list(L),into_list_args(C,CC),!,equal_enouf_l(CC,L).
+equal_enouf(C,L):- is_list(L),into_list_args(C,CC),!,equal_enouf_l(CC,L).
+%equal_enouf(R,V):- (var(R),var(V)),!, R=V.
 equal_enouf(R,V):- (var(R);var(V)),!, R==V.
 equal_enouf(R,V):- number(R),number(V),!, RV is abs(R-V), RV < 0.03 .
+equal_enouf(R,V):- atom(R),!,atom(V), has_unicode(R),has_unicode(V).
 equal_enouf(R,V):- (\+ compound(R) ; \+ compound(V)),!, R==V.
-equal_enouf([R|RT],[V|VT]):- !, equal_enouf(R,V),equal_enouf(RT,VT).
-equal_enouf(R,V):- unify_enough(R,V),!.
-equal_enouf(R,V):-
-  compound_name_arguments(R,F,RA),
-  compound_name_arguments(V,F,VA), !,
-  maplist(equal_enouf,RA,VA).
+equal_enouf(L,C):- into_list_args(L,LL),into_list_args(C,CC),!,equal_enouf_l(CC,LL).
 
+equal_enouf_l([S1,V1|_],[S2,V2|_]):- S1 == 'State',S2 == 'State',!, equal_enouf(V1,V2).
+equal_enouf_l(C,L):- \+ compound(C),!,L=@=C.
+equal_enouf_l(L,C):- \+ compound(C),!,L=@=C.
+equal_enouf_l([C|CC],[L|LL]):- !, equal_enouf(L,C),!,equal_enouf_l(CC,LL).
+
+
+has_unicode(A):- atom_codes(A,Cs),member(N,Cs),N>127,!.
 
 set_last_error(_).
 

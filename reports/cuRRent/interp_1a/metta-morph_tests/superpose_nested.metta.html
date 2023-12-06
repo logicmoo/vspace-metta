@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+.ansi38-000068000 { color: #004400; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta')
+1=[a, b, c]
+2=[a, b, c]
+3=[a, b, c, x, y, z]
+4=[a, b, c, x, y, z]
+5=0.11user 0.01system 0:00.13elapsed 98%CPU (0avgtext+0avgdata 32736maxresident)k
+5=0inputs+0outputs (0major+3450minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta', 1, [a, b, c]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta', 2, [a, b, c]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta', 3, [a, b, c, x, y, z]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta', 4, [a, b, c, x, y, z]).
+
+<span class="ansi38-000068000">!(superpose 
+  (a b c))
+
+</span>      -->(0,'&self',[superpose,[a,b,c]],depth(1))
+<span class="ansi33"> a
+
+</span><span class="ansi33"> b
+
+</span>      <--(0,retval(c))
+<span class="ansi33"> c
+
+</span><span class="ansi36">
+! (assertEqualToResult 
+    (superpose 
+      (a b c)) 
+    (a b c))
+(@ ! 
+  (assertEqual 
+    (a b c) 
+    (a b c)))
+write_pass_fail_result("METTA-MORPH-TESTS.SUPERPOSE-NESTED.101",exec,[superpose,[a,b,c]],'PASS',[a,b,c],[a,b,c])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(superpose 
+  ( (superpose 
+      (a b c))))
+
+</span>      -->(1,'&self',[superpose,[[superpose,[a,b,c]]]],depth(1))
+          -->(2,'&self',[superpose,[a,b,c]],depth(3))
+<span class="ansi33"> a
+
+</span><span class="ansi33"> b
+
+</span>          <--(2,retval(c))
+      <--(1,retval(c))
+<span class="ansi33"> c
+
+</span><span class="ansi36">
+! (assertEqualToResult 
+    (superpose 
+      ( (superpose 
+          (a b c)))) 
+    (a b c))
+(@ ! 
+  (assertEqual 
+    (a b c) 
+    (a b c)))
+write_pass_fail_result("METTA-MORPH-TESTS.SUPERPOSE-NESTED.102",exec,[superpose,[[superpose,[a,b,c]]]],'PASS',[a,b,c],[a,b,c])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(superpose 
+  ( (superpose 
+      (a b c)) 
+    (superpose 
+      (x y z))))
+
+</span>      -->(3,'&self',[superpose,[[superpose,[a,b,c]],[superpose,[x,y,z]]]],depth(1))
+          -->(4,'&self',[superpose,[a,b,c]],depth(3))
+<span class="ansi33"> a
+
+</span><span class="ansi33"> b
+
+</span>          <--(4,retval(c))
+<span class="ansi33"> c
+
+</span>          -->(5,'&self',[superpose,[x,y,z]],depth(3))
+<span class="ansi33"> x
+
+</span><span class="ansi33"> y
+
+</span>          <--(5,retval(z))
+      <--(3,retval(z))
+<span class="ansi33"> z
+
+</span><span class="ansi36">
+! (assertEqualToResult 
+    (superpose 
+      ( (superpose 
+          (a b c)) 
+        (superpose 
+          (x y z)))) 
+    (a b c x y z))
+(@ ! 
+  (assertEqual 
+    (a b c x y z) 
+    (a b c x y z)))
+write_pass_fail_result("METTA-MORPH-TESTS.SUPERPOSE-NESTED.103",exec,[superpose,[[superpose,[a,b,c]],[superpose,[x,y,z]]]],'PASS',[a,b,c,x,y,z],[a,b,c,x,y,z])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi38-000068000">!(superpose 
+  ( (superpose 
+      (a b c)) x y z))
+
+</span>      -->(6,'&self',[superpose,[[superpose,[a,b,c]],x,y,z]],depth(1))
+          -->(7,'&self',[superpose,[a,b,c]],depth(3))
+<span class="ansi33"> a
+
+</span><span class="ansi33"> b
+
+</span>          <--(7,retval(c))
+<span class="ansi33"> c
+
+</span><span class="ansi33"> x
+
+</span><span class="ansi33"> y
+
+</span>      <--(6,retval(z))
+<span class="ansi33"> z
+
+</span><span class="ansi36">
+! (assertEqualToResult 
+    (superpose 
+      ( (superpose 
+          (a b c)) x y z)) 
+    (a b c x y z))
+(@ ! 
+  (assertEqual 
+    (a b c x y z) 
+    (a b c x y z)))
+write_pass_fail_result("METTA-MORPH-TESTS.SUPERPOSE-NESTED.104",exec,[superpose,[[superpose,[a,b,c]],x,y,z]],'PASS',[a,b,c,x,y,z],[a,b,c,x,y,z])
+
+</span>
+
+--------------------------------------------------------------------------
+<span class="ansi32">% 284,334 inferences, 0.172 CPU in 0.172 seconds (100% CPU, 1657315 Lips)
+</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 4
+</span><span class="ansi32">Failures: 0
+</span>doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/interp_1a/metta-morph_tests/superpose_nested.metta.html" )
+
+</pre>
+</body>
+
+</html>
