@@ -1340,3 +1340,8 @@ git status .
 git commit -am "fuller readme"
 git push logicmoo 
 git add reports/README.md 
+git commit -am reports/README.md
+git push
+git push logicmoo 
+git status reports/
+git checkout MeTTaLog.md
