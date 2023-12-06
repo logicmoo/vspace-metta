@@ -1337,3 +1337,6 @@ git status .
 git add reports/
 git status .
 ./scripts/test_in_metta.sh --no --report=Y
+git commit -am "fuller readme"
+git push logicmoo 
+git add reports/README.md 
