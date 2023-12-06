@@ -1345,3 +1345,7 @@ git push
 git push logicmoo 
 git status reports/
 git checkout MeTTaLog.md
+git commit -am reports/README.md 
+git push logicmoo 
+find -name "*.html"
+git diff reports/README.md
