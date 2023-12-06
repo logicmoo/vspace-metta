@@ -542,3 +542,37 @@ rm -rf interp_current/
 cp -a interp_2a interp_1
 cp -a interp_2a interp_3y
 cp -a interp_2a interp_current
+ls
+cd examples/
+ls
+mkdir shared
+mv performance/ shared/
+mv compat/ shared/
+mv nars/ shared/
+;s
+ls
+find override-compat/
+ls
+git add ,
+git add .
+git status .
+find 
+cd examples/
+ls
+ls interp_00
+mkdir baseline_compat
+mkdir extended_compat
+mkdir python_compat
+./scripts/total_loonits.sh 
+cd examples/
+\cp baseline_comp77/* interp_88 -a
+./scripts/total_loonits.sh 
+cd examples/
+rm -rf baseline_comp77/
+mv interp_88 baseline_comp77
+rmdir *
+rmdir */*
+rmdir */*/*
+rmdir */*/*/*
+find
+cd ,,

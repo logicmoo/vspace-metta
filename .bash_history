@@ -1277,3 +1277,38 @@ git status .
 git checkout examples/
 git add examples/
 git status .
+git commit -am " 187|    24|    88%| reports/cuRRent/interp_00/hyperon-experimental_scripts "
+ls
+git status .
+cd ..
+ls
+find 
+mkdir python_compat
+cd ..
+./scripts/total_loonits.sh 
+\cp baseline_comp77/* interp_88 -a
+cd ..
+./scripts/total_loonits.sh 
+cd ,,
+cd ..
+./scripts/total_loonits.sh 
+mkdir prev_reports
+mv examples/baseline_comp77/ prev_reports/baseline_compat
+./scripts/total_loonits.sh 
+rm -rf reports/
+mkdir reports
+./scripts/test_in_metta.sh --no --report=Y
+git add reports/
+git status .
+git add examples/
+git status .
+find prev_reports/
+find prev_reports/ -not -name "*.html"
+find prev_reports/ -not -name "*.html" -delete 
+find prev_reports/
+\cp prev_reports/baseline_compat/* examples/baseline_compat/ 
+\cp prev_reports/baseline_compat/* examples/baseline_compat/  -a
+./scripts/test_in_metta.sh --no --report=Y
+git add reports/
+git add examples/
+git status .
