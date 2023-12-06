@@ -1349,3 +1349,6 @@ git commit -am reports/README.md
 git push logicmoo 
 find -name "*.html"
 git diff reports/README.md
+git commit -am relinks
+git push
+git push logicmoo 
