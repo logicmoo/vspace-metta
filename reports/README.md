@@ -1,10 +1,4 @@
-﻿# MeTTaLOG TestReports README
-
-The `examples` directory houses a variety of sub-directories, each focusing on specific functionalities, tests, or demonstrations. These sub-directories serve as a comprehensive resource for understanding the system.
-
----
-
-## Main Directory Structure
+﻿# MeTTaLOG Test Outputs by Filename
 
 - **[`flybase`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
    - [`flybase-vspace.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
