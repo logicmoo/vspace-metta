@@ -1,16 +1,5 @@
 ﻿# MeTTaLOG Test Outputs by Filename
 
-- **[`flybase`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
-   - [`flybase-vspace.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
-   - [`flybase-loader-size-estimates.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-loader-size-estimates.metta.html): Size estimates and optimizations for the Flybase loader.
-   - [`flybase-mined-flat.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-mined-flat.metta.html): Flat structure representation of mined data in Flybase.
-   - [`flybase-deduced-queries.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-queries.metta.html): Contains queries deduced from Flybase data analysis.
-   - [`flybase-deduced.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced.metta.html): Deduced results and insights from Flybase data.
-   - [`flybase-mined.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-mined.metta.html): Original mined data from Flybase.
-   - [`flybase-loader.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-loader.metta.html): Loader script for Flybase datasets.
-   - [`flybase-deduced-connections.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-connections.metta.html): Mapping and connections deduced in Flybase.
-   - [`flybase-deduced-types.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-types.metta.html): Type definitions and structures deduced in Flybase.
-
 #### **Hyperon MeTTaLog Sanity Tests**
 - **[`hyperon-mettalog_sanity`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity)**: Sanity and basic tests for Hyperon MeTTaLog.
    - [`00_lang_case.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta.html): `case` statment tests.
@@ -51,6 +40,19 @@
    - [`c2_spaces.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/c2_spaces.metta.html): Space(s) handling and reasoning in logic.
    - [`b0_chaining_prelim.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta.html): Preliminary chaining methods in logic.
 
+### **Flybase Tests**
+
+- **[`flybase`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
+   - [`flybase-vspace.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
+   - [`flybase-loader-size-estimates.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-loader-size-estimates.metta.html): Size estimates and optimizations for the Flybase loader.
+   - [`flybase-mined-flat.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-mined-flat.metta.html): Flat structure representation of mined data in Flybase.
+   - [`flybase-deduced-queries.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-queries.metta.html): Contains queries deduced from Flybase data analysis.
+   - [`flybase-deduced.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced.metta.html): Deduced results and insights from Flybase data.
+   - [`flybase-mined.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-mined.metta.html): Original mined data from Flybase.
+   - [`flybase-loader.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-loader.metta.html): Loader script for Flybase datasets.
+   - [`flybase-deduced-connections.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-connections.metta.html): Mapping and connections deduced in Flybase.
+   - [`flybase-deduced-types.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/flybase-deduced-types.metta.html): Type definitions and structures deduced in Flybase.
+
 
 ## Hyperon Miner Examples
 
@@ -89,6 +91,7 @@
    - [`match_superposed_spaces.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/match_superposed_spaces.metta.html): Matching within superposed spaces.
    - [`collapse.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/collapse.metta.html): Tests for collapse operations in various contexts.
    - [`letlet.metta`](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/letlet.metta.html): Experiments with nested 'let' structures.
+
 
 #### **Performance and Testing**
 

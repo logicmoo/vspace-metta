@@ -1360,3 +1360,5 @@ git push logicmoo
 git commit -am PASS_FAIL
 git commit -am PASS_FAIL2
 git push logicmoo 
+git commit -am PASS_FAIL3
+git push logicmoo 
