@@ -1439,3 +1439,5 @@ git commit -am metta_data.
 ./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta
 git commit -am metta_data2
 ./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta --halt=true
+git commit -am metta_data3
+./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta --halt=true
