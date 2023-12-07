@@ -1,1 +1,1 @@
-../precomputed_files/ontologies/go-basic.obo.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/ontologies/go-basic.obo.metta

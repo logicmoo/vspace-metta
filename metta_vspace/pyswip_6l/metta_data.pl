@@ -175,7 +175,8 @@ get_type1(_Dpth,_Slf,Var,'%Undefined%'):- var(Var),!.
 get_type1(_Dpth,_Slf,Val,'Number'):- number(Val),!.
 get_type1(Depth,Self,Expr,['StateMonad',Type]):- is_valid_nb_state(Expr),'get-state'(Expr,Val),!,
    get_type1(Depth,Self,Val,Type).
-get_type1(Depth,Self,EvalMe,Type):- needs_eval(EvalMe),eval_args(Depth,Self,EvalMe,Val), \+ needs_eval(Val),!,
+get_type1(Depth,Self,EvalMe,Type):- needs_eval(EvalMe),
+     eval_args(Depth,Self,EvalMe,Val), \+ needs_eval(Val),!,
    get_type1(Depth,Self,Val,Type).
 get_type1(_Dpth,Self,[Fn|_],Type):- symbol(Fn),metta_type(Self,Fn,List),last_element(List,Type), nonvar(Type),
    is_type(Type).
@@ -188,7 +189,9 @@ get_type1(_Dpth,Self,Fn,Type):- symbol(Fn),metta_type(Self,Fn,Type),!.
 %get_type1(Depth,Self,Fn,Type):- nonvar(Fn),metta_type(Self,Fn,Type2),Depth2 is Depth-1,get_type1(Depth2,Self,Type2,Type).
 %get_type1(Depth,Self,Fn,Type):- Depth>0,nonvar(Fn),metta_type(Self,Type,Fn),!. %,!,last_element(List,Type).
 
-get_type1(Depth,Self,Expr,Type):-Depth2 is Depth-1, eval_args(Depth2,Self,Expr,Val),Expr\=@=Val,get_type1(Depth2,Self,Val,Type).
+get_type1(Depth,Self,Expr,Type):-Depth2 is Depth-1, 
+ eval_args(Depth2,Self,Expr,Val),
+ Expr\=@=Val,get_type1(Depth2,Self,Val,Type).
 get_type1(_Dpth,_Slf,Val,'String'):- string(Val),!.
 get_type1(_Dpth,_Slf,Val,Type):- is_decl_type(Val),Type=Val.
 get_type1(_Dpth,_Slf,Val,'Bool'):- (Val=='False';Val=='True'),!.
@@ -201,9 +204,19 @@ get_type1(_Dpth,_Slf,_,'%Undefined%'):- fail.
 %get_type1(Depth,Self,Val,Type):- Depth2 is Depth-1, get_type0(Depth2,Self,Val,Type).
 
 
+
+as_prolog(_Dpth,_Slf,I,O):- \+ iz_conz(I),!,I=O.
+as_prolog(Depth,Self,[H|T],O):- H=='::',!,as_prolog(Depth,Self,T,O).
+as_prolog(Depth,Self,[H|T],[HH|TT]):- as_prolog(Depth,Self,H,HH),as_prolog(Depth,Self,T,TT).
+
+
+
 adjust_args(_Dpth,Self,F,X,X):- (is_special_op(Self,F); \+ iz_conz(X)),!.
 adjust_args(Depth,Self,Op,X,Y):-
   get_operator_typedef(Self,Op,Params,RetType),
+  try_adjust_arg_types(RetType,Depth,Self,Params,X,Y).
+
+try_adjust_arg_types(RetType,Depth,Self,Params,X,Y):-
   as_prolog(Depth,Self,X,M),
   args_conform(Depth,Self,M,Params),!,
   set_type(Depth,Self,Y,RetType),

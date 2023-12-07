@@ -1,1 +1,1 @@
-../precomputed_files/transposons/transposon_sequence_set.gff.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/transposons/transposon_sequence_set.gff.metta

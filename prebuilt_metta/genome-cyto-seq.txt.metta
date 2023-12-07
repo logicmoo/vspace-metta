@@ -1,1 +1,1 @@
-../precomputed_files/map_conversion/genome-cyto-seq.txt.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/map_conversion/genome-cyto-seq.txt.metta

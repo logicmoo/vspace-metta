@@ -1,1 +1,1 @@
-../precomputed_files/human_disease/disease_model_annotations_fb_2023_04.tsv.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/human_disease/disease_model_annotations_fb_2023_04.tsv.metta

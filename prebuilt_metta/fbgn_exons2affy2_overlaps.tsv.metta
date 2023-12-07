@@ -1,1 +1,1 @@
-../precomputed_files/genes/fbgn_exons2affy2_overlaps.tsv.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/genes/fbgn_exons2affy2_overlaps.tsv.metta

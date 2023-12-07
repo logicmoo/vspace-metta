@@ -1,1 +1,1 @@
-../precomputed_files/ontologies/image.obo.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/ontologies/image.obo.metta

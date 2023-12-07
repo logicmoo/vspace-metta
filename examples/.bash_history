@@ -576,3 +576,5 @@ rmdir */*/*
 rmdir */*/*/*
 find
 cd ,,
+touch simple_query2_llm.metta
+cd ../..

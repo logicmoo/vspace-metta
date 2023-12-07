@@ -63,9 +63,10 @@ skip(_).
 
 % Add an atom to the space
 'add-atom'(SpaceNameOrInstance, Atom) :-
-    debug_metta(['add-atom',SpaceNameOrInstance, Atom]),
+    % debug_metta(['add-atom',SpaceNameOrInstance, Atom]),
     space_type_method(Type,add_atom,Method), call(Type,SpaceNameOrInstance),!,
-    debug_metta(['type-method',Type,Method]),
+    if_t((SpaceNameOrInstance\=='&self' ; Type\=='is_asserted_space'),
+       debug_metta(['type-method',Type,Method,SpaceNameOrInstance,Atom])),
     call(Method,SpaceNameOrInstance,Atom).
 % Add Atom
 'add-atom'(Environment, AtomDeclaration, Result):- eval_args(['add-atom', Environment, AtomDeclaration], Result).

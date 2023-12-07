@@ -1,1 +1,1 @@
-../precomputed_files/go/gene_association.fb.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/go/gene_association.fb.metta

@@ -1,1 +1,1 @@
-../precomputed_files/stocks/stocks_FB2023_04.tsv.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/stocks/stocks_FB2023_04.tsv.metta

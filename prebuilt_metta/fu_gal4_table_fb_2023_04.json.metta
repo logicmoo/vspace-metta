@@ -1,1 +1,1 @@
-../precomputed_files/insertions/fu_gal4_table_fb_2023_04.json.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/insertions/fu_gal4_table_fb_2023_04.json.metta

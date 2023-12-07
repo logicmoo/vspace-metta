@@ -1,1 +1,1 @@
-../precomputed_files/ontologies/psi-mi.obo.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/ontologies/psi-mi.obo.metta

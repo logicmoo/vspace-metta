@@ -1364,3 +1364,74 @@ git commit -am PASS_FAIL3
 git push logicmoo 
 git commit -am PASS_FAIL4
 git push logicmoo 
+git commit -am dir
+git push logicmoo 
+cls ; ./MeTTa examples/interp_00/metta-morph_tests/types3.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/zeroargs.metta
+cls
+ls
+cd ../..
+cd ..
+./MeTTa examples/flybase/sanity/load_all_of_flybase.metta 
+gzip flybase.metta.qlf 
+./MeTTa examples/flybase/sanity/load_all_of_flybase.metta 
+./MeTTa examples/flybase/sanity/load_all_of_flybase.metta --clean
+./MeTTa examples/flybase/sanity/load_all_of_flybase.metta
+./MeTTa examples/flybase/sanity/load_all_of_flybase.metta --clean
+./MeTTa --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta --clean
+./MeTTa --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta --fresh
+./MeTTa --clean --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta --fresh
+./scripts/test_in_metta.sh --clean --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta --fresh
+./scripts/test_in_metta.sh --clean --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta.html --fresh
+rm examples/flybase/sanity/load_all_of_flybase.metta.html
+rm examples/flybase/sanity/load_all_of_flybase.metta.answers 
+./scripts/test_in_metta.sh --clean --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta.html --fresh
+./scripts/test_in_metta.sh --clean --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta 
+./scripts/test_in_metta.sh --fresh --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta 
+cls
+./scripts/test_in_metta.sh --fresh --exec=rtrace examples/flybase/sanity/load_all_of_flybase.metta 
+./scripts/test_in_metta.sh --fresh --exec=rtrace examples/flybase/sanity/
+./scripts/test_in_metta.sh --fresh --exec=rtrace examples/extended_compat/
+find -name "alle*.metta"
+cd ..
+cd -
+ks -l prebuilt_metta/
+ls -l prebuilt_metta/
+find -name "alle*.metta"
+ls -l
+cd ,,/
+cd ..
+ls -l
+rm precomputed_files
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/data/ftp.flybase.org/releases/FB2023_04/precomputed_file
+ln -s /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/data/ftp.flybase.org/releases/FB2023_04/precomputed_files/ 
+ls
+rm precomputed_file
+ls prebuilt_metta/
+ls prebuilt_metta/ -l
+rm d2utmp3EFiGC.metta 
+cd ..
+ls
+cp flybase.metta.qlf.gz flybase_metta.qlf.gz 
+gunzip flybase_metta.qlf.gz 
+swipl -l flybase_metta.qlf 
+./MeTTa
+./MeTTa
+grep is_syspre metta_vspace -R
+grep is_syspre metta_vspace -R | grep s2p
+grep is_syspre metta_vspace -R | grep s2p
+./MeTTa --fresh --exec=rtrace examples/extended_compat/
+metta
+shutdown -r now
+uptime 
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+ls
+./MeTTa --clean examples/baseline_compat/
+./MeTTa --clean examples/baseline_compat/metta-morph_tests/types3.metta
+./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta
+cp metta_vspace/pyswip metta_vspace/pyswip_touser
+cp metta_vspace/pyswip metta_vspace/pyswip_touser -a
+./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta
+git checkout metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta
+git status .

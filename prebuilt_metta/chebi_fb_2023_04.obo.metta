@@ -1,1 +1,1 @@
-../precomputed_files/ontologies/chebi_fb_2023_04.obo.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/ontologies/chebi_fb_2023_04.obo.metta

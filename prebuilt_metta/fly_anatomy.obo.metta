@@ -1,1 +1,1 @@
-../precomputed_files/ontologies/fly_anatomy.obo.metta
+../data/ftp.flybase.org/releases/FB2023_04/metta_files/ontologies/fly_anatomy.obo.metta

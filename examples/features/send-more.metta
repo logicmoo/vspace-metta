@@ -43,4 +43,5 @@
 !(solve)
 
 
+(: member (-> $e (List $e) NDet))
 
