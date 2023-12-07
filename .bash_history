@@ -1435,3 +1435,5 @@ cp metta_vspace/pyswip metta_vspace/pyswip_touser -a
 git checkout metta_vspace/pyswip/metta_eval.pl
 ./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta
 git status .
+git commit -am metta_data.
+./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta
