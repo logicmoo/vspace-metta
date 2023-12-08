@@ -10,6 +10,7 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -77,7 +78,8 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta')
 1=[()]
@@ -102,20 +104,15 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Fact
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
-</span><span class="ansi38-255165000">  (Frog Sam)
+</span><span class="ansi38-255165000">(Frog Sam)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[frog,X],[match,'&self',['Frog',X],'T']])
-</span><span class="ansi38-255165000">  (= 
-    (frog $X) 
-    (match &self 
-      (Frog $X) T))
+</span><span class="ansi38-255165000">(= (frog $X) (match &self (Frog $X) T))
 </span>
 
 ;; `(Frog Sam)` is not reduced; it is just a declaration
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (Frog Sam) 
-  ( (Frog Sam)))
+<span class="ansi38-013099040">!(assertEqualToResult (Frog Sam) ((Frog Sam)))
 
 </span><span class="ansi38-250144246">; !(Frog Sam)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Frog','Sam'],OUT).
@@ -123,19 +120,21 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>      -->(0,eval('&self',[assertEqualToResult,['Frog','Sam'],[['Frog','Sam']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.01</h3>
           -->(1,eval('&self',['Frog','Sam'],RET),depth(3))
+            -->(2,eval('&self','Sam',RET),depth(4))
+            -->(3,eval('&self','Frog',RET),depth(4))
+            -->(4,eval('&self','Sam',RET),depth(4))
+              -->(5,eval('&self','Frog',RET),depth(5))
+              -->(6,eval('&self','Sam',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.72 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Frog Sam)) 
-    ( (Frog Sam))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.07 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Frog Sam)) ((Frog Sam))))
+</span>          -->(7,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; `frog` uses this declaration
-<span class="ansi38-013099040">!(assertEqual 
-  (frog Sam) T)
+<span class="ansi38-013099040">!(assertEqual (frog Sam) T)
 
 </span><span class="ansi38-250144246">; !(frog Sam)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[frog,'Sam'],OUT).
@@ -143,21 +142,21 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqual,[frog,'Sam'],'T'],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.02</h3>
           -->(1,eval('&self',[frog,'Sam'],RET),depth(3))
-          <--(1,retval([match,'&self',['Frog','Sam'],'T']))
-            -->(2,eval('&self',[match,'&self',['Frog','Sam'],'T'],RET),depth(4))
-            <--(2,retval('T'))
+                -->(2,eval('&self','T',RET),depth(6))
+              -->(3,eval('&self','T',RET),depth(5))
+                -->(4,eval('&self','T',RET),depth(6))
+              -->(5,eval('&self','T',RET),depth(5))
+          <--(1,retval('T'))
+        -->(6,eval('&self','T',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.88 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (T) 
-    (T)))
-</span>      <--(0,retval('Empty'))
+; took 0.000964 secs. (963.60 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (T) (T)))
+</span>          -->(7,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult 
-  (frog Fritz) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult (frog Fritz) ())
 
 </span><span class="ansi38-250144246">; !(frog Fritz)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[frog,'Fritz'],OUT).
@@ -165,15 +164,13 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,[frog,'Fritz'],[]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.03</h3>
           -->(1,eval('&self',[frog,'Fritz'],RET),depth(3))
-          <--(1,retval([match,'&self',['Frog','Fritz'],'T']))
-            -->(2,eval('&self',[match,'&self',['Frog','Fritz'],'T'],RET),depth(4))
-            <--(2,retval(fail))
+          <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.000369 secs. (369.40 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () ()))
-</span>      <--(0,retval('Empty'))
+; took 0.000317 secs. (317.20 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
+</span>          -->(2,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -185,145 +182,79 @@ Deterministic: <span class="ansi33">Empty
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some facts in the knowledge base
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Evaluation',[philosopher,'Plato']])
-</span><span class="ansi38-255165000">  (Evaluation 
-    (philosopher Plato))
+</span><span class="ansi38-255165000">(Evaluation (philosopher Plato))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Evaluation',['likes-to-wrestle','Plato']])
-</span><span class="ansi38-255165000">  (Evaluation 
-    (likes-to-wrestle Plato))
+</span><span class="ansi38-255165000">(Evaluation (likes-to-wrestle Plato))
 </span>
 
 ;; An implication rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Implication',['And',['Evaluation',[philosopher,X]],['Evaluation',['likes-to-wrestle',X]]],['Evaluation',[human,X]]])
-</span><span class="ansi38-255165000">  (Implication 
-    (And 
-      (Evaluation 
-        (philosopher $X)) 
-      (Evaluation 
-        (likes-to-wrestle $X))) 
-    (Evaluation 
-      (human $X)))
+</span><span class="ansi38-255165000">(Implication (And (Evaluation (philosopher $X)) (Evaluation (likes-to-wrestle $X))) (Evaluation (human $X)))
 </span>
 
 ;; Another implication rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Implication',['Evaluation',[human,X]],['Evaluation',[mortal,X]]])
-</span><span class="ansi38-255165000">  (Implication 
-    (Evaluation 
-      (human $X)) 
-    (Evaluation 
-      (mortal $X)))
+</span><span class="ansi38-255165000">(Implication (Evaluation (human $X)) (Evaluation (mortal $X)))
 </span>
 
 ;; Deduction case when the desired evaluation is present in
 ;; the knowledge base
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[deduce,['Evaluation',[P,X]]],[match,'&self',['Evaluation',[P,X]],'T']])
-</span><span class="ansi38-255165000">  (= 
-    (deduce 
-      (Evaluation 
-        ($P $X))) 
-    (match &self 
-      (Evaluation 
-        ($P $X)) T))
+</span><span class="ansi38-255165000">(= (deduce (Evaluation ($P $X))) (match &self (Evaluation ($P $X)) T))
 </span>
 
 ;; Deduction case when the desired evaluation is the result
 ;; of an implication, which implies a recursion
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[deduce,['Evaluation',[P,X]]],[match,'&self',['Implication',A,['Evaluation',[P,X]]],[deduce,A]]])
-</span><span class="ansi38-255165000">  (= 
-    (deduce 
-      (Evaluation 
-        ($P $X))) 
-    (match &self 
-      (Implication $A 
-        (Evaluation 
-          ($P $X))) 
-      (deduce $A)))
+</span><span class="ansi38-255165000">(= (deduce (Evaluation ($P $X))) (match &self (Implication $A (Evaluation ($P $X))) (deduce $A)))
 </span>
 
 ;; Deduction case for generic "And" expressions;
 ;; also recursive
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[deduce,['And',A,B]],['And',[deduce,A],[deduce,B]]])
-</span><span class="ansi38-255165000">  (= 
-    (deduce 
-      (And $A $B)) 
-    (And 
-      (deduce $A) 
-      (deduce $B)))
+</span><span class="ansi38-255165000">(= (deduce (And $A $B)) (And (deduce $A) (deduce $B)))
 </span>
 
 ;; True & True = True
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['And','T','T'],'T'])
-</span><span class="ansi38-255165000">  (= 
-    (And T T) T)
+</span><span class="ansi38-255165000">(= (And T T) T)
 </span>
 
 ;; Test deduction that Plato is mortal
-<span class="ansi38-013099040">!(assertEqual 
-  (deduce 
-    (Evaluation 
-      (mortal Plato))) T)
+<span class="ansi38-013099040">!(assertEqual (deduce (Evaluation (mortal Plato))) T)
 
-</span><span class="ansi38-250144246">; !(deduce 
-  (Evaluation 
-    (mortal Plato)))
+</span><span class="ansi38-250144246">; !(deduce (Evaluation (mortal Plato)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[deduce,['Evaluation',[mortal,'Plato']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[deduce,['Evaluation',[mortal,'Plato']]],'T'],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.04</h3>
           -->(1,eval('&self',[deduce,['Evaluation',[mortal,'Plato']]],RET),depth(3))
-            -->(2,eval('&self',[match,'&self',['Evaluation',[mortal,'Plato']],'T'],RET),depth(4))
-            <--(2,retval(fail))
-            -->(3,eval('&self',[match,'&self',['Implication',_138776,['Evaluation',[mortal,'Plato']]],[deduce,_138776]],RET),depth(4))
-                -->(4,eval('&self',[deduce,['Evaluation',[human,'Plato']]],RET),depth(6))
-                  -->(5,eval('&self',[match,'&self',['Evaluation',[human,'Plato']],'T'],RET),depth(7))
-                  <--(5,retval(fail))
-                  -->(6,eval('&self',[match,'&self',['Implication',_141544,['Evaluation',[human,'Plato']]],[deduce,_141544]],RET),depth(7))
-                      -->(7,eval('&self',[deduce,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]],RET),depth(9))
-                        -->(8,eval('&self',['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]],RET),depth(10))
-                            -->(9,eval('&self',[philosopher,'Plato'],RET),depth(12))
-                            -->(10,eval('&self',['likes-to-wrestle','Plato'],RET),depth(12))
-                            -->(11,eval('&self',[deduce,['Evaluation',[philosopher,'Plato']]],RET),depth(12))
-                              -->(12,eval('&self',[match,'&self',['Evaluation',[philosopher,'Plato']],'T'],RET),depth(13))
-                              <--(12,retval('T'))
-                            -->(13,eval('&self',[deduce,['Evaluation',['likes-to-wrestle','Plato']]],RET),depth(12))
-                              -->(14,eval('&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],'T'],RET),depth(13))
-                              <--(14,retval('T'))
-                          -->(15,eval('&self',['And','T','T'],RET),depth(11))
-                          <--(15,retval('T'))
-                              -->(16,eval('&self',[match,'&self',['Implication',_313588,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_313588]],RET),depth(13))
-                              <--(16,retval(fail))
-                            <--(13,retval([match,'&self',['Implication',_313708,['Evaluation',['likes-to-wrestle','Plato']]],[deduce,_313708]]))
-                              -->(17,eval('&self',[match,'&self',['Implication',_313786,['Evaluation',[philosopher,'Plato']]],[deduce,_313786]],RET),depth(13))
-                              <--(17,retval(fail))
-                            <--(11,retval([match,'&self',['Implication',_313906,['Evaluation',[philosopher,'Plato']]],[deduce,_313906]]))
-                        <--(8,retval(['And','T','T']))
-                      <--(7,retval(['And',[deduce,['Evaluation',[philosopher,'Plato']]],[deduce,['Evaluation',['likes-to-wrestle','Plato']]]]))
-                  <--(6,retval('T'))
-                <--(4,retval([match,'&self',['Implication',_141664,['Evaluation',[human,'Plato']]],[deduce,_141664]]))
-            <--(3,retval('T'))
-          <--(1,retval([match,'&self',['Implication',_138896,['Evaluation',[mortal,'Plato']]],[deduce,_138896]]))
+          <--(1,retval(fail))
+        -->(2,eval('&self','T',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.010 secs. (9.68 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (T) 
-    (T)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000482 secs. (481.60 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (T)))
+</span>          -->(3,eval('&self',[],RET),depth(3))
+            -->(4,eval('&self',[expected(_242452)],RET),depth(4))
+              -->(5,eval('&self',expected(_242452),RET),depth(5))
+                  -->(6,eval('&self',expected(_242452),RET),depth(7))
+                      -->(7,eval('&self',expected(_242452),RET),depth(9))
+                          -->(8,eval('&self',expected(_242452),RET),depth(11))
+                              -->(9,eval('&self',expected(_242452),RET),depth(13))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_242452)) (T))
 
 </span>;; TODO : Some variables are not substituted
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ift,'T',Then],Then])
-</span><span class="ansi38-255165000">  (= 
-    (ift T $Then) $Then)
+</span><span class="ansi38-255165000">(= (ift T $Then) $Then)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[ift,[deduce,['Evaluation',[mortal,X]]],X])
-</span><span class="ansi38-255165000">  (ift 
-    (deduce 
-      (Evaluation 
-        (mortal $X))) $X)
+</span><span class="ansi38-255165000">(ift (deduce (Evaluation (mortal $X))) $X)
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -333,187 +264,51 @@ Deterministic: <span class="ansi33">Empty
 ;; Definition of explain when the desired Evaluation is
 ;; in the knowledge base
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[explain,['Evaluation',[P,X]]],[match,'&self',['Evaluation',[P,X]],[P,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (explain 
-      (Evaluation 
-        ($P $X))) 
-    (match &self 
-      (Evaluation 
-        ($P $X)) 
-      ($P $X)))
+</span><span class="ansi38-255165000">(= (explain (Evaluation ($P $X))) (match &self (Evaluation ($P $X)) ($P $X)))
 </span>
 
 ;; Definition of explain when the desired Evaluation is
 ;; the result of an implication
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[explain,['Evaluation',[P,X]]],[match,'&self',['Implication',A,['Evaluation',[P,X]]],[[P,X],proven,by,[explain,A]]]])
-</span><span class="ansi38-255165000">  (= 
-    (explain 
-      (Evaluation 
-        ($P $X))) 
-    (match &self 
-      (Implication $A 
-        (Evaluation 
-          ($P $X))) 
-      ( ($P $X) proven by 
-        (explain $A))))
+</span><span class="ansi38-255165000">(= (explain (Evaluation ($P $X))) (match &self (Implication $A (Evaluation ($P $X))) (($P $X) proven by (explain $A))))
 </span>
 
 ;; Definition of explain for And
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[explain,['And',A,B]],['And',[explain,A],[explain,B]]])
-</span><span class="ansi38-255165000">  (= 
-    (explain 
-      (And $A $B)) 
-    (And 
-      (explain $A) 
-      (explain $B)))
+</span><span class="ansi38-255165000">(= (explain (And $A $B)) (And (explain $A) (explain $B)))
 </span>
 
 ;; Example of explain why Plato is mortal
-<span class="ansi38-013099040">!(assertEqual 
-  (explain 
-    (Evaluation 
-      (mortal Plato))) 
-  ( (mortal Plato) proven by 
-    ( (human Plato) proven by 
-      (And 
-        (philosopher Plato) 
-        (likes-to-wrestle Plato)))))
+<span class="ansi38-013099040">!(assertEqual (explain (Evaluation (mortal Plato))) ((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))
 
-</span><span class="ansi38-250144246">; !(explain 
-  (Evaluation 
-    (mortal Plato)))
+</span><span class="ansi38-250144246">; !(explain (Evaluation (mortal Plato)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[explain,['Evaluation',[mortal,'Plato']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[explain,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B2-BACKCHAIN.05</h3>
           -->(1,eval('&self',[explain,['Evaluation',[mortal,'Plato']]],RET),depth(3))
-            -->(2,eval('&self',[match,'&self',['Evaluation',[mortal,'Plato']],[mortal,'Plato']],RET),depth(4))
-            <--(2,retval(fail))
-            -->(3,eval('&self',[match,'&self',['Implication',_461968,['Evaluation',[mortal,'Plato']]],[[mortal,'Plato'],proven,by,[explain,_461968]]],RET),depth(4))
-                -->(4,eval('&self',[[mortal,'Plato'],proven,by,[explain,['Evaluation',[human,'Plato']]]],RET),depth(6))
-                    -->(5,eval('&self',[explain,['Evaluation',[human,'Plato']]],RET),depth(8))
-                      -->(6,eval('&self',[match,'&self',['Evaluation',[human,'Plato']],[human,'Plato']],RET),depth(9))
-                      <--(6,retval(fail))
-                      -->(7,eval('&self',[match,'&self',['Implication',_478976,['Evaluation',[human,'Plato']]],[[human,'Plato'],proven,by,[explain,_478976]]],RET),depth(9))
-                          -->(8,eval('&self',[[human,'Plato'],proven,by,[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]]],RET),depth(11))
-                              -->(9,eval('&self',[explain,['And',['Evaluation',[philosopher,'Plato']],['Evaluation',['likes-to-wrestle','Plato']]]],RET),depth(13))
-                              <--(9,retval(['And',[explain,['Evaluation',[philosopher,'Plato']]],[explain,['Evaluation',['likes-to-wrestle','Plato']]]]))
-                                -->(10,eval('&self',['And',[explain,['Evaluation',[philosopher,'Plato']]],[explain,['Evaluation',['likes-to-wrestle','Plato']]]],RET),depth(14))
-                                    -->(11,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(12,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                    -->(13,eval('&self',[explain,['Evaluation',[philosopher,'Plato']]],RET),depth(16))
-                                      -->(14,eval('&self',[match,'&self',['Evaluation',[philosopher,'Plato']],[philosopher,'Plato']],RET),depth(17))
-                                          -->(15,eval('&self',[philosopher,'Plato'],RET),depth(19))
-                                      <--(14,retval([philosopher,'Plato']))
-                                        -->(16,eval('&self',[philosopher,'Plato'],RET),depth(18))
-                                    -->(17,eval('&self',[explain,['Evaluation',['likes-to-wrestle','Plato']]],RET),depth(16))
-                                      -->(18,eval('&self',[match,'&self',['Evaluation',['likes-to-wrestle','Plato']],['likes-to-wrestle','Plato']],RET),depth(17))
-                                          -->(19,eval('&self',['likes-to-wrestle','Plato'],RET),depth(19))
-                                      <--(18,retval(['likes-to-wrestle','Plato']))
-                                        -->(20,eval('&self',['likes-to-wrestle','Plato'],RET),depth(18))
-                                  -->(21,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(15))
-                                      -->(22,eval('&self',[philosopher,'Plato'],RET),depth(17))
-                                      -->(23,eval('&self',['likes-to-wrestle','Plato'],RET),depth(17))
-                                      -->(24,eval('&self',[philosopher,'Plato'],RET),depth(17))
-                                      -->(25,eval('&self',['likes-to-wrestle','Plato'],RET),depth(17))
-                                      -->(26,eval('&self',[philosopher,'Plato'],RET),depth(17))
-                                      -->(27,eval('&self',['likes-to-wrestle','Plato'],RET),depth(17))
-                                    -->(28,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(29,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                  -->(30,eval('&self',[philosopher,'Plato'],RET),depth(15))
-                                  -->(31,eval('&self',['likes-to-wrestle','Plato'],RET),depth(15))
-                            -->(32,eval('&self',[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]],RET),depth(12))
-                                -->(33,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(14))
-                                    -->(34,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(35,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                    -->(36,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(37,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                    -->(38,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(39,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                -->(40,eval('&self',[human,'Plato'],RET),depth(14))
-                                -->(41,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(14))
-                                    -->(42,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(43,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                    -->(44,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(45,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                                    -->(46,eval('&self',[philosopher,'Plato'],RET),depth(16))
-                                    -->(47,eval('&self',['likes-to-wrestle','Plato'],RET),depth(16))
-                              -->(48,eval('&self',[human,'Plato'],RET),depth(13))
-                              -->(49,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(13))
-                                  -->(50,eval('&self',[philosopher,'Plato'],RET),depth(15))
-                                  -->(51,eval('&self',['likes-to-wrestle','Plato'],RET),depth(15))
-                                  -->(52,eval('&self',[philosopher,'Plato'],RET),depth(15))
-                                  -->(53,eval('&self',['likes-to-wrestle','Plato'],RET),depth(15))
-                                  -->(54,eval('&self',[philosopher,'Plato'],RET),depth(15))
-                                  -->(55,eval('&self',['likes-to-wrestle','Plato'],RET),depth(15))
-                        -->(56,eval('&self',[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]],RET),depth(10))
-                            -->(57,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(12))
-                                -->(58,eval('&self',[philosopher,'Plato'],RET),depth(14))
-                                -->(59,eval('&self',['likes-to-wrestle','Plato'],RET),depth(14))
-                                -->(60,eval('&self',[philosopher,'Plato'],RET),depth(14))
-                                -->(61,eval('&self',['likes-to-wrestle','Plato'],RET),depth(14))
-                                -->(62,eval('&self',[philosopher,'Plato'],RET),depth(14))
-                                -->(63,eval('&self',['likes-to-wrestle','Plato'],RET),depth(14))
-                            -->(64,eval('&self',[human,'Plato'],RET),depth(12))
-                            -->(65,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(12))
-                                -->(66,eval('&self',[philosopher,'Plato'],RET),depth(14))
-                                -->(67,eval('&self',['likes-to-wrestle','Plato'],RET),depth(14))
-                                -->(68,eval('&self',[philosopher,'Plato'],RET),depth(14))
-                                -->(69,eval('&self',['likes-to-wrestle','Plato'],RET),depth(14))
-                                -->(70,eval('&self',[philosopher,'Plato'],RET),depth(14))
-                                -->(71,eval('&self',['likes-to-wrestle','Plato'],RET),depth(14))
-                          -->(72,eval('&self',[human,'Plato'],RET),depth(11))
-                          -->(73,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(11))
-                              -->(74,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(75,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
-                              -->(76,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(77,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
-                              -->(78,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(79,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
-                        -->(80,eval('&self',[human,'Plato'],RET),depth(10))
-                        -->(81,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(10))
-                            -->(82,eval('&self',[philosopher,'Plato'],RET),depth(12))
-                            -->(83,eval('&self',['likes-to-wrestle','Plato'],RET),depth(12))
-                            -->(84,eval('&self',[philosopher,'Plato'],RET),depth(12))
-                            -->(85,eval('&self',['likes-to-wrestle','Plato'],RET),depth(12))
-                            -->(86,eval('&self',[philosopher,'Plato'],RET),depth(12))
-                            -->(87,eval('&self',['likes-to-wrestle','Plato'],RET),depth(12))
-                  -->(88,eval('&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]],RET),depth(7))
-                      -->(89,eval('&self',[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]],RET),depth(9))
-                          -->(90,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(11))
-                              -->(91,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(92,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
-                              -->(93,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(94,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
-                              -->(95,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(96,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
-                          -->(97,eval('&self',[human,'Plato'],RET),depth(11))
-                          -->(98,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(11))
-                              -->(99,eval('&self',[philosopher,'Plato'],RET),depth(13))
-                              -->(100,eval('&self',['likes-to-wrestle','Plato'],RET),depth(13))
+          <--(1,retval(fail))
+          -->(2,eval('&self',[[mortal,'Plato'],proven,by,[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]]],RET),depth(3))
+            -->(3,eval('&self',proven,RET),depth(4))
+            -->(4,eval('&self',by,RET),depth(4))
+              -->(5,eval('&self',[[human,'Plato'],proven,by,['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']]],RET),depth(5))
+                -->(6,eval('&self',proven,RET),depth(6))
+                -->(7,eval('&self',by,RET),depth(6))
+                  -->(8,eval('&self',['And',[philosopher,'Plato'],['likes-to-wrestle','Plato']],RET),depth(7))
+                      -->(9,eval('&self',[philosopher,'Plato'],RET),depth(9))
 Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.235 secs. (235.39 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ( (mortal Plato) proven by 
-        ( (human Plato) proven by 
-          (And 
-            (philosopher Plato) 
-            (likes-to-wrestle Plato))))) 
-    ( ( (mortal Plato) proven by 
-        ( (human Plato) proven by 
-          (And 
-            (philosopher Plato) 
-            (likes-to-wrestle Plato)))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.021 secs. (20.72 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato)))))))
+</span>Deterministic: <span class="ansi33">
+(got () ((expected  $_8888)) (((mortal Plato) proven by ((human Plato) proven by (And (philosopher Plato) (likes-to-wrestle Plato))))))
 
-</span><span class="ansi32">% 1,871,549 inferences, 0.550 CPU in 0.551 seconds (100% CPU, 3400866 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta" 0)
+</span><span class="ansi32">% 811,070 inferences, 0.543 CPU in 0.601 seconds (90% CPU, 1492375 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 5
-</span><span class="ansi32">Failures: 0
+<span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 2
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html" )
 

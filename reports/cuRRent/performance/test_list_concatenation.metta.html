@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta")
+%~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta.answers',
+%~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta')
+1=[()]
+2=0.10user 0.01system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 33132maxresident)k
+2=0inputs+0outputs (0major+3485minor)pagefaults 0swaps
+:- dynamic file_answers/3.
+
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta', 1, [[]]).
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Concat',['Cons',Head1,'Nil'],List2],['Cons',Head1,List2]])
+</span><span class="ansi38-255165000">(= 
+  (Concat 
+    (Cons $Head1 Nil) $List2) 
+  (Cons $Head1 $List2))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Concat',['Cons',Head1,['Cons',T1,T11]],List2],['Cons',Head1,['Concat',['Cons',T1,T11],List2]]])
+</span><span class="ansi38-255165000">(= 
+  (Concat 
+    (Cons $Head1 
+      (Cons $T1 $T11)) $List2) 
+  (Cons $Head1 
+    (Concat 
+      (Cons $T1 $T11) $List2)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[lst1],['Cons',a1,['Cons',a2,'Nil']]])
+</span><span class="ansi38-255165000">(= 
+  (lst1) 
+  (Cons a1 
+    (Cons a2 Nil)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[lst2],['Cons',b1,['Cons',b2,'Nil']]])
+</span><span class="ansi38-255165000">(= 
+  (lst2) 
+  (Cons b1 
+    (Cons b2 Nil)))
+</span>
+
+<span class="ansi38-013099040">!(assertEqual 
+  (Concat 
+    (lst1) 
+    (lst2)) 
+  (Cons a1 
+    (Cons a2 
+      (Cons b1 
+        (Cons b2 Nil)))))
+
+</span><span class="ansi38-250144246">; !(Concat 
+  (lst1) 
+  (lst2))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Concat',[lst1],[lst2]],OUT).
+
+</span>      -->(0,eval('&self',[assertEqual,['Concat',[lst1],[lst2]],['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]]],RET),depth(1))
+<h3 id="PERFORMANCE.TEST-LIST-CONCATENATION.01">;; PERFORMANCE.TEST-LIST-CONCATENATION.01</h3>
+          -->(1,eval('&self',['Concat',[lst1],[lst2]],RET),depth(3))
+              -->(2,eval('&self',[lst1],RET),depth(5))
+                -->(3,eval('&self',['Cons',a1,['Cons',a2,'Nil']],RET),depth(6))
+                    -->(4,eval('&self',['Cons',a2,'Nil'],RET),depth(8))
+                    -->(5,eval('&self',['Cons',a2,'Nil'],RET),depth(8))
+                  -->(6,eval('&self',['Cons',a2,'Nil'],RET),depth(7))
+            -->(7,eval('&self',['Cons',a1,['Concat',['Cons',a2,'Nil'],[lst2]]],RET),depth(4))
+                -->(8,eval('&self',['Concat',['Cons',a2,'Nil'],[lst2]],RET),depth(6))
+                  -->(9,eval('&self',['Cons',a2,[lst2]],RET),depth(7))
+                      -->(10,eval('&self',[lst2],RET),depth(9))
+                      <--(10,retval(['Cons',b1,['Cons',b2,'Nil']]))
+                        -->(11,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(10))
+                            -->(12,eval('&self',['Cons',b2,'Nil'],RET),depth(12))
+                            -->(13,eval('&self',['Cons',b2,'Nil'],RET),depth(12))
+                          -->(14,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                  <--(9,retval(['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]))
+                    -->(15,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(8))
+                        -->(16,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(10))
+                            -->(17,eval('&self',['Cons',b2,'Nil'],RET),depth(12))
+                            -->(18,eval('&self',['Cons',b2,'Nil'],RET),depth(12))
+                        -->(19,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(10))
+                            -->(20,eval('&self',['Cons',b2,'Nil'],RET),depth(12))
+                            -->(21,eval('&self',['Cons',b2,'Nil'],RET),depth(12))
+                      -->(22,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(23,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(24,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                    -->(25,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+                        -->(26,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                        -->(27,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+              -->(28,eval('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(5))
+                  -->(29,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(30,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(31,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(32,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                      -->(33,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(34,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(35,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                  -->(36,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(37,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(38,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(39,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                      -->(40,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(41,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(42,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                -->(43,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(6))
+                    -->(44,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+                        -->(45,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                        -->(46,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                    -->(47,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+                        -->(48,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                        -->(49,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+              -->(50,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(5))
+                  -->(51,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(7))
+                      -->(52,eval('&self',['Cons',b2,'Nil'],RET),depth(9))
+                      -->(53,eval('&self',['Cons',b2,'Nil'],RET),depth(9))
+                  -->(54,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(7))
+                      -->(55,eval('&self',['Cons',b2,'Nil'],RET),depth(9))
+                      -->(56,eval('&self',['Cons',b2,'Nil'],RET),depth(9))
+                <--(8,retval(['Cons',a2,[lst2]]))
+            <--(7,retval(['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]]))
+              <--(2,retval(['Cons',a1,['Cons',a2,'Nil']]))
+              -->(57,eval('&self',[lst2],RET),depth(5))
+              <--(57,retval(['Cons',b1,['Cons',b2,'Nil']]))
+                -->(58,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(6))
+                    -->(59,eval('&self',['Cons',b2,'Nil'],RET),depth(8))
+                    -->(60,eval('&self',['Cons',b2,'Nil'],RET),depth(8))
+                  -->(61,eval('&self',['Cons',b2,'Nil'],RET),depth(7))
+              -->(62,eval('&self',[lst1],RET),depth(5))
+                -->(63,eval('&self',['Cons',a1,['Cons',a2,'Nil']],RET),depth(6))
+                    -->(64,eval('&self',['Cons',a2,'Nil'],RET),depth(8))
+                    -->(65,eval('&self',['Cons',a2,'Nil'],RET),depth(8))
+                  -->(66,eval('&self',['Cons',a2,'Nil'],RET),depth(7))
+            -->(67,eval('&self',['Cons',a1,['Concat',['Cons',a2,'Nil'],['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(4))
+                -->(68,eval('&self',['Concat',['Cons',a2,'Nil'],['Cons',b1,['Cons',b2,'Nil']]],RET),depth(6))
+                  -->(69,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(70,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(71,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(72,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                      -->(73,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(74,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(75,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                    -->(76,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+                        -->(77,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                        -->(78,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+              -->(79,eval('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(5))
+                  -->(80,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(81,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(82,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(83,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                      -->(84,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(85,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(86,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                  -->(87,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(88,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(89,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(90,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                      -->(91,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                          -->(92,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                          -->(93,eval('&self',['Cons',b2,'Nil'],RET),depth(11))
+                -->(94,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(6))
+                    -->(95,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+                        -->(96,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                        -->(97,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                    -->(98,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+                        -->(99,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+                        -->(100,eval('&self',['Cons',b2,'Nil'],RET),depth(10))
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+; EVAL TEST
+; took 0.161 secs. (161.38 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 Nil)))) 
+      (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 Nil))))) 
+    ( (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 Nil)))))))
+</span>Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 1,274,405 inferences, 0.260 CPU in 0.260 seconds (100% CPU, 4892619 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta" 0)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta.html" )
+
+</pre>
+</body>
+
+</html>

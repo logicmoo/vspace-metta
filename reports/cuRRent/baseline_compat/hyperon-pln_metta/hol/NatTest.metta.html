@@ -189,8 +189,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta:1 
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta')
 1=[]
@@ -209,8 +208,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(import! &self "../synthesis/Synthesize.metta")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (import! &self "../synthesis/Synthesize.metta") ())
+<span class="ansi38-013099040">!(assertEqualToResult (import! &self "../synthesis/Synthesize.metta") ())
 
 </span><span class="ansi38-250144246">; !(import! &self "../synthesis/Synthesize.metta")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','../synthesis/Synthesize.metta'],OUT).
@@ -218,7 +216,6 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>      -->(0,eval('&self',[assertEqualToResult,['import!','&self','../synthesis/Synthesize.metta'],[]],RET),depth(1))
 <h3 id="HOL.NATTEST.01">;; HOL.NATTEST.01</h3>
           -->(1,eval('&self',['import!','&self','../synthesis/Synthesize.metta'],RET),depth(3))
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/Synthesize.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/Synthesize.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/Synthesize.metta')
 ;;; Knowledge base
@@ -261,226 +258,159 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; Collection of functions operating on numbers
 ;;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: max 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: max (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (max $X $Y) 
-    (if 
-      (> $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: min 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: min (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (min $X $Y) 
-    (if 
-      (< $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">  (: clamp 
-    (-> $A $A $A $A))
+</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (clamp $X $L $U) 
-    (max $L 
-      (min $U $X)))
+</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
 </span>
 
 ;;; Define abs
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">  (: abs 
-    (-> $A $A))
+</span><span class="ansi38-255165000">(: abs (-> $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">  (= 
-    (abs $X) 
-    (if 
-      (< $X 0) 
-      (* -1 $X) $X))
+</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
 </span>
 
 ;;; Define <=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define >=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: >= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (>= $X $Y) 
-    (or 
-      (> $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: approxEq 
-    (-> $A $A $A Bool))
+</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">  (= 
-    (approxEq $X $Y $Epsilon) 
-    (<= 
-      (abs 
-        (- $X $Y)) $Epsilon))
+</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+</span><span class="ansi38-255165000">(: S (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+</span><span class="ansi38-255165000">(= (fromNat Z) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Nat Nat Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $_ Z) False)
+</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» Z 
-      (S $_)) True)
+</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» 
-      (S $X) 
-      (S $Y)) 
-    (â©» $X $Y))
+</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Number Number Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $X $Y) 
-    (< $X $Y))
+</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: ceil 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: ceil (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">  (= 
-    (ceil $N) 
-    (fromNat 
-      (fromNumber $N)))
+</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">  (: number->bool 
-    (-> Number Bool))
+</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">  (= 
-    (number->bool $X) 
-    (< 0 $X))
+</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">  (: bool->number 
-    (-> Bool Number))
+</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number False) 0)
+</span><span class="ansi38-255165000">(= (bool->number False) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number True) 1)
+</span><span class="ansi38-255165000">(= (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
@@ -488,205 +418,81 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">  (: â 
-    (-> $T $T Type))
+</span><span class="ansi38-255165000">(: â (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (zero-lt-succ-axiom) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">  (= 
-    (zero-lt-succ-axiom) 
-    (: ZeroLTSucc 
-      (â Z 
-        (S $K))))
+</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (succ-monotonicity-rule) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (succ-monotonicity-rule) 
-    (: SuccMonotonicity 
-      (-> 
-        (â $X $Y) 
-        (â 
-          (S $X) 
-          (S $Y)))))
+</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
 </span>
 
+          -->(3,eval('&self','Empty',RET),depth(3))
       <--(2,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,synthesize,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">  (: synthesize 
-    (-> Atom 
-      (-> Atom) 
-      (-> Atom) Nat Atom))
+</span><span class="ansi38-255165000">(: synthesize (-> Atom (-> Atom) (-> Atom) Nat Atom))
 </span>
 
 ;;; Nullary rule (axiom)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,Depth],[let,Query,[Kb],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb $Depth) 
-    (let $Query 
-      ($Kb) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb $Depth) (let $Query ($Kb) $Query))
 </span>
 
 ;;; Unary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise,Conclusion]],[Rb]],[[:,[Ructor,Proof],Conclusion],Query],[[:,Proof,Premise],[synthesize,[:,Proof,Premise],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof) $Conclusion) $Query) 
-        ( (: $Proof $Premise) 
-          (synthesize 
-            (: $Proof $Premise) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise $Conclusion)) ($Rb)) ((: ($Ructor $Proof) $Conclusion) $Query) ((: $Proof $Premise) (synthesize (: $Proof $Premise) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Binary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Trinary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Premise3,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2,Proof3],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]],[[:,Proof3,Premise3],[synthesize,[:,Proof3,Premise3],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Premise3 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2 $Proof3) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K)) 
-        ( (: $Proof3 $Premise3) 
-          (synthesize 
-            (: $Proof3 $Premise3) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Premise3 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2 $Proof3) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K)) ((: $Proof3 $Premise3) (synthesize (: $Proof3 $Premise3) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Quaternary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Premise3,Premise4,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2,Proof3,Proof4],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]],[[:,Proof3,Premise3],[synthesize,[:,Proof3,Premise3],Kb,Rb,K]],[[:,Proof4,Premise4],[synthesize,[:,Proof4,Premise4],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Premise3 $Premise4 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2 $Proof3 $Proof4) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K)) 
-        ( (: $Proof3 $Premise3) 
-          (synthesize 
-            (: $Proof3 $Premise3) $Kb $Rb $K)) 
-        ( (: $Proof4 $Premise4) 
-          (synthesize 
-            (: $Proof4 $Premise4) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Premise3 $Premise4 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2 $Proof3 $Proof4) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K)) ((: $Proof3 $Premise3) (synthesize (: $Proof3 $Premise3) $Kb $Rb $K)) ((: $Proof4 $Premise4) (synthesize (: $Proof4 $Premise4) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Quintenary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Premise3,Premise4,Premise5,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2,Proof3,Proof4,Proof5],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]],[[:,Proof3,Premise3],[synthesize,[:,Proof3,Premise3],Kb,Rb,K]],[[:,Proof4,Premise4],[synthesize,[:,Proof4,Premise4],Kb,Rb,K]],[[:,Proof5,Premise5],[synthesize,[:,Proof5,Premise5],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Premise3 $Premise4 $Premise5 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2 $Proof3 $Proof4 $Proof5) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K)) 
-        ( (: $Proof3 $Premise3) 
-          (synthesize 
-            (: $Proof3 $Premise3) $Kb $Rb $K)) 
-        ( (: $Proof4 $Premise4) 
-          (synthesize 
-            (: $Proof4 $Premise4) $Kb $Rb $K)) 
-        ( (: $Proof5 $Premise5) 
-          (synthesize 
-            (: $Proof5 $Premise5) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Premise3 $Premise4 $Premise5 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2 $Proof3 $Proof4 $Proof5) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K)) ((: $Proof3 $Premise3) (synthesize (: $Proof3 $Premise3) $Kb $Rb $K)) ((: $Proof4 $Premise4) (synthesize (: $Proof4 $Premise4) $Kb $Rb $K)) ((: $Proof5 $Premise5) (synthesize (: $Proof5 $Premise5) $Kb $Rb $K))) $Query))
 </span>
 
+              -->(4,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.630 secs. (629.90 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () ()))
-</span>      <--(0,retval('Empty'))
+; took 0.644 secs. (643.96 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
+</span>          -->(5,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb,[->,'Atom']])
-</span><span class="ansi38-255165000">  (: kb 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: kb (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[kb],[superpose,[[:,'EqRefl',[===,X,X]],[:,'Base_plus',[===,[plus,'Z',Y],Y]],[:,'Rec_plus',[===,[plus,['S',X],Y],['S',[plus,X,Y]]]],[:,'PropZRID_plus',[===,['ZRID_plus',X],[===,[plus,X,'Z'],X]]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (kb) 
-    (superpose 
-      ( (: EqRefl 
-          (=== $X $X)) 
-        (: Base_plus 
-          (=== 
-            (plus Z $Y) $Y)) 
-        (: Rec_plus 
-          (=== 
-            (plus 
-              (S $X) $Y) 
-            (S 
-              (plus $X $Y)))) 
-        (: PropZRID_plus 
-          (=== 
-            (ZRID_plus $X) 
-            (=== 
-              (plus $X Z) $X))))))
+</span><span class="ansi38-255165000">(= (kb) (superpose ((: EqRefl (=== $X $X)) (: Base_plus (=== (plus Z $Y) $Y)) (: Rec_plus (=== (plus (S $X) $Y) (S (plus $X $Y)))) (: PropZRID_plus (=== (ZRID_plus $X) (=== (plus $X Z) $X))))))
 </span>
 
 ;;; Equality is reflexive.  We use === instead of == to make sure it
@@ -699,60 +505,11 @@ Last Result(1): <span class="ansi33">Empty
 ;;; attempt to prove.
 ;;; Rule base
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb,[->,'Atom']])
-</span><span class="ansi38-255165000">  (: rb 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: rb (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rb],[superpose,[[:,'EqTrans',[->,[===,X,Y],[===,Y,Z],[===,X,Z]]],[:,'EqSym',[->,[===,X,Y],[===,Y,X]]],[:,'UnaryEqStruct',[->,[===,X,X_C39_],[===,[Op,X],[Op,X_C39_]]]],[:,'BinaryEqStruct',[->,[===,X,X_C39_],[===,Y,Y_C39_],[===,[Op,X,Y],[Op,X_C39_,Y_C39_]]]],[:,'UnaryRepl',[->,[===,X,X_C39_],[Op,X],[Op,X_C39_]]],[:,'BinaryRepl',[->,[===,X,X_C39_],[===,Y,Y_C39_],[Op,X,Y],[Op,X_C39_,Y_C39_]]],[:,'StructuralInductionNat',[->,[:,P,[->,'Nat','Type']],[P,'Z'],[->,[:,X,'Nat'],[P,X],[P,['S',X]]],[->,[:,X_C39_,'Nat'],[P,X_C39_]]]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (rb) 
-    (superpose 
-      ( (: EqTrans 
-          (-> 
-            (=== $X $Y) 
-            (=== $Y $Z) 
-            (=== $X $Z))) 
-        (: EqSym 
-          (-> 
-            (=== $X $Y) 
-            (=== $Y $X))) 
-        (: UnaryEqStruct 
-          (-> 
-            (=== $X $X_C39_) 
-            (=== 
-              ($Op $X) 
-              ($Op $X_C39_)))) 
-        (: BinaryEqStruct 
-          (-> 
-            (=== $X $X_C39_) 
-            (=== $Y $Y_C39_) 
-            (=== 
-              ($Op $X $Y) 
-              ($Op $X_C39_ $Y_C39_)))) 
-        (: UnaryRepl 
-          (-> 
-            (=== $X $X_C39_) 
-            ($Op $X) 
-            ($Op $X_C39_))) 
-        (: BinaryRepl 
-          (-> 
-            (=== $X $X_C39_) 
-            (=== $Y $Y_C39_) 
-            ($Op $X $Y) 
-            ($Op $X_C39_ $Y_C39_))) 
-        (: StructuralInductionNat 
-          (-> 
-            (: $P 
-              (-> Nat Type)) 
-            ($P Z) 
-            (-> 
-              (: $X Nat) 
-              ($P $X) 
-              ($P 
-                (S $X))) 
-            (-> 
-              (: $X_C39_ Nat) 
-              ($P $X_C39_)))))))
+</span><span class="ansi38-255165000">(= (rb) (superpose ((: EqTrans (-> (=== $X $Y) (=== $Y $Z) (=== $X $Z))) (: EqSym (-> (=== $X $Y) (=== $Y $X))) (: UnaryEqStruct (-> (=== $X $X_C39_) (=== ($Op $X) ($Op $X_C39_)))) (: BinaryEqStruct (-> (=== $X $X_C39_) (=== $Y $Y_C39_) (=== ($Op $X $Y) ($Op $X_C39_ $Y_C39_)))) (: UnaryRepl (-> (=== $X $X_C39_) ($Op $X) ($Op $X_C39_))) (: BinaryRepl (-> (=== $X $X_C39_) (=== $Y $Y_C39_) ($Op $X $Y) ($Op $X_C39_ $Y_C39_))) (: StructuralInductionNat (-> (: $P (-> Nat Type)) ($P Z) (-> (: $X Nat) ($P $X) ($P (S $X))) (-> (: $X_C39_ Nat) ($P $X_C39_)))))))
 </span>
 
 ;;; Equality is transitive
@@ -778,157 +535,163 @@ Last Result(1): <span class="ansi33">Empty
 ;; inductive step
 ;;; Conclusion
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'IndZRID_plus',[->,['ZRID_plus',X],['ZRID_plus',['S',X]]]])
-</span><span class="ansi38-255165000">  (: IndZRID_plus 
-    (-> 
-      (ZRID_plus $X) 
-      (ZRID_plus 
-        (S $X))))
+</span><span class="ansi38-255165000">(: IndZRID_plus (-> (ZRID_plus $X) (ZRID_plus (S $X))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[===,['IndZRID_plus',Prf],'NEXT'])
-</span><span class="ansi38-255165000">  (=== 
-    (IndZRID_plus $Prf) NEXT)
+</span><span class="ansi38-255165000">(=== (IndZRID_plus $Prf) NEXT)
 </span>
 
 ;;; Prove that Z is left identity of plus
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(synthesize 
-  (: $Proof 
-    (=== 
-      (plus Z $Y) $Y)) kb rb Z)
+</span><span class="ansi1 ansi38-255238088">!(synthesize (: $Proof (=== (plus Z $Y) $Y)) kb rb Z)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (synthesize 
-    (: $Proof 
-      (=== 
-        (plus Z $Y) $Y)) kb rb Z) 
-  ( (: Base_plus 
-      (=== 
-        (plus Z $Y_C35_65) $Y_C35_65))))
+<span class="ansi38-013099040">!(assertEqualToResult (synthesize (: $Proof (=== (plus Z $Y) $Y)) kb rb Z) ((: Base_plus (=== (plus Z $Y_C35_65) $Y_C35_65))))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (=== 
-      (plus Z $Y) $Y)) kb rb Z)
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (=== (plus Z $Y) $Y)) kb rb Z)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[===,[plus,'Z',Y],Y]],kb,rb,'Z'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[synthesize,[:,_411092,[===,[plus,'Z',_411440],_411440]],kb,rb,'Z'],[[:,'Base_plus',[===,[plus,'Z',_412100],_412100]]]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[synthesize,[:,_60510,[===,[plus,'Z',_60858],_60858]],kb,rb,'Z'],[[:,'Base_plus',[===,[plus,'Z',_61518],_61518]]]],RET),depth(1))
 <h3 id="HOL.NATTEST.02">;; HOL.NATTEST.02</h3>
-          -->(1,eval('&self',[synthesize,[:,_411092,[===,[plus,'Z',_411440],_411440]],kb,rb,'Z'],RET),depth(3))
-            -->(2,eval('&self',[let,[:,_411092,[===,[plus,'Z',_411440],_411440]],[kb],[:,_411092,[===,[plus,'Z',_411440],_411440]]],RET),depth(4))
-                -->(3,eval('&self',[kb],RET),depth(6))
-                  -->(4,eval('&self',[superpose,[[:,'EqRefl',[===,_425630,_425630]],[:,'Base_plus',[===,[plus,'Z',_425690],_425690]],[:,'Rec_plus',[===,[plus,['S',_425630],_425690],['S',[plus,_425630,_425690]]]],[:,'PropZRID_plus',[===,['ZRID_plus',_425630],[===,[plus,_425630,'Z'],_425630]]]]],RET),depth(7))
-                          -->(5,eval('&self',[===,_425630,_425630],RET),depth(11))
-                        -->(6,eval('&self',[===,_425630,_425630],RET),depth(10))
-                      -->(7,eval('&self',[===,_425630,_425630],RET),depth(9))
-                    -->(8,eval('&self',[===,_425630,_425630],RET),depth(8))
-                          -->(9,eval('&self',[===,[plus,'Z',_4868],_4868],RET),depth(11))
-                              -->(10,eval('&self',[plus,'Z',_4868],RET),depth(13))
-                              -->(11,eval('&self',[plus,'Z',_4868],RET),depth(13))
-                              -->(12,eval('&self',[plus,'Z',_4868],RET),depth(13))
-                        -->(13,eval('&self',[===,[plus,'Z',_4868],_4868],RET),depth(10))
-                            -->(14,eval('&self',[plus,'Z',_4868],RET),depth(12))
-                            -->(15,eval('&self',[plus,'Z',_4868],RET),depth(12))
-                            -->(16,eval('&self',[plus,'Z',_4868],RET),depth(12))
-                      -->(17,eval('&self',[===,[plus,'Z',_4868],_4868],RET),depth(9))
-                          -->(18,eval('&self',[plus,'Z',_4868],RET),depth(11))
-                          -->(19,eval('&self',[plus,'Z',_4868],RET),depth(11))
-                          -->(20,eval('&self',[plus,'Z',_4868],RET),depth(11))
-                    -->(21,eval('&self',[===,[plus,'Z',_4868],_4868],RET),depth(8))
-                        -->(22,eval('&self',[plus,'Z',_4868],RET),depth(10))
-                        -->(23,eval('&self',[plus,'Z',_4868],RET),depth(10))
-                        -->(24,eval('&self',[plus,'Z',_4868],RET),depth(10))
-                    -->(25,eval('&self',[===,[plus,'Z',_2678],_2678],RET),depth(8))
-                        -->(26,eval('&self',[plus,'Z',_2678],RET),depth(10))
-                        -->(27,eval('&self',[plus,'Z',_2678],RET),depth(10))
-                        -->(28,eval('&self',[plus,'Z',_2678],RET),depth(10))
-                  -->(29,eval('&self',[===,[plus,'Z',_2678],_2678],RET),depth(7))
-                      -->(30,eval('&self',[plus,'Z',_2678],RET),depth(9))
-                      -->(31,eval('&self',[plus,'Z',_2678],RET),depth(9))
-                      -->(32,eval('&self',[plus,'Z',_2678],RET),depth(9))
-                -->(33,eval('&self',[===,[plus,'Z',_2254],_2254],RET),depth(6))
-                    -->(34,eval('&self',[plus,'Z',_2254],RET),depth(8))
-                    -->(35,eval('&self',[plus,'Z',_2254],RET),depth(8))
-                    -->(36,eval('&self',[plus,'Z',_2254],RET),depth(8))
-              -->(37,eval('&self',[===,[plus,'Z',_2254],_2254],RET),depth(5))
-                  -->(38,eval('&self',[plus,'Z',_2254],RET),depth(7))
-                  -->(39,eval('&self',[plus,'Z',_2254],RET),depth(7))
-                  -->(40,eval('&self',[plus,'Z',_2254],RET),depth(7))
-                          -->(41,eval('&self',[===,[plus,['S',_4384],_4444],['S',[plus,_4384,_4444]]],RET),depth(11))
-                              -->(42,eval('&self',[plus,['S',_4384],_4444],RET),depth(13))
-                                  -->(43,eval('&self',['S',_4384],RET),depth(15))
-                                  -->(44,eval('&self',['S',_4384],RET),depth(15))
-                              -->(45,eval('&self',['S',[plus,_4384,_4444]],RET),depth(13))
-                                  -->(46,eval('&self',[plus,_4384,_4444],RET),depth(15))
-                                  -->(47,eval('&self',[plus,_4384,_4444],RET),depth(15))
-                              -->(48,eval('&self',[plus,['S',_4384],_4444],RET),depth(13))
-                                  -->(49,eval('&self',['S',_4384],RET),depth(15))
-                                  -->(50,eval('&self',['S',_4384],RET),depth(15))
-                              -->(51,eval('&self',['S',[plus,_4384,_4444]],RET),depth(13))
-                                  -->(52,eval('&self',[plus,_4384,_4444],RET),depth(15))
-                                  -->(53,eval('&self',[plus,_4384,_4444],RET),depth(15))
-                              -->(54,eval('&self',[plus,['S',_4384],_4444],RET),depth(13))
-                                  -->(55,eval('&self',['S',_4384],RET),depth(15))
-                                  -->(56,eval('&self',['S',_4384],RET),depth(15))
-                              -->(57,eval('&self',['S',[plus,_4384,_4444]],RET),depth(13))
-                                  -->(58,eval('&self',[plus,_4384,_4444],RET),depth(15))
-                                  -->(59,eval('&self',[plus,_4384,_4444],RET),depth(15))
-                        -->(60,eval('&self',[===,[plus,['S',_4384],_4444],['S',[plus,_4384,_4444]]],RET),depth(10))
-                            -->(61,eval('&self',[plus,['S',_4384],_4444],RET),depth(12))
-                                -->(62,eval('&self',['S',_4384],RET),depth(14))
-                                -->(63,eval('&self',['S',_4384],RET),depth(14))
-                            -->(64,eval('&self',['S',[plus,_4384,_4444]],RET),depth(12))
-                                -->(65,eval('&self',[plus,_4384,_4444],RET),depth(14))
-                                -->(66,eval('&self',[plus,_4384,_4444],RET),depth(14))
-                            -->(67,eval('&self',[plus,['S',_4384],_4444],RET),depth(12))
-                                -->(68,eval('&self',['S',_4384],RET),depth(14))
-                                -->(69,eval('&self',['S',_4384],RET),depth(14))
-                            -->(70,eval('&self',['S',[plus,_4384,_4444]],RET),depth(12))
-                                -->(71,eval('&self',[plus,_4384,_4444],RET),depth(14))
-                                -->(72,eval('&self',[plus,_4384,_4444],RET),depth(14))
-                            -->(73,eval('&self',[plus,['S',_4384],_4444],RET),depth(12))
-                                -->(74,eval('&self',['S',_4384],RET),depth(14))
-                                -->(75,eval('&self',['S',_4384],RET),depth(14))
-                            -->(76,eval('&self',['S',[plus,_4384,_4444]],RET),depth(12))
-                                -->(77,eval('&self',[plus,_4384,_4444],RET),depth(14))
-                                -->(78,eval('&self',[plus,_4384,_4444],RET),depth(14))
-                      -->(79,eval('&self',[===,[plus,['S',_4384],_4444],['S',[plus,_4384,_4444]]],RET),depth(9))
-                          -->(80,eval('&self',[plus,['S',_4384],_4444],RET),depth(11))
-                              -->(81,eval('&self',['S',_4384],RET),depth(13))
-                              -->(82,eval('&self',['S',_4384],RET),depth(13))
-                          -->(83,eval('&self',['S',[plus,_4384,_4444]],RET),depth(11))
-                              -->(84,eval('&self',[plus,_4384,_4444],RET),depth(13))
-                              -->(85,eval('&self',[plus,_4384,_4444],RET),depth(13))
-                          -->(86,eval('&self',[plus,['S',_4384],_4444],RET),depth(11))
-                              -->(87,eval('&self',['S',_4384],RET),depth(13))
-                              -->(88,eval('&self',['S',_4384],RET),depth(13))
-                          -->(89,eval('&self',['S',[plus,_4384,_4444]],RET),depth(11))
-                              -->(90,eval('&self',[plus,_4384,_4444],RET),depth(13))
-                              -->(91,eval('&self',[plus,_4384,_4444],RET),depth(13))
-                          -->(92,eval('&self',[plus,['S',_4384],_4444],RET),depth(11))
-                              -->(93,eval('&self',['S',_4384],RET),depth(13))
-                              -->(94,eval('&self',['S',_4384],RET),depth(13))
-                          -->(95,eval('&self',['S',[plus,_4384,_4444]],RET),depth(11))
-                              -->(96,eval('&self',[plus,_4384,_4444],RET),depth(13))
-                              -->(97,eval('&self',[plus,_4384,_4444],RET),depth(13))
-                    -->(98,eval('&self',[===,[plus,['S',_4384],_4444],['S',[plus,_4384,_4444]]],RET),depth(8))
-                        -->(99,eval('&self',[plus,['S',_4384],_4444],RET),depth(10))
-                            -->(100,eval('&self',['S',_4384],RET),depth(12))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+          -->(1,eval('&self',[synthesize,[:,_60510,[===,[plus,'Z',_60858],_60858]],kb,rb,'Z'],RET),depth(3))
+                -->(2,eval('&self',[kb],RET),depth(6))
+                      -->(3,eval('&self',[:,'EqRefl',[===,_73946,_73946]],RET),depth(9))
+                      -->(4,eval('&self',:,RET),depth(9))
+                      -->(5,eval('&self','EqRefl',RET),depth(9))
+                        -->(6,eval('&self',[===,_73946,_73946],RET),depth(10))
+                          -->(7,eval('&self',===,RET),depth(11))
+                            -->(8,eval('&self',===,RET),depth(12))
+                    -->(9,eval('&self',:,RET),depth(8))
+%~ catch_warn(apply(plus,['Z',_152430,_152436])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta:447 
+%~ catch_warn(apply(plus,['Z',_180276,_180282])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_206928,_206934])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_235136,_235142])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_262706,_262712])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_289358,_289364])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_318490,_318496])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_345124,_345130])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_371776,_371782])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_399984,_399990])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,['Z',_426618,_426624])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+%~ catch_warn(apply(plus,['Z',_452224,_452230])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_498070],_498076,_498082])) -->
+%~   error(type_error(integer,['S',_514056]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_9162,_9168,_9174])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_31810,_31816,_31822])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_55418,_55424,_55430])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_100174],_100180,_100186])) -->
+%~   error(type_error(integer,['S',_116160]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_125546,_125552,_125558])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_148944,_148950,_148956])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_172558,_172564,_172570])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_217540],_217546,_217552])) -->
+%~   error(type_error(integer,['S',_233526]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_242912,_242918,_242924])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_266310,_266316,_266322])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_289924,_289930,_289936])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_335250],_335256,_335262])) -->
+%~   error(type_error(integer,['S',_351236]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_359726,_359732,_359738])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_383124,_383130,_383136])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_406738,_406744,_406750])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_451504],_451510,_451516])) -->
+%~   error(type_error(integer,['S',_467490]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_475940,_475946,_475952])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_499338,_499344,_499350])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_9136,_9142,_9148])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[['S',_53364],_53370,_53376])) -->
+%~   error(type_error(integer,['S',_69350]),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_78730,_78736,_78742])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_103058,_103064,_103070])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_126672,_126678,_126684])) -->
+%~   error(instantiation_error,context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_151006,'Z',_151018])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_172978,'Z',_172990])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_195348,'Z',_195360])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_217930,'Z',_217942])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_239902,'Z',_239914])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_262272,'Z',_262284])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_284790,'Z',_284802])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_306762,'Z',_306774])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_330068,'Z',_330080])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_352984,'Z',_352996])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_375892,'Z',_375904])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_399198,'Z',_399210])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_423416,'Z',_423428])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_445388,'Z',_445400])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_467758,'Z',_467770])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_490340,'Z',_490352])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_512312,'Z',_512324])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_22080,'Z',_22092])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_44596,'Z',_44608])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_67502,'Z',_67514])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_89870,'Z',_89882])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_112784,'Z',_112796])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_134756,'Z',_134768])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+%~ catch_warn(apply(plus,[_157126,'Z',_157138])) -->
+%~   error(type_error(integer,'Z'),context(system:plus/3,Context_Kw)).
+; 
 ; EVAL TEST
-; took 0.130 secs. (130.04 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (: Base_plus 
-        (=== 
-          (plus Z $_2350) $_2350))) 
-    ( (: Base_plus 
-        (=== 
-          (plus Z $_2350) $_2350)))))
+; took 3.23 seconds.
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((: Base_plus (=== (plus Z $_2582) $_2582))) ((: Base_plus (=== (plus Z $_2582) $_2582)))))
 </span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 1,723,759 inferences, 1.123 CPU in 1.123 seconds (100% CPU, 1535391 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta" 0)
+</span><span class="ansi32">% 14,582,667 inferences, 4.250 CPU in 4.250 seconds (100% CPU, 3431073 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/hol/NatTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2

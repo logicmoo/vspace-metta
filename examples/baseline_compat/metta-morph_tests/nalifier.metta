@@ -115,3 +115,6 @@
                              ((ExtSet sam) --> swan)
                              ((ExtSet sam) --> dog)))
       $S)
+
+
+;  !(repl!)

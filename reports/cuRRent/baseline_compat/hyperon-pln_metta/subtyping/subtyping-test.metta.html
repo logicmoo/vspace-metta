@@ -227,7 +227,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta')
 :- dynamic file_answers/3.
@@ -251,7 +251,7 @@
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','../common/Num.metta'],OUT).
 
 </span>      -->(1,eval('&self',['import!','&self','../common/Num.metta'],RET),depth(1))
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta:124 
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta')
 ;;; !(import! &self Unify.metta)
@@ -284,226 +284,159 @@
 ;;; Collection of functions operating on numbers
 ;;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: max 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: max (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (max $X $Y) 
-    (if 
-      (> $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: min 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: min (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (min $X $Y) 
-    (if 
-      (< $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">  (: clamp 
-    (-> $A $A $A $A))
+</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (clamp $X $L $U) 
-    (max $L 
-      (min $U $X)))
+</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
 </span>
 
 ;;; Define abs
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">  (: abs 
-    (-> $A $A))
+</span><span class="ansi38-255165000">(: abs (-> $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">  (= 
-    (abs $X) 
-    (if 
-      (< $X 0) 
-      (* -1 $X) $X))
+</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
 </span>
 
 ;;; Define <=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define >=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: >= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (>= $X $Y) 
-    (or 
-      (> $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: approxEq 
-    (-> $A $A $A Bool))
+</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">  (= 
-    (approxEq $X $Y $Epsilon) 
-    (<= 
-      (abs 
-        (- $X $Y)) $Epsilon))
+</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+</span><span class="ansi38-255165000">(: S (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+</span><span class="ansi38-255165000">(= (fromNat Z) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Nat Nat Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $_ Z) False)
+</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» Z 
-      (S $_)) True)
+</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» 
-      (S $X) 
-      (S $Y)) 
-    (â©» $X $Y))
+</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Number Number Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $X $Y) 
-    (< $X $Y))
+</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: ceil 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: ceil (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">  (= 
-    (ceil $N) 
-    (fromNat 
-      (fromNumber $N)))
+</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">  (: number->bool 
-    (-> Number Bool))
+</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">  (= 
-    (number->bool $X) 
-    (< 0 $X))
+</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">  (: bool->number 
-    (-> Bool Number))
+</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number False) 0)
+</span><span class="ansi38-255165000">(= (bool->number False) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number True) 1)
+</span><span class="ansi38-255165000">(= (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
@@ -511,171 +444,66 @@
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">  (: â 
-    (-> $T $T Type))
+</span><span class="ansi38-255165000">(: â (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (zero-lt-succ-axiom) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">  (= 
-    (zero-lt-succ-axiom) 
-    (: ZeroLTSucc 
-      (â Z 
-        (S $K))))
+</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (succ-monotonicity-rule) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (succ-monotonicity-rule) 
-    (: SuccMonotonicity 
-      (-> 
-        (â $X $Y) 
-        (â 
-          (S $X) 
-          (S $Y)))))
+</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
 </span>
 
+          -->(2,eval('&self','Empty',RET),depth(3))
       <--(1,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,synthesize,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">  (: synthesize 
-    (-> Atom 
-      (-> Atom) 
-      (-> Atom) Nat Atom))
+</span><span class="ansi38-255165000">(: synthesize (-> Atom (-> Atom) (-> Atom) Nat Atom))
 </span>
 
 ;;; Nullary rule (axiom)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,Depth],[let,Query,[Kb],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb $Depth) 
-    (let $Query 
-      ($Kb) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb $Depth) (let $Query ($Kb) $Query))
 </span>
 
 ;;; Unary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise,Conclusion]],[Rb]],[[:,[Ructor,Proof],Conclusion],Query],[[:,Proof,Premise],[synthesize,[:,Proof,Premise],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof) $Conclusion) $Query) 
-        ( (: $Proof $Premise) 
-          (synthesize 
-            (: $Proof $Premise) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise $Conclusion)) ($Rb)) ((: ($Ructor $Proof) $Conclusion) $Query) ((: $Proof $Premise) (synthesize (: $Proof $Premise) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Binary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Trinary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Premise3,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2,Proof3],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]],[[:,Proof3,Premise3],[synthesize,[:,Proof3,Premise3],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Premise3 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2 $Proof3) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K)) 
-        ( (: $Proof3 $Premise3) 
-          (synthesize 
-            (: $Proof3 $Premise3) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Premise3 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2 $Proof3) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K)) ((: $Proof3 $Premise3) (synthesize (: $Proof3 $Premise3) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Quaternary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Premise3,Premise4,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2,Proof3,Proof4],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]],[[:,Proof3,Premise3],[synthesize,[:,Proof3,Premise3],Kb,Rb,K]],[[:,Proof4,Premise4],[synthesize,[:,Proof4,Premise4],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Premise3 $Premise4 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2 $Proof3 $Proof4) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K)) 
-        ( (: $Proof3 $Premise3) 
-          (synthesize 
-            (: $Proof3 $Premise3) $Kb $Rb $K)) 
-        ( (: $Proof4 $Premise4) 
-          (synthesize 
-            (: $Proof4 $Premise4) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Premise3 $Premise4 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2 $Proof3 $Proof4) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K)) ((: $Proof3 $Premise3) (synthesize (: $Proof3 $Premise3) $Kb $Rb $K)) ((: $Proof4 $Premise4) (synthesize (: $Proof4 $Premise4) $Kb $Rb $K))) $Query))
 </span>
 
 ;;; Quintenary rule
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Query,Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Premise3,Premise4,Premise5,Conclusion]],[Rb]],[[:,[Ructor,Proof1,Proof2,Proof3,Proof4,Proof5],Conclusion],Query],[[:,Proof1,Premise1],[synthesize,[:,Proof1,Premise1],Kb,Rb,K]],[[:,Proof2,Premise2],[synthesize,[:,Proof2,Premise2],Kb,Rb,K]],[[:,Proof3,Premise3],[synthesize,[:,Proof3,Premise3],Kb,Rb,K]],[[:,Proof4,Premise4],[synthesize,[:,Proof4,Premise4],Kb,Rb,K]],[[:,Proof5,Premise5],[synthesize,[:,Proof5,Premise5],Kb,Rb,K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (synthesize $Query $Kb $Rb 
-      (S $K)) 
-    (let* 
-      ( ( (: $Ructor 
-            (-> $Premise1 $Premise2 $Premise3 $Premise4 $Premise5 $Conclusion)) 
-          ($Rb)) 
-        ( (: 
-            ($Ructor $Proof1 $Proof2 $Proof3 $Proof4 $Proof5) $Conclusion) $Query) 
-        ( (: $Proof1 $Premise1) 
-          (synthesize 
-            (: $Proof1 $Premise1) $Kb $Rb $K)) 
-        ( (: $Proof2 $Premise2) 
-          (synthesize 
-            (: $Proof2 $Premise2) $Kb $Rb $K)) 
-        ( (: $Proof3 $Premise3) 
-          (synthesize 
-            (: $Proof3 $Premise3) $Kb $Rb $K)) 
-        ( (: $Proof4 $Premise4) 
-          (synthesize 
-            (: $Proof4 $Premise4) $Kb $Rb $K)) 
-        ( (: $Proof5 $Premise5) 
-          (synthesize 
-            (: $Proof5 $Premise5) $Kb $Rb $K))) $Query))
+</span><span class="ansi38-255165000">(= (synthesize $Query $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Premise3 $Premise4 $Premise5 $Conclusion)) ($Rb)) ((: ($Ructor $Proof1 $Proof2 $Proof3 $Proof4 $Proof5) $Conclusion) $Query) ((: $Proof1 $Premise1) (synthesize (: $Proof1 $Premise1) $Kb $Rb $K)) ((: $Proof2 $Premise2) (synthesize (: $Proof2 $Premise2) $Kb $Rb $K)) ((: $Proof3 $Premise3) (synthesize (: $Proof3 $Premise3) $Kb $Rb $K)) ((: $Proof4 $Premise4) (synthesize (: $Proof4 $Premise4) $Kb $Rb $K)) ((: $Proof5 $Premise5) (synthesize (: $Proof5 $Premise5) $Kb $Rb $K))) $Query))
 </span>
 
+          -->(3,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
@@ -685,7 +513,7 @@ Last Result(1): <span class="ansi33">Empty
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&rb','rule-base.metta'],OUT).
 
 </span>      -->(0,eval('&self',['import!','&rb','rule-base.metta'],RET),depth(1))
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta:181 
+        -->(1,eval('&self','&rb',RET),depth(2))
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/rule-base.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/rule-base.metta')
 ;;; Define knowledge base for that test
@@ -706,26 +534,14 @@ Last Result(1): <span class="ansi33">Empty
 ;;; Subtyping is relexive.  WARNING: that one is actually an axiom, not
 ;;; a rule.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&rb',[:,'STRefl',[<:,T,T]])
-</span><span class="ansi38-255165000">  (: STRefl 
-    (<: $T $T))
-</span>; (type-method is_asserted_space metta_assertdb_add &rb 
-    (: STRefl 
-      (<: $T $T)))
+</span><span class="ansi38-255165000">(: STRefl (<: $T $T))
+</span>; (type-method is_asserted_space metta_assertdb_add &rb (: STRefl (<: $T $T)))
 
 
 ;;; Subtyping is transitive
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&rb',[:,'STTrans',[->,[<:,S,T],[<:,T,U],[<:,S,U]]])
-</span><span class="ansi38-255165000">  (: STTrans 
-    (-> 
-      (<: $S $T) 
-      (<: $T $U) 
-      (<: $S $U)))
-</span>; (type-method is_asserted_space metta_assertdb_add &rb 
-    (: STTrans 
-      (-> 
-        (<: $S $T) 
-        (<: $T $U) 
-        (<: $S $U))))
+</span><span class="ansi38-255165000">(: STTrans (-> (<: $S $T) (<: $T $U) (<: $S $U)))
+</span>; (type-method is_asserted_space metta_assertdb_add &rb (: STTrans (-> (<: $S $T) (<: $T $U) (<: $S $U))))
 
 
 ;;; Premises
@@ -733,21 +549,8 @@ Last Result(1): <span class="ansi33">Empty
 ;;; Subtyping of function types is contravariant over inputs and
 ;;; covariant over outputs.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&rb',[:,'STFnTy',[->,[<:,T1,S1],[<:,S2,T2],[<:,[->,S1,S2],[->,T1,T2]]]])
-</span><span class="ansi38-255165000">  (: STFnTy 
-    (-> 
-      (<: $T1 $S1) 
-      (<: $S2 $T2) 
-      (<: 
-        (-> $S1 $S2) 
-        (-> $T1 $T2))))
-</span>; (type-method is_asserted_space metta_assertdb_add &rb 
-    (: STFnTy 
-      (-> 
-        (<: $T1 $S1) 
-        (<: $S2 $T2) 
-        (<: 
-          (-> $S1 $S2) 
-          (-> $T1 $T2)))))
+</span><span class="ansi38-255165000">(: STFnTy (-> (<: $T1 $S1) (<: $S2 $T2) (<: (-> $S1 $S2) (-> $T1 $T2))))
+</span>; (type-method is_asserted_space metta_assertdb_add &rb (: STFnTy (-> (<: $T1 $S1) (<: $S2 $T2) (<: (-> $S1 $S2) (-> $T1 $T2)))))
 
 
 ;;; Premises
@@ -756,17 +559,8 @@ Last Result(1): <span class="ansi33">Empty
 ;;; That is if a term `t` is of type `S` a subtype of `T`, then `t` is
 ;;; of type `T` as well.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&rb',[:,'STImplCoer',[->,[<:,S,T],[:,T,S],[:,T,T]]])
-</span><span class="ansi38-255165000">  (: STImplCoer 
-    (-> 
-      (<: $S $T) 
-      (: $T $S) 
-      (: $T $T)))
-</span>; (type-method is_asserted_space metta_assertdb_add &rb 
-    (: STImplCoer 
-      (-> 
-        (<: $S $T) 
-        (: $T $S) 
-        (: $T $T))))
+</span><span class="ansi38-255165000">(: STImplCoer (-> (<: $S $T) (: $T $S) (: $T $T)))
+</span>; (type-method is_asserted_space metta_assertdb_add &rb (: STImplCoer (-> (<: $S $T) (: $T $S) (: $T $T))))
 
 
 ;;; Premises
@@ -776,45 +570,22 @@ Last Result(1): <span class="ansi33">Empty
 ;;; `(coerce proof_S<:T t)` is of type `T`, where `proof_S<:T` is a
 ;;; proof that `S` is a subtype of `T`.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&rb',[:,coerce,[->,[<:,S,T],S,T]])
-</span><span class="ansi38-255165000">  (: coerce 
-    (-> 
-      (<: $S $T) $S $T))
-</span>; (type-method is_asserted_space metta_assertdb_add &rb 
-    (: coerce 
-      (-> 
-        (<: $S $T) $S $T)))
+</span><span class="ansi38-255165000">(: coerce (-> (<: $S $T) $S $T))
+</span>; (type-method is_asserted_space metta_assertdb_add &rb (: coerce (-> (<: $S $T) $S $T)))
 
 
+          -->(2,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Premises
 ;;; Conclusion
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb,[->,'Atom']])
-</span><span class="ansi38-255165000">  (: kb 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: kb (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[kb],[superpose,[[:,'STRefl',[<:,T,T]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (kb) 
-    (superpose 
-      ( (: STRefl 
-          (<: $T $T)) 
-        (: CM 
-          (<: Cat Mammal)) 
-        (: MA 
-          (<: Mammal Animal)) 
-        (: AP 
-          (<: Animal Physical)) 
-        (: felix Cat) 
-        (: weigh 
-          (-> Physical Weight)) 
-        (: fC 
-          (: felix Cat)) 
-        (: wPW 
-          (: weigh 
-            (-> Physical Weight))))))
+</span><span class="ansi38-255165000">(= (kb) (superpose ((: STRefl (<: $T $T)) (: CM (<: Cat Mammal)) (: MA (<: Mammal Animal)) (: AP (<: Animal Physical)) (: felix Cat) (: weigh (-> Physical Weight)) (: fC (: felix Cat)) (: wPW (: weigh (-> Physical Weight))))))
 </span>
 
 ;;; Reflexivity axiom
@@ -823,455 +594,223 @@ Deterministic: <span class="ansi33">Empty
 ;;; Implicit coercion
 ;;; Define rule base (called rb but different than &rb)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb,[->,'Atom']])
-</span><span class="ansi38-255165000">  (: rb 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: rb (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rb],[match,'&rb',X,X]])
-</span><span class="ansi38-255165000">  (= 
-    (rb) 
-    (match &rb $X $X))
+</span><span class="ansi38-255165000">(= (rb) (match &rb $X $X))
 </span>
 
 ;;; Check that felix is a cat
-<span class="ansi38-013099040">!(assertEqual 
-  (synthesize 
-    (: $Proof 
-      (: felix Cat)) kb rb Z) 
-  (: fC 
-    (: felix Cat)))
+<span class="ansi38-013099040">!(assertEqual (synthesize (: $Proof (: felix Cat)) kb rb Z) (: fC (: felix Cat)))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (: felix Cat)) kb rb Z)
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (: felix Cat)) kb rb Z)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[:,felix,'Cat']],kb,rb,'Z'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[synthesize,[:,_304724,[:,felix,'Cat']],kb,rb,'Z'],[:,fC,[:,felix,'Cat']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[synthesize,[:,_428950,[:,felix,'Cat']],kb,rb,'Z'],[:,fC,[:,felix,'Cat']]],RET),depth(1))
 <h3 id="SUBTYPING.SUBTYPING-TEST.01">;; SUBTYPING.SUBTYPING-TEST.01</h3>
-          -->(1,eval('&self',[synthesize,[:,_304724,[:,felix,'Cat']],kb,rb,'Z'],RET),depth(3))
-            -->(2,eval('&self',[let,[:,_304724,[:,felix,'Cat']],[kb],[:,_304724,[:,felix,'Cat']]],RET),depth(4))
-                -->(3,eval('&self',[kb],RET),depth(6))
-                  -->(4,eval('&self',[superpose,[[:,'STRefl',[<:,_317312,_317312]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(7))
-                          -->(5,eval('&self',[<:,_317312,_317312],RET),depth(11))
-                        -->(6,eval('&self',[<:,_317312,_317312],RET),depth(10))
-                      -->(7,eval('&self',[<:,_317312,_317312],RET),depth(9))
-                    -->(8,eval('&self',[<:,_317312,_317312],RET),depth(8))
-                          -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(11))
-                        -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(10))
-                      -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(12,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                          -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(11))
-                        -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(10))
-                      -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(16,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                          -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(11))
-                        -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(10))
-                      -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(20,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  <--(4,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-                <--(3,retval([superpose,[[:,'STRefl',[<:,_3772,_3772]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-            <--(2,retval([:,fC,[:,felix,'Cat']]))
-          <--(1,retval([let,[:,_3426,[:,felix,'Cat']],[kb],[:,_3426,[:,felix,'Cat']]]))
-; 
+          -->(1,eval('&self',[synthesize,[:,_428950,[:,felix,'Cat']],kb,rb,'Z'],RET),depth(3))
+                -->(2,eval('&self',[kb],RET),depth(6))
+                      -->(3,eval('&self',[:,'STRefl',[<:,_440484,_440484]],RET),depth(9))
+                      -->(4,eval('&self',:,RET),depth(9))
+                      -->(5,eval('&self','STRefl',RET),depth(9))
+                        -->(6,eval('&self',[<:,_440484,_440484],RET),depth(10))
+                          -->(7,eval('&self',<:,RET),depth(11))
+                            -->(8,eval('&self',<:,RET),depth(12))
+                    -->(9,eval('&self',:,RET),depth(8))
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.056 secs. (56.50 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (: fC 
-        (: felix Cat))) 
-    ( (: fC 
-        (: felix Cat)))))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.005 secs. (4.59 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((: fC (: felix Cat))) ((: fC (: felix Cat)))))
+</span>Deterministic: <span class="ansi33">Empty
 
 </span>;;; Check that felix is a mammal (explicit coercion)
-<span class="ansi38-013099040">!(synthesize 
-  (: 
-    (coerce $Proof felix) Mammal) kb rb 
-  (fromNumber 1))
+<span class="ansi38-013099040">!(synthesize (: (coerce $Proof felix) Mammal) kb rb (fromNumber 1))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: 
-    (coerce $Proof felix) Mammal) kb rb 
-  (fromNumber 1))
+</span><span class="ansi38-250144246">; !(synthesize (: (coerce $Proof felix) Mammal) kb rb (fromNumber 1))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,[coerce,Proof,felix],'Mammal'],kb,rb,[fromNumber,1]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,[coerce,_157542,felix],'Mammal'],kb,rb,[fromNumber,1]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,[coerce,_157542,felix],'Mammal'],[kb],[:,[coerce,_157542,felix],'Mammal']],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_167906,_167906]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_167906,_167906],RET),depth(9))
-                    -->(5,eval('&self',[<:,_167906,_167906],RET),depth(8))
-                  -->(6,eval('&self',[<:,_167906,_167906],RET),depth(7))
-                -->(7,eval('&self',[<:,_167906,_167906],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3670,_3670]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,[coerce,_2988,felix],'Mammal'],[kb],[:,[coerce,_2988,felix],'Mammal']]))
+</span>      -->(0,eval('&self',[synthesize,[:,[coerce,_15202,felix],'Mammal'],kb,rb,[fromNumber,1]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_24436,_24436]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_24436,_24436],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Check that felix is a mammal (implicit coercion)
-<span class="ansi38-013099040">!(synthesize 
-  (: $Proof 
-    (: felix Mammal)) kb rb 
-  (fromNumber 1))
+<span class="ansi38-013099040">!(synthesize (: $Proof (: felix Mammal)) kb rb (fromNumber 1))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (: felix Mammal)) kb rb 
-  (fromNumber 1))
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (: felix Mammal)) kb rb (fromNumber 1))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[:,felix,'Mammal']],kb,rb,[fromNumber,1]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_352706,[:,felix,'Mammal']],kb,rb,[fromNumber,1]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_352706,[:,felix,'Mammal']],[kb],[:,_352706,[:,felix,'Mammal']]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_363084,_363084]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_363084,_363084],RET),depth(9))
-                    -->(5,eval('&self',[<:,_363084,_363084],RET),depth(8))
-                  -->(6,eval('&self',[<:,_363084,_363084],RET),depth(7))
-                -->(7,eval('&self',[<:,_363084,_363084],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3322,_3322]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,_2976,[:,felix,'Mammal']],[kb],[:,_2976,[:,felix,'Mammal']]]))
+</span>      -->(0,eval('&self',[synthesize,[:,_104306,[:,felix,'Mammal']],kb,rb,[fromNumber,1]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_113530,_113530]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_113530,_113530],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Check that cat is a subtype of animal
-<span class="ansi38-013099040">!(synthesize 
-  (: $Proof 
-    (<: Cat Animal)) kb rb 
-  (fromNumber 1))
+<span class="ansi38-013099040">!(synthesize (: $Proof (<: Cat Animal)) kb rb (fromNumber 1))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (<: Cat Animal)) kb rb 
-  (fromNumber 1))
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (<: Cat Animal)) kb rb (fromNumber 1))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[<:,'Cat','Animal']],kb,rb,[fromNumber,1]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_34756,[<:,'Cat','Animal']],kb,rb,[fromNumber,1]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_34756,[<:,'Cat','Animal']],[kb],[:,_34756,[<:,'Cat','Animal']]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_45134,_45134]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_45134,_45134],RET),depth(9))
-                    -->(5,eval('&self',[<:,_45134,_45134],RET),depth(8))
-                  -->(6,eval('&self',[<:,_45134,_45134],RET),depth(7))
-                -->(7,eval('&self',[<:,_45134,_45134],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3670,_3670]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,_2976,[<:,'Cat','Animal']],[kb],[:,_2976,[<:,'Cat','Animal']]]))
+</span>      -->(0,eval('&self',[synthesize,[:,_192882,[<:,'Cat','Animal']],kb,rb,[fromNumber,1]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_202106,_202106]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_202106,_202106],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Check that felix is an animal (explicit coercion)
-<span class="ansi38-013099040">!(synthesize 
-  (: 
-    (coerce $Proof felix) Animal) kb rb 
-  (fromNumber 2))
+<span class="ansi38-013099040">!(synthesize (: (coerce $Proof felix) Animal) kb rb (fromNumber 2))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: 
-    (coerce $Proof felix) Animal) kb rb 
-  (fromNumber 2))
+</span><span class="ansi38-250144246">; !(synthesize (: (coerce $Proof felix) Animal) kb rb (fromNumber 2))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,[coerce,Proof,felix],'Animal'],kb,rb,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,[coerce,_229262,felix],'Animal'],kb,rb,[fromNumber,2]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,[coerce,_229262,felix],'Animal'],[kb],[:,[coerce,_229262,felix],'Animal']],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_239626,_239626]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_239626,_239626],RET),depth(9))
-                    -->(5,eval('&self',[<:,_239626,_239626],RET),depth(8))
-                  -->(6,eval('&self',[<:,_239626,_239626],RET),depth(7))
-                -->(7,eval('&self',[<:,_239626,_239626],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3670,_3670]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,[coerce,_2988,felix],'Animal'],[kb],[:,[coerce,_2988,felix],'Animal']]))
+</span>      -->(0,eval('&self',[synthesize,[:,[coerce,_280838,felix],'Animal'],kb,rb,[fromNumber,2]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_290072,_290072]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_290072,_290072],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Check that felix is an animal (implicit coercion)
-<span class="ansi38-013099040">!(synthesize 
-  (: $Proof 
-    (: felix Animal)) kb rb 
-  (fromNumber 2))
+<span class="ansi38-013099040">!(synthesize (: $Proof (: felix Animal)) kb rb (fromNumber 2))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (: felix Animal)) kb rb 
-  (fromNumber 2))
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (: felix Animal)) kb rb (fromNumber 2))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[:,felix,'Animal']],kb,rb,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_423200,[:,felix,'Animal']],kb,rb,[fromNumber,2]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_423200,[:,felix,'Animal']],[kb],[:,_423200,[:,felix,'Animal']]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_433578,_433578]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_433578,_433578],RET),depth(9))
-                    -->(5,eval('&self',[<:,_433578,_433578],RET),depth(8))
-                  -->(6,eval('&self',[<:,_433578,_433578],RET),depth(7))
-                -->(7,eval('&self',[<:,_433578,_433578],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3322,_3322]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,_2976,[:,felix,'Animal']],[kb],[:,_2976,[:,felix,'Animal']]]))
+</span>      -->(0,eval('&self',[synthesize,[:,_368150,[:,felix,'Animal']],kb,rb,[fromNumber,2]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_377374,_377374]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_377374,_377374],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Check that (-> Physical Weight) is a subtype of (-> Cat Weight)
-<span class="ansi38-013099040">!(synthesize 
-  (: $Proof 
-    (<: 
-      (-> Physical Weight) 
-      (-> Cat Weight))) kb rb 
-  (fromNumber 3))
+<span class="ansi38-013099040">!(synthesize (: $Proof (<: (-> Physical Weight) (-> Cat Weight))) kb rb (fromNumber 3))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (<: 
-      (-> Physical Weight) 
-      (-> Cat Weight))) kb rb 
-  (fromNumber 3))
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (<: (-> Physical Weight) (-> Cat Weight))) kb rb (fromNumber 3))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]],kb,rb,[fromNumber,3]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_103662,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]],kb,rb,[fromNumber,3]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_103662,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]],[kb],[:,_103662,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_114996,_114996]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_114996,_114996],RET),depth(9))
-                    -->(5,eval('&self',[<:,_114996,_114996],RET),depth(8))
-                  -->(6,eval('&self',[<:,_114996,_114996],RET),depth(7))
-                -->(7,eval('&self',[<:,_114996,_114996],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3814,_3814]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,_3084,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]],[kb],[:,_3084,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]]]))
+</span>      -->(0,eval('&self',[synthesize,[:,_455882,[<:,[->,'Physical','Weight'],[->,'Cat','Weight']]],kb,rb,[fromNumber,3]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_465812,_465812]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_465812,_465812],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Find a function to weigh something physical (explicit coercion).
-<span class="ansi38-013099040">!(synthesize 
-  (: $Fun 
-    (-> Physical Weight)) kb rb 
-  (fromNumber 0))
+<span class="ansi38-013099040">!(synthesize (: $Fun (-> Physical Weight)) kb rb (fromNumber 0))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Fun 
-    (-> Physical Weight)) kb rb 
-  (fromNumber 0))
+</span><span class="ansi38-250144246">; !(synthesize (: $Fun (-> Physical Weight)) kb rb (fromNumber 0))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Fun,[->,'Physical','Weight']],kb,rb,[fromNumber,0]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_297128,[->,'Physical','Weight']],kb,rb,[fromNumber,0]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_297128,[->,'Physical','Weight']],[kb],[:,_297128,[->,'Physical','Weight']]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_307494,_307494]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_307494,_307494],RET),depth(9))
-                    -->(5,eval('&self',[<:,_307494,_307494],RET),depth(8))
-                  -->(6,eval('&self',[<:,_307494,_307494],RET),depth(7))
-                -->(7,eval('&self',[<:,_307494,_307494],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
+</span>      -->(0,eval('&self',[synthesize,[:,_22364,[->,'Physical','Weight']],kb,rb,[fromNumber,0]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_31578,_31578]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_31578,_31578],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 NDet Result(0): <span class="ansi33">
-  (: weigh 
-    (-> Physical Weight))
+(: weigh (-> Physical Weight))
 
 </span><span class="ansi32">$Fun = weigh
 
 
-</span>              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3322,_3322]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval([:,weigh,[->,'Physical','Weight']]))
-      <--(0,retval([let,[:,_2976,[->,'Physical','Weight']],[kb],[:,_2976,[->,'Physical','Weight']]]))
-;;; Find a function to weigh something physical and its associated
+</span>;;; Find a function to weigh something physical and its associated
 ;;; proof (implicit coercion).
-<span class="ansi38-013099040">!(synthesize 
-  (: $Proof 
-    (: $Fun 
-      (-> Physical Weight))) kb rb 
-  (fromNumber 0))
+<span class="ansi38-013099040">!(synthesize (: $Proof (: $Fun (-> Physical Weight))) kb rb (fromNumber 0))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (: $Fun 
-      (-> Physical Weight))) kb rb 
-  (fromNumber 0))
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (: $Fun (-> Physical Weight))) kb rb (fromNumber 0))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[:,Fun,[->,'Physical','Weight']]],kb,rb,[fromNumber,0]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_118558,[:,_118882,[->,'Physical','Weight']]],kb,rb,[fromNumber,0]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_118558,[:,_118882,[->,'Physical','Weight']]],[kb],[:,_118558,[:,_118882,[->,'Physical','Weight']]]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_129630,_129630]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_129630,_129630],RET),depth(9))
-                    -->(5,eval('&self',[<:,_129630,_129630],RET),depth(8))
-                  -->(6,eval('&self',[<:,_129630,_129630],RET),depth(7))
-                -->(7,eval('&self',[<:,_129630,_129630],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
+</span>      -->(0,eval('&self',[synthesize,[:,_110776,[:,_111100,[->,'Physical','Weight']]],kb,rb,[fromNumber,0]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_120604,_120604]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_120604,_120604],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 NDet Result(0): <span class="ansi33">
-  (: wPW 
-    (: weigh 
-      (-> Physical Weight)))
+(: wPW (: weigh (-> Physical Weight)))
 
 </span><span class="ansi32">$Fun = weigh
 $Proof = wPW
 
 
-</span>            <--(2,retval([superpose,[[:,'STRefl',[<:,_3774,_3774]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-      <--(0,retval([let,[:,_3062,[:,_3080,[->,'Physical','Weight']]],[kb],[:,_3062,[:,_3080,[->,'Physical','Weight']]]]))
-;;; Find a function to weigh a cat (explicit coercion).
-<span class="ansi38-013099040">!(synthesize 
-  (: $Fun 
-    (-> Cat Weight)) kb rb 
-  (fromNumber 3))
+</span>;;; Find a function to weigh a cat (explicit coercion).
+<span class="ansi38-013099040">!(synthesize (: $Fun (-> Cat Weight)) kb rb (fromNumber 3))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Fun 
-    (-> Cat Weight)) kb rb 
-  (fromNumber 3))
+</span><span class="ansi38-250144246">; !(synthesize (: $Fun (-> Cat Weight)) kb rb (fromNumber 3))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Fun,[->,'Cat','Weight']],kb,rb,[fromNumber,3]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_505588,[->,'Cat','Weight']],kb,rb,[fromNumber,3]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_505588,[->,'Cat','Weight']],[kb],[:,_505588,[->,'Cat','Weight']]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_515952,_515952]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_10060,_10060],RET),depth(9))
-                    -->(5,eval('&self',[<:,_10060,_10060],RET),depth(8))
-                  -->(6,eval('&self',[<:,_10060,_10060],RET),depth(7))
-                -->(7,eval('&self',[<:,_10060,_10060],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3670,_3670]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,_2976,[->,'Cat','Weight']],[kb],[:,_2976,[->,'Cat','Weight']]]))
+</span>      -->(0,eval('&self',[synthesize,[:,_198378,[->,'Cat','Weight']],kb,rb,[fromNumber,3]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_207588,_207588]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_207588,_207588],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
 ;;; Find a function to weigh a cat and its associated proof (implicit
 ;;; coercion).
-<span class="ansi38-013099040">!(synthesize 
-  (: $Proof 
-    (: $Fun 
-      (-> Cat Weight))) kb rb 
-  (fromNumber 3))
+<span class="ansi38-013099040">!(synthesize (: $Proof (: $Fun (-> Cat Weight))) kb rb (fromNumber 3))
 
-</span><span class="ansi38-250144246">; !(synthesize 
-  (: $Proof 
-    (: $Fun 
-      (-> Cat Weight))) kb rb 
-  (fromNumber 3))
+</span><span class="ansi38-250144246">; !(synthesize (: $Proof (: $Fun (-> Cat Weight))) kb rb (fromNumber 3))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[:,Proof,[:,Fun,[->,'Cat','Weight']]],kb,rb,[fromNumber,3]],OUT).
 
-</span>      -->(0,eval('&self',[synthesize,[:,_182074,[:,_182398,[->,'Cat','Weight']]],kb,rb,[fromNumber,3]],RET),depth(1))
-        -->(1,eval('&self',[let,[:,_182074,[:,_182398,[->,'Cat','Weight']]],[kb],[:,_182074,[:,_182398,[->,'Cat','Weight']]]],RET),depth(2))
-            -->(2,eval('&self',[kb],RET),depth(4))
-              -->(3,eval('&self',[superpose,[[:,'STRefl',[<:,_193144,_193144]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]],RET),depth(5))
-                      -->(4,eval('&self',[<:,_193144,_193144],RET),depth(9))
-                    -->(5,eval('&self',[<:,_193144,_193144],RET),depth(8))
-                  -->(6,eval('&self',[<:,_193144,_193144],RET),depth(7))
-                -->(7,eval('&self',[<:,_193144,_193144],RET),depth(6))
-                      -->(8,eval('&self',[<:,'Cat','Mammal'],RET),depth(9))
-                    -->(9,eval('&self',[<:,'Cat','Mammal'],RET),depth(8))
-                  -->(10,eval('&self',[<:,'Cat','Mammal'],RET),depth(7))
-                -->(11,eval('&self',[<:,'Cat','Mammal'],RET),depth(6))
-                      -->(12,eval('&self',[<:,'Mammal','Animal'],RET),depth(9))
-                    -->(13,eval('&self',[<:,'Mammal','Animal'],RET),depth(8))
-                  -->(14,eval('&self',[<:,'Mammal','Animal'],RET),depth(7))
-                -->(15,eval('&self',[<:,'Mammal','Animal'],RET),depth(6))
-                      -->(16,eval('&self',[<:,'Animal','Physical'],RET),depth(9))
-                    -->(17,eval('&self',[<:,'Animal','Physical'],RET),depth(8))
-                  -->(18,eval('&self',[<:,'Animal','Physical'],RET),depth(7))
-                -->(19,eval('&self',[<:,'Animal','Physical'],RET),depth(6))
-              <--(3,retval([:,wPW,[:,weigh,[->,'Physical','Weight']]]))
-            <--(2,retval([superpose,[[:,'STRefl',[<:,_3774,_3774]],[:,'CM',[<:,'Cat','Mammal']],[:,'MA',[<:,'Mammal','Animal']],[:,'AP',[<:,'Animal','Physical']],[:,felix,'Cat'],[:,weigh,[->,'Physical','Weight']],[:,fC,[:,felix,'Cat']],[:,wPW,[:,weigh,[->,'Physical','Weight']]]]]))
-        <--(1,retval(fail))
-      <--(0,retval([let,[:,_3062,[:,_3080,[->,'Cat','Weight']]],[kb],[:,_3062,[:,_3080,[->,'Cat','Weight']]]]))
-<span class="ansi32">% 4,884,195 inferences, 1.473 CPU in 1.473 seconds (100% CPU, 3314937 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta" 0)
+</span>      -->(0,eval('&self',[synthesize,[:,_281578,[:,_281902,[->,'Cat','Weight']]],kb,rb,[fromNumber,3]],RET),depth(1))
+            -->(1,eval('&self',[kb],RET),depth(4))
+                  -->(2,eval('&self',[:,'STRefl',[<:,_291404,_291404]],RET),depth(7))
+                  -->(3,eval('&self',:,RET),depth(7))
+                  -->(4,eval('&self','STRefl',RET),depth(7))
+                    -->(5,eval('&self',[<:,_291404,_291404],RET),depth(8))
+                      -->(6,eval('&self',<:,RET),depth(9))
+                        -->(7,eval('&self',<:,RET),depth(10))
+                -->(8,eval('&self',:,RET),depth(6))
+                -->(9,eval('&self','STRefl',RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))<span class="ansi32">
+% 918,004 inferences, 0.944 CPU in 0.944 seconds (100% CPU, 972549 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/subtyping/subtyping-test.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1

@@ -28,8 +28,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta:1 
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta')
 1=[(5 6)]
@@ -40,55 +39,43 @@
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta', 1, [[5, 6]]).
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
-</span><span class="ansi38-255165000">  (: If 
-    (-> Bool Atom Atom Atom))
+</span><span class="ansi38-255165000">(: If (-> Bool Atom Atom Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If',Cond,Then,Else],[if,Cond,Then,Else]])
-</span><span class="ansi38-255165000">  (= 
-    (If $Cond $Then $Else) 
-    (if $Cond $Then $Else))
+</span><span class="ansi38-255165000">(= (If $Cond $Then $Else) (if $Cond $Then $Else))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(If 
-  (> 1 2) 
-  (3 4) 
-  (5 6))
+</span><span class="ansi1 ansi38-255238088">!(If (> 1 2) (3 4) (5 6))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (If 
-    (> 1 2) 
-    (3 4) 
-    (5 6)) 
-  ( (5 6)))
+<span class="ansi38-013099040">!(assertEqualToResult (If (> 1 2) (3 4) (5 6)) ((5 6)))
 
-</span><span class="ansi38-250144246">; !(If 
-  (> 1 2) 
-  (3 4) 
-  (5 6))
+</span><span class="ansi38-250144246">; !(If (> 1 2) (3 4) (5 6))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['If',[>,1,2],[3,4],[5,6]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['If',[>,1,2],[3,4],[5,6]],[[5,6]]],RET),depth(1))
 <h3 id="METTA-MORPH-TESTS.IF.01">;; METTA-MORPH-TESTS.IF.01</h3>
           -->(1,eval('&self',['If',[>,1,2],[3,4],[5,6]],RET),depth(3))
               -->(2,eval('&self',[>,1,2],RET),depth(5))
-              -->(3,eval('&self',[5,6],RET),depth(5))
-            -->(4,eval('&self',[5,6],RET),depth(4))
+                -->(3,eval('&self',1,RET),depth(6))
+                -->(4,eval('&self',2,RET),depth(6))
+                  -->(5,eval('&self','False',RET),depth(7))
+              -->(6,eval('&self',[5,6],RET),depth(5))
+                  -->(7,eval('&self',5,RET),depth(7))
+                  -->(8,eval('&self',6,RET),depth(7))
+                -->(9,eval('&self',5,RET),depth(6))
               <--(2,retval('False'))
           <--(1,retval([5,6]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.15 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (5 6)) 
-    ( (5 6))))
+; took 0.001 secs. (1.08 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((5 6)) ((5 6))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 266,104 inferences, 0.094 CPU in 0.094 seconds (100% CPU, 2839421 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta" 0)
+</span><span class="ansi32">% 244,994 inferences, 0.088 CPU in 0.088 seconds (100% CPU, 2798889 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/if.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1

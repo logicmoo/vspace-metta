@@ -207,7 +207,8 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta')
 :- dynamic file_answers/3.
@@ -220,6 +221,7 @@
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','synthesize-via-let.metta'],OUT).
 
 </span>      -->(0,eval('&self',['import!','&self','synthesize-via-let.metta'],RET),depth(1))
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let.metta')
 ;;; Import modules
@@ -235,226 +237,159 @@
 ;;; Collection of functions operating on numbers
 ;;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: max 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: max (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (max $X $Y) 
-    (if 
-      (> $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: min 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: min (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (min $X $Y) 
-    (if 
-      (< $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">  (: clamp 
-    (-> $A $A $A $A))
+</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (clamp $X $L $U) 
-    (max $L 
-      (min $U $X)))
+</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
 </span>
 
 ;;; Define abs
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">  (: abs 
-    (-> $A $A))
+</span><span class="ansi38-255165000">(: abs (-> $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">  (= 
-    (abs $X) 
-    (if 
-      (< $X 0) 
-      (* -1 $X) $X))
+</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
 </span>
 
 ;;; Define <=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define >=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: >= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (>= $X $Y) 
-    (or 
-      (> $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: approxEq 
-    (-> $A $A $A Bool))
+</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">  (= 
-    (approxEq $X $Y $Epsilon) 
-    (<= 
-      (abs 
-        (- $X $Y)) $Epsilon))
+</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+</span><span class="ansi38-255165000">(: S (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+</span><span class="ansi38-255165000">(= (fromNat Z) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Nat Nat Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $_ Z) False)
+</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» Z 
-      (S $_)) True)
+</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» 
-      (S $X) 
-      (S $Y)) 
-    (â©» $X $Y))
+</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Number Number Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $X $Y) 
-    (< $X $Y))
+</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: ceil 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: ceil (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">  (= 
-    (ceil $N) 
-    (fromNat 
-      (fromNumber $N)))
+</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">  (: number->bool 
-    (-> Number Bool))
+</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">  (= 
-    (number->bool $X) 
-    (< 0 $X))
+</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">  (: bool->number 
-    (-> Bool Number))
+</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number False) 0)
+</span><span class="ansi38-255165000">(= (bool->number False) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number True) 1)
+</span><span class="ansi38-255165000">(= (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
@@ -462,105 +397,60 @@
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">  (: â 
-    (-> $T $T Type))
+</span><span class="ansi38-255165000">(: â (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (zero-lt-succ-axiom) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">  (= 
-    (zero-lt-succ-axiom) 
-    (: ZeroLTSucc 
-      (â Z 
-        (S $K))))
+</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (succ-monotonicity-rule) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (succ-monotonicity-rule) 
-    (: SuccMonotonicity 
-      (-> 
-        (â $X $Y) 
-        (â 
-          (S $X) 
-          (S $Y)))))
+</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
 </span>
 
+          -->(2,eval('&self','Empty',RET),depth(3))
       <--(1,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rules],[:,->,[->,B,C],[->,A,B],[->,A,C]]])
-</span><span class="ansi38-255165000">  (= 
-    (rules) 
-    (: -> 
-      (-> $B $C) 
-      (-> $A $B) 
-      (-> $A $C)))
+</span><span class="ansi38-255165000">(= (rules) (: -> (-> $B $C) (-> $A $B) (-> $A $C)))
 </span>
 
 ;;; Define set of facts
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[facts],[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]])
-</span><span class="ansi38-255165000">  (= 
-    (facts) 
-    (superpose 
-      ( (: f 
-          (-> Number String)) 
-        (: g 
-          (-> String Bool)) 
-        (: h 
-          (-> Bool Number)))))
+</span><span class="ansi38-255165000">(= (facts) (superpose ((: f (-> Number String)) (: g (-> String Bool)) (: h (-> Bool Number)))))
 </span>
 
 ;;; Given a query under the form (: TERM TYPE), enumerate all programs
 ;;; up to a given depth that are consistent with the query, using rules
 ;;; and facts.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,syn,[->,'Atom','Nat','Atom']])
-</span><span class="ansi38-255165000">  (: syn 
-    (-> Atom Nat Atom))
+</span><span class="ansi38-255165000">(: syn (-> Atom Nat Atom))
 </span>
 
 ;; Base case: match against facts directly
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[syn,Query,Depth],[let,Query,[facts],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (syn $Query $Depth) 
-    (let $Query 
-      (facts) $Query))
+</span><span class="ansi38-255165000">(= (syn $Query $Depth) (let $Query (facts) $Query))
 </span>
 
 ;; Inductive case
 ;; Decompose rules into premises, trying rules and facts up to a depth limit.
 ;; Returns the query if it finds a valid derivation using the available knowledge
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[syn,Query,['S',K]],['let*',[[[:,Rule,[->,Premise1,Premise2,Conclusion]],[rules]],[[:,[Rule,Prf1,Prf2],Conclusion],Query],[[:,Prf1,Premise1],[syn,[:,Prf1,Premise1],K]],[[:,Prf2,Premise2],[syn,[:,Prf2,Premise2],K]]],Query]])
-</span><span class="ansi38-255165000">  (= 
-    (syn $Query 
-      (S $K)) 
-    (let* 
-      ( ( (: $Rule 
-            (-> $Premise1 $Premise2 $Conclusion)) 
-          (rules)) 
-        ( (: 
-            ($Rule $Prf1 $Prf2) $Conclusion) $Query) 
-        ( (: $Prf1 $Premise1) 
-          (syn 
-            (: $Prf1 $Premise1) $K)) 
-        ( (: $Prf2 $Premise2) 
-          (syn 
-            (: $Prf2 $Premise2) $K))) $Query))
+</span><span class="ansi38-255165000">(= (syn $Query (S $K)) (let* (((: $Rule (-> $Premise1 $Premise2 $Conclusion)) (rules)) ((: ($Rule $Prf1 $Prf2) $Conclusion) $Query) ((: $Prf1 $Premise1) (syn (: $Prf1 $Premise1) $K)) ((: $Prf2 $Premise2) (syn (: $Prf2 $Premise2) $K))) $Query))
 </span>
 
+          -->(3,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
@@ -585,1209 +475,391 @@ Last Result(1): <span class="ansi33">Empty
 ;;; has description: IMAGE OF, hexadecimal code: 0x22B7, unicode-math
 ;;; code: \imageof and latex code: \multimapdotbothB.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[record,F,[Arg]],['â\x8A\·',F,Arg,[F,Arg]]])
-</span><span class="ansi38-255165000">  (= 
-    (record $F 
-      ($Arg)) 
-    (â· $F $Arg 
-      ($F $Arg)))
+</span><span class="ansi38-255165000">(= (record $F ($Arg)) (â· $F $Arg ($F $Arg)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[record,F,[Arg1,Arg2]],['â\x8A\·',F,[Arg1,Arg2],[F,Arg1,Arg2]]])
-</span><span class="ansi38-255165000">  (= 
-    (record $F 
-      ($Arg1 $Arg2)) 
-    (â· $F 
-      ($Arg1 $Arg2) 
-      ($F $Arg1 $Arg2)))
+</span><span class="ansi38-255165000">(= (record $F ($Arg1 $Arg2)) (â· $F ($Arg1 $Arg2) ($F $Arg1 $Arg2)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[record,F,[Arg1,Arg2,Arg3]],['â\x8A\·',F,[Arg1,Arg2,Arg3],[F,Arg1,Arg2,Arg3]]])
-</span><span class="ansi38-255165000">  (= 
-    (record $F 
-      ($Arg1 $Arg2 $Arg3)) 
-    (â· $F 
-      ($Arg1 $Arg2 $Arg3) 
-      ($F $Arg1 $Arg2 $Arg3)))
+</span><span class="ansi38-255165000">(= (record $F ($Arg1 $Arg2 $Arg3)) (â· $F ($Arg1 $Arg2 $Arg3) ($F $Arg1 $Arg2 $Arg3)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[record,F,[Arg1,Arg2,Arg3,Arg4]],['â\x8A\·',F,[Arg1,Arg2,Arg3,Arg4],[F,Arg1,Arg2,Arg3,Arg4]]])
-</span><span class="ansi38-255165000">  (= 
-    (record $F 
-      ($Arg1 $Arg2 $Arg3 $Arg4)) 
-    (â· $F 
-      ($Arg1 $Arg2 $Arg3 $Arg4) 
-      ($F $Arg1 $Arg2 $Arg3 $Arg4)))
+</span><span class="ansi38-255165000">(= (record $F ($Arg1 $Arg2 $Arg3 $Arg4)) (â· $F ($Arg1 $Arg2 $Arg3 $Arg4) ($F $Arg1 $Arg2 $Arg3 $Arg4)))
 </span>
 
+          -->(1,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(record syn 
-  ( (: $Term $Type) Z))
+</span><span class="ansi38-013099040">!(record syn ((: $Term $Type) Z))
 
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: $Term $Type) Z))
+</span><span class="ansi38-250144246">; !(record syn ((: $Term $Type) Z))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,Type],'Z']],OUT).
 
-</span>      -->(0,eval('&self',[record,syn,[[:,_293256,_293558],'Z']],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,_293256,_293558],'Z'],[syn,[:,_293256,_293558],'Z']],RET),depth(2))
-            -->(2,eval('&self',[[:,_293256,_293558],'Z'],RET),depth(4))
-            -->(3,eval('&self',[syn,[:,_293256,_293558],'Z'],RET),depth(4))
-              -->(4,eval('&self',[let,[:,_293256,_293558],[facts],[:,_293256,_293558]],RET),depth(5))
-                  -->(5,eval('&self',[facts],RET),depth(7))
-                    -->(6,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-          -->(7,eval('&self',['â\x8A\·',syn,[[:,f,[->,'Number','String']],'Z'],[:,f,[->,'Number','String']]],RET),depth(3))
-              -->(8,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(5))
-              -->(9,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(5))
-            -->(10,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(4))
-          -->(11,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(3))
-NDet Result(0): <span class="ansi33">
-  (â· syn 
-    ( (: f 
-        (-> Number String)) Z) 
-    (: f 
-      (-> Number String)))
-
-</span><span class="ansi32">$Type = 
-  (-> Number String)
-$Term = f
-
-
-</span>          -->(12,eval('&self',['â\x8A\·',syn,[[:,g,[->,'String','Bool']],'Z'],[:,g,[->,'String','Bool']]],RET),depth(3))
-              -->(13,eval('&self',[[:,g,[->,'String','Bool']],'Z'],RET),depth(5))
-              -->(14,eval('&self',[[:,g,[->,'String','Bool']],'Z'],RET),depth(5))
-            -->(15,eval('&self',[[:,g,[->,'String','Bool']],'Z'],RET),depth(4))
-          -->(16,eval('&self',[[:,g,[->,'String','Bool']],'Z'],RET),depth(3))
-NDet Result(1): <span class="ansi33">
-  (â· syn 
-    ( (: g 
-        (-> String Bool)) Z) 
-    (: g 
-      (-> String Bool)))
-
-</span><span class="ansi32">$Type = 
-  (-> String Bool)
-$Term = g
-
-
-</span>                    <--(6,retval([:,h,[->,'Bool','Number']]))
-          -->(17,eval('&self',['â\x8A\·',syn,[[:,h,[->,'Bool','Number']],'Z'],[:,h,[->,'Bool','Number']]],RET),depth(3))
-              -->(18,eval('&self',[[:,h,[->,'Bool','Number']],'Z'],RET),depth(5))
-              -->(19,eval('&self',[[:,h,[->,'Bool','Number']],'Z'],RET),depth(5))
-            -->(20,eval('&self',[[:,h,[->,'Bool','Number']],'Z'],RET),depth(4))
-          -->(21,eval('&self',[[:,h,[->,'Bool','Number']],'Z'],RET),depth(3))
-NDet Result(2): <span class="ansi33">
-  (â· syn 
-    ( (: h 
-        (-> Bool Number)) Z) 
-    (: h 
-      (-> Bool Number)))
-
-</span><span class="ansi32">$Type = 
-  (-> Bool Number)
-$Term = h
-
-
-</span>                  <--(5,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(4,retval([:,h,[->,'Bool','Number']]))
-            <--(3,retval([let,[:,_3408,_3414],[facts],[:,_3408,_3414]]))
-        <--(1,retval(['â\x8A\·',syn,[[:,h,[->,'Bool','Number']],'Z'],[:,h,[->,'Bool','Number']]]))
-      <--(0,retval(['â\x8A\·',syn,[[:,_3010,_3016],'Z'],[syn,[:,_3010,_3016],'Z']]))
-;; (: f (-> Number String)), (: g (-> String Bool)), (: h (-> Bool Number))
-<span class="ansi38-013099040">!(record syn 
-  ( (: $Term 
-      (-> Number String)) Z))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: $Term 
-      (-> Number String)) Z))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,[->,'Number','String']],'Z']],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,_153058,[->,'Number','String']],'Z']],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,_153058,[->,'Number','String']],'Z'],[syn,[:,_153058,[->,'Number','String']],'Z']],RET),depth(2))
-            -->(2,eval('&self',[[:,_153058,[->,'Number','String']],'Z'],RET),depth(4))
-            -->(3,eval('&self',[syn,[:,_153058,[->,'Number','String']],'Z'],RET),depth(4))
-              -->(4,eval('&self',[let,[:,_153058,[->,'Number','String']],[facts],[:,_153058,[->,'Number','String']]],RET),depth(5))
-                  -->(5,eval('&self',[facts],RET),depth(7))
-                    -->(6,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-          -->(7,eval('&self',['â\x8A\·',syn,[[:,f,[->,'Number','String']],'Z'],[:,f,[->,'Number','String']]],RET),depth(3))
-              -->(8,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(5))
-              -->(9,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(5))
-            -->(10,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(4))
-          -->(11,eval('&self',[[:,f,[->,'Number','String']],'Z'],RET),depth(3))
-NDet Result(0): <span class="ansi33">
-  (â· syn 
-    ( (: f 
-        (-> Number String)) Z) 
-    (: f 
-      (-> Number String)))
-
-</span><span class="ansi32">$Term = f
-
-
-</span>                    <--(6,retval([:,h,[->,'Bool','Number']]))
-                  <--(5,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(4,retval([:,f,[->,'Number','String']]))
-            <--(3,retval([let,[:,_3466,[->,'Number','String']],[facts],[:,_3466,[->,'Number','String']]]))
-        <--(1,retval(['â\x8A\·',syn,[[:,f,[->,'Number','String']],'Z'],[:,f,[->,'Number','String']]]))
-      <--(0,retval(['â\x8A\·',syn,[[:,_3032,[->,'Number','String']],'Z'],[syn,[:,_3032,[->,'Number','String']],'Z']]))
-;; (: f (-> Number String))
-<span class="ansi38-013099040">!(record syn 
-  ( (: $Term 
-      (-> Number Bool)) 
-    (S Z)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: $Term 
-      (-> Number Bool)) 
-    (S Z)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,[->,'Number','Bool']],['S','Z']]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,_79098,[->,'Number','Bool']],['S','Z']]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,_79098,[->,'Number','Bool']],['S','Z']],[syn,[:,_79098,[->,'Number','Bool']],['S','Z']]],RET),depth(2))
-            -->(2,eval('&self',[[:,_79098,[->,'Number','Bool']],['S','Z']],RET),depth(4))
-                -->(3,eval('&self',['S','Z'],RET),depth(6))
-                -->(4,eval('&self',['S','Z'],RET),depth(6))
-            -->(5,eval('&self',[syn,[:,_79098,[->,'Number','Bool']],['S','Z']],RET),depth(4))
-              -->(6,eval('&self',[let,[:,_79098,[->,'Number','Bool']],[facts],[:,_79098,[->,'Number','Bool']]],RET),depth(5))
-                  -->(7,eval('&self',[facts],RET),depth(7))
-                    -->(8,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-                    <--(8,retval([:,h,[->,'Bool','Number']]))
-                  <--(7,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(6,retval(fail))
-              -->(9,eval('&self',['let*',[[[:,_47830,[->,_47848,_47854,_47860]],[rules]],[[:,[_47830,_47908,_47914],_47860],[:,_2752,[->,'Number','Bool']]],[[:,_47908,_47848],[syn,[:,_47908,_47848],'Z']],[[:,_47914,_47854],[syn,[:,_47914,_47854],'Z']]],[:,_2752,[->,'Number','Bool']]],RET),depth(5))
-                  -->(10,eval('&self',[rules],RET),depth(7))
-                    -->(11,eval('&self',[:,->,[->,_49932,_49938],[->,_49956,_49932],[->,_49956,_49938]],RET),depth(8))
-                  <--(10,retval([:,->,[->,_50058,_50064],[->,_50082,_50058],[->,_50082,_50064]]))
-              <--(9,retval(fail))
-            <--(5,retval(['let*',[[[:,_48154,[->,_48172,_48178,_48184]],[rules]],[[:,[_48154,_48232,_48238],_48184],[:,_48262,[->,'Number','Bool']]],[[:,_48232,_48172],[syn,[:,_48232,_48172],'Z']],[[:,_48238,_48178],[syn,[:,_48238,_48178],'Z']]],[:,_48262,[->,'Number','Bool']]]))
-        <--(1,retval(fail))
-      <--(0,retval(['â\x8A\·',syn,[[:,_3858,[->,'Number','Bool']],['S','Z']],[syn,[:,_3858,[->,'Number','Bool']],['S','Z']]]))
-;; (: (. g f) (-> Number Bool))
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. g f) 
-      (-> Number Bool)) 
-    (S Z)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. g f) 
-      (-> Number Bool)) 
-    (S Z)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,f],[->,'Number','Bool']],['S','Z']]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,f],[->,'Number','Bool']],['S','Z']]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',g,f],[->,'Number','Bool']],['S','Z']],[syn,[:,['.',g,f],[->,'Number','Bool']],['S','Z']]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',g,f],[->,'Number','Bool']],['S','Z']],RET),depth(4))
-                -->(3,eval('&self',['S','Z'],RET),depth(6))
-                    -->(4,eval('&self',['.',g,f],RET),depth(8))
-                -->(5,eval('&self',['S','Z'],RET),depth(6))
-            -->(6,eval('&self',[syn,[:,['.',g,f],[->,'Number','Bool']],['S','Z']],RET),depth(4))
-              -->(7,eval('&self',[let,[:,['.',g,f],[->,'Number','Bool']],[facts],[:,['.',g,f],[->,'Number','Bool']]],RET),depth(5))
-                  -->(8,eval('&self',[facts],RET),depth(7))
-                    -->(9,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-                    <--(9,retval([:,h,[->,'Bool','Number']]))
-                  <--(8,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(7,retval(fail))
-              -->(10,eval('&self',['let*',[[[:,_187778,[->,_187796,_187802,_187808]],[rules]],[[:,[_187778,_187856,_187862],_187808],[:,['.',g,f],[->,'Number','Bool']]],[[:,_187856,_187796],[syn,[:,_187856,_187796],'Z']],[[:,_187862,_187802],[syn,[:,_187862,_187802],'Z']]],[:,['.',g,f],[->,'Number','Bool']]],RET),depth(5))
-                  -->(11,eval('&self',[rules],RET),depth(7))
-                    -->(12,eval('&self',[:,->,[->,_189898,_189904],[->,_189922,_189898],[->,_189922,_189904]],RET),depth(8))
-                  <--(11,retval([:,->,[->,_190024,_190030],[->,_190048,_190024],[->,_190048,_190030]]))
-              <--(10,retval(fail))
-            <--(6,retval(['let*',[[[:,_188102,[->,_188120,_188126,_188132]],[rules]],[[:,[_188102,_188180,_188186],_188132],[:,['.',g,f],[->,'Number','Bool']]],[[:,_188180,_188120],[syn,[:,_188180,_188120],'Z']],[[:,_188186,_188126],[syn,[:,_188186,_188126],'Z']]],[:,['.',g,f],[->,'Number','Bool']]]))
-        <--(1,retval(fail))
-      <--(0,retval(['â\x8A\·',syn,[[:,['.',g,f],[->,'Number','Bool']],['S','Z']],[syn,[:,['.',g,f],[->,'Number','Bool']],['S','Z']]]))
-;; (: (. g f) (-> Number Bool))
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. g f) $Type) 
-    (S Z)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. g f) $Type) 
-    (S Z)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,f],Type],['S','Z']]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,f],_302916],['S','Z']]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',g,f],_302916],['S','Z']],[syn,[:,['.',g,f],_302916],['S','Z']]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',g,f],_302916],['S','Z']],RET),depth(4))
-                -->(3,eval('&self',['S','Z'],RET),depth(6))
-                    -->(4,eval('&self',['.',g,f],RET),depth(8))
-                -->(5,eval('&self',['S','Z'],RET),depth(6))
-            -->(6,eval('&self',[syn,[:,['.',g,f],_302916],['S','Z']],RET),depth(4))
-              -->(7,eval('&self',[let,[:,['.',g,f],_302916],[facts],[:,['.',g,f],_302916]],RET),depth(5))
-                  -->(8,eval('&self',[facts],RET),depth(7))
-                    -->(9,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-                    <--(9,retval([:,h,[->,'Bool','Number']]))
-                  <--(8,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(7,retval(fail))
-              -->(10,eval('&self',['let*',[[[:,_305144,[->,_305162,_305168,_305174]],[rules]],[[:,[_305144,_305222,_305228],_305174],[:,['.',g,f],_5826]],[[:,_305222,_305162],[syn,[:,_305222,_305162],'Z']],[[:,_305228,_305168],[syn,[:,_305228,_305168],'Z']]],[:,['.',g,f],_5826]],RET),depth(5))
-                  -->(11,eval('&self',[rules],RET),depth(7))
-                    -->(12,eval('&self',[:,->,[->,_307246,_307252],[->,_307270,_307246],[->,_307270,_307252]],RET),depth(8))
-                  <--(11,retval([:,->,[->,_307372,_307378],[->,_307396,_307372],[->,_307396,_307378]]))
-              <--(10,retval(fail))
-            <--(6,retval(['let*',[[[:,_305468,[->,_305486,_305492,_305498]],[rules]],[[:,[_305468,_305546,_305552],_305498],[:,['.',g,f],_305600]],[[:,_305546,_305486],[syn,[:,_305546,_305486],'Z']],[[:,_305552,_305492],[syn,[:,_305552,_305492],'Z']]],[:,['.',g,f],_305600]]))
-        <--(1,retval(fail))
-      <--(0,retval(['â\x8A\·',syn,[[:,['.',g,f],_6932],['S','Z']],[syn,[:,['.',g,f],_6932],['S','Z']]]))
-;; (: (. g f) (-> Number Bool))
-<span class="ansi38-013099040">!(record syn 
-  ( (: $Term $Type) 
-    (S Z)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: $Term $Type) 
-    (S Z)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,Type],['S','Z']]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,_420320,_420622],['S','Z']]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,_420320,_420622],['S','Z']],[syn,[:,_420320,_420622],['S','Z']]],RET),depth(2))
-            -->(2,eval('&self',[[:,_420320,_420622],['S','Z']],RET),depth(4))
-                -->(3,eval('&self',['S','Z'],RET),depth(6))
-                -->(4,eval('&self',['S','Z'],RET),depth(6))
-            -->(5,eval('&self',[syn,[:,_420320,_420622],['S','Z']],RET),depth(4))
-              -->(6,eval('&self',[let,[:,_420320,_420622],[facts],[:,_420320,_420622]],RET),depth(5))
-                  -->(7,eval('&self',[facts],RET),depth(7))
-                    -->(8,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-          -->(9,eval('&self',['â\x8A\·',syn,[[:,f,[->,'Number','String']],['S','Z']],[:,f,[->,'Number','String']]],RET),depth(3))
-              -->(10,eval('&self',[[:,f,[->,'Number','String']],['S','Z']],RET),depth(5))
-                  -->(11,eval('&self',['S','Z'],RET),depth(7))
-                  -->(12,eval('&self',['S','Z'],RET),depth(7))
-              -->(13,eval('&self',[[:,f,[->,'Number','String']],['S','Z']],RET),depth(5))
-                  -->(14,eval('&self',['S','Z'],RET),depth(7))
-                  -->(15,eval('&self',['S','Z'],RET),depth(7))
-            -->(16,eval('&self',[[:,f,[->,'Number','String']],['S','Z']],RET),depth(4))
-                -->(17,eval('&self',['S','Z'],RET),depth(6))
-                -->(18,eval('&self',['S','Z'],RET),depth(6))
-          -->(19,eval('&self',[[:,f,[->,'Number','String']],['S','Z']],RET),depth(3))
-              -->(20,eval('&self',['S','Z'],RET),depth(5))
-              -->(21,eval('&self',['S','Z'],RET),depth(5))
-NDet Result(0): <span class="ansi33">
-  (â· syn 
-    ( (: f 
-        (-> Number String)) 
-      (S Z)) 
-    (: f 
-      (-> Number String)))
-
-</span><span class="ansi32">$Type = 
-  (-> Number String)
-$Term = f
-
-
-</span>          -->(22,eval('&self',['â\x8A\·',syn,[[:,g,[->,'String','Bool']],['S','Z']],[:,g,[->,'String','Bool']]],RET),depth(3))
-              -->(23,eval('&self',[[:,g,[->,'String','Bool']],['S','Z']],RET),depth(5))
-                  -->(24,eval('&self',['S','Z'],RET),depth(7))
-                  -->(25,eval('&self',['S','Z'],RET),depth(7))
-              -->(26,eval('&self',[[:,g,[->,'String','Bool']],['S','Z']],RET),depth(5))
-                  -->(27,eval('&self',['S','Z'],RET),depth(7))
-                  -->(28,eval('&self',['S','Z'],RET),depth(7))
-            -->(29,eval('&self',[[:,g,[->,'String','Bool']],['S','Z']],RET),depth(4))
-                -->(30,eval('&self',['S','Z'],RET),depth(6))
-                -->(31,eval('&self',['S','Z'],RET),depth(6))
-          -->(32,eval('&self',[[:,g,[->,'String','Bool']],['S','Z']],RET),depth(3))
-              -->(33,eval('&self',['S','Z'],RET),depth(5))
-              -->(34,eval('&self',['S','Z'],RET),depth(5))
-NDet Result(1): <span class="ansi33">
-  (â· syn 
-    ( (: g 
-        (-> String Bool)) 
-      (S Z)) 
-    (: g 
-      (-> String Bool)))
-
-</span><span class="ansi32">$Type = 
-  (-> String Bool)
-$Term = g
-
-
-</span>                    <--(8,retval([:,h,[->,'Bool','Number']]))
-          -->(35,eval('&self',['â\x8A\·',syn,[[:,h,[->,'Bool','Number']],['S','Z']],[:,h,[->,'Bool','Number']]],RET),depth(3))
-              -->(36,eval('&self',[[:,h,[->,'Bool','Number']],['S','Z']],RET),depth(5))
-                  -->(37,eval('&self',['S','Z'],RET),depth(7))
-                  -->(38,eval('&self',['S','Z'],RET),depth(7))
-              -->(39,eval('&self',[[:,h,[->,'Bool','Number']],['S','Z']],RET),depth(5))
-                  -->(40,eval('&self',['S','Z'],RET),depth(7))
-                  -->(41,eval('&self',['S','Z'],RET),depth(7))
-            -->(42,eval('&self',[[:,h,[->,'Bool','Number']],['S','Z']],RET),depth(4))
-                -->(43,eval('&self',['S','Z'],RET),depth(6))
-                -->(44,eval('&self',['S','Z'],RET),depth(6))
-          -->(45,eval('&self',[[:,h,[->,'Bool','Number']],['S','Z']],RET),depth(3))
-              -->(46,eval('&self',['S','Z'],RET),depth(5))
-              -->(47,eval('&self',['S','Z'],RET),depth(5))
-NDet Result(2): <span class="ansi33">
-  (â· syn 
-    ( (: h 
-        (-> Bool Number)) 
-      (S Z)) 
-    (: h 
-      (-> Bool Number)))
-
-</span><span class="ansi32">$Type = 
-  (-> Bool Number)
-$Term = h
-
-
-</span>                  <--(7,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(6,retval([:,h,[->,'Bool','Number']]))
-              -->(48,eval('&self',['let*',[[[:,_215456,[->,_215474,_215480,_215486]],[rules]],[[:,[_215456,_215534,_215540],_215486],[:,_1948,_1966]],[[:,_215534,_215474],[syn,[:,_215534,_215474],'Z']],[[:,_215540,_215480],[syn,[:,_215540,_215480],'Z']]],[:,_1948,_1966]],RET),depth(5))
-                  -->(49,eval('&self',[rules],RET),depth(7))
-                    -->(50,eval('&self',[:,->,[->,_217540,_217546],[->,_217564,_217540],[->,_217564,_217546]],RET),depth(8))
-                  <--(49,retval([:,->,[->,_217666,_217672],[->,_217690,_217666],[->,_217690,_217672]]))
-              <--(48,retval(fail))
-            <--(5,retval(['let*',[[[:,_215780,[->,_215798,_215804,_215810]],[rules]],[[:,[_215780,_215858,_215864],_215810],[:,_215888,_215894]],[[:,_215858,_215798],[syn,[:,_215858,_215798],'Z']],[[:,_215864,_215804],[syn,[:,_215864,_215804],'Z']]],[:,_215888,_215894]]))
-        <--(1,retval(['â\x8A\·',syn,[[:,h,[->,'Bool','Number']],['S','Z']],[:,h,[->,'Bool','Number']]]))
-      <--(0,retval(['â\x8A\·',syn,[[:,_3046,_3052],['S','Z']],[syn,[:,_3046,_3052],['S','Z']]]))
-;; (: f (-> Number String)), ..., (: (. f h) (-> Bool String)), ...
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. 
-        (. g f) h) 
-      (-> $In Bool)) 
-    (fromNumber 2)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. 
-        (. g f) h) 
-      (-> $In Bool)) 
-    (fromNumber 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',['.',g,f],h],[->,In,'Bool']],[fromNumber,2]]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',['.',g,f],h],[->,_330048,'Bool']],[fromNumber,2]]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',['.',g,f],h],[->,_330048,'Bool']],[fromNumber,2]],[syn,[:,['.',['.',g,f],h],[->,_330048,'Bool']],[fromNumber,2]]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',['.',g,f],h],[->,_330048,'Bool']],[fromNumber,2]],RET),depth(4))
-                -->(3,eval('&self',[fromNumber,2],RET),depth(6))
-                  -->(4,eval('&self',[if,[<=,2,0],'Z',['S',[fromNumber,[-,2,1]]]],RET),depth(7))
-                      -->(5,eval('&self',[<=,2,0],RET),depth(9))
-                        -->(6,eval('&self',[or,[<,2,0],[==,2,0]],RET),depth(10))
-                            -->(7,eval('&self',[<,2,0],RET),depth(12))
-                            <--(7,retval('False'))
-                            -->(8,eval('&self',[==,2,0],RET),depth(12))
-                            <--(8,retval('False'))
-                        <--(6,retval('False'))
-                      -->(9,eval('&self',['S',[fromNumber,[-,2,1]]],RET),depth(9))
-                          -->(10,eval('&self',[fromNumber,[-,2,1]],RET),depth(11))
-                            -->(11,eval('&self',[if,[<=,[-,2,1],0],'Z',['S',[fromNumber,[-,[-,2,1],1]]]],RET),depth(12))
-                                -->(12,eval('&self',[<=,[-,2,1],0],RET),depth(14))
-                                  -->(13,eval('&self',[or,[<,[-,2,1],0],[==,[-,2,1],0]],RET),depth(15))
-                                      -->(14,eval('&self',[<,[-,2,1],0],RET),depth(17))
-                                          -->(15,eval('&self',[-,2,1],RET),depth(19))
-                                          <--(15,retval(1))
-                                      <--(14,retval('False'))
-                                      -->(16,eval('&self',[==,[-,2,1],0],RET),depth(17))
-                                          -->(17,eval('&self',[-,2,1],RET),depth(19))
-                                          <--(17,retval(1))
-                                      <--(16,retval('False'))
-                                  <--(13,retval('False'))
-                                -->(18,eval('&self',['S',[fromNumber,[-,[-,2,1],1]]],RET),depth(14))
-                                    -->(19,eval('&self',[fromNumber,[-,[-,2,1],1]],RET),depth(16))
-                                      -->(20,eval('&self',[if,[<=,[-,[-,2,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,2,1],1],1]]]],RET),depth(17))
-                                          -->(21,eval('&self',[<=,[-,[-,2,1],1],0],RET),depth(19))
-                                            -->(22,eval('&self',[or,[<,[-,[-,2,1],1],0],[==,[-,[-,2,1],1],0]],RET),depth(20))
-                                                -->(23,eval('&self',[<,[-,[-,2,1],1],0],RET),depth(22))
-                                                    -->(24,eval('&self',[-,[-,2,1],1],RET),depth(24))
-                                                        -->(25,eval('&self',[-,2,1],RET),depth(26))
-                                                        <--(25,retval(1))
-                                                    <--(24,retval(0))
-                                                <--(23,retval('False'))
-                                                -->(26,eval('&self',[==,[-,[-,2,1],1],0],RET),depth(22))
-                                                    -->(27,eval('&self',[-,[-,2,1],1],RET),depth(24))
-                                                        -->(28,eval('&self',[-,2,1],RET),depth(26))
-                                                        <--(28,retval(1))
-                                  -->(29,eval('&self',['S','Z'],RET),depth(15))
-                              -->(30,eval('&self',['S','Z'],RET),depth(13))
-                        -->(31,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(32,eval('&self',['S','Z'],RET),depth(12))
-                            -->(33,eval('&self',['S','Z'],RET),depth(12))
-                          -->(34,eval('&self',['S','Z'],RET),depth(11))
-                    -->(35,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(36,eval('&self',['S','Z'],RET),depth(10))
-                        -->(37,eval('&self',['S','Z'],RET),depth(10))
-                      -->(38,eval('&self',['S','Z'],RET),depth(9))
-                    -->(39,eval('&self',['S','Z'],RET),depth(8))
-              -->(40,eval('&self',[[:,['.',['.',g,f],h],[->,_6198,'Bool']],['S',['S','Z']]],RET),depth(5))
-                  -->(41,eval('&self',['S',['S','Z']],RET),depth(7))
-                      -->(42,eval('&self',['S','Z'],RET),depth(9))
-                      -->(43,eval('&self',['S','Z'],RET),depth(9))
-                      -->(44,eval('&self',['.',['.',g,f],h],RET),depth(9))
-                          -->(45,eval('&self',['.',g,f],RET),depth(11))
-                          -->(46,eval('&self',['.',g,f],RET),depth(11))
-                          -->(47,eval('&self',['.',g,f],RET),depth(11))
-                          -->(48,eval('&self',['.',g,f],RET),depth(11))
-                  -->(49,eval('&self',['S',['S','Z']],RET),depth(7))
-                      -->(50,eval('&self',['S','Z'],RET),depth(9))
-                      -->(51,eval('&self',['S','Z'],RET),depth(9))
-                    -->(52,eval('&self',['.',['.',g,f],h],RET),depth(8))
-                        -->(53,eval('&self',['.',g,f],RET),depth(10))
-                        -->(54,eval('&self',['.',g,f],RET),depth(10))
-                        -->(55,eval('&self',['.',g,f],RET),depth(10))
-                        -->(56,eval('&self',['.',g,f],RET),depth(10))
-                -->(57,eval('&self',['S',['S','Z']],RET),depth(6))
-                    -->(58,eval('&self',['S','Z'],RET),depth(8))
-                    -->(59,eval('&self',['S','Z'],RET),depth(8))
-            -->(60,eval('&self',[syn,[:,['.',['.',g,f],h],[->,_2052,'Bool']],[fromNumber,2]],RET),depth(4))
-              -->(61,eval('&self',[let,[:,['.',['.',g,f],h],[->,_2052,'Bool']],[facts],[:,['.',['.',g,f],h],[->,_2052,'Bool']]],RET),depth(5))
-                  -->(62,eval('&self',[facts],RET),depth(7))
-                    -->(63,eval('&self',[superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]],RET),depth(8))
-                    <--(63,retval([:,h,[->,'Bool','Number']]))
-                  <--(62,retval([superpose,[[:,f,[->,'Number','String']],[:,g,[->,'String','Bool']],[:,h,[->,'Bool','Number']]]]))
-              <--(61,retval(fail))
-            <--(60,retval([let,[:,['.',['.',g,f],h],[->,_67280,'Bool']],[facts],[:,['.',['.',g,f],h],[->,_67280,'Bool']]]))
-                                                    <--(27,retval(0))
-                                                <--(26,retval('True'))
-                                            <--(22,retval('True'))
-                                          <--(21,retval([or,[<,[-,[-,2,1],1],0],[==,[-,[-,2,1],1],0]]))
-                                      <--(20,retval('Z'))
-                                    <--(19,retval([if,[<=,[-,[-,2,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,2,1],1],1]]]]))
-                                <--(18,retval(['S','Z']))
-                                <--(12,retval([or,[<,[-,2,1],0],[==,[-,2,1],0]]))
-                            <--(11,retval(['S','Z']))
-                          <--(10,retval([if,[<=,[-,2,1],0],'Z',['S',[fromNumber,[-,[-,2,1],1]]]]))
-                      <--(9,retval(['S',['S','Z']]))
-                      <--(5,retval([or,[<,2,0],[==,2,0]]))
-                  <--(4,retval(['S',['S','Z']]))
-                <--(3,retval([if,[<=,2,0],'Z',['S',[fromNumber,[-,2,1]]]]))
-            <--(2,retval([[:,['.',['.',g,f],h],[->,_6438,'Bool']],['S',['S','Z']]]))
-        <--(1,retval(fail))
-      <--(0,retval(['â\x8A\·',syn,[[:,['.',['.',g,f],h],[->,_3230,'Bool']],[fromNumber,2]],[syn,[:,['.',['.',g,f],h],[->,_3230,'Bool']],[fromNumber,2]]]))
-;; (: (. (. g f) h) (-> Bool Bool))
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. $G h) 
-      (-> $In String)) 
-    (fromNumber 3)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. $G h) 
-      (-> $In String)) 
-    (fromNumber 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',G,h],[->,In,'String']],[fromNumber,3]]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',_473912,h],[->,_474220,'String']],[fromNumber,3]]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',_473912,h],[->,_474220,'String']],[fromNumber,3]],[syn,[:,['.',_473912,h],[->,_474220,'String']],[fromNumber,3]]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',_473912,h],[->,_474220,'String']],[fromNumber,3]],RET),depth(4))
-                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
-                  -->(4,eval('&self',[if,[<=,3,0],'Z',['S',[fromNumber,[-,3,1]]]],RET),depth(7))
-                      -->(5,eval('&self',[<=,3,0],RET),depth(9))
-                        -->(6,eval('&self',[or,[<,3,0],[==,3,0]],RET),depth(10))
-                            -->(7,eval('&self',[<,3,0],RET),depth(12))
-                            <--(7,retval('False'))
-                            -->(8,eval('&self',[==,3,0],RET),depth(12))
-                            <--(8,retval('False'))
-                        <--(6,retval('False'))
-                      -->(9,eval('&self',['S',[fromNumber,[-,3,1]]],RET),depth(9))
-                          -->(10,eval('&self',[fromNumber,[-,3,1]],RET),depth(11))
-                            -->(11,eval('&self',[if,[<=,[-,3,1],0],'Z',['S',[fromNumber,[-,[-,3,1],1]]]],RET),depth(12))
-                                -->(12,eval('&self',[<=,[-,3,1],0],RET),depth(14))
-                                  -->(13,eval('&self',[or,[<,[-,3,1],0],[==,[-,3,1],0]],RET),depth(15))
-                                      -->(14,eval('&self',[<,[-,3,1],0],RET),depth(17))
-                                          -->(15,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(15,retval(2))
-                                      <--(14,retval('False'))
-                                      -->(16,eval('&self',[==,[-,3,1],0],RET),depth(17))
-                                          -->(17,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(17,retval(2))
-                                      <--(16,retval('False'))
-                                  <--(13,retval('False'))
-                                -->(18,eval('&self',['S',[fromNumber,[-,[-,3,1],1]]],RET),depth(14))
-                                    -->(19,eval('&self',[fromNumber,[-,[-,3,1],1]],RET),depth(16))
-                                      -->(20,eval('&self',[if,[<=,[-,[-,3,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,3,1],1],1]]]],RET),depth(17))
-                                          -->(21,eval('&self',[<=,[-,[-,3,1],1],0],RET),depth(19))
-                                            -->(22,eval('&self',[or,[<,[-,[-,3,1],1],0],[==,[-,[-,3,1],1],0]],RET),depth(20))
-                                                -->(23,eval('&self',[<,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(24,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(25,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(25,retval(2))
-                                                    <--(24,retval(1))
-                                                <--(23,retval('False'))
-                                                -->(26,eval('&self',[==,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(27,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(28,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(28,retval(2))
-                                                    <--(27,retval(1))
-                                                <--(26,retval('False'))
-                                            <--(22,retval('False'))
-                                          -->(29,eval('&self',['S',[fromNumber,[-,[-,[-,3,1],1],1]]],RET),depth(19))
-                                              -->(30,eval('&self',[fromNumber,[-,[-,[-,3,1],1],1]],RET),depth(21))
-                                                -->(31,eval('&self',[if,[<=,[-,[-,[-,3,1],1],1],0],'Z',['S',[fromNumber,[-,[-,[-,[-,3,1],1],1],1]]]],RET),depth(22))
-                                                    -->(32,eval('&self',[<=,[-,[-,[-,3,1],1],1],0],RET),depth(24))
-                                                      -->(33,eval('&self',[or,[<,[-,[-,[-,3,1],1],1],0],[==,[-,[-,[-,3,1],1],1],0]],RET),depth(25))
-                                                          -->(34,eval('&self',[<,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(35,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(36,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(37,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(37,retval(2))
-                                                                  <--(36,retval(1))
-                                                              <--(35,retval(0))
-                                                          <--(34,retval('False'))
-                                                          -->(38,eval('&self',[==,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(39,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(40,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(41,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(41,retval(2))
-                                            -->(42,eval('&self',['S','Z'],RET),depth(20))
-                                        -->(43,eval('&self',['S','Z'],RET),depth(18))
-                                  -->(44,eval('&self',['S',['S','Z']],RET),depth(15))
-                                      -->(45,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(46,eval('&self',['S','Z'],RET),depth(17))
-                                    -->(47,eval('&self',['S','Z'],RET),depth(16))
-                              -->(48,eval('&self',['S',['S','Z']],RET),depth(13))
-                                  -->(49,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(50,eval('&self',['S','Z'],RET),depth(15))
-                                -->(51,eval('&self',['S','Z'],RET),depth(14))
-                              -->(52,eval('&self',['S','Z'],RET),depth(13))
-                        -->(53,eval('&self',['S',['S',['S','Z']]],RET),depth(10))
-                            -->(54,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(55,eval('&self',['S','Z'],RET),depth(14))
-                                -->(56,eval('&self',['S','Z'],RET),depth(14))
-                            -->(57,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(58,eval('&self',['S','Z'],RET),depth(14))
-                                -->(59,eval('&self',['S','Z'],RET),depth(14))
-                          -->(60,eval('&self',['S',['S','Z']],RET),depth(11))
-                              -->(61,eval('&self',['S','Z'],RET),depth(13))
-                              -->(62,eval('&self',['S','Z'],RET),depth(13))
-                    -->(63,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(64,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(65,eval('&self',['S','Z'],RET),depth(12))
-                            -->(66,eval('&self',['S','Z'],RET),depth(12))
-                        -->(67,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(68,eval('&self',['S','Z'],RET),depth(12))
-                            -->(69,eval('&self',['S','Z'],RET),depth(12))
-                      -->(70,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(71,eval('&self',['S','Z'],RET),depth(11))
-                          -->(72,eval('&self',['S','Z'],RET),depth(11))
-                    -->(73,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(74,eval('&self',['S','Z'],RET),depth(10))
-                        -->(75,eval('&self',['S','Z'],RET),depth(10))
-              -->(76,eval('&self',[[:,['.',_1996,h],[->,_2032,'String']],['S',['S',['S','Z']]]],RET),depth(5))
-                  -->(77,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(78,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(79,eval('&self',['S','Z'],RET),depth(11))
-                          -->(80,eval('&self',['S','Z'],RET),depth(11))
-                      -->(81,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(82,eval('&self',['S','Z'],RET),depth(11))
-                          -->(83,eval('&self',['S','Z'],RET),depth(11))
-                      -->(84,eval('&self',['.',_1996,h],RET),depth(9))
-                  -->(85,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(86,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(87,eval('&self',['S','Z'],RET),depth(11))
-                          -->(88,eval('&self',['S','Z'],RET),depth(11))
-                      -->(89,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(90,eval('&self',['S','Z'],RET),depth(11))
-                          -->(91,eval('&self',['S','Z'],RET),depth(11))
-                    -->(92,eval('&self',['.',_1996,h],RET),depth(8))
-                -->(93,eval('&self',['S',['S',['S','Z']]],RET),depth(6))
-                    -->(94,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(95,eval('&self',['S','Z'],RET),depth(10))
-                        -->(96,eval('&self',['S','Z'],RET),depth(10))
-                    -->(97,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(98,eval('&self',['S','Z'],RET),depth(10))
-                        -->(99,eval('&self',['S','Z'],RET),depth(10))
-            -->(100,eval('&self',[syn,[:,['.',_1996,h],[->,_2032,'String']],[fromNumber,3]],RET),depth(4))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
-;; (: (. f h) (-> Bool String)), (: (. (. (. f h) (. g f)) h) (-> Bool String))
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. $G h) 
-      (-> Number $Out)) 
-    (fromNumber 3)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. $G h) 
-      (-> Number $Out)) 
-    (fromNumber 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',G,h],[->,'Number',Out]],[fromNumber,3]]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',_339072,h],[->,'Number',_339388]],[fromNumber,3]]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',_339072,h],[->,'Number',_339388]],[fromNumber,3]],[syn,[:,['.',_339072,h],[->,'Number',_339388]],[fromNumber,3]]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',_339072,h],[->,'Number',_339388]],[fromNumber,3]],RET),depth(4))
-                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
-                  -->(4,eval('&self',[if,[<=,3,0],'Z',['S',[fromNumber,[-,3,1]]]],RET),depth(7))
-                      -->(5,eval('&self',[<=,3,0],RET),depth(9))
-                        -->(6,eval('&self',[or,[<,3,0],[==,3,0]],RET),depth(10))
-                            -->(7,eval('&self',[<,3,0],RET),depth(12))
-                            <--(7,retval('False'))
-                            -->(8,eval('&self',[==,3,0],RET),depth(12))
-                            <--(8,retval('False'))
-                        <--(6,retval('False'))
-                      -->(9,eval('&self',['S',[fromNumber,[-,3,1]]],RET),depth(9))
-                          -->(10,eval('&self',[fromNumber,[-,3,1]],RET),depth(11))
-                            -->(11,eval('&self',[if,[<=,[-,3,1],0],'Z',['S',[fromNumber,[-,[-,3,1],1]]]],RET),depth(12))
-                                -->(12,eval('&self',[<=,[-,3,1],0],RET),depth(14))
-                                  -->(13,eval('&self',[or,[<,[-,3,1],0],[==,[-,3,1],0]],RET),depth(15))
-                                      -->(14,eval('&self',[<,[-,3,1],0],RET),depth(17))
-                                          -->(15,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(15,retval(2))
-                                      <--(14,retval('False'))
-                                      -->(16,eval('&self',[==,[-,3,1],0],RET),depth(17))
-                                          -->(17,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(17,retval(2))
-                                      <--(16,retval('False'))
-                                  <--(13,retval('False'))
-                                -->(18,eval('&self',['S',[fromNumber,[-,[-,3,1],1]]],RET),depth(14))
-                                    -->(19,eval('&self',[fromNumber,[-,[-,3,1],1]],RET),depth(16))
-                                      -->(20,eval('&self',[if,[<=,[-,[-,3,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,3,1],1],1]]]],RET),depth(17))
-                                          -->(21,eval('&self',[<=,[-,[-,3,1],1],0],RET),depth(19))
-                                            -->(22,eval('&self',[or,[<,[-,[-,3,1],1],0],[==,[-,[-,3,1],1],0]],RET),depth(20))
-                                                -->(23,eval('&self',[<,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(24,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(25,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(25,retval(2))
-                                                    <--(24,retval(1))
-                                                <--(23,retval('False'))
-                                                -->(26,eval('&self',[==,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(27,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(28,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(28,retval(2))
-                                                    <--(27,retval(1))
-                                                <--(26,retval('False'))
-                                            <--(22,retval('False'))
-                                          -->(29,eval('&self',['S',[fromNumber,[-,[-,[-,3,1],1],1]]],RET),depth(19))
-                                              -->(30,eval('&self',[fromNumber,[-,[-,[-,3,1],1],1]],RET),depth(21))
-                                                -->(31,eval('&self',[if,[<=,[-,[-,[-,3,1],1],1],0],'Z',['S',[fromNumber,[-,[-,[-,[-,3,1],1],1],1]]]],RET),depth(22))
-                                                    -->(32,eval('&self',[<=,[-,[-,[-,3,1],1],1],0],RET),depth(24))
-                                                      -->(33,eval('&self',[or,[<,[-,[-,[-,3,1],1],1],0],[==,[-,[-,[-,3,1],1],1],0]],RET),depth(25))
-                                                          -->(34,eval('&self',[<,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(35,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(36,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(37,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(37,retval(2))
-                                                                  <--(36,retval(1))
-                                                              <--(35,retval(0))
-                                                          <--(34,retval('False'))
-                                                          -->(38,eval('&self',[==,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(39,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(40,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(41,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(41,retval(2))
-                                            -->(42,eval('&self',['S','Z'],RET),depth(20))
-                                        -->(43,eval('&self',['S','Z'],RET),depth(18))
-                                  -->(44,eval('&self',['S',['S','Z']],RET),depth(15))
-                                      -->(45,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(46,eval('&self',['S','Z'],RET),depth(17))
-                                    -->(47,eval('&self',['S','Z'],RET),depth(16))
-                              -->(48,eval('&self',['S',['S','Z']],RET),depth(13))
-                                  -->(49,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(50,eval('&self',['S','Z'],RET),depth(15))
-                                -->(51,eval('&self',['S','Z'],RET),depth(14))
-                              -->(52,eval('&self',['S','Z'],RET),depth(13))
-                        -->(53,eval('&self',['S',['S',['S','Z']]],RET),depth(10))
-                            -->(54,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(55,eval('&self',['S','Z'],RET),depth(14))
-                                -->(56,eval('&self',['S','Z'],RET),depth(14))
-                            -->(57,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(58,eval('&self',['S','Z'],RET),depth(14))
-                                -->(59,eval('&self',['S','Z'],RET),depth(14))
-                          -->(60,eval('&self',['S',['S','Z']],RET),depth(11))
-                              -->(61,eval('&self',['S','Z'],RET),depth(13))
-                              -->(62,eval('&self',['S','Z'],RET),depth(13))
-                    -->(63,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(64,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(65,eval('&self',['S','Z'],RET),depth(12))
-                            -->(66,eval('&self',['S','Z'],RET),depth(12))
-                        -->(67,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(68,eval('&self',['S','Z'],RET),depth(12))
-                            -->(69,eval('&self',['S','Z'],RET),depth(12))
-                      -->(70,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(71,eval('&self',['S','Z'],RET),depth(11))
-                          -->(72,eval('&self',['S','Z'],RET),depth(11))
-                    -->(73,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(74,eval('&self',['S','Z'],RET),depth(10))
-                        -->(75,eval('&self',['S','Z'],RET),depth(10))
-              -->(76,eval('&self',[[:,['.',_1996,h],[->,'Number',_2038]],['S',['S',['S','Z']]]],RET),depth(5))
-                  -->(77,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(78,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(79,eval('&self',['S','Z'],RET),depth(11))
-                          -->(80,eval('&self',['S','Z'],RET),depth(11))
-                      -->(81,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(82,eval('&self',['S','Z'],RET),depth(11))
-                          -->(83,eval('&self',['S','Z'],RET),depth(11))
-                      -->(84,eval('&self',['.',_1996,h],RET),depth(9))
-                  -->(85,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(86,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(87,eval('&self',['S','Z'],RET),depth(11))
-                          -->(88,eval('&self',['S','Z'],RET),depth(11))
-                      -->(89,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(90,eval('&self',['S','Z'],RET),depth(11))
-                          -->(91,eval('&self',['S','Z'],RET),depth(11))
-                    -->(92,eval('&self',['.',_1996,h],RET),depth(8))
-                -->(93,eval('&self',['S',['S',['S','Z']]],RET),depth(6))
-                    -->(94,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(95,eval('&self',['S','Z'],RET),depth(10))
-                        -->(96,eval('&self',['S','Z'],RET),depth(10))
-                    -->(97,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(98,eval('&self',['S','Z'],RET),depth(10))
-                        -->(99,eval('&self',['S','Z'],RET),depth(10))
-            -->(100,eval('&self',[syn,[:,['.',_1996,h],[->,'Number',_2038]],[fromNumber,3]],RET),depth(4))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
-;; No answer
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. g $F) 
-      (-> $In String)) 
-    (fromNumber 3)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. g $F) 
-      (-> $In String)) 
-    (fromNumber 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,F],[->,In,'String']],[fromNumber,3]]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,_205702],[->,_206002,'String']],[fromNumber,3]]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',g,_205702],[->,_206002,'String']],[fromNumber,3]],[syn,[:,['.',g,_205702],[->,_206002,'String']],[fromNumber,3]]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',g,_205702],[->,_206002,'String']],[fromNumber,3]],RET),depth(4))
-                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
-                  -->(4,eval('&self',[if,[<=,3,0],'Z',['S',[fromNumber,[-,3,1]]]],RET),depth(7))
-                      -->(5,eval('&self',[<=,3,0],RET),depth(9))
-                        -->(6,eval('&self',[or,[<,3,0],[==,3,0]],RET),depth(10))
-                            -->(7,eval('&self',[<,3,0],RET),depth(12))
-                            <--(7,retval('False'))
-                            -->(8,eval('&self',[==,3,0],RET),depth(12))
-                            <--(8,retval('False'))
-                        <--(6,retval('False'))
-                      -->(9,eval('&self',['S',[fromNumber,[-,3,1]]],RET),depth(9))
-                          -->(10,eval('&self',[fromNumber,[-,3,1]],RET),depth(11))
-                            -->(11,eval('&self',[if,[<=,[-,3,1],0],'Z',['S',[fromNumber,[-,[-,3,1],1]]]],RET),depth(12))
-                                -->(12,eval('&self',[<=,[-,3,1],0],RET),depth(14))
-                                  -->(13,eval('&self',[or,[<,[-,3,1],0],[==,[-,3,1],0]],RET),depth(15))
-                                      -->(14,eval('&self',[<,[-,3,1],0],RET),depth(17))
-                                          -->(15,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(15,retval(2))
-                                      <--(14,retval('False'))
-                                      -->(16,eval('&self',[==,[-,3,1],0],RET),depth(17))
-                                          -->(17,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(17,retval(2))
-                                      <--(16,retval('False'))
-                                  <--(13,retval('False'))
-                                -->(18,eval('&self',['S',[fromNumber,[-,[-,3,1],1]]],RET),depth(14))
-                                    -->(19,eval('&self',[fromNumber,[-,[-,3,1],1]],RET),depth(16))
-                                      -->(20,eval('&self',[if,[<=,[-,[-,3,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,3,1],1],1]]]],RET),depth(17))
-                                          -->(21,eval('&self',[<=,[-,[-,3,1],1],0],RET),depth(19))
-                                            -->(22,eval('&self',[or,[<,[-,[-,3,1],1],0],[==,[-,[-,3,1],1],0]],RET),depth(20))
-                                                -->(23,eval('&self',[<,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(24,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(25,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(25,retval(2))
-                                                    <--(24,retval(1))
-                                                <--(23,retval('False'))
-                                                -->(26,eval('&self',[==,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(27,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(28,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(28,retval(2))
-                                                    <--(27,retval(1))
-                                                <--(26,retval('False'))
-                                            <--(22,retval('False'))
-                                          -->(29,eval('&self',['S',[fromNumber,[-,[-,[-,3,1],1],1]]],RET),depth(19))
-                                              -->(30,eval('&self',[fromNumber,[-,[-,[-,3,1],1],1]],RET),depth(21))
-                                                -->(31,eval('&self',[if,[<=,[-,[-,[-,3,1],1],1],0],'Z',['S',[fromNumber,[-,[-,[-,[-,3,1],1],1],1]]]],RET),depth(22))
-                                                    -->(32,eval('&self',[<=,[-,[-,[-,3,1],1],1],0],RET),depth(24))
-                                                      -->(33,eval('&self',[or,[<,[-,[-,[-,3,1],1],1],0],[==,[-,[-,[-,3,1],1],1],0]],RET),depth(25))
-                                                          -->(34,eval('&self',[<,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(35,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(36,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(37,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(37,retval(2))
-                                                                  <--(36,retval(1))
-                                                              <--(35,retval(0))
-                                                          <--(34,retval('False'))
-                                                          -->(38,eval('&self',[==,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(39,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(40,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(41,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(41,retval(2))
-                                            -->(42,eval('&self',['S','Z'],RET),depth(20))
-                                        -->(43,eval('&self',['S','Z'],RET),depth(18))
-                                  -->(44,eval('&self',['S',['S','Z']],RET),depth(15))
-                                      -->(45,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(46,eval('&self',['S','Z'],RET),depth(17))
-                                    -->(47,eval('&self',['S','Z'],RET),depth(16))
-                              -->(48,eval('&self',['S',['S','Z']],RET),depth(13))
-                                  -->(49,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(50,eval('&self',['S','Z'],RET),depth(15))
-                                -->(51,eval('&self',['S','Z'],RET),depth(14))
-                              -->(52,eval('&self',['S','Z'],RET),depth(13))
-                        -->(53,eval('&self',['S',['S',['S','Z']]],RET),depth(10))
-                            -->(54,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(55,eval('&self',['S','Z'],RET),depth(14))
-                                -->(56,eval('&self',['S','Z'],RET),depth(14))
-                            -->(57,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(58,eval('&self',['S','Z'],RET),depth(14))
-                                -->(59,eval('&self',['S','Z'],RET),depth(14))
-                          -->(60,eval('&self',['S',['S','Z']],RET),depth(11))
-                              -->(61,eval('&self',['S','Z'],RET),depth(13))
-                              -->(62,eval('&self',['S','Z'],RET),depth(13))
-                    -->(63,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(64,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(65,eval('&self',['S','Z'],RET),depth(12))
-                            -->(66,eval('&self',['S','Z'],RET),depth(12))
-                        -->(67,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(68,eval('&self',['S','Z'],RET),depth(12))
-                            -->(69,eval('&self',['S','Z'],RET),depth(12))
-                      -->(70,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(71,eval('&self',['S','Z'],RET),depth(11))
-                          -->(72,eval('&self',['S','Z'],RET),depth(11))
-                    -->(73,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(74,eval('&self',['S','Z'],RET),depth(10))
-                        -->(75,eval('&self',['S','Z'],RET),depth(10))
-              -->(76,eval('&self',[[:,['.',g,_2002],[->,_2032,'String']],['S',['S',['S','Z']]]],RET),depth(5))
-                  -->(77,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(78,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(79,eval('&self',['S','Z'],RET),depth(11))
-                          -->(80,eval('&self',['S','Z'],RET),depth(11))
-                      -->(81,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(82,eval('&self',['S','Z'],RET),depth(11))
-                          -->(83,eval('&self',['S','Z'],RET),depth(11))
-                      -->(84,eval('&self',['.',g,_2002],RET),depth(9))
-                  -->(85,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(86,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(87,eval('&self',['S','Z'],RET),depth(11))
-                          -->(88,eval('&self',['S','Z'],RET),depth(11))
-                      -->(89,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(90,eval('&self',['S','Z'],RET),depth(11))
-                          -->(91,eval('&self',['S','Z'],RET),depth(11))
-                    -->(92,eval('&self',['.',g,_2002],RET),depth(8))
-                -->(93,eval('&self',['S',['S',['S','Z']]],RET),depth(6))
-                    -->(94,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(95,eval('&self',['S','Z'],RET),depth(10))
-                        -->(96,eval('&self',['S','Z'],RET),depth(10))
-                    -->(97,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(98,eval('&self',['S','Z'],RET),depth(10))
-                        -->(99,eval('&self',['S','Z'],RET),depth(10))
-            -->(100,eval('&self',[syn,[:,['.',g,_2002],[->,_2032,'String']],[fromNumber,3]],RET),depth(4))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
-;; No answer
-<span class="ansi38-013099040">!(record syn 
-  ( (: 
-      (. g $F) 
-      (-> $In Bool)) 
-    (fromNumber 3)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: 
-      (. g $F) 
-      (-> $In Bool)) 
-    (fromNumber 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,F],[->,In,'Bool']],[fromNumber,3]]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,_72840],[->,_73140,'Bool']],[fromNumber,3]]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,['.',g,_72840],[->,_73140,'Bool']],[fromNumber,3]],[syn,[:,['.',g,_72840],[->,_73140,'Bool']],[fromNumber,3]]],RET),depth(2))
-            -->(2,eval('&self',[[:,['.',g,_72840],[->,_73140,'Bool']],[fromNumber,3]],RET),depth(4))
-                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
-                  -->(4,eval('&self',[if,[<=,3,0],'Z',['S',[fromNumber,[-,3,1]]]],RET),depth(7))
-                      -->(5,eval('&self',[<=,3,0],RET),depth(9))
-                        -->(6,eval('&self',[or,[<,3,0],[==,3,0]],RET),depth(10))
-                            -->(7,eval('&self',[<,3,0],RET),depth(12))
-                            <--(7,retval('False'))
-                            -->(8,eval('&self',[==,3,0],RET),depth(12))
-                            <--(8,retval('False'))
-                        <--(6,retval('False'))
-                      -->(9,eval('&self',['S',[fromNumber,[-,3,1]]],RET),depth(9))
-                          -->(10,eval('&self',[fromNumber,[-,3,1]],RET),depth(11))
-                            -->(11,eval('&self',[if,[<=,[-,3,1],0],'Z',['S',[fromNumber,[-,[-,3,1],1]]]],RET),depth(12))
-                                -->(12,eval('&self',[<=,[-,3,1],0],RET),depth(14))
-                                  -->(13,eval('&self',[or,[<,[-,3,1],0],[==,[-,3,1],0]],RET),depth(15))
-                                      -->(14,eval('&self',[<,[-,3,1],0],RET),depth(17))
-                                          -->(15,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(15,retval(2))
-                                      <--(14,retval('False'))
-                                      -->(16,eval('&self',[==,[-,3,1],0],RET),depth(17))
-                                          -->(17,eval('&self',[-,3,1],RET),depth(19))
-                                          <--(17,retval(2))
-                                      <--(16,retval('False'))
-                                  <--(13,retval('False'))
-                                -->(18,eval('&self',['S',[fromNumber,[-,[-,3,1],1]]],RET),depth(14))
-                                    -->(19,eval('&self',[fromNumber,[-,[-,3,1],1]],RET),depth(16))
-                                      -->(20,eval('&self',[if,[<=,[-,[-,3,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,3,1],1],1]]]],RET),depth(17))
-                                          -->(21,eval('&self',[<=,[-,[-,3,1],1],0],RET),depth(19))
-                                            -->(22,eval('&self',[or,[<,[-,[-,3,1],1],0],[==,[-,[-,3,1],1],0]],RET),depth(20))
-                                                -->(23,eval('&self',[<,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(24,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(25,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(25,retval(2))
-                                                    <--(24,retval(1))
-                                                <--(23,retval('False'))
-                                                -->(26,eval('&self',[==,[-,[-,3,1],1],0],RET),depth(22))
-                                                    -->(27,eval('&self',[-,[-,3,1],1],RET),depth(24))
-                                                        -->(28,eval('&self',[-,3,1],RET),depth(26))
-                                                        <--(28,retval(2))
-                                                    <--(27,retval(1))
-                                                <--(26,retval('False'))
-                                            <--(22,retval('False'))
-                                          -->(29,eval('&self',['S',[fromNumber,[-,[-,[-,3,1],1],1]]],RET),depth(19))
-                                              -->(30,eval('&self',[fromNumber,[-,[-,[-,3,1],1],1]],RET),depth(21))
-                                                -->(31,eval('&self',[if,[<=,[-,[-,[-,3,1],1],1],0],'Z',['S',[fromNumber,[-,[-,[-,[-,3,1],1],1],1]]]],RET),depth(22))
-                                                    -->(32,eval('&self',[<=,[-,[-,[-,3,1],1],1],0],RET),depth(24))
-                                                      -->(33,eval('&self',[or,[<,[-,[-,[-,3,1],1],1],0],[==,[-,[-,[-,3,1],1],1],0]],RET),depth(25))
-                                                          -->(34,eval('&self',[<,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(35,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(36,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(37,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(37,retval(2))
-                                                                  <--(36,retval(1))
-                                                              <--(35,retval(0))
-                                                          <--(34,retval('False'))
-                                                          -->(38,eval('&self',[==,[-,[-,[-,3,1],1],1],0],RET),depth(27))
-                                                              -->(39,eval('&self',[-,[-,[-,3,1],1],1],RET),depth(29))
-                                                                  -->(40,eval('&self',[-,[-,3,1],1],RET),depth(31))
-                                                                      -->(41,eval('&self',[-,3,1],RET),depth(33))
-                                                                      <--(41,retval(2))
-                                            -->(42,eval('&self',['S','Z'],RET),depth(20))
-                                        -->(43,eval('&self',['S','Z'],RET),depth(18))
-                                  -->(44,eval('&self',['S',['S','Z']],RET),depth(15))
-                                      -->(45,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(46,eval('&self',['S','Z'],RET),depth(17))
-                                    -->(47,eval('&self',['S','Z'],RET),depth(16))
-                              -->(48,eval('&self',['S',['S','Z']],RET),depth(13))
-                                  -->(49,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(50,eval('&self',['S','Z'],RET),depth(15))
-                                -->(51,eval('&self',['S','Z'],RET),depth(14))
-                              -->(52,eval('&self',['S','Z'],RET),depth(13))
-                        -->(53,eval('&self',['S',['S',['S','Z']]],RET),depth(10))
-                            -->(54,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(55,eval('&self',['S','Z'],RET),depth(14))
-                                -->(56,eval('&self',['S','Z'],RET),depth(14))
-                            -->(57,eval('&self',['S',['S','Z']],RET),depth(12))
-                                -->(58,eval('&self',['S','Z'],RET),depth(14))
-                                -->(59,eval('&self',['S','Z'],RET),depth(14))
-                          -->(60,eval('&self',['S',['S','Z']],RET),depth(11))
-                              -->(61,eval('&self',['S','Z'],RET),depth(13))
-                              -->(62,eval('&self',['S','Z'],RET),depth(13))
-                    -->(63,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(64,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(65,eval('&self',['S','Z'],RET),depth(12))
-                            -->(66,eval('&self',['S','Z'],RET),depth(12))
-                        -->(67,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(68,eval('&self',['S','Z'],RET),depth(12))
-                            -->(69,eval('&self',['S','Z'],RET),depth(12))
-                      -->(70,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(71,eval('&self',['S','Z'],RET),depth(11))
-                          -->(72,eval('&self',['S','Z'],RET),depth(11))
-                    -->(73,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(74,eval('&self',['S','Z'],RET),depth(10))
-                        -->(75,eval('&self',['S','Z'],RET),depth(10))
-              -->(76,eval('&self',[[:,['.',g,_2002],[->,_2032,'Bool']],['S',['S',['S','Z']]]],RET),depth(5))
-                  -->(77,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(78,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(79,eval('&self',['S','Z'],RET),depth(11))
-                          -->(80,eval('&self',['S','Z'],RET),depth(11))
-                      -->(81,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(82,eval('&self',['S','Z'],RET),depth(11))
-                          -->(83,eval('&self',['S','Z'],RET),depth(11))
-                      -->(84,eval('&self',['.',g,_2002],RET),depth(9))
-                  -->(85,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(86,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(87,eval('&self',['S','Z'],RET),depth(11))
-                          -->(88,eval('&self',['S','Z'],RET),depth(11))
-                      -->(89,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(90,eval('&self',['S','Z'],RET),depth(11))
-                          -->(91,eval('&self',['S','Z'],RET),depth(11))
-                    -->(92,eval('&self',['.',g,_2002],RET),depth(8))
-                -->(93,eval('&self',['S',['S',['S','Z']]],RET),depth(6))
-                    -->(94,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(95,eval('&self',['S','Z'],RET),depth(10))
-                        -->(96,eval('&self',['S','Z'],RET),depth(10))
-                    -->(97,eval('&self',['S',['S','Z']],RET),depth(8))
-                        -->(98,eval('&self',['S','Z'],RET),depth(10))
-                        -->(99,eval('&self',['S','Z'],RET),depth(10))
-            -->(100,eval('&self',[syn,[:,['.',g,_2002],[->,_2032,'Bool']],[fromNumber,3]],RET),depth(4))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
-;; (: (. g f) (-> Number Bool)), (: (. g (. f h)) (-> Bool Bool)), (: (. g (. f (. h g))) (-> String Bool)), (: (. g (. (. f h) g)) (-> String Bool)), (. g (. (. f h) (. g f))) (-> Number Bool))
-<span class="ansi38-013099040">!(record syn 
-  ( (: $Term $Type) 
-    (fromNumber 4)))
-
-</span><span class="ansi38-250144246">; !(record syn 
-  ( (: $Term $Type) 
-    (fromNumber 4)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,Type],[fromNumber,4]]],OUT).
-
-</span>      -->(0,eval('&self',[record,syn,[[:,_448284,_448586],[fromNumber,4]]],RET),depth(1))
-        -->(1,eval('&self',['â\x8A\·',syn,[[:,_448284,_448586],[fromNumber,4]],[syn,[:,_448284,_448586],[fromNumber,4]]],RET),depth(2))
-            -->(2,eval('&self',[[:,_448284,_448586],[fromNumber,4]],RET),depth(4))
-                -->(3,eval('&self',[fromNumber,4],RET),depth(6))
-                  -->(4,eval('&self',[if,[<=,4,0],'Z',['S',[fromNumber,[-,4,1]]]],RET),depth(7))
-                      -->(5,eval('&self',[<=,4,0],RET),depth(9))
-                        -->(6,eval('&self',[or,[<,4,0],[==,4,0]],RET),depth(10))
-                            -->(7,eval('&self',[<,4,0],RET),depth(12))
-                            <--(7,retval('False'))
-                            -->(8,eval('&self',[==,4,0],RET),depth(12))
-                            <--(8,retval('False'))
-                        <--(6,retval('False'))
-                      -->(9,eval('&self',['S',[fromNumber,[-,4,1]]],RET),depth(9))
-                          -->(10,eval('&self',[fromNumber,[-,4,1]],RET),depth(11))
-                            -->(11,eval('&self',[if,[<=,[-,4,1],0],'Z',['S',[fromNumber,[-,[-,4,1],1]]]],RET),depth(12))
-                                -->(12,eval('&self',[<=,[-,4,1],0],RET),depth(14))
-                                  -->(13,eval('&self',[or,[<,[-,4,1],0],[==,[-,4,1],0]],RET),depth(15))
-                                      -->(14,eval('&self',[<,[-,4,1],0],RET),depth(17))
-                                          -->(15,eval('&self',[-,4,1],RET),depth(19))
-                                          <--(15,retval(3))
-                                      <--(14,retval('False'))
-                                      -->(16,eval('&self',[==,[-,4,1],0],RET),depth(17))
-                                          -->(17,eval('&self',[-,4,1],RET),depth(19))
-                                          <--(17,retval(3))
-                                      <--(16,retval('False'))
-                                  <--(13,retval('False'))
-                                -->(18,eval('&self',['S',[fromNumber,[-,[-,4,1],1]]],RET),depth(14))
-                                    -->(19,eval('&self',[fromNumber,[-,[-,4,1],1]],RET),depth(16))
-                                      -->(20,eval('&self',[if,[<=,[-,[-,4,1],1],0],'Z',['S',[fromNumber,[-,[-,[-,4,1],1],1]]]],RET),depth(17))
-                                          -->(21,eval('&self',[<=,[-,[-,4,1],1],0],RET),depth(19))
-                                            -->(22,eval('&self',[or,[<,[-,[-,4,1],1],0],[==,[-,[-,4,1],1],0]],RET),depth(20))
-                                                -->(23,eval('&self',[<,[-,[-,4,1],1],0],RET),depth(22))
-                                                    -->(24,eval('&self',[-,[-,4,1],1],RET),depth(24))
-                                                        -->(25,eval('&self',[-,4,1],RET),depth(26))
-                                                        <--(25,retval(3))
-                                                    <--(24,retval(2))
-                                                <--(23,retval('False'))
-                                                -->(26,eval('&self',[==,[-,[-,4,1],1],0],RET),depth(22))
-                                                    -->(27,eval('&self',[-,[-,4,1],1],RET),depth(24))
-                                                        -->(28,eval('&self',[-,4,1],RET),depth(26))
-                                                        <--(28,retval(3))
-                                                    <--(27,retval(2))
-                                                <--(26,retval('False'))
-                                            <--(22,retval('False'))
-                                          -->(29,eval('&self',['S',[fromNumber,[-,[-,[-,4,1],1],1]]],RET),depth(19))
-                                              -->(30,eval('&self',[fromNumber,[-,[-,[-,4,1],1],1]],RET),depth(21))
-                                                -->(31,eval('&self',[if,[<=,[-,[-,[-,4,1],1],1],0],'Z',['S',[fromNumber,[-,[-,[-,[-,4,1],1],1],1]]]],RET),depth(22))
-                                                    -->(32,eval('&self',[<=,[-,[-,[-,4,1],1],1],0],RET),depth(24))
-                                                      -->(33,eval('&self',[or,[<,[-,[-,[-,4,1],1],1],0],[==,[-,[-,[-,4,1],1],1],0]],RET),depth(25))
-                                                          -->(34,eval('&self',[<,[-,[-,[-,4,1],1],1],0],RET),depth(27))
-                                                              -->(35,eval('&self',[-,[-,[-,4,1],1],1],RET),depth(29))
-                                                                  -->(36,eval('&self',[-,[-,4,1],1],RET),depth(31))
-                                                                      -->(37,eval('&self',[-,4,1],RET),depth(33))
-                                                                      <--(37,retval(3))
-                                                                  <--(36,retval(2))
-                                                              <--(35,retval(1))
-                                                          <--(34,retval('False'))
-                                                          -->(38,eval('&self',[==,[-,[-,[-,4,1],1],1],0],RET),depth(27))
-                                                              -->(39,eval('&self',[-,[-,[-,4,1],1],1],RET),depth(29))
-                                                                  -->(40,eval('&self',[-,[-,4,1],1],RET),depth(31))
-                                                                      -->(41,eval('&self',[-,4,1],RET),depth(33))
-                                                                      <--(41,retval(3))
-                                                                  <--(40,retval(2))
-                                                              <--(39,retval(1))
-                                                          <--(38,retval('False'))
-                                                      <--(33,retval('False'))
-                                                    -->(42,eval('&self',['S',[fromNumber,[-,[-,[-,[-,4,1],1],1],1]]],RET),depth(24))
-                                                        -->(43,eval('&self',[fromNumber,[-,[-,[-,[-,4,1],1],1],1]],RET),depth(26))
-                                                          -->(44,eval('&self',[if,[<=,[-,[-,[-,[-,4,1],1],1],1],0],'Z',['S',[fromNumber,[-,[-,[-,[-,[-,4,1],1],1],1],1]]]],RET),depth(27))
-                                                              -->(45,eval('&self',[<=,[-,[-,[-,[-,4,1],1],1],1],0],RET),depth(29))
-                                                                -->(46,eval('&self',[or,[<,[-,[-,[-,[-,4,1],1],1],1],0],[==,[-,[-,[-,[-,4,1],1],1],1],0]],RET),depth(30))
-                                                                    -->(47,eval('&self',[<,[-,[-,[-,[-,4,1],1],1],1],0],RET),depth(32))
-                                                                        -->(48,eval('&self',[-,[-,[-,[-,4,1],1],1],1],RET),depth(34))
-                                                                            -->(49,eval('&self',[-,[-,[-,4,1],1],1],RET),depth(36))
-                                                                                -->(50,eval('&self',[-,[-,4,1],1],RET),depth(38))
-                                                                                    -->(51,eval('&self',[-,4,1],RET),depth(40))
-                                                                                    <--(51,retval(3))
-                                                                                <--(50,retval(2))
-                                                                            <--(49,retval(1))
-                                                                        <--(48,retval(0))
-                                                                    <--(47,retval('False'))
-                                                                    -->(52,eval('&self',[==,[-,[-,[-,[-,4,1],1],1],1],0],RET),depth(32))
-                                                                        -->(53,eval('&self',[-,[-,[-,[-,4,1],1],1],1],RET),depth(34))
-                                                                            -->(54,eval('&self',[-,[-,[-,4,1],1],1],RET),depth(36))
-                                                                                -->(55,eval('&self',[-,[-,4,1],1],RET),depth(38))
-                                                                                    -->(56,eval('&self',[-,4,1],RET),depth(40))
-                                                                                    <--(56,retval(3))
-                                                      -->(57,eval('&self',['S','Z'],RET),depth(25))
-                                                  -->(58,eval('&self',['S','Z'],RET),depth(23))
-                                            -->(59,eval('&self',['S',['S','Z']],RET),depth(20))
-                                                -->(60,eval('&self',['S','Z'],RET),depth(22))
-                                                -->(61,eval('&self',['S','Z'],RET),depth(22))
-                                              -->(62,eval('&self',['S','Z'],RET),depth(21))
-                                        -->(63,eval('&self',['S',['S','Z']],RET),depth(18))
-                                            -->(64,eval('&self',['S','Z'],RET),depth(20))
-                                            -->(65,eval('&self',['S','Z'],RET),depth(20))
-                                          -->(66,eval('&self',['S','Z'],RET),depth(19))
-                                        -->(67,eval('&self',['S','Z'],RET),depth(18))
-                                  -->(68,eval('&self',['S',['S',['S','Z']]],RET),depth(15))
-                                      -->(69,eval('&self',['S',['S','Z']],RET),depth(17))
-                                          -->(70,eval('&self',['S','Z'],RET),depth(19))
-                                          -->(71,eval('&self',['S','Z'],RET),depth(19))
-                                      -->(72,eval('&self',['S',['S','Z']],RET),depth(17))
-                                          -->(73,eval('&self',['S','Z'],RET),depth(19))
-                                          -->(74,eval('&self',['S','Z'],RET),depth(19))
-                                    -->(75,eval('&self',['S',['S','Z']],RET),depth(16))
-                                        -->(76,eval('&self',['S','Z'],RET),depth(18))
-                                        -->(77,eval('&self',['S','Z'],RET),depth(18))
-                              -->(78,eval('&self',['S',['S',['S','Z']]],RET),depth(13))
-                                  -->(79,eval('&self',['S',['S','Z']],RET),depth(15))
-                                      -->(80,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(81,eval('&self',['S','Z'],RET),depth(17))
-                                  -->(82,eval('&self',['S',['S','Z']],RET),depth(15))
-                                      -->(83,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(84,eval('&self',['S','Z'],RET),depth(17))
-                                -->(85,eval('&self',['S',['S','Z']],RET),depth(14))
-                                    -->(86,eval('&self',['S','Z'],RET),depth(16))
-                                    -->(87,eval('&self',['S','Z'],RET),depth(16))
-                              -->(88,eval('&self',['S',['S','Z']],RET),depth(13))
-                                  -->(89,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(90,eval('&self',['S','Z'],RET),depth(15))
-                        -->(91,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(10))
-                            -->(92,eval('&self',['S',['S',['S','Z']]],RET),depth(12))
-                                -->(93,eval('&self',['S',['S','Z']],RET),depth(14))
-                                    -->(94,eval('&self',['S','Z'],RET),depth(16))
-                                    -->(95,eval('&self',['S','Z'],RET),depth(16))
-                                -->(96,eval('&self',['S',['S','Z']],RET),depth(14))
-                                    -->(97,eval('&self',['S','Z'],RET),depth(16))
-                                    -->(98,eval('&self',['S','Z'],RET),depth(16))
-                            -->(99,eval('&self',['S',['S',['S','Z']]],RET),depth(12))
-                                -->(100,eval('&self',['S',['S','Z']],RET),depth(14))
+</span>      -->(0,eval('&self',[record,syn,[[:,_454012,_454314],'Z']],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,_454012,_454314],'Z'],RET),depth(4))
+                  -->(3,eval('&self',[:,_454012,_454314],RET),depth(7))
+                -->(4,eval('&self','Z',RET),depth(6))
+            -->(5,eval('&self',[syn,[:,_454012,_454314],'Z'],RET),depth(4))
+                  -->(6,eval('&self',[facts],RET),depth(7))
+                        -->(7,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(8,eval('&self',:,RET),depth(10))
+                        -->(9,eval('&self',f,RET),depth(10))
+                  <--(6,retval([:,h,[->,'Bool','Number']]))
+            <--(5,retval([:,h,[->,'Bool','Number']]))
 Switched off tracing. For a longer trace !(pragma! tracelen 101))
 NDet Result(0): <span class="ansi33">
-  (â· syn 
-    ( (: f 
-        (-> Number String)) 
-      (S 
-        (S 
-          (S 
-            (S Z))))) 
-    (: f 
-      (-> Number String)))
+(â· syn ((: f (-> Number String)) Z) (: f (-> Number String)))
 
-</span><span class="ansi32">$Type = 
-  (-> Number String)
+</span><span class="ansi32">$Type = (-> Number String)
 $Term = f
 
 
 </span>NDet Result(1): <span class="ansi33">
-  (â· syn 
-    ( (: g 
-        (-> String Bool)) 
-      (S 
-        (S 
-          (S 
-            (S Z))))) 
-    (: g 
-      (-> String Bool)))
+(â· syn ((: g (-> String Bool)) Z) (: g (-> String Bool)))
 
-</span><span class="ansi32">$Type = 
-  (-> String Bool)
+</span><span class="ansi32">$Type = (-> String Bool)
 $Term = g
 
 
 </span>NDet Result(2): <span class="ansi33">
-  (â· syn 
-    ( (: h 
-        (-> Bool Number)) 
-      (S 
-        (S 
-          (S 
-            (S Z))))) 
-    (: h 
-      (-> Bool Number)))
+(â· syn ((: h (-> Bool Number)) Z) (: h (-> Bool Number)))
 
-</span><span class="ansi32">$Type = 
-  (-> Bool Number)
+</span><span class="ansi32">$Type = (-> Bool Number)
 $Term = h
 
 
-</span><span class="ansi32">% 8,196,711 inferences, 1.693 CPU in 1.693 seconds (100% CPU, 4842452 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta" 0)
+</span>;; (: f (-> Number String)), (: g (-> String Bool)), (: h (-> Bool Number))
+<span class="ansi38-013099040">!(record syn ((: $Term (-> Number String)) Z))
+
+</span><span class="ansi38-250144246">; !(record syn ((: $Term (-> Number String)) Z))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,[->,'Number','String']],'Z']],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,_54176,[->,'Number','String']],'Z']],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,_54176,[->,'Number','String']],'Z'],RET),depth(4))
+                  -->(3,eval('&self',[:,_54176,[->,'Number','String']],RET),depth(7))
+                -->(4,eval('&self','Z',RET),depth(6))
+            -->(5,eval('&self',[syn,[:,_54176,[->,'Number','String']],'Z'],RET),depth(4))
+                  -->(6,eval('&self',[facts],RET),depth(7))
+                        -->(7,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(8,eval('&self',:,RET),depth(10))
+                        -->(9,eval('&self',f,RET),depth(10))
+                  <--(6,retval([:,h,[->,'Bool','Number']]))
+            <--(5,retval([:,f,[->,'Number','String']]))
+NDet Result(0): <span class="ansi33">
+(â· syn ((: f (-> Number String)) Z) (: f (-> Number String)))
+
+</span><span class="ansi32">$Term = f
+
+
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
+;; (: f (-> Number String))
+<span class="ansi38-013099040">!(record syn ((: $Term (-> Number Bool)) (S Z)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: $Term (-> Number Bool)) (S Z)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,[->,'Number','Bool']],['S','Z']]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,_157602,[->,'Number','Bool']],['S','Z']]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,_157602,[->,'Number','Bool']],['S','Z']],RET),depth(4))
+                -->(3,eval('&self',['S','Z'],RET),depth(6))
+                  -->(4,eval('&self','Z',RET),depth(7))
+                  -->(5,eval('&self','S',RET),depth(7))
+                  -->(6,eval('&self','Z',RET),depth(7))
+                    -->(7,eval('&self','S',RET),depth(8))
+                    -->(8,eval('&self','Z',RET),depth(8))
+                -->(9,eval('&self',['S','Z'],RET),depth(6))
+
+eval_args(=,_165642,97,'&self',[syn,[:,_157602,[->,'Number','Bool']],['S','Z']],_184146).
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+;; (: (. g f) (-> Number Bool))
+<span class="ansi38-013099040">!(record syn ((: (. g f) (-> Number Bool)) (S Z)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. g f) (-> Number Bool)) (S Z)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,f],[->,'Number','Bool']],['S','Z']]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,f],[->,'Number','Bool']],['S','Z']]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',g,f],[->,'Number','Bool']],['S','Z']],RET),depth(4))
+                -->(3,eval('&self',['S','Z'],RET),depth(6))
+                  -->(4,eval('&self','Z',RET),depth(7))
+                  -->(5,eval('&self','S',RET),depth(7))
+                  -->(6,eval('&self','Z',RET),depth(7))
+                    -->(7,eval('&self','S',RET),depth(8))
+                    -->(8,eval('&self','Z',RET),depth(8))
+                -->(9,eval('&self',['S','Z'],RET),depth(6))
+
+eval_args(=,_258366,97,'&self',[syn,[:,['.',g,f],[->,'Number','Bool']],['S','Z']],_276906).
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+;; (: (. g f) (-> Number Bool))
+<span class="ansi38-013099040">!(record syn ((: (. g f) $Type) (S Z)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. g f) $Type) (S Z)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,f],Type],['S','Z']]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,f],_349038],['S','Z']]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',g,f],_349038],['S','Z']],RET),depth(4))
+                -->(3,eval('&self',['S','Z'],RET),depth(6))
+                  -->(4,eval('&self','Z',RET),depth(7))
+                  -->(5,eval('&self','S',RET),depth(7))
+                  -->(6,eval('&self','Z',RET),depth(7))
+                    -->(7,eval('&self','S',RET),depth(8))
+                    -->(8,eval('&self','Z',RET),depth(8))
+                -->(9,eval('&self',['S','Z'],RET),depth(6))
+
+eval_args(=,_357054,97,'&self',[syn,[:,['.',g,f],_349038],['S','Z']],_375564).
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+;; (: (. g f) (-> Number Bool))
+<span class="ansi38-013099040">!(record syn ((: $Term $Type) (S Z)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: $Term $Type) (S Z)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,Type],['S','Z']]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,_443488,_443790],['S','Z']]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,_443488,_443790],['S','Z']],RET),depth(4))
+                -->(3,eval('&self',['S','Z'],RET),depth(6))
+                  -->(4,eval('&self','Z',RET),depth(7))
+                  -->(5,eval('&self','S',RET),depth(7))
+                  -->(6,eval('&self','Z',RET),depth(7))
+                    -->(7,eval('&self','S',RET),depth(8))
+                    -->(8,eval('&self','Z',RET),depth(8))
+                -->(9,eval('&self',['S','Z'],RET),depth(6))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+NDet Result(0): <span class="ansi33">
+(â· syn ((: f (-> Number String)) (S Z)) (: f (-> Number String)))
+
+</span><span class="ansi32">$Type = (-> Number String)
+$Term = f
+
+
+</span>NDet Result(1): <span class="ansi33">
+(â· syn ((: g (-> String Bool)) (S Z)) (: g (-> String Bool)))
+
+</span><span class="ansi32">$Type = (-> String Bool)
+$Term = g
+
+
+</span>NDet Result(2): <span class="ansi33">
+(â· syn ((: h (-> Bool Number)) (S Z)) (: h (-> Bool Number)))
+
+</span><span class="ansi32">$Type = (-> Bool Number)
+$Term = h
+
+
+</span>;; (: f (-> Number String)), ..., (: (. f h) (-> Bool String)), ...
+<span class="ansi38-013099040">!(record syn ((: (. (. g f) h) (-> $In Bool)) (fromNumber 2)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. (. g f) h) (-> $In Bool)) (fromNumber 2)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',['.',g,f],h],[->,In,'Bool']],[fromNumber,2]]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',['.',g,f],h],[->,_52004,'Bool']],[fromNumber,2]]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',['.',g,f],h],[->,_52004,'Bool']],[fromNumber,2]],RET),depth(4))
+                -->(3,eval('&self',[fromNumber,2],RET),depth(6))
+                      -->(4,eval('&self',[<=,2,0],RET),depth(9))
+                            -->(5,eval('&self',[<,2,0],RET),depth(12))
+                              -->(6,eval('&self',2,RET),depth(13))
+                              -->(7,eval('&self',0,RET),depth(13))
+                                -->(8,eval('&self','False',RET),depth(14))
+                            <--(5,retval('False'))
+                            -->(9,eval('&self',[==,2,0],RET),depth(12))
+                            <--(9,retval('False'))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+            -->(0,eval('&self',[syn,[:,['.',['.',g,f],h],[->,_52004,'Bool']],[fromNumber,2]],RET),depth(4))
+                  -->(1,eval('&self',[facts],RET),depth(7))
+                        -->(2,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(3,eval('&self',:,RET),depth(10))
+                        -->(4,eval('&self',f,RET),depth(10))
+                          -->(5,eval('&self',[->,'Number','String'],RET),depth(11))
+                      -->(6,eval('&self',:,RET),depth(9))
+                      -->(7,eval('&self',f,RET),depth(9))
+                        -->(8,eval('&self',[->,'Number','String'],RET),depth(10))
+                        -->(9,eval('&self',[:,g,[->,'String','Bool']],RET),depth(10))
+                  <--(1,retval([:,h,[->,'Bool','Number']]))
+            <--(0,retval(fail))
+
+eval_args(=,_60690,97,'&self',[syn,[:,['.',['.',g,f],h],[->,_52004,'Bool']],[fromNumber,2]],_138812).
+;; (: (. (. g f) h) (-> Bool Bool))
+<span class="ansi38-013099040">!(record syn ((: (. $G h) (-> $In String)) (fromNumber 3)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. $G h) (-> $In String)) (fromNumber 3)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',G,h],[->,In,'String']],[fromNumber,3]]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',_248870,h],[->,_249178,'String']],[fromNumber,3]]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',_248870,h],[->,_249178,'String']],[fromNumber,3]],RET),depth(4))
+                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
+                      -->(4,eval('&self',[<=,3,0],RET),depth(9))
+                            -->(5,eval('&self',[<,3,0],RET),depth(12))
+                              -->(6,eval('&self',3,RET),depth(13))
+                              -->(7,eval('&self',0,RET),depth(13))
+                                -->(8,eval('&self','False',RET),depth(14))
+                            <--(5,retval('False'))
+                            -->(9,eval('&self',[==,3,0],RET),depth(12))
+                            <--(9,retval('False'))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+            -->(0,eval('&self',[syn,[:,['.',_248870,h],[->,_249178,'String']],[fromNumber,3]],RET),depth(4))
+                  -->(1,eval('&self',[facts],RET),depth(7))
+                        -->(2,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(3,eval('&self',:,RET),depth(10))
+                        -->(4,eval('&self',f,RET),depth(10))
+                          -->(5,eval('&self',[->,'Number','String'],RET),depth(11))
+                      -->(6,eval('&self',:,RET),depth(9))
+                      -->(7,eval('&self',f,RET),depth(9))
+                        -->(8,eval('&self',[->,'Number','String'],RET),depth(10))
+                        -->(9,eval('&self',[:,g,[->,'String','Bool']],RET),depth(10))
+                  <--(1,retval([:,h,[->,'Bool','Number']]))
+            <--(0,retval(fail))
+
+eval_args(=,_257492,97,'&self',[syn,[:,['.',_248870,h],[->,_249178,'String']],[fromNumber,3]],_388942).
+;; (: (. f h) (-> Bool String)), (: (. (. (. f h) (. g f)) h) (-> Bool String))
+<span class="ansi38-013099040">!(record syn ((: (. $G h) (-> Number $Out)) (fromNumber 3)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. $G h) (-> Number $Out)) (fromNumber 3)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',G,h],[->,'Number',Out]],[fromNumber,3]]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',_44418,h],[->,'Number',_44734]],[fromNumber,3]]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',_44418,h],[->,'Number',_44734]],[fromNumber,3]],RET),depth(4))
+                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
+                      -->(4,eval('&self',[<=,3,0],RET),depth(9))
+                            -->(5,eval('&self',[<,3,0],RET),depth(12))
+                              -->(6,eval('&self',3,RET),depth(13))
+                              -->(7,eval('&self',0,RET),depth(13))
+                                -->(8,eval('&self','False',RET),depth(14))
+                            <--(5,retval('False'))
+                            -->(9,eval('&self',[==,3,0],RET),depth(12))
+                            <--(9,retval('False'))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+            -->(0,eval('&self',[syn,[:,['.',_44418,h],[->,'Number',_44734]],[fromNumber,3]],RET),depth(4))
+                  -->(1,eval('&self',[facts],RET),depth(7))
+                        -->(2,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(3,eval('&self',:,RET),depth(10))
+                        -->(4,eval('&self',f,RET),depth(10))
+                          -->(5,eval('&self',[->,'Number','String'],RET),depth(11))
+                      -->(6,eval('&self',:,RET),depth(9))
+                      -->(7,eval('&self',f,RET),depth(9))
+                        -->(8,eval('&self',[->,'Number','String'],RET),depth(10))
+                        -->(9,eval('&self',[:,g,[->,'String','Bool']],RET),depth(10))
+                  <--(1,retval([:,h,[->,'Bool','Number']]))
+            <--(0,retval(fail))
+
+eval_args(=,_53058,97,'&self',[syn,[:,['.',_44418,h],[->,'Number',_44734]],[fromNumber,3]],_184520).
+;; No answer
+<span class="ansi38-013099040">!(record syn ((: (. g $F) (-> $In String)) (fromNumber 3)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. g $F) (-> $In String)) (fromNumber 3)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,F],[->,In,'String']],[fromNumber,3]]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,_356950],[->,_357250,'String']],[fromNumber,3]]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',g,_356950],[->,_357250,'String']],[fromNumber,3]],RET),depth(4))
+                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
+                      -->(4,eval('&self',[<=,3,0],RET),depth(9))
+                            -->(5,eval('&self',[<,3,0],RET),depth(12))
+                              -->(6,eval('&self',3,RET),depth(13))
+                              -->(7,eval('&self',0,RET),depth(13))
+                                -->(8,eval('&self','False',RET),depth(14))
+                            <--(5,retval('False'))
+                            -->(9,eval('&self',[==,3,0],RET),depth(12))
+                            <--(9,retval('False'))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+            -->(0,eval('&self',[syn,[:,['.',g,_356950],[->,_357250,'String']],[fromNumber,3]],RET),depth(4))
+                  -->(1,eval('&self',[facts],RET),depth(7))
+                        -->(2,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(3,eval('&self',:,RET),depth(10))
+                        -->(4,eval('&self',f,RET),depth(10))
+                          -->(5,eval('&self',[->,'Number','String'],RET),depth(11))
+                      -->(6,eval('&self',:,RET),depth(9))
+                      -->(7,eval('&self',f,RET),depth(9))
+                        -->(8,eval('&self',[->,'Number','String'],RET),depth(10))
+                        -->(9,eval('&self',[:,g,[->,'String','Bool']],RET),depth(10))
+                  <--(1,retval([:,h,[->,'Bool','Number']]))
+            <--(0,retval(fail))
+
+eval_args(=,_365576,97,'&self',[syn,[:,['.',g,_356950],[->,_357250,'String']],[fromNumber,3]],_497038).
+;; No answer
+<span class="ansi38-013099040">!(record syn ((: (. g $F) (-> $In Bool)) (fromNumber 3)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: (. g $F) (-> $In Bool)) (fromNumber 3)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,['.',g,F],[->,In,'Bool']],[fromNumber,3]]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,['.',g,_154146],[->,_154446,'Bool']],[fromNumber,3]]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,['.',g,_154146],[->,_154446,'Bool']],[fromNumber,3]],RET),depth(4))
+                -->(3,eval('&self',[fromNumber,3],RET),depth(6))
+                      -->(4,eval('&self',[<=,3,0],RET),depth(9))
+                            -->(5,eval('&self',[<,3,0],RET),depth(12))
+                              -->(6,eval('&self',3,RET),depth(13))
+                              -->(7,eval('&self',0,RET),depth(13))
+                                -->(8,eval('&self','False',RET),depth(14))
+                            <--(5,retval('False'))
+                            -->(9,eval('&self',[==,3,0],RET),depth(12))
+                            <--(9,retval('False'))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+            -->(0,eval('&self',[syn,[:,['.',g,_154146],[->,_154446,'Bool']],[fromNumber,3]],RET),depth(4))
+                  -->(1,eval('&self',[facts],RET),depth(7))
+                        -->(2,eval('&self',[:,f,[->,'Number','String']],RET),depth(10))
+                        -->(3,eval('&self',:,RET),depth(10))
+                        -->(4,eval('&self',f,RET),depth(10))
+                          -->(5,eval('&self',[->,'Number','String'],RET),depth(11))
+                      -->(6,eval('&self',:,RET),depth(9))
+                      -->(7,eval('&self',f,RET),depth(9))
+                        -->(8,eval('&self',[->,'Number','String'],RET),depth(10))
+                        -->(9,eval('&self',[:,g,[->,'String','Bool']],RET),depth(10))
+                  <--(1,retval([:,h,[->,'Bool','Number']]))
+            <--(0,retval(fail))
+
+eval_args(=,_162772,97,'&self',[syn,[:,['.',g,_154146],[->,_154446,'Bool']],[fromNumber,3]],_294234).
+;; (: (. g f) (-> Number Bool)), (: (. g (. f h)) (-> Bool Bool)), (: (. g (. f (. h g))) (-> String Bool)), (: (. g (. (. f h) g)) (-> String Bool)), (. g (. (. f h) (. g f))) (-> Number Bool))
+<span class="ansi38-013099040">!(record syn ((: $Term $Type) (fromNumber 4)))
+
+</span><span class="ansi38-250144246">; !(record syn ((: $Term $Type) (fromNumber 4)))
+</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[record,syn,[[:,Term,Type],[fromNumber,4]]],OUT).
+
+</span>      -->(0,eval('&self',[record,syn,[[:,_464898,_465200],[fromNumber,4]]],RET),depth(1))
+          -->(1,eval('&self',syn,RET),depth(3))
+            -->(2,eval('&self',[[:,_464898,_465200],[fromNumber,4]],RET),depth(4))
+                -->(3,eval('&self',[fromNumber,4],RET),depth(6))
+                      -->(4,eval('&self',[<=,4,0],RET),depth(9))
+                            -->(5,eval('&self',[<,4,0],RET),depth(12))
+                              -->(6,eval('&self',4,RET),depth(13))
+                              -->(7,eval('&self',0,RET),depth(13))
+                                -->(8,eval('&self','False',RET),depth(14))
+                            <--(5,retval('False'))
+                            -->(9,eval('&self',[==,4,0],RET),depth(12))
+                            <--(9,retval('False'))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+NDet Result(0): <span class="ansi33">
+(â· syn ((: f (-> Number String)) (S (S (S (S Z))))) (: f (-> Number String)))
+
+</span><span class="ansi32">$Type = (-> Number String)
+$Term = f
+
+
+</span>NDet Result(1): <span class="ansi33">
+(â· syn ((: g (-> String Bool)) (S (S (S (S Z))))) (: g (-> String Bool)))
+
+</span><span class="ansi32">$Type = (-> String Bool)
+$Term = g
+
+
+</span>NDet Result(2): <span class="ansi33">
+(â· syn ((: h (-> Bool Number)) (S (S (S (S Z))))) (: h (-> Bool Number)))
+
+</span><span class="ansi32">$Type = (-> Bool Number)
+$Term = h
+
+
+</span><span class="ansi32">% 7,413,129 inferences, 3.033 CPU in 12.866 seconds (24% CPU, 2444092 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-let-test.metta.html" )
 

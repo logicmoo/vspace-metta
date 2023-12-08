@@ -29,7 +29,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta')
 1=[()]
@@ -47,67 +47,43 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; and will remain just symbols in expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Sam'],['ConceptNode',flies]]])
-</span><span class="ansi38-255165000">  (EvaluationLink 
-    (PredicateNode eats) 
-    (ListLink 
-      (ConceptNode Sam) 
-      (ConceptNode flies)))
+</span><span class="ansi38-255165000">(EvaluationLink (PredicateNode eats) (ListLink (ConceptNode Sam) (ConceptNode flies)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Bill'],['ConceptNode',pizza]]])
-</span><span class="ansi38-255165000">  (EvaluationLink 
-    (PredicateNode eats) 
-    (ListLink 
-      (ConceptNode Bill) 
-      (ConceptNode pizza)))
+</span><span class="ansi38-255165000">(EvaluationLink (PredicateNode eats) (ListLink (ConceptNode Bill) (ConceptNode pizza)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Fritz'],['ConceptNode',flies]]])
-</span><span class="ansi38-255165000">  (EvaluationLink 
-    (PredicateNode eats) 
-    (ListLink 
-      (ConceptNode Fritz) 
-      (ConceptNode flies)))
+</span><span class="ansi38-255165000">(EvaluationLink (PredicateNode eats) (ListLink (ConceptNode Fritz) (ConceptNode flies)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (match &self 
-    (EvaluationLink 
-      (PredicateNode eats) 
-      (ListLink $X 
-        (ConceptNode flies))) $X) 
-  ( (ConceptNode Sam) 
-    (ConceptNode Fritz)))
+<span class="ansi38-013099040">!(assertEqualToResult (match &self (EvaluationLink (PredicateNode eats) (ListLink $X (ConceptNode flies))) $X) ((ConceptNode Sam) (ConceptNode Fritz)))
 
-</span><span class="ansi38-250144246">; !(match &self 
-  (EvaluationLink 
-    (PredicateNode eats) 
-    (ListLink $X 
-      (ConceptNode flies))) $X)
+</span><span class="ansi38-250144246">; !(match &self (EvaluationLink (PredicateNode eats) (ListLink $X (ConceptNode flies))) $X)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',X,['ConceptNode',flies]]],X],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_235816,['ConceptNode',flies]]],_235816],[['ConceptNode','Sam'],['ConceptNode','Fritz']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_468516,['ConceptNode',flies]]],_468516],[['ConceptNode','Sam'],['ConceptNode','Fritz']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01</h3>
-          -->(1,eval('&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_235816,['ConceptNode',flies]]],_235816],RET),depth(3))
+          -->(1,eval('&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_468516,['ConceptNode',flies]]],_468516],RET),depth(3))
               -->(2,eval('&self',['ConceptNode','Sam'],RET),depth(5))
-            -->(3,eval('&self',['ConceptNode','Sam'],RET),depth(4))
-              -->(4,eval('&self',['ConceptNode','Fritz'],RET),depth(5))
+                -->(3,eval('&self','Sam',RET),depth(6))
+                -->(4,eval('&self','ConceptNode',RET),depth(6))
+                -->(5,eval('&self','Sam',RET),depth(6))
+                  -->(6,eval('&self','ConceptNode',RET),depth(7))
+                  -->(7,eval('&self','Sam',RET),depth(7))
+              -->(8,eval('&self','Sam',RET),depth(5))
+              -->(9,eval('&self','ConceptNode',RET),depth(5))
           <--(1,retval(['ConceptNode','Fritz']))
-            -->(5,eval('&self',['ConceptNode','Fritz'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.018 secs. (17.71 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (ConceptNode Sam) 
-      (ConceptNode Fritz)) 
-    ( (ConceptNode Fritz) 
-      (ConceptNode Sam))))
+; took 0.002 secs. (2.01 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((ConceptNode Sam) (ConceptNode Fritz)) ((ConceptNode Fritz) (ConceptNode Sam))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 293,001 inferences, 0.151 CPU in 0.151 seconds (100% CPU, 1935124 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta" 0)
+</span><span class="ansi32">% 261,233 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 2648213 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1

@@ -1441,3 +1441,160 @@ git commit -am metta_data2
 ./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta --halt=true
 git commit -am metta_data3
 ./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta --halt=true
+git commit -am metta_data4
+./MeTTa examples/baseline_compat/metta-morph_tests/types3.metta --halt=true
+./MeTTa examples/baseline_compat/metta-morph_tests/
+./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+cp metta_vspace/pyswip metta_vspace/pyswip_touser2 -a
+git log
+git checkout 8028063002fea3ef0d43985cf4e448f0aa8b76dd metta_vspace/metta_eval.pl
+git checkout 8028063002fea3ef0d43985cf4e448f0aa8b76dd metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.mett
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+git checkout 8028063002fea3ef0d43985cf4e448f0aa8b76dd~3 metta_vspace/pyswip/metta_eval.pl
+git checkout 8028063002fea3ef0d43985cf4e448f0aa8b76dd~10 metta_vspace/pyswip/metta_eval.pl
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout d942c5b0eec11b8e281af2af1ac35f36afe95e5a metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+git log d942c5b0eec11b8e281af2af1ac35f36afe95e5a
+git checkout 4719d14c1a0d9c53b5016e2c7f70486ae5f6eb72 metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout f795d688a6b7596c308c1ad4af16fe574c76237d metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+grep -3 'do' . -R
+grep -3 "'do'" . -R 
+grep -3 "'do'" . -R --include="*.pl*"
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+git checkout metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+git checkout HEAD metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_feval.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/nalifier.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta --clean --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta --clean --fresh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/match_void.metta --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failures
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failed
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failed --cont
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/nalifier.metta --failed --cont
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/nalifier.metta --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/*.metta --failed 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failed 
+grep -c "Failures: 0"  "examples/baseline_compat/metta-morph_tests/supercollapse.metta"
+grep -c "Failures: 0"  "examples/baseline_compat/metta-morph_tests/*"
+grep -c "Failures: 0"  examples/baseline_compat/metta-morph_tests/
+grep -c "Failures: 0"  examples/baseline_compat/metta-morph_tests/ -R
+grep "Failures: 0"  examples/baseline_compat/metta-morph_tests/ -R
+grep "Failures: [^0]"  examples/baseline_compat/metta-morph_tests/ -R
+grep -c "Failures: [^0]"  examples/baseline_compat/metta-morph_tests/ -R
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failed 
+grep -c "Failures: [^0]"  examples/baseline_compat/metta-morph_tests/ -R
+grep -c "Failures: [^0]"  examples/baseline_compat/metta-morph_tests/ -R --include "*.html"
+grep -c "Failures: [^0]"  examples/baseline_compat/metta-morph_tests/ -R --include "*.html" -h
+grep -c "Failures: [^0]"  examples/baseline_compat/metta-morph_tests/ -R
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failed 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/multifunction.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/  --fresh --clean
+kill -9 %1
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/  --fresh --clean
+kill -9 %1
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/  --fresh --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_testsreset
+reset
+tty sane
+tty --sane
+stty sane
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --cont
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failures
+./MeTTa --timeout=75 --html --repl=false --test-retval=true  "examples/baseline_compat/metta-morph_tests/nalifier.metta" --halt=true
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failures
+cat /dev/null > examples/baseline_compat/metta-morph_tests/types3.metta.html 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failures
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failures
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/factorial.metta
+cls ; meTTa examples/baseline_compat/metta-morph_tests/factorial.metta
+cls ; metta examples/baseline_compat/metta-morph_tests/factorial.metta
+cls ; time metta examples/baseline_compat/metta-morph_tests/factorial.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/factorial.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --failures
+cls ; ./MeTTa examples/baseline_compat/hyperon-experimental_scripts/ --clean
+uptime 
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta  
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta  
+ls
+cls ; ./MeTTa examples/baseline_compat/hyperon-experimental_scripts/ --failures
+cls ; ./MeTTa examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta
+echo 'export LANG=C' >> ~/.bashrc && exec "$BASH"
+echo 'export LANG=C' >> ~/.bashrc && exec "$BASH"
+cls ; ./MeTTa examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta
+cls ; ./MeTTa examples/baseline_compat/hyperon-experimental_scripts/ --failures
+cls ; ./MeTTa examples/baseline_compat/hyperon-experimental_scripts/ --failures --timeout=500
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/ --failures --timeout=50
+git stauts .
+git status .
+fg
+cls ; ./MeTTa examples/baseline_compat/ --failures --timeout=50
+ps axf
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/ --failures --timeout=50
+g
+fg
+cls ; ./MeTTa examples/ --failures --timeout=50
+./scripts/test_in_metta.sh -n --reports=Y
+./scripts/total_loonits.sh 
+./MeTTa --failures ./examples/baseline_compat/metta-morph_tests/ 
+./scripts/total_loonits.sh 
+./scripts/test_in_metta.sh -n --report=Y
+git add reports/
+fg
+git status .
+git add examples/
+bg
+ps axf
+fg
+git push logicmoo 
+./scripts/test_in_metta.sh -n --report=Y
+bggit compat/ -am reports
+git commit -am reports
+git reset --soft 
+git log
+git reset HEAD~1  --soft 
+git log
+ls  examples/flybase/sanity/*.*.*
+rm  examples/flybase/sanity/*.*.*
+rm  create mode 100644 examples/python_compat/extend/*.so
+rm  examples/python_compat/extend/*.so
+git status examples/
+git add examples/
+git status examples/

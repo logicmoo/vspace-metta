@@ -66,7 +66,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta')
 1=[()]
@@ -84,9 +84,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(import! &self EqualityType.metta)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (import! &self EqualityType.metta) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (import! &self EqualityType.metta) (()))
 
 </span><span class="ansi38-250144246">; !(import! &self EqualityType.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','EqualityType.metta'],OUT).
@@ -94,14 +92,12 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>      -->(0,eval('&self',[assertEqualToResult,['import!','&self','EqualityType.metta'],[[]]],RET),depth(1))
 <h3 id="COMMON.EQUALITYTYPETEST.01">;; COMMON.EQUALITYTYPETEST.01</h3>
           -->(1,eval('&self',['import!','&self','EqualityType.metta'],RET),depth(3))
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta:21 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityType.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityType.metta')
 ;;; Define various subterms
 ;;; Define (homogeneous) equality type, also called propositional equality
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,===,[->,A,A,'Type']])
-</span><span class="ansi38-255165000">  (: === 
-    (-> $A $A Type))
+</span><span class="ansi38-255165000">(: === (-> $A $A Type))
 </span>
 
 ;;; Define Refl, the reflexivity constructor of ===
@@ -128,19 +124,17 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;;
 ;;; (=== 42 42)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Refl',[->,X,[===,X,X]]])
-</span><span class="ansi38-255165000">  (: Refl 
-    (-> $X 
-      (=== $X $X)))
+</span><span class="ansi38-255165000">(: Refl (-> $X (=== $X $X)))
 </span>
 
+              -->(2,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.019 secs. (18.69 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.025 secs. (24.56 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(3,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; What about
@@ -149,113 +143,95 @@ Deterministic: <span class="ansi33">Empty
 ;;;
 ;;; ?
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'TTrue','True'])
-</span><span class="ansi38-255165000">  (: TTrue True)
+</span><span class="ansi38-255165000">(: TTrue True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'T42',42])
-</span><span class="ansi38-255165000">  (: T42 42)
+</span><span class="ansi38-255165000">(: T42 42)
 </span>
 
 ;;; Define dummy functions to type check equality type
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,foo,[->,[===,42,42],'Bool']])
-</span><span class="ansi38-255165000">  (: foo 
-    (-> 
-      (=== 42 42) Bool))
+</span><span class="ansi38-255165000">(: foo (-> (=== 42 42) Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[foo,Prf],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (foo $Prf) True)
+</span><span class="ansi38-255165000">(= (foo $Prf) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,bar,[->,[===,'True','True'],'Bool']])
-</span><span class="ansi38-255165000">  (: bar 
-    (-> 
-      (=== True True) Bool))
+</span><span class="ansi38-255165000">(: bar (-> (=== True True) Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[bar,Prf],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (bar $Prf) True)
+</span><span class="ansi38-255165000">(= (bar $Prf) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,baz,[->,[===,42,'True'],'Bool']])
-</span><span class="ansi38-255165000">  (: baz 
-    (-> 
-      (=== 42 True) Bool))
+</span><span class="ansi38-255165000">(: baz (-> (=== 42 True) Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[baz,Prf],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (baz $Prf) False)
+</span><span class="ansi38-255165000">(= (baz $Prf) False)
 </span>
 
 ;;; Test equality type
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(foo 
-  (Refl T42))
+</span><span class="ansi1 ansi38-255238088">!(foo (Refl T42))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (foo 
-    (Refl T42)) 
-  (True))
+<span class="ansi38-013099040">!(assertEqualToResult (foo (Refl T42)) (True))
 
-</span><span class="ansi38-250144246">; !(foo 
-  (Refl T42))
+</span><span class="ansi38-250144246">; !(foo (Refl T42))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[foo,['Refl','T42']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,[foo,['Refl','T42']],['True']],RET),depth(1))
 <h3 id="COMMON.EQUALITYTYPETEST.02">;; COMMON.EQUALITYTYPETEST.02</h3>
           -->(1,eval('&self',[foo,['Refl','T42']],RET),depth(3))
+              -->(2,eval('&self','True',RET),depth(5))
           <--(1,retval('True'))
 ; 
 ; EVAL TEST
-; took 0.000746 secs. (746.50 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (True) 
-    (True)))
-</span>      <--(0,retval('Empty'))
+; took 0.000310 secs. (310.30 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (True) (True)))
+</span>          -->(3,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Should succeed
-<span class="ansi38-013099040">!(bar 
-  (Refl T42))
+<span class="ansi38-013099040">!(bar (Refl T42))
 
-</span><span class="ansi38-250144246">; !(bar 
-  (Refl T42))
+</span><span class="ansi38-250144246">; !(bar (Refl T42))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[bar,['Refl','T42']],OUT).
 
 </span>      -->(0,eval('&self',[bar,['Refl','T42']],RET),depth(1))
+          -->(1,eval('&self','True',RET),depth(3))
 NDet Result(0): <span class="ansi33">True
 
 </span>      <--(0,retval('True'))
 ;; Should fail
-<span class="ansi38-013099040">!(bar 
-  (Refl TTrue))
+<span class="ansi38-013099040">!(bar (Refl TTrue))
 
-</span><span class="ansi38-250144246">; !(bar 
-  (Refl TTrue))
+</span><span class="ansi38-250144246">; !(bar (Refl TTrue))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[bar,['Refl','TTrue']],OUT).
 
 </span>      -->(0,eval('&self',[bar,['Refl','TTrue']],RET),depth(1))
+          -->(1,eval('&self','True',RET),depth(3))
 NDet Result(0): <span class="ansi33">True
 
 </span>      <--(0,retval('True'))
 ;; Should succeed
-<span class="ansi38-013099040">!(baz 
-  (Refl T42))
+<span class="ansi38-013099040">!(baz (Refl T42))
 
-</span><span class="ansi38-250144246">; !(baz 
-  (Refl T42))
+</span><span class="ansi38-250144246">; !(baz (Refl T42))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[baz,['Refl','T42']],OUT).
 
 </span>      -->(0,eval('&self',[baz,['Refl','T42']],RET),depth(1))
+          -->(1,eval('&self','False',RET),depth(3))
       <--(0,retval('False'))
 Deterministic: <span class="ansi33">False
 
-</span><span class="ansi32">% 355,224 inferences, 0.153 CPU in 0.153 seconds (100% CPU, 2318514 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta" 0)
+</span><span class="ansi32">% 326,145 inferences, 0.189 CPU in 0.189 seconds (100% CPU, 1729625 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/EqualityTypeTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 2

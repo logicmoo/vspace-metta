@@ -50,7 +50,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/UnifyTest.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/UnifyTest.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/UnifyTest.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/UnifyTest.metta')
 1=[()]
@@ -70,9 +70,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(import! &self Unify.metta)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (import! &self Unify.metta) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (import! &self Unify.metta) (()))
 
 </span><span class="ansi38-250144246">; !(import! &self Unify.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','Unify.metta'],OUT).
@@ -91,50 +89,32 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; implementation however uses `case`, not `let`, that way it filters
 ;;; out terms which have not been fully rewritten.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,unify,[->,'Atom',A,A,A]])
-</span><span class="ansi38-255165000">  (: unify 
-    (-> Atom $A $A $A))
+</span><span class="ansi38-255165000">(: unify (-> Atom $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[unify,Lterm,Rterm,Rewrite],[case,Rterm,[[Lterm,Rewrite]]]])
-</span><span class="ansi38-255165000">  (= 
-    (unify $Lterm $Rterm $Rewrite) 
-    (case $Rterm 
-      ( ($Lterm $Rewrite))))
+</span><span class="ansi38-255165000">(= (unify $Lterm $Rterm $Rewrite) (case $Rterm (($Lterm $Rewrite))))
 </span>
 
 ;;; Definition of `unify*`
 ;;; Similar to `unify`, but it takes a tuple containing pairs of terms to unify,
 ;;; and a rewrite term.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'unify*',[->,'Atom',A,A]])
-</span><span class="ansi38-255165000">  (: unify* 
-    (-> Atom $A $A))
+</span><span class="ansi38-255165000">(: unify* (-> Atom $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['unify*',Pairs,Rewrite],[case,Pairs,[[[],Rewrite],[Pairs,['let*',[[Head,['car-atom',Pairs]],[Tail,['cdr-atom',Pairs]]],[case,Head,[[[Lterm,Rterm],[unify,Lterm,Rterm,['unify*',Tail,Rewrite]]]]]]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (unify* $Pairs $Rewrite) 
-    (case $Pairs 
-      ( (() $Rewrite) 
-        ($Pairs 
-          (let* 
-            ( ($Head 
-                (car-atom $Pairs)) 
-              ($Tail 
-                (cdr-atom $Pairs))) 
-            (case $Head 
-              ( ( ($Lterm $Rterm) 
-                  (unify $Lterm $Rterm 
-                    (unify* $Tail $Rewrite))))))))))
+</span><span class="ansi38-255165000">(= (unify* $Pairs $Rewrite) (case $Pairs ((() $Rewrite) ($Pairs (let* (($Head (car-atom $Pairs)) ($Tail (cdr-atom $Pairs))) (case $Head ((($Lterm $Rterm) (unify $Lterm $Rterm (unify* $Tail $Rewrite))))))))))
 </span>
 
+              -->(2,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.042 secs. (42.11 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.056 secs. (55.89 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(3,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Base case
@@ -144,341 +124,93 @@ Deterministic: <span class="ansi33">Empty
 ;; tuple of pairs) will be
 ;; discarded
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(unify 
-  (Link $X B) 
-  (Link A $Y) 
-  (Link $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(unify (Link $X B) (Link A $Y) (Link $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (unify 
-    (Link $X B) 
-    (Link A $Y) 
-    (Link $X $Y)) 
-  ( (Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult (unify (Link $X B) (Link A $Y) (Link $X $Y)) ((Link A B)))
 
-</span><span class="ansi38-250144246">; !(unify 
-  (Link $X B) 
-  (Link A $Y) 
-  (Link $X $Y))
+</span><span class="ansi38-250144246">; !(unify (Link $X B) (Link A $Y) (Link $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[unify,['Link',X,'B'],['Link','A',Y],['Link',X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[unify,['Link',_414500,'B'],['Link','A',_414816],['Link',_414500,_414816]],[['Link','A','B']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[unify,['Link',_80012,'B'],['Link','A',_80328],['Link',_80012,_80328]],[['Link','A','B']]],RET),depth(1))
 <h3 id="SYNTHESIS.UNIFYTEST.02">;; SYNTHESIS.UNIFYTEST.02</h3>
-          -->(1,eval('&self',[unify,['Link',_414500,'B'],['Link','A',_414816],['Link',_414500,_414816]],RET),depth(3))
-            -->(2,eval('&self',[case,['Link','A',_414816],[[['Link',_414500,'B'],['Link',_414500,_414816]]]],RET),depth(4))
-                -->(3,eval('&self',['Link','A',_414816],RET),depth(6))
-                -->(4,eval('&self',['Link','A',_427230],RET),depth(6))
-            <--(2,retval(['Link','A',_469292]))
-              -->(5,eval('&self',['Link','A',_427230],RET),depth(5))
-          <--(1,retval([case,['Link','A',_426170],[[['Link',_426200,'B'],['Link',_426200,_426170]]]]))
+          -->(1,eval('&self',[unify,['Link',_80012,'B'],['Link','A',_80328],['Link',_80012,_80328]],RET),depth(3))
+                -->(2,eval('&self',['Link','A',_80328],RET),depth(6))
+                  -->(3,eval('&self','A',RET),depth(7))
+                  -->(4,eval('&self','Link',RET),depth(7))
+                  -->(5,eval('&self','A',RET),depth(7))
+                    -->(6,eval('&self','Link',RET),depth(8))
+                    -->(7,eval('&self','A',RET),depth(8))
+                -->(8,eval('&self',['Link','A',_91550],RET),depth(6))
+                  -->(9,eval('&self','A',RET),depth(7))
+          <--(1,retval(['Link','A',_105352]))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.59 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (Link A $_518504)) 
-    ( (Link A B))))
-</span>      <--(0,retval([got,[['Link','A',_5288]],expected,[['Link','A','B']]]))
-        -->(6,eval('&self',[got,[['Link','A',_5134]],expected,[['Link','A','B']]],RET),depth(2))
-            -->(7,eval('&self',[['Link','A',_5134]],RET),depth(4))
-                -->(8,eval('&self',['Link','A',_5134],RET),depth(6))
-            -->(9,eval('&self',[['Link','A','B']],RET),depth(4))
-                -->(10,eval('&self',['Link','A','B'],RET),depth(6))
-            -->(11,eval('&self',[['Link','A',_5134]],RET),depth(4))
-                -->(12,eval('&self',['Link','A',_5134],RET),depth(6))
-            -->(13,eval('&self',[['Link','A','B']],RET),depth(4))
-                -->(14,eval('&self',['Link','A','B'],RET),depth(6))
-          -->(15,eval('&self',[['Link','A',_5134]],RET),depth(3))
-              -->(16,eval('&self',['Link','A',_5134],RET),depth(5))
-          -->(17,eval('&self',[['Link','A','B']],RET),depth(3))
-              -->(18,eval('&self',['Link','A','B'],RET),depth(5))
+; took 0.003 secs. (2.75 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Link A $_105370)) ((Link A B))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( (Link A $_5134)) expected 
-    ( (Link A B)))
+(got ((Link A $_105370)) expected ((Link A B)))
 
 </span>;;; Test unify*.
 ;;; Unify `Link $x B $z` with `Link A $y $z`, and `$z` with `C`
 ;;; Should output (Link A B C)
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(unify* 
-  ( ( (Link $X B $Z) 
-      (Link A $Y $Z)) 
-    ($Z C)) 
-  (Link $X $Y $Z))
+</span><span class="ansi1 ansi38-255238088">!(unify* (((Link $X B $Z) (Link A $Y $Z)) ($Z C)) (Link $X $Y $Z))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (unify* 
-    ( ( (Link $X B $Z) 
-        (Link A $Y $Z)) 
-      ($Z C)) 
-    (Link $X $Y $Z)) 
-  ( (Link A B C)))
+<span class="ansi38-013099040">!(assertEqualToResult (unify* (((Link $X B $Z) (Link A $Y $Z)) ($Z C)) (Link $X $Y $Z)) ((Link A B C)))
 
-</span><span class="ansi38-250144246">; !(unify* 
-  ( ( (Link $X B $Z) 
-      (Link A $Y $Z)) 
-    ($Z C)) 
-  (Link $X $Y $Z))
+</span><span class="ansi38-250144246">; !(unify* (((Link $X B $Z) (Link A $Y $Z)) ($Z C)) (Link $X $Y $Z))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['unify*',[[['Link',X,'B',Z],['Link','A',Y,Z]],[Z,'C']],['Link',X,Y,Z]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['unify*',[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']],['Link',_239300,_239900,_239592]],[['Link','A','B','C']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,['unify*',[[['Link',_187444,'B',_187736],['Link','A',_188044,_187736]],[_187736,'C']],['Link',_187444,_188044,_187736]],[['Link','A','B','C']]],RET),depth(1))
 <h3 id="SYNTHESIS.UNIFYTEST.03">;; SYNTHESIS.UNIFYTEST.03</h3>
-          -->(1,eval('&self',['unify*',[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']],['Link',_239300,_239900,_239592]],RET),depth(3))
-          <--(1,retval([case,[[['Link',_253532,'B',_253544],['Link','A',_253568,_253544]],[_253544,'C']],[[[],['Link',_253532,_253568,_253544]],[[[['Link',_253532,'B',_253544],['Link','A',_253568,_253544]],[_253544,'C']],['let*',[[_253682,['car-atom',[[['Link',_253532,'B',_253544],['Link','A',_253568,_253544]],[_253544,'C']]]],[_253712,['cdr-atom',[[['Link',_253532,'B',_253544],['Link','A',_253568,_253544]],[_253544,'C']]]]],[case,_253682,[[[_253772,_253778],[unify,_253772,_253778,['unify*',_253712,['Link',_253532,_253568,_253544]]]]]]]]]]))
-            -->(2,eval('&self',[case,[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']],[[[],['Link',_239300,_239900,_239592]],[[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']],['let*',[[_253310,['car-atom',[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']]]],[_253340,['cdr-atom',[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']]]]],[case,_253310,[[[_253400,_253406],[unify,_253400,_253406,['unify*',_253340,['Link',_239300,_239900,_239592]]]]]]]]]],RET),depth(4))
-                -->(3,eval('&self',[[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],[_239592,'C']],RET),depth(6))
-                    -->(4,eval('&self',[_239592,'C'],RET),depth(8))
-                    -->(5,eval('&self',[['Link',_239300,'B',_239592],['Link','A',_239900,_239592]],RET),depth(8))
-                        -->(6,eval('&self',['Link','A',_239900,_239592],RET),depth(10))
-                        -->(7,eval('&self',['Link',_239300,'B',_239592],RET),depth(10))
-                        -->(8,eval('&self',['Link','A',_239900,_239592],RET),depth(10))
-                    -->(9,eval('&self',[_239592,'C'],RET),depth(8))
-                -->(10,eval('&self',['let*',[[_255014,['car-atom',[[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[_254942,'C']]]],[_255044,['cdr-atom',[[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[_254942,'C']]]]],[case,_255014,[[[_255104,_255110],[unify,_255104,_255110,['unify*',_255044,['Link',_254930,_254966,_254942]]]]]]],RET),depth(6))
-                    -->(11,eval('&self',['car-atom',[[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[_254942,'C']]],RET),depth(8))
-                    <--(11,retval([['Link',_346546,'B',_346558],['Link','A',_346582,_346558]]))
-                      -->(12,eval('&self',[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],RET),depth(9))
-                          -->(13,eval('&self',['Link','A',_254966,_254942],RET),depth(11))
-                          -->(14,eval('&self',['Link',_254930,'B',_254942],RET),depth(11))
-                          -->(15,eval('&self',['Link','A',_254966,_254942],RET),depth(11))
-                        -->(16,eval('&self',['Link',_254930,'B',_254942],RET),depth(10))
-                        -->(17,eval('&self',['Link','A',_254966,_254942],RET),depth(10))
-                    -->(18,eval('&self',['let*',[[_255044,['cdr-atom',[[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[_254942,'C']]]]],[case,[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[[[_255104,_255110],[unify,_255104,_255110,['unify*',_255044,['Link',_254930,_254966,_254942]]]]]]],RET),depth(8))
-                        -->(19,eval('&self',['cdr-atom',[[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[_254942,'C']]],RET),depth(10))
-                        <--(19,retval([[_449372,'C']]))
-                          -->(20,eval('&self',[[_254942,'C']],RET),depth(11))
-                              -->(21,eval('&self',[_254942,'C'],RET),depth(13))
-                            -->(22,eval('&self',[_254942,'C'],RET),depth(12))
-                        -->(23,eval('&self',['let*',[],[case,[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[[[_255104,_255110],[unify,_255104,_255110,['unify*',[[_254942,'C']],['Link',_254930,_254966,_254942]]]]]]],RET),depth(10))
-                            -->(24,eval('&self',[case,[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],[[[_255104,_255110],[unify,_255104,_255110,['unify*',[[_254942,'C']],['Link',_254930,_254966,_254942]]]]]],RET),depth(12))
-                                -->(25,eval('&self',[['Link',_254930,'B',_254942],['Link','A',_254966,_254942]],RET),depth(14))
-                                    -->(26,eval('&self',['Link','A',_254966,_254942],RET),depth(16))
-                                    -->(27,eval('&self',['Link',_254930,'B',_254942],RET),depth(16))
-                                    -->(28,eval('&self',['Link','A',_254966,_254942],RET),depth(16))
-                                -->(29,eval('&self',[unify,['Link',_7074,'B',_7086],['Link','A',_7110,_7086],['unify*',[[_10836,'C']],['Link',_10860,_10866,_10836]]],RET),depth(14))
-                                  -->(30,eval('&self',[case,['Link','A',_7110,_7086],[[['Link',_7074,'B',_7086],['unify*',[[_10836,'C']],['Link',_10860,_10866,_10836]]]]],RET),depth(15))
-                                      -->(31,eval('&self',['Link','A',_7110,_7086],RET),depth(17))
-                                      -->(32,eval('&self',['unify*',[[_25376,'C']],['Link',_25400,_25406,_25376]],RET),depth(17))
-                                      <--(32,retval([case,[[_45590,'C']],[[[],['Link',_45632,_45638,_45590]],[[[_45590,'C']],['let*',[[_45686,['car-atom',[[_45590,'C']]]],[_45716,['cdr-atom',[[_45590,'C']]]]],[case,_45686,[[[_45776,_45782],[unify,_45776,_45782,['unify*',_45716,['Link',_45632,_45638,_45590]]]]]]]]]]))
-                                        -->(33,eval('&self',[case,[[_25376,'C']],[[[],['Link',_25400,_25406,_25376]],[[[_25376,'C']],['let*',[[_45380,['car-atom',[[_25376,'C']]]],[_45410,['cdr-atom',[[_25376,'C']]]]],[case,_45380,[[[_45470,_45476],[unify,_45470,_45476,['unify*',_45410,['Link',_25400,_25406,_25376]]]]]]]]]],RET),depth(18))
-                                            -->(34,eval('&self',[[_25376,'C']],RET),depth(20))
-                                                -->(35,eval('&self',[_25376,'C'],RET),depth(22))
-                                            -->(36,eval('&self',['let*',[[_46952,['car-atom',[[_46922,'C']]]],[_46982,['cdr-atom',[[_46922,'C']]]]],[case,_46952,[[[_47042,_47048],[unify,_47042,_47048,['unify*',_46982,['Link',_47108,_47114,_46922]]]]]]],RET),depth(20))
-                                                -->(37,eval('&self',['car-atom',[[_46922,'C']]],RET),depth(22))
-                                                <--(37,retval([_61374,'C']))
-                                                  -->(38,eval('&self',[_46922,'C'],RET),depth(23))
-                                                -->(39,eval('&self',['let*',[[_46982,['cdr-atom',[[_46922,'C']]]]],[case,[_46922,'C'],[[[_47042,_47048],[unify,_47042,_47048,['unify*',_46982,['Link',_47108,_47114,_46922]]]]]]],RET),depth(22))
-                                                    -->(40,eval('&self',['cdr-atom',[[_46922,'C']]],RET),depth(24))
-                                                    <--(40,retval([]))
-                                                    -->(41,eval('&self',['let*',[],[case,[_46922,'C'],[[[_47042,_47048],[unify,_47042,_47048,['unify*',[],['Link',_47108,_47114,_46922]]]]]]],RET),depth(24))
-                                                        -->(42,eval('&self',[case,[_46922,'C'],[[[_47042,_47048],[unify,_47042,_47048,['unify*',[],['Link',_47108,_47114,_46922]]]]]],RET),depth(26))
-                                                            -->(43,eval('&self',[_46922,'C'],RET),depth(28))
-                                                            -->(44,eval('&self',[unify,_46922,'C',['unify*',[],['Link',_82272,_82278,_82284]]],RET),depth(28))
-                                                              -->(45,eval('&self',[case,'C',[[_46922,['unify*',[],['Link',_82272,_82278,_82284]]]]],RET),depth(29))
-                                                                  -->(46,eval('&self',['unify*',[],['Link',_95380,_95386,_95392]],RET),depth(31))
-                                                                  <--(46,retval([case,[],[[[],['Link',_101932,_101938,_101944]],[[],['let*',[[_101986,['car-atom',[]]],[_102016,['cdr-atom',[]]]],[case,_101986,[[[_102076,_102082],[unify,_102076,_102082,['unify*',_102016,['Link',_101932,_101938,_101944]]]]]]]]]]))
-                                                                    -->(47,eval('&self',[case,[],[[[],['Link',_95380,_95386,_95392]],[[],['let*',[[_101698,['car-atom',[]]],[_101728,['cdr-atom',[]]]],[case,_101698,[[[_101788,_101794],[unify,_101788,_101794,['unify*',_101728,['Link',_95380,_95386,_95392]]]]]]]]]],RET),depth(32))
-                                                                        -->(48,eval('&self',['Link',_103426,_103432,_103438],RET),depth(34))
-                                                                    <--(47,retval(['Link',_109262,_109268,_109274]))
-                                                                      -->(49,eval('&self',['Link',_103426,_103432,_103438],RET),depth(33))
-                                                              <--(45,retval(['Link',_124912,_124918,_124924]))
-                                                                -->(50,eval('&self',['Link',_103426,_103432,_103438],RET),depth(30))
-                                                          -->(51,eval('&self',['Link',_103426,_103432,_103438],RET),depth(27))
-                                                      -->(52,eval('&self',['Link',_103426,_103432,_103438],RET),depth(25))
-                                                  -->(53,eval('&self',['Link',_103426,_103432,_103438],RET),depth(23))
-                                              -->(54,eval('&self',['Link',_103426,_103432,_103438],RET),depth(21))
-                                          -->(55,eval('&self',['Link',_103426,_103432,_103438],RET),depth(19))
-                                    -->(56,eval('&self',['Link',_103426,_103432,_103438],RET),depth(16))
-                              -->(57,eval('&self',['Link',_103426,_103432,_103438],RET),depth(13))
-                          -->(58,eval('&self',['Link',_103426,_103432,_103438],RET),depth(11))
-                      -->(59,eval('&self',['Link',_103426,_103432,_103438],RET),depth(9))
-                  -->(60,eval('&self',['Link',_103426,_103432,_103438],RET),depth(7))
-              -->(61,eval('&self',['Link',_103426,_103432,_103438],RET),depth(5))
-                                                            <--(44,retval([case,'C',[[_94338,['unify*',[],['Link',_94374,_94380,_94386]]]]]))
-                                                        <--(42,retval(['Link',_141138,_141144,_141150]))
-                                                    <--(41,retval(['Link',_152520,_152526,_152532]))
-                                                <--(39,retval(['Link',_164190,_164196,_164202]))
-                                            <--(36,retval(['Link',_176148,_176154,_176160]))
-                                        <--(33,retval(['Link',_188394,_188400,_188406]))
-                                  <--(30,retval(['Link',_206952,_206958,_206964]))
-                                <--(29,retval([case,['Link','A',_24250,_24256],[[['Link',_24286,'B',_24256],['unify*',[[_24328,'C']],['Link',_24352,_24358,_24328]]]]]))
-                            <--(24,retval(['Link',_226086,_226092,_226098]))
-                        <--(23,retval(['Link',_239484,_239490,_239496]))
-                    <--(18,retval(['Link',_253170,_253176,_253182]))
-                <--(10,retval(['Link',_267144,_267150,_267156]))
-            <--(2,retval(['Link',_281406,_281412,_281418]))
-; 
+          -->(1,eval('&self',['unify*',[[['Link',_187444,'B',_187736],['Link','A',_188044,_187736]],[_187736,'C']],['Link',_187444,_188044,_187736]],RET),depth(3))
+                -->(2,eval('&self',[[['Link',_187444,'B',_187736],['Link','A',_188044,_187736]],[_187736,'C']],RET),depth(6))
+                    -->(3,eval('&self',[_187736,'C'],RET),depth(8))
+                      -->(4,eval('&self','C',RET),depth(9))
+                        -->(5,eval('&self','C',RET),depth(10))
+                    -->(6,eval('&self',[['Link',_187444,'B',_187736],['Link','A',_188044,_187736]],RET),depth(8))
+                        -->(7,eval('&self',['Link','A',_188044,_187736],RET),depth(10))
+                          -->(8,eval('&self','A',RET),depth(11))
+                          -->(9,eval('&self','Link',RET),depth(11))
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.032 secs. (32.23 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (Link $_302928 $_302934 $_302940)) 
-    ( (Link A B C))))
-</span>      <--(0,retval([got,[['Link',_308200,_308206,_308212]],expected,[['Link','A','B','C']]]))
-        -->(62,eval('&self',[got,[['Link',_302928,_302934,_302940]],expected,[['Link','A','B','C']]],RET),depth(2))
-            -->(63,eval('&self',[['Link',_302928,_302934,_302940]],RET),depth(4))
-                -->(64,eval('&self',['Link',_302928,_302934,_302940],RET),depth(6))
-            -->(65,eval('&self',[['Link','A','B','C']],RET),depth(4))
-                -->(66,eval('&self',['Link','A','B','C'],RET),depth(6))
-            -->(67,eval('&self',[['Link',_302928,_302934,_302940]],RET),depth(4))
-                -->(68,eval('&self',['Link',_302928,_302934,_302940],RET),depth(6))
-            -->(69,eval('&self',[['Link','A','B','C']],RET),depth(4))
-                -->(70,eval('&self',['Link','A','B','C'],RET),depth(6))
-          -->(71,eval('&self',[['Link',_302928,_302934,_302940]],RET),depth(3))
-              -->(72,eval('&self',['Link',_302928,_302934,_302940],RET),depth(5))
-          -->(73,eval('&self',[['Link','A','B','C']],RET),depth(3))
-              -->(74,eval('&self',['Link','A','B','C'],RET),depth(5))
-Deterministic: <span class="ansi33">
-  (got 
-    ( (Link $_302928 $_302934 $_302940)) expected 
-    ( (Link A B C)))
+; took 0.013 secs. (12.91 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Link $_288554 $_288560 $_288566)) ((Link A B C))))
+</span>Deterministic: <span class="ansi33">
+(got ((Link $_288554 $_288560 $_288566)) expected ((Link A B C)))
 
 </span>;;; Test complex unify* query
 ;;; After a series of unifications, it should define the function composition `(. g f)`
 ;;; having type `(-> Number Bool)`
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(unify* 
-  ( ( (: $Ructor 
-        (-> $Premise1 $Premise2 $Conclusion)) 
-      (: -> 
-        (-> $B $C) 
-        (-> $A $B) 
-        (-> $A $C))) 
-    ( (: 
-        ($Ructor $Proof1 $Proof2) $Conclusion) 
-      (: $Term 
-        (-> Number Bool))) 
-    ( (: $Proof1 $Premise1) 
-      (: g 
-        (-> String Bool))) 
-    ( (: $Proof2 $Premise2) 
-      (: f 
-        (-> Number String)))) 
-  (: $Term 
-    (-> Number Bool)))
+</span><span class="ansi1 ansi38-255238088">!(unify* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) (: -> (-> $B $C) (-> $A $B) (-> $A $C))) ((: ($Ructor $Proof1 $Proof2) $Conclusion) (: $Term (-> Number Bool))) ((: $Proof1 $Premise1) (: g (-> String Bool))) ((: $Proof2 $Premise2) (: f (-> Number String)))) (: $Term (-> Number Bool)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (unify* 
-    ( ( (: $Ructor 
-          (-> $Premise1 $Premise2 $Conclusion)) 
-        (: -> 
-          (-> $B $C) 
-          (-> $A $B) 
-          (-> $A $C))) 
-      ( (: 
-          ($Ructor $Proof1 $Proof2) $Conclusion) 
-        (: $Term 
-          (-> Number Bool))) 
-      ( (: $Proof1 $Premise1) 
-        (: g 
-          (-> String Bool))) 
-      ( (: $Proof2 $Premise2) 
-        (: f 
-          (-> Number String)))) 
-    (: $Term 
-      (-> Number Bool))) 
-  ( (: 
-      (. $Proof1 $Proof2) 
-      (-> Number Bool))))
+<span class="ansi38-013099040">!(assertEqualToResult (unify* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) (: -> (-> $B $C) (-> $A $B) (-> $A $C))) ((: ($Ructor $Proof1 $Proof2) $Conclusion) (: $Term (-> Number Bool))) ((: $Proof1 $Premise1) (: g (-> String Bool))) ((: $Proof2 $Premise2) (: f (-> Number String)))) (: $Term (-> Number Bool))) ((: (. $Proof1 $Proof2) (-> Number Bool))))
 
-</span><span class="ansi38-250144246">; !(unify* 
-  ( ( (: $Ructor 
-        (-> $Premise1 $Premise2 $Conclusion)) 
-      (: -> 
-        (-> $B $C) 
-        (-> $A $B) 
-        (-> $A $C))) 
-    ( (: 
-        ($Ructor $Proof1 $Proof2) $Conclusion) 
-      (: $Term 
-        (-> Number Bool))) 
-    ( (: $Proof1 $Premise1) 
-      (: g 
-        (-> String Bool))) 
-    ( (: $Proof2 $Premise2) 
-      (: f 
-        (-> Number String)))) 
-  (: $Term 
-    (-> Number Bool)))
+</span><span class="ansi38-250144246">; !(unify* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) (: -> (-> $B $C) (-> $A $B) (-> $A $C))) ((: ($Ructor $Proof1 $Proof2) $Conclusion) (: $Term (-> Number Bool))) ((: $Proof1 $Premise1) (: g (-> String Bool))) ((: $Proof2 $Premise2) (: f (-> Number String)))) (: $Term (-> Number Bool)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['unify*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[:,->,[->,B,C],[->,A,B],[->,A,C]]],[[:,[Ructor,Proof1,Proof2],Conclusion],[:,Term,[->,'Number','Bool']]],[[:,Proof1,Premise1],[:,g,[->,'String','Bool']]],[[:,Proof2,Premise2],[:,f,[->,'Number','String']]]],[:,Term,[->,'Number','Bool']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['unify*',[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]],[:,_52576,[->,'Number','Bool']]],[[:,['.',_51598,_51912],[->,'Number','Bool']]]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,['unify*',[[[:,_345366,[->,_345696,_346022,_346348]],[:,->,[->,_346726,_347010],[->,_347310,_346726],[->,_347310,_347010]]],[[:,[_345366,_348792,_349106],_346348],[:,_349770,[->,'Number','Bool']]],[[:,_348792,_345696],[:,g,[->,'String','Bool']]],[[:,_349106,_346022],[:,f,[->,'Number','String']]]],[:,_349770,[->,'Number','Bool']]],[[:,['.',_348792,_349106],[->,'Number','Bool']]]],RET),depth(1))
 <h3 id="SYNTHESIS.UNIFYTEST.04">;; SYNTHESIS.UNIFYTEST.04</h3>
-          -->(1,eval('&self',['unify*',[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]],[:,_52576,[->,'Number','Bool']]],RET),depth(3))
-          <--(1,retval([case,[[[:,_74512,[->,_74530,_74536,_74542]],[:,->,[->,_74578,_74584],[->,_74602,_74578],[->,_74602,_74584]]],[[:,[_74512,_74668,_74674],_74542],[:,_74698,[->,'Number','Bool']]],[[:,_74668,_74530],[:,g,[->,'String','Bool']]],[[:,_74674,_74536],[:,f,[->,'Number','String']]]],[[[],[:,_74698,[->,'Number','Bool']]],[[[[:,_74512,[->,_74530,_74536,_74542]],[:,->,[->,_74578,_74584],[->,_74602,_74578],[->,_74602,_74584]]],[[:,[_74512,_74668,_74674],_74542],[:,_74698,[->,'Number','Bool']]],[[:,_74668,_74530],[:,g,[->,'String','Bool']]],[[:,_74674,_74536],[:,f,[->,'Number','String']]]],['let*',[[_74968,['car-atom',[[[:,_74512,[->,_74530,_74536,_74542]],[:,->,[->,_74578,_74584],[->,_74602,_74578],[->,_74602,_74584]]],[[:,[_74512,_74668,_74674],_74542],[:,_74698,[->,'Number','Bool']]],[[:,_74668,_74530],[:,g,[->,'String','Bool']]],[[:,_74674,_74536],[:,f,[->,'Number','String']]]]]],[_74998,['cdr-atom',[[[:,_74512,[->,_74530,_74536,_74542]],[:,->,[->,_74578,_74584],[->,_74602,_74578],[->,_74602,_74584]]],[[:,[_74512,_74668,_74674],_74542],[:,_74698,[->,'Number','Bool']]],[[:,_74668,_74530],[:,g,[->,'String','Bool']]],[[:,_74674,_74536],[:,f,[->,'Number','String']]]]]]],[case,_74968,[[[_75058,_75064],[unify,_75058,_75064,['unify*',_74998,[:,_74698,[->,'Number','Bool']]]]]]]]]]]))
-            -->(2,eval('&self',[case,[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]],[[[],[:,_52576,[->,'Number','Bool']]],[[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]],['let*',[[_74290,['car-atom',[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]]]],[_74320,['cdr-atom',[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]]]]],[case,_74290,[[[_74380,_74386],[unify,_74380,_74386,['unify*',_74320,[:,_52576,[->,'Number','Bool']]]]]]]]]]],RET),depth(4))
-                -->(3,eval('&self',[[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],[[:,_51598,_48502],[:,g,[->,'String','Bool']]],[[:,_51912,_48828],[:,f,[->,'Number','String']]]],RET),depth(6))
-                    -->(4,eval('&self',[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],RET),depth(8))
-                            -->(5,eval('&self',[_48172,_51598,_51912],RET),depth(12))
-                    -->(6,eval('&self',[[:,_51598,_48502],[:,g,[->,'String','Bool']]],RET),depth(8))
-                    -->(7,eval('&self',[[:,_51912,_48828],[:,f,[->,'Number','String']]],RET),depth(8))
-                    -->(8,eval('&self',[[:,_48172,[->,_48502,_48828,_49154]],[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]]],RET),depth(8))
-                        -->(9,eval('&self',[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]],RET),depth(10))
-                        -->(10,eval('&self',[:,->,[->,_49532,_49816],[->,_50116,_49532],[->,_50116,_49816]],RET),depth(10))
-                    -->(11,eval('&self',[[:,[_48172,_51598,_51912],_49154],[:,_52576,[->,'Number','Bool']]],RET),depth(8))
-                            -->(12,eval('&self',[_48172,_51598,_51912],RET),depth(12))
-                    -->(13,eval('&self',[[:,_51598,_48502],[:,g,[->,'String','Bool']]],RET),depth(8))
-                    -->(14,eval('&self',[[:,_51912,_48828],[:,f,[->,'Number','String']]],RET),depth(8))
-                -->(15,eval('&self',['let*',[[_76594,['car-atom',[[[:,_76216,[->,_76234,_76240,_76246]],[:,->,[->,_76282,_76288],[->,_76306,_76282],[->,_76306,_76288]]],[[:,[_76216,_76372,_76378],_76246],[:,_76402,[->,'Number','Bool']]],[[:,_76372,_76234],[:,g,[->,'String','Bool']]],[[:,_76378,_76240],[:,f,[->,'Number','String']]]]]],[_76624,['cdr-atom',[[[:,_76216,[->,_76234,_76240,_76246]],[:,->,[->,_76282,_76288],[->,_76306,_76282],[->,_76306,_76288]]],[[:,[_76216,_76372,_76378],_76246],[:,_76402,[->,'Number','Bool']]],[[:,_76372,_76234],[:,g,[->,'String','Bool']]],[[:,_76378,_76240],[:,f,[->,'Number','String']]]]]]],[case,_76594,[[[_76684,_76690],[unify,_76684,_76690,['unify*',_76624,[:,_76402,[->,'Number','Bool']]]]]]]],RET),depth(6))
-                    -->(16,eval('&self',['car-atom',[[[:,_76216,[->,_76234,_76240,_76246]],[:,->,[->,_76282,_76288],[->,_76306,_76282],[->,_76306,_76288]]],[[:,[_76216,_76372,_76378],_76246],[:,_76402,[->,'Number','Bool']]],[[:,_76372,_76234],[:,g,[->,'String','Bool']]],[[:,_76378,_76240],[:,f,[->,'Number','String']]]]],RET),depth(8))
-                    <--(16,retval([[:,_449386,[->,_449404,_449410,_449416]],[:,->,[->,_449452,_449458],[->,_449476,_449452],[->,_449476,_449458]]]))
-                      -->(17,eval('&self',[[:,_76216,[->,_76234,_76240,_76246]],[:,->,[->,_76282,_76288],[->,_76306,_76282],[->,_76306,_76288]]],RET),depth(9))
-                          -->(18,eval('&self',[:,->,[->,_76282,_76288],[->,_76306,_76282],[->,_76306,_76288]],RET),depth(11))
-                          -->(19,eval('&self',[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]],RET),depth(11))
-                        -->(20,eval('&self',[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]],RET),depth(10))
-                    -->(21,eval('&self',['let*',[[_6430,['cdr-atom',[[[:,_6028,[->,_6046,_6052,_6058]],[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]]],[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],[[:,_6184,_6046],[:,g,[->,'String','Bool']]],[[:,_6190,_6052],[:,f,[->,'Number','String']]]]]]],[case,[[:,_6028,[->,_6046,_6052,_6058]],[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]]],[[[_6490,_6496],[unify,_6490,_6496,['unify*',_6430,[:,_6214,[->,'Number','Bool']]]]]]]],RET),depth(8))
-                        -->(22,eval('&self',['cdr-atom',[[[:,_6028,[->,_6046,_6052,_6058]],[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]]],[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],[[:,_6184,_6046],[:,g,[->,'String','Bool']]],[[:,_6190,_6052],[:,f,[->,'Number','String']]]]],RET),depth(10))
-                        <--(22,retval([[[:,[_162408,_162414,_162420],_162426],[:,_162444,[->,'Number','Bool']]],[[:,_162414,_162498],[:,g,[->,'String','Bool']]],[[:,_162420,_162570],[:,f,[->,'Number','String']]]]))
-                          -->(23,eval('&self',[[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],[[:,_6184,_6046],[:,g,[->,'String','Bool']]],[[:,_6190,_6052],[:,f,[->,'Number','String']]]],RET),depth(11))
-                              -->(24,eval('&self',[[:,_6184,_6046],[:,g,[->,'String','Bool']]],RET),depth(13))
-                              -->(25,eval('&self',[[:,_6190,_6052],[:,f,[->,'Number','String']]],RET),depth(13))
-                              -->(26,eval('&self',[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],RET),depth(13))
-                                      -->(27,eval('&self',[_6028,_6184,_6190],RET),depth(17))
-                              -->(28,eval('&self',[[:,_6184,_6046],[:,g,[->,'String','Bool']]],RET),depth(13))
-                              -->(29,eval('&self',[[:,_6190,_6052],[:,f,[->,'Number','String']]],RET),depth(13))
-                            -->(30,eval('&self',[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],RET),depth(12))
-                                    -->(31,eval('&self',[_6028,_6184,_6190],RET),depth(16))
-                            -->(32,eval('&self',[[:,_6184,_6046],[:,g,[->,'String','Bool']]],RET),depth(12))
-                            -->(33,eval('&self',[[:,_6190,_6052],[:,f,[->,'Number','String']]],RET),depth(12))
-                        -->(34,eval('&self',['let*',[],[case,[[:,_6028,[->,_6046,_6052,_6058]],[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]]],[[[_6490,_6496],[unify,_6490,_6496,['unify*',[[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],[[:,_6184,_6046],[:,g,[->,'String','Bool']]],[[:,_6190,_6052],[:,f,[->,'Number','String']]]],[:,_6214,[->,'Number','Bool']]]]]]]],RET),depth(10))
-                            -->(35,eval('&self',[case,[[:,_6028,[->,_6046,_6052,_6058]],[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]]],[[[_6490,_6496],[unify,_6490,_6496,['unify*',[[[:,[_6028,_6184,_6190],_6058],[:,_6214,[->,'Number','Bool']]],[[:,_6184,_6046],[:,g,[->,'String','Bool']]],[[:,_6190,_6052],[:,f,[->,'Number','String']]]],[:,_6214,[->,'Number','Bool']]]]]]],RET),depth(12))
-                                -->(36,eval('&self',[[:,_6028,[->,_6046,_6052,_6058]],[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]]],RET),depth(14))
-                                    -->(37,eval('&self',[:,->,[->,_6094,_6100],[->,_6118,_6094],[->,_6118,_6100]],RET),depth(16))
-                                    -->(38,eval('&self',[:,->,[->,_6086,_6092],[->,_6110,_6086],[->,_6110,_6092]],RET),depth(16))
-                                -->(39,eval('&self',[unify,[:,_6020,[->,_6038,_6044,_6050]],[:,->,[->,_6086,_6092],[->,_6110,_6086],[->,_6110,_6092]],['unify*',[[[:,[_13470,_13476,_13482],_13488],[:,_13506,[->,'Number','Bool']]],[[:,_13476,_13560],[:,g,[->,'String','Bool']]],[[:,_13482,_13632],[:,f,[->,'Number','String']]]],[:,_13506,[->,'Number','Bool']]]],RET),depth(14))
-                                  -->(40,eval('&self',[case,[:,->,[->,_6086,_6092],[->,_6110,_6086],[->,_6110,_6092]],[[[:,_6020,[->,_6038,_6044,_6050]],['unify*',[[[:,[_13470,_13476,_13482],_13488],[:,_13506,[->,'Number','Bool']]],[[:,_13476,_13560],[:,g,[->,'String','Bool']]],[[:,_13482,_13632],[:,f,[->,'Number','String']]]],[:,_13506,[->,'Number','Bool']]]]]],RET),depth(15))
-                                      -->(41,eval('&self',[:,->,[->,_6086,_6092],[->,_6110,_6086],[->,_6110,_6092]],RET),depth(17))
-                                  <--(40,retval(fail))
-                                <--(39,retval([case,[:,->,[->,_83466,_83472],[->,_83490,_83466],[->,_83490,_83472]],[[[:,_83550,[->,_83568,_83574,_83580]],['unify*',[[[:,[_83628,_83634,_83640],_83646],[:,_83664,[->,'Number','Bool']]],[[:,_83634,_83718],[:,g,[->,'String','Bool']]],[[:,_83640,_83790],[:,f,[->,'Number','String']]]],[:,_83664,[->,'Number','Bool']]]]]]))
-                            <--(35,retval(fail))
-                        <--(34,retval(fail))
-                    <--(21,retval(fail))
-                <--(15,retval(fail))
-            <--(2,retval(fail))
-; 
+          -->(1,eval('&self',['unify*',[[[:,_345366,[->,_345696,_346022,_346348]],[:,->,[->,_346726,_347010],[->,_347310,_346726],[->,_347310,_347010]]],[[:,[_345366,_348792,_349106],_346348],[:,_349770,[->,'Number','Bool']]],[[:,_348792,_345696],[:,g,[->,'String','Bool']]],[[:,_349106,_346022],[:,f,[->,'Number','String']]]],[:,_349770,[->,'Number','Bool']]],RET),depth(3))
+                -->(2,eval('&self',[[[:,_345366,[->,_345696,_346022,_346348]],[:,->,[->,_346726,_347010],[->,_347310,_346726],[->,_347310,_347010]]],[[:,[_345366,_348792,_349106],_346348],[:,_349770,[->,'Number','Bool']]],[[:,_348792,_345696],[:,g,[->,'String','Bool']]],[[:,_349106,_346022],[:,f,[->,'Number','String']]]],RET),depth(6))
+                    -->(3,eval('&self',[[:,[_345366,_348792,_349106],_346348],[:,_349770,[->,'Number','Bool']]],RET),depth(8))
+                          -->(4,eval('&self',[:,[_345366,_348792,_349106],_346348],RET),depth(11))
+                          -->(5,eval('&self',[:,_349770,[->,'Number','Bool']],RET),depth(11))
+                    -->(6,eval('&self',[[:,_348792,_345696],[:,g,[->,'String','Bool']]],RET),depth(8))
+                          -->(7,eval('&self',[:,_348792,_345696],RET),depth(11))
+                          -->(8,eval('&self',[:,g,[->,'String','Bool']],RET),depth(11))
+                    -->(9,eval('&self',[[:,_349106,_346022],[:,f,[->,'Number','String']]],RET),depth(8))
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.080 secs. (79.95 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  () 
-    ( (: 
-        (. $_2944 $_2962) 
-        (-> Number Bool)))))
-</span>      <--(0,retval([got,[],expected,[[:,['.',_163536,_163542],[->,'Number','Bool']]]]))
-        -->(42,eval('&self',[got,[],expected,[[:,['.',_2944,_2962],[->,'Number','Bool']]]],RET),depth(2))
-            -->(43,eval('&self',[[:,['.',_2944,_2962],[->,'Number','Bool']]],RET),depth(4))
-                    -->(44,eval('&self',['.',_2944,_2962],RET),depth(8))
-            -->(45,eval('&self',[[:,['.',_2944,_2962],[->,'Number','Bool']]],RET),depth(4))
-                    -->(46,eval('&self',['.',_2944,_2962],RET),depth(8))
-          -->(47,eval('&self',[[:,['.',_2944,_2962],[->,'Number','Bool']]],RET),depth(3))
-                  -->(48,eval('&self',['.',_2944,_2962],RET),depth(7))
-Deterministic: <span class="ansi33">
-  (got () expected 
-    ( (: 
-        (. $_2944 $_2962) 
-        (-> Number Bool))))
+; took 0.010 secs. (10.46 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () ((: (. $_348792 $_349106) (-> Number Bool)))))
+</span>Deterministic: <span class="ansi33">
+(got () expected ((: (. $_348792 $_349106) (-> Number Bool))))
 
-</span><span class="ansi32">% 1,107,814 inferences, 0.337 CPU in 0.337 seconds (100% CPU, 3288548 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/UnifyTest.metta" 0)
+</span><span class="ansi32">% 484,564 inferences, 0.284 CPU in 1.112 seconds (26% CPU, 1707025 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/UnifyTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1

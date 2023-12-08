@@ -10,6 +10,7 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
+.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -144,7 +145,8 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta')
 1=[()]
@@ -202,51 +204,39 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 ;; Initialize data space
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &data 
-  (new-space))
+</span><span class="ansi1 ansi38-255238088">!(bind! &data (new-space))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &data 
-    (new-space)) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &data (new-space)) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &data 
-  (new-space))
+</span><span class="ansi38-250144246">; !(bind! &data (new-space))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&data',['new-space']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&data',['new-space']],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.01">;; PERFORMANCE.KEY-LOOKUPS-MANY.01</h3>
           -->(1,eval('&self',['bind!','&data',['new-space']],RET),depth(3))
               -->(2,eval('&self',['new-space'],RET),depth(5))
+                  -->(3,eval('&self','Space'([]),RET),depth(7))
               <--(2,retval('Space'([])))
+              -->(4,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.79 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.000667 secs. (666.80 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(5,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Define new-entry! function
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['new-entry!',Key,Value],[let,New_state,['new-state',Value],['add-atom','&data',[=,['get-data',Key],New_state]]]])
-</span><span class="ansi38-255165000">  (= 
-    (new-entry! $Key $Value) 
-    (let $New_state 
-      (new-state $Value) 
-      (add-atom &data 
-        (= 
-          (get-data $Key) $New_state))))
+</span><span class="ansi38-255165000">(= (new-entry! $Key $Value) (let $New_state (new-state $Value) (add-atom &data (= (get-data $Key) $New_state))))
 </span>
 
 ;; Populate the data space with entries manually for size 10
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-0 v-0)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-0 v-0) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-0 v-0) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-0 v-0)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-0','v-0'],OUT).
@@ -254,41 +244,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-0','v-0'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.02">;; PERFORMANCE.KEY-LOOKUPS-MANY.02</h3>
           -->(1,eval('&self',['new-entry!','k-0','v-0'],RET),depth(3))
-          <--(1,retval([let,_349828,['new-state','v-0'],['add-atom','&data',[=,['get-data','k-0'],_349828]]]))
-            -->(2,eval('&self',[let,_349702,['new-state','v-0'],['add-atom','&data',[=,['get-data','k-0'],_349702]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-0'],RET),depth(6))
-                <--(3,retval('State'('v-0',_358068)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-0'],'State'('v-0',_358020)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([]),[=,['get-data','k-0'],'State'('v-0',_358020)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-0) 
-    (State  v-0 $_358020))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  ()) 
-    (= 
-      (get-data k-0) 
-      (State  v-0 $_358020)))
+                -->(2,eval('&self',['new-state','v-0'],RET),depth(6))
+                  -->(3,eval('&self','v-0',RET),depth(7))
+                    -->(4,eval('&self','State'('v-0',_5330),RET),depth(8))
+                <--(2,retval('State'('v-0',_6194)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-0'],'State'('v-0',_5330)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([]),RET),depth(9))
+                  <--(6,retval('Space'([])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([]),[=,['get-data','k-0'],'State'('v-0',_5330)])
+</span><span class="ansi38-255165000">(= (get-data k-0) (State  v-0 $_5330))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ()) (= (get-data k-0) (State  v-0 $_5330)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.62 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.004 secs. (3.99 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-1 v-1)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-1 v-1) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-1 v-1) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-1 v-1)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-1','v-1'],OUT).
@@ -296,44 +279,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-1','v-1'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.03">;; PERFORMANCE.KEY-LOOKUPS-MANY.03</h3>
           -->(1,eval('&self',['new-entry!','k-1','v-1'],RET),depth(3))
-          <--(1,retval([let,_474512,['new-state','v-1'],['add-atom','&data',[=,['get-data','k-1'],_474512]]]))
-            -->(2,eval('&self',[let,_474386,['new-state','v-1'],['add-atom','&data',[=,['get-data','k-1'],_474386]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-1'],RET),depth(6))
-                <--(3,retval('State'('v-1',_482752)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-1'],'State'('v-1',_482704)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-0'],'State'('v-0',_498332)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-0'],'State'('v-0',_393690)]]),[=,['get-data','k-1'],'State'('v-1',_482704)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-1) 
-    (State  v-1 $_482704))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-0) 
-          (State  v-0 $_393690)))) 
-    (= 
-      (get-data k-1) 
-      (State  v-1 $_482704)))
+                -->(2,eval('&self',['new-state','v-1'],RET),depth(6))
+                  -->(3,eval('&self','v-1',RET),depth(7))
+                    -->(4,eval('&self','State'('v-1',_45370),RET),depth(8))
+                <--(2,retval('State'('v-1',_46234)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-1'],'State'('v-1',_45370)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-0'],'State'('v-0',_13496)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-0'],'State'('v-0',_48900)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-0'],'State'('v-0',_13496)]]),[=,['get-data','k-1'],'State'('v-1',_45370)])
+</span><span class="ansi38-255165000">(= (get-data k-1) (State  v-1 $_45370))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-0) (State  v-0 $_13496)))) (= (get-data k-1) (State  v-1 $_45370)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.56 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.002 secs. (2.06 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-2 v-2)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-2 v-2) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-2 v-2) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-2 v-2)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-2','v-2'],OUT).
@@ -341,47 +314,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-2','v-2'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.04">;; PERFORMANCE.KEY-LOOKUPS-MANY.04</h3>
           -->(1,eval('&self',['new-entry!','k-2','v-2'],RET),depth(3))
-          <--(1,retval([let,_84648,['new-state','v-2'],['add-atom','&data',[=,['get-data','k-2'],_84648]]]))
-            -->(2,eval('&self',[let,_84522,['new-state','v-2'],['add-atom','&data',[=,['get-data','k-2'],_84522]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-2'],RET),depth(6))
-                <--(3,retval('State'('v-2',_92888)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-2'],'State'('v-2',_92840)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-1'],'State'('v-1',_108468)],[=,['get-data','k-0'],'State'('v-0',_108510)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-1'],'State'('v-1',_5596)],[=,['get-data','k-0'],'State'('v-0',_5638)]]),[=,['get-data','k-2'],'State'('v-2',_92840)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-2) 
-    (State  v-2 $_92840))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-1) 
-          (State  v-1 $_5596)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_5638)))) 
-    (= 
-      (get-data k-2) 
-      (State  v-2 $_92840)))
+                -->(2,eval('&self',['new-state','v-2'],RET),depth(6))
+                  -->(3,eval('&self','v-2',RET),depth(7))
+                    -->(4,eval('&self','State'('v-2',_85418),RET),depth(8))
+                <--(2,retval('State'('v-2',_86282)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-2'],'State'('v-2',_85418)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-1'],'State'('v-1',_53634)],[=,['get-data','k-0'],'State'('v-0',_53676)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-1'],'State'('v-1',_88990)],[=,['get-data','k-0'],'State'('v-0',_89032)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-1'],'State'('v-1',_53634)],[=,['get-data','k-0'],'State'('v-0',_53676)]]),[=,['get-data','k-2'],'State'('v-2',_85418)])
+</span><span class="ansi38-255165000">(= (get-data k-2) (State  v-2 $_85418))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-1) (State  v-1 $_53634)) (= (get-data k-0) (State  v-0 $_53676)))) (= (get-data k-2) (State  v-2 $_85418)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.73 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.002 secs. (2.27 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-3 v-3)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-3 v-3) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-3 v-3) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-3 v-3)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-3','v-3'],OUT).
@@ -389,50 +349,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-3','v-3'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.05">;; PERFORMANCE.KEY-LOOKUPS-MANY.05</h3>
           -->(1,eval('&self',['new-entry!','k-3','v-3'],RET),depth(3))
-          <--(1,retval([let,_217126,['new-state','v-3'],['add-atom','&data',[=,['get-data','k-3'],_217126]]]))
-            -->(2,eval('&self',[let,_217000,['new-state','v-3'],['add-atom','&data',[=,['get-data','k-3'],_217000]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-3'],RET),depth(6))
-                <--(3,retval('State'('v-3',_225366)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-3'],'State'('v-3',_225318)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-2'],'State'('v-2',_240946)],[=,['get-data','k-1'],'State'('v-1',_240988)],[=,['get-data','k-0'],'State'('v-0',_241030)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-2'],'State'('v-2',_136428)],[=,['get-data','k-1'],'State'('v-1',_136470)],[=,['get-data','k-0'],'State'('v-0',_136512)]]),[=,['get-data','k-3'],'State'('v-3',_225318)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-3) 
-    (State  v-3 $_225318))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-2) 
-          (State  v-2 $_136428)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_136470)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_136512)))) 
-    (= 
-      (get-data k-3) 
-      (State  v-3 $_225318)))
+                -->(2,eval('&self',['new-state','v-3'],RET),depth(6))
+                  -->(3,eval('&self','v-3',RET),depth(7))
+                    -->(4,eval('&self','State'('v-3',_125470),RET),depth(8))
+                <--(2,retval('State'('v-3',_126334)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-3'],'State'('v-3',_125470)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-2'],'State'('v-2',_93776)],[=,['get-data','k-1'],'State'('v-1',_93818)],[=,['get-data','k-0'],'State'('v-0',_93860)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-2'],'State'('v-2',_129084)],[=,['get-data','k-1'],'State'('v-1',_129126)],[=,['get-data','k-0'],'State'('v-0',_129168)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-2'],'State'('v-2',_93776)],[=,['get-data','k-1'],'State'('v-1',_93818)],[=,['get-data','k-0'],'State'('v-0',_93860)]]),[=,['get-data','k-3'],'State'('v-3',_125470)])
+</span><span class="ansi38-255165000">(= (get-data k-3) (State  v-3 $_125470))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-2) (State  v-2 $_93776)) (= (get-data k-1) (State  v-1 $_93818)) (= (get-data k-0) (State  v-0 $_93860)))) (= (get-data k-3) (State  v-3 $_125470)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.69 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.004 secs. (3.57 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-4 v-4)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-4 v-4) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-4 v-4) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-4 v-4)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-4','v-4'],OUT).
@@ -440,53 +384,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-4','v-4'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.06">;; PERFORMANCE.KEY-LOOKUPS-MANY.06</h3>
           -->(1,eval('&self',['new-entry!','k-4','v-4'],RET),depth(3))
-          <--(1,retval([let,_353508,['new-state','v-4'],['add-atom','&data',[=,['get-data','k-4'],_353508]]]))
-            -->(2,eval('&self',[let,_353382,['new-state','v-4'],['add-atom','&data',[=,['get-data','k-4'],_353382]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-4'],RET),depth(6))
-                <--(3,retval('State'('v-4',_361748)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-4'],'State'('v-4',_361700)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-3'],'State'('v-3',_377328)],[=,['get-data','k-2'],'State'('v-2',_377370)],[=,['get-data','k-1'],'State'('v-1',_377412)],[=,['get-data','k-0'],'State'('v-0',_377454)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-3'],'State'('v-3',_272868)],[=,['get-data','k-2'],'State'('v-2',_272910)],[=,['get-data','k-1'],'State'('v-1',_272952)],[=,['get-data','k-0'],'State'('v-0',_272994)]]),[=,['get-data','k-4'],'State'('v-4',_361700)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-4) 
-    (State  v-4 $_361700))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-3) 
-          (State  v-3 $_272868)) 
-        (= 
-          (get-data k-2) 
-          (State  v-2 $_272910)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_272952)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_272994)))) 
-    (= 
-      (get-data k-4) 
-      (State  v-4 $_361700)))
+                -->(2,eval('&self',['new-state','v-4'],RET),depth(6))
+                  -->(3,eval('&self','v-4',RET),depth(7))
+                    -->(4,eval('&self','State'('v-4',_165528),RET),depth(8))
+                <--(2,retval('State'('v-4',_166392)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-4'],'State'('v-4',_165528)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-3'],'State'('v-3',_133924)],[=,['get-data','k-2'],'State'('v-2',_133966)],[=,['get-data','k-1'],'State'('v-1',_134008)],[=,['get-data','k-0'],'State'('v-0',_134050)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-3'],'State'('v-3',_169184)],[=,['get-data','k-2'],'State'('v-2',_169226)],[=,['get-data','k-1'],'State'('v-1',_169268)],[=,['get-data','k-0'],'State'('v-0',_169310)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-3'],'State'('v-3',_133924)],[=,['get-data','k-2'],'State'('v-2',_133966)],[=,['get-data','k-1'],'State'('v-1',_134008)],[=,['get-data','k-0'],'State'('v-0',_134050)]]),[=,['get-data','k-4'],'State'('v-4',_165528)])
+</span><span class="ansi38-255165000">(= (get-data k-4) (State  v-4 $_165528))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-3) (State  v-3 $_133924)) (= (get-data k-2) (State  v-2 $_133966)) (= (get-data k-1) (State  v-1 $_134008)) (= (get-data k-0) (State  v-0 $_134050)))) (= (get-data k-4) (State  v-4 $_165528)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (5.31 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.002 secs. (2.29 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-5 v-5)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-5 v-5) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-5 v-5) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-5 v-5)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-5','v-5'],OUT).
@@ -494,56 +419,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-5','v-5'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.07">;; PERFORMANCE.KEY-LOOKUPS-MANY.07</h3>
           -->(1,eval('&self',['new-entry!','k-5','v-5'],RET),depth(3))
-          <--(1,retval([let,_493788,['new-state','v-5'],['add-atom','&data',[=,['get-data','k-5'],_493788]]]))
-            -->(2,eval('&self',[let,_493662,['new-state','v-5'],['add-atom','&data',[=,['get-data','k-5'],_493662]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-5'],RET),depth(6))
-                <--(3,retval('State'('v-5',_502028)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-5'],'State'('v-5',_501980)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-4'],'State'('v-4',_517608)],[=,['get-data','k-3'],'State'('v-3',_517650)],[=,['get-data','k-2'],'State'('v-2',_517692)],[=,['get-data','k-1'],'State'('v-1',_517734)],[=,['get-data','k-0'],'State'('v-0',_517776)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-4'],'State'('v-4',_5292)],[=,['get-data','k-3'],'State'('v-3',_5334)],[=,['get-data','k-2'],'State'('v-2',_5376)],[=,['get-data','k-1'],'State'('v-1',_5418)],[=,['get-data','k-0'],'State'('v-0',_5460)]]),[=,['get-data','k-5'],'State'('v-5',_7772)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-5) 
-    (State  v-5 $_7772))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-4) 
-          (State  v-4 $_5292)) 
-        (= 
-          (get-data k-3) 
-          (State  v-3 $_5334)) 
-        (= 
-          (get-data k-2) 
-          (State  v-2 $_5376)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_5418)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_5460)))) 
-    (= 
-      (get-data k-5) 
-      (State  v-5 $_7772)))
+                -->(2,eval('&self',['new-state','v-5'],RET),depth(6))
+                  -->(3,eval('&self','v-5',RET),depth(7))
+                    -->(4,eval('&self','State'('v-5',_205592),RET),depth(8))
+                <--(2,retval('State'('v-5',_206456)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-5'],'State'('v-5',_205592)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-4'],'State'('v-4',_174078)],[=,['get-data','k-3'],'State'('v-3',_174120)],[=,['get-data','k-2'],'State'('v-2',_174162)],[=,['get-data','k-1'],'State'('v-1',_174204)],[=,['get-data','k-0'],'State'('v-0',_174246)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-4'],'State'('v-4',_209290)],[=,['get-data','k-3'],'State'('v-3',_209332)],[=,['get-data','k-2'],'State'('v-2',_209374)],[=,['get-data','k-1'],'State'('v-1',_209416)],[=,['get-data','k-0'],'State'('v-0',_209458)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-4'],'State'('v-4',_174078)],[=,['get-data','k-3'],'State'('v-3',_174120)],[=,['get-data','k-2'],'State'('v-2',_174162)],[=,['get-data','k-1'],'State'('v-1',_174204)],[=,['get-data','k-0'],'State'('v-0',_174246)]]),[=,['get-data','k-5'],'State'('v-5',_205592)])
+</span><span class="ansi38-255165000">(= (get-data k-5) (State  v-5 $_205592))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-4) (State  v-4 $_174078)) (= (get-data k-3) (State  v-3 $_174120)) (= (get-data k-2) (State  v-2 $_174162)) (= (get-data k-1) (State  v-1 $_174204)) (= (get-data k-0) (State  v-0 $_174246)))) (= (get-data k-5) (State  v-5 $_205592)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.24 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.002 secs. (2.44 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-6 v-6)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-6 v-6) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-6 v-6) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-6 v-6)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-6','v-6'],OUT).
@@ -551,59 +454,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-6','v-6'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.08">;; PERFORMANCE.KEY-LOOKUPS-MANY.08</h3>
           -->(1,eval('&self',['new-entry!','k-6','v-6'],RET),depth(3))
-          <--(1,retval([let,_123722,['new-state','v-6'],['add-atom','&data',[=,['get-data','k-6'],_123722]]]))
-            -->(2,eval('&self',[let,_123596,['new-state','v-6'],['add-atom','&data',[=,['get-data','k-6'],_123596]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-6'],RET),depth(6))
-                <--(3,retval('State'('v-6',_131962)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-6'],'State'('v-6',_131914)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-5'],'State'('v-5',_147542)],[=,['get-data','k-4'],'State'('v-4',_147584)],[=,['get-data','k-3'],'State'('v-3',_147626)],[=,['get-data','k-2'],'State'('v-2',_147668)],[=,['get-data','k-1'],'State'('v-1',_147710)],[=,['get-data','k-0'],'State'('v-0',_147752)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-5'],'State'('v-5',_42336)],[=,['get-data','k-4'],'State'('v-4',_42378)],[=,['get-data','k-3'],'State'('v-3',_42420)],[=,['get-data','k-2'],'State'('v-2',_42462)],[=,['get-data','k-1'],'State'('v-1',_42504)],[=,['get-data','k-0'],'State'('v-0',_42546)]]),[=,['get-data','k-6'],'State'('v-6',_131914)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-6) 
-    (State  v-6 $_131914))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-5) 
-          (State  v-5 $_42336)) 
-        (= 
-          (get-data k-4) 
-          (State  v-4 $_42378)) 
-        (= 
-          (get-data k-3) 
-          (State  v-3 $_42420)) 
-        (= 
-          (get-data k-2) 
-          (State  v-2 $_42462)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_42504)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_42546)))) 
-    (= 
-      (get-data k-6) 
-      (State  v-6 $_131914)))
+                -->(2,eval('&self',['new-state','v-6'],RET),depth(6))
+                  -->(3,eval('&self','v-6',RET),depth(7))
+                    -->(4,eval('&self','State'('v-6',_246534),RET),depth(8))
+                <--(2,retval('State'('v-6',_247398)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-6'],'State'('v-6',_246534)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-5'],'State'('v-5',_214238)],[=,['get-data','k-4'],'State'('v-4',_214280)],[=,['get-data','k-3'],'State'('v-3',_214322)],[=,['get-data','k-2'],'State'('v-2',_214364)],[=,['get-data','k-1'],'State'('v-1',_214406)],[=,['get-data','k-0'],'State'('v-0',_214448)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-5'],'State'('v-5',_250274)],[=,['get-data','k-4'],'State'('v-4',_250316)],[=,['get-data','k-3'],'State'('v-3',_250358)],[=,['get-data','k-2'],'State'('v-2',_250400)],[=,['get-data','k-1'],'State'('v-1',_250442)],[=,['get-data','k-0'],'State'('v-0',_250484)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-5'],'State'('v-5',_214238)],[=,['get-data','k-4'],'State'('v-4',_214280)],[=,['get-data','k-3'],'State'('v-3',_214322)],[=,['get-data','k-2'],'State'('v-2',_214364)],[=,['get-data','k-1'],'State'('v-1',_214406)],[=,['get-data','k-0'],'State'('v-0',_214448)]]),[=,['get-data','k-6'],'State'('v-6',_246534)])
+</span><span class="ansi38-255165000">(= (get-data k-6) (State  v-6 $_246534))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-5) (State  v-5 $_214238)) (= (get-data k-4) (State  v-4 $_214280)) (= (get-data k-3) (State  v-3 $_214322)) (= (get-data k-2) (State  v-2 $_214364)) (= (get-data k-1) (State  v-1 $_214406)) (= (get-data k-0) (State  v-0 $_214448)))) (= (get-data k-6) (State  v-6 $_246534)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.51 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.003 secs. (3.14 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-7 v-7)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-7 v-7) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-7 v-7) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-7 v-7)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-7','v-7'],OUT).
@@ -611,62 +489,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-7','v-7'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.09">;; PERFORMANCE.KEY-LOOKUPS-MANY.09</h3>
           -->(1,eval('&self',['new-entry!','k-7','v-7'],RET),depth(3))
-          <--(1,retval([let,_271784,['new-state','v-7'],['add-atom','&data',[=,['get-data','k-7'],_271784]]]))
-            -->(2,eval('&self',[let,_271658,['new-state','v-7'],['add-atom','&data',[=,['get-data','k-7'],_271658]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-7'],RET),depth(6))
-                <--(3,retval('State'('v-7',_280024)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-7'],'State'('v-7',_279976)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-6'],'State'('v-6',_295604)],[=,['get-data','k-5'],'State'('v-5',_295646)],[=,['get-data','k-4'],'State'('v-4',_295688)],[=,['get-data','k-3'],'State'('v-3',_295730)],[=,['get-data','k-2'],'State'('v-2',_295772)],[=,['get-data','k-1'],'State'('v-1',_295814)],[=,['get-data','k-0'],'State'('v-0',_295856)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-6'],'State'('v-6',_191340)],[=,['get-data','k-5'],'State'('v-5',_191382)],[=,['get-data','k-4'],'State'('v-4',_191424)],[=,['get-data','k-3'],'State'('v-3',_191466)],[=,['get-data','k-2'],'State'('v-2',_191508)],[=,['get-data','k-1'],'State'('v-1',_191550)],[=,['get-data','k-0'],'State'('v-0',_191592)]]),[=,['get-data','k-7'],'State'('v-7',_279976)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-7) 
-    (State  v-7 $_279976))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-6) 
-          (State  v-6 $_191340)) 
-        (= 
-          (get-data k-5) 
-          (State  v-5 $_191382)) 
-        (= 
-          (get-data k-4) 
-          (State  v-4 $_191424)) 
-        (= 
-          (get-data k-3) 
-          (State  v-3 $_191466)) 
-        (= 
-          (get-data k-2) 
-          (State  v-2 $_191508)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_191550)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_191592)))) 
-    (= 
-      (get-data k-7) 
-      (State  v-7 $_279976)))
+                -->(2,eval('&self',['new-state','v-7'],RET),depth(6))
+                  -->(3,eval('&self','v-7',RET),depth(7))
+                    -->(4,eval('&self','State'('v-7',_286598),RET),depth(8))
+                <--(2,retval('State'('v-7',_287462)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-7'],'State'('v-7',_286598)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-6'],'State'('v-6',_255276)],[=,['get-data','k-5'],'State'('v-5',_255318)],[=,['get-data','k-4'],'State'('v-4',_255360)],[=,['get-data','k-3'],'State'('v-3',_255402)],[=,['get-data','k-2'],'State'('v-2',_255444)],[=,['get-data','k-1'],'State'('v-1',_255486)],[=,['get-data','k-0'],'State'('v-0',_255528)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-6'],'State'('v-6',_290380)],[=,['get-data','k-5'],'State'('v-5',_290422)],[=,['get-data','k-4'],'State'('v-4',_290464)],[=,['get-data','k-3'],'State'('v-3',_290506)],[=,['get-data','k-2'],'State'('v-2',_290548)],[=,['get-data','k-1'],'State'('v-1',_290590)],[=,['get-data','k-0'],'State'('v-0',_290632)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-6'],'State'('v-6',_255276)],[=,['get-data','k-5'],'State'('v-5',_255318)],[=,['get-data','k-4'],'State'('v-4',_255360)],[=,['get-data','k-3'],'State'('v-3',_255402)],[=,['get-data','k-2'],'State'('v-2',_255444)],[=,['get-data','k-1'],'State'('v-1',_255486)],[=,['get-data','k-0'],'State'('v-0',_255528)]]),[=,['get-data','k-7'],'State'('v-7',_286598)])
+</span><span class="ansi38-255165000">(= (get-data k-7) (State  v-7 $_286598))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-6) (State  v-6 $_255276)) (= (get-data k-5) (State  v-5 $_255318)) (= (get-data k-4) (State  v-4 $_255360)) (= (get-data k-3) (State  v-3 $_255402)) (= (get-data k-2) (State  v-2 $_255444)) (= (get-data k-1) (State  v-1 $_255486)) (= (get-data k-0) (State  v-0 $_255528)))) (= (get-data k-7) (State  v-7 $_286598)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.13 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.003 secs. (2.69 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-8 v-8)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-8 v-8) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-8 v-8) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-8 v-8)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-8','v-8'],OUT).
@@ -674,65 +524,34 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-8','v-8'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.10">;; PERFORMANCE.KEY-LOOKUPS-MANY.10</h3>
           -->(1,eval('&self',['new-entry!','k-8','v-8'],RET),depth(3))
-          <--(1,retval([let,_423750,['new-state','v-8'],['add-atom','&data',[=,['get-data','k-8'],_423750]]]))
-            -->(2,eval('&self',[let,_423624,['new-state','v-8'],['add-atom','&data',[=,['get-data','k-8'],_423624]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-8'],RET),depth(6))
-                <--(3,retval('State'('v-8',_431990)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-8'],'State'('v-8',_431942)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-7'],'State'('v-7',_447570)],[=,['get-data','k-6'],'State'('v-6',_447612)],[=,['get-data','k-5'],'State'('v-5',_447654)],[=,['get-data','k-4'],'State'('v-4',_447696)],[=,['get-data','k-3'],'State'('v-3',_447738)],[=,['get-data','k-2'],'State'('v-2',_447780)],[=,['get-data','k-1'],'State'('v-1',_447822)],[=,['get-data','k-0'],'State'('v-0',_447864)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-7'],'State'('v-7',_343364)],[=,['get-data','k-6'],'State'('v-6',_343406)],[=,['get-data','k-5'],'State'('v-5',_343448)],[=,['get-data','k-4'],'State'('v-4',_343490)],[=,['get-data','k-3'],'State'('v-3',_343532)],[=,['get-data','k-2'],'State'('v-2',_343574)],[=,['get-data','k-1'],'State'('v-1',_343616)],[=,['get-data','k-0'],'State'('v-0',_343658)]]),[=,['get-data','k-8'],'State'('v-8',_431942)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-8) 
-    (State  v-8 $_431942))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-7) 
-          (State  v-7 $_343364)) 
-        (= 
-          (get-data k-6) 
-          (State  v-6 $_343406)) 
-        (= 
-          (get-data k-5) 
-          (State  v-5 $_343448)) 
-        (= 
-          (get-data k-4) 
-          (State  v-4 $_343490)) 
-        (= 
-          (get-data k-3) 
-          (State  v-3 $_343532)) 
-        (= 
-          (get-data k-2) 
-          (State  v-2 $_343574)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_343616)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_343658)))) 
-    (= 
-      (get-data k-8) 
-      (State  v-8 $_431942)))
+                -->(2,eval('&self',['new-state','v-8'],RET),depth(6))
+                  -->(3,eval('&self','v-8',RET),depth(7))
+                    -->(4,eval('&self','State'('v-8',_326668),RET),depth(8))
+                <--(2,retval('State'('v-8',_327532)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-8'],'State'('v-8',_326668)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-7'],'State'('v-7',_295436)],[=,['get-data','k-6'],'State'('v-6',_295478)],[=,['get-data','k-5'],'State'('v-5',_295520)],[=,['get-data','k-4'],'State'('v-4',_295562)],[=,['get-data','k-3'],'State'('v-3',_295604)],[=,['get-data','k-2'],'State'('v-2',_295646)],[=,['get-data','k-1'],'State'('v-1',_295688)],[=,['get-data','k-0'],'State'('v-0',_295730)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-7'],'State'('v-7',_330492)],[=,['get-data','k-6'],'State'('v-6',_330534)],[=,['get-data','k-5'],'State'('v-5',_330576)],[=,['get-data','k-4'],'State'('v-4',_330618)],[=,['get-data','k-3'],'State'('v-3',_330660)],[=,['get-data','k-2'],'State'('v-2',_330702)],[=,['get-data','k-1'],'State'('v-1',_330744)],[=,['get-data','k-0'],'State'('v-0',_330786)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-7'],'State'('v-7',_295436)],[=,['get-data','k-6'],'State'('v-6',_295478)],[=,['get-data','k-5'],'State'('v-5',_295520)],[=,['get-data','k-4'],'State'('v-4',_295562)],[=,['get-data','k-3'],'State'('v-3',_295604)],[=,['get-data','k-2'],'State'('v-2',_295646)],[=,['get-data','k-1'],'State'('v-1',_295688)],[=,['get-data','k-0'],'State'('v-0',_295730)]]),[=,['get-data','k-8'],'State'('v-8',_326668)])
+</span><span class="ansi38-255165000">(= (get-data k-8) (State  v-8 $_326668))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-7) (State  v-7 $_295436)) (= (get-data k-6) (State  v-6 $_295478)) (= (get-data k-5) (State  v-5 $_295520)) (= (get-data k-4) (State  v-4 $_295562)) (= (get-data k-3) (State  v-3 $_295604)) (= (get-data k-2) (State  v-2 $_295646)) (= (get-data k-1) (State  v-1 $_295688)) (= (get-data k-0) (State  v-0 $_295730)))) (= (get-data k-8) (State  v-8 $_326668)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (6.65 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.004 secs. (3.77 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-entry! k-9 v-9)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (new-entry! k-9 v-9) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (new-entry! k-9 v-9) (()))
 
 </span><span class="ansi38-250144246">; !(new-entry! k-9 v-9)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-entry!','k-9','v-9'],OUT).
@@ -740,528 +559,383 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['new-entry!','k-9','v-9'],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.11">;; PERFORMANCE.KEY-LOOKUPS-MANY.11</h3>
           -->(1,eval('&self',['new-entry!','k-9','v-9'],RET),depth(3))
-          <--(1,retval([let,_63510,['new-state','v-9'],['add-atom','&data',[=,['get-data','k-9'],_63510]]]))
-            -->(2,eval('&self',[let,_63384,['new-state','v-9'],['add-atom','&data',[=,['get-data','k-9'],_63384]]],RET),depth(4))
-                -->(3,eval('&self',['new-state','v-9'],RET),depth(6))
-                <--(3,retval('State'('v-9',_71750)))
-                -->(4,eval('&self',['add-atom','&data',[=,['get-data','k-9'],'State'('v-9',_71702)]],RET),depth(6))
-                    -->(5,eval('&self','&data',RET),depth(8))
-                    <--(5,retval('Space'([[=,['get-data','k-8'],'State'('v-8',_87330)],[=,['get-data','k-7'],'State'('v-7',_87372)],[=,['get-data','k-6'],'State'('v-6',_87414)],[=,['get-data','k-5'],'State'('v-5',_87456)],[=,['get-data','k-4'],'State'('v-4',_87498)],[=,['get-data','k-3'],'State'('v-3',_87540)],[=,['get-data','k-2'],'State'('v-2',_87582)],[=,['get-data','k-1'],'State'('v-1',_87624)],[=,['get-data','k-0'],'State'('v-0',_87666)]])))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-8'],'State'('v-8',_6806)],[=,['get-data','k-7'],'State'('v-7',_6848)],[=,['get-data','k-6'],'State'('v-6',_6890)],[=,['get-data','k-5'],'State'('v-5',_6932)],[=,['get-data','k-4'],'State'('v-4',_6974)],[=,['get-data','k-3'],'State'('v-3',_7016)],[=,['get-data','k-2'],'State'('v-2',_7058)],[=,['get-data','k-1'],'State'('v-1',_7100)],[=,['get-data','k-0'],'State'('v-0',_7142)]]),[=,['get-data','k-9'],'State'('v-9',_71702)])
-</span><span class="ansi38-255165000">  (= 
-    (get-data k-9) 
-    (State  v-9 $_71702))
-</span>; (type-method is_as_nb_space add_nb_atom 
-    (Space  
-      ( (= 
-          (get-data k-8) 
-          (State  v-8 $_6806)) 
-        (= 
-          (get-data k-7) 
-          (State  v-7 $_6848)) 
-        (= 
-          (get-data k-6) 
-          (State  v-6 $_6890)) 
-        (= 
-          (get-data k-5) 
-          (State  v-5 $_6932)) 
-        (= 
-          (get-data k-4) 
-          (State  v-4 $_6974)) 
-        (= 
-          (get-data k-3) 
-          (State  v-3 $_7016)) 
-        (= 
-          (get-data k-2) 
-          (State  v-2 $_7058)) 
-        (= 
-          (get-data k-1) 
-          (State  v-1 $_7100)) 
-        (= 
-          (get-data k-0) 
-          (State  v-0 $_7142)))) 
-    (= 
-      (get-data k-9) 
-      (State  v-9 $_71702)))
+                -->(2,eval('&self',['new-state','v-9'],RET),depth(6))
+                  -->(3,eval('&self','v-9',RET),depth(7))
+                    -->(4,eval('&self','State'('v-9',_366788),RET),depth(8))
+                <--(2,retval('State'('v-9',_367652)))
+                -->(5,eval('&self',['add-atom','&data',[=,['get-data','k-9'],'State'('v-9',_366788)]],RET),depth(6))
+                  -->(6,eval('&self','&data',RET),depth(7))
+                      -->(7,eval('&self','Space'([[=,['get-data','k-8'],'State'('v-8',_335600)],[=,['get-data','k-7'],'State'('v-7',_335642)],[=,['get-data','k-6'],'State'('v-6',_335684)],[=,['get-data','k-5'],'State'('v-5',_335726)],[=,['get-data','k-4'],'State'('v-4',_335768)],[=,['get-data','k-3'],'State'('v-3',_335810)],[=,['get-data','k-2'],'State'('v-2',_335852)],[=,['get-data','k-1'],'State'('v-1',_335894)],[=,['get-data','k-0'],'State'('v-0',_335936)]]),RET),depth(9))
+                  <--(6,retval('Space'([[=,['get-data','k-8'],'State'('v-8',_370654)],[=,['get-data','k-7'],'State'('v-7',_370696)],[=,['get-data','k-6'],'State'('v-6',_370738)],[=,['get-data','k-5'],'State'('v-5',_370780)],[=,['get-data','k-4'],'State'('v-4',_370822)],[=,['get-data','k-3'],'State'('v-3',_370864)],[=,['get-data','k-2'],'State'('v-2',_370906)],[=,['get-data','k-1'],'State'('v-1',_370948)],[=,['get-data','k-0'],'State'('v-0',_370990)]])))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('Space'([[=,['get-data','k-8'],'State'('v-8',_335600)],[=,['get-data','k-7'],'State'('v-7',_335642)],[=,['get-data','k-6'],'State'('v-6',_335684)],[=,['get-data','k-5'],'State'('v-5',_335726)],[=,['get-data','k-4'],'State'('v-4',_335768)],[=,['get-data','k-3'],'State'('v-3',_335810)],[=,['get-data','k-2'],'State'('v-2',_335852)],[=,['get-data','k-1'],'State'('v-1',_335894)],[=,['get-data','k-0'],'State'('v-0',_335936)]]),[=,['get-data','k-9'],'State'('v-9',_366788)])
+</span><span class="ansi38-255165000">(= (get-data k-9) (State  v-9 $_366788))
+</span>; (type-method is_as_nb_space add_nb_atom (Space  ((= (get-data k-8) (State  v-8 $_335600)) (= (get-data k-7) (State  v-7 $_335642)) (= (get-data k-6) (State  v-6 $_335684)) (= (get-data k-5) (State  v-5 $_335726)) (= (get-data k-4) (State  v-4 $_335768)) (= (get-data k-3) (State  v-3 $_335810)) (= (get-data k-2) (State  v-2 $_335852)) (= (get-data k-1) (State  v-1 $_335894)) (= (get-data k-0) (State  v-0 $_335936)))) (= (get-data k-9) (State  v-9 $_366788)))
 
 
-                <--(4,retval('Empty'))
-            <--(2,retval('Empty'))
+                    -->(8,eval('&self','Empty',RET),depth(8))
+                <--(5,retval('Empty'))
+                -->(9,eval('&self','Empty',RET),depth(6))
+          <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (6.79 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.005 secs. (4.57 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-0) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-0)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-0) (match &data (= (get-data $K) $V) $K)) k-0)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-0) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-0) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-0'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_216398,['new-state','v-0'],[match,'&data',[=,['get-data',_216762],_216398],_216762]],'k-0'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_399206,['new-state','v-0'],[match,'&data',[=,['get-data',_399570],_399206],_399570]],'k-0'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.12">;; PERFORMANCE.KEY-LOOKUPS-MANY.12</h3>
-          -->(1,eval('&self',[let,_216398,['new-state','v-0'],[match,'&data',[=,['get-data',_216762],_216398],_216762]],RET),depth(3))
+          -->(1,eval('&self',[let,_399206,['new-state','v-0'],[match,'&data',[=,['get-data',_399570],_399206],_399570]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-0'],RET),depth(5))
-              <--(2,retval('State'('v-0',_235740)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_216762],'State'('v-0',_235692)],_216762],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_251670)],[=,['get-data','k-8'],'State'('v-8',_251712)],[=,['get-data','k-7'],'State'('v-7',_251754)],[=,['get-data','k-6'],'State'('v-6',_251796)],[=,['get-data','k-5'],'State'('v-5',_251838)],[=,['get-data','k-4'],'State'('v-4',_251880)],[=,['get-data','k-3'],'State'('v-3',_251922)],[=,['get-data','k-2'],'State'('v-2',_251964)],[=,['get-data','k-1'],'State'('v-1',_252006)],[=,['get-data','k-0'],'State'('v-0',_252048)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_308968)],[=,['get-data','k-8'],'State'('v-8',_309010)],[=,['get-data','k-7'],'State'('v-7',_309052)],[=,['get-data','k-6'],'State'('v-6',_309094)],[=,['get-data','k-5'],'State'('v-5',_309136)],[=,['get-data','k-4'],'State'('v-4',_309178)],[=,['get-data','k-3'],'State'('v-3',_309220)],[=,['get-data','k-2'],'State'('v-2',_309262)],[=,['get-data','k-1'],'State'('v-1',_309304)],[=,['get-data','k-0'],'State'('v-0',_309346)]])))
-              <--(3,retval('k-0'))
-          <--(1,retval('k-0'))
+                -->(3,eval('&self','v-0',RET),depth(6))
+                  -->(4,eval('&self','State'('v-0',_411748),RET),depth(7))
+              <--(2,retval('State'('v-0',_412612)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_399570],'State'('v-0',_411748)],_399570],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-0',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.95 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-0) 
-    (k-0)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000977 secs. (977.10 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-0)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_416898)],RET),depth(4))
+              -->(9,eval('&self',expected(_416898),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_416898)) (k-0))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-1) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-1)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-1) (match &data (= (get-data $K) $V) $K)) k-1)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-1) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-1) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-1'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_445286,['new-state','v-1'],[match,'&data',[=,['get-data',_445650],_445286],_445650]],'k-1'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_2666,['new-state','v-1'],[match,'&data',[=,['get-data',_2744],_2666],_2744]],'k-1'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.13">;; PERFORMANCE.KEY-LOOKUPS-MANY.13</h3>
-          -->(1,eval('&self',[let,_445286,['new-state','v-1'],[match,'&data',[=,['get-data',_445650],_445286],_445650]],RET),depth(3))
+          -->(1,eval('&self',[let,_2666,['new-state','v-1'],[match,'&data',[=,['get-data',_2744],_2666],_2744]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-1'],RET),depth(5))
-              <--(2,retval('State'('v-1',_464628)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_445650],'State'('v-1',_464580)],_445650],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_480558)],[=,['get-data','k-8'],'State'('v-8',_480600)],[=,['get-data','k-7'],'State'('v-7',_480642)],[=,['get-data','k-6'],'State'('v-6',_480684)],[=,['get-data','k-5'],'State'('v-5',_480726)],[=,['get-data','k-4'],'State'('v-4',_480768)],[=,['get-data','k-3'],'State'('v-3',_480810)],[=,['get-data','k-2'],'State'('v-2',_480852)],[=,['get-data','k-1'],'State'('v-1',_480894)],[=,['get-data','k-0'],'State'('v-0',_480936)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_21846)],[=,['get-data','k-8'],'State'('v-8',_21888)],[=,['get-data','k-7'],'State'('v-7',_21930)],[=,['get-data','k-6'],'State'('v-6',_21972)],[=,['get-data','k-5'],'State'('v-5',_22014)],[=,['get-data','k-4'],'State'('v-4',_22056)],[=,['get-data','k-3'],'State'('v-3',_22098)],[=,['get-data','k-2'],'State'('v-2',_22140)],[=,['get-data','k-1'],'State'('v-1',_22182)],[=,['get-data','k-0'],'State'('v-0',_22224)]])))
-              <--(3,retval('k-1'))
-          <--(1,retval('k-1'))
+                -->(3,eval('&self','v-1',RET),depth(6))
+                  -->(4,eval('&self','State'('v-1',_9756),RET),depth(7))
+              <--(2,retval('State'('v-1',_10620)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_2744],'State'('v-1',_9756)],_2744],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-1',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (6.68 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-1) 
-    (k-1)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000660 secs. (660.20 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-1)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_14906)],RET),depth(4))
+              -->(9,eval('&self',expected(_14906),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_14906)) (k-1))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-2) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-2)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-2) (match &data (= (get-data $K) $V) $K)) k-2)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-2) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-2) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-2'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_157606,['new-state','v-2'],[match,'&data',[=,['get-data',_157970],_157606],_157970]],'k-2'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_115374,['new-state','v-2'],[match,'&data',[=,['get-data',_115738],_115374],_115738]],'k-2'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.14">;; PERFORMANCE.KEY-LOOKUPS-MANY.14</h3>
-          -->(1,eval('&self',[let,_157606,['new-state','v-2'],[match,'&data',[=,['get-data',_157970],_157606],_157970]],RET),depth(3))
+          -->(1,eval('&self',[let,_115374,['new-state','v-2'],[match,'&data',[=,['get-data',_115738],_115374],_115738]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-2'],RET),depth(5))
-              <--(2,retval('State'('v-2',_176948)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_157970],'State'('v-2',_176900)],_157970],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_192878)],[=,['get-data','k-8'],'State'('v-8',_192920)],[=,['get-data','k-7'],'State'('v-7',_192962)],[=,['get-data','k-6'],'State'('v-6',_193004)],[=,['get-data','k-5'],'State'('v-5',_193046)],[=,['get-data','k-4'],'State'('v-4',_193088)],[=,['get-data','k-3'],'State'('v-3',_193130)],[=,['get-data','k-2'],'State'('v-2',_193172)],[=,['get-data','k-1'],'State'('v-1',_193214)],[=,['get-data','k-0'],'State'('v-0',_193256)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_250176)],[=,['get-data','k-8'],'State'('v-8',_250218)],[=,['get-data','k-7'],'State'('v-7',_250260)],[=,['get-data','k-6'],'State'('v-6',_250302)],[=,['get-data','k-5'],'State'('v-5',_250344)],[=,['get-data','k-4'],'State'('v-4',_250386)],[=,['get-data','k-3'],'State'('v-3',_250428)],[=,['get-data','k-2'],'State'('v-2',_250470)],[=,['get-data','k-1'],'State'('v-1',_250512)],[=,['get-data','k-0'],'State'('v-0',_250554)]])))
-              <--(3,retval('k-2'))
-          <--(1,retval('k-2'))
+                -->(3,eval('&self','v-2',RET),depth(6))
+                  -->(4,eval('&self','State'('v-2',_127916),RET),depth(7))
+              <--(2,retval('State'('v-2',_128780)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_115738],'State'('v-2',_127916)],_115738],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-2',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.71 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-2) 
-    (k-2)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000950 secs. (949.60 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-2)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_133066)],RET),depth(4))
+              -->(9,eval('&self',expected(_133066),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_133066)) (k-2))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-3) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-3)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-3) (match &data (= (get-data $K) $V) $K)) k-3)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-3) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-3) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-3'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_385378,['new-state','v-3'],[match,'&data',[=,['get-data',_385742],_385378],_385742]],'k-3'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_232978,['new-state','v-3'],[match,'&data',[=,['get-data',_233342],_232978],_233342]],'k-3'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.15">;; PERFORMANCE.KEY-LOOKUPS-MANY.15</h3>
-          -->(1,eval('&self',[let,_385378,['new-state','v-3'],[match,'&data',[=,['get-data',_385742],_385378],_385742]],RET),depth(3))
+          -->(1,eval('&self',[let,_232978,['new-state','v-3'],[match,'&data',[=,['get-data',_233342],_232978],_233342]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-3'],RET),depth(5))
-              <--(2,retval('State'('v-3',_404720)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_385742],'State'('v-3',_404672)],_385742],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_420650)],[=,['get-data','k-8'],'State'('v-8',_420692)],[=,['get-data','k-7'],'State'('v-7',_420734)],[=,['get-data','k-6'],'State'('v-6',_420776)],[=,['get-data','k-5'],'State'('v-5',_420818)],[=,['get-data','k-4'],'State'('v-4',_420860)],[=,['get-data','k-3'],'State'('v-3',_420902)],[=,['get-data','k-2'],'State'('v-2',_420944)],[=,['get-data','k-1'],'State'('v-1',_420986)],[=,['get-data','k-0'],'State'('v-0',_421028)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_477948)],[=,['get-data','k-8'],'State'('v-8',_477990)],[=,['get-data','k-7'],'State'('v-7',_478032)],[=,['get-data','k-6'],'State'('v-6',_478074)],[=,['get-data','k-5'],'State'('v-5',_478116)],[=,['get-data','k-4'],'State'('v-4',_478158)],[=,['get-data','k-3'],'State'('v-3',_478200)],[=,['get-data','k-2'],'State'('v-2',_478242)],[=,['get-data','k-1'],'State'('v-1',_478284)],[=,['get-data','k-0'],'State'('v-0',_478326)]])))
-              <--(3,retval('k-3'))
-          <--(1,retval('k-3'))
+                -->(3,eval('&self','v-3',RET),depth(6))
+                  -->(4,eval('&self','State'('v-3',_245520),RET),depth(7))
+              <--(2,retval('State'('v-3',_246384)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_233342],'State'('v-3',_245520)],_233342],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-3',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.008 secs. (7.59 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-3) 
-    (k-3)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.001 secs. (1.02 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-3)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_250656)],RET),depth(4))
+              -->(9,eval('&self',expected(_250656),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_250656)) (k-3))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-4) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-4)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-4) (match &data (= (get-data $K) $V) $K)) k-4)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-4) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-4) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-4'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_96472,['new-state','v-4'],[match,'&data',[=,['get-data',_96836],_96472],_96836]],'k-4'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_350010,['new-state','v-4'],[match,'&data',[=,['get-data',_350374],_350010],_350374]],'k-4'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.16">;; PERFORMANCE.KEY-LOOKUPS-MANY.16</h3>
-          -->(1,eval('&self',[let,_96472,['new-state','v-4'],[match,'&data',[=,['get-data',_96836],_96472],_96836]],RET),depth(3))
+          -->(1,eval('&self',[let,_350010,['new-state','v-4'],[match,'&data',[=,['get-data',_350374],_350010],_350374]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-4'],RET),depth(5))
-              <--(2,retval('State'('v-4',_115814)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_96836],'State'('v-4',_115766)],_96836],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_131744)],[=,['get-data','k-8'],'State'('v-8',_131786)],[=,['get-data','k-7'],'State'('v-7',_131828)],[=,['get-data','k-6'],'State'('v-6',_131870)],[=,['get-data','k-5'],'State'('v-5',_131912)],[=,['get-data','k-4'],'State'('v-4',_131954)],[=,['get-data','k-3'],'State'('v-3',_131996)],[=,['get-data','k-2'],'State'('v-2',_132038)],[=,['get-data','k-1'],'State'('v-1',_132080)],[=,['get-data','k-0'],'State'('v-0',_132122)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_189042)],[=,['get-data','k-8'],'State'('v-8',_189084)],[=,['get-data','k-7'],'State'('v-7',_189126)],[=,['get-data','k-6'],'State'('v-6',_189168)],[=,['get-data','k-5'],'State'('v-5',_189210)],[=,['get-data','k-4'],'State'('v-4',_189252)],[=,['get-data','k-3'],'State'('v-3',_189294)],[=,['get-data','k-2'],'State'('v-2',_189336)],[=,['get-data','k-1'],'State'('v-1',_189378)],[=,['get-data','k-0'],'State'('v-0',_189420)]])))
-              <--(3,retval('k-4'))
-          <--(1,retval('k-4'))
+                -->(3,eval('&self','v-4',RET),depth(6))
+                  -->(4,eval('&self','State'('v-4',_362552),RET),depth(7))
+              <--(2,retval('State'('v-4',_363416)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_350374],'State'('v-4',_362552)],_350374],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-4',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (6.51 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-4) 
-    (k-4)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.001 secs. (1.15 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-4)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_367688)],RET),depth(4))
+              -->(9,eval('&self',expected(_367688),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_367688)) (k-4))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-5) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-5)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-5) (match &data (= (get-data $K) $V) $K)) k-5)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-5) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-5) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-5'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_323128,['new-state','v-5'],[match,'&data',[=,['get-data',_323492],_323128],_323492]],'k-5'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_466484,['new-state','v-5'],[match,'&data',[=,['get-data',_466848],_466484],_466848]],'k-5'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.17">;; PERFORMANCE.KEY-LOOKUPS-MANY.17</h3>
-          -->(1,eval('&self',[let,_323128,['new-state','v-5'],[match,'&data',[=,['get-data',_323492],_323128],_323492]],RET),depth(3))
+          -->(1,eval('&self',[let,_466484,['new-state','v-5'],[match,'&data',[=,['get-data',_466848],_466484],_466848]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-5'],RET),depth(5))
-              <--(2,retval('State'('v-5',_342470)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_323492],'State'('v-5',_342422)],_323492],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_358400)],[=,['get-data','k-8'],'State'('v-8',_358442)],[=,['get-data','k-7'],'State'('v-7',_358484)],[=,['get-data','k-6'],'State'('v-6',_358526)],[=,['get-data','k-5'],'State'('v-5',_358568)],[=,['get-data','k-4'],'State'('v-4',_358610)],[=,['get-data','k-3'],'State'('v-3',_358652)],[=,['get-data','k-2'],'State'('v-2',_358694)],[=,['get-data','k-1'],'State'('v-1',_358736)],[=,['get-data','k-0'],'State'('v-0',_358778)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_415698)],[=,['get-data','k-8'],'State'('v-8',_415740)],[=,['get-data','k-7'],'State'('v-7',_415782)],[=,['get-data','k-6'],'State'('v-6',_415824)],[=,['get-data','k-5'],'State'('v-5',_415866)],[=,['get-data','k-4'],'State'('v-4',_415908)],[=,['get-data','k-3'],'State'('v-3',_415950)],[=,['get-data','k-2'],'State'('v-2',_415992)],[=,['get-data','k-1'],'State'('v-1',_416034)],[=,['get-data','k-0'],'State'('v-0',_416076)]])))
-              <--(3,retval('k-5'))
-          <--(1,retval('k-5'))
+                -->(3,eval('&self','v-5',RET),depth(6))
+                  -->(4,eval('&self','State'('v-5',_479026),RET),depth(7))
+              <--(2,retval('State'('v-5',_479890)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_466848],'State'('v-5',_479026)],_466848],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-5',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.008 secs. (8.03 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-5) 
-    (k-5)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000980 secs. (980.50 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-5)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_484176)],RET),depth(4))
+              -->(9,eval('&self',expected(_484176),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_3824)) (k-5))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-6) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-6)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-6) (match &data (= (get-data $K) $V) $K)) k-6)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-6) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-6) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-6'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_32986,['new-state','v-6'],[match,'&data',[=,['get-data',_33350],_32986],_33350]],'k-6'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_63434,['new-state','v-6'],[match,'&data',[=,['get-data',_63798],_63434],_63798]],'k-6'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.18">;; PERFORMANCE.KEY-LOOKUPS-MANY.18</h3>
-          -->(1,eval('&self',[let,_32986,['new-state','v-6'],[match,'&data',[=,['get-data',_33350],_32986],_33350]],RET),depth(3))
+          -->(1,eval('&self',[let,_63434,['new-state','v-6'],[match,'&data',[=,['get-data',_63798],_63434],_63798]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-6'],RET),depth(5))
-              <--(2,retval('State'('v-6',_52328)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_33350],'State'('v-6',_52280)],_33350],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_68258)],[=,['get-data','k-8'],'State'('v-8',_68300)],[=,['get-data','k-7'],'State'('v-7',_68342)],[=,['get-data','k-6'],'State'('v-6',_68384)],[=,['get-data','k-5'],'State'('v-5',_68426)],[=,['get-data','k-4'],'State'('v-4',_68468)],[=,['get-data','k-3'],'State'('v-3',_68510)],[=,['get-data','k-2'],'State'('v-2',_68552)],[=,['get-data','k-1'],'State'('v-1',_68594)],[=,['get-data','k-0'],'State'('v-0',_68636)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_125556)],[=,['get-data','k-8'],'State'('v-8',_125598)],[=,['get-data','k-7'],'State'('v-7',_125640)],[=,['get-data','k-6'],'State'('v-6',_125682)],[=,['get-data','k-5'],'State'('v-5',_125724)],[=,['get-data','k-4'],'State'('v-4',_125766)],[=,['get-data','k-3'],'State'('v-3',_125808)],[=,['get-data','k-2'],'State'('v-2',_125850)],[=,['get-data','k-1'],'State'('v-1',_125892)],[=,['get-data','k-0'],'State'('v-0',_125934)]])))
-              <--(3,retval('k-6'))
-          <--(1,retval('k-6'))
+                -->(3,eval('&self','v-6',RET),depth(6))
+                  -->(4,eval('&self','State'('v-6',_75976),RET),depth(7))
+              <--(2,retval('State'('v-6',_76840)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_63798],'State'('v-6',_75976)],_63798],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-6',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.009 secs. (8.57 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-6) 
-    (k-6)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.001 secs. (1.07 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-6)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_81112)],RET),depth(4))
+              -->(9,eval('&self',expected(_81112),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_81112)) (k-6))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-7) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-7)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-7) (match &data (= (get-data $K) $V) $K)) k-7)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-7) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-7) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-7'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_258514,['new-state','v-7'],[match,'&data',[=,['get-data',_258878],_258514],_258878]],'k-7'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_178778,['new-state','v-7'],[match,'&data',[=,['get-data',_179142],_178778],_179142]],'k-7'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.19">;; PERFORMANCE.KEY-LOOKUPS-MANY.19</h3>
-          -->(1,eval('&self',[let,_258514,['new-state','v-7'],[match,'&data',[=,['get-data',_258878],_258514],_258878]],RET),depth(3))
+          -->(1,eval('&self',[let,_178778,['new-state','v-7'],[match,'&data',[=,['get-data',_179142],_178778],_179142]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-7'],RET),depth(5))
-              <--(2,retval('State'('v-7',_277856)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_258878],'State'('v-7',_277808)],_258878],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_293786)],[=,['get-data','k-8'],'State'('v-8',_293828)],[=,['get-data','k-7'],'State'('v-7',_293870)],[=,['get-data','k-6'],'State'('v-6',_293912)],[=,['get-data','k-5'],'State'('v-5',_293954)],[=,['get-data','k-4'],'State'('v-4',_293996)],[=,['get-data','k-3'],'State'('v-3',_294038)],[=,['get-data','k-2'],'State'('v-2',_294080)],[=,['get-data','k-1'],'State'('v-1',_294122)],[=,['get-data','k-0'],'State'('v-0',_294164)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_351084)],[=,['get-data','k-8'],'State'('v-8',_351126)],[=,['get-data','k-7'],'State'('v-7',_351168)],[=,['get-data','k-6'],'State'('v-6',_351210)],[=,['get-data','k-5'],'State'('v-5',_351252)],[=,['get-data','k-4'],'State'('v-4',_351294)],[=,['get-data','k-3'],'State'('v-3',_351336)],[=,['get-data','k-2'],'State'('v-2',_351378)],[=,['get-data','k-1'],'State'('v-1',_351420)],[=,['get-data','k-0'],'State'('v-0',_351462)]])))
-              <--(3,retval('k-7'))
-          <--(1,retval('k-7'))
+                -->(3,eval('&self','v-7',RET),depth(6))
+                  -->(4,eval('&self','State'('v-7',_191320),RET),depth(7))
+              <--(2,retval('State'('v-7',_192184)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_179142],'State'('v-7',_191320)],_179142],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-7',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.008 secs. (7.80 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-7) 
-    (k-7)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.001 secs. (1.08 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-7)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_196456)],RET),depth(4))
+              -->(9,eval('&self',expected(_196456),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_196456)) (k-7))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-8) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-8)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-8) (match &data (= (get-data $K) $V) $K)) k-8)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-8) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-8) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-8'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_483484,['new-state','v-8'],[match,'&data',[=,['get-data',_483848],_483484],_483848]],'k-8'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_293566,['new-state','v-8'],[match,'&data',[=,['get-data',_293930],_293566],_293930]],'k-8'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.20">;; PERFORMANCE.KEY-LOOKUPS-MANY.20</h3>
-          -->(1,eval('&self',[let,_483484,['new-state','v-8'],[match,'&data',[=,['get-data',_483848],_483484],_483848]],RET),depth(3))
+          -->(1,eval('&self',[let,_293566,['new-state','v-8'],[match,'&data',[=,['get-data',_293930],_293566],_293930]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-8'],RET),depth(5))
-              <--(2,retval('State'('v-8',_502826)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_483848],'State'('v-8',_502778)],_483848],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_518756)],[=,['get-data','k-8'],'State'('v-8',_518798)],[=,['get-data','k-7'],'State'('v-7',_518840)],[=,['get-data','k-6'],'State'('v-6',_518882)],[=,['get-data','k-5'],'State'('v-5',_518924)],[=,['get-data','k-4'],'State'('v-4',_518966)],[=,['get-data','k-3'],'State'('v-3',_519008)],[=,['get-data','k-2'],'State'('v-2',_519050)],[=,['get-data','k-1'],'State'('v-1',_519092)],[=,['get-data','k-0'],'State'('v-0',_519134)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_60578)],[=,['get-data','k-8'],'State'('v-8',_60620)],[=,['get-data','k-7'],'State'('v-7',_60662)],[=,['get-data','k-6'],'State'('v-6',_60704)],[=,['get-data','k-5'],'State'('v-5',_60746)],[=,['get-data','k-4'],'State'('v-4',_60788)],[=,['get-data','k-3'],'State'('v-3',_60830)],[=,['get-data','k-2'],'State'('v-2',_60872)],[=,['get-data','k-1'],'State'('v-1',_60914)],[=,['get-data','k-0'],'State'('v-0',_60956)]])))
-              <--(3,retval('k-8'))
-          <--(1,retval('k-8'))
+                -->(3,eval('&self','v-8',RET),depth(6))
+                  -->(4,eval('&self','State'('v-8',_306108),RET),depth(7))
+              <--(2,retval('State'('v-8',_306972)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_293930],'State'('v-8',_306108)],_293930],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-8',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (6.83 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-8) 
-    (k-8)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000779 secs. (779.30 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-8)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_311258)],RET),depth(4))
+              -->(9,eval('&self',expected(_311258),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_311258)) (k-8))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state v-9) 
-    (match &data 
-      (= 
-        (get-data $K) $V) $K)) k-9)
+</span><span class="ansi38-013099040">!(assertEqual (let $V (new-state v-9) (match &data (= (get-data $K) $V) $K)) k-9)
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state v-9) 
-  (match &data 
-    (= 
-      (get-data $K) $V) $K))
+</span><span class="ansi38-250144246">; !(let $V (new-state v-9) (match &data (= (get-data $K) $V) $K))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state','v-9'],[match,'&data',[=,['get-data',K],V],K]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_192420,['new-state','v-9'],[match,'&data',[=,['get-data',_192784],_192420],_192784]],'k-9'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_407810,['new-state','v-9'],[match,'&data',[=,['get-data',_408174],_407810],_408174]],'k-9'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.21">;; PERFORMANCE.KEY-LOOKUPS-MANY.21</h3>
-          -->(1,eval('&self',[let,_192420,['new-state','v-9'],[match,'&data',[=,['get-data',_192784],_192420],_192784]],RET),depth(3))
+          -->(1,eval('&self',[let,_407810,['new-state','v-9'],[match,'&data',[=,['get-data',_408174],_407810],_408174]],RET),depth(3))
               -->(2,eval('&self',['new-state','v-9'],RET),depth(5))
-              <--(2,retval('State'('v-9',_211762)))
-              -->(3,eval('&self',[match,'&data',[=,['get-data',_192784],'State'('v-9',_211714)],_192784],RET),depth(5))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_227692)],[=,['get-data','k-8'],'State'('v-8',_227734)],[=,['get-data','k-7'],'State'('v-7',_227776)],[=,['get-data','k-6'],'State'('v-6',_227818)],[=,['get-data','k-5'],'State'('v-5',_227860)],[=,['get-data','k-4'],'State'('v-4',_227902)],[=,['get-data','k-3'],'State'('v-3',_227944)],[=,['get-data','k-2'],'State'('v-2',_227986)],[=,['get-data','k-1'],'State'('v-1',_228028)],[=,['get-data','k-0'],'State'('v-0',_228070)]])))
-                  -->(5,eval('&self','&data',RET),depth(7))
-                  <--(5,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_284990)],[=,['get-data','k-8'],'State'('v-8',_285032)],[=,['get-data','k-7'],'State'('v-7',_285074)],[=,['get-data','k-6'],'State'('v-6',_285116)],[=,['get-data','k-5'],'State'('v-5',_285158)],[=,['get-data','k-4'],'State'('v-4',_285200)],[=,['get-data','k-3'],'State'('v-3',_285242)],[=,['get-data','k-2'],'State'('v-2',_285284)],[=,['get-data','k-1'],'State'('v-1',_285326)],[=,['get-data','k-0'],'State'('v-0',_285368)]])))
-              <--(3,retval('k-9'))
-          <--(1,retval('k-9'))
+                -->(3,eval('&self','v-9',RET),depth(6))
+                  -->(4,eval('&self','State'('v-9',_420352),RET),depth(7))
+              <--(2,retval('State'('v-9',_421216)))
+              -->(5,eval('&self',[match,'&data',[=,['get-data',_408174],'State'('v-9',_420352)],_408174],RET),depth(5))
+              <--(5,retval(fail))
+          <--(1,retval(fail))
+        -->(6,eval('&self','k-9',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (7.10 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (k-9) 
-    (k-9)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000681 secs. (681.20 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (k-9)))
+</span>          -->(7,eval('&self',[],RET),depth(3))
+            -->(8,eval('&self',[expected(_425502)],RET),depth(4))
+              -->(9,eval('&self',expected(_425502),RET),depth(5))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_425502)) (k-9))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (let $K k-1 
-    (match &data 
-      (= 
-        (get-data $K) $V) 
-      (get-state $V))) v-1)
+</span><span class="ansi38-013099040">!(assertEqual (let $K k-1 (match &data (= (get-data $K) $V) (get-state $V))) v-1)
 
-</span><span class="ansi38-250144246">; !(let $K k-1 
-  (match &data 
-    (= 
-      (get-data $K) $V) 
-    (get-state $V)))
+</span><span class="ansi38-250144246">; !(let $K k-1 (match &data (= (get-data $K) $V) (get-state $V)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,K,'k-1',[match,'&data',[=,['get-data',K],V],['get-state',V]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_416366,'k-1',[match,'&data',[=,['get-data',_416366],_416994],['get-state',_416994]]],'v-1'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_2766,'k-1',[match,'&data',[=,['get-data',_2766],_2838],['get-state',_2838]]],'v-1'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.22">;; PERFORMANCE.KEY-LOOKUPS-MANY.22</h3>
-          -->(1,eval('&self',[let,_416366,'k-1',[match,'&data',[=,['get-data',_416366],_416994],['get-state',_416994]]],RET),depth(3))
-              -->(2,eval('&self',[match,'&data',[=,['get-data','k-1'],_416994],['get-state',_416994]],RET),depth(5))
-                  -->(3,eval('&self','&data',RET),depth(7))
-                  <--(3,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_436740)],[=,['get-data','k-8'],'State'('v-8',_436782)],[=,['get-data','k-7'],'State'('v-7',_436824)],[=,['get-data','k-6'],'State'('v-6',_436866)],[=,['get-data','k-5'],'State'('v-5',_436908)],[=,['get-data','k-4'],'State'('v-4',_436950)],[=,['get-data','k-3'],'State'('v-3',_436992)],[=,['get-data','k-2'],'State'('v-2',_437034)],[=,['get-data','k-1'],'State'('v-1',_437076)],[=,['get-data','k-0'],'State'('v-0',_437118)]])))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_494008)],[=,['get-data','k-8'],'State'('v-8',_494050)],[=,['get-data','k-7'],'State'('v-7',_494092)],[=,['get-data','k-6'],'State'('v-6',_494134)],[=,['get-data','k-5'],'State'('v-5',_494176)],[=,['get-data','k-4'],'State'('v-4',_494218)],[=,['get-data','k-3'],'State'('v-3',_494260)],[=,['get-data','k-2'],'State'('v-2',_494302)],[=,['get-data','k-1'],'State'('v-1',_494344)],[=,['get-data','k-0'],'State'('v-0',_494386)]])))
-                  -->(5,eval('&self',['get-state','State'('v-1',_7164)],RET),depth(7))
-                  <--(5,retval('v-1'))
-              <--(2,retval('v-1'))
-          <--(1,retval('v-1'))
+          -->(1,eval('&self',[let,_2766,'k-1',[match,'&data',[=,['get-data',_2766],_2838],['get-state',_2838]]],RET),depth(3))
+            -->(2,eval('&self','k-1',RET),depth(4))
+              -->(3,eval('&self',[match,'&data',[=,['get-data','k-1'],_2838],['get-state',_2838]],RET),depth(5))
+              <--(3,retval(fail))
+          <--(1,retval(fail))
+        -->(4,eval('&self','v-1',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (7.12 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (v-1) 
-    (v-1)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000469 secs. (469.10 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (v-1)))
+</span>          -->(5,eval('&self',[],RET),depth(3))
+            -->(6,eval('&self',[expected(_15440)],RET),depth(4))
+              -->(7,eval('&self',expected(_15440),RET),depth(5))
+                  -->(8,eval('&self',expected(_15440),RET),depth(7))
+                      -->(9,eval('&self',expected(_15440),RET),depth(9))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_15440)) (v-1))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (get-state 
-    (match &data 
-      (= 
-        (get-data k-7) $V) $V)) v-7)
+</span><span class="ansi38-013099040">!(assertEqual (get-state (match &data (= (get-data k-7) $V) $V)) v-7)
 
-</span><span class="ansi38-250144246">; !(get-state 
-  (match &data 
-    (= 
-      (get-data k-7) $V) $V))
+</span><span class="ansi38-250144246">; !(get-state (match &data (= (get-data k-7) $V) $V))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-state',[match,'&data',[=,['get-data','k-7'],V],V]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-state',[match,'&data',[=,['get-data','k-7'],_120570],_120570]],'v-7'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,['get-state',[match,'&data',[=,['get-data','k-7'],_110090],_110090]],'v-7'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.23">;; PERFORMANCE.KEY-LOOKUPS-MANY.23</h3>
-          -->(1,eval('&self',['get-state',[match,'&data',[=,['get-data','k-7'],_120570],_120570]],RET),depth(3))
-              -->(2,eval('&self',[match,'&data',[=,['get-data','k-7'],_120570],_120570],RET),depth(5))
-                  -->(3,eval('&self','&data',RET),depth(7))
-                  <--(3,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_132572)],[=,['get-data','k-8'],'State'('v-8',_132614)],[=,['get-data','k-7'],'State'('v-7',_132656)],[=,['get-data','k-6'],'State'('v-6',_132698)],[=,['get-data','k-5'],'State'('v-5',_132740)],[=,['get-data','k-4'],'State'('v-4',_132782)],[=,['get-data','k-3'],'State'('v-3',_132824)],[=,['get-data','k-2'],'State'('v-2',_132866)],[=,['get-data','k-1'],'State'('v-1',_132908)],[=,['get-data','k-0'],'State'('v-0',_132950)]])))
-                  -->(4,eval('&self','&data',RET),depth(7))
-                  <--(4,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_189840)],[=,['get-data','k-8'],'State'('v-8',_189882)],[=,['get-data','k-7'],'State'('v-7',_189924)],[=,['get-data','k-6'],'State'('v-6',_189966)],[=,['get-data','k-5'],'State'('v-5',_190008)],[=,['get-data','k-4'],'State'('v-4',_190050)],[=,['get-data','k-3'],'State'('v-3',_190092)],[=,['get-data','k-2'],'State'('v-2',_190134)],[=,['get-data','k-1'],'State'('v-1',_190176)],[=,['get-data','k-0'],'State'('v-0',_190218)]])))
-              <--(2,retval('State'('v-7',_253546)))
-          <--(1,retval('v-7'))
+          -->(1,eval('&self',['get-state',[match,'&data',[=,['get-data','k-7'],_110090],_110090]],RET),depth(3))
+              -->(2,eval('&self',[match,'&data',[=,['get-data','k-7'],_110090],_110090],RET),depth(5))
+              <--(2,retval(fail))
+          <--(1,retval(fail))
+        -->(3,eval('&self','v-7',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.76 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (v-7) 
-    (v-7)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000754 secs. (753.90 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (v-7)))
+</span>          -->(4,eval('&self',[],RET),depth(3))
+            -->(5,eval('&self',[expected(_123464)],RET),depth(4))
+              -->(6,eval('&self',expected(_123464),RET),depth(5))
+                  -->(7,eval('&self',expected(_123464),RET),depth(7))
+                      -->(8,eval('&self',expected(_123464),RET),depth(9))
+                          -->(9,eval('&self',expected(_123464),RET),depth(11))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_123464)) (v-7))
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (match &data 
-    (= 
-      (get-data k-7) $V) 
-    (get-state $V)) v-7)
+</span><span class="ansi38-013099040">!(assertEqual (match &data (= (get-data k-7) $V) (get-state $V)) v-7)
 
-</span><span class="ansi38-250144246">; !(match &data 
-  (= 
-    (get-data k-7) $V) 
-  (get-state $V))
+</span><span class="ansi38-250144246">; !(match &data (= (get-data k-7) $V) (get-state $V))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&data',[=,['get-data','k-7'],V],['get-state',V]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[match,'&data',[=,['get-data','k-7'],_318712],['get-state',_318712]],'v-7'],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[match,'&data',[=,['get-data','k-7'],_218376],['get-state',_218376]],'v-7'],RET),depth(1))
 <h3 id="PERFORMANCE.KEY-LOOKUPS-MANY.24">;; PERFORMANCE.KEY-LOOKUPS-MANY.24</h3>
-          -->(1,eval('&self',[match,'&data',[=,['get-data','k-7'],_318712],['get-state',_318712]],RET),depth(3))
-              -->(2,eval('&self','&data',RET),depth(5))
-              <--(2,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_330058)],[=,['get-data','k-8'],'State'('v-8',_330100)],[=,['get-data','k-7'],'State'('v-7',_330142)],[=,['get-data','k-6'],'State'('v-6',_330184)],[=,['get-data','k-5'],'State'('v-5',_330226)],[=,['get-data','k-4'],'State'('v-4',_330268)],[=,['get-data','k-3'],'State'('v-3',_330310)],[=,['get-data','k-2'],'State'('v-2',_330352)],[=,['get-data','k-1'],'State'('v-1',_330394)],[=,['get-data','k-0'],'State'('v-0',_330436)]])))
-              -->(3,eval('&self','&data',RET),depth(5))
-              <--(3,retval('Space'([[=,['get-data','k-9'],'State'('v-9',_388490)],[=,['get-data','k-8'],'State'('v-8',_388532)],[=,['get-data','k-7'],'State'('v-7',_388574)],[=,['get-data','k-6'],'State'('v-6',_388616)],[=,['get-data','k-5'],'State'('v-5',_388658)],[=,['get-data','k-4'],'State'('v-4',_388700)],[=,['get-data','k-3'],'State'('v-3',_388742)],[=,['get-data','k-2'],'State'('v-2',_388784)],[=,['get-data','k-1'],'State'('v-1',_388826)],[=,['get-data','k-0'],'State'('v-0',_388868)]])))
-              -->(4,eval('&self',['get-state','State'('v-7',_387686)],RET),depth(5))
-              <--(4,retval('v-7'))
-          <--(1,retval('v-7'))
+          -->(1,eval('&self',[match,'&data',[=,['get-data','k-7'],_218376],['get-state',_218376]],RET),depth(3))
+          <--(1,retval(fail))
+        -->(2,eval('&self','v-7',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.83 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (v-7) 
-    (v-7)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.000506 secs. (505.90 microseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (v-7)))
+</span>          -->(3,eval('&self',[],RET),depth(3))
+            -->(4,eval('&self',[expected(_231766)],RET),depth(4))
+              -->(5,eval('&self',expected(_231766),RET),depth(5))
+                  -->(6,eval('&self',expected(_231766),RET),depth(7))
+                      -->(7,eval('&self',expected(_231766),RET),depth(9))
+                          -->(8,eval('&self',expected(_231766),RET),depth(11))
+                              -->(9,eval('&self',expected(_231766),RET),depth(13))
+Switched off tracing. For a longer trace !(pragma! tracelen 101))
+Deterministic: <span class="ansi33">
+(got () ((expected  $_231766)) (v-7))
 
-</span><span class="ansi32">% 1,248,059 inferences, 0.448 CPU in 0.448 seconds (100% CPU, 2783851 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta" 0)
+</span><span class="ansi32">% 1,098,883 inferences, 0.524 CPU in 0.525 seconds (100% CPU, 2097452 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 24
-</span><span class="ansi32">Failures: 0
+<span class="ansi32">Successes: 11
+</span><span class="ansi31">Failures: 13
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/key-lookups-many.metta.html" )
 

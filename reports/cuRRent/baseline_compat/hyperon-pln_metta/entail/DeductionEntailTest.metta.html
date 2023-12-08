@@ -463,7 +463,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta')
 1=[()]
@@ -479,9 +479,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(import! &self DeductionEntail.metta)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (import! &self DeductionEntail.metta) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (import! &self DeductionEntail.metta) (()))
 
 </span><span class="ansi38-250144246">; !(import! &self DeductionEntail.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','DeductionEntail.metta'],OUT).
@@ -544,226 +542,159 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; Collection of functions operating on numbers
 ;;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: max 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: max (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (max $X $Y) 
-    (if 
-      (> $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: min 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: min (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (min $X $Y) 
-    (if 
-      (< $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">  (: clamp 
-    (-> $A $A $A $A))
+</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (clamp $X $L $U) 
-    (max $L 
-      (min $U $X)))
+</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
 </span>
 
 ;;; Define abs
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">  (: abs 
-    (-> $A $A))
+</span><span class="ansi38-255165000">(: abs (-> $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">  (= 
-    (abs $X) 
-    (if 
-      (< $X 0) 
-      (* -1 $X) $X))
+</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
 </span>
 
 ;;; Define <=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define >=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: >= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (>= $X $Y) 
-    (or 
-      (> $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: approxEq 
-    (-> $A $A $A Bool))
+</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">  (= 
-    (approxEq $X $Y $Epsilon) 
-    (<= 
-      (abs 
-        (- $X $Y)) $Epsilon))
+</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+</span><span class="ansi38-255165000">(: S (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+</span><span class="ansi38-255165000">(= (fromNat Z) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Nat Nat Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $_ Z) False)
+</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» Z 
-      (S $_)) True)
+</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» 
-      (S $X) 
-      (S $Y)) 
-    (â©» $X $Y))
+</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Number Number Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $X $Y) 
-    (< $X $Y))
+</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: ceil 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: ceil (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">  (= 
-    (ceil $N) 
-    (fromNat 
-      (fromNumber $N)))
+</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">  (: number->bool 
-    (-> Number Bool))
+</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">  (= 
-    (number->bool $X) 
-    (< 0 $X))
+</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">  (: bool->number 
-    (-> Bool Number))
+</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number False) 0)
+</span><span class="ansi38-255165000">(= (bool->number False) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number True) 1)
+</span><span class="ansi38-255165000">(= (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
@@ -771,48 +702,33 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">  (: â 
-    (-> $T $T Type))
+</span><span class="ansi38-255165000">(: â (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (zero-lt-succ-axiom) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">  (= 
-    (zero-lt-succ-axiom) 
-    (: ZeroLTSucc 
-      (â Z 
-        (S $K))))
+</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (succ-monotonicity-rule) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (succ-monotonicity-rule) 
-    (: SuccMonotonicity 
-      (-> 
-        (â $X $Y) 
-        (â 
-          (S $X) 
-          (S $Y)))))
+</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
 </span>
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(4,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'TruthValue','Type'])
-</span><span class="ansi38-255165000">  (: TruthValue Type)
+</span><span class="ansi38-255165000">(: TruthValue Type)
 </span>
 
 ;;;;;;;;;;;;;;;;;;;
@@ -821,22 +737,19 @@ Deterministic: <span class="ansi33">Empty
 ;;; Boolean TV constructor
 ;;; TODO: alternatively we could have (: â¤ TruthValue) and (: â¥ TruthValue)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Bl',[->,'Bool','TruthValue']])
-</span><span class="ansi38-255165000">  (: Bl 
-    (-> Bool TruthValue))
+</span><span class="ansi38-255165000">(: Bl (-> Bool TruthValue))
 </span>
 
 ;;; First order probability TV constructor, i.e. mere probability.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Pr',[->,'Number','TruthValue']])
-</span><span class="ansi38-255165000">  (: Pr 
-    (-> Number TruthValue))
+</span><span class="ansi38-255165000">(: Pr (-> Number TruthValue))
 </span>
 
 ;;; Simple Truth Value.  A Second order probability TV constructor,
 ;;; i.e. probability and confidence.  The probability is in fact the
 ;;; mode of the corresponding beta distribution.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'STV',[->,'Number','Number','TruthValue']])
-</span><span class="ansi38-255165000">  (: STV 
-    (-> Number Number TruthValue))
+</span><span class="ansi38-255165000">(: STV (-> Number Number TruthValue))
 </span>
 
 ;;;;;;;;;;;;;;;;
@@ -845,45 +758,37 @@ Deterministic: <span class="ansi33">Empty
 ;;; For now the underlying beta distributions have a Jeffreys prior,
 ;;; i.e. the prior alpha and beta are 0.5.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'prior-alpha',[->,'Number']])
-</span><span class="ansi38-255165000">  (: prior-alpha 
-    (-> Number))
+</span><span class="ansi38-255165000">(: prior-alpha (-> Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['prior-alpha'],0.5])
-</span><span class="ansi38-255165000">  (= 
-    (prior-alpha) 0.5)
+</span><span class="ansi38-255165000">(= (prior-alpha) 0.5)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'prior-beta',[->,'Number']])
-</span><span class="ansi38-255165000">  (: prior-beta 
-    (-> Number))
+</span><span class="ansi38-255165000">(: prior-beta (-> Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['prior-beta'],0.5])
-</span><span class="ansi38-255165000">  (= 
-    (prior-beta) 0.5)
+</span><span class="ansi38-255165000">(= (prior-beta) 0.5)
 </span>
 
 ;;; Lookahead
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,lookahead,[->,'Number']])
-</span><span class="ansi38-255165000">  (: lookahead 
-    (-> Number))
+</span><span class="ansi38-255165000">(: lookahead (-> Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[lookahead],1.0])
-</span><span class="ansi38-255165000">  (= 
-    (lookahead) 1.0)
+</span><span class="ansi38-255165000">(= (lookahead) 1.0)
 </span>
 
 ;;; Maximum supported count (till +inf is supported, possibly).
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'max-count',[->,'Number']])
-</span><span class="ansi38-255165000">  (: max-count 
-    (-> Number))
+</span><span class="ansi38-255165000">(: max-count (-> Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['max-count'],1000000000.0])
-</span><span class="ansi38-255165000">  (= 
-    (max-count) 1000000000.0)
+</span><span class="ansi38-255165000">(= (max-count) 1000000000.0)
 </span>
 
 ;;;;;;;;;;;;;;
@@ -893,116 +798,65 @@ Deterministic: <span class="ansi33">Empty
 ;;;
 ;;; confidence = count / (count + lookahead)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'count->confidence',[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: count->confidence 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: count->confidence (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['count->confidence',Cnt],[/,Cnt,[+,Cnt,[lookahead]]]])
-</span><span class="ansi38-255165000">  (= 
-    (count->confidence $Cnt) 
-    (/ $Cnt 
-      (+ $Cnt 
-        (lookahead))))
+</span><span class="ansi38-255165000">(= (count->confidence $Cnt) (/ $Cnt (+ $Cnt (lookahead))))
 </span>
 
 ;;; Convert confidence to count using the formula
 ;;;
 ;;; count = (confidence * lookahead) / (1 - confidence)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'confidence->count',[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: confidence->count 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: confidence->count (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['confidence->count',Conf],[if,[approxEq,1.0,Conf,1.0e-9],['max-count'],[/,[*,Conf,[lookahead]],[-,1.0,Conf]]]])
-</span><span class="ansi38-255165000">  (= 
-    (confidence->count $Conf) 
-    (if 
-      (approxEq 1.0 $Conf 1.0e-9) 
-      (max-count) 
-      (/ 
-        (* $Conf 
-          (lookahead)) 
-        (- 1.0 $Conf))))
+</span><span class="ansi38-255165000">(= (confidence->count $Conf) (if (approxEq 1.0 $Conf 1.0e-9) (max-count) (/ (* $Conf (lookahead)) (- 1.0 $Conf))))
 </span>
 
 ;;; Increment the negative count of a given truth value, by
 ;;; incrementing its total count without incrementing the positive
 ;;; count.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'inc-neg-count',[->,'TruthValue','TruthValue']])
-</span><span class="ansi38-255165000">  (: inc-neg-count 
-    (-> TruthValue TruthValue))
+</span><span class="ansi38-255165000">(: inc-neg-count (-> TruthValue TruthValue))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['inc-neg-count',['STV',S,C]],['let*',[[Tot_cnt,['confidence->count',C]],[Pos_cnt,[*,S,Tot_cnt]],[New_tot_cnt,[+,Tot_cnt,1]]],['STV',[/,Pos_cnt,New_tot_cnt],['count->confidence',New_tot_cnt]]]])
-</span><span class="ansi38-255165000">  (= 
-    (inc-neg-count 
-      (STV $S $C)) 
-    (let* 
-      ( ($Tot_cnt 
-          (confidence->count $C)) 
-        ($Pos_cnt 
-          (* $S $Tot_cnt)) 
-        ($New_tot_cnt 
-          (+ $Tot_cnt 1))) 
-      (STV 
-        (/ $Pos_cnt $New_tot_cnt) 
-        (count->confidence $New_tot_cnt))))
+</span><span class="ansi38-255165000">(= (inc-neg-count (STV $S $C)) (let* (($Tot_cnt (confidence->count $C)) ($Pos_cnt (* $S $Tot_cnt)) ($New_tot_cnt (+ $Tot_cnt 1))) (STV (/ $Pos_cnt $New_tot_cnt) (count->confidence $New_tot_cnt))))
 </span>
 
 ;;; Increment the positive count of a given truth value, by
 ;;; incrementing its total count and its positive count.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'inc-pos-count',[->,'TruthValue','TruthValue']])
-</span><span class="ansi38-255165000">  (: inc-pos-count 
-    (-> TruthValue TruthValue))
+</span><span class="ansi38-255165000">(: inc-pos-count (-> TruthValue TruthValue))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['inc-pos-count',['STV',S,C]],['let*',[[Tot_cnt,['confidence->count',C]],[Pos_cnt,[*,S,Tot_cnt]],[New_pos_cnt,[+,Pos_cnt,1]],[New_tot_cnt,[+,Tot_cnt,1]]],['STV',[/,New_pos_cnt,New_tot_cnt],['count->confidence',New_tot_cnt]]]])
-</span><span class="ansi38-255165000">  (= 
-    (inc-pos-count 
-      (STV $S $C)) 
-    (let* 
-      ( ($Tot_cnt 
-          (confidence->count $C)) 
-        ($Pos_cnt 
-          (* $S $Tot_cnt)) 
-        ($New_pos_cnt 
-          (+ $Pos_cnt 1)) 
-        ($New_tot_cnt 
-          (+ $Tot_cnt 1))) 
-      (STV 
-        (/ $New_pos_cnt $New_tot_cnt) 
-        (count->confidence $New_tot_cnt))))
+</span><span class="ansi38-255165000">(= (inc-pos-count (STV $S $C)) (let* (($Tot_cnt (confidence->count $C)) ($Pos_cnt (* $S $Tot_cnt)) ($New_pos_cnt (+ $Pos_cnt 1)) ($New_tot_cnt (+ $Tot_cnt 1))) (STV (/ $New_pos_cnt $New_tot_cnt) (count->confidence $New_tot_cnt))))
 </span>
 
 ;;; Return the first order probability mode of the second order
 ;;; distribution associated to a truth value.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,mode,[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: mode 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: mode (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mode,['Bl','True']],1.0])
-</span><span class="ansi38-255165000">  (= 
-    (mode 
-      (Bl True)) 1.0)
+</span><span class="ansi38-255165000">(= (mode (Bl True)) 1.0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mode,['Bl','False']],0.0])
-</span><span class="ansi38-255165000">  (= 
-    (mode 
-      (Bl False)) 0.0)
+</span><span class="ansi38-255165000">(= (mode (Bl False)) 0.0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mode,['Pr',Pr]],Pr])
-</span><span class="ansi38-255165000">  (= 
-    (mode 
-      (Pr $Pr)) $Pr)
+</span><span class="ansi38-255165000">(= (mode (Pr $Pr)) $Pr)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mode,['STV',Pr,_]],Pr])
-</span><span class="ansi38-255165000">  (= 
-    (mode 
-      (STV $Pr $_)) $Pr)
+</span><span class="ansi38-255165000">(= (mode (STV $Pr $_)) $Pr)
 </span>
 
 ;;; Return the total count of a truth value.  For truth values not
@@ -1010,29 +864,19 @@ Deterministic: <span class="ansi33">Empty
 ;;; is assumed to be a very large number (cause +inf does not seem to
 ;;; be supported at the moment).
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,count,[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: count 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: count (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[count,['Bl',_]],['max-count']])
-</span><span class="ansi38-255165000">  (= 
-    (count 
-      (Bl $_)) 
-    (max-count))
+</span><span class="ansi38-255165000">(= (count (Bl $_)) (max-count))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[count,['Pr',_]],['max-count']])
-</span><span class="ansi38-255165000">  (= 
-    (count 
-      (Pr $_)) 
-    (max-count))
+</span><span class="ansi38-255165000">(= (count (Pr $_)) (max-count))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[count,['STV',_,Conf]],['confidence->count',Conf]])
-</span><span class="ansi38-255165000">  (= 
-    (count 
-      (STV $_ $Conf)) 
-    (confidence->count $Conf))
+</span><span class="ansi38-255165000">(= (count (STV $_ $Conf)) (confidence->count $Conf))
 </span>
 
 ;;; Return the confidence of a truth value.  For truth values not
@@ -1043,83 +887,55 @@ Deterministic: <span class="ansi33">Empty
 ;;;
 ;;; confidence = count / (count + lookahead)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,confidence,[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: confidence 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: confidence (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[confidence,['Bl',_]],1.0])
-</span><span class="ansi38-255165000">  (= 
-    (confidence 
-      (Bl $_)) 1.0)
+</span><span class="ansi38-255165000">(= (confidence (Bl $_)) 1.0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[confidence,['Pr',_]],1.0])
-</span><span class="ansi38-255165000">  (= 
-    (confidence 
-      (Pr $_)) 1.0)
+</span><span class="ansi38-255165000">(= (confidence (Pr $_)) 1.0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[confidence,['STV',_,Conf]],Conf])
-</span><span class="ansi38-255165000">  (= 
-    (confidence 
-      (STV $_ $Conf)) $Conf)
+</span><span class="ansi38-255165000">(= (confidence (STV $_ $Conf)) $Conf)
 </span>
 
 ;;; Return the positive count of a truth value.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'pos-count',[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: pos-count 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: pos-count (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['pos-count',Tv],[*,[mode,Tv],[count,Tv]]])
-</span><span class="ansi38-255165000">  (= 
-    (pos-count $Tv) 
-    (* 
-      (mode $Tv) 
-      (count $Tv)))
+</span><span class="ansi38-255165000">(= (pos-count $Tv) (* (mode $Tv) (count $Tv)))
 </span>
 
 ;;; Return the negative count of a truth value.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'neg-count',[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: neg-count 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: neg-count (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['neg-count',Tv],[*,[-,1,[mode,Tv]],[count,Tv]]])
-</span><span class="ansi38-255165000">  (= 
-    (neg-count $Tv) 
-    (* 
-      (- 1 
-        (mode $Tv)) 
-      (count $Tv)))
+</span><span class="ansi38-255165000">(= (neg-count $Tv) (* (- 1 (mode $Tv)) (count $Tv)))
 </span>
 
 ;;; Return the posterior alpha of a truth value
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'post-alpha',[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: post-alpha 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: post-alpha (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['post-alpha',Tv],[+,['prior-alpha'],['pos-count',Tv]]])
-</span><span class="ansi38-255165000">  (= 
-    (post-alpha $Tv) 
-    (+ 
-      (prior-alpha) 
-      (pos-count $Tv)))
+</span><span class="ansi38-255165000">(= (post-alpha $Tv) (+ (prior-alpha) (pos-count $Tv)))
 </span>
 
 ;;; Return the posterior beta of a truth value
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'post-beta',[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: post-beta 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: post-beta (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['post-beta',Tv],[+,['prior-beta'],['neg-count',Tv]]])
-</span><span class="ansi38-255165000">  (= 
-    (post-beta $Tv) 
-    (+ 
-      (prior-beta) 
-      (neg-count $Tv)))
+</span><span class="ansi38-255165000">(= (post-beta $Tv) (+ (prior-beta) (neg-count $Tv)))
 </span>
 
 ;;; Return the first order probability mean of the second order
@@ -1128,43 +944,26 @@ Deterministic: <span class="ansi33">Empty
 ;;; confidence is assumed to be 1.0.  For truth values capturing a
 ;;; notion of confidence, such as STV, a beta distribution is assumed.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,mean,[->,'TruthValue','Number']])
-</span><span class="ansi38-255165000">  (: mean 
-    (-> TruthValue Number))
+</span><span class="ansi38-255165000">(: mean (-> TruthValue Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mean,['Bl','True']],1.0])
-</span><span class="ansi38-255165000">  (= 
-    (mean 
-      (Bl True)) 1.0)
+</span><span class="ansi38-255165000">(= (mean (Bl True)) 1.0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mean,['Bl','False']],0.0])
-</span><span class="ansi38-255165000">  (= 
-    (mean 
-      (Bl False)) 0.0)
+</span><span class="ansi38-255165000">(= (mean (Bl False)) 0.0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mean,['Pr',Pr]],Pr])
-</span><span class="ansi38-255165000">  (= 
-    (mean 
-      (Pr $Pr)) $Pr)
+</span><span class="ansi38-255165000">(= (mean (Pr $Pr)) $Pr)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[mean,['STV',Pr,Conf]],['let*',[[A,['post-alpha',['STV',Pr,Conf]]],[B,['post-beta',['STV',Pr,Conf]]]],[/,A,[+,A,B]]]])
-</span><span class="ansi38-255165000">  (= 
-    (mean 
-      (STV $Pr $Conf)) 
-    (let* 
-      ( ($A 
-          (post-alpha 
-            (STV $Pr $Conf))) 
-        ($B 
-          (post-beta 
-            (STV $Pr $Conf)))) 
-      (/ $A 
-        (+ $A $B))))
+</span><span class="ansi38-255165000">(= (mean (STV $Pr $Conf)) (let* (($A (post-alpha (STV $Pr $Conf))) ($B (post-beta (STV $Pr $Conf)))) (/ $A (+ $A $B))))
 </span>
 
+          -->(6,eval('&self','Empty',RET),depth(3))
       <--(3,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
@@ -1173,233 +972,166 @@ Last Result(1): <span class="ansi33">Empty
 </span><span class="ansi38-250144246">; !(import! &self "../Num.metta")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','../Num.metta'],OUT).
 
-</span>      -->(5,eval('&self',['import!','&self','../Num.metta'],RET),depth(1))
+</span>      -->(7,eval('&self',['import!','&self','../Num.metta'],RET),depth(1))
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta')
 ;; Consistency Conditions
 ;;; Collection of functions operating on numbers
 ;;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: max 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: max (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (max $X $Y) 
-    (if 
-      (> $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: min 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: min (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (min $X $Y) 
-    (if 
-      (< $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">  (: clamp 
-    (-> $A $A $A $A))
+</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (clamp $X $L $U) 
-    (max $L 
-      (min $U $X)))
+</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
 </span>
 
 ;;; Define abs
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">  (: abs 
-    (-> $A $A))
+</span><span class="ansi38-255165000">(: abs (-> $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">  (= 
-    (abs $X) 
-    (if 
-      (< $X 0) 
-      (* -1 $X) $X))
+</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
 </span>
 
 ;;; Define <=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define >=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: >= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (>= $X $Y) 
-    (or 
-      (> $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: approxEq 
-    (-> $A $A $A Bool))
+</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">  (= 
-    (approxEq $X $Y $Epsilon) 
-    (<= 
-      (abs 
-        (- $X $Y)) $Epsilon))
+</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+</span><span class="ansi38-255165000">(: S (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+</span><span class="ansi38-255165000">(= (fromNat Z) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Nat Nat Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $_ Z) False)
+</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» Z 
-      (S $_)) True)
+</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» 
-      (S $X) 
-      (S $Y)) 
-    (â©» $X $Y))
+</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Number Number Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $X $Y) 
-    (< $X $Y))
+</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: ceil 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: ceil (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">  (= 
-    (ceil $N) 
-    (fromNat 
-      (fromNumber $N)))
+</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">  (: number->bool 
-    (-> Number Bool))
+</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">  (= 
-    (number->bool $X) 
-    (< 0 $X))
+</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">  (: bool->number 
-    (-> Bool Number))
+</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number False) 0)
+</span><span class="ansi38-255165000">(= (bool->number False) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number True) 1)
+</span><span class="ansi38-255165000">(= (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
@@ -1407,112 +1139,62 @@ Last Result(1): <span class="ansi33">Empty
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">  (: â 
-    (-> $T $T Type))
+</span><span class="ansi38-255165000">(: â (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (zero-lt-succ-axiom) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">  (= 
-    (zero-lt-succ-axiom) 
-    (: ZeroLTSucc 
-      (â Z 
-        (S $K))))
+</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (succ-monotonicity-rule) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (succ-monotonicity-rule) 
-    (: SuccMonotonicity 
-      (-> 
-        (â $X $Y) 
-        (â 
-          (S $X) 
-          (S $Y)))))
+</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
 </span>
 
-      <--(5,retval('Empty'))
+          -->(8,eval('&self','Empty',RET),depth(3))
+      <--(7,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'smallest-intersection-probability',[->,'Number','Number','Number']])
-</span><span class="ansi38-255165000">  (: smallest-intersection-probability 
-    (-> Number Number Number))
+</span><span class="ansi38-255165000">(: smallest-intersection-probability (-> Number Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['smallest-intersection-probability',As,Bs],[clamp,[/,[-,[+,As,Bs],1],As],0,1]])
-</span><span class="ansi38-255165000">  (= 
-    (smallest-intersection-probability $As $Bs) 
-    (clamp 
-      (/ 
-        (- 
-          (+ $As $Bs) 1) $As) 0 1))
+</span><span class="ansi38-255165000">(= (smallest-intersection-probability $As $Bs) (clamp (/ (- (+ $As $Bs) 1) $As) 0 1))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'largest-intersection-probability',[->,'Number','Number','Number']])
-</span><span class="ansi38-255165000">  (: largest-intersection-probability 
-    (-> Number Number Number))
+</span><span class="ansi38-255165000">(: largest-intersection-probability (-> Number Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['largest-intersection-probability',As,Bs],[clamp,[/,Bs,As],0,1]])
-</span><span class="ansi38-255165000">  (= 
-    (largest-intersection-probability $As $Bs) 
-    (clamp 
-      (/ $Bs $As) 0 1))
+</span><span class="ansi38-255165000">(= (largest-intersection-probability $As $Bs) (clamp (/ $Bs $As) 0 1))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'conditional-probability-consistency',[->,'Number','Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: conditional-probability-consistency 
-    (-> Number Number Number Bool))
+</span><span class="ansi38-255165000">(: conditional-probability-consistency (-> Number Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['conditional-probability-consistency',As,Bs,ABs],[and,[<,0,As],[and,[<=,['smallest-intersection-probability',As,Bs],ABs],[<=,ABs,['largest-intersection-probability',As,Bs]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (conditional-probability-consistency $As $Bs $ABs) 
-    (and 
-      (< 0 $As) 
-      (and 
-        (<= 
-          (smallest-intersection-probability $As $Bs) $ABs) 
-        (<= $ABs 
-          (largest-intersection-probability $As $Bs)))))
+</span><span class="ansi38-255165000">(= (conditional-probability-consistency $As $Bs $ABs) (and (< 0 $As) (and (<= (smallest-intersection-probability $As $Bs) $ABs) (<= $ABs (largest-intersection-probability $As $Bs)))))
 </span>
 
 ;;; Main Formula
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'simple-deduction-strength-formula',[->,'Number','Number','Number','Number','Number','Number']])
-</span><span class="ansi38-255165000">  (: simple-deduction-strength-formula 
-    (-> Number Number Number Number Number Number))
+</span><span class="ansi38-255165000">(: simple-deduction-strength-formula (-> Number Number Number Number Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['simple-deduction-strength-formula',As,Bs,Cs,ABs,BCs],[if,[and,['conditional-probability-consistency',As,Bs,ABs],['conditional-probability-consistency',Bs,Cs,BCs]],[if,[<,0.99,Bs],Cs,[+,[*,ABs,BCs],[/,[*,[-,1,ABs],[-,Cs,[*,Bs,BCs]]],[-,1,Bs]]]],0]])
-</span><span class="ansi38-255165000">  (= 
-    (simple-deduction-strength-formula $As $Bs $Cs $ABs $BCs) 
-    (if 
-      (and 
-        (conditional-probability-consistency $As $Bs $ABs) 
-        (conditional-probability-consistency $Bs $Cs $BCs)) 
-      (if 
-        (< 0.99 $Bs) $Cs 
-        (+ 
-          (* $ABs $BCs) 
-          (/ 
-            (* 
-              (- 1 $ABs) 
-              (- $Cs 
-                (* $Bs $BCs))) 
-            (- 1 $Bs)))) 0))
+</span><span class="ansi38-255165000">(= (simple-deduction-strength-formula $As $Bs $Cs $ABs $BCs) (if (and (conditional-probability-consistency $As $Bs $ABs) (conditional-probability-consistency $Bs $Cs $BCs)) (if (< 0.99 $Bs) $Cs (+ (* $ABs $BCs) (/ (* (- 1 $ABs) (- $Cs (* $Bs $BCs))) (- 1 $Bs)))) 0))
 </span>
 
 ;;; Preconditions are met
@@ -1521,35 +1203,10 @@ Deterministic: <span class="ansi33">Empty
 ;;; Preconditions are not met
 ;;; Alternate deduction formula hardwired for STV to make it faster.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['deduction-formula',['STV',Ps,Pc],['STV',Qs,Qc],['STV',Rs,Rc],['STV',PQs,PQc],['STV',QRs,QRc]],[if,[and,['conditional-probability-consistency',Ps,Qs,PQs],['conditional-probability-consistency',Qs,Rs,QRs]],['STV',[if,[<,0.9999,Qs],Rs,[+,[*,PQs,QRs],[/,[*,[-,1,PQs],[-,Rs,[*,Qs,QRs]]],[-,1,Qs]]]],[min,Pc,[min,Qc,[min,Rc,[min,PQc,QRc]]]]],['STV',1,0]]])
-</span><span class="ansi38-255165000">  (= 
-    (deduction-formula 
-      (STV $Ps $Pc) 
-      (STV $Qs $Qc) 
-      (STV $Rs $Rc) 
-      (STV $PQs $PQc) 
-      (STV $QRs $QRc)) 
-    (if 
-      (and 
-        (conditional-probability-consistency $Ps $Qs $PQs) 
-        (conditional-probability-consistency $Qs $Rs $QRs)) 
-      (STV 
-        (if 
-          (< 0.9999 $Qs) $Rs 
-          (+ 
-            (* $PQs $QRs) 
-            (/ 
-              (* 
-                (- 1 $PQs) 
-                (- $Rs 
-                  (* $Qs $QRs))) 
-              (- 1 $Qs)))) 
-        (min $Pc 
-          (min $Qc 
-            (min $Rc 
-              (min $PQc $QRc))))) 
-      (STV 1 0)))
+</span><span class="ansi38-255165000">(= (deduction-formula (STV $Ps $Pc) (STV $Qs $Qc) (STV $Rs $Rc) (STV $PQs $PQc) (STV $QRs $QRc)) (if (and (conditional-probability-consistency $Ps $Qs $PQs) (conditional-probability-consistency $Qs $Rs $QRs)) (STV (if (< 0.9999 $Qs) $Rs (+ (* $PQs $QRs) (/ (* (- 1 $PQs) (- $Rs (* $Qs $QRs))) (- 1 $Qs)))) (min $Pc (min $Qc (min $Rc (min $PQc $QRc))))) (STV 1 0)))
 </span>
 
+          -->(9,eval('&self','Empty',RET),depth(3))
       <--(2,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
@@ -1559,261 +1216,68 @@ Last Result(1): <span class="ansi33">Empty
 ;;; Otherwise
 ;;; Preconditions are not met
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['â\x8A\¢',['â\x89\\x9E\',P,Ptv],['â\x89\\x9E\',Q,Qtv],['â\x89\\x9E\',R,Rtv],['â\x89\\x9E\',['â\x86\\x92\',P,Q],Pqtv],['â\x89\\x9E\',['â\x86\\x92\',Q,R],Qrtv],['â\x89\\x9E\',['â\x86\\x92\',P,R],['deduction-formula',Ptv,Qtv,Rtv,Pqtv,Qrtv]]])
-</span><span class="ansi38-255165000">  (â¢ 
-    (â $P $Ptv) 
-    (â $Q $Qtv) 
-    (â $R $Rtv) 
-    (â 
-      (â $P $Q) $Pqtv) 
-    (â 
-      (â $Q $R) $Qrtv) 
-    (â 
-      (â $P $R) 
-      (deduction-formula $Ptv $Qtv $Rtv $Pqtv $Qrtv)))
+</span><span class="ansi38-255165000">(â¢ (â $P $Ptv) (â $Q $Qtv) (â $R $Rtv) (â (â $P $Q) $Pqtv) (â (â $Q $R) $Qrtv) (â (â $P $R) (deduction-formula $Ptv $Qtv $Rtv $Pqtv $Qrtv)))
 </span>
 
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 1.404 secs. (1403.67 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 1.754 secs. (1753.76 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Last Result(2): <span class="ansi33">Empty
 
 </span>;;; premises
 ;;; conclusion
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['P'],['â\x89\\x9E\','P',['STV',1,0.1]]])
-</span><span class="ansi38-255165000">  (= 
-    (P) 
-    (â P 
-      (STV 1 0.1)))
+</span><span class="ansi38-255165000">(= (P) (â P (STV 1 0.1)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Q'],['â\x89\\x9E\','Q',['STV',1,0.1]]])
-</span><span class="ansi38-255165000">  (= 
-    (Q) 
-    (â Q 
-      (STV 1 0.1)))
+</span><span class="ansi38-255165000">(= (Q) (â Q (STV 1 0.1)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['R'],['â\x89\\x9E\','R',['STV',1,0.1]]])
-</span><span class="ansi38-255165000">  (= 
-    (R) 
-    (â R 
-      (STV 1 0.1)))
+</span><span class="ansi38-255165000">(= (R) (â R (STV 1 0.1)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['PQ'],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['STV',1,0.5]]])
-</span><span class="ansi38-255165000">  (= 
-    (PQ) 
-    (â 
-      (â P Q) 
-      (STV 1 0.5)))
+</span><span class="ansi38-255165000">(= (PQ) (â (â P Q) (STV 1 0.5)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['QR'],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['STV',1,0.5]]])
-</span><span class="ansi38-255165000">  (= 
-    (QR) 
-    (â 
-      (â Q R) 
-      (STV 1 0.5)))
+</span><span class="ansi38-255165000">(= (QR) (â (â Q R) (STV 1 0.5)))
 </span>
 
 ;;; Forward chain
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let* 
-  ( ($P 
-      (P)) 
-    ($Q 
-      (Q)) 
-    ($R 
-      (R)) 
-    ($Pq 
-      (PQ)) 
-    ($Qr 
-      (QR))) 
-  (match &self 
-    (â¢ $P $Q $R $Pq $Qr $Res) $Res))
+</span><span class="ansi1 ansi38-255238088">!(let* (($P (P)) ($Q (Q)) ($R (R)) ($Pq (PQ)) ($Qr (QR))) (match &self (â¢ $P $Q $R $Pq $Qr $Res) $Res))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let* 
-    ( ($P 
-        (P)) 
-      ($Q 
-        (Q)) 
-      ($R 
-        (R)) 
-      ($Pq 
-        (PQ)) 
-      ($Qr 
-        (QR))) 
-    (match &self 
-      (â¢ $P $Q $R $Pq $Qr $Res) $Res)) ())
+<span class="ansi38-013099040">!(assertEqualToResult (let* (($P (P)) ($Q (Q)) ($R (R)) ($Pq (PQ)) ($Qr (QR))) (match &self (â¢ $P $Q $R $Pq $Qr $Res) $Res)) ())
 
-</span><span class="ansi38-250144246">; !(let* 
-  ( ($P 
-      (P)) 
-    ($Q 
-      (Q)) 
-    ($R 
-      (R)) 
-    ($Pq 
-      (PQ)) 
-    ($Qr 
-      (QR))) 
-  (match &self 
-    (â¢ $P $Q $R $Pq $Qr $Res) $Res))
+</span><span class="ansi38-250144246">; !(let* (($P (P)) ($Q (Q)) ($R (R)) ($Pq (PQ)) ($Qr (QR))) (match &self (â¢ $P $Q $R $Pq $Qr $Res) $Res))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['let*',[[P,['P']],[Q,['Q']],[R,['R']],[Pq,['PQ']],[Qr,['QR']]],[match,'&self',['â\x8A\¢',P,Q,R,Pq,Qr,Res],Res]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['let*',[[_98062,['P']],[_98370,['Q']],[_98678,['R']],[_98986,['PQ']],[_99300,['QR']]],[match,'&self',['â\x8A\¢',_98062,_98370,_98678,_98986,_99300,_101058],_101058]],[]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,['let*',[[_180386,['P']],[_180694,['Q']],[_181002,['R']],[_181310,['PQ']],[_181624,['QR']]],[match,'&self',['â\x8A\¢',_180386,_180694,_181002,_181310,_181624,_183382],_183382]],[]],RET),depth(1))
 <h3 id="ENTAIL.DEDUCTIONENTAILTEST.02">;; ENTAIL.DEDUCTIONENTAILTEST.02</h3>
-          -->(1,eval('&self',['let*',[[_98062,['P']],[_98370,['Q']],[_98678,['R']],[_98986,['PQ']],[_99300,['QR']]],[match,'&self',['â\x8A\¢',_98062,_98370,_98678,_98986,_99300,_101058],_101058]],RET),depth(3))
+          -->(1,eval('&self',['let*',[[_180386,['P']],[_180694,['Q']],[_181002,['R']],[_181310,['PQ']],[_181624,['QR']]],[match,'&self',['â\x8A\¢',_180386,_180694,_181002,_181310,_181624,_183382],_183382]],RET),depth(3))
               -->(2,eval('&self',['P'],RET),depth(5))
-                -->(3,eval('&self',['â\x89\\x9E\','P',['STV',1,0.1]],RET),depth(6))
+                  -->(3,eval('&self','P',RET),depth(7))
                     -->(4,eval('&self',['STV',1,0.1],RET),depth(8))
-                    -->(5,eval('&self',['STV',1,0.1],RET),depth(8))
-                  -->(6,eval('&self',['STV',1,0.1],RET),depth(7))
-              -->(7,eval('&self',['let*',[[_98370,['Q']],[_98678,['R']],[_98986,['PQ']],[_99300,['QR']]],[match,'&self',['â\x8A\¢',['â\x89\\x9E\','P',['STV',1,0.1]],_98370,_98678,_98986,_99300,_101058],_101058]],RET),depth(5))
-                  -->(8,eval('&self',['Q'],RET),depth(7))
-                    -->(9,eval('&self',['â\x89\\x9E\','Q',['STV',1,0.1]],RET),depth(8))
-                        -->(10,eval('&self',['STV',1,0.1],RET),depth(10))
-                        -->(11,eval('&self',['STV',1,0.1],RET),depth(10))
-                      -->(12,eval('&self',['STV',1,0.1],RET),depth(9))
-                  -->(13,eval('&self',['let*',[[_98678,['R']],[_98986,['PQ']],[_99300,['QR']]],[match,'&self',['â\x8A\¢',['â\x89\\x9E\','P',['STV',1,0.1]],['â\x89\\x9E\','Q',['STV',1,0.1]],_98678,_98986,_99300,_101058],_101058]],RET),depth(7))
-                      -->(14,eval('&self',['R'],RET),depth(9))
-                        -->(15,eval('&self',['â\x89\\x9E\','R',['STV',1,0.1]],RET),depth(10))
-                            -->(16,eval('&self',['STV',1,0.1],RET),depth(12))
-                            -->(17,eval('&self',['STV',1,0.1],RET),depth(12))
-                          -->(18,eval('&self',['STV',1,0.1],RET),depth(11))
-                      -->(19,eval('&self',['let*',[[_2726,['PQ']],[_2762,['QR']]],[match,'&self',['â\x8A\¢',['â\x89\\x9E\','P',['STV',1,0.1]],['â\x89\\x9E\','Q',['STV',1,0.1]],['â\x89\\x9E\','R',['STV',1,0.1]],_2726,_2762,_2852],_2852]],RET),depth(9))
-                          -->(20,eval('&self',['PQ'],RET),depth(11))
-                            -->(21,eval('&self',['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['STV',1,0.5]],RET),depth(12))
-                                -->(22,eval('&self',['â\x86\\x92\','P','Q'],RET),depth(14))
-                                -->(23,eval('&self',['STV',1,0.5],RET),depth(14))
-                                -->(24,eval('&self',['â\x86\\x92\','P','Q'],RET),depth(14))
-                                -->(25,eval('&self',['STV',1,0.5],RET),depth(14))
-                              -->(26,eval('&self',['â\x86\\x92\','P','Q'],RET),depth(13))
-                              -->(27,eval('&self',['STV',1,0.5],RET),depth(13))
-                          -->(28,eval('&self',['let*',[[_2762,['QR']]],[match,'&self',['â\x8A\¢',['â\x89\\x9E\','P',['STV',1,0.1]],['â\x89\\x9E\','Q',['STV',1,0.1]],['â\x89\\x9E\','R',['STV',1,0.1]],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['STV',1,0.5]],_2762,_2852],_2852]],RET),depth(11))
-                              -->(29,eval('&self',['QR'],RET),depth(13))
-                              <--(29,retval(['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['STV',1,0.5]]))
-                                -->(30,eval('&self',['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['STV',1,0.5]],RET),depth(14))
-                                    -->(31,eval('&self',['â\x86\\x92\','Q','R'],RET),depth(16))
-                                    -->(32,eval('&self',['STV',1,0.5],RET),depth(16))
-                                    -->(33,eval('&self',['â\x86\\x92\','Q','R'],RET),depth(16))
-                                    -->(34,eval('&self',['STV',1,0.5],RET),depth(16))
-                                  -->(35,eval('&self',['â\x86\\x92\','Q','R'],RET),depth(15))
-                                  -->(36,eval('&self',['STV',1,0.5],RET),depth(15))
-                              -->(37,eval('&self',['let*',[],[match,'&self',['â\x8A\¢',['â\x89\\x9E\','P',['STV',1,0.1]],['â\x89\\x9E\','Q',['STV',1,0.1]],['â\x89\\x9E\','R',['STV',1,0.1]],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['STV',1,0.5]],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['STV',1,0.5]],_2852],_2852]],RET),depth(13))
-                                  -->(38,eval('&self',[match,'&self',['â\x8A\¢',['â\x89\\x9E\','P',['STV',1,0.1]],['â\x89\\x9E\','Q',['STV',1,0.1]],['â\x89\\x9E\','R',['STV',1,0.1]],['â\x89\\x9E\',['â\x86\\x92\','P','Q'],['STV',1,0.5]],['â\x89\\x9E\',['â\x86\\x92\','Q','R'],['STV',1,0.5]],_2852],_2852],RET),depth(15))
-                                      -->(39,eval('&self',['â\x89\\x9E\',['â\x86\\x92\','P','R'],['deduction-formula',['STV',1,0.1],['STV',1,0.1],['STV',1,0.1],['STV',1,0.5],['STV',1,0.5]]],RET),depth(17))
-                                          -->(40,eval('&self',['â\x86\\x92\','P','R'],RET),depth(19))
-                                          -->(41,eval('&self',['deduction-formula',['STV',1,0.1],['STV',1,0.1],['STV',1,0.1],['STV',1,0.5],['STV',1,0.5]],RET),depth(19))
-                                            -->(42,eval('&self',[if,[and,['conditional-probability-consistency',1,1,1],['conditional-probability-consistency',1,1,1]],['STV',[if,[<,0.9999,1],1,[+,[*,1,1],[/,[*,[-,1,1],[-,1,[*,1,1]]],[-,1,1]]]],[min,0.1,[min,0.1,[min,0.1,[min,0.5,0.5]]]]],['STV',1,0]],RET),depth(20))
-                                                -->(43,eval('&self',[and,['conditional-probability-consistency',1,1,1],['conditional-probability-consistency',1,1,1]],RET),depth(22))
-                                                    -->(44,eval('&self',['conditional-probability-consistency',1,1,1],RET),depth(24))
-                                                      -->(45,eval('&self',[and,[<,0,1],[and,[<=,['smallest-intersection-probability',1,1],1],[<=,1,['largest-intersection-probability',1,1]]]],RET),depth(25))
-                                                          -->(46,eval('&self',[<,0,1],RET),depth(27))
-                                                          -->(47,eval('&self',[and,[<=,['smallest-intersection-probability',1,1],1],[<=,1,['largest-intersection-probability',1,1]]],RET),depth(27))
-                                                              -->(48,eval('&self',[<=,['smallest-intersection-probability',1,1],1],RET),depth(29))
-                                                                -->(49,eval('&self',[or,[<,['smallest-intersection-probability',1,1],1],[==,['smallest-intersection-probability',1,1],1]],RET),depth(30))
-                                                                    -->(50,eval('&self',[<,['smallest-intersection-probability',1,1],1],RET),depth(32))
-                                                                        -->(51,eval('&self',['smallest-intersection-probability',1,1],RET),depth(34))
-                                                                          -->(52,eval('&self',[clamp,[/,[-,[+,1,1],1],1],0,1],RET),depth(35))
-                                                                            -->(53,eval('&self',[max,0,[min,1,[/,[-,[+,1,1],1],1]]],RET),depth(36))
-                                                                              -->(54,eval('&self',[if,[>,0,[min,1,[/,[-,[+,1,1],1],1]]],0,[min,1,[/,[-,[+,1,1],1],1]]],RET),depth(37))
-                                                                                  -->(55,eval('&self',[>,0,[min,1,[/,[-,[+,1,1],1],1]]],RET),depth(39))
-                                                                                      -->(56,eval('&self',[min,1,[/,[-,[+,1,1],1],1]],RET),depth(41))
-                                                                                        -->(57,eval('&self',[if,[<,1,[/,[-,[+,1,1],1],1]],1,[/,[-,[+,1,1],1],1]],RET),depth(42))
-                                                                                            -->(58,eval('&self',[<,1,[/,[-,[+,1,1],1],1]],RET),depth(44))
-                                                                                                -->(59,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(46))
-                                                                                                    -->(60,eval('&self',[-,[+,1,1],1],RET),depth(48))
-                                                                                                        -->(61,eval('&self',[+,1,1],RET),depth(50))
-                                                                                                        <--(61,retval(2))
-                                                                                            -->(62,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(44))
-                                                                                                -->(63,eval('&self',[-,[+,1,1],1],RET),depth(46))
-                                                                                                    -->(64,eval('&self',[+,1,1],RET),depth(48))
-                                                                                                    <--(64,retval(2))
-                                                                                  -->(65,eval('&self',[min,1,[/,[-,[+,1,1],1],1]],RET),depth(39))
-                                                                                    -->(66,eval('&self',[if,[<,1,[/,[-,[+,1,1],1],1]],1,[/,[-,[+,1,1],1],1]],RET),depth(40))
-                                                                                        -->(67,eval('&self',[<,1,[/,[-,[+,1,1],1],1]],RET),depth(42))
-                                                                                            -->(68,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(44))
-                                                                                                -->(69,eval('&self',[-,[+,1,1],1],RET),depth(46))
-                                                                                                    -->(70,eval('&self',[+,1,1],RET),depth(48))
-                                                                                                    <--(70,retval(2))
-                                                                                        -->(71,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(42))
-                                                                                            -->(72,eval('&self',[-,[+,1,1],1],RET),depth(44))
-                                                                                                -->(73,eval('&self',[+,1,1],RET),depth(46))
-                                                                                                <--(73,retval(2))
-                                                                                            <--(72,retval(1))
-                                                                                        <--(71,retval(1))
-                                                                                                <--(69,retval(1))
-                                                                                            <--(68,retval(1))
-                                                                                        <--(67,retval('False'))
-                                                                                    <--(66,retval(1))
-                                                                                  <--(65,retval([if,[<,1,[/,[-,[+,1,1],1],1]],1,[/,[-,[+,1,1],1],1]]))
-                                                                                                <--(63,retval(1))
-                                                                                            <--(62,retval(1))
-                                                                                                    <--(60,retval(1))
-                                                                                                <--(59,retval(1))
-                                                                                            <--(58,retval('False'))
-                                                                                        <--(57,retval(1))
-                                                                                      <--(56,retval([if,[<,1,[/,[-,[+,1,1],1],1]],1,[/,[-,[+,1,1],1],1]]))
-                                                                                  <--(55,retval('False'))
-                                                                              <--(54,retval(1))
-                                                                            <--(53,retval([if,[>,0,[min,1,[/,[-,[+,1,1],1],1]]],0,[min,1,[/,[-,[+,1,1],1],1]]]))
-                                                                          <--(52,retval([max,0,[min,1,[/,[-,[+,1,1],1],1]]]))
-                                                                        <--(51,retval([clamp,[/,[-,[+,1,1],1],1],0,1]))
-                                                                    <--(50,retval('False'))
-                                                                    -->(74,eval('&self',[==,['smallest-intersection-probability',1,1],1],RET),depth(32))
-                                                                        -->(75,eval('&self',['smallest-intersection-probability',1,1],RET),depth(34))
-                                                                          -->(76,eval('&self',[clamp,[/,[-,[+,1,1],1],1],0,1],RET),depth(35))
-                                                                            -->(77,eval('&self',[max,0,[min,1,[/,[-,[+,1,1],1],1]]],RET),depth(36))
-                                                                              -->(78,eval('&self',[if,[>,0,[min,1,[/,[-,[+,1,1],1],1]]],0,[min,1,[/,[-,[+,1,1],1],1]]],RET),depth(37))
-                                                                                  -->(79,eval('&self',[>,0,[min,1,[/,[-,[+,1,1],1],1]]],RET),depth(39))
-                                                                                      -->(80,eval('&self',[min,1,[/,[-,[+,1,1],1],1]],RET),depth(41))
-                                                                                        -->(81,eval('&self',[if,[<,1,[/,[-,[+,1,1],1],1]],1,[/,[-,[+,1,1],1],1]],RET),depth(42))
-                                                                                            -->(82,eval('&self',[<,1,[/,[-,[+,1,1],1],1]],RET),depth(44))
-                                                                                                -->(83,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(46))
-                                                                                                    -->(84,eval('&self',[-,[+,1,1],1],RET),depth(48))
-                                                                                                        -->(85,eval('&self',[+,1,1],RET),depth(50))
-                                                                                                        <--(85,retval(2))
-                                                                                            -->(86,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(44))
-                                                                                                -->(87,eval('&self',[-,[+,1,1],1],RET),depth(46))
-                                                                                                    -->(88,eval('&self',[+,1,1],RET),depth(48))
-                                                                                                    <--(88,retval(2))
-                                                                                  -->(89,eval('&self',[min,1,[/,[-,[+,1,1],1],1]],RET),depth(39))
-                                                                                    -->(90,eval('&self',[if,[<,1,[/,[-,[+,1,1],1],1]],1,[/,[-,[+,1,1],1],1]],RET),depth(40))
-                                                                                        -->(91,eval('&self',[<,1,[/,[-,[+,1,1],1],1]],RET),depth(42))
-                                                                                            -->(92,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(44))
-                                                                                                -->(93,eval('&self',[-,[+,1,1],1],RET),depth(46))
-                                                                                                    -->(94,eval('&self',[+,1,1],RET),depth(48))
-                                                                                                    <--(94,retval(2))
-                                                                                        -->(95,eval('&self',[/,[-,[+,1,1],1],1],RET),depth(42))
-                                                                                            -->(96,eval('&self',[-,[+,1,1],1],RET),depth(44))
-                                                                                                -->(97,eval('&self',[+,1,1],RET),depth(46))
-                                                                                                <--(97,retval(2))
-                                                              -->(98,eval('&self',[<=,1,['largest-intersection-probability',1,1]],RET),depth(29))
-                                                                -->(99,eval('&self',[or,[<,1,['largest-intersection-probability',1,1]],[==,1,['largest-intersection-probability',1,1]]],RET),depth(30))
-                                                                    -->(100,eval('&self',[<,1,['largest-intersection-probability',1,1]],RET),depth(32))
+                      -->(5,eval('&self',1,RET),depth(9))
+                      -->(6,eval('&self',0.1,RET),depth(9))
+                      -->(7,eval('&self','STV',RET),depth(9))
+                      -->(8,eval('&self',1,RET),depth(9))
+                      -->(9,eval('&self',0.1,RET),depth(9))
 Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.216 secs. (215.67 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (â 
-        (â P R) 
-        (STV 1 0.1))) ()))
+; took 0.122 secs. (122.49 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((â (â P R) (STV 1 0.1))) ()))
 </span>Deterministic: <span class="ansi33">
-  (got 
-    ( (â 
-        (â P R) 
-        (STV 1 0.1))) expected ())
+(got ((â (â P R) (STV 1 0.1))) expected ())
 
-</span><span class="ansi32">% 2,829,637 inferences, 1.753 CPU in 1.754 seconds (100% CPU, 1613710 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta" 0)
+</span><span class="ansi32">% 1,620,047 inferences, 2.032 CPU in 6.613 seconds (31% CPU, 797343 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/entail/DeductionEntailTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1

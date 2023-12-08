@@ -65,7 +65,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e2_states.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e2_states.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e2_states.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e2_states.metta')
 1=[()]
@@ -107,19 +107,11 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; Then it binds this state atom to the token `&state-token`,
 ;; which is replaced by the corresponding atom at parse-time.
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &state-token 
-  (new-state 
-    (A B)))
+</span><span class="ansi1 ansi38-255238088">!(bind! &state-token (new-state (A B)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &state-token 
-    (new-state 
-      (A B))) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &state-token (new-state (A B))) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &state-token 
-  (new-state 
-    (A B)))
+</span><span class="ansi38-250144246">; !(bind! &state-token (new-state (A B)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&state-token',['new-state',['A','B']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&state-token',['new-state',['A','B']]],[[]]],RET),depth(1))
@@ -127,14 +119,18 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
           -->(1,eval('&self',['bind!','&state-token',['new-state',['A','B']]],RET),depth(3))
               -->(2,eval('&self',['new-state',['A','B']],RET),depth(5))
                   -->(3,eval('&self',['A','B'],RET),depth(7))
-              <--(2,retval('State'(['A','B'],_262710)))
+                    -->(4,eval('&self','B',RET),depth(8))
+                    -->(5,eval('&self','A',RET),depth(8))
+                    -->(6,eval('&self','B',RET),depth(8))
+                      -->(7,eval('&self','A',RET),depth(9))
+                      -->(8,eval('&self','B',RET),depth(9))
+                  -->(9,eval('&self','State'(['A','B'],_478622),RET),depth(7))
+              <--(2,retval('State'(['A','B'],_479498)))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.74 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.000971 secs. (971.30 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -142,38 +138,33 @@ Deterministic: <span class="ansi33">Empty
 ;; we wrap it into a function to show that it's not the token that changes, but
 ;; the content of the state atom
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['get-token'],'&state-token'])
-</span><span class="ansi38-255165000">  (= 
-    (get-token) &state-token)
+</span><span class="ansi38-255165000">(= (get-token) &state-token)
 </span>
 
 ;; `new-state $x` creates a `(State $x)` structure,
 ;; and `get-token` will show its content
-<span class="ansi38-013099040">!(assertEqual 
-  (get-state 
-    (get-token)) 
-  (A B))
+<span class="ansi38-013099040">!(assertEqual (get-state (get-token)) (A B))
 
-</span><span class="ansi38-250144246">; !(get-state 
-  (get-token))
+</span><span class="ansi38-250144246">; !(get-state (get-token))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-state',['get-token']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-state',['get-token']],['A','B']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.02</h3>
           -->(1,eval('&self',['get-state',['get-token']],RET),depth(3))
               -->(2,eval('&self',['get-token'],RET),depth(5))
-              <--(2,retval('&state-token'))
-                -->(3,eval('&self','&state-token',RET),depth(6))
-                <--(3,retval('State'(['A','B'],_371524)))
+                    -->(3,eval('&self','State'(['A','B'],_1834),RET),depth(8))
+                  -->(4,eval('&self','State'(['A','B'],_1834),RET),depth(7))
+              <--(2,retval('State'(['A','B'],_35408)))
+              -->(5,eval('&self','B',RET),depth(5))
+              -->(6,eval('&self','A',RET),depth(5))
+              -->(7,eval('&self','B',RET),depth(5))
+                -->(8,eval('&self','A',RET),depth(6))
+                -->(9,eval('&self','B',RET),depth(6))
           <--(1,retval(['A','B']))
-            -->(4,eval('&self',['A','B'],RET),depth(4))
-          -->(5,eval('&self',['A','B'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.92 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (A B)) 
-    ( (A B))))
+; took 0.002 secs. (1.78 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((A B)) ((A B))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -181,10 +172,7 @@ Deterministic: <span class="ansi33">Empty
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; States can be equal even if they are wrapped into different state atoms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual 
-  (get-token) 
-  (new-state 
-    (A B)))
+<span class="ansi38-013099040">!(assertEqual (get-token) (new-state (A B)))
 
 </span><span class="ansi38-250144246">; !(get-token)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-token'],OUT).
@@ -192,21 +180,20 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqual,['get-token'],['new-state',['A','B']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.03</h3>
           -->(1,eval('&self',['get-token'],RET),depth(3))
-          <--(1,retval('&state-token'))
-            -->(2,eval('&self','&state-token',RET),depth(4))
-            <--(2,retval('State'(['A','B'],_505744)))
-          -->(3,eval('&self',['new-state',['A','B']],RET),depth(3))
-              -->(4,eval('&self',['A','B'],RET),depth(5))
-          <--(3,retval('State'(['A','B'],_33192)))
+                -->(2,eval('&self','State'(['A','B'],_1834),RET),depth(6))
+              -->(3,eval('&self','State'(['A','B'],_1834),RET),depth(5))
+          <--(1,retval('State'(['A','B'],_83932)))
+          -->(4,eval('&self',['new-state',['A','B']],RET),depth(3))
+              -->(5,eval('&self',['A','B'],RET),depth(5))
+                -->(6,eval('&self','B',RET),depth(6))
+                -->(7,eval('&self','A',RET),depth(6))
+                -->(8,eval('&self','B',RET),depth(6))
+                  -->(9,eval('&self','A',RET),depth(7))
+          <--(4,retval('State'(['A','B'],_89566)))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.73 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (State  
-        (A B) $_11052)) 
-    ( (State  
-        (A B) $_11052))))
+; took 0.001 secs. (1.03 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((State  (A B) $_83950)) ((State  (A B) $_83950))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -215,105 +202,85 @@ Deterministic: <span class="ansi33">Empty
 ;; State atoms are of StateMonad type
 ;; These are inferred types based on new-state and change-state! signatures
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual 
-  (get-type 
-    (new-state 2)) 
-  (StateMonad Number))
+<span class="ansi38-013099040">!(assertEqual (get-type (new-state 2)) (StateMonad Number))
 
-</span><span class="ansi38-250144246">; !(get-type 
-  (new-state 2))
+</span><span class="ansi38-250144246">; !(get-type (new-state 2))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['new-state',2]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-type',['new-state',2]],['StateMonad','Number']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.04</h3>
           -->(1,eval('&self',['get-type',['new-state',2]],RET),depth(3))
                 -->(2,eval('&self',['new-state',2],RET),depth(6))
-                <--(2,retval('State'(2,_104806)))
+                  -->(3,eval('&self',2,RET),depth(7))
+                    -->(4,eval('&self','State'(2,_124748),RET),depth(8))
+                <--(2,retval('State'(2,_125612)))
+              -->(5,eval('&self','Number',RET),depth(5))
+              -->(6,eval('&self','StateMonad',RET),depth(5))
+              -->(7,eval('&self','Number',RET),depth(5))
+                -->(8,eval('&self','StateMonad',RET),depth(6))
+                -->(9,eval('&self','Number',RET),depth(6))
           <--(1,retval(['StateMonad','Number']))
-            -->(3,eval('&self',['StateMonad','Number'],RET),depth(4))
-          -->(4,eval('&self',['StateMonad','Number'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (4.06 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (StateMonad Number)) 
-    ( (StateMonad Number))))
+; took 0.001 secs. (1.40 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((StateMonad Number)) ((StateMonad Number))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (get-type 
-    (change-state! 
-      (new-state S) V)) 
-  (StateMonad String))
+</span><span class="ansi38-013099040">!(assertEqual (get-type (change-state! (new-state S) V)) (StateMonad String))
 
-</span><span class="ansi38-250144246">; !(get-type 
-  (change-state! 
-    (new-state S) V))
+</span><span class="ansi38-250144246">; !(get-type (change-state! (new-state S) V))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['change-state!',['new-state','S'],'V']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-type',['change-state!',['new-state','S'],'V']],['StateMonad','String']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.05</h3>
           -->(1,eval('&self',['get-type',['change-state!',['new-state','S'],'V']],RET),depth(3))
-                -->(2,eval('&self',['new-state','S'],RET),depth(6))
-                <--(2,retval('State'('S',_248370)))
-              -->(3,eval('&self',['new-state','S'],RET),depth(5))
-              <--(3,retval('State'('S',_291174)))
-                -->(4,eval('&self',['change-state!',['new-state','S'],'V'],RET),depth(6))
-                    -->(5,eval('&self',['new-state','S'],RET),depth(8))
-                    <--(5,retval('State'('S',_334392)))
-                <--(4,retval('State'('V',_355036)))
+              -->(2,eval('&self','S',RET),depth(5))
+              -->(3,eval('&self','S',RET),depth(5))
+                -->(4,eval('&self',['new-state','S'],RET),depth(6))
+                  -->(5,eval('&self','S',RET),depth(7))
+                    -->(6,eval('&self','State'('S',_171734),RET),depth(8))
+                <--(4,retval('State'('S',_172598)))
+                  -->(7,eval('&self','S',RET),depth(7))
+              -->(8,eval('&self','V',RET),depth(5))
+              -->(9,eval('&self','V',RET),depth(5))
           <--(1,retval(['StateMonad','String']))
-            -->(6,eval('&self',['StateMonad','String'],RET),depth(4))
-          -->(7,eval('&self',['StateMonad','String'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.009 secs. (9.46 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (StateMonad String)) 
-    ( (StateMonad String))))
+; took 0.002 secs. (2.27 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((StateMonad String)) ((StateMonad String))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; These are the types of State grounded atom
-<span class="ansi38-013099040">!(assertEqual 
-  (let $V 
-    (new-state 1) 
-    (get-type $V)) 
-  (StateMonad Number))
+<span class="ansi38-013099040">!(assertEqual (let $V (new-state 1) (get-type $V)) (StateMonad Number))
 
-</span><span class="ansi38-250144246">; !(let $V 
-  (new-state 1) 
-  (get-type $V))
+</span><span class="ansi38-250144246">; !(let $V (new-state 1) (get-type $V))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,V,['new-state',1],['get-type',V]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_474626,['new-state',1],['get-type',_474626]],['StateMonad','Number']],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_215092,['new-state',1],['get-type',_215092]],['StateMonad','Number']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.06</h3>
-          -->(1,eval('&self',[let,_474626,['new-state',1],['get-type',_474626]],RET),depth(3))
+          -->(1,eval('&self',[let,_215092,['new-state',1],['get-type',_215092]],RET),depth(3))
               -->(2,eval('&self',['new-state',1],RET),depth(5))
-              <--(2,retval('State'(1,_492674)))
-              -->(3,eval('&self',['get-type','State'(1,_492626)],RET),depth(5))
-              <--(3,retval(['StateMonad','Number']))
-                -->(4,eval('&self',['StateMonad','Number'],RET),depth(6))
+                -->(3,eval('&self',1,RET),depth(6))
+                  -->(4,eval('&self','State'(1,_226418),RET),depth(7))
+              <--(2,retval('State'(1,_227282)))
+              -->(5,eval('&self',['get-type','State'(1,_226418)],RET),depth(5))
+                  -->(6,eval('&self','Number',RET),depth(7))
+                  -->(7,eval('&self','StateMonad',RET),depth(7))
+                  -->(8,eval('&self','Number',RET),depth(7))
+                    -->(9,eval('&self','StateMonad',RET),depth(8))
+              <--(5,retval(['StateMonad','Number']))
           <--(1,retval(['StateMonad','Number']))
-            -->(5,eval('&self',['StateMonad','Number'],RET),depth(4))
-          -->(6,eval('&self',['StateMonad','Number'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.42 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (StateMonad Number)) 
-    ( (StateMonad Number))))
+; took 0.002 secs. (1.59 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((StateMonad Number)) ((StateMonad Number))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; atm, meta-types for states of non-grounded types are used
-<span class="ansi38-013099040">!(assertEqual 
-  (get-type &state-token) 
-  (StateMonad Expression))
+<span class="ansi38-013099040">!(assertEqual (get-type &state-token) (StateMonad Expression))
 
 </span><span class="ansi38-250144246">; !(get-type &state-token)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type','&state-token'],OUT).
@@ -321,20 +288,20 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqual,['get-type','&state-token'],['StateMonad','Expression']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.07</h3>
           -->(1,eval('&self',['get-type','&state-token'],RET),depth(3))
-                -->(2,eval('&self','&state-token',RET),depth(6))
-                <--(2,retval('State'(['A','B'],_135274)))
-                    -->(3,eval('&self',['A','B'],RET),depth(8))
-                    -->(4,eval('&self',['A','B'],RET),depth(8))
+              -->(2,eval('&self','&state-token',RET),depth(5))
+                  -->(3,eval('&self','State'(['A','B'],_1834),RET),depth(7))
+              <--(2,retval('State'(['A','B'],_277612)))
+                  -->(4,eval('&self','B',RET),depth(7))
+                  -->(5,eval('&self','B',RET),depth(7))
+                    -->(6,eval('&self',['A','B'],RET),depth(8))
+                      -->(7,eval('&self','B',RET),depth(9))
+                      -->(8,eval('&self','A',RET),depth(9))
+                      -->(9,eval('&self','B',RET),depth(9))
           <--(1,retval(['StateMonad','Expression']))
-            -->(5,eval('&self',['StateMonad','Expression'],RET),depth(4))
-          -->(6,eval('&self',['StateMonad','Expression'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.38 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (StateMonad Expression)) 
-    ( (StateMonad Expression))))
+; took 0.002 secs. (2.09 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((StateMonad Expression)) ((StateMonad Expression))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -344,9 +311,7 @@ Deterministic: <span class="ansi33">Empty
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; &state-token was initialized with state of type (A B), so
 ;; it cannot be changed to int
-<span class="ansi38-013099040">!(assertEqual 
-  (change-state! &state-token 1) 
-  (Error 1 BadType))
+<span class="ansi38-013099040">!(assertEqual (change-state! &state-token 1) (Error 1 BadType))
 
 </span><span class="ansi38-250144246">; !(change-state! &state-token 1)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['change-state!','&state-token',1],OUT).
@@ -354,254 +319,54 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqual,['change-state!','&state-token',1],['Error',1,'BadType']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.08</h3>
           -->(1,eval('&self',['change-state!','&state-token',1],RET),depth(3))
-              -->(2,eval('&self','&state-token',RET),depth(5))
-              <--(2,retval('State'(['A','B'],_307948)))
-          <--(1,retval('State'(1,_330550)))
-          -->(3,eval('&self',['Error',1,'BadType'],RET),depth(3))
+            -->(2,eval('&self','&state-token',RET),depth(4))
+                -->(3,eval('&self','State'(['A','B'],_1834),RET),depth(6))
+            <--(2,retval('State'(['A','B'],_324932)))
+            -->(4,eval('&self',1,RET),depth(4))
+              -->(5,eval('&self','State'(1,_1834),RET),depth(5))
+          <--(1,retval('State'(1,_326738)))
+          -->(6,eval('&self',['Error',1,'BadType'],RET),depth(3))
+            -->(7,eval('&self',1,RET),depth(4))
+            -->(8,eval('&self','BadType',RET),depth(4))
+            -->(9,eval('&self','Error',RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.07 milliseconds) 
+; took 0.000976 secs. (975.80 microseconds) 
 
 !check_type (not considering this a failure)
-<span class="ansi38-216191216">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (State  1 $_345180)) 
-    ( (Error 1 BadType))))
-</span>      <--(0,retval([got,['State'(1,_383886)],[expected(_383902)],[['Error',1,'BadType']]]))
-        -->(4,eval('&self',[got,['State'(1,_345180)],[expected(_383814)],[['Error',1,'BadType']]],RET),depth(2))
-            -->(5,eval('&self',['State'(1,_345180)],RET),depth(4))
-            -->(6,eval('&self',[expected(_383814)],RET),depth(4))
-                -->(7,eval('&self',expected(_383814),RET),depth(6))
-                    -->(8,eval('&self',expected(_383814),RET),depth(8))
-                        -->(9,eval('&self',expected(_383814),RET),depth(10))
-                            -->(10,eval('&self',expected(_383814),RET),depth(12))
-                                -->(11,eval('&self',expected(_383814),RET),depth(14))
-                                    -->(12,eval('&self',expected(_383814),RET),depth(16))
-                                        -->(13,eval('&self',expected(_383814),RET),depth(18))
-                                            -->(14,eval('&self',expected(_383814),RET),depth(20))
-                                                -->(15,eval('&self',expected(_383814),RET),depth(22))
-                                                    -->(16,eval('&self',expected(_383814),RET),depth(24))
-                                                        -->(17,eval('&self',expected(_383814),RET),depth(26))
-                                                            -->(18,eval('&self',expected(_383814),RET),depth(28))
-                                                                -->(19,eval('&self',expected(_383814),RET),depth(30))
-                                                                    -->(20,eval('&self',expected(_383814),RET),depth(32))
-                                                                        -->(21,eval('&self',expected(_383814),RET),depth(34))
-                                                                            -->(22,eval('&self',expected(_383814),RET),depth(36))
-                                                                                -->(23,eval('&self',expected(_383814),RET),depth(38))
-                                                                                    -->(24,eval('&self',expected(_383814),RET),depth(40))
-                                                                                        -->(25,eval('&self',expected(_383814),RET),depth(42))
-                                                                                            -->(26,eval('&self',expected(_383814),RET),depth(44))
-                                                                                                -->(27,eval('&self',expected(_383814),RET),depth(46))
-                                                                                                    -->(28,eval('&self',expected(_383814),RET),depth(48))
-                                                                                                        -->(29,eval('&self',expected(_383814),RET),depth(50))
-                                                                                                            -->(30,eval('&self',expected(_383814),RET),depth(52))
-                                                                                                                -->(31,eval('&self',expected(_383814),RET),depth(54))
-                                                                                                                    -->(32,eval('&self',expected(_383814),RET),depth(56))
-                                                                                                                        -->(33,eval('&self',expected(_383814),RET),depth(58))
-                                                                                                                            -->(34,eval('&self',expected(_383814),RET),depth(60))
-                                                                                                                                -->(35,eval('&self',expected(_383814),RET),depth(62))
-                                                                                                                                    -->(36,eval('&self',expected(_383814),RET),depth(64))
-                                                                                                                                        -->(37,eval('&self',expected(_383814),RET),depth(66))
-                                                                                                                                            -->(38,eval('&self',expected(_383814),RET),depth(68))
-                                                                                                                                                -->(39,eval('&self',expected(_383814),RET),depth(70))
-                                                                                                                                                    -->(40,eval('&self',expected(_383814),RET),depth(72))
-                                                                                                                                                        -->(41,eval('&self',expected(_383814),RET),depth(74))
-                                                                                                                                                            -->(42,eval('&self',expected(_383814),RET),depth(76))
-                                                                                                                                                                -->(43,eval('&self',expected(_383814),RET),depth(78))
-                                                                                                                                                                    -->(44,eval('&self',expected(_383814),RET),depth(80))
-                                                                                                                                                                        -->(45,eval('&self',expected(_383814),RET),depth(82))
-                                                                                                                                                                            -->(46,eval('&self',expected(_383814),RET),depth(84))
-                                                                                                                                                                                -->(47,eval('&self',expected(_383814),RET),depth(86))
-                                                                                                                                                                                    -->(48,eval('&self',expected(_383814),RET),depth(88))
-                                                                                                                                                                                        -->(49,eval('&self',expected(_383814),RET),depth(90))
-                                                                                                                                                                                            -->(50,eval('&self',expected(_383814),RET),depth(92))
-                                                                                                                                                                                                -->(51,eval('&self',expected(_383814),RET),depth(94))
-                                                                                                                                                                                                    -->(52,eval('&self',expected(_383814),RET),depth(96))
-                                                                                                                                                                                                        -->(53,eval('&self',expected(_383814),RET),depth(98))
-            -->(54,eval('&self',[['Error',1,'BadType']],RET),depth(4))
-                -->(55,eval('&self',['Error',1,'BadType'],RET),depth(6))
-            -->(56,eval('&self',['State'(1,_345180)],RET),depth(4))
-            -->(57,eval('&self',[expected(_383814)],RET),depth(4))
-                -->(58,eval('&self',expected(_383814),RET),depth(6))
-                    -->(59,eval('&self',expected(_383814),RET),depth(8))
-                        -->(60,eval('&self',expected(_383814),RET),depth(10))
-                            -->(61,eval('&self',expected(_383814),RET),depth(12))
-                                -->(62,eval('&self',expected(_383814),RET),depth(14))
-                                    -->(63,eval('&self',expected(_383814),RET),depth(16))
-                                        -->(64,eval('&self',expected(_383814),RET),depth(18))
-                                            -->(65,eval('&self',expected(_383814),RET),depth(20))
-                                                -->(66,eval('&self',expected(_383814),RET),depth(22))
-                                                    -->(67,eval('&self',expected(_383814),RET),depth(24))
-                                                        -->(68,eval('&self',expected(_383814),RET),depth(26))
-                                                            -->(69,eval('&self',expected(_383814),RET),depth(28))
-                                                                -->(70,eval('&self',expected(_383814),RET),depth(30))
-                                                                    -->(71,eval('&self',expected(_383814),RET),depth(32))
-                                                                        -->(72,eval('&self',expected(_383814),RET),depth(34))
-                                                                            -->(73,eval('&self',expected(_383814),RET),depth(36))
-                                                                                -->(74,eval('&self',expected(_383814),RET),depth(38))
-                                                                                    -->(75,eval('&self',expected(_383814),RET),depth(40))
-                                                                                        -->(76,eval('&self',expected(_383814),RET),depth(42))
-                                                                                            -->(77,eval('&self',expected(_383814),RET),depth(44))
-                                                                                                -->(78,eval('&self',expected(_383814),RET),depth(46))
-                                                                                                    -->(79,eval('&self',expected(_383814),RET),depth(48))
-                                                                                                        -->(80,eval('&self',expected(_383814),RET),depth(50))
-                                                                                                            -->(81,eval('&self',expected(_383814),RET),depth(52))
-                                                                                                                -->(82,eval('&self',expected(_383814),RET),depth(54))
-                                                                                                                    -->(83,eval('&self',expected(_383814),RET),depth(56))
-                                                                                                                        -->(84,eval('&self',expected(_383814),RET),depth(58))
-                                                                                                                            -->(85,eval('&self',expected(_383814),RET),depth(60))
-                                                                                                                                -->(86,eval('&self',expected(_383814),RET),depth(62))
-                                                                                                                                    -->(87,eval('&self',expected(_383814),RET),depth(64))
-                                                                                                                                        -->(88,eval('&self',expected(_383814),RET),depth(66))
-                                                                                                                                            -->(89,eval('&self',expected(_383814),RET),depth(68))
-                                                                                                                                                -->(90,eval('&self',expected(_383814),RET),depth(70))
-                                                                                                                                                    -->(91,eval('&self',expected(_383814),RET),depth(72))
-                                                                                                                                                        -->(92,eval('&self',expected(_383814),RET),depth(74))
-                                                                                                                                                            -->(93,eval('&self',expected(_383814),RET),depth(76))
-                                                                                                                                                                -->(94,eval('&self',expected(_383814),RET),depth(78))
-                                                                                                                                                                    -->(95,eval('&self',expected(_383814),RET),depth(80))
-                                                                                                                                                                        -->(96,eval('&self',expected(_383814),RET),depth(82))
-                                                                                                                                                                            -->(97,eval('&self',expected(_383814),RET),depth(84))
-                                                                                                                                                                                -->(98,eval('&self',expected(_383814),RET),depth(86))
-                                                                                                                                                                                    -->(99,eval('&self',expected(_383814),RET),depth(88))
-                                                                                                                                                                                        -->(100,eval('&self',expected(_383814),RET),depth(90))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
+<span class="ansi38-216191216">(loonit_failureR (equal_enough_for_test  ((State  1 $_326744)) ((Error 1 BadType))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( (State  1 $_6338)) 
-    ( (expected  $_6844)) 
-    ( (Error 1 BadType)))
+(got ((State  1 $_326744)) ((expected  $_334170)) ((Error 1 BadType)))
 
 </span>;; the new state here is int, so it cannot be changed to string
-<span class="ansi38-013099040">!(assertEqual 
-  (change-state! 
-    (new-state 1) S) 
-  (Error S BadType))
+<span class="ansi38-013099040">!(assertEqual (change-state! (new-state 1) S) (Error S BadType))
 
-</span><span class="ansi38-250144246">; !(change-state! 
-  (new-state 1) S)
+</span><span class="ansi38-250144246">; !(change-state! (new-state 1) S)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['change-state!',['new-state',1],'S'],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['change-state!',['new-state',1],'S'],['Error','S','BadType']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.09</h3>
           -->(1,eval('&self',['change-state!',['new-state',1],'S'],RET),depth(3))
               -->(2,eval('&self',['new-state',1],RET),depth(5))
-              <--(2,retval('State'(1,_122904)))
-          <--(1,retval('State'('S',_144286)))
-          -->(3,eval('&self',['Error','S','BadType'],RET),depth(3))
+                -->(3,eval('&self',1,RET),depth(6))
+                  -->(4,eval('&self','State'(1,_445906),RET),depth(7))
+              <--(2,retval('State'(1,_446770)))
+            -->(5,eval('&self','S',RET),depth(4))
+              -->(6,eval('&self','State'('S',_445906),RET),depth(5))
+          <--(1,retval('State'('S',_448564)))
+          -->(7,eval('&self',['Error','S','BadType'],RET),depth(3))
+            -->(8,eval('&self','S',RET),depth(4))
+            -->(9,eval('&self','BadType',RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (3.72 milliseconds) 
+; took 0.001 secs. (1.23 milliseconds) 
 
 !check_type (not considering this a failure)
-<span class="ansi38-216191216">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (State  S $_158916)) 
-    ( (Error S BadType))))
-</span>      <--(0,retval([got,['State'('S',_197626)],[expected(_197642)],[['Error','S','BadType']]]))
-        -->(4,eval('&self',[got,['State'('S',_158916)],[expected(_197554)],[['Error','S','BadType']]],RET),depth(2))
-            -->(5,eval('&self',['State'('S',_158916)],RET),depth(4))
-            -->(6,eval('&self',[expected(_197554)],RET),depth(4))
-                -->(7,eval('&self',expected(_197554),RET),depth(6))
-                    -->(8,eval('&self',expected(_197554),RET),depth(8))
-                        -->(9,eval('&self',expected(_197554),RET),depth(10))
-                            -->(10,eval('&self',expected(_197554),RET),depth(12))
-                                -->(11,eval('&self',expected(_197554),RET),depth(14))
-                                    -->(12,eval('&self',expected(_197554),RET),depth(16))
-                                        -->(13,eval('&self',expected(_197554),RET),depth(18))
-                                            -->(14,eval('&self',expected(_197554),RET),depth(20))
-                                                -->(15,eval('&self',expected(_197554),RET),depth(22))
-                                                    -->(16,eval('&self',expected(_197554),RET),depth(24))
-                                                        -->(17,eval('&self',expected(_197554),RET),depth(26))
-                                                            -->(18,eval('&self',expected(_197554),RET),depth(28))
-                                                                -->(19,eval('&self',expected(_197554),RET),depth(30))
-                                                                    -->(20,eval('&self',expected(_197554),RET),depth(32))
-                                                                        -->(21,eval('&self',expected(_197554),RET),depth(34))
-                                                                            -->(22,eval('&self',expected(_197554),RET),depth(36))
-                                                                                -->(23,eval('&self',expected(_197554),RET),depth(38))
-                                                                                    -->(24,eval('&self',expected(_197554),RET),depth(40))
-                                                                                        -->(25,eval('&self',expected(_197554),RET),depth(42))
-                                                                                            -->(26,eval('&self',expected(_197554),RET),depth(44))
-                                                                                                -->(27,eval('&self',expected(_197554),RET),depth(46))
-                                                                                                    -->(28,eval('&self',expected(_197554),RET),depth(48))
-                                                                                                        -->(29,eval('&self',expected(_197554),RET),depth(50))
-                                                                                                            -->(30,eval('&self',expected(_197554),RET),depth(52))
-                                                                                                                -->(31,eval('&self',expected(_197554),RET),depth(54))
-                                                                                                                    -->(32,eval('&self',expected(_197554),RET),depth(56))
-                                                                                                                        -->(33,eval('&self',expected(_197554),RET),depth(58))
-                                                                                                                            -->(34,eval('&self',expected(_197554),RET),depth(60))
-                                                                                                                                -->(35,eval('&self',expected(_197554),RET),depth(62))
-                                                                                                                                    -->(36,eval('&self',expected(_197554),RET),depth(64))
-                                                                                                                                        -->(37,eval('&self',expected(_197554),RET),depth(66))
-                                                                                                                                            -->(38,eval('&self',expected(_197554),RET),depth(68))
-                                                                                                                                                -->(39,eval('&self',expected(_197554),RET),depth(70))
-                                                                                                                                                    -->(40,eval('&self',expected(_197554),RET),depth(72))
-                                                                                                                                                        -->(41,eval('&self',expected(_197554),RET),depth(74))
-                                                                                                                                                            -->(42,eval('&self',expected(_197554),RET),depth(76))
-                                                                                                                                                                -->(43,eval('&self',expected(_197554),RET),depth(78))
-                                                                                                                                                                    -->(44,eval('&self',expected(_197554),RET),depth(80))
-                                                                                                                                                                        -->(45,eval('&self',expected(_197554),RET),depth(82))
-                                                                                                                                                                            -->(46,eval('&self',expected(_197554),RET),depth(84))
-                                                                                                                                                                                -->(47,eval('&self',expected(_197554),RET),depth(86))
-                                                                                                                                                                                    -->(48,eval('&self',expected(_197554),RET),depth(88))
-                                                                                                                                                                                        -->(49,eval('&self',expected(_197554),RET),depth(90))
-                                                                                                                                                                                            -->(50,eval('&self',expected(_197554),RET),depth(92))
-                                                                                                                                                                                                -->(51,eval('&self',expected(_197554),RET),depth(94))
-                                                                                                                                                                                                    -->(52,eval('&self',expected(_197554),RET),depth(96))
-                                                                                                                                                                                                        -->(53,eval('&self',expected(_197554),RET),depth(98))
-            -->(54,eval('&self',[['Error','S','BadType']],RET),depth(4))
-                -->(55,eval('&self',['Error','S','BadType'],RET),depth(6))
-            -->(56,eval('&self',['State'('S',_158916)],RET),depth(4))
-            -->(57,eval('&self',[expected(_197554)],RET),depth(4))
-                -->(58,eval('&self',expected(_197554),RET),depth(6))
-                    -->(59,eval('&self',expected(_197554),RET),depth(8))
-                        -->(60,eval('&self',expected(_197554),RET),depth(10))
-                            -->(61,eval('&self',expected(_197554),RET),depth(12))
-                                -->(62,eval('&self',expected(_197554),RET),depth(14))
-                                    -->(63,eval('&self',expected(_197554),RET),depth(16))
-                                        -->(64,eval('&self',expected(_197554),RET),depth(18))
-                                            -->(65,eval('&self',expected(_197554),RET),depth(20))
-                                                -->(66,eval('&self',expected(_197554),RET),depth(22))
-                                                    -->(67,eval('&self',expected(_197554),RET),depth(24))
-                                                        -->(68,eval('&self',expected(_197554),RET),depth(26))
-                                                            -->(69,eval('&self',expected(_197554),RET),depth(28))
-                                                                -->(70,eval('&self',expected(_197554),RET),depth(30))
-                                                                    -->(71,eval('&self',expected(_197554),RET),depth(32))
-                                                                        -->(72,eval('&self',expected(_197554),RET),depth(34))
-                                                                            -->(73,eval('&self',expected(_197554),RET),depth(36))
-                                                                                -->(74,eval('&self',expected(_197554),RET),depth(38))
-                                                                                    -->(75,eval('&self',expected(_197554),RET),depth(40))
-                                                                                        -->(76,eval('&self',expected(_197554),RET),depth(42))
-                                                                                            -->(77,eval('&self',expected(_197554),RET),depth(44))
-                                                                                                -->(78,eval('&self',expected(_197554),RET),depth(46))
-                                                                                                    -->(79,eval('&self',expected(_197554),RET),depth(48))
-                                                                                                        -->(80,eval('&self',expected(_197554),RET),depth(50))
-                                                                                                            -->(81,eval('&self',expected(_197554),RET),depth(52))
-                                                                                                                -->(82,eval('&self',expected(_197554),RET),depth(54))
-                                                                                                                    -->(83,eval('&self',expected(_197554),RET),depth(56))
-                                                                                                                        -->(84,eval('&self',expected(_197554),RET),depth(58))
-                                                                                                                            -->(85,eval('&self',expected(_197554),RET),depth(60))
-                                                                                                                                -->(86,eval('&self',expected(_197554),RET),depth(62))
-                                                                                                                                    -->(87,eval('&self',expected(_197554),RET),depth(64))
-                                                                                                                                        -->(88,eval('&self',expected(_197554),RET),depth(66))
-                                                                                                                                            -->(89,eval('&self',expected(_197554),RET),depth(68))
-                                                                                                                                                -->(90,eval('&self',expected(_197554),RET),depth(70))
-                                                                                                                                                    -->(91,eval('&self',expected(_197554),RET),depth(72))
-                                                                                                                                                        -->(92,eval('&self',expected(_197554),RET),depth(74))
-                                                                                                                                                            -->(93,eval('&self',expected(_197554),RET),depth(76))
-                                                                                                                                                                -->(94,eval('&self',expected(_197554),RET),depth(78))
-                                                                                                                                                                    -->(95,eval('&self',expected(_197554),RET),depth(80))
-                                                                                                                                                                        -->(96,eval('&self',expected(_197554),RET),depth(82))
-                                                                                                                                                                            -->(97,eval('&self',expected(_197554),RET),depth(84))
-                                                                                                                                                                                -->(98,eval('&self',expected(_197554),RET),depth(86))
-                                                                                                                                                                                    -->(99,eval('&self',expected(_197554),RET),depth(88))
-                                                                                                                                                                                        -->(100,eval('&self',expected(_197554),RET),depth(90))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
+<span class="ansi38-216191216">(loonit_failureR (equal_enough_for_test  ((State  S $_448570)) ((Error S BadType))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( (State  S $_158916)) 
-    ( (expected  $_197554)) 
-    ( (Error S BadType)))
+(got ((State  S $_3142)) ((expected  $_3146)) ((Error S BadType)))
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -610,66 +375,57 @@ Deterministic: <span class="ansi33">
 ;; nop is used to ignore the result and return unit
 ;; as expected by unit tests
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(nop 
-  (change-state! &state-token 
-    (C D)))
+</span><span class="ansi1 ansi38-255238088">!(nop (change-state! &state-token (C D)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (nop 
-    (change-state! &state-token 
-      (C D))) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (nop (change-state! &state-token (C D))) (()))
 
-</span><span class="ansi38-250144246">; !(nop 
-  (change-state! &state-token 
-    (C D)))
+</span><span class="ansi38-250144246">; !(nop (change-state! &state-token (C D)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[nop,['change-state!','&state-token',['C','D']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,[nop,['change-state!','&state-token',['C','D']]],[[]]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.10">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.10</h3>
           -->(1,eval('&self',[nop,['change-state!','&state-token',['C','D']]],RET),depth(3))
               -->(2,eval('&self',['change-state!','&state-token',['C','D']],RET),depth(5))
-                  -->(3,eval('&self','&state-token',RET),depth(7))
-                  <--(3,retval('State'(1,_443250)))
-                  -->(4,eval('&self',['C','D'],RET),depth(7))
-              <--(2,retval('State'(['C','D'],_478316)))
+                -->(3,eval('&self','&state-token',RET),depth(6))
+                    -->(4,eval('&self','State'(1,_1750),RET),depth(8))
+                <--(3,retval('State'(1,_43532)))
+                  -->(5,eval('&self',['C','D'],RET),depth(7))
+                    -->(6,eval('&self','D',RET),depth(8))
+                    -->(7,eval('&self','C',RET),depth(8))
+                    -->(8,eval('&self','D',RET),depth(8))
+                      -->(9,eval('&self','C',RET),depth(9))
+              <--(2,retval('State'(['C','D'],_48428)))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.30 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.001 secs. (1.12 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; The same state atom has different content now
-<span class="ansi38-013099040">!(assertEqual 
-  (get-state 
-    (get-token)) 
-  (C D))
+<span class="ansi38-013099040">!(assertEqual (get-state (get-token)) (C D))
 
-</span><span class="ansi38-250144246">; !(get-state 
-  (get-token))
+</span><span class="ansi38-250144246">; !(get-state (get-token))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-state',['get-token']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-state',['get-token']],['C','D']],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.11">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.11</h3>
           -->(1,eval('&self',['get-state',['get-token']],RET),depth(3))
               -->(2,eval('&self',['get-token'],RET),depth(5))
-              <--(2,retval('&state-token'))
-                -->(3,eval('&self','&state-token',RET),depth(6))
-                <--(3,retval('State'(['C','D'],_36556)))
+                    -->(3,eval('&self','State'(['C','D'],_1750),RET),depth(8))
+                  -->(4,eval('&self','State'(['C','D'],_1750),RET),depth(7))
+              <--(2,retval('State'(['C','D'],_78328)))
+              -->(5,eval('&self','D',RET),depth(5))
+              -->(6,eval('&self','C',RET),depth(5))
+              -->(7,eval('&self','D',RET),depth(5))
+                -->(8,eval('&self','C',RET),depth(6))
+                -->(9,eval('&self','D',RET),depth(6))
           <--(1,retval(['C','D']))
-            -->(4,eval('&self',['C','D'],RET),depth(4))
-          -->(5,eval('&self',['C','D'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (4.20 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (C D)) 
-    ( (C D))))
+; took 0.001 secs. (1.36 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((C D)) ((C D))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -678,76 +434,64 @@ Deterministic: <span class="ansi33">Empty
 ;; MeTTa provides proper encapsulated state manipulation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; scoping doesn't conflict between let bound variables and state atom types.
-<span class="ansi38-013099040">!(assertEqual 
-  (let $X 
-    (new-state 1) 
-    (change-state! $X 
-      (+ 
-        (get-state $X) 1))) 
-  (new-state 2))
+<span class="ansi38-013099040">!(assertEqual (let $X (new-state 1) (change-state! $X (+ (get-state $X) 1))) (new-state 2))
 
-</span><span class="ansi38-250144246">; !(let $X 
-  (new-state 1) 
-  (change-state! $X 
-    (+ 
-      (get-state $X) 1)))
+</span><span class="ansi38-250144246">; !(let $X (new-state 1) (change-state! $X (+ (get-state $X) 1)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,X,['new-state',1],['change-state!',X,[+,['get-state',X],1]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_151776,['new-state',1],['change-state!',_151776,[+,['get-state',_151776],1]]],['new-state',2]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_107334,['new-state',1],['change-state!',_107334,[+,['get-state',_107334],1]]],['new-state',2]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.12">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.12</h3>
-          -->(1,eval('&self',[let,_151776,['new-state',1],['change-state!',_151776,[+,['get-state',_151776],1]]],RET),depth(3))
+          -->(1,eval('&self',[let,_107334,['new-state',1],['change-state!',_107334,[+,['get-state',_107334],1]]],RET),depth(3))
               -->(2,eval('&self',['new-state',1],RET),depth(5))
-              <--(2,retval('State'(1,_170980)))
-              -->(3,eval('&self',['change-state!','State'(1,_170932),[+,['get-state','State'(1,_170932)],1]],RET),depth(5))
-                  -->(4,eval('&self',[+,['get-state','State'(1,_170932)],1],RET),depth(7))
-                      -->(5,eval('&self',['get-state','State'(1,_170932)],RET),depth(9))
-                      <--(5,retval(1))
-                  <--(4,retval(2))
-              <--(3,retval('State'(2,_235056)))
-          <--(1,retval('State'(2,_249312)))
-          -->(6,eval('&self',['new-state',2],RET),depth(3))
-          <--(6,retval('State'(2,_271608)))
+                -->(3,eval('&self',1,RET),depth(6))
+                  -->(4,eval('&self','State'(1,_119660),RET),depth(7))
+              <--(2,retval('State'(1,_120524)))
+              -->(5,eval('&self',['change-state!','State'(1,_119660),[+,['get-state','State'(1,_119660)],1]],RET),depth(5))
+                -->(6,eval('&self','State'(1,_119660),RET),depth(6))
+                  -->(7,eval('&self',[+,['get-state','State'(1,_119660)],1],RET),depth(7))
+                      -->(8,eval('&self',['get-state','State'(1,_119660)],RET),depth(9))
+                        -->(9,eval('&self','State'(1,_119660),RET),depth(10))
+                      <--(8,retval(1))
+                  <--(7,retval(2))
+              <--(5,retval('State'(2,_128234)))
+          <--(1,retval('State'(2,_128992)))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.53 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (State  2 $_263826)) 
-    ( (State  2 $_263826))))
+; took 0.002 secs. (1.60 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((State  2 $_128998)) ((State  2 $_128998))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Checking that there is no conflict between variable names in
 ;; let-expression and type definition of new-state
-<span class="ansi38-013099040">!(assertEqual 
-  (let $Tnso 
-    (new-state 1) $Tnso) 
-  (new-state 1))
+<span class="ansi38-013099040">!(assertEqual (let $Tnso (new-state 1) $Tnso) (new-state 1))
 
-</span><span class="ansi38-250144246">; !(let $Tnso 
-  (new-state 1) $Tnso)
+</span><span class="ansi38-250144246">; !(let $Tnso (new-state 1) $Tnso)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,Tnso,['new-state',1],Tnso],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,_317378,['new-state',1],_317378],['new-state',1]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqual,[let,_148036,['new-state',1],_148036],['new-state',1]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.13">;; HYPERON-EXPERIMENTAL-SCRIPTS.E2-STATES.13</h3>
-          -->(1,eval('&self',[let,_317378,['new-state',1],_317378],RET),depth(3))
+          -->(1,eval('&self',[let,_148036,['new-state',1],_148036],RET),depth(3))
               -->(2,eval('&self',['new-state',1],RET),depth(5))
-              <--(2,retval('State'(1,_335086)))
-          <--(1,retval('State'(1,_356758)))
-          -->(3,eval('&self',['new-state',1],RET),depth(3))
-          <--(3,retval('State'(1,_379170)))
+                -->(3,eval('&self',1,RET),depth(6))
+                  -->(4,eval('&self','State'(1,_159102),RET),depth(7))
+              <--(2,retval('State'(1,_159966)))
+            -->(5,eval('&self','State'(1,_159102),RET),depth(4))
+              -->(6,eval('&self','State'(1,_159102),RET),depth(5))
+          <--(1,retval('State'(1,_161764)))
+          -->(7,eval('&self',['new-state',1],RET),depth(3))
+            -->(8,eval('&self',1,RET),depth(4))
+              -->(9,eval('&self','State'(1,_163422),RET),depth(5))
+          <--(7,retval('State'(1,_164286)))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.87 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (State  1 $_371388)) 
-    ( (State  1 $_371388))))
+; took 0.000979 secs. (978.70 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((State  1 $_161770)) ((State  1 $_161770))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 934,909 inferences, 0.459 CPU in 0.460 seconds (100% CPU, 2034645 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e2_states.metta" 0)
+</span><span class="ansi32">% 533,721 inferences, 0.386 CPU in 0.386 seconds (100% CPU, 1382821 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e2_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 11

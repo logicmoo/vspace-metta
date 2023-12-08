@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -42,7 +41,8 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta')
 1=[()]
@@ -63,81 +63,62 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; Variables can appear in knowledge base entries
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Green',X]])
-</span><span class="ansi38-255165000">  (implies 
-    (Frog $X) 
-    (Green $X))
+</span><span class="ansi38-255165000">(implies (Frog $X) (Green $X))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[implies,['Frog',X],['Eats-flies',X]])
-</span><span class="ansi38-255165000">  (implies 
-    (Frog $X) 
-    (Eats-flies $X))
+</span><span class="ansi38-255165000">(implies (Frog $X) (Eats-flies $X))
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bound variables on both sides will be substituted
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (match &self 
-    (implies 
-      (Frog Sam) $What) $What) 
-  ( (Green Sam) 
-    (Eats-flies Sam)))
+<span class="ansi38-013099040">!(assertEqualToResult (match &self (implies (Frog Sam) $What) $What) ((Green Sam) (Eats-flies Sam)))
 
-</span><span class="ansi38-250144246">; !(match &self 
-  (implies 
-    (Frog Sam) $What) $What)
+</span><span class="ansi38-250144246">; !(match &self (implies (Frog Sam) $What) $What)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[implies,['Frog','Sam'],What],What],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[implies,['Frog','Sam'],_243008],_243008],[['Green','Sam'],['Eats-flies','Sam']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[implies,['Frog','Sam'],_479074],_479074],[['Green','Sam'],['Eats-flies','Sam']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.01</h3>
-          -->(1,eval('&self',[match,'&self',[implies,['Frog','Sam'],_243008],_243008],RET),depth(3))
-              -->(2,eval('&self',['Green','Sam'],RET),depth(5))
-            -->(3,eval('&self',['Green','Sam'],RET),depth(4))
-              -->(4,eval('&self',['Eats-flies','Sam'],RET),depth(5))
+          -->(1,eval('&self',[match,'&self',[implies,['Frog','Sam'],_479074],_479074],RET),depth(3))
+            -->(2,eval('&self','Sam',RET),depth(4))
+            -->(3,eval('&self','Green',RET),depth(4))
+            -->(4,eval('&self','Sam',RET),depth(4))
+              -->(5,eval('&self','Sam',RET),depth(5))
+              -->(6,eval('&self','Sam',RET),depth(5))
+                -->(7,eval('&self',['Green','Sam'],RET),depth(6))
+                  -->(8,eval('&self','Sam',RET),depth(7))
+                  -->(9,eval('&self','Green',RET),depth(7))
           <--(1,retval(['Eats-flies','Sam']))
-            -->(5,eval('&self',['Eats-flies','Sam'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.92 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Green Sam) 
-      (Eats-flies Sam)) 
-    ( (Eats-flies Sam) 
-      (Green Sam))))
+; took 0.005 secs. (5.05 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Green Sam) (Eats-flies Sam)) ((Eats-flies Sam) (Green Sam))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult 
-  (match &self 
-    (implies 
-      ($P $X) 
-      (Green Sam)) 
-    ($X might be $P)) 
-  ( (Sam might be Frog)))
+</span><span class="ansi38-013099040">!(assertEqualToResult (match &self (implies ($P $X) (Green Sam)) ($X might be $P)) ((Sam might be Frog)))
 
-</span><span class="ansi38-250144246">; !(match &self 
-  (implies 
-    ($P $X) 
-    (Green Sam)) 
-  ($X might be $P))
+</span><span class="ansi38-250144246">; !(match &self (implies ($P $X) (Green Sam)) ($X might be $P))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[implies,[P,X],['Green','Sam']],[X,might,be,P]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[implies,[_411418,_411702],['Green','Sam']],[_411702,might,be,_411418]],[['Sam',might,be,'Frog']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[implies,[_31294,_31578],['Green','Sam']],[_31578,might,be,_31294]],[['Sam',might,be,'Frog']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.02</h3>
-          -->(1,eval('&self',[match,'&self',[implies,[_411418,_411702],['Green','Sam']],[_411702,might,be,_411418]],RET),depth(3))
-              -->(2,eval('&self',['Sam',might,be,'Frog'],RET),depth(5))
+          -->(1,eval('&self',[match,'&self',[implies,[_31294,_31578],['Green','Sam']],[_31578,might,be,_31294]],RET),depth(3))
+            -->(2,eval('&self',might,RET),depth(4))
+            -->(3,eval('&self',be,RET),depth(4))
+            -->(4,eval('&self','Frog',RET),depth(4))
+            -->(5,eval('&self','Sam',RET),depth(4))
+            -->(6,eval('&self',might,RET),depth(4))
+            -->(7,eval('&self',be,RET),depth(4))
+            -->(8,eval('&self','Frog',RET),depth(4))
+              -->(9,eval('&self',might,RET),depth(5))
           <--(1,retval(['Sam',might,be,'Frog']))
-            -->(3,eval('&self',['Sam',might,be,'Frog'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.78 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Sam might be Frog)) 
-    ( (Sam might be Frog))))
+; took 0.004 secs. (3.60 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Sam might be Frog)) ((Sam might be Frog))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -149,114 +130,69 @@ Deterministic: <span class="ansi33">Empty
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some facts
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Frog','Sam'])
-</span><span class="ansi38-255165000">  (Frog Sam)
+</span><span class="ansi38-255165000">(Frog Sam)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Robot','Sophia'])
-</span><span class="ansi38-255165000">  (Robot Sophia)
+</span><span class="ansi38-255165000">(Robot Sophia)
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (match &self 
-    (and 
-      (Frog $X) 
-      (implies 
-        (Frog $X) $Y)) $Y) 
-  ( (Green Sam) 
-    (Eats-flies Sam)))
+<span class="ansi38-013099040">!(assertEqualToResult (match &self (, (Frog $X) (implies (Frog $X) $Y)) $Y) ((Green Sam) (Eats-flies Sam)))
 
-</span><span class="ansi38-250144246">; !(match &self 
-  (and 
-    (Frog $X) 
-    (implies 
-      (Frog $X) $Y)) $Y)
+</span><span class="ansi38-250144246">; !(match &self (, (Frog $X) (implies (Frog $X) $Y)) $Y)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[',',['Frog',X],[implies,['Frog',X],Y]],Y],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[',',['Frog',_89854],[implies,['Frog',_89854],_90450]],_90450],[['Green','Sam'],['Eats-flies','Sam']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[',',['Frog',_117058],[implies,['Frog',_117058],_117654]],_117654],[['Green','Sam'],['Eats-flies','Sam']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.03</h3>
-          -->(1,eval('&self',[match,'&self',[',',['Frog',_89854],[implies,['Frog',_89854],_90450]],_90450],RET),depth(3))
-          <--(1,retval(fail))
+          -->(1,eval('&self',[match,'&self',[',',['Frog',_117058],[implies,['Frog',_117058],_117654]],_117654],RET),depth(3))
+            -->(2,eval('&self','Sam',RET),depth(4))
+            -->(3,eval('&self','Green',RET),depth(4))
+            -->(4,eval('&self','Sam',RET),depth(4))
+              -->(5,eval('&self','Sam',RET),depth(5))
+              -->(6,eval('&self','Sam',RET),depth(5))
+                -->(7,eval('&self',['Green','Sam'],RET),depth(6))
+                  -->(8,eval('&self','Sam',RET),depth(7))
+                  -->(9,eval('&self','Green',RET),depth(7))
+          <--(1,retval(['Eats-flies','Sam']))
 ; 
 ; EVAL TEST
-; took 0.000133 secs. (133.40 microseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  () 
-    ( (Eats-flies Sam) 
-      (Green Sam))))
-</span>      <--(0,retval([got,[],expected,[['Eats-flies','Sam'],['Green','Sam']]]))
-        -->(2,eval('&self',[got,[],expected,[['Eats-flies','Sam'],['Green','Sam']]],RET),depth(2))
-            -->(3,eval('&self',[['Eats-flies','Sam'],['Green','Sam']],RET),depth(4))
-                -->(4,eval('&self',['Green','Sam'],RET),depth(6))
-                -->(5,eval('&self',['Eats-flies','Sam'],RET),depth(6))
-                -->(6,eval('&self',['Green','Sam'],RET),depth(6))
-            -->(7,eval('&self',[['Eats-flies','Sam'],['Green','Sam']],RET),depth(4))
-                -->(8,eval('&self',['Green','Sam'],RET),depth(6))
-                -->(9,eval('&self',['Eats-flies','Sam'],RET),depth(6))
-                -->(10,eval('&self',['Green','Sam'],RET),depth(6))
-          -->(11,eval('&self',[['Eats-flies','Sam'],['Green','Sam']],RET),depth(3))
-              -->(12,eval('&self',['Green','Sam'],RET),depth(5))
-              -->(13,eval('&self',['Eats-flies','Sam'],RET),depth(5))
-              -->(14,eval('&self',['Green','Sam'],RET),depth(5))
-Deterministic: <span class="ansi33">
-  (got () expected 
-    ( (Eats-flies Sam) 
-      (Green Sam)))
+; took 0.004 secs. (3.65 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Green Sam) (Eats-flies Sam)) ((Eats-flies Sam) (Green Sam))))
+</span>      <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables in queries can remain unbound
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (match &self 
-    (and 
-      (implies 
-        ($P $X) 
-        (Green $X)) 
-      (implies 
-        ($P $X) 
-        (Eats-flies $X))) 
-    (Then it is definitely $P)) 
-  ( (Then it is definitely Frog)))
+<span class="ansi38-013099040">!(assertEqualToResult (match &self (, (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P)) ((Then it is definitely Frog)))
 
-</span><span class="ansi38-250144246">; !(match &self 
-  (and 
-    (implies 
-      ($P $X) 
-      (Green $X)) 
-    (implies 
-      ($P $X) 
-      (Eats-flies $X))) 
-  (Then it is definitely $P))
+</span><span class="ansi38-250144246">; !(match &self (, (implies ($P $X) (Green $X)) (implies ($P $X) (Eats-flies $X))) (Then it is definitely $P))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[',',[implies,[P,X],['Green',X]],[implies,[P,X],['Eats-flies',X]]],['Then',it,is,definitely,P]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[',',[implies,[_352602,_352886],['Green',_352886]],[implies,[_352602,_352886],['Eats-flies',_352886]]],['Then',it,is,definitely,_352602]],[['Then',it,is,definitely,'Frog']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[',',[implies,[_186118,_186402],['Green',_186402]],[implies,[_186118,_186402],['Eats-flies',_186402]]],['Then',it,is,definitely,_186118]],[['Then',it,is,definitely,'Frog']]],RET),depth(1))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.A3-TWOSIDE.04</h3>
-          -->(1,eval('&self',[match,'&self',[',',[implies,[_352602,_352886],['Green',_352886]],[implies,[_352602,_352886],['Eats-flies',_352886]]],['Then',it,is,definitely,_352602]],RET),depth(3))
-          <--(1,retval(fail))
-; 
+          -->(1,eval('&self',[match,'&self',[',',[implies,[_186118,_186402],['Green',_186402]],[implies,[_186118,_186402],['Eats-flies',_186402]]],['Then',it,is,definitely,_186118]],RET),depth(3))
+            -->(2,eval('&self',it,RET),depth(4))
+            -->(3,eval('&self',is,RET),depth(4))
+            -->(4,eval('&self',definitely,RET),depth(4))
+            -->(5,eval('&self','Frog',RET),depth(4))
+            -->(6,eval('&self','Then',RET),depth(4))
+            -->(7,eval('&self',it,RET),depth(4))
+            -->(8,eval('&self',is,RET),depth(4))
+            -->(9,eval('&self',definitely,RET),depth(4))
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.000225 secs. (225.00 microseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  () 
-    ( (Then it is definitely Frog))))
-</span>      <--(0,retval([got,[],expected,[['Then',it,is,definitely,'Frog']]]))
-        -->(2,eval('&self',[got,[],expected,[['Then',it,is,definitely,'Frog']]],RET),depth(2))
-            -->(3,eval('&self',[['Then',it,is,definitely,'Frog']],RET),depth(4))
-                -->(4,eval('&self',['Then',it,is,definitely,'Frog'],RET),depth(6))
-            -->(5,eval('&self',[['Then',it,is,definitely,'Frog']],RET),depth(4))
-                -->(6,eval('&self',['Then',it,is,definitely,'Frog'],RET),depth(6))
-          -->(7,eval('&self',[['Then',it,is,definitely,'Frog']],RET),depth(3))
-              -->(8,eval('&self',['Then',it,is,definitely,'Frog'],RET),depth(5))
-Deterministic: <span class="ansi33">
-  (got () expected 
-    ( (Then it is definitely Frog)))
+; took 0.004 secs. (4.45 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Then it is definitely Frog)) ((Then it is definitely Frog))))
+</span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 534,470 inferences, 0.193 CPU in 0.193 seconds (100% CPU, 2775303 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta" 0)
+</span><span class="ansi32">% 368,266 inferences, 0.176 CPU in 0.176 seconds (100% CPU, 2086812 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 2
-</span><span class="ansi31">Failures: 2
+<span class="ansi32">Successes: 4
+</span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a3_twoside.metta.html" )
 

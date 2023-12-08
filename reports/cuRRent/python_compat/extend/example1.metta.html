@@ -51,30 +51,41 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta:1 
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta')
-1=[(Error (extend-py! mettamorph) extend-py! not available in metta repl without Python support)]
-2=0.00user 0.00system 0:00.00elapsed 100%CPU (0avgtext+0avgdata 6504maxresident)k
-2=0inputs+0outputs (0major+460minor)pagefaults 0swaps
+1=sh: 0: cannot open run_scheme.sh: No such file
+1=cat: ./../RUN.scm: No such file or directory
+1=[]
+2=[(Error (compile! compileme.metta) Exception caught:
+2=OSError: COMPILEME.so: cannot open shared object file: No such file or directory
+2=
+2=At:
+2=  /usr/lib/python3.11/ctypes/__init__.py(376): __init__
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/mettamorph.py(116): call_compilefile
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/mettamorph.py(18): wrapper
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(320): execute
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/mettamorph.py(13): execute
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(167): _priv_call_execute_on_grounded_atom
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(31): run_step
+2=  (18): run_step
+2=)]
+2=0.46user 0.09system 0:00.55elapsed 99%CPU (0avgtext+0avgdata 36560maxresident)k
+2=8inputs+608outputs (0major+19804minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta', 1, [['Error', ['extend-py!', mettamorph], 'extend-py!', not, available, in, metta, repl, without, 'Python', support]]).
+file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta', 1, []).
 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(extend-py! mettamorph)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (extend-py! mettamorph) 
-  ( (Error 
-      (extend-py! mettamorph) extend-py! not available in metta repl without Python support)))
+<span class="ansi38-013099040">!(assertEqualToResult (extend-py! mettamorph) ())
 
 </span><span class="ansi38-250144246">; !(extend-py! mettamorph)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['extend-py!',mettamorph],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_195994
+$_410258
 
 </span><span class="ansi38-013099040">!(compile! compileme.metta)
 
@@ -82,12 +93,16 @@ $_195994
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['compile!','compileme.metta'],OUT).
 
 </span>      -->(0,eval('&self',['compile!','compileme.metta'],RET),depth(1))
+        -->(1,eval('&self','compileme.metta',RET),depth(2))
+        -->(2,eval('&self','compile!',RET),depth(2))
+        -->(3,eval('&self','compileme.metta',RET),depth(2))
+          -->(4,eval('&self','compile!',RET),depth(3))
+          -->(5,eval('&self','compileme.metta',RET),depth(3))
 Deterministic: <span class="ansi33">
-  (compile! compileme.metta)
+(compile! compileme.metta)
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rustmettafunc,A],42])
-</span><span class="ansi38-255165000">  (= 
-    (rustmettafunc $A) 42)
+</span><span class="ansi38-255165000">(= (rustmettafunc $A) 42)
 </span>
 
 <span class="ansi38-013099040">!(facF 10)
@@ -96,7 +111,7 @@ Deterministic: <span class="ansi33">
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[facF,10],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_266294
+$_445088
 
 </span><span class="ansi38-013099040">!(test1 dummy)
 
@@ -104,7 +119,7 @@ $_266294
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test1,dummy],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_277206
+$_455336
 
 </span><span class="ansi38-013099040">!(test2 dummy)
 
@@ -112,7 +127,7 @@ $_277206
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test2,dummy],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_288034
+$_465500
 
 </span><span class="ansi38-013099040">!(test3 dummy)
 
@@ -120,7 +135,7 @@ $_288034
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test3,dummy],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_298772
+$_475574
 
 </span><span class="ansi38-013099040">!(test4 dummy)
 
@@ -128,7 +143,7 @@ $_298772
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test4,dummy],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_309420
+$_485558
 
 </span><span class="ansi38-013099040">!(test5 dummy)
 
@@ -136,7 +151,7 @@ $_309420
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test5,dummy],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_319978
+$_495452
 
 </span><span class="ansi38-013099040">!(test6 this thing)
 
@@ -144,20 +159,18 @@ $_319978
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test6,this,thing],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_330690
+$_505500
 
-</span><span class="ansi38-013099040">!(test7 
-  (this thing))
+</span><span class="ansi38-013099040">!(test7 (this thing))
 
-</span><span class="ansi38-250144246">; !(test7 
-  (this thing))
+</span><span class="ansi38-250144246">; !(test7 (this thing))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[test7,[this,thing]],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_341478
+$_515624
 
-</span><span class="ansi32">% 274,998 inferences, 0.141 CPU in 0.141 seconds (100% CPU, 1946004 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta" 0)
+</span><span class="ansi32">% 260,605 inferences, 0.140 CPU in 0.141 seconds (100% CPU, 1854934 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example1.metta.html" )
 

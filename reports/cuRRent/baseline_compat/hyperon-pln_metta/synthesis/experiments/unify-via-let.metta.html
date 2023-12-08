@@ -58,7 +58,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta')
 1=[(Link A B)]
@@ -82,160 +82,124 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 ;;; Simple unification
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let 
-  (Link A $Y) 
-  (Link $X B) 
-  (Link $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(let (Link A $Y) (Link $X B) (Link $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let 
-    (Link A $Y) 
-    (Link $X B) 
-    (Link $X $Y)) 
-  ( (Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult (let (Link A $Y) (Link $X B) (Link $X $Y)) ((Link A B)))
 
-</span><span class="ansi38-250144246">; !(let 
-  (Link A $Y) 
-  (Link $X B) 
-  (Link $X $Y))
+</span><span class="ansi38-250144246">; !(let (Link A $Y) (Link $X B) (Link $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['Link','A',Y],['Link',X,'B'],['Link',X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,['Link','A',_217236],['Link',_217536,'B'],['Link',_217536,_217236]],[['Link','A','B']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[let,['Link','A',_436292],['Link',_436592,'B'],['Link',_436592,_436292]],[['Link','A','B']]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.01">;; EXPERIMENTS.UNIFY-VIA-LET.01</h3>
-          -->(1,eval('&self',[let,['Link','A',_217236],['Link',_217536,'B'],['Link',_217536,_217236]],RET),depth(3))
-              -->(2,eval('&self',['Link',_217536,'B'],RET),depth(5))
-              -->(3,eval('&self',['Link','A','B'],RET),depth(5))
+          -->(1,eval('&self',[let,['Link','A',_436292],['Link',_436592,'B'],['Link',_436592,_436292]],RET),depth(3))
+              -->(2,eval('&self',['Link',_436592,'B'],RET),depth(5))
+                -->(3,eval('&self','B',RET),depth(6))
+                -->(4,eval('&self','Link',RET),depth(6))
+                -->(5,eval('&self','B',RET),depth(6))
+                  -->(6,eval('&self','Link',RET),depth(7))
+                  -->(7,eval('&self','B',RET),depth(7))
+              -->(8,eval('&self',['Link','A','B'],RET),depth(5))
+                -->(9,eval('&self','A',RET),depth(6))
           <--(1,retval(['Link','A','B']))
-            -->(4,eval('&self',['Link','A','B'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.95 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Link A B)) 
-    ( (Link A B))))
+; took 0.002 secs. (1.61 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Link A B)) ((Link A B))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; [(Link A B)]
 ;;; Simple unification with the arrow operator
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let 
-  (-> A $Y) 
-  (-> $X B) 
-  (-> $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(let (-> A $Y) (-> $X B) (-> $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let 
-    (-> A $Y) 
-    (-> $X B) 
-    (-> $X $Y)) 
-  ( (-> A B)))
+<span class="ansi38-013099040">!(assertEqualToResult (let (-> A $Y) (-> $X B) (-> $X $Y)) ((-> A B)))
 
-</span><span class="ansi38-250144246">; !(let 
-  (-> A $Y) 
-  (-> $X B) 
-  (-> $X $Y))
+</span><span class="ansi38-250144246">; !(let (-> A $Y) (-> $X B) (-> $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,[->,'A',Y],[->,X,'B'],[->,X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,[->,'A',_384718],[->,_385018,'B'],[->,_385018,_384718]],[[->,'A','B']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[let,[->,'A',_490844],[->,_491144,'B'],[->,_491144,_490844]],[[->,'A','B']]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.02">;; EXPERIMENTS.UNIFY-VIA-LET.02</h3>
-          -->(1,eval('&self',[let,[->,'A',_384718],[->,_385018,'B'],[->,_385018,_384718]],RET),depth(3))
+          -->(1,eval('&self',[let,[->,'A',_490844],[->,_491144,'B'],[->,_491144,_490844]],RET),depth(3))
+              -->(2,eval('&self',[->,_491144,'B'],RET),depth(5))
+              -->(3,eval('&self',[->,'A','B'],RET),depth(5))
+              -->(4,eval('&self',->,RET),depth(5))
+              -->(5,eval('&self','A',RET),depth(5))
+              -->(6,eval('&self','B',RET),depth(5))
           <--(1,retval([->,'A','B']))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.12 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (-> A B)) 
-    ( (-> A B))))
-</span>      <--(0,retval('Empty'))
+; took 0.000549 secs. (549.40 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((-> A B)) ((-> A B))))
+</span>          -->(7,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; [(-> A B)]
 ;;; When using `let`, the second argument gets evaluated before binding, so
 ;;; unifying a term with the result of a function (right-handside of `let`) works
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[f,X],['Link',X,'B']])
-</span><span class="ansi38-255165000">  (= 
-    (f $X) 
-    (Link $X B))
+</span><span class="ansi38-255165000">(= (f $X) (Link $X B))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let 
-  (Link A $Y) 
-  (f $X) 
-  (Link $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(let (Link A $Y) (f $X) (Link $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let 
-    (Link A $Y) 
-    (f $X) 
-    (Link $X $Y)) 
-  ( (Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult (let (Link A $Y) (f $X) (Link $X $Y)) ((Link A B)))
 
-</span><span class="ansi38-250144246">; !(let 
-  (Link A $Y) 
-  (f $X) 
-  (Link $X $Y))
+</span><span class="ansi38-250144246">; !(let (Link A $Y) (f $X) (Link $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['Link','A',Y],[f,X],['Link',X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,['Link','A',_9696],[f,_9996],['Link',_9996,_9696]],[['Link','A','B']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[let,['Link','A',_24012],[f,_24312],['Link',_24312,_24012]],[['Link','A','B']]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.03">;; EXPERIMENTS.UNIFY-VIA-LET.03</h3>
-          -->(1,eval('&self',[let,['Link','A',_9696],[f,_9996],['Link',_9996,_9696]],RET),depth(3))
-              -->(2,eval('&self',[f,_9996],RET),depth(5))
-              <--(2,retval(['Link',_22134,'B']))
-                -->(3,eval('&self',['Link',_9996,'B'],RET),depth(6))
-              -->(4,eval('&self',['Link','A','B'],RET),depth(5))
+          -->(1,eval('&self',[let,['Link','A',_24012],[f,_24312],['Link',_24312,_24012]],RET),depth(3))
+              -->(2,eval('&self',[f,_24312],RET),depth(5))
+                  -->(3,eval('&self','B',RET),depth(7))
+                  -->(4,eval('&self','Link',RET),depth(7))
+                  -->(5,eval('&self','B',RET),depth(7))
+                    -->(6,eval('&self','Link',RET),depth(8))
+                    -->(7,eval('&self','B',RET),depth(8))
+                  -->(8,eval('&self','Link',RET),depth(7))
+                  -->(9,eval('&self','B',RET),depth(7))
+              <--(2,retval(['Link',_40666,'B']))
           <--(1,retval(['Link','A','B']))
-            -->(5,eval('&self',['Link','A','B'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.71 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Link A B)) 
-    ( (Link A B))))
+; took 0.002 secs. (1.77 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Link A B)) ((Link A B))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; [(Link A B)]
 ;;; But unifying a left-handside function term shouldn't work
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[g,Y],['Link','A',Y]])
-</span><span class="ansi38-255165000">  (= 
-    (g $Y) 
-    (Link A $Y))
+</span><span class="ansi38-255165000">(= (g $Y) (Link A $Y))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let 
-  (g $Y) 
-  (Link $X B) 
-  (Link $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(let (g $Y) (Link $X B) (Link $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let 
-    (g $Y) 
-    (Link $X B) 
-    (Link $X $Y)) ())
+<span class="ansi38-013099040">!(assertEqualToResult (let (g $Y) (Link $X B) (Link $X $Y)) ())
 
-</span><span class="ansi38-250144246">; !(let 
-  (g $Y) 
-  (Link $X B) 
-  (Link $X $Y))
+</span><span class="ansi38-250144246">; !(let (g $Y) (Link $X B) (Link $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,[g,Y],['Link',X,'B'],['Link',X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,[g,_202998],['Link',_203298,'B'],['Link',_203298,_202998]],[]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[let,[g,_91500],['Link',_91800,'B'],['Link',_91800,_91500]],[]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.04">;; EXPERIMENTS.UNIFY-VIA-LET.04</h3>
-          -->(1,eval('&self',[let,[g,_202998],['Link',_203298,'B'],['Link',_203298,_202998]],RET),depth(3))
-              -->(2,eval('&self',['Link',_203298,'B'],RET),depth(5))
+          -->(1,eval('&self',[let,[g,_91500],['Link',_91800,'B'],['Link',_91800,_91500]],RET),depth(3))
+              -->(2,eval('&self',['Link',_91800,'B'],RET),depth(5))
+                -->(3,eval('&self','B',RET),depth(6))
+                -->(4,eval('&self','Link',RET),depth(6))
+                -->(5,eval('&self','B',RET),depth(6))
+                  -->(6,eval('&self','Link',RET),depth(7))
+                  -->(7,eval('&self','B',RET),depth(7))
           <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.23 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () ()))
-</span>      <--(0,retval('Empty'))
+; took 0.000887 secs. (886.50 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
+</span>          -->(8,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; []
@@ -243,169 +207,95 @@ Deterministic: <span class="ansi33">Empty
 ;;; unification to work. For example by including it in its own binding
 ;;; on the right hand side:
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let* 
-  ( ($Gy 
-      (g $Y)) 
-    ($Gy 
-      (Link $X B))) 
-  (Link $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(let* (($Gy (g $Y)) ($Gy (Link $X B))) (Link $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let* 
-    ( ($Gy 
-        (g $Y)) 
-      ($Gy 
-        (Link $X B))) 
-    (Link $X $Y)) 
-  ( (Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult (let* (($Gy (g $Y)) ($Gy (Link $X B))) (Link $X $Y)) ((Link A B)))
 
-</span><span class="ansi38-250144246">; !(let* 
-  ( ($Gy 
-      (g $Y)) 
-    ($Gy 
-      (Link $X B))) 
-  (Link $X $Y))
+</span><span class="ansi38-250144246">; !(let* (($Gy (g $Y)) ($Gy (Link $X B))) (Link $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['let*',[[Gy,[g,Y]],[Gy,['Link',X,'B']]],['Link',X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['let*',[[_274614,[g,_274920]],[_274614,['Link',_275514,'B']]],['Link',_275514,_274920]],[['Link','A','B']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,['let*',[[_130368,[g,_130674]],[_130368,['Link',_131268,'B']]],['Link',_131268,_130674]],[['Link','A','B']]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.05">;; EXPERIMENTS.UNIFY-VIA-LET.05</h3>
-          -->(1,eval('&self',['let*',[[_274614,[g,_274920]],[_274614,['Link',_275514,'B']]],['Link',_275514,_274920]],RET),depth(3))
-              -->(2,eval('&self',[g,_274920],RET),depth(5))
-              <--(2,retval(['Link','A',_288514]))
-                -->(3,eval('&self',['Link','A',_274920],RET),depth(6))
-              -->(4,eval('&self',['let*',[[['Link','A',_274920],['Link',_275514,'B']]],['Link',_275514,_274920]],RET),depth(5))
-                  -->(5,eval('&self',['Link',_275514,'B'],RET),depth(7))
-                  -->(6,eval('&self',['let*',[],['Link','A','B']],RET),depth(7))
-                      -->(7,eval('&self',['Link','A','B'],RET),depth(9))
-                  <--(6,retval(['Link','A','B']))
-                    -->(8,eval('&self',['Link','A','B'],RET),depth(8))
-              <--(4,retval(['Link','A','B']))
-                -->(9,eval('&self',['Link','A','B'],RET),depth(6))
+          -->(1,eval('&self',['let*',[[_130368,[g,_130674]],[_130368,['Link',_131268,'B']]],['Link',_131268,_130674]],RET),depth(3))
+              -->(2,eval('&self',[g,_130674],RET),depth(5))
+                  -->(3,eval('&self','A',RET),depth(7))
+                  -->(4,eval('&self','Link',RET),depth(7))
+                  -->(5,eval('&self','A',RET),depth(7))
+                    -->(6,eval('&self','Link',RET),depth(8))
+                    -->(7,eval('&self','A',RET),depth(8))
+                  -->(8,eval('&self','Link',RET),depth(7))
+                  -->(9,eval('&self','A',RET),depth(7))
+              <--(2,retval(['Link','A',_148202]))
           <--(1,retval(['Link','A','B']))
-            -->(10,eval('&self',['Link','A','B'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.012 secs. (12.09 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Link A B)) 
-    ( (Link A B))))
+; took 0.003 secs. (3.02 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Link A B)) ((Link A B))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; [(Link A B)]
 ;;; Simple multi-unification via superpose
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let 
-  (Link A $Y) 
-  (superpose 
-    ( (Link $X B) 
-      (Node A) 
-      (Link $X C))) 
-  (Link $X $Y))
+</span><span class="ansi1 ansi38-255238088">!(let (Link A $Y) (superpose ((Link $X B) (Node A) (Link $X C))) (Link $X $Y))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let 
-    (Link A $Y) 
-    (superpose 
-      ( (Link $X B) 
-        (Node A) 
-        (Link $X C))) 
-    (Link $X $Y)) 
-  ( (Link A B) 
-    (Link A C)))
+<span class="ansi38-013099040">!(assertEqualToResult (let (Link A $Y) (superpose ((Link $X B) (Node A) (Link $X C))) (Link $X $Y)) ((Link A B) (Link A C)))
 
-</span><span class="ansi38-250144246">; !(let 
-  (Link A $Y) 
-  (superpose 
-    ( (Link $X B) 
-      (Node A) 
-      (Link $X C))) 
-  (Link $X $Y))
+</span><span class="ansi38-250144246">; !(let (Link A $Y) (superpose ((Link $X B) (Node A) (Link $X C))) (Link $X $Y))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['Link','A',Y],[superpose,[['Link',X,'B'],['Node','A'],['Link',X,'C']]],['Link',X,Y]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,['Link','A',_70898],[superpose,[['Link',_71222,'B'],['Node','A'],['Link',_71222,'C']]],['Link',_71222,_70898]],[['Link','A','B'],['Link','A','C']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,[let,['Link','A',_203414],[superpose,[['Link',_203738,'B'],['Node','A'],['Link',_203738,'C']]],['Link',_203738,_203414]],[['Link','A','B'],['Link','A','C']]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.06">;; EXPERIMENTS.UNIFY-VIA-LET.06</h3>
-          -->(1,eval('&self',[let,['Link','A',_70898],[superpose,[['Link',_71222,'B'],['Node','A'],['Link',_71222,'C']]],['Link',_71222,_70898]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[['Link',_71222,'B'],['Node','A'],['Link',_71222,'C']]],RET),depth(5))
-                  -->(3,eval('&self',['Link',_71222,'B'],RET),depth(7))
-                -->(4,eval('&self',['Link',_71222,'B'],RET),depth(6))
-              -->(5,eval('&self',['Link','A','B'],RET),depth(5))
-            -->(6,eval('&self',['Link','A','B'],RET),depth(4))
-                  -->(7,eval('&self',['Node','A'],RET),depth(7))
-                -->(8,eval('&self',['Node','A'],RET),depth(6))
-                  -->(9,eval('&self',['Link',_71222,'C'],RET),depth(7))
-              <--(2,retval(['Link',_308886,'C']))
-                -->(10,eval('&self',['Link',_71222,'C'],RET),depth(6))
-              -->(11,eval('&self',['Link','A','C'],RET),depth(5))
+          -->(1,eval('&self',[let,['Link','A',_203414],[superpose,[['Link',_203738,'B'],['Node','A'],['Link',_203738,'C']]],['Link',_203738,_203414]],RET),depth(3))
+              -->(2,eval('&self',[superpose,[['Link',_203738,'B'],['Node','A'],['Link',_203738,'C']]],RET),depth(5))
+                  -->(3,eval('&self',['Link',_203738,'B'],RET),depth(7))
+                    -->(4,eval('&self','B',RET),depth(8))
+                    -->(5,eval('&self','Link',RET),depth(8))
+                    -->(6,eval('&self','B',RET),depth(8))
+                      -->(7,eval('&self','Link',RET),depth(9))
+                      -->(8,eval('&self','B',RET),depth(9))
+                  -->(9,eval('&self','B',RET),depth(7))
+              <--(2,retval(['Link',_252398,'C']))
           <--(1,retval(['Link','A','C']))
-            -->(12,eval('&self',['Link','A','C'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.015 secs. (15.26 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Link A B) 
-      (Link A C)) 
-    ( (Link A B) 
-      (Link A C))))
+; took 0.004 secs. (3.78 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Link A B) (Link A C)) ((Link A B) (Link A C))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; [(Link A B), (Link A C)]
 ;;; Unify results of functions (via an intermediate variable, $z)
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let* 
-  ( ($Z 
-      (g $Y)) 
-    ($Z 
-      (f $X))) $Z)
+</span><span class="ansi1 ansi38-255238088">!(let* (($Z (g $Y)) ($Z (f $X))) $Z)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (let* 
-    ( ($Z 
-        (g $Y)) 
-      ($Z 
-        (f $X))) $Z) 
-  ( (Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult (let* (($Z (g $Y)) ($Z (f $X))) $Z) ((Link A B)))
 
-</span><span class="ansi38-250144246">; !(let* 
-  ( ($Z 
-      (g $Y)) 
-    ($Z 
-      (f $X))) $Z)
+</span><span class="ansi38-250144246">; !(let* (($Z (g $Y)) ($Z (f $X))) $Z)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['let*',[[Z,[g,Y]],[Z,[f,X]]],Z],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['let*',[[_471888,[g,_472188]],[_471888,[f,_472776]]],_471888],[['Link','A','B']]],RET),depth(1))
+</span>      -->(0,eval('&self',[assertEqualToResult,['let*',[[_285616,[g,_285916]],[_285616,[f,_286504]]],_285616],[['Link','A','B']]],RET),depth(1))
 <h3 id="EXPERIMENTS.UNIFY-VIA-LET.07">;; EXPERIMENTS.UNIFY-VIA-LET.07</h3>
-          -->(1,eval('&self',['let*',[[_471888,[g,_472188]],[_471888,[f,_472776]]],_471888],RET),depth(3))
-              -->(2,eval('&self',[g,_472188],RET),depth(5))
-              <--(2,retval(['Link','A',_484988]))
-                -->(3,eval('&self',['Link','A',_472188],RET),depth(6))
-              -->(4,eval('&self',['let*',[[['Link','A',_472188],[f,_472776]]],['Link','A',_472188]],RET),depth(5))
-                  -->(5,eval('&self',[f,_472776],RET),depth(7))
-                    -->(6,eval('&self',['Link',_472776,'B'],RET),depth(8))
-                  -->(7,eval('&self',['let*',[],['Link','A','B']],RET),depth(7))
-                      -->(8,eval('&self',['Link','A','B'],RET),depth(9))
-                  <--(7,retval(['Link','A','B']))
-                    -->(9,eval('&self',['Link','A','B'],RET),depth(8))
-                -->(10,eval('&self',['Link','A','B'],RET),depth(6))
-            -->(11,eval('&self',['Link','A','B'],RET),depth(4))
-                  <--(5,retval(['Link',_10008,'B']))
-              <--(4,retval(['Link','A','B']))
+          -->(1,eval('&self',['let*',[[_285616,[g,_285916]],[_285616,[f,_286504]]],_285616],RET),depth(3))
+              -->(2,eval('&self',[g,_285916],RET),depth(5))
+                  -->(3,eval('&self','A',RET),depth(7))
+                  -->(4,eval('&self','Link',RET),depth(7))
+                  -->(5,eval('&self','A',RET),depth(7))
+                    -->(6,eval('&self','Link',RET),depth(8))
+                    -->(7,eval('&self','A',RET),depth(8))
+                  -->(8,eval('&self','Link',RET),depth(7))
+                  -->(9,eval('&self','A',RET),depth(7))
+              <--(2,retval(['Link','A',_302720]))
           <--(1,retval(['Link','A','B']))
 ; 
 ; EVAL TEST
-; took 0.013 secs. (12.52 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (Link A B)) 
-    ( (Link A B))))
+; took 0.003 secs. (2.83 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((Link A B)) ((Link A B))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 750,688 inferences, 0.217 CPU in 0.217 seconds (100% CPU, 3459545 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta" 0)
+</span><span class="ansi32">% 399,398 inferences, 0.170 CPU in 0.170 seconds (100% CPU, 2351915 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-let.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 7

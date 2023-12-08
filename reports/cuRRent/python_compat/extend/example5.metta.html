@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-255165000 { color: #FFA500; }
@@ -18,18 +17,12 @@
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
@@ -40,227 +33,78 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta:1 
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta')
+1=sh: 0: cannot open run_scheme.sh: No such file
+1=cat: ./../RUN.scm: No such file or directory
 1=[]
-2=[(compile! "
+2=[(Error (compile! "
 2=(= (Add $x Z) $x)
 2=(= (Add $x (S $y)) (Add (S $x) $y))
 2=
 2=(= (Sub) 2)
 2=(= (Sub) 3)
 2=(= (Mul) (superpose (4 5)))
-2=")]
-2=[(Add (S (S (S Z))) (S (S (S Z))))]
-3=[(Sub)]
-4=[(Mul)]
-5=0.13user 0.01system 0:00.15elapsed 100%CPU (0avgtext+0avgdata 33508maxresident)k
-5=0inputs+0outputs (0major+3543minor)pagefaults 0swaps
+2=") Exception caught:
+2=OSError: TEMP.so: cannot open shared object file: No such file or directory
+2=
+2=At:
+2=  /usr/lib/python3.11/ctypes/__init__.py(376): __init__
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/mettamorph.py(116): call_compilefile
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/mettamorph.py(18): wrapper
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(320): execute
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/mettamorph.py(13): execute
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(167): _priv_call_execute_on_grounded_atom
+2=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(31): run_step
+2=  (18): run_step
+2=)]
+2=0.45user 0.07system 0:00.52elapsed 100%CPU (0avgtext+0avgdata 36568maxresident)k
+2=0inputs+616outputs (0major+18183minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta', 1, []).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta', 2, [['Add', ['S', ['S', ['S', 'Z']]], ['S', ['S', ['S', 'Z']]]]]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta', 3, [['Sub']]).
-file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta', 4, [['Mul']]).
 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(extend-py! mettamorph)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (extend-py! mettamorph) ())
+<span class="ansi38-013099040">!(assertEqualToResult (extend-py! mettamorph) ())
 
 </span><span class="ansi38-250144246">; !(extend-py! mettamorph)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['extend-py!',mettamorph],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_197836
+$_410932
 
-</span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n")
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n") 
-  ( (Add 
-      (S 
-        (S 
-          (S Z))) 
-      (S 
-        (S 
-          (S Z))))))
+</span><span class="ansi38-013099040">!(compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n")
 
 </span><span class="ansi38-250144246">; !(compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],[['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]]]],RET),depth(1))
-<h3 id="EXTEND.EXAMPLE5.01">;; EXTEND.EXAMPLE5.01</h3>
-          -->(1,eval('&self',['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],RET),depth(3))
-; 
-; EVAL TEST
-; took 0.002 secs. (1.79 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n")) 
-    ( (Add 
-        (S 
-          (S 
-            (S Z))) 
-        (S 
-          (S 
-            (S Z)))))))
-</span>      <--(0,retval([got,[['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n']],expected,[['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]]]]))
-        -->(2,eval('&self',[got,[['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n']],expected,[['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]]]],RET),depth(2))
-            -->(3,eval('&self',[['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n']],RET),depth(4))
-                -->(4,eval('&self',['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],RET),depth(6))
-            -->(5,eval('&self',[['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]]],RET),depth(4))
-                -->(6,eval('&self',['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]],RET),depth(6))
-                    -->(7,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(8,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(9,eval('&self',['S','Z'],RET),depth(12))
-                            -->(10,eval('&self',['S','Z'],RET),depth(12))
-                        -->(11,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(12,eval('&self',['S','Z'],RET),depth(12))
-                            -->(13,eval('&self',['S','Z'],RET),depth(12))
-                    -->(14,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(15,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(16,eval('&self',['S','Z'],RET),depth(12))
-                            -->(17,eval('&self',['S','Z'],RET),depth(12))
-                        -->(18,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(19,eval('&self',['S','Z'],RET),depth(12))
-                            -->(20,eval('&self',['S','Z'],RET),depth(12))
-                    -->(21,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(22,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(23,eval('&self',['S','Z'],RET),depth(12))
-                            -->(24,eval('&self',['S','Z'],RET),depth(12))
-                        -->(25,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(26,eval('&self',['S','Z'],RET),depth(12))
-                            -->(27,eval('&self',['S','Z'],RET),depth(12))
-                    -->(28,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(29,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(30,eval('&self',['S','Z'],RET),depth(12))
-                            -->(31,eval('&self',['S','Z'],RET),depth(12))
-                        -->(32,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(33,eval('&self',['S','Z'],RET),depth(12))
-                            -->(34,eval('&self',['S','Z'],RET),depth(12))
-            -->(35,eval('&self',[['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n']],RET),depth(4))
-                -->(36,eval('&self',['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],RET),depth(6))
-            -->(37,eval('&self',[['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]]],RET),depth(4))
-                -->(38,eval('&self',['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]],RET),depth(6))
-                    -->(39,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(40,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(41,eval('&self',['S','Z'],RET),depth(12))
-                            -->(42,eval('&self',['S','Z'],RET),depth(12))
-                        -->(43,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(44,eval('&self',['S','Z'],RET),depth(12))
-                            -->(45,eval('&self',['S','Z'],RET),depth(12))
-                    -->(46,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(47,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(48,eval('&self',['S','Z'],RET),depth(12))
-                            -->(49,eval('&self',['S','Z'],RET),depth(12))
-                        -->(50,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(51,eval('&self',['S','Z'],RET),depth(12))
-                            -->(52,eval('&self',['S','Z'],RET),depth(12))
-                    -->(53,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(54,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(55,eval('&self',['S','Z'],RET),depth(12))
-                            -->(56,eval('&self',['S','Z'],RET),depth(12))
-                        -->(57,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(58,eval('&self',['S','Z'],RET),depth(12))
-                            -->(59,eval('&self',['S','Z'],RET),depth(12))
-                    -->(60,eval('&self',['S',['S',['S','Z']]],RET),depth(8))
-                        -->(61,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(62,eval('&self',['S','Z'],RET),depth(12))
-                            -->(63,eval('&self',['S','Z'],RET),depth(12))
-                        -->(64,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(65,eval('&self',['S','Z'],RET),depth(12))
-                            -->(66,eval('&self',['S','Z'],RET),depth(12))
-          -->(67,eval('&self',[['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n']],RET),depth(3))
-              -->(68,eval('&self',['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],RET),depth(5))
-          -->(69,eval('&self',[['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]]],RET),depth(3))
-              -->(70,eval('&self',['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]],RET),depth(5))
-                  -->(71,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(72,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(73,eval('&self',['S','Z'],RET),depth(11))
-                          -->(74,eval('&self',['S','Z'],RET),depth(11))
-                      -->(75,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(76,eval('&self',['S','Z'],RET),depth(11))
-                          -->(77,eval('&self',['S','Z'],RET),depth(11))
-                  -->(78,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(79,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(80,eval('&self',['S','Z'],RET),depth(11))
-                          -->(81,eval('&self',['S','Z'],RET),depth(11))
-                      -->(82,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(83,eval('&self',['S','Z'],RET),depth(11))
-                          -->(84,eval('&self',['S','Z'],RET),depth(11))
-                  -->(85,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(86,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(87,eval('&self',['S','Z'],RET),depth(11))
-                          -->(88,eval('&self',['S','Z'],RET),depth(11))
-                      -->(89,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(90,eval('&self',['S','Z'],RET),depth(11))
-                          -->(91,eval('&self',['S','Z'],RET),depth(11))
-                  -->(92,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
-                      -->(93,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(94,eval('&self',['S','Z'],RET),depth(11))
-                          -->(95,eval('&self',['S','Z'],RET),depth(11))
-                      -->(96,eval('&self',['S',['S','Z']],RET),depth(9))
-                          -->(97,eval('&self',['S','Z'],RET),depth(11))
-                          -->(98,eval('&self',['S','Z'],RET),depth(11))
+</span>      -->(0,eval('&self',['compile!','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n'],RET),depth(1))
+        -->(1,eval('&self','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n',RET),depth(2))
+        -->(2,eval('&self','compile!',RET),depth(2))
+        -->(3,eval('&self','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n',RET),depth(2))
+          -->(4,eval('&self','compile!',RET),depth(3))
+          -->(5,eval('&self','\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n',RET),depth(3))
 Deterministic: <span class="ansi33">
-  (got 
-    ( (compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n")) expected 
-    ( (Add 
-        (S 
-          (S 
-            (S Z))) 
-        (S 
-          (S 
-            (S Z))))))
+(compile! "\n(= (Add $x Z) $x)\n(= (Add $x (S $y)) (Add (S $x) $y))\n\n(= (Sub) 2)\n(= (Sub) 3)\n(= (Mul) (superpose (4 5)))\n")
 
-</span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(Add 
-  (S 
-    (S 
-      (S Z))) 
-  (S 
-    (S 
-      (S Z))))
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (Add 
-    (S 
-      (S 
-        (S Z))) 
-    (S 
-      (S 
-        (S Z)))) 
-  ( (Sub)))
+</span><span class="ansi38-013099040">!(Add (S (S (S Z))) (S (S (S Z))))
 
-</span><span class="ansi38-250144246">; !(Add 
-  (S 
-    (S 
-      (S Z))) 
-  (S 
-    (S 
-      (S Z))))
+</span><span class="ansi38-250144246">; !(Add (S (S (S Z))) (S (S (S Z))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Add',['S',['S',['S','Z']]],['S',['S',['S','Z']]]],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_117350
+$_441834
 
-</span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(Sub)
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (Sub) 
-  ( (Mul)))
+</span><span class="ansi38-013099040">!(Sub)
 
 </span><span class="ansi38-250144246">; !(Sub)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Sub'],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_134380
+$_452752
 
 </span><span class="ansi38-013099040">!(Mul)
 
@@ -268,15 +112,11 @@ $_134380
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Mul'],OUT).
 
 </span>Deterministic: <span class="ansi33">
-$_144760
+$_461958
 
-</span><span class="ansi32">% 687,598 inferences, 0.173 CPU in 0.173 seconds (100% CPU, 3965062 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta" 0)
-<span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+</span><span class="ansi32">% 241,921 inferences, 0.118 CPU in 0.118 seconds (100% CPU, 2048142 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/extend/example5.metta.html" )
 
 </pre>

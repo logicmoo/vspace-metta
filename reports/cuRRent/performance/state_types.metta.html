@@ -212,7 +212,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta')
 1=[("Bind A-first with A")]
@@ -248,8 +248,8 @@
 31=[("bind &right_7-first with &right_7")]
 32=[()]
 33=[(Error False BadType)]
-34=0.92user 0.00system 0:00.92elapsed 100%CPU (0avgtext+0avgdata 33000maxresident)k
-34=0inputs+0outputs (0major+3510minor)pagefaults 0swaps
+34=0.91user 0.01system 0:00.92elapsed 99%CPU (0avgtext+0avgdata 33268maxresident)k
+34=0inputs+0outputs (0major+3508minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta', 1, [['Bind A-first with A']]).
@@ -287,31 +287,29 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta', 33, [['Error', 'False', 'BadType']]).
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'ABType','Type'])
-</span><span class="ansi38-255165000">  (: ABType Type)
+</span><span class="ansi38-255165000">(: ABType Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'AType','Type'])
-</span><span class="ansi38-255165000">  (: AType Type)
+</span><span class="ansi38-255165000">(: AType Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'A','ABType'])
-</span><span class="ansi38-255165000">  (: A ABType)
+</span><span class="ansi38-255165000">(: A ABType)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'A','AType'])
-</span><span class="ansi38-255165000">  (: A AType)
+</span><span class="ansi38-255165000">(: A AType)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'B','ABType'])
-</span><span class="ansi38-255165000">  (: B ABType)
+</span><span class="ansi38-255165000">(: B ABType)
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Bind A-first with A")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("Bind A-first with A") 
-  ( ("Bind A-first with A")))
+<span class="ansi38-013099040">!(assertEqualToResult ("Bind A-first with A") (("Bind A-first with A")))
 
 </span><span class="ansi38-250144246">; !("Bind A-first with A")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Bind A-first with A'],OUT).
@@ -319,107 +317,78 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 </span>      -->(0,eval('&self',[assertEqualToResult,['Bind A-first with A'],[['Bind A-first with A']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.01">;; PERFORMANCE.STATE-TYPES.01</h3>
           -->(1,eval('&self',['Bind A-first with A'],RET),depth(3))
+            -->(2,eval('&self','Bind A-first with A',RET),depth(4))
+              -->(3,eval('&self','Bind A-first with A',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000466 secs. (465.80 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("Bind A-first with A")) 
-    ( ("Bind A-first with A"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000537 secs. (537.00 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("Bind A-first with A")) (("Bind A-first with A"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &a-first 
-  (new-state A))
+</span><span class="ansi1 ansi38-255238088">!(bind! &a-first (new-state A))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &a-first 
-    (new-state A)) 
-  (() ()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &a-first (new-state A)) (() ()))
 
-</span><span class="ansi38-250144246">; !(bind! &a-first 
-  (new-state A))
+</span><span class="ansi38-250144246">; !(bind! &a-first (new-state A))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&a-first',['new-state','A']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&a-first',['new-state','A']],[[],[]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.02">;; PERFORMANCE.STATE-TYPES.02</h3>
           -->(1,eval('&self',['bind!','&a-first',['new-state','A']],RET),depth(3))
               -->(2,eval('&self',['new-state','A'],RET),depth(5))
-              <--(2,retval('State'('A',_468090)))
+                -->(3,eval('&self','A',RET),depth(6))
+                  -->(4,eval('&self','State'('A',_151508),RET),depth(7))
+              <--(2,retval('State'('A',_152372)))
+              -->(5,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.74 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.000665 secs. (664.50 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(6,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type A-first)=" 
-  (get-type 
-    (get-state &a-first)))
+</span><span class="ansi1 ansi38-255238088">!("(get-type A-first)=" (get-type (get-state &a-first)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type A-first)=" 
-    (get-type 
-      (get-state &a-first))) 
-  ( ("(get-type A-first)=" Symbol)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type A-first)=" (get-type (get-state &a-first))) (("(get-type A-first)=" Symbol)))
 
-</span><span class="ansi38-250144246">; !("(get-type A-first)=" 
-  (get-type 
-    (get-state &a-first)))
+</span><span class="ansi38-250144246">; !("(get-type A-first)=" (get-type (get-state &a-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type A-first)=',['get-type',['get-state','&a-first']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type A-first)=',['get-type',['get-state','&a-first']]],[['(get-type A-first)=','Symbol']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.03">;; PERFORMANCE.STATE-TYPES.03</h3>
           -->(1,eval('&self',['(get-type A-first)=',['get-type',['get-state','&a-first']]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state','&a-first']],RET),depth(5))
-                    -->(3,eval('&self','&a-first',RET),depth(8))
-                    <--(3,retval('State'('A',_35720)))
-                    -->(4,eval('&self','&a-first',RET),depth(8))
-                    <--(4,retval('State'('A',_50750)))
-                    -->(5,eval('&self',['get-state','&a-first'],RET),depth(8))
-                        -->(6,eval('&self','&a-first',RET),depth(10))
-                        <--(6,retval('State'('A',_66048)))
-                    <--(5,retval('A'))
+                  -->(3,eval('&self','&a-first',RET),depth(7))
+                      -->(4,eval('&self','State'('A',_152754),RET),depth(9))
+                  <--(3,retval('State'('A',_193502)))
+                  -->(5,eval('&self','&a-first',RET),depth(7))
+                      -->(6,eval('&self','State'('A',_152754),RET),depth(9))
+                  <--(5,retval('State'('A',_195648)))
+                    -->(7,eval('&self',['get-state','&a-first'],RET),depth(8))
+                      -->(8,eval('&self','&a-first',RET),depth(9))
+                          -->(9,eval('&self','State'('A',_152754),RET),depth(11))
+                      <--(8,retval('State'('A',_198062)))
+                    <--(7,retval('A'))
               <--(2,retval('ABType'))
           <--(1,retval(['(get-type A-first)=','ABType']))
-            -->(7,eval('&self',['(get-type A-first)=','ABType'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (5.46 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type A-first)=" ABType)) 
-    ( ("(get-type A-first)=" Symbol))))
-</span>      <--(0,retval([got,[['(get-type A-first)=','ABType']],expected,[['(get-type A-first)=','Symbol']]]))
-        -->(8,eval('&self',[got,[['(get-type A-first)=','ABType']],expected,[['(get-type A-first)=','Symbol']]],RET),depth(2))
-            -->(9,eval('&self',[['(get-type A-first)=','ABType']],RET),depth(4))
-                -->(10,eval('&self',['(get-type A-first)=','ABType'],RET),depth(6))
-            -->(11,eval('&self',[['(get-type A-first)=','Symbol']],RET),depth(4))
-                -->(12,eval('&self',['(get-type A-first)=','Symbol'],RET),depth(6))
-            -->(13,eval('&self',[['(get-type A-first)=','ABType']],RET),depth(4))
-                -->(14,eval('&self',['(get-type A-first)=','ABType'],RET),depth(6))
-            -->(15,eval('&self',[['(get-type A-first)=','Symbol']],RET),depth(4))
-                -->(16,eval('&self',['(get-type A-first)=','Symbol'],RET),depth(6))
-          -->(17,eval('&self',[['(get-type A-first)=','ABType']],RET),depth(3))
-              -->(18,eval('&self',['(get-type A-first)=','ABType'],RET),depth(5))
-          -->(19,eval('&self',[['(get-type A-first)=','Symbol']],RET),depth(3))
-              -->(20,eval('&self',['(get-type A-first)=','Symbol'],RET),depth(5))
+; took 0.003 secs. (2.74 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type A-first)=" ABType)) (("(get-type A-first)=" Symbol))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type A-first)=" ABType)) expected 
-    ( ("(get-type A-first)=" Symbol)))
+(got (("(get-type A-first)=" ABType)) expected (("(get-type A-first)=" Symbol)))
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Change A-first into B")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("Change A-first into B") 
-  ( ("Change A-first into B")))
+<span class="ansi38-013099040">!(assertEqualToResult ("Change A-first into B") (("Change A-first into B")))
 
 </span><span class="ansi38-250144246">; !("Change A-first into B")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Change A-first into B'],OUT).
@@ -427,22 +396,20 @@ Deterministic: <span class="ansi33">
 </span>      -->(0,eval('&self',[assertEqualToResult,['Change A-first into B'],[['Change A-first into B']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.04">;; PERFORMANCE.STATE-TYPES.04</h3>
           -->(1,eval('&self',['Change A-first into B'],RET),depth(3))
+            -->(2,eval('&self','Change A-first into B',RET),depth(4))
+              -->(3,eval('&self','Change A-first into B',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000419 secs. (419.30 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("Change A-first into B")) 
-    ( ("Change A-first into B"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000400 secs. (400.20 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("Change A-first into B")) (("Change A-first into B"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(change-state! &a-first B)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (change-state! &a-first B) 
-  ( (State B)))
+<span class="ansi38-013099040">!(assertEqualToResult (change-state! &a-first B) ((State B)))
 
 </span><span class="ansi38-250144246">; !(change-state! &a-first B)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['change-state!','&a-first','B'],OUT).
@@ -450,82 +417,57 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['change-state!','&a-first','B'],[['State','B']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.05">;; PERFORMANCE.STATE-TYPES.05</h3>
           -->(1,eval('&self',['change-state!','&a-first','B'],RET),depth(3))
-              -->(2,eval('&self','&a-first',RET),depth(5))
-              <--(2,retval('State'('A',_406688)))
-          <--(1,retval('State'('B',_428126)))
+            -->(2,eval('&self','&a-first',RET),depth(4))
+                -->(3,eval('&self','State'('A',_152754),RET),depth(6))
+            <--(2,retval('State'('A',_337236)))
+            -->(4,eval('&self','B',RET),depth(4))
+              -->(5,eval('&self','State'('B',_152754),RET),depth(5))
+          <--(1,retval('State'('B',_339030)))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.76 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (State  B $_442756)) 
-    ( (State B))))
-</span>      <--(0,retval('Empty'))
+; took 0.000555 secs. (555.50 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((State  B $_339036)) ((State B))))
+</span>          -->(6,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type A-first)=" 
-  (get-type 
-    (get-state &a-first)))
+</span><span class="ansi1 ansi38-255238088">!("(get-type A-first)=" (get-type (get-state &a-first)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type A-first)=" 
-    (get-type 
-      (get-state &a-first))) 
-  ( ("(get-type A-first)=" Symbol)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type A-first)=" (get-type (get-state &a-first))) (("(get-type A-first)=" Symbol)))
 
-</span><span class="ansi38-250144246">; !("(get-type A-first)=" 
-  (get-type 
-    (get-state &a-first)))
+</span><span class="ansi38-250144246">; !("(get-type A-first)=" (get-type (get-state &a-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type A-first)=',['get-type',['get-state','&a-first']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type A-first)=',['get-type',['get-state','&a-first']]],[['(get-type A-first)=','Symbol']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.06">;; PERFORMANCE.STATE-TYPES.06</h3>
           -->(1,eval('&self',['(get-type A-first)=',['get-type',['get-state','&a-first']]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state','&a-first']],RET),depth(5))
-                    -->(3,eval('&self','&a-first',RET),depth(8))
-                    <--(3,retval('State'('B',_498366)))
-                    -->(4,eval('&self','&a-first',RET),depth(8))
-                    <--(4,retval('State'('B',_513396)))
-                    -->(5,eval('&self',['get-state','&a-first'],RET),depth(8))
-                        -->(6,eval('&self','&a-first',RET),depth(10))
-                        <--(6,retval('State'('B',_13848)))
-                    <--(5,retval('B'))
+                  -->(3,eval('&self','&a-first',RET),depth(7))
+                      -->(4,eval('&self','State'('B',_152754),RET),depth(9))
+                  <--(3,retval('State'('B',_380792)))
+                  -->(5,eval('&self','&a-first',RET),depth(7))
+                      -->(6,eval('&self','State'('B',_152754),RET),depth(9))
+                  <--(5,retval('State'('B',_382938)))
+                    -->(7,eval('&self',['get-state','&a-first'],RET),depth(8))
+                      -->(8,eval('&self','&a-first',RET),depth(9))
+                          -->(9,eval('&self','State'('B',_152754),RET),depth(11))
+                      <--(8,retval('State'('B',_385352)))
+                    <--(7,retval('B'))
               <--(2,retval('ABType'))
           <--(1,retval(['(get-type A-first)=','ABType']))
-            -->(7,eval('&self',['(get-type A-first)=','ABType'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.27 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type A-first)=" ABType)) 
-    ( ("(get-type A-first)=" Symbol))))
-</span>      <--(0,retval([got,[['(get-type A-first)=','ABType']],expected,[['(get-type A-first)=','Symbol']]]))
-        -->(8,eval('&self',[got,[['(get-type A-first)=','ABType']],expected,[['(get-type A-first)=','Symbol']]],RET),depth(2))
-            -->(9,eval('&self',[['(get-type A-first)=','ABType']],RET),depth(4))
-                -->(10,eval('&self',['(get-type A-first)=','ABType'],RET),depth(6))
-            -->(11,eval('&self',[['(get-type A-first)=','Symbol']],RET),depth(4))
-                -->(12,eval('&self',['(get-type A-first)=','Symbol'],RET),depth(6))
-            -->(13,eval('&self',[['(get-type A-first)=','ABType']],RET),depth(4))
-                -->(14,eval('&self',['(get-type A-first)=','ABType'],RET),depth(6))
-            -->(15,eval('&self',[['(get-type A-first)=','Symbol']],RET),depth(4))
-                -->(16,eval('&self',['(get-type A-first)=','Symbol'],RET),depth(6))
-          -->(17,eval('&self',[['(get-type A-first)=','ABType']],RET),depth(3))
-              -->(18,eval('&self',['(get-type A-first)=','ABType'],RET),depth(5))
-          -->(19,eval('&self',[['(get-type A-first)=','Symbol']],RET),depth(3))
-              -->(20,eval('&self',['(get-type A-first)=','Symbol'],RET),depth(5))
+; took 0.003 secs. (3.29 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type A-first)=" ABType)) (("(get-type A-first)=" Symbol))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type A-first)=" ABType)) expected 
-    ( ("(get-type A-first)=" Symbol)))
+(got (("(get-type A-first)=" ABType)) expected (("(get-type A-first)=" Symbol)))
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Bind B-first with B")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("Bind B-first with B") 
-  ( ("Bind B-first with B")))
+<span class="ansi38-013099040">!(assertEqualToResult ("Bind B-first with B") (("Bind B-first with B")))
 
 </span><span class="ansi38-250144246">; !("Bind B-first with B")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Bind B-first with B'],OUT).
@@ -533,107 +475,78 @@ Deterministic: <span class="ansi33">
 </span>      -->(0,eval('&self',[assertEqualToResult,['Bind B-first with B'],[['Bind B-first with B']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.07">;; PERFORMANCE.STATE-TYPES.07</h3>
           -->(1,eval('&self',['Bind B-first with B'],RET),depth(3))
+            -->(2,eval('&self','Bind B-first with B',RET),depth(4))
+              -->(3,eval('&self','Bind B-first with B',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000422 secs. (421.70 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("Bind B-first with B")) 
-    ( ("Bind B-first with B"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000374 secs. (373.60 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("Bind B-first with B")) (("Bind B-first with B"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &b-first 
-  (new-state B))
+</span><span class="ansi1 ansi38-255238088">!(bind! &b-first (new-state B))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &b-first 
-    (new-state B)) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &b-first (new-state B)) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &b-first 
-  (new-state B))
+</span><span class="ansi38-250144246">; !(bind! &b-first (new-state B))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&b-first',['new-state','B']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&b-first',['new-state','B']],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.08">;; PERFORMANCE.STATE-TYPES.08</h3>
           -->(1,eval('&self',['bind!','&b-first',['new-state','B']],RET),depth(3))
               -->(2,eval('&self',['new-state','B'],RET),depth(5))
-              <--(2,retval('State'('B',_361080)))
+                -->(3,eval('&self','B',RET),depth(6))
+                  -->(4,eval('&self','State'('B',_3980),RET),depth(7))
+              <--(2,retval('State'('B',_4798)))
+              -->(5,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.81 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.06 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(6,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type B-first)=" 
-  (get-type 
-    (get-state &b-first)))
+</span><span class="ansi1 ansi38-255238088">!("(get-type B-first)=" (get-type (get-state &b-first)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type B-first)=" 
-    (get-type 
-      (get-state &b-first))) 
-  ( ("(get-type B-first)=" Symbol)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type B-first)=" (get-type (get-state &b-first))) (("(get-type B-first)=" Symbol)))
 
-</span><span class="ansi38-250144246">; !("(get-type B-first)=" 
-  (get-type 
-    (get-state &b-first)))
+</span><span class="ansi38-250144246">; !("(get-type B-first)=" (get-type (get-state &b-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type B-first)=',['get-type',['get-state','&b-first']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type B-first)=',['get-type',['get-state','&b-first']]],[['(get-type B-first)=','Symbol']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.09">;; PERFORMANCE.STATE-TYPES.09</h3>
           -->(1,eval('&self',['(get-type B-first)=',['get-type',['get-state','&b-first']]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state','&b-first']],RET),depth(5))
-                    -->(3,eval('&self','&b-first',RET),depth(8))
-                    <--(3,retval('State'('B',_443048)))
-                    -->(4,eval('&self','&b-first',RET),depth(8))
-                    <--(4,retval('State'('B',_458078)))
-                    -->(5,eval('&self',['get-state','&b-first'],RET),depth(8))
-                        -->(6,eval('&self','&b-first',RET),depth(10))
-                        <--(6,retval('State'('B',_473376)))
-                    <--(5,retval('B'))
+                  -->(3,eval('&self','&b-first',RET),depth(7))
+                      -->(4,eval('&self','State'('B',_5180),RET),depth(9))
+                  <--(3,retval('State'('B',_44534)))
+                  -->(5,eval('&self','&b-first',RET),depth(7))
+                      -->(6,eval('&self','State'('B',_5180),RET),depth(9))
+                  <--(5,retval('State'('B',_46680)))
+                    -->(7,eval('&self',['get-state','&b-first'],RET),depth(8))
+                      -->(8,eval('&self','&b-first',RET),depth(9))
+                          -->(9,eval('&self','State'('B',_5180),RET),depth(11))
+                      <--(8,retval('State'('B',_49094)))
+                    <--(7,retval('B'))
               <--(2,retval('ABType'))
           <--(1,retval(['(get-type B-first)=','ABType']))
-            -->(7,eval('&self',['(get-type B-first)=','ABType'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.72 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type B-first)=" ABType)) 
-    ( ("(get-type B-first)=" Symbol))))
-</span>      <--(0,retval([got,[['(get-type B-first)=','ABType']],expected,[['(get-type B-first)=','Symbol']]]))
-        -->(8,eval('&self',[got,[['(get-type B-first)=','ABType']],expected,[['(get-type B-first)=','Symbol']]],RET),depth(2))
-            -->(9,eval('&self',[['(get-type B-first)=','ABType']],RET),depth(4))
-                -->(10,eval('&self',['(get-type B-first)=','ABType'],RET),depth(6))
-            -->(11,eval('&self',[['(get-type B-first)=','Symbol']],RET),depth(4))
-                -->(12,eval('&self',['(get-type B-first)=','Symbol'],RET),depth(6))
-            -->(13,eval('&self',[['(get-type B-first)=','ABType']],RET),depth(4))
-                -->(14,eval('&self',['(get-type B-first)=','ABType'],RET),depth(6))
-            -->(15,eval('&self',[['(get-type B-first)=','Symbol']],RET),depth(4))
-                -->(16,eval('&self',['(get-type B-first)=','Symbol'],RET),depth(6))
-          -->(17,eval('&self',[['(get-type B-first)=','ABType']],RET),depth(3))
-              -->(18,eval('&self',['(get-type B-first)=','ABType'],RET),depth(5))
-          -->(19,eval('&self',[['(get-type B-first)=','Symbol']],RET),depth(3))
-              -->(20,eval('&self',['(get-type B-first)=','Symbol'],RET),depth(5))
+; took 0.002 secs. (2.28 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type B-first)=" ABType)) (("(get-type B-first)=" Symbol))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type B-first)=" ABType)) expected 
-    ( ("(get-type B-first)=" Symbol)))
+(got (("(get-type B-first)=" ABType)) expected (("(get-type B-first)=" Symbol)))
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Change B-first into A")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("Change B-first into A") 
-  ( ("Change B-first into A")))
+<span class="ansi38-013099040">!(assertEqualToResult ("Change B-first into A") (("Change B-first into A")))
 
 </span><span class="ansi38-250144246">; !("Change B-first into A")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Change B-first into A'],OUT).
@@ -641,22 +554,20 @@ Deterministic: <span class="ansi33">
 </span>      -->(0,eval('&self',[assertEqualToResult,['Change B-first into A'],[['Change B-first into A']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.10">;; PERFORMANCE.STATE-TYPES.10</h3>
           -->(1,eval('&self',['Change B-first into A'],RET),depth(3))
+            -->(2,eval('&self','Change B-first into A',RET),depth(4))
+              -->(3,eval('&self','Change B-first into A',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000431 secs. (431.10 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("Change B-first into A")) 
-    ( ("Change B-first into A"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000574 secs. (573.80 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("Change B-first into A")) (("Change B-first into A"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(change-state! &b-first A)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (change-state! &b-first A) 
-  ( (State A)))
+<span class="ansi38-013099040">!(assertEqualToResult (change-state! &b-first A) ((State A)))
 
 </span><span class="ansi38-250144246">; !(change-state! &b-first A)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['change-state!','&b-first','A'],OUT).
@@ -664,82 +575,57 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['change-state!','&b-first','A'],[['State','A']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.11">;; PERFORMANCE.STATE-TYPES.11</h3>
           -->(1,eval('&self',['change-state!','&b-first','A'],RET),depth(3))
-              -->(2,eval('&self','&b-first',RET),depth(5))
-              <--(2,retval('State'('B',_296130)))
-          <--(1,retval('State'('A',_317568)))
+            -->(2,eval('&self','&b-first',RET),depth(4))
+                -->(3,eval('&self','State'('B',_5180),RET),depth(6))
+            <--(2,retval('State'('B',_185532)))
+            -->(4,eval('&self','A',RET),depth(4))
+              -->(5,eval('&self','State'('A',_5180),RET),depth(5))
+          <--(1,retval('State'('A',_187326)))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.68 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (State  A $_332198)) 
-    ( (State A))))
-</span>      <--(0,retval('Empty'))
+; took 0.000816 secs. (815.60 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((State  A $_187332)) ((State A))))
+</span>          -->(6,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type B-first)=" 
-  (get-type 
-    (get-state &b-first)))
+</span><span class="ansi1 ansi38-255238088">!("(get-type B-first)=" (get-type (get-state &b-first)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type B-first)=" 
-    (get-type 
-      (get-state &b-first))) 
-  ( ("(get-type B-first)=" Symbol)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type B-first)=" (get-type (get-state &b-first))) (("(get-type B-first)=" Symbol)))
 
-</span><span class="ansi38-250144246">; !("(get-type B-first)=" 
-  (get-type 
-    (get-state &b-first)))
+</span><span class="ansi38-250144246">; !("(get-type B-first)=" (get-type (get-state &b-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type B-first)=',['get-type',['get-state','&b-first']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type B-first)=',['get-type',['get-state','&b-first']]],[['(get-type B-first)=','Symbol']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.12">;; PERFORMANCE.STATE-TYPES.12</h3>
           -->(1,eval('&self',['(get-type B-first)=',['get-type',['get-state','&b-first']]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state','&b-first']],RET),depth(5))
-                    -->(3,eval('&self','&b-first',RET),depth(8))
-                    <--(3,retval('State'('A',_386486)))
-                    -->(4,eval('&self','&b-first',RET),depth(8))
-                    <--(4,retval('State'('A',_401516)))
-                    -->(5,eval('&self',['get-state','&b-first'],RET),depth(8))
-                        -->(6,eval('&self','&b-first',RET),depth(10))
-                        <--(6,retval('State'('A',_416814)))
-                    <--(5,retval('A'))
+                  -->(3,eval('&self','&b-first',RET),depth(7))
+                      -->(4,eval('&self','State'('A',_5180),RET),depth(9))
+                  <--(3,retval('State'('A',_227766)))
+                  -->(5,eval('&self','&b-first',RET),depth(7))
+                      -->(6,eval('&self','State'('A',_5180),RET),depth(9))
+                  <--(5,retval('State'('A',_229912)))
+                    -->(7,eval('&self',['get-state','&b-first'],RET),depth(8))
+                      -->(8,eval('&self','&b-first',RET),depth(9))
+                          -->(9,eval('&self','State'('A',_5180),RET),depth(11))
+                      <--(8,retval('State'('A',_232326)))
+                    <--(7,retval('A'))
               <--(2,retval('ABType'))
           <--(1,retval(['(get-type B-first)=','ABType']))
-            -->(7,eval('&self',['(get-type B-first)=','ABType'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (5.35 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type B-first)=" ABType)) 
-    ( ("(get-type B-first)=" Symbol))))
-</span>      <--(0,retval([got,[['(get-type B-first)=','ABType']],expected,[['(get-type B-first)=','Symbol']]]))
-        -->(8,eval('&self',[got,[['(get-type B-first)=','ABType']],expected,[['(get-type B-first)=','Symbol']]],RET),depth(2))
-            -->(9,eval('&self',[['(get-type B-first)=','ABType']],RET),depth(4))
-                -->(10,eval('&self',['(get-type B-first)=','ABType'],RET),depth(6))
-            -->(11,eval('&self',[['(get-type B-first)=','Symbol']],RET),depth(4))
-                -->(12,eval('&self',['(get-type B-first)=','Symbol'],RET),depth(6))
-            -->(13,eval('&self',[['(get-type B-first)=','ABType']],RET),depth(4))
-                -->(14,eval('&self',['(get-type B-first)=','ABType'],RET),depth(6))
-            -->(15,eval('&self',[['(get-type B-first)=','Symbol']],RET),depth(4))
-                -->(16,eval('&self',['(get-type B-first)=','Symbol'],RET),depth(6))
-          -->(17,eval('&self',[['(get-type B-first)=','ABType']],RET),depth(3))
-              -->(18,eval('&self',['(get-type B-first)=','ABType'],RET),depth(5))
-          -->(19,eval('&self',[['(get-type B-first)=','Symbol']],RET),depth(3))
-              -->(20,eval('&self',['(get-type B-first)=','Symbol'],RET),depth(5))
+; took 0.002 secs. (2.27 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type B-first)=" ABType)) (("(get-type B-first)=" Symbol))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type B-first)=" ABType)) expected 
-    ( ("(get-type B-first)=" Symbol)))
+(got (("(get-type B-first)=" ABType)) expected (("(get-type B-first)=" Symbol)))
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Bind False-first with False")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("Bind False-first with False") 
-  ( ("Bind False-first with False")))
+<span class="ansi38-013099040">!(assertEqualToResult ("Bind False-first with False") (("Bind False-first with False")))
 
 </span><span class="ansi38-250144246">; !("Bind False-first with False")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Bind False-first with False'],OUT).
@@ -747,91 +633,77 @@ Deterministic: <span class="ansi33">
 </span>      -->(0,eval('&self',[assertEqualToResult,['Bind False-first with False'],[['Bind False-first with False']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.13">;; PERFORMANCE.STATE-TYPES.13</h3>
           -->(1,eval('&self',['Bind False-first with False'],RET),depth(3))
+            -->(2,eval('&self','Bind False-first with False',RET),depth(4))
+              -->(3,eval('&self','Bind False-first with False',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000411 secs. (410.90 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("Bind False-first with False")) 
-    ( ("Bind False-first with False"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000575 secs. (575.30 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("Bind False-first with False")) (("Bind False-first with False"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &false-first 
-  (new-state False))
+</span><span class="ansi1 ansi38-255238088">!(bind! &false-first (new-state False))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &false-first 
-    (new-state False)) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &false-first (new-state False)) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &false-first 
-  (new-state False))
+</span><span class="ansi38-250144246">; !(bind! &false-first (new-state False))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&false-first',['new-state','False']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&false-first',['new-state','False']],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.14">;; PERFORMANCE.STATE-TYPES.14</h3>
           -->(1,eval('&self',['bind!','&false-first',['new-state','False']],RET),depth(3))
               -->(2,eval('&self',['new-state','False'],RET),depth(5))
-              <--(2,retval('State'('False',_246448)))
+                -->(3,eval('&self','False',RET),depth(6))
+                  -->(4,eval('&self','State'('False',_368734),RET),depth(7))
+              <--(2,retval('State'('False',_369598)))
+              -->(5,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.77 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.000821 secs. (820.70 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(6,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type False-first)=" 
-  (get-type 
-    (get-state &false-first)))
+</span><span class="ansi1 ansi38-255238088">!("(get-type False-first)=" (get-type (get-state &false-first)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type False-first)=" 
-    (get-type 
-      (get-state &false-first))) 
-  ( ("(get-type False-first)=" Bool)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type False-first)=" (get-type (get-state &false-first))) (("(get-type False-first)=" Bool)))
 
-</span><span class="ansi38-250144246">; !("(get-type False-first)=" 
-  (get-type 
-    (get-state &false-first)))
+</span><span class="ansi38-250144246">; !("(get-type False-first)=" (get-type (get-state &false-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type False-first)=',['get-type',['get-state','&false-first']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type False-first)=',['get-type',['get-state','&false-first']]],[['(get-type False-first)=','Bool']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.15">;; PERFORMANCE.STATE-TYPES.15</h3>
           -->(1,eval('&self',['(get-type False-first)=',['get-type',['get-state','&false-first']]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state','&false-first']],RET),depth(5))
-                    -->(3,eval('&self','&false-first',RET),depth(8))
-                    <--(3,retval('State'('False',_327044)))
-                    -->(4,eval('&self','&false-first',RET),depth(8))
-                    <--(4,retval('State'('False',_342056)))
-                    -->(5,eval('&self',['get-state','&false-first'],RET),depth(8))
-                        -->(6,eval('&self','&false-first',RET),depth(10))
-                        <--(6,retval('State'('False',_364092)))
-                    <--(5,retval('False'))
+                  -->(3,eval('&self','&false-first',RET),depth(7))
+                      -->(4,eval('&self','State'('False',_369980),RET),depth(9))
+                  <--(3,retval('State'('False',_408072)))
+                  -->(5,eval('&self','&false-first',RET),depth(7))
+                      -->(6,eval('&self','State'('False',_369980),RET),depth(9))
+                  <--(5,retval('State'('False',_410200)))
+                    -->(7,eval('&self','False',RET),depth(8))
+                    -->(8,eval('&self',['get-state','&false-first'],RET),depth(8))
+                      -->(9,eval('&self','&false-first',RET),depth(9))
+                      <--(9,retval('State'('False',_412504)))
+                    <--(8,retval('False'))
               <--(2,retval('Bool'))
           <--(1,retval(['(get-type False-first)=','Bool']))
-            -->(7,eval('&self',['(get-type False-first)=','Bool'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (5.49 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("(get-type False-first)=" Bool)) 
-    ( ("(get-type False-first)=" Bool))))
+; took 0.003 secs. (2.63 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("(get-type False-first)=" Bool)) (("(get-type False-first)=" Bool))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Change False-first into Sometimes")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("Change False-first into Sometimes") 
-  ( ("Change False-first into Sometimes")))
+<span class="ansi38-013099040">!(assertEqualToResult ("Change False-first into Sometimes") (("Change False-first into Sometimes")))
 
 </span><span class="ansi38-250144246">; !("Change False-first into Sometimes")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Change False-first into Sometimes'],OUT).
@@ -839,22 +711,20 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['Change False-first into Sometimes'],[['Change False-first into Sometimes']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.16">;; PERFORMANCE.STATE-TYPES.16</h3>
           -->(1,eval('&self',['Change False-first into Sometimes'],RET),depth(3))
+            -->(2,eval('&self','Change False-first into Sometimes',RET),depth(4))
+              -->(3,eval('&self','Change False-first into Sometimes',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000395 secs. (394.60 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("Change False-first into Sometimes")) 
-    ( ("Change False-first into Sometimes"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000625 secs. (625.40 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("Change False-first into Sometimes")) (("Change False-first into Sometimes"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(change-state! &false-first Sometimes)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (change-state! &false-first Sometimes) 
-  ( (State Sometimes)))
+<span class="ansi38-013099040">!(assertEqualToResult (change-state! &false-first Sometimes) ((State Sometimes)))
 
 </span><span class="ansi38-250144246">; !(change-state! &false-first Sometimes)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['change-state!','&false-first','Sometimes'],OUT).
@@ -862,83 +732,58 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['change-state!','&false-first','Sometimes'],[['State','Sometimes']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.17">;; PERFORMANCE.STATE-TYPES.17</h3>
           -->(1,eval('&self',['change-state!','&false-first','Sometimes'],RET),depth(3))
-              -->(2,eval('&self','&false-first',RET),depth(5))
-              <--(2,retval('State'('False',_33042)))
-          <--(1,retval('State'('Sometimes',_54480)))
+            -->(2,eval('&self','&false-first',RET),depth(4))
+                -->(3,eval('&self','State'('False',_369980),RET),depth(6))
+            <--(2,retval('State'('False',_498896)))
+            -->(4,eval('&self','Sometimes',RET),depth(4))
+              -->(5,eval('&self','State'('Sometimes',_369980),RET),depth(5))
+          <--(1,retval('State'('Sometimes',_500690)))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.73 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (State  Sometimes $_69110)) 
-    ( (State Sometimes))))
-</span>      <--(0,retval('Empty'))
+; took 0.000578 secs. (578.50 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((State  Sometimes $_500696)) ((State Sometimes))))
+</span>          -->(6,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type False-first)=" 
-  (get-type 
-    (get-state &false-first)))
+</span><span class="ansi1 ansi38-255238088">!("(get-type False-first)=" (get-type (get-state &false-first)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type False-first)=" 
-    (get-type 
-      (get-state &false-first))) 
-  ( ("(get-type False-first)=" Symbol)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type False-first)=" (get-type (get-state &false-first))) (("(get-type False-first)=" Symbol)))
 
-</span><span class="ansi38-250144246">; !("(get-type False-first)=" 
-  (get-type 
-    (get-state &false-first)))
+</span><span class="ansi38-250144246">; !("(get-type False-first)=" (get-type (get-state &false-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type False-first)=',['get-type',['get-state','&false-first']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type False-first)=',['get-type',['get-state','&false-first']]],[['(get-type False-first)=','Symbol']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.18">;; PERFORMANCE.STATE-TYPES.18</h3>
           -->(1,eval('&self',['(get-type False-first)=',['get-type',['get-state','&false-first']]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state','&false-first']],RET),depth(5))
-                    -->(3,eval('&self','&false-first',RET),depth(8))
-                    <--(3,retval('State'('Sometimes',_122348)))
-                    -->(4,eval('&self','&false-first',RET),depth(8))
-                    <--(4,retval('State'('Sometimes',_143938)))
-                    -->(5,eval('&self',['get-state','&false-first'],RET),depth(8))
-                        -->(6,eval('&self','&false-first',RET),depth(10))
-                        <--(6,retval('State'('Sometimes',_166080)))
-                    <--(5,retval('Sometimes'))
+                  -->(3,eval('&self','&false-first',RET),depth(7))
+                      -->(4,eval('&self','State'('Sometimes',_1786),RET),depth(9))
+                  <--(3,retval('State'('Sometimes',_18402)))
+                      -->(5,eval('&self','Sometimes',RET),depth(9))
+                  -->(6,eval('&self','&false-first',RET),depth(7))
+                      -->(7,eval('&self','State'('Sometimes',_1786),RET),depth(9))
+                  <--(6,retval('State'('Sometimes',_20530)))
+                    -->(8,eval('&self','Sometimes',RET),depth(8))
+                    -->(9,eval('&self',['get-state','&false-first'],RET),depth(8))
+                    <--(9,retval('Sometimes'))
               <--(2,retval('String'))
           <--(1,retval(['(get-type False-first)=','String']))
-            -->(7,eval('&self',['(get-type False-first)=','String'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.98 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type False-first)=" String)) 
-    ( ("(get-type False-first)=" Symbol))))
-</span>      <--(0,retval([got,[['(get-type False-first)=','String']],expected,[['(get-type False-first)=','Symbol']]]))
-        -->(8,eval('&self',[got,[['(get-type False-first)=','String']],expected,[['(get-type False-first)=','Symbol']]],RET),depth(2))
-            -->(9,eval('&self',[['(get-type False-first)=','String']],RET),depth(4))
-                -->(10,eval('&self',['(get-type False-first)=','String'],RET),depth(6))
-            -->(11,eval('&self',[['(get-type False-first)=','Symbol']],RET),depth(4))
-                -->(12,eval('&self',['(get-type False-first)=','Symbol'],RET),depth(6))
-            -->(13,eval('&self',[['(get-type False-first)=','String']],RET),depth(4))
-                -->(14,eval('&self',['(get-type False-first)=','String'],RET),depth(6))
-            -->(15,eval('&self',[['(get-type False-first)=','Symbol']],RET),depth(4))
-                -->(16,eval('&self',['(get-type False-first)=','Symbol'],RET),depth(6))
-          -->(17,eval('&self',[['(get-type False-first)=','String']],RET),depth(3))
-              -->(18,eval('&self',['(get-type False-first)=','String'],RET),depth(5))
-          -->(19,eval('&self',[['(get-type False-first)=','Symbol']],RET),depth(3))
-              -->(20,eval('&self',['(get-type False-first)=','Symbol'],RET),depth(5))
+; took 0.003 secs. (2.85 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type False-first)=" String)) (("(get-type False-first)=" Symbol))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type False-first)=" String)) expected 
-    ( ("(get-type False-first)=" Symbol)))
+(got (("(get-type False-first)=" String)) expected (("(get-type False-first)=" Symbol)))
 
 </span>;; Also works for custom types
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Either','Type'])
-</span><span class="ansi38-255165000">  (: Either Type)
+</span><span class="ansi38-255165000">(: Either Type)
 </span>
 
-<span class="ansi38-013099040">!(assertEqual 
-  (get-type Either) Type)
+<span class="ansi38-013099040">!(assertEqual (get-type Either) Type)
 
 </span><span class="ansi38-250144246">; !(get-type Either)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type','Either'],OUT).
@@ -946,15 +791,15 @@ Deterministic: <span class="ansi33">
 </span>      -->(0,eval('&self',[assertEqual,['get-type','Either'],'Type'],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.19">;; PERFORMANCE.STATE-TYPES.19</h3>
           -->(1,eval('&self',['get-type','Either'],RET),depth(3))
+              -->(2,eval('&self','Type',RET),depth(5))
           <--(1,retval('Type'))
+        -->(3,eval('&self','Type',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.06 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (Type) 
-    (Type)))
-</span>      <--(0,retval('Empty'))
+; took 0.000348 secs. (347.70 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (Type) (Type)))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -962,242 +807,176 @@ Deterministic: <span class="ansi33">Empty
 ;; Arrow types of functions and constructors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Left',[->,'%Undefined%','Either']])
-</span><span class="ansi38-255165000">  (: Left 
-    (-> %Undefined% Either))
+</span><span class="ansi38-255165000">(: Left (-> %Undefined% Either))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Right',[->,'%Undefined%','Either']])
-</span><span class="ansi38-255165000">  (: Right 
-    (-> %Undefined% Either))
+</span><span class="ansi38-255165000">(: Right (-> %Undefined% Either))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual 
-  (get-type 
-    (Left 5)) Either)
+<span class="ansi38-013099040">!(assertEqual (get-type (Left 5)) Either)
 
-</span><span class="ansi38-250144246">; !(get-type 
-  (Left 5))
+</span><span class="ansi38-250144246">; !(get-type (Left 5))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['Left',5]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-type',['Left',5]],'Either'],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.20">;; PERFORMANCE.STATE-TYPES.20</h3>
           -->(1,eval('&self',['get-type',['Left',5]],RET),depth(3))
+              -->(2,eval('&self','Either',RET),depth(5))
           <--(1,retval('Either'))
+        -->(3,eval('&self','Either',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.33 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (Either) 
-    (Either)))
-</span>      <--(0,retval('Empty'))
+; took 0.000514 secs. (514.20 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (Either) (Either)))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
-</span><span class="ansi38-255165000">  (: isLeft 
-    (-> Either Bool))
+</span><span class="ansi38-255165000">(: isLeft (-> Either Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[isLeft,['Left',X]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (isLeft 
-      (Left $X)) True)
+</span><span class="ansi38-255165000">(= (isLeft (Left $X)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[isLeft,['Right',X]],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (isLeft 
-      (Right $X)) False)
+</span><span class="ansi38-255165000">(= (isLeft (Right $X)) False)
 </span>
 
-<span class="ansi38-013099040">!(assertEqual 
-  (get-type 
-    (isLeft 
-      (Right 5))) Bool)
+<span class="ansi38-013099040">!(assertEqual (get-type (isLeft (Right 5))) Bool)
 
-</span><span class="ansi38-250144246">; !(get-type 
-  (isLeft 
-    (Right 5)))
+</span><span class="ansi38-250144246">; !(get-type (isLeft (Right 5)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[isLeft,['Right',5]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-type',[isLeft,['Right',5]]],'Bool'],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.21">;; PERFORMANCE.STATE-TYPES.21</h3>
           -->(1,eval('&self',['get-type',[isLeft,['Right',5]]],RET),depth(3))
+              -->(2,eval('&self','Bool',RET),depth(5))
           <--(1,retval('Bool'))
+        -->(3,eval('&self','Bool',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.03 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (Bool) 
-    (Bool)))
-</span>      <--(0,retval('Empty'))
+; took 0.000576 secs. (575.60 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (Bool) (Bool)))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (get-type 
-    (isLeft 
-      (Right 5))) 
-  (get-type 
-    (get-state 
-      (new-state 
-        (isLeft 
-          (Right 5))))))
+</span><span class="ansi38-013099040">!(assertEqual (get-type (isLeft (Right 5))) (get-type (get-state (new-state (isLeft (Right 5))))))
 
-</span><span class="ansi38-250144246">; !(get-type 
-  (isLeft 
-    (Right 5)))
+</span><span class="ansi38-250144246">; !(get-type (isLeft (Right 5)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[isLeft,['Right',5]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,['get-type',[isLeft,['Right',5]]],['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.22">;; PERFORMANCE.STATE-TYPES.22</h3>
           -->(1,eval('&self',['get-type',[isLeft,['Right',5]]],RET),depth(3))
+              -->(2,eval('&self','Bool',RET),depth(5))
           <--(1,retval('Bool'))
-          -->(2,eval('&self',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]],RET),depth(3))
-              -->(3,eval('&self',[isLeft,['Right',5]],RET),depth(5))
-              <--(3,retval('False'))
-                -->(4,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(6))
-                    -->(5,eval('&self',[isLeft,['Right',5]],RET),depth(8))
-                    <--(5,retval('False'))
-                <--(4,retval('State'('False',_269996)))
-              -->(6,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(5))
-                  -->(7,eval('&self',[isLeft,['Right',5]],RET),depth(7))
-                  <--(7,retval('False'))
-              <--(6,retval('State'('False',_299544)))
-                -->(8,eval('&self',['get-state',['new-state',[isLeft,['Right',5]]]],RET),depth(6))
-                    -->(9,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(8))
-                        -->(10,eval('&self',[isLeft,['Right',5]],RET),depth(10))
-                        <--(10,retval('False'))
-                    <--(9,retval('State'('False',_335978)))
-                <--(8,retval('False'))
-          <--(2,retval('Bool'))
+          -->(3,eval('&self',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]],RET),depth(3))
+              -->(4,eval('&self',[isLeft,['Right',5]],RET),depth(5))
+                  -->(5,eval('&self','False',RET),depth(7))
+              <--(4,retval('False'))
+              -->(6,eval('&self','False',RET),depth(5))
+                -->(7,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(6))
+                    -->(8,eval('&self',[isLeft,['Right',5]],RET),depth(8))
+                        -->(9,eval('&self','False',RET),depth(10))
+                    <--(8,retval('False'))
+                <--(7,retval('State'('False',_293780)))
+          <--(3,retval('Bool'))
 ; 
 ; EVAL TEST
-; took 0.008 secs. (7.69 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (Bool) 
-    (Bool)))
+; took 0.002 secs. (2.20 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (Bool) (Bool)))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &is_left 
-  (isLeft 
-    (Right 5)))
+</span><span class="ansi1 ansi38-255238088">!(bind! &is_left (isLeft (Right 5)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &is_left 
-    (isLeft 
-      (Right 5))) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &is_left (isLeft (Right 5))) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &is_left 
-  (isLeft 
-    (Right 5)))
+</span><span class="ansi38-250144246">; !(bind! &is_left (isLeft (Right 5)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&is_left',[isLeft,['Right',5]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&is_left',[isLeft,['Right',5]]],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.23">;; PERFORMANCE.STATE-TYPES.23</h3>
           -->(1,eval('&self',['bind!','&is_left',[isLeft,['Right',5]]],RET),depth(3))
               -->(2,eval('&self',[isLeft,['Right',5]],RET),depth(5))
+                  -->(3,eval('&self','False',RET),depth(7))
               <--(2,retval('False'))
+              -->(4,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.51 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.000514 secs. (513.90 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(5,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &right_7 
-  (Right 7))
+</span><span class="ansi1 ansi38-255238088">!(bind! &right_7 (Right 7))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &right_7 
-    (Right 7)) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &right_7 (Right 7)) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &right_7 
-  (Right 7))
+</span><span class="ansi38-250144246">; !(bind! &right_7 (Right 7))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&right_7',['Right',7]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&right_7',['Right',7]],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.24">;; PERFORMANCE.STATE-TYPES.24</h3>
           -->(1,eval('&self',['bind!','&right_7',['Right',7]],RET),depth(3))
               -->(2,eval('&self',['Right',7],RET),depth(5))
+                -->(3,eval('&self','Right',RET),depth(6))
+                -->(4,eval('&self',7,RET),depth(6))
+                  -->(5,eval('&self','Right',RET),depth(7))
+                  -->(6,eval('&self',7,RET),depth(7))
+              -->(7,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.55 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.000764 secs. (763.70 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(8,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type (isLeft (Right 5)))=" 
-  (get-type 
-    (isLeft 
-      (Right 5))))
+</span><span class="ansi1 ansi38-255238088">!("(get-type (isLeft (Right 5)))=" (get-type (isLeft (Right 5))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type (isLeft (Right 5)))=" 
-    (get-type 
-      (isLeft 
-        (Right 5)))) 
-  ( ("(get-type (isLeft (Right 5)))=" Bool)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type (isLeft (Right 5)))=" (get-type (isLeft (Right 5)))) (("(get-type (isLeft (Right 5)))=" Bool)))
 
-</span><span class="ansi38-250144246">; !("(get-type (isLeft (Right 5)))=" 
-  (get-type 
-    (isLeft 
-      (Right 5))))
+</span><span class="ansi38-250144246">; !("(get-type (isLeft (Right 5)))=" (get-type (isLeft (Right 5))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type (isLeft (Right 5)))=',['get-type',[isLeft,['Right',5]]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type (isLeft (Right 5)))=',['get-type',[isLeft,['Right',5]]]],[['(get-type (isLeft (Right 5)))=','Bool']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.25">;; PERFORMANCE.STATE-TYPES.25</h3>
           -->(1,eval('&self',['(get-type (isLeft (Right 5)))=',['get-type',[isLeft,['Right',5]]]],RET),depth(3))
               -->(2,eval('&self',['get-type',[isLeft,['Right',5]]],RET),depth(5))
+                  -->(3,eval('&self','Bool',RET),depth(7))
               <--(2,retval('Bool'))
+            -->(4,eval('&self','(get-type (isLeft (Right 5)))=',RET),depth(4))
+              -->(5,eval('&self',['get-type',[isLeft,['Right',5]]],RET),depth(5))
+                  -->(6,eval('&self','Bool',RET),depth(7))
+              <--(5,retval('Bool'))
+              -->(7,eval('&self','Bool',RET),depth(5))
+              -->(8,eval('&self','(get-type (isLeft (Right 5)))=',RET),depth(5))
+              -->(9,eval('&self','Bool',RET),depth(5))
           <--(1,retval(['(get-type (isLeft (Right 5)))=','Bool']))
-            -->(3,eval('&self',['(get-type (isLeft (Right 5)))=','Bool'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.52 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("(get-type (isLeft (Right 5)))=" Bool)) 
-    ( ("(get-type (isLeft (Right 5)))=" Bool))))
+; took 0.002 secs. (1.53 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("(get-type (isLeft (Right 5)))=" Bool)) (("(get-type (isLeft (Right 5)))=" Bool))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type (get-state (new-state  (isLeft (Right 5)))))=" 
-  (get-type 
-    (get-state 
-      (new-state 
-        (isLeft 
-          (Right 5))))))
+</span><span class="ansi1 ansi38-255238088">!("(get-type (get-state (new-state  (isLeft (Right 5)))))=" (get-type (get-state (new-state (isLeft (Right 5))))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" 
-    (get-type 
-      (get-state 
-        (new-state 
-          (isLeft 
-            (Right 5)))))) 
-  ( ("(get-type (get-state (new-state (isLeft (Right 5)))))=" Bool)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" (get-type (get-state (new-state (isLeft (Right 5)))))) (("(get-type (get-state (new-state (isLeft (Right 5)))))=" Bool)))
 
-</span><span class="ansi38-250144246">; !("(get-type (get-state (new-state  (isLeft (Right 5)))))=" 
-  (get-type 
-    (get-state 
-      (new-state 
-        (isLeft 
-          (Right 5))))))
+</span><span class="ansi38-250144246">; !("(get-type (get-state (new-state  (isLeft (Right 5)))))=" (get-type (get-state (new-state (isLeft (Right 5))))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type (get-state (new-state  (isLeft (Right 5)))))=',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type (get-state (new-state  (isLeft (Right 5)))))=',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]]],[['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool']]],RET),depth(1))
@@ -1205,70 +984,31 @@ Deterministic: <span class="ansi33">Empty
           -->(1,eval('&self',['(get-type (get-state (new-state  (isLeft (Right 5)))))=',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state',['new-state',[isLeft,['Right',5]]]]],RET),depth(5))
                   -->(3,eval('&self',[isLeft,['Right',5]],RET),depth(7))
+                      -->(4,eval('&self','False',RET),depth(9))
                   <--(3,retval('False'))
-                    -->(4,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(8))
-                        -->(5,eval('&self',[isLeft,['Right',5]],RET),depth(10))
-                        <--(5,retval('False'))
-                    <--(4,retval('State'('False',_203582)))
-                  -->(6,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(7))
-                      -->(7,eval('&self',[isLeft,['Right',5]],RET),depth(9))
-                      <--(7,retval('False'))
-                  <--(6,retval('State'('False',_232542)))
-                    -->(8,eval('&self',['get-state',['new-state',[isLeft,['Right',5]]]],RET),depth(8))
-                        -->(9,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(10))
-                            -->(10,eval('&self',[isLeft,['Right',5]],RET),depth(12))
-                            <--(10,retval('False'))
-                        <--(9,retval('State'('False',_268244)))
-                    <--(8,retval('False'))
+                  -->(5,eval('&self','False',RET),depth(7))
+                    -->(6,eval('&self',['new-state',[isLeft,['Right',5]]],RET),depth(8))
+                        -->(7,eval('&self',[isLeft,['Right',5]],RET),depth(10))
+                            -->(8,eval('&self','False',RET),depth(12))
+                        <--(7,retval('False'))
+                        -->(9,eval('&self','State'('False',_441996),RET),depth(10))
+                    <--(6,retval('State'('False',_442860)))
               <--(2,retval('Bool'))
           <--(1,retval(['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool']))
-            -->(11,eval('&self',['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.009 secs. (8.55 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" Bool)) 
-    ( ("(get-type (get-state (new-state (isLeft (Right 5)))))=" Bool))))
-</span>      <--(0,retval([got,[['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool']],expected,[['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool']]]))
-        -->(12,eval('&self',[got,[['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool']],expected,[['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool']]],RET),depth(2))
-            -->(13,eval('&self',[['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool']],RET),depth(4))
-                -->(14,eval('&self',['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool'],RET),depth(6))
-            -->(15,eval('&self',[['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool']],RET),depth(4))
-                -->(16,eval('&self',['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool'],RET),depth(6))
-            -->(17,eval('&self',[['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool']],RET),depth(4))
-                -->(18,eval('&self',['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool'],RET),depth(6))
-            -->(19,eval('&self',[['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool']],RET),depth(4))
-                -->(20,eval('&self',['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool'],RET),depth(6))
-          -->(21,eval('&self',[['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool']],RET),depth(3))
-              -->(22,eval('&self',['(get-type (get-state (new-state  (isLeft (Right 5)))))=','Bool'],RET),depth(5))
-          -->(23,eval('&self',[['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool']],RET),depth(3))
-              -->(24,eval('&self',['(get-type (get-state (new-state (isLeft (Right 5)))))=','Bool'],RET),depth(5))
+; took 0.004 secs. (4.03 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type (get-state (new-state  (isLeft (Right 5)))))=" Bool)) (("(get-type (get-state (new-state (isLeft (Right 5)))))=" Bool))))
+</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
 Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type (get-state (new-state  (isLeft (Right 5)))))=" Bool)) expected 
-    ( ("(get-type (get-state (new-state (isLeft (Right 5)))))=" Bool)))
+(got (("(get-type (get-state (new-state  (isLeft (Right 5)))))=" Bool)) expected (("(get-type (get-state (new-state (isLeft (Right 5)))))=" Bool)))
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type (get-state (new-state (Left  6))))=" 
-  (get-type 
-    (get-state 
-      (new-state 
-        (Left 6)))))
+</span><span class="ansi1 ansi38-255238088">!("(get-type (get-state (new-state (Left  6))))=" (get-type (get-state (new-state (Left 6)))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type (get-state (new-state (Left  6))))=" 
-    (get-type 
-      (get-state 
-        (new-state 
-          (Left 6))))) 
-  ( ("(get-type (get-state (new-state (Left 6))))=" Either)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type (get-state (new-state (Left  6))))=" (get-type (get-state (new-state (Left 6))))) (("(get-type (get-state (new-state (Left 6))))=" Either)))
 
-</span><span class="ansi38-250144246">; !("(get-type (get-state (new-state (Left  6))))=" 
-  (get-type 
-    (get-state 
-      (new-state 
-        (Left 6)))))
+</span><span class="ansi38-250144246">; !("(get-type (get-state (new-state (Left  6))))=" (get-type (get-state (new-state (Left 6)))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type (get-state (new-state (Left  6))))=',['get-type',['get-state',['new-state',['Left',6]]]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type (get-state (new-state (Left  6))))=',['get-type',['get-state',['new-state',['Left',6]]]]],[['(get-type (get-state (new-state (Left 6))))=','Either']]],RET),depth(1))
@@ -1276,74 +1016,27 @@ Deterministic: <span class="ansi33">
           -->(1,eval('&self',['(get-type (get-state (new-state (Left  6))))=',['get-type',['get-state',['new-state',['Left',6]]]]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state',['new-state',['Left',6]]]],RET),depth(5))
                   -->(3,eval('&self',['Left',6],RET),depth(7))
-                    -->(4,eval('&self',['new-state',['Left',6]],RET),depth(8))
-                        -->(5,eval('&self',['Left',6],RET),depth(10))
-                    <--(4,retval('State'(['Left',6],_74396)))
-                  -->(6,eval('&self',['new-state',['Left',6]],RET),depth(7))
-                      -->(7,eval('&self',['Left',6],RET),depth(9))
-                  <--(6,retval('State'(['Left',6],_111156)))
-                  -->(8,eval('&self',['Left',6],RET),depth(7))
-                    -->(9,eval('&self',['get-state',['new-state',['Left',6]]],RET),depth(8))
-                        -->(10,eval('&self',['new-state',['Left',6]],RET),depth(10))
-                            -->(11,eval('&self',['Left',6],RET),depth(12))
-                        <--(10,retval('State'(['Left',6],_168274)))
-                    <--(9,retval(['Left',6]))
-                      -->(12,eval('&self',['Left',6],RET),depth(9))
-                    -->(13,eval('&self',['get-state',['new-state',['Left',6]]],RET),depth(8))
-                        -->(14,eval('&self',['new-state',['Left',6]],RET),depth(10))
-                            -->(15,eval('&self',['Left',6],RET),depth(12))
-                        <--(14,retval('State'(['Left',6],_237724)))
-                    <--(13,retval(['Left',6]))
-                      -->(16,eval('&self',['Left',6],RET),depth(9))
+                    -->(4,eval('&self','Left',RET),depth(8))
+                    -->(5,eval('&self',6,RET),depth(8))
+                      -->(6,eval('&self','Left',RET),depth(9))
+                      -->(7,eval('&self',6,RET),depth(9))
+                    -->(8,eval('&self',['new-state',['Left',6]],RET),depth(8))
+                        -->(9,eval('&self',['Left',6],RET),depth(10))
+                    <--(8,retval('State'(['Left',6],_28622)))
               <--(2,retval('Either'))
-          <--(1,retval(['(get-type (get-state (new-state (Left  6))))=','Either']))
-            -->(17,eval('&self',['(get-type (get-state (new-state (Left  6))))=','Either'],RET),depth(4))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.014 secs. (14.10 milliseconds) 
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( ("(get-type (get-state (new-state (Left  6))))=" Either)) 
-    ( ("(get-type (get-state (new-state (Left 6))))=" Either))))
-</span>      <--(0,retval([got,[['(get-type (get-state (new-state (Left  6))))=','Either']],expected,[['(get-type (get-state (new-state (Left 6))))=','Either']]]))
-        -->(18,eval('&self',[got,[['(get-type (get-state (new-state (Left  6))))=','Either']],expected,[['(get-type (get-state (new-state (Left 6))))=','Either']]],RET),depth(2))
-            -->(19,eval('&self',[['(get-type (get-state (new-state (Left  6))))=','Either']],RET),depth(4))
-                -->(20,eval('&self',['(get-type (get-state (new-state (Left  6))))=','Either'],RET),depth(6))
-            -->(21,eval('&self',[['(get-type (get-state (new-state (Left 6))))=','Either']],RET),depth(4))
-                -->(22,eval('&self',['(get-type (get-state (new-state (Left 6))))=','Either'],RET),depth(6))
-            -->(23,eval('&self',[['(get-type (get-state (new-state (Left  6))))=','Either']],RET),depth(4))
-                -->(24,eval('&self',['(get-type (get-state (new-state (Left  6))))=','Either'],RET),depth(6))
-            -->(25,eval('&self',[['(get-type (get-state (new-state (Left 6))))=','Either']],RET),depth(4))
-                -->(26,eval('&self',['(get-type (get-state (new-state (Left 6))))=','Either'],RET),depth(6))
-          -->(27,eval('&self',[['(get-type (get-state (new-state (Left  6))))=','Either']],RET),depth(3))
-              -->(28,eval('&self',['(get-type (get-state (new-state (Left  6))))=','Either'],RET),depth(5))
-          -->(29,eval('&self',[['(get-type (get-state (new-state (Left 6))))=','Either']],RET),depth(3))
-              -->(30,eval('&self',['(get-type (get-state (new-state (Left 6))))=','Either'],RET),depth(5))
-Deterministic: <span class="ansi33">
-  (got 
-    ( ("(get-type (get-state (new-state (Left  6))))=" Either)) expected 
-    ( ("(get-type (get-state (new-state (Left 6))))=" Either)))
+; took 0.007 secs. (7.12 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  (("(get-type (get-state (new-state (Left  6))))=" Either)) (("(get-type (get-state (new-state (Left 6))))=" Either))))
+</span>Deterministic: <span class="ansi33">
+(got (("(get-type (get-state (new-state (Left  6))))=" Either)) expected (("(get-type (get-state (new-state (Left 6))))=" Either)))
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type (get-state (new-state (Right 7))))=" 
-  (get-type 
-    (get-state 
-      (new-state 
-        (Right 7)))))
+</span><span class="ansi1 ansi38-255238088">!("(get-type (get-state (new-state (Right 7))))=" (get-type (get-state (new-state (Right 7)))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type (get-state (new-state (Right 7))))=" 
-    (get-type 
-      (get-state 
-        (new-state 
-          (Right 7))))) 
-  ( ("(get-type (get-state (new-state (Right 7))))=" Either)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type (get-state (new-state (Right 7))))=" (get-type (get-state (new-state (Right 7))))) (("(get-type (get-state (new-state (Right 7))))=" Either)))
 
-</span><span class="ansi38-250144246">; !("(get-type (get-state (new-state (Right 7))))=" 
-  (get-type 
-    (get-state 
-      (new-state 
-        (Right 7)))))
+</span><span class="ansi38-250144246">; !("(get-type (get-state (new-state (Right 7))))=" (get-type (get-state (new-state (Right 7)))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type (get-state (new-state (Right 7))))=',['get-type',['get-state',['new-state',['Right',7]]]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type (get-state (new-state (Right 7))))=',['get-type',['get-state',['new-state',['Right',7]]]]],[['(get-type (get-state (new-state (Right 7))))=','Either']]],RET),depth(1))
@@ -1351,120 +1044,84 @@ Deterministic: <span class="ansi33">
           -->(1,eval('&self',['(get-type (get-state (new-state (Right 7))))=',['get-type',['get-state',['new-state',['Right',7]]]]],RET),depth(3))
               -->(2,eval('&self',['get-type',['get-state',['new-state',['Right',7]]]],RET),depth(5))
                   -->(3,eval('&self',['Right',7],RET),depth(7))
-                    -->(4,eval('&self',['new-state',['Right',7]],RET),depth(8))
-                        -->(5,eval('&self',['Right',7],RET),depth(10))
-                    <--(4,retval('State'(['Right',7],_75684)))
-                  -->(6,eval('&self',['new-state',['Right',7]],RET),depth(7))
-                      -->(7,eval('&self',['Right',7],RET),depth(9))
-                  <--(6,retval('State'(['Right',7],_119020)))
-                  -->(8,eval('&self',['Right',7],RET),depth(7))
-                    -->(9,eval('&self',['get-state',['new-state',['Right',7]]],RET),depth(8))
-                        -->(10,eval('&self',['new-state',['Right',7]],RET),depth(10))
-                            -->(11,eval('&self',['Right',7],RET),depth(12))
-                        <--(10,retval('State'(['Right',7],_189146)))
-                    <--(9,retval(['Right',7]))
-                      -->(12,eval('&self',['Right',7],RET),depth(9))
-                    -->(13,eval('&self',['get-state',['new-state',['Right',7]]],RET),depth(8))
-                        -->(14,eval('&self',['new-state',['Right',7]],RET),depth(10))
-                            -->(15,eval('&self',['Right',7],RET),depth(12))
-                        <--(14,retval('State'(['Right',7],_271460)))
-                    <--(13,retval(['Right',7]))
-                      -->(16,eval('&self',['Right',7],RET),depth(9))
+                    -->(4,eval('&self','Right',RET),depth(8))
+                    -->(5,eval('&self',7,RET),depth(8))
+                      -->(6,eval('&self','Right',RET),depth(9))
+                      -->(7,eval('&self',7,RET),depth(9))
+                    -->(8,eval('&self',['new-state',['Right',7]],RET),depth(8))
+                        -->(9,eval('&self',['Right',7],RET),depth(10))
+                    <--(8,retval('State'(['Right',7],_144272)))
               <--(2,retval('Either'))
-          <--(1,retval(['(get-type (get-state (new-state (Right 7))))=','Either']))
-            -->(17,eval('&self',['(get-type (get-state (new-state (Right 7))))=','Either'],RET),depth(4))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.016 secs. (16.22 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("(get-type (get-state (new-state (Right 7))))=" Either)) 
-    ( ("(get-type (get-state (new-state (Right 7))))=" Either))))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.006 secs. (6.46 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("(get-type (get-state (new-state (Right 7))))=" Either)) (("(get-type (get-state (new-state (Right 7))))=" Either))))
+</span>Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type &is_left)=" &is_left 
-  (get-type &is_left))
+</span><span class="ansi1 ansi38-255238088">!("(get-type &is_left)=" &is_left (get-type &is_left))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type &is_left)=" &is_left 
-    (get-type &is_left)) 
-  ( ("(get-type &is_left)=" False Bool)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type &is_left)=" &is_left (get-type &is_left)) (("(get-type &is_left)=" False Bool)))
 
-</span><span class="ansi38-250144246">; !("(get-type &is_left)=" &is_left 
-  (get-type &is_left))
+</span><span class="ansi38-250144246">; !("(get-type &is_left)=" &is_left (get-type &is_left))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type &is_left)=','&is_left',['get-type','&is_left']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type &is_left)=','&is_left',['get-type','&is_left']],[['(get-type &is_left)=','False','Bool']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.29">;; PERFORMANCE.STATE-TYPES.29</h3>
           -->(1,eval('&self',['(get-type &is_left)=','&is_left',['get-type','&is_left']],RET),depth(3))
-              -->(2,eval('&self','&is_left',RET),depth(5))
-              <--(2,retval('False'))
-              -->(3,eval('&self',['get-type','&is_left'],RET),depth(5))
-                    -->(4,eval('&self','&is_left',RET),depth(8))
-                    <--(4,retval('False'))
-              <--(3,retval('Bool'))
+            -->(2,eval('&self','&is_left',RET),depth(4))
+                -->(3,eval('&self','False',RET),depth(6))
+            <--(2,retval('False'))
+              -->(4,eval('&self',['get-type','&is_left'],RET),depth(5))
+                  -->(5,eval('&self','&is_left',RET),depth(7))
+                      -->(6,eval('&self','False',RET),depth(9))
+                  <--(5,retval('False'))
+                  -->(7,eval('&self','Bool',RET),depth(7))
+              <--(4,retval('Bool'))
+            -->(8,eval('&self','(get-type &is_left)=',RET),depth(4))
+            -->(9,eval('&self','&is_left',RET),depth(4))
+            <--(9,retval('False'))
           <--(1,retval(['(get-type &is_left)=','False','Bool']))
-            -->(5,eval('&self',['(get-type &is_left)=','False','Bool'],RET),depth(4))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (7.33 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("(get-type &is_left)=" False Bool)) 
-    ( ("(get-type &is_left)=" False Bool))))
+; took 0.002 secs. (2.01 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("(get-type &is_left)=" False Bool)) (("(get-type &is_left)=" False Bool))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!("(get-type &right_7)=" &right_7 
-  (get-type &right_7))
+</span><span class="ansi1 ansi38-255238088">!("(get-type &right_7)=" &right_7 (get-type &right_7))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("(get-type &right_7)=" &right_7 
-    (get-type &right_7)) 
-  ( ("(get-type &right_7)=" 
-      (Right 7) Either)))
+<span class="ansi38-013099040">!(assertEqualToResult ("(get-type &right_7)=" &right_7 (get-type &right_7)) (("(get-type &right_7)=" (Right 7) Either)))
 
-</span><span class="ansi38-250144246">; !("(get-type &right_7)=" &right_7 
-  (get-type &right_7))
+</span><span class="ansi38-250144246">; !("(get-type &right_7)=" &right_7 (get-type &right_7))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type &right_7)=','&right_7',['get-type','&right_7']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['(get-type &right_7)=','&right_7',['get-type','&right_7']],[['(get-type &right_7)=',['Right',7],'Either']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.30">;; PERFORMANCE.STATE-TYPES.30</h3>
           -->(1,eval('&self',['(get-type &right_7)=','&right_7',['get-type','&right_7']],RET),depth(3))
-              -->(2,eval('&self','&right_7',RET),depth(5))
-              <--(2,retval(['Right',7]))
-                -->(3,eval('&self',['Right',7],RET),depth(6))
-              -->(4,eval('&self',['get-type','&right_7'],RET),depth(5))
-                    -->(5,eval('&self','&right_7',RET),depth(8))
-                    <--(5,retval(['Right',7]))
-                      -->(6,eval('&self',['Right',7],RET),depth(9))
-              <--(4,retval('Either'))
+            -->(2,eval('&self','&right_7',RET),depth(4))
+                -->(3,eval('&self','Right',RET),depth(6))
+                -->(4,eval('&self',7,RET),depth(6))
+                  -->(5,eval('&self','Right',RET),depth(7))
+                  -->(6,eval('&self',7,RET),depth(7))
+                -->(7,eval('&self','Right',RET),depth(6))
+                -->(8,eval('&self',7,RET),depth(6))
+            <--(2,retval(['Right',7]))
+              -->(9,eval('&self',['get-type','&right_7'],RET),depth(5))
+              <--(9,retval('Either'))
           <--(1,retval(['(get-type &right_7)=',['Right',7],'Either']))
-            -->(7,eval('&self',['(get-type &right_7)=',['Right',7],'Either'],RET),depth(4))
-                -->(8,eval('&self',['Right',7],RET),depth(6))
-                -->(9,eval('&self',['Right',7],RET),depth(6))
-              -->(10,eval('&self',['Right',7],RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.012 secs. (11.51 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("(get-type &right_7)=" 
-        (Right 7) Either)) 
-    ( ("(get-type &right_7)=" 
-        (Right 7) Either))))
+; took 0.004 secs. (3.78 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("(get-type &right_7)=" (Right 7) Either)) (("(get-type &right_7)=" (Right 7) Either))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("bind &right_7-first with &right_7")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  ("bind &right_7-first with &right_7") 
-  ( ("bind &right_7-first with &right_7")))
+<span class="ansi38-013099040">!(assertEqualToResult ("bind &right_7-first with &right_7") (("bind &right_7-first with &right_7")))
 
 </span><span class="ansi38-250144246">; !("bind &right_7-first with &right_7")
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind &right_7-first with &right_7'],OUT).
@@ -1472,125 +1129,119 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind &right_7-first with &right_7'],[['bind &right_7-first with &right_7']]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.31">;; PERFORMANCE.STATE-TYPES.31</h3>
           -->(1,eval('&self',['bind &right_7-first with &right_7'],RET),depth(3))
+            -->(2,eval('&self','bind &right_7-first with &right_7',RET),depth(4))
+              -->(3,eval('&self','bind &right_7-first with &right_7',RET),depth(5))
 ; 
 ; EVAL TEST
-; took 0.000438 secs. (437.70 microseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( ("bind &right_7-first with &right_7")) 
-    ( ("bind &right_7-first with &right_7"))))
-</span>      <--(0,retval('Empty'))
+; took 0.000345 secs. (345.50 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (("bind &right_7-first with &right_7")) (("bind &right_7-first with &right_7"))))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &right_7-first 
-  (new-state &right_7))
+</span><span class="ansi1 ansi38-255238088">!(bind! &right_7-first (new-state &right_7))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (bind! &right_7-first 
-    (new-state &right_7)) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (bind! &right_7-first (new-state &right_7)) (()))
 
-</span><span class="ansi38-250144246">; !(bind! &right_7-first 
-  (new-state &right_7))
+</span><span class="ansi38-250144246">; !(bind! &right_7-first (new-state &right_7))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&right_7-first',['new-state','&right_7']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&right_7-first',['new-state','&right_7']],[[]]],RET),depth(1))
 <h3 id="PERFORMANCE.STATE-TYPES.32">;; PERFORMANCE.STATE-TYPES.32</h3>
           -->(1,eval('&self',['bind!','&right_7-first',['new-state','&right_7']],RET),depth(3))
               -->(2,eval('&self',['new-state','&right_7'],RET),depth(5))
-                  -->(3,eval('&self','&right_7',RET),depth(7))
-                  <--(3,retval(['Right',7]))
-                    -->(4,eval('&self',['Right',7],RET),depth(8))
-              <--(2,retval('State'(['Right',7],_398318)))
+                -->(3,eval('&self','&right_7',RET),depth(6))
+                    -->(4,eval('&self','Right',RET),depth(8))
+                    -->(5,eval('&self',7,RET),depth(8))
+                      -->(6,eval('&self','Right',RET),depth(9))
+                      -->(7,eval('&self',7,RET),depth(9))
+                    -->(8,eval('&self','Right',RET),depth(8))
+                    -->(9,eval('&self',7,RET),depth(8))
+                <--(3,retval(['Right',7]))
+              <--(2,retval('State'(['Right',7],_399140)))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.34 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
+; took 0.001 secs. (1.37 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!("change &right_7-first into &is_left" 
-  (change-state! &right_7-first &is_left))
+</span><span class="ansi38-013099040">!("change &right_7-first into &is_left" (change-state! &right_7-first &is_left))
 
-</span><span class="ansi38-250144246">; !("change &right_7-first into &is_left" 
-  (change-state! &right_7-first &is_left))
+</span><span class="ansi38-250144246">; !("change &right_7-first into &is_left" (change-state! &right_7-first &is_left))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['change &right_7-first into &is_left',['change-state!','&right_7-first','&is_left']],OUT).
 
 </span>      -->(0,eval('&self',['change &right_7-first into &is_left',['change-state!','&right_7-first','&is_left']],RET),depth(1))
           -->(1,eval('&self',['change-state!','&right_7-first','&is_left'],RET),depth(3))
-              -->(2,eval('&self','&right_7-first',RET),depth(5))
-              <--(2,retval('State'(['Right',7],_463704)))
-              -->(3,eval('&self','&is_left',RET),depth(5))
-              <--(3,retval('False'))
-          <--(1,retval('State'('False',_493788)))
-      <--(0,retval(['change &right_7-first into &is_left','State'('False',_508472)]))
-        -->(4,eval('&self',['change &right_7-first into &is_left','State'('False',_414056)],RET),depth(2))
+            -->(2,eval('&self','&right_7-first',RET),depth(4))
+                -->(3,eval('&self','State'(['Right',7],_399534),RET),depth(6))
+            <--(2,retval('State'(['Right',7],_421750)))
+            -->(4,eval('&self','&is_left',RET),depth(4))
+                -->(5,eval('&self','False',RET),depth(6))
+            <--(4,retval('False'))
+              -->(6,eval('&self','State'('False',_399534),RET),depth(5))
+          <--(1,retval('State'('False',_424436)))
+        -->(7,eval('&self','change &right_7-first into &is_left',RET),depth(2))
+          -->(8,eval('&self',['change-state!','&right_7-first','&is_left'],RET),depth(3))
+            -->(9,eval('&self','&right_7-first',RET),depth(4))
+            <--(9,retval('State'('False',_427518)))
+          <--(8,retval('State'('False',_429752)))
+      <--(0,retval(['change &right_7-first into &is_left','State'('False',_434944)]))
 Deterministic: <span class="ansi33">
-  ("change &right_7-first into &is_left" 
-    (State  False $_6192))
+("change &right_7-first into &is_left" (State  False $_399534))
 
-</span><span class="ansi38-013099040">!("(get-type (get-state &right_7-first))=(" 
-  (get-state &right_7-first) )= 
-  (get-type 
-    (get-state &right_7-first)))
+</span><span class="ansi38-013099040">!("(get-type (get-state &right_7-first))=(" (get-state &right_7-first) )= (get-type (get-state &right_7-first)))
 
-</span><span class="ansi38-250144246">; !("(get-type (get-state &right_7-first))=(" 
-  (get-state &right_7-first) )= 
-  (get-type 
-    (get-state &right_7-first)))
+</span><span class="ansi38-250144246">; !("(get-type (get-state &right_7-first))=(" (get-state &right_7-first) )= (get-type (get-state &right_7-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type (get-state &right_7-first))=(',['get-state','&right_7-first'],')=',['get-type',['get-state','&right_7-first']]],OUT).
 
 </span>      -->(0,eval('&self',['(get-type (get-state &right_7-first))=(',['get-state','&right_7-first'],')=',['get-type',['get-state','&right_7-first']]],RET),depth(1))
           -->(1,eval('&self',['get-state','&right_7-first'],RET),depth(3))
-              -->(2,eval('&self','&right_7-first',RET),depth(5))
-              <--(2,retval('State'('False',_47926)))
+            -->(2,eval('&self','&right_7-first',RET),depth(4))
+                -->(3,eval('&self','State'('False',_399534),RET),depth(6))
+            <--(2,retval('State'('False',_454030)))
+              -->(4,eval('&self','False',RET),depth(5))
           <--(1,retval('False'))
-          -->(3,eval('&self',['get-type',['get-state','&right_7-first']],RET),depth(3))
-                -->(4,eval('&self','&right_7-first',RET),depth(6))
-                <--(4,retval('State'('False',_85004)))
-                -->(5,eval('&self','&right_7-first',RET),depth(6))
-                <--(5,retval('State'('False',_100316)))
-                -->(6,eval('&self',['get-state','&right_7-first'],RET),depth(6))
-                    -->(7,eval('&self','&right_7-first',RET),depth(8))
-                    <--(7,retval('State'('False',_122796)))
-                <--(6,retval('False'))
-          <--(3,retval('Bool'))
+        -->(5,eval('&self',')=',RET),depth(2))
+          -->(6,eval('&self',['get-type',['get-state','&right_7-first']],RET),depth(3))
+              -->(7,eval('&self','&right_7-first',RET),depth(5))
+                  -->(8,eval('&self','State'('False',_399534),RET),depth(7))
+              <--(7,retval('State'('False',_458518)))
+              -->(9,eval('&self','&right_7-first',RET),depth(5))
+              <--(9,retval('State'('False',_460536)))
+          <--(6,retval('Bool'))
       <--(0,retval(['(get-type (get-state &right_7-first))=(','False',')=','Bool']))
-        -->(8,eval('&self',['(get-type (get-state &right_7-first))=(','False',')=','Bool'],RET),depth(2))
 Deterministic: <span class="ansi33">
-  ("(get-type (get-state &right_7-first))=(" False )= Bool)
+("(get-type (get-state &right_7-first))=(" False )= Bool)
 
-</span><span class="ansi38-013099040">!("(get-type &right_7-first)=" 
-  (get-type 
-    (get-state &right_7-first)))
+</span><span class="ansi38-013099040">!("(get-type &right_7-first)=" (get-type (get-state &right_7-first)))
 
-</span><span class="ansi38-250144246">; !("(get-type &right_7-first)=" 
-  (get-type 
-    (get-state &right_7-first)))
+</span><span class="ansi38-250144246">; !("(get-type &right_7-first)=" (get-type (get-state &right_7-first)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['(get-type &right_7-first)=',['get-type',['get-state','&right_7-first']]],OUT).
 
 </span>      -->(0,eval('&self',['(get-type &right_7-first)=',['get-type',['get-state','&right_7-first']]],RET),depth(1))
           -->(1,eval('&self',['get-type',['get-state','&right_7-first']],RET),depth(3))
-                -->(2,eval('&self','&right_7-first',RET),depth(6))
-                <--(2,retval('State'('False',_259232)))
-                -->(3,eval('&self','&right_7-first',RET),depth(6))
-                <--(3,retval('State'('False',_274544)))
-                -->(4,eval('&self',['get-state','&right_7-first'],RET),depth(6))
-                    -->(5,eval('&self','&right_7-first',RET),depth(8))
-                    <--(5,retval('State'('False',_297024)))
-                <--(4,retval('False'))
+              -->(2,eval('&self','&right_7-first',RET),depth(5))
+                  -->(3,eval('&self','State'('False',_399534),RET),depth(7))
+              <--(2,retval('State'('False',_500882)))
+              -->(4,eval('&self','&right_7-first',RET),depth(5))
+                  -->(5,eval('&self','State'('False',_399534),RET),depth(7))
+              <--(4,retval('State'('False',_503010)))
+                -->(6,eval('&self','False',RET),depth(6))
+                -->(7,eval('&self',['get-state','&right_7-first'],RET),depth(6))
+                  -->(8,eval('&self','&right_7-first',RET),depth(7))
+                      -->(9,eval('&self','State'('False',_399534),RET),depth(9))
+                  <--(8,retval('State'('False',_505424)))
+                <--(7,retval('False'))
           <--(1,retval('Bool'))
       <--(0,retval(['(get-type &right_7-first)=','Bool']))
-        -->(6,eval('&self',['(get-type &right_7-first)=','Bool'],RET),depth(2))
 Deterministic: <span class="ansi33">
-  ("(get-type &right_7-first)=" Bool)
+("(get-type &right_7-first)=" Bool)
 
-</span><span class="ansi32">% 1,972,761 inferences, 0.632 CPU in 0.632 seconds (100% CPU, 3122685 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta" 0)
+</span><span class="ansi32">% 955,658 inferences, 0.543 CPU in 0.545 seconds (100% CPU, 1758973 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/state_types.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 25

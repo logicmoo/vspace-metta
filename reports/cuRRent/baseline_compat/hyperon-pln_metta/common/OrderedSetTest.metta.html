@@ -206,7 +206,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/OrderedSetTest.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/OrderedSetTest.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/OrderedSetTest.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/OrderedSetTest.metta')
 1=[()]
@@ -242,9 +242,7 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(import! &self OrderedSet.metta)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult 
-  (import! &self OrderedSet.metta) 
-  (()))
+<span class="ansi38-013099040">!(assertEqualToResult (import! &self OrderedSet.metta) (()))
 
 </span><span class="ansi38-250144246">; !(import! &self OrderedSet.metta)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','OrderedSet.metta'],OUT).
@@ -276,226 +274,159 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; Collection of functions operating on numbers
 ;;; Define max
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: max 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: max (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (max $X $Y) 
-    (if 
-      (> $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">  (: min 
-    (-> $A $A $A))
+</span><span class="ansi38-255165000">(: min (-> $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (min $X $Y) 
-    (if 
-      (< $X $Y) $X $Y))
+</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">  (: clamp 
-    (-> $A $A $A $A))
+</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">  (= 
-    (clamp $X $L $U) 
-    (max $L 
-      (min $U $X)))
+</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
 </span>
 
 ;;; Define abs
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">  (: abs 
-    (-> $A $A))
+</span><span class="ansi38-255165000">(: abs (-> $A $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">  (= 
-    (abs $X) 
-    (if 
-      (< $X 0) 
-      (* -1 $X) $X))
+</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
 </span>
 
 ;;; Define <=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: <= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (<= $X $Y) 
-    (or 
-      (< $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define >=
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: >= 
-    (-> $A $A Bool))
+</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">  (= 
-    (>= $X $Y) 
-    (or 
-      (> $X $Y) 
-      (== $X $Y)))
+</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">  (: approxEq 
-    (-> $A $A $A Bool))
+</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">  (= 
-    (approxEq $X $Y $Epsilon) 
-    (<= 
-      (abs 
-        (- $X $Y)) $Epsilon))
+</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
-</span><span class="ansi38-255165000">  (: Nat Type)
+</span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
-</span><span class="ansi38-255165000">  (: Z Nat)
+</span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">  (: S 
-    (-> Nat Nat))
+</span><span class="ansi38-255165000">(: S (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">  (: fromNumber 
-    (-> Number Nat))
+</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNumber $N) 
-    (if 
-      (<= $N 0) Z 
-      (S 
-        (fromNumber 
-          (- $N 1)))))
+</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">  (: fromNat 
-    (-> Nat Number))
+</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat Z) 0)
+</span><span class="ansi38-255165000">(= (fromNat Z) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">  (= 
-    (fromNat 
-      (S $K)) 
-    (+ 1 
-      (fromNat $K)))
+</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Nat Nat Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $_ Z) False)
+</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">  (= 
-    (â©» Z 
-      (S $_)) True)
+</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» 
-      (S $X) 
-      (S $Y)) 
-    (â©» $X $Y))
+</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">  (: â©» 
-    (-> Number Number Bool))
+</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">  (= 
-    (â©» $X $Y) 
-    (< $X $Y))
+</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">  (: ceil 
-    (-> Number Number))
+</span><span class="ansi38-255165000">(: ceil (-> Number Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">  (= 
-    (ceil $N) 
-    (fromNat 
-      (fromNumber $N)))
+</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">  (: number->bool 
-    (-> Number Bool))
+</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">  (= 
-    (number->bool $X) 
-    (< 0 $X))
+</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">  (: bool->number 
-    (-> Bool Number))
+</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number False) 0)
+</span><span class="ansi38-255165000">(= (bool->number False) 0)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">  (= 
-    (bool->number True) 1)
+</span><span class="ansi38-255165000">(= (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
@@ -503,124 +434,80 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">  (: â 
-    (-> $T $T Type))
+</span><span class="ansi38-255165000">(: â (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (zero-lt-succ-axiom) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">  (= 
-    (zero-lt-succ-axiom) 
-    (: ZeroLTSucc 
-      (â Z 
-        (S $K))))
+</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">  (: 
-    (succ-monotonicity-rule) 
-    (-> Atom))
+</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (succ-monotonicity-rule) 
-    (: SuccMonotonicity 
-      (-> 
-        (â $X $Y) 
-        (â 
-          (S $X) 
-          (S $Y)))))
+</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
 </span>
 
+          -->(3,eval('&self','Empty',RET),depth(3))
       <--(2,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'OrderedSet',[->,A,'Type']])
-</span><span class="ansi38-255165000">  (: OrderedSet 
-    (-> $A Type))
+</span><span class="ansi38-255165000">(: OrderedSet (-> $A Type))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x88\\x85\',['OrderedSet',A]])
-</span><span class="ansi38-255165000">  (: â 
-    (OrderedSet $A))
+</span><span class="ansi38-255165000">(: â (OrderedSet $A))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,::,[->,A,['OrderedSet',A],['OrderedSet',A]]])
-</span><span class="ansi38-255165000">  (: :: 
-    (-> $A 
-      (OrderedSet $A) 
-      (OrderedSet $A)))
+</span><span class="ansi38-255165000">(: :: (-> $A (OrderedSet $A) (OrderedSet $A)))
 </span>
 
 ;;; Check if an element is in a set.  TODO: optimize assuming it is
 ;;; ordered.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,elem,[->,A,['OrderedSet',A],'Bool']])
-</span><span class="ansi38-255165000">  (: elem 
-    (-> $A 
-      (OrderedSet $A) Bool))
+</span><span class="ansi38-255165000">(: elem (-> $A (OrderedSet $A) Bool))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[elem,X,'â\x88\\x85\'],'False'])
-</span><span class="ansi38-255165000">  (= 
-    (elem $X â) False)
+</span><span class="ansi38-255165000">(= (elem $X â) False)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[elem,X,[::,H,T]],[if,[==,X,H],'True',[elem,X,T]]])
-</span><span class="ansi38-255165000">  (= 
-    (elem $X 
-      (:: $H $T)) 
-    (if 
-      (== $X $H) True 
-      (elem $X $T)))
+</span><span class="ansi38-255165000">(= (elem $X (:: $H $T)) (if (== $X $H) True (elem $X $T)))
 </span>
 
 ;;; Insert an element into a set.  Only insert if the element is not
 ;;; already in the set as to produce an ordered set.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,insert,[->,A,['OrderedSet',A],['OrderedSet',A]]])
-</span><span class="ansi38-255165000">  (: insert 
-    (-> $A 
-      (OrderedSet $A) 
-      (OrderedSet $A)))
+</span><span class="ansi38-255165000">(: insert (-> $A (OrderedSet $A) (OrderedSet $A)))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[insert,X,'â\x88\\x85\'],[::,X,'â\x88\\x85\']])
-</span><span class="ansi38-255165000">  (= 
-    (insert $X â) 
-    (:: $X â))
+</span><span class="ansi38-255165000">(= (insert $X â) (:: $X â))
 </span>
 
 ;; Base case
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[insert,X,[::,H,T]],[if,[==,X,H],[::,H,T],[if,['â©»',X,H],[::,X,[::,H,T]],[::,H,[insert,X,T]]]]])
-</span><span class="ansi38-255165000">  (= 
-    (insert $X 
-      (:: $H $T)) 
-    (if 
-      (== $X $H) 
-      (:: $H $T) 
-      (if 
-        (â©» $X $H) 
-        (:: $X 
-          (:: $H $T)) 
-        (:: $H 
-          (insert $X $T)))))
+</span><span class="ansi38-255165000">(= (insert $X (:: $H $T)) (if (== $X $H) (:: $H $T) (if (â©» $X $H) (:: $X (:: $H $T)) (:: $H (insert $X $T)))))
 </span>
 
+              -->(4,eval('&self','Empty',RET),depth(5))
           <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.343 secs. (342.68 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  () 
-    (())))
-</span>      <--(0,retval('Empty'))
+; took 0.419 secs. (419.06 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
+</span>          -->(5,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Last Result(1): <span class="ansi33">Empty
 
 </span>;; Recursive step
@@ -628,8 +515,7 @@ Last Result(1): <span class="ansi33">Empty
 ;; Use generic <
 ;; Safely insert since $x < $h
 ;; Recursive call
-<span class="ansi38-013099040">!(assertEqual 
-  (elem 1 â) False)
+<span class="ansi38-013099040">!(assertEqual (elem 1 â) False)
 
 </span><span class="ansi38-250144246">; !(elem 1 â)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[elem,1,'â\x88\\x85\'],OUT).
@@ -637,322 +523,138 @@ Last Result(1): <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqual,[elem,1,'â\x88\\x85\'],'False'],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.02">;; COMMON.ORDEREDSETTEST.02</h3>
           -->(1,eval('&self',[elem,1,'â\x88\\x85\'],RET),depth(3))
+              -->(2,eval('&self','False',RET),depth(5))
           <--(1,retval('False'))
+        -->(3,eval('&self','False',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.09 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (False) 
-    (False)))
-</span>      <--(0,retval('Empty'))
+; took 0.000529 secs. (529.00 microseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (False) (False)))
+</span>          -->(4,eval('&self','Empty',RET),depth(3))
+      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (elem 1 
-    (insert 1 â)) True)
+</span><span class="ansi38-013099040">!(assertEqual (elem 1 (insert 1 â)) True)
 
-</span><span class="ansi38-250144246">; !(elem 1 
-  (insert 1 â))
+</span><span class="ansi38-250144246">; !(elem 1 (insert 1 â))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[elem,1,[insert,1,'â\x88\\x85\']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[elem,1,[insert,1,'â\x88\\x85\']],'True'],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.03">;; COMMON.ORDEREDSETTEST.03</h3>
           -->(1,eval('&self',[elem,1,[insert,1,'â\x88\\x85\']],RET),depth(3))
               -->(2,eval('&self',[insert,1,'â\x88\\x85\'],RET),depth(5))
-                -->(3,eval('&self',[::,1,'â\x88\\x85\'],RET),depth(6))
-            -->(4,eval('&self',[if,[==,1,1],'True',[elem,1,'â\x88\\x85\']],RET),depth(4))
-                -->(5,eval('&self',[==,1,1],RET),depth(6))
-                <--(5,retval('True'))
-            <--(4,retval('True'))
+                  -->(3,eval('&self',1,RET),depth(7))
+                  -->(4,eval('&self','â\x88\\x85\',RET),depth(7))
+                  -->(5,eval('&self',::,RET),depth(7))
+                  -->(6,eval('&self',1,RET),depth(7))
+                  -->(7,eval('&self','â\x88\\x85\',RET),depth(7))
+                    -->(8,eval('&self',::,RET),depth(8))
+                    -->(9,eval('&self',1,RET),depth(8))
               <--(2,retval([::,1,'â\x88\\x85\']))
-          <--(1,retval([if,[==,1,1],'True',[elem,1,'â\x88\\x85\']]))
+          <--(1,retval('True'))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (5.30 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (True) 
-    (True)))
+; took 0.002 secs. (2.26 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (True) (True)))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (elem 1 
-    (insert 2 â)) False)
+</span><span class="ansi38-013099040">!(assertEqual (elem 1 (insert 2 â)) False)
 
-</span><span class="ansi38-250144246">; !(elem 1 
-  (insert 2 â))
+</span><span class="ansi38-250144246">; !(elem 1 (insert 2 â))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[elem,1,[insert,2,'â\x88\\x85\']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[elem,1,[insert,2,'â\x88\\x85\']],'False'],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.04">;; COMMON.ORDEREDSETTEST.04</h3>
           -->(1,eval('&self',[elem,1,[insert,2,'â\x88\\x85\']],RET),depth(3))
               -->(2,eval('&self',[insert,2,'â\x88\\x85\'],RET),depth(5))
-                -->(3,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(6))
-            -->(4,eval('&self',[if,[==,1,2],'True',[elem,1,'â\x88\\x85\']],RET),depth(4))
-                -->(5,eval('&self',[==,1,2],RET),depth(6))
-                <--(5,retval('False'))
-                -->(6,eval('&self',[elem,1,'â\x88\\x85\'],RET),depth(6))
-                <--(6,retval('False'))
-            <--(4,retval('False'))
+                  -->(3,eval('&self',2,RET),depth(7))
+                  -->(4,eval('&self','â\x88\\x85\',RET),depth(7))
+                  -->(5,eval('&self',::,RET),depth(7))
+                  -->(6,eval('&self',2,RET),depth(7))
+                  -->(7,eval('&self','â\x88\\x85\',RET),depth(7))
+                    -->(8,eval('&self',::,RET),depth(8))
+                    -->(9,eval('&self',2,RET),depth(8))
               <--(2,retval([::,2,'â\x88\\x85\']))
-          <--(1,retval([if,[==,1,2],'True',[elem,1,'â\x88\\x85\']]))
+          <--(1,retval('False'))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.02 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (False) 
-    (False)))
+; took 0.002 secs. (2.25 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (False) (False)))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (elem 1 
-    (insert 1 
-      (insert 2 â))) True)
+</span><span class="ansi38-013099040">!(assertEqual (elem 1 (insert 1 (insert 2 â))) True)
 
-</span><span class="ansi38-250144246">; !(elem 1 
-  (insert 1 
-    (insert 2 â)))
+</span><span class="ansi38-250144246">; !(elem 1 (insert 1 (insert 2 â)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[elem,1,[insert,1,[insert,2,'â\x88\\x85\']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[elem,1,[insert,1,[insert,2,'â\x88\\x85\']]],'True'],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.05">;; COMMON.ORDEREDSETTEST.05</h3>
           -->(1,eval('&self',[elem,1,[insert,1,[insert,2,'â\x88\\x85\']]],RET),depth(3))
               -->(2,eval('&self',[insert,2,'â\x88\\x85\'],RET),depth(5))
-                -->(3,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(6))
-              -->(4,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(5))
+                  -->(3,eval('&self',2,RET),depth(7))
+                  -->(4,eval('&self','â\x88\\x85\',RET),depth(7))
+                  -->(5,eval('&self',::,RET),depth(7))
+                  -->(6,eval('&self',2,RET),depth(7))
+                  -->(7,eval('&self','â\x88\\x85\',RET),depth(7))
+                    -->(8,eval('&self',::,RET),depth(8))
+                    -->(9,eval('&self',2,RET),depth(8))
               <--(2,retval([::,2,'â\x88\\x85\']))
-              -->(5,eval('&self',[insert,1,[insert,2,'â\x88\\x85\']],RET),depth(5))
-                  -->(6,eval('&self',[insert,2,'â\x88\\x85\'],RET),depth(7))
-                    -->(7,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(8))
-                -->(8,eval('&self',[if,[==,1,2],[::,2,'â\x88\\x85\'],[if,['â©»',1,2],[::,1,[::,2,'â\x88\\x85\']],[::,2,[insert,1,'â\x88\\x85\']]]],RET),depth(6))
-                    -->(9,eval('&self',[==,1,2],RET),depth(8))
-                    <--(9,retval('False'))
-                    -->(10,eval('&self',[if,['â©»',1,2],[::,1,[::,2,'â\x88\\x85\']],[::,2,[insert,1,'â\x88\\x85\']]],RET),depth(8))
-                        -->(11,eval('&self',['â©»',1,2],RET),depth(10))
-                          -->(12,eval('&self',[<,1,2],RET),depth(11))
-                        -->(13,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(10))
-                            -->(14,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(12))
-                            -->(15,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(12))
-                      -->(16,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(9))
-                          -->(17,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                          -->(18,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                        -->(19,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(10))
-                  -->(20,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(7))
-                      -->(21,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                      -->(22,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                    -->(23,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(8))
-                  -->(24,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(7))
-            -->(25,eval('&self',[elem,1,[::,1,[::,2,'â\x88\\x85\']]],RET),depth(4))
-              -->(26,eval('&self',[if,[==,1,1],'True',[elem,1,[::,2,'â\x88\\x85\']]],RET),depth(5))
-                  -->(27,eval('&self',[==,1,1],RET),depth(7))
-                  <--(27,retval('True'))
-              <--(26,retval('True'))
-            <--(25,retval([if,[==,1,1],'True',[elem,1,[::,2,'â\x88\\x85\']]]))
-                          <--(12,retval('True'))
-                        <--(11,retval([<,1,2]))
-                    <--(10,retval([::,1,[::,2,'â\x88\\x85\']]))
-                <--(8,retval([::,1,[::,2,'â\x88\\x85\']]))
-                  <--(6,retval([::,2,'â\x88\\x85\']))
-              <--(5,retval([if,[==,1,2],[::,2,'â\x88\\x85\'],[if,['â©»',1,2],[::,1,[::,2,'â\x88\\x85\']],[::,2,[insert,1,'â\x88\\x85\']]]]))
-          <--(1,retval([elem,1,[::,1,[::,2,'â\x88\\x85\']]]))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.030 secs. (30.06 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (True) 
-    (True)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.011 secs. (10.83 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (True) (True)))
+</span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (elem 1 
-    (insert 2 
-      (insert 3 â))) False)
+</span><span class="ansi38-013099040">!(assertEqual (elem 1 (insert 2 (insert 3 â))) False)
 
-</span><span class="ansi38-250144246">; !(elem 1 
-  (insert 2 
-    (insert 3 â)))
+</span><span class="ansi38-250144246">; !(elem 1 (insert 2 (insert 3 â)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[elem,1,[insert,2,[insert,3,'â\x88\\x85\']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[elem,1,[insert,2,[insert,3,'â\x88\\x85\']]],'False'],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.06">;; COMMON.ORDEREDSETTEST.06</h3>
           -->(1,eval('&self',[elem,1,[insert,2,[insert,3,'â\x88\\x85\']]],RET),depth(3))
               -->(2,eval('&self',[insert,3,'â\x88\\x85\'],RET),depth(5))
-                -->(3,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(6))
-              -->(4,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(5))
+                  -->(3,eval('&self',3,RET),depth(7))
+                  -->(4,eval('&self','â\x88\\x85\',RET),depth(7))
+                  -->(5,eval('&self',::,RET),depth(7))
+                  -->(6,eval('&self',3,RET),depth(7))
+                  -->(7,eval('&self','â\x88\\x85\',RET),depth(7))
+                    -->(8,eval('&self',::,RET),depth(8))
+                    -->(9,eval('&self',3,RET),depth(8))
               <--(2,retval([::,3,'â\x88\\x85\']))
-              -->(5,eval('&self',[insert,2,[insert,3,'â\x88\\x85\']],RET),depth(5))
-                  -->(6,eval('&self',[insert,3,'â\x88\\x85\'],RET),depth(7))
-                    -->(7,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(8))
-                -->(8,eval('&self',[if,[==,2,3],[::,3,'â\x88\\x85\'],[if,['â©»',2,3],[::,2,[::,3,'â\x88\\x85\']],[::,3,[insert,2,'â\x88\\x85\']]]],RET),depth(6))
-                    -->(9,eval('&self',[==,2,3],RET),depth(8))
-                    <--(9,retval('False'))
-                    -->(10,eval('&self',[if,['â©»',2,3],[::,2,[::,3,'â\x88\\x85\']],[::,3,[insert,2,'â\x88\\x85\']]],RET),depth(8))
-                        -->(11,eval('&self',['â©»',2,3],RET),depth(10))
-                          -->(12,eval('&self',[<,2,3],RET),depth(11))
-                        -->(13,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(10))
-                            -->(14,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                            -->(15,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                      -->(16,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(17,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(18,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                        -->(19,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                  -->(20,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(7))
-                      -->(21,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                      -->(22,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                    -->(23,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(8))
-                  -->(24,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-            -->(25,eval('&self',[elem,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(4))
-              -->(26,eval('&self',[if,[==,1,2],'True',[elem,1,[::,3,'â\x88\\x85\']]],RET),depth(5))
-                  -->(27,eval('&self',[==,1,2],RET),depth(7))
-                  <--(27,retval('False'))
-                  -->(28,eval('&self',[elem,1,[::,3,'â\x88\\x85\']],RET),depth(7))
-                    -->(29,eval('&self',[if,[==,1,3],'True',[elem,1,'â\x88\\x85\']],RET),depth(8))
-                        -->(30,eval('&self',[==,1,3],RET),depth(10))
-                        <--(30,retval('False'))
-                        -->(31,eval('&self',[elem,1,'â\x88\\x85\'],RET),depth(10))
-                        <--(31,retval('False'))
-                    <--(29,retval('False'))
-                  <--(28,retval([if,[==,1,3],'True',[elem,1,'â\x88\\x85\']]))
-              <--(26,retval('False'))
-            <--(25,retval([if,[==,1,2],'True',[elem,1,[::,3,'â\x88\\x85\']]]))
-                          <--(12,retval('True'))
-                        <--(11,retval([<,2,3]))
-                    <--(10,retval([::,2,[::,3,'â\x88\\x85\']]))
-                <--(8,retval([::,2,[::,3,'â\x88\\x85\']]))
-                  <--(6,retval([::,3,'â\x88\\x85\']))
-              <--(5,retval([if,[==,2,3],[::,3,'â\x88\\x85\'],[if,['â©»',2,3],[::,2,[::,3,'â\x88\\x85\']],[::,3,[insert,2,'â\x88\\x85\']]]]))
-          <--(1,retval([elem,1,[::,2,[::,3,'â\x88\\x85\']]]))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.034 secs. (33.95 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (False) 
-    (False)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.009 secs. (9.36 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (False) (False)))
+</span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (elem 2 
-    (insert 1 
-      (insert 2 
-        (insert 3 â)))) True)
+</span><span class="ansi38-013099040">!(assertEqual (elem 2 (insert 1 (insert 2 (insert 3 â)))) True)
 
-</span><span class="ansi38-250144246">; !(elem 2 
-  (insert 1 
-    (insert 2 
-      (insert 3 â))))
+</span><span class="ansi38-250144246">; !(elem 2 (insert 1 (insert 2 (insert 3 â))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[elem,2,[insert,1,[insert,2,[insert,3,'â\x88\\x85\']]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[elem,2,[insert,1,[insert,2,[insert,3,'â\x88\\x85\']]]],'True'],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.07">;; COMMON.ORDEREDSETTEST.07</h3>
           -->(1,eval('&self',[elem,2,[insert,1,[insert,2,[insert,3,'â\x88\\x85\']]]],RET),depth(3))
               -->(2,eval('&self',[insert,3,'â\x88\\x85\'],RET),depth(5))
-                -->(3,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(6))
-              -->(4,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(5))
+                  -->(3,eval('&self',3,RET),depth(7))
+                  -->(4,eval('&self','â\x88\\x85\',RET),depth(7))
+                  -->(5,eval('&self',::,RET),depth(7))
+                  -->(6,eval('&self',3,RET),depth(7))
+                  -->(7,eval('&self','â\x88\\x85\',RET),depth(7))
+                    -->(8,eval('&self',::,RET),depth(8))
+                    -->(9,eval('&self',3,RET),depth(8))
               <--(2,retval([::,3,'â\x88\\x85\']))
-              -->(5,eval('&self',[insert,1,[insert,2,[insert,3,'â\x88\\x85\']]],RET),depth(5))
-                  -->(6,eval('&self',[insert,2,[insert,3,'â\x88\\x85\']],RET),depth(7))
-                      -->(7,eval('&self',[insert,3,'â\x88\\x85\'],RET),depth(9))
-                        -->(8,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                    -->(9,eval('&self',[if,[==,2,3],[::,3,'â\x88\\x85\'],[if,['â©»',2,3],[::,2,[::,3,'â\x88\\x85\']],[::,3,[insert,2,'â\x88\\x85\']]]],RET),depth(8))
-                        -->(10,eval('&self',[==,2,3],RET),depth(10))
-                        <--(10,retval('False'))
-                        -->(11,eval('&self',[if,['â©»',2,3],[::,2,[::,3,'â\x88\\x85\']],[::,3,[insert,2,'â\x88\\x85\']]],RET),depth(10))
-                            -->(12,eval('&self',['â©»',2,3],RET),depth(12))
-                              -->(13,eval('&self',[<,2,3],RET),depth(13))
-                            -->(14,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(12))
-                                -->(15,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                                -->(16,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                          -->(17,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(18,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(19,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                            -->(20,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                      -->(21,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(22,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(23,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                        -->(24,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                      -->(25,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                -->(26,eval('&self',[if,[==,1,2],[::,2,[::,3,'â\x88\\x85\']],[if,['â©»',1,2],[::,1,[::,2,[::,3,'â\x88\\x85\']]],[::,2,[insert,1,[::,3,'â\x88\\x85\']]]]],RET),depth(6))
-                    -->(27,eval('&self',[==,1,2],RET),depth(8))
-                    <--(27,retval('False'))
-                    -->(28,eval('&self',[if,['â©»',1,2],[::,1,[::,2,[::,3,'â\x88\\x85\']]],[::,2,[insert,1,[::,3,'â\x88\\x85\']]]],RET),depth(8))
-                        -->(29,eval('&self',['â©»',1,2],RET),depth(10))
-                          -->(30,eval('&self',[<,1,2],RET),depth(11))
-                        -->(31,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(10))
-                            -->(32,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(12))
-                                -->(33,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                                -->(34,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                            -->(35,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(12))
-                                -->(36,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                                -->(37,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                      -->(38,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(9))
-                          -->(39,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(40,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(41,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                          -->(42,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(43,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(44,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                        -->(45,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(10))
-                            -->(46,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                            -->(47,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                  -->(48,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(7))
-                      -->(49,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(50,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(51,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                      -->(52,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(53,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(54,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                    -->(55,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(8))
-                        -->(56,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                        -->(57,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                  -->(58,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(7))
-                      -->(59,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                      -->(60,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-            -->(61,eval('&self',[elem,2,[::,1,[::,2,[::,3,'â\x88\\x85\']]]],RET),depth(4))
-              -->(62,eval('&self',[if,[==,2,1],'True',[elem,2,[::,2,[::,3,'â\x88\\x85\']]]],RET),depth(5))
-                  -->(63,eval('&self',[==,2,1],RET),depth(7))
-                  <--(63,retval('False'))
-                  -->(64,eval('&self',[elem,2,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(7))
-                    -->(65,eval('&self',[if,[==,2,2],'True',[elem,2,[::,3,'â\x88\\x85\']]],RET),depth(8))
-                        -->(66,eval('&self',[==,2,2],RET),depth(10))
-                        <--(66,retval('True'))
-                    <--(65,retval('True'))
-                  <--(64,retval([if,[==,2,2],'True',[elem,2,[::,3,'â\x88\\x85\']]]))
-              <--(62,retval('True'))
-            <--(61,retval([if,[==,2,1],'True',[elem,2,[::,2,[::,3,'â\x88\\x85\']]]]))
-                          <--(30,retval('True'))
-                        <--(29,retval([<,1,2]))
-                    <--(28,retval([::,1,[::,2,[::,3,'â\x88\\x85\']]]))
-                <--(26,retval([::,1,[::,2,[::,3,'â\x88\\x85\']]]))
-                              <--(13,retval('True'))
-                            <--(12,retval([<,2,3]))
-                        <--(11,retval([::,2,[::,3,'â\x88\\x85\']]))
-                    <--(9,retval([::,2,[::,3,'â\x88\\x85\']]))
-                      <--(7,retval([::,3,'â\x88\\x85\']))
-                  <--(6,retval([if,[==,2,3],[::,3,'â\x88\\x85\'],[if,['â©»',2,3],[::,2,[::,3,'â\x88\\x85\']],[::,3,[insert,2,'â\x88\\x85\']]]]))
-              <--(5,retval([if,[==,1,2],[::,2,[::,3,'â\x88\\x85\']],[if,['â©»',1,2],[::,1,[::,2,[::,3,'â\x88\\x85\']]],[::,2,[insert,1,[::,3,'â\x88\\x85\']]]]]))
-          <--(1,retval([elem,2,[::,1,[::,2,[::,3,'â\x88\\x85\']]]]))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.080 secs. (80.23 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    (True) 
-    (True)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.029 secs. (29.37 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  (True) (True)))
+</span>Deterministic: <span class="ansi33">Empty
 
 </span>;;; Test insert
-<span class="ansi38-013099040">!(assertEqual 
-  (insert 1 â) 
-  (:: 1 â))
+<span class="ansi38-013099040">!(assertEqual (insert 1 â) (:: 1 â))
 
 </span><span class="ansi38-250144246">; !(insert 1 â)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[insert,1,'â\x88\\x85\'],OUT).
@@ -960,90 +662,48 @@ Deterministic: <span class="ansi33">Empty
 </span>      -->(0,eval('&self',[assertEqual,[insert,1,'â\x88\\x85\'],[::,1,'â\x88\\x85\']],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.08">;; COMMON.ORDEREDSETTEST.08</h3>
           -->(1,eval('&self',[insert,1,'â\x88\\x85\'],RET),depth(3))
-            -->(2,eval('&self',[::,1,'â\x88\\x85\'],RET),depth(4))
+              -->(2,eval('&self',1,RET),depth(5))
+              -->(3,eval('&self','â\x88\\x85\',RET),depth(5))
+              -->(4,eval('&self',::,RET),depth(5))
+              -->(5,eval('&self',1,RET),depth(5))
+              -->(6,eval('&self','â\x88\\x85\',RET),depth(5))
+                -->(7,eval('&self',::,RET),depth(6))
+                -->(8,eval('&self',1,RET),depth(6))
+                -->(9,eval('&self','â\x88\\x85\',RET),depth(6))
           <--(1,retval([::,1,'â\x88\\x85\']))
-          -->(3,eval('&self',[::,1,'â\x88\\x85\'],RET),depth(3))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (4.07 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (:: 1 â)) 
-    ( (:: 1 â))))
+; took 0.001 secs. (1.26 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((:: 1 â)) ((:: 1 â))))
 </span>      <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (insert 2 
-    (insert 1 â)) 
-  (:: 1 
-    (:: 2 â)))
+</span><span class="ansi38-013099040">!(assertEqual (insert 2 (insert 1 â)) (:: 1 (:: 2 â)))
 
-</span><span class="ansi38-250144246">; !(insert 2 
-  (insert 1 â))
+</span><span class="ansi38-250144246">; !(insert 2 (insert 1 â))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[insert,2,[insert,1,'â\x88\\x85\']],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[insert,2,[insert,1,'â\x88\\x85\']],[::,1,[::,2,'â\x88\\x85\']]],RET),depth(1))
 <h3 id="COMMON.ORDEREDSETTEST.09">;; COMMON.ORDEREDSETTEST.09</h3>
           -->(1,eval('&self',[insert,2,[insert,1,'â\x88\\x85\']],RET),depth(3))
               -->(2,eval('&self',[insert,1,'â\x88\\x85\'],RET),depth(5))
-                -->(3,eval('&self',[::,1,'â\x88\\x85\'],RET),depth(6))
-            -->(4,eval('&self',[if,[==,2,1],[::,1,'â\x88\\x85\'],[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]]],RET),depth(4))
-                -->(5,eval('&self',[==,2,1],RET),depth(6))
-                <--(5,retval('False'))
-                -->(6,eval('&self',[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]],RET),depth(6))
-                    -->(7,eval('&self',['â©»',2,1],RET),depth(8))
-                      -->(8,eval('&self',[<,2,1],RET),depth(9))
-                    -->(9,eval('&self',[::,1,[insert,2,'â\x88\\x85\']],RET),depth(8))
-                        -->(10,eval('&self',[insert,2,'â\x88\\x85\'],RET),depth(10))
-                          -->(11,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                      -->(12,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(9))
-                          -->(13,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                          -->(14,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                        -->(15,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(10))
-                  -->(16,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(7))
-                      -->(17,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                      -->(18,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                    -->(19,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(8))
-              -->(20,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(5))
-                  -->(21,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(7))
-                  -->(22,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(7))
-                -->(23,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(6))
-              -->(24,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(5))
-                        <--(10,retval([::,2,'â\x88\\x85\']))
-                    <--(9,retval([::,1,[::,2,'â\x88\\x85\']]))
-                      <--(8,retval('False'))
-                    <--(7,retval([<,2,1]))
-                <--(6,retval([::,1,[::,2,'â\x88\\x85\']]))
-            <--(4,retval([::,1,[::,2,'â\x88\\x85\']]))
+                  -->(3,eval('&self',1,RET),depth(7))
+                  -->(4,eval('&self','â\x88\\x85\',RET),depth(7))
+                  -->(5,eval('&self',::,RET),depth(7))
+                  -->(6,eval('&self',1,RET),depth(7))
+                  -->(7,eval('&self','â\x88\\x85\',RET),depth(7))
+                    -->(8,eval('&self',::,RET),depth(8))
+                    -->(9,eval('&self',1,RET),depth(8))
               <--(2,retval([::,1,'â\x88\\x85\']))
-          <--(1,retval([if,[==,2,1],[::,1,'â\x88\\x85\'],[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]]]))
-          -->(25,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(3))
-              -->(26,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(5))
-              -->(27,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(5))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.033 secs. (33.49 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (:: 1 
-        (:: 2 â))) 
-    ( (:: 1 
-        (:: 2 â)))))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.012 secs. (11.92 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((:: 1 (:: 2 â))) ((:: 1 (:: 2 â)))))
+</span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (insert 3 
-    (insert 2 
-      (insert 1 â))) 
-  (:: 1 
-    (:: 2 
-      (:: 3 â))))
+</span><span class="ansi38-013099040">!(assertEqual (insert 3 (insert 2 (insert 1 â))) (:: 1 (:: 2 (:: 3 â))))
 
-</span><span class="ansi38-250144246">; !(insert 3 
-  (insert 2 
-    (insert 1 â)))
+</span><span class="ansi38-250144246">; !(insert 3 (insert 2 (insert 1 â)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[insert,3,[insert,2,[insert,1,'â\x88\\x85\']]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[insert,3,[insert,2,[insert,1,'â\x88\\x85\']]],[::,1,[::,2,[::,3,'â\x88\\x85\']]]],RET),depth(1))
@@ -1051,147 +711,22 @@ Deterministic: <span class="ansi33">Empty
           -->(1,eval('&self',[insert,3,[insert,2,[insert,1,'â\x88\\x85\']]],RET),depth(3))
               -->(2,eval('&self',[insert,2,[insert,1,'â\x88\\x85\']],RET),depth(5))
                   -->(3,eval('&self',[insert,1,'â\x88\\x85\'],RET),depth(7))
-                    -->(4,eval('&self',[::,1,'â\x88\\x85\'],RET),depth(8))
-                -->(5,eval('&self',[if,[==,2,1],[::,1,'â\x88\\x85\'],[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]]],RET),depth(6))
-                    -->(6,eval('&self',[==,2,1],RET),depth(8))
-                    <--(6,retval('False'))
-                    -->(7,eval('&self',[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]],RET),depth(8))
-                        -->(8,eval('&self',['â©»',2,1],RET),depth(10))
-                          -->(9,eval('&self',[<,2,1],RET),depth(11))
-                        -->(10,eval('&self',[::,1,[insert,2,'â\x88\\x85\']],RET),depth(10))
-                            -->(11,eval('&self',[insert,2,'â\x88\\x85\'],RET),depth(12))
-                              -->(12,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(13))
-                          -->(13,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(11))
-                              -->(14,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(13))
-                              -->(15,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(13))
-                            -->(16,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(12))
-                      -->(17,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(9))
-                          -->(18,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                          -->(19,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                        -->(20,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(10))
-                  -->(21,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(7))
-                      -->(22,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                      -->(23,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                    -->(24,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(8))
-                  -->(25,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(7))
-            -->(26,eval('&self',[if,[==,3,1],[::,1,[::,2,'â\x88\\x85\']],[if,['â©»',3,1],[::,3,[::,1,[::,2,'â\x88\\x85\']]],[::,1,[insert,3,[::,2,'â\x88\\x85\']]]]],RET),depth(4))
-                -->(27,eval('&self',[==,3,1],RET),depth(6))
-                <--(27,retval('False'))
-                -->(28,eval('&self',[if,['â©»',3,1],[::,3,[::,1,[::,2,'â\x88\\x85\']]],[::,1,[insert,3,[::,2,'â\x88\\x85\']]]],RET),depth(6))
-                    -->(29,eval('&self',['â©»',3,1],RET),depth(8))
-                      -->(30,eval('&self',[<,3,1],RET),depth(9))
-                    -->(31,eval('&self',[::,1,[insert,3,[::,2,'â\x88\\x85\']]],RET),depth(8))
-                        -->(32,eval('&self',[insert,3,[::,2,'â\x88\\x85\']],RET),depth(10))
-                        <--(32,retval([if,[==,3,2],[::,2,'â\x88\\x85\'],[if,['â©»',3,2],[::,3,[::,2,'â\x88\\x85\']],[::,2,[insert,3,'â\x88\\x85\']]]]))
-                          -->(33,eval('&self',[if,[==,3,2],[::,2,'â\x88\\x85\'],[if,['â©»',3,2],[::,3,[::,2,'â\x88\\x85\']],[::,2,[insert,3,'â\x88\\x85\']]]],RET),depth(11))
-                              -->(34,eval('&self',[==,3,2],RET),depth(13))
-                              <--(34,retval('False'))
-                              -->(35,eval('&self',[if,['â©»',3,2],[::,3,[::,2,'â\x88\\x85\']],[::,2,[insert,3,'â\x88\\x85\']]],RET),depth(13))
-                                  -->(36,eval('&self',['â©»',3,2],RET),depth(15))
-                                    -->(37,eval('&self',[<,3,2],RET),depth(16))
-                                  -->(38,eval('&self',[::,2,[insert,3,'â\x88\\x85\']],RET),depth(15))
-                                      -->(39,eval('&self',[insert,3,'â\x88\\x85\'],RET),depth(17))
-                                        -->(40,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(18))
-                                    -->(41,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(16))
-                                        -->(42,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(18))
-                                        -->(43,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(18))
-                                      -->(44,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(17))
-                                -->(45,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(14))
-                                    -->(46,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(16))
-                                    -->(47,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(16))
-                                  -->(48,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                            -->(49,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(12))
-                                -->(50,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                                -->(51,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                              -->(52,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                            -->(53,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                      -->(54,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(9))
-                          -->(55,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(56,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(57,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                          -->(58,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(59,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(60,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                        -->(61,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(10))
-                            -->(62,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                            -->(63,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                  -->(64,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(7))
-                      -->(65,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(66,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(67,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                      -->(68,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(69,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(70,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                    -->(71,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(8))
-                        -->(72,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                        -->(73,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-              -->(74,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(5))
-                  -->(75,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(7))
-                      -->(76,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                      -->(77,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                  -->(78,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(7))
-                      -->(79,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                      -->(80,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                -->(81,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(6))
-                    -->(82,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(8))
-                    -->(83,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(8))
-              -->(84,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(5))
-                  -->(85,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-                  -->(86,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-                                      <--(39,retval([::,3,'â\x88\\x85\']))
-                                  <--(38,retval([::,2,[::,3,'â\x88\\x85\']]))
-                                    <--(37,retval('False'))
-                                  <--(36,retval([<,3,2]))
-                              <--(35,retval([::,2,[::,3,'â\x88\\x85\']]))
-                          <--(33,retval([::,2,[::,3,'â\x88\\x85\']]))
-                    <--(31,retval([::,1,[::,2,[::,3,'â\x88\\x85\']]]))
-                      <--(30,retval('False'))
-                    <--(29,retval([<,3,1]))
-                <--(28,retval([::,1,[::,2,[::,3,'â\x88\\x85\']]]))
-            <--(26,retval([::,1,[::,2,[::,3,'â\x88\\x85\']]]))
-                            <--(11,retval([::,2,'â\x88\\x85\']))
-                        <--(10,retval([::,1,[::,2,'â\x88\\x85\']]))
-                          <--(9,retval('False'))
-                        <--(8,retval([<,2,1]))
-                    <--(7,retval([::,1,[::,2,'â\x88\\x85\']]))
-                <--(5,retval([::,1,[::,2,'â\x88\\x85\']]))
+                      -->(4,eval('&self',1,RET),depth(9))
+                      -->(5,eval('&self','â\x88\\x85\',RET),depth(9))
+                      -->(6,eval('&self',::,RET),depth(9))
+                      -->(7,eval('&self',1,RET),depth(9))
+                      -->(8,eval('&self','â\x88\\x85\',RET),depth(9))
+                        -->(9,eval('&self',::,RET),depth(10))
                   <--(3,retval([::,1,'â\x88\\x85\']))
-              <--(2,retval([if,[==,2,1],[::,1,'â\x88\\x85\'],[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]]]))
-          <--(1,retval([if,[==,3,1],[::,1,[::,2,'â\x88\\x85\']],[if,['â©»',3,1],[::,3,[::,1,[::,2,'â\x88\\x85\']]],[::,1,[insert,3,[::,2,'â\x88\\x85\']]]]]))
-          -->(87,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(3))
-              -->(88,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(5))
-                  -->(89,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-                  -->(90,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-              -->(91,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(5))
-                  -->(92,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-                  -->(93,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(7))
-; 
+Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.126 secs. (125.80 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (:: 1 
-        (:: 2 
-          (:: 3 â)))) 
-    ( (:: 1 
-        (:: 2 
-          (:: 3 â))))))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.037 secs. (36.71 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((:: 1 (:: 2 (:: 3 â)))) ((:: 1 (:: 2 (:: 3 â))))))
+</span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (insert 2 
-    (insert 3 
-      (insert 2 
-        (insert 1 â)))) 
-  (:: 1 
-    (:: 2 
-      (:: 3 â))))
+</span><span class="ansi38-013099040">!(assertEqual (insert 2 (insert 3 (insert 2 (insert 1 â)))) (:: 1 (:: 2 (:: 3 â))))
 
-</span><span class="ansi38-250144246">; !(insert 2 
-  (insert 3 
-    (insert 2 
-      (insert 1 â))))
+</span><span class="ansi38-250144246">; !(insert 2 (insert 3 (insert 2 (insert 1 â))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[insert,2,[insert,3,[insert,2,[insert,1,'â\x88\\x85\']]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[insert,2,[insert,3,[insert,2,[insert,1,'â\x88\\x85\']]]],[::,1,[::,2,[::,3,'â\x88\\x85\']]]],RET),depth(1))
@@ -1200,147 +735,21 @@ Deterministic: <span class="ansi33">Empty
               -->(2,eval('&self',[insert,3,[insert,2,[insert,1,'â\x88\\x85\']]],RET),depth(5))
                   -->(3,eval('&self',[insert,2,[insert,1,'â\x88\\x85\']],RET),depth(7))
                       -->(4,eval('&self',[insert,1,'â\x88\\x85\'],RET),depth(9))
-                        -->(5,eval('&self',[::,1,'â\x88\\x85\'],RET),depth(10))
-                    -->(6,eval('&self',[if,[==,2,1],[::,1,'â\x88\\x85\'],[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]]],RET),depth(8))
-                        -->(7,eval('&self',[==,2,1],RET),depth(10))
-                        <--(7,retval('False'))
-                        -->(8,eval('&self',[if,['â©»',2,1],[::,2,[::,1,'â\x88\\x85\']],[::,1,[insert,2,'â\x88\\x85\']]],RET),depth(10))
-                            -->(9,eval('&self',['â©»',2,1],RET),depth(12))
-                              -->(10,eval('&self',[<,2,1],RET),depth(13))
-                            -->(11,eval('&self',[::,1,[insert,2,'â\x88\\x85\']],RET),depth(12))
-                                -->(12,eval('&self',[insert,2,'â\x88\\x85\'],RET),depth(14))
-                                  -->(13,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(15))
-                              -->(14,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(13))
-                                  -->(15,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(15))
-                                  -->(16,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(15))
-                                -->(17,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(14))
-                          -->(18,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(11))
-                              -->(19,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(13))
-                              -->(20,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(13))
-                            -->(21,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(12))
-                      -->(22,eval('&self',[::,1,[::,2,'â\x88\\x85\']],RET),depth(9))
-                          -->(23,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                          -->(24,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(11))
-                        -->(25,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(10))
-                      -->(26,eval('&self',[::,2,'â\x88\\x85\'],RET),depth(9))
-                -->(27,eval('&self',[if,[==,3,1],[::,1,[::,2,'â\x88\\x85\']],[if,['â©»',3,1],[::,3,[::,1,[::,2,'â\x88\\x85\']]],[::,1,[insert,3,[::,2,'â\x88\\x85\']]]]],RET),depth(6))
-                    -->(28,eval('&self',[==,3,1],RET),depth(8))
-                    <--(28,retval('False'))
-                    -->(29,eval('&self',[if,['â©»',3,1],[::,3,[::,1,[::,2,'â\x88\\x85\']]],[::,1,[insert,3,[::,2,'â\x88\\x85\']]]],RET),depth(8))
-                        -->(30,eval('&self',['â©»',3,1],RET),depth(10))
-                          -->(31,eval('&self',[<,3,1],RET),depth(11))
-                        -->(32,eval('&self',[::,1,[insert,3,[::,2,'â\x88\\x85\']]],RET),depth(10))
-                            -->(33,eval('&self',[insert,3,[::,2,'â\x88\\x85\']],RET),depth(12))
-                            <--(33,retval([if,[==,3,2],[::,2,'â\x88\\x85\'],[if,['â©»',3,2],[::,3,[::,2,'â\x88\\x85\']],[::,2,[insert,3,'â\x88\\x85\']]]]))
-                              -->(34,eval('&self',[if,[==,3,2],[::,2,'â\x88\\x85\'],[if,['â©»',3,2],[::,3,[::,2,'â\x88\\x85\']],[::,2,[insert,3,'â\x88\\x85\']]]],RET),depth(13))
-                                  -->(35,eval('&self',[==,3,2],RET),depth(15))
-                                  <--(35,retval('False'))
-                                  -->(36,eval('&self',[if,['â©»',3,2],[::,3,[::,2,'â\x88\\x85\']],[::,2,[insert,3,'â\x88\\x85\']]],RET),depth(15))
-                                      -->(37,eval('&self',['â©»',3,2],RET),depth(17))
-                                        -->(38,eval('&self',[<,3,2],RET),depth(18))
-                                      -->(39,eval('&self',[::,2,[insert,3,'â\x88\\x85\']],RET),depth(17))
-                                          -->(40,eval('&self',[insert,3,'â\x88\\x85\'],RET),depth(19))
-                                            -->(41,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(20))
-                                        -->(42,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(18))
-                                            -->(43,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(20))
-                                            -->(44,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(20))
-                                          -->(45,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(19))
-                                    -->(46,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(16))
-                                        -->(47,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(18))
-                                        -->(48,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(18))
-                                      -->(49,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(17))
-                                -->(50,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(14))
-                                    -->(51,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(16))
-                                    -->(52,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(16))
-                                  -->(53,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                                -->(54,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                          -->(55,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(11))
-                              -->(56,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(13))
-                                  -->(57,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                                  -->(58,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                              -->(59,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(13))
-                                  -->(60,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                                  -->(61,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                            -->(62,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(12))
-                                -->(63,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                                -->(64,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(14))
-                      -->(65,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(9))
-                          -->(66,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(67,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(68,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                          -->(69,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(11))
-                              -->(70,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                              -->(71,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(13))
-                        -->(72,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(10))
-                            -->(73,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                            -->(74,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(12))
-                  -->(75,eval('&self',[::,1,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(7))
-                      -->(76,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(77,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(78,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                      -->(79,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(9))
-                          -->(80,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                          -->(81,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(11))
-                    -->(82,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(8))
-                        -->(83,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                        -->(84,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(10))
-                  -->(85,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(7))
-                      -->(86,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-                      -->(87,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(9))
-            -->(88,eval('&self',[if,[==,2,1],[::,1,[::,2,[::,3,'â\x88\\x85\']]],[if,['â©»',2,1],[::,2,[::,1,[::,2,[::,3,'â\x88\\x85\']]]],[::,1,[insert,2,[::,2,[::,3,'â\x88\\x85\']]]]]],RET),depth(4))
-                -->(89,eval('&self',[==,2,1],RET),depth(6))
-                <--(89,retval('False'))
-                -->(90,eval('&self',[if,['â©»',2,1],[::,2,[::,1,[::,2,[::,3,'â\x88\\x85\']]]],[::,1,[insert,2,[::,2,[::,3,'â\x88\\x85\']]]]],RET),depth(6))
-                    -->(91,eval('&self',['â©»',2,1],RET),depth(8))
-                      -->(92,eval('&self',[<,2,1],RET),depth(9))
-                    -->(93,eval('&self',[::,1,[insert,2,[::,2,[::,3,'â\x88\\x85\']]]],RET),depth(8))
-                        -->(94,eval('&self',[insert,2,[::,2,[::,3,'â\x88\\x85\']]],RET),depth(10))
-                        <--(94,retval([if,[==,2,2],[::,2,[::,3,'â\x88\\x85\']],[if,['â©»',2,2],[::,2,[::,2,[::,3,'â\x88\\x85\']]],[::,2,[insert,2,[::,3,'â\x88\\x85\']]]]]))
-                          -->(95,eval('&self',[if,[==,2,2],[::,2,[::,3,'â\x88\\x85\']],[if,['â©»',2,2],[::,2,[::,2,[::,3,'â\x88\\x85\']]],[::,2,[insert,2,[::,3,'â\x88\\x85\']]]]],RET),depth(11))
-                              -->(96,eval('&self',[==,2,2],RET),depth(13))
-                              <--(96,retval('True'))
-                              -->(97,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(13))
-                                  -->(98,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                                  -->(99,eval('&self',[::,3,'â\x88\\x85\'],RET),depth(15))
-                          <--(95,retval([::,2,[::,3,'â\x88\\x85\']]))
-                            -->(100,eval('&self',[::,2,[::,3,'â\x88\\x85\']],RET),depth(12))
+                          -->(5,eval('&self',1,RET),depth(11))
+                          -->(6,eval('&self','â\x88\\x85\',RET),depth(11))
+                          -->(7,eval('&self',::,RET),depth(11))
+                          -->(8,eval('&self',1,RET),depth(11))
+                          -->(9,eval('&self','â\x88\\x85\',RET),depth(11))
+                      <--(4,retval([::,1,'â\x88\\x85\']))
 Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 0.191 secs. (191.24 milliseconds) 
-<span class="ansi36">(@ loonit_success 
-  (equal_enough_for_test  
-    ( (:: 1 
-        (:: 2 
-          (:: 3 â)))) 
-    ( (:: 1 
-        (:: 2 
-          (:: 3 â))))))
+; took 0.069 secs. (69.18 milliseconds) 
+<span class="ansi36">(loonit_success (equal_enough_for_test  ((:: 1 (:: 2 (:: 3 â)))) ((:: 1 (:: 2 (:: 3 â))))))
 </span>Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual 
-  (insert 
-    (S Z) 
-    (insert 
-      (S 
-        (S Z)) 
-      (insert 
-        (S Z) 
-        (insert Z â)))) 
-  (:: Z 
-    (:: 
-      (S Z) 
-      (:: 
-        (S 
-          (S Z)) â))))
+</span><span class="ansi38-013099040">!(assertEqual (insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z â)))) (:: Z (:: (S Z) (:: (S (S Z)) â))))
 
-</span><span class="ansi38-250144246">; !(insert 
-  (S Z) 
-  (insert 
-    (S 
-      (S Z)) 
-    (insert 
-      (S Z) 
-      (insert Z â))))
+</span><span class="ansi38-250144246">; !(insert (S Z) (insert (S (S Z)) (insert (S Z) (insert Z â))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[insert,['S','Z'],[insert,['S',['S','Z']],[insert,['S','Z'],[insert,'Z','â\x88\\x85\']]]],OUT).
 
 </span>      -->(0,eval('&self',[assertEqual,[insert,['S','Z'],[insert,['S',['S','Z']],[insert,['S','Z'],[insert,'Z','â\x88\\x85\']]]],[::,'Z',[::,['S','Z'],[::,['S',['S','Z']],'â\x88\\x85\']]]],RET),depth(1))
@@ -1349,453 +758,22 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101));
               -->(2,eval('&self',[insert,['S',['S','Z']],[insert,['S','Z'],[insert,'Z','â\x88\\x85\']]],RET),depth(5))
                   -->(3,eval('&self',[insert,['S','Z'],[insert,'Z','â\x88\\x85\']],RET),depth(7))
                       -->(4,eval('&self',[insert,'Z','â\x88\\x85\'],RET),depth(9))
-                        -->(5,eval('&self',[::,'Z','â\x88\\x85\'],RET),depth(10))
-                    -->(6,eval('&self',[if,[==,['S','Z'],'Z'],[::,'Z','â\x88\\x85\'],[if,['â©»',['S','Z'],'Z'],[::,['S','Z'],[::,'Z','â\x88\\x85\']],[::,'Z',[insert,['S','Z'],'â\x88\\x85\']]]],RET),depth(8))
-                        -->(7,eval('&self',[==,['S','Z'],'Z'],RET),depth(10))
-                            -->(8,eval('&self',['S','Z'],RET),depth(12))
-                        <--(7,retval('False'))
-                        -->(9,eval('&self',[if,['â©»',['S','Z'],'Z'],[::,['S','Z'],[::,'Z','â\x88\\x85\']],[::,'Z',[insert,['S','Z'],'â\x88\\x85\']]],RET),depth(10))
-                            -->(10,eval('&self',['â©»',['S','Z'],'Z'],RET),depth(12))
-                            -->(11,eval('&self',[::,'Z',[insert,['S','Z'],'â\x88\\x85\']],RET),depth(12))
-                                -->(12,eval('&self',[insert,['S','Z'],'â\x88\\x85\'],RET),depth(14))
-                                  -->(13,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(15))
-                                      -->(14,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(15,eval('&self',['S','Z'],RET),depth(17))
-                                    -->(16,eval('&self',['S','Z'],RET),depth(16))
-                              -->(17,eval('&self',[::,'Z',[::,['S','Z'],'â\x88\\x85\']],RET),depth(13))
-                                  -->(18,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(15))
-                                      -->(19,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(20,eval('&self',['S','Z'],RET),depth(17))
-                                  -->(21,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(15))
-                                      -->(22,eval('&self',['S','Z'],RET),depth(17))
-                                      -->(23,eval('&self',['S','Z'],RET),depth(17))
-                                -->(24,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(14))
-                                    -->(25,eval('&self',['S','Z'],RET),depth(16))
-                                    -->(26,eval('&self',['S','Z'],RET),depth(16))
-                          -->(27,eval('&self',[::,'Z',[::,['S','Z'],'â\x88\\x85\']],RET),depth(11))
-                              -->(28,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(13))
-                                  -->(29,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(30,eval('&self',['S','Z'],RET),depth(15))
-                              -->(31,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(13))
-                                  -->(32,eval('&self',['S','Z'],RET),depth(15))
-                                  -->(33,eval('&self',['S','Z'],RET),depth(15))
-                            -->(34,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(12))
-                                -->(35,eval('&self',['S','Z'],RET),depth(14))
-                                -->(36,eval('&self',['S','Z'],RET),depth(14))
-                      -->(37,eval('&self',[::,'Z',[::,['S','Z'],'â\x88\\x85\']],RET),depth(9))
-                          -->(38,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(11))
-                              -->(39,eval('&self',['S','Z'],RET),depth(13))
-                              -->(40,eval('&self',['S','Z'],RET),depth(13))
-                          -->(41,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(11))
-                              -->(42,eval('&self',['S','Z'],RET),depth(13))
-                              -->(43,eval('&self',['S','Z'],RET),depth(13))
-                        -->(44,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(10))
-                            -->(45,eval('&self',['S','Z'],RET),depth(12))
-                            -->(46,eval('&self',['S','Z'],RET),depth(12))
-                      -->(47,eval('&self',[::,['S','Z'],'â\x88\\x85\'],RET),depth(9))
-                          -->(48,eval('&self',['S','Z'],RET),depth(11))
-                          -->(49,eval('&self',['S','Z'],RET),depth(11))
-                -->(50,eval('&self',[if,[==,['S',['S','Z']],'Z'],[::,'Z',[::,['S','Z'],'â\x88\\x85\']],[if,['â©»',['S',['S','Z']],'Z'],[::,['S',['S','Z']],[::,'Z',[::,['S','Z'],'â\x88\\x85\']]],[::,'Z',[insert,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']]]]],RET),depth(6))
-                    -->(51,eval('&self',[==,['S',['S','Z']],'Z'],RET),depth(8))
-                        -->(52,eval('&self',['S',['S','Z']],RET),depth(10))
-                            -->(53,eval('&self',['S','Z'],RET),depth(12))
-                            -->(54,eval('&self',['S','Z'],RET),depth(12))
-                    <--(51,retval('False'))
-                    -->(55,eval('&self',[if,['â©»',['S',['S','Z']],'Z'],[::,['S',['S','Z']],[::,'Z',[::,['S','Z'],'â\x88\\x85\']]],[::,'Z',[insert,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']]]],RET),depth(8))
-                        -->(56,eval('&self',['â©»',['S',['S','Z']],'Z'],RET),depth(10))
-                        -->(57,eval('&self',[::,'Z',[insert,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']]],RET),depth(10))
-                            -->(58,eval('&self',[insert,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']],RET),depth(12))
-                            <--(58,retval([if,[==,['S',['S','Z']],['S','Z']],[::,['S','Z'],'â\x88\\x85\'],[if,['â©»',['S',['S','Z']],['S','Z']],[::,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']],[::,['S','Z'],[insert,['S',['S','Z']],'â\x88\\x85\']]]]))
-                              -->(59,eval('&self',[if,[==,['S',['S','Z']],['S','Z']],[::,['S','Z'],'â\x88\\x85\'],[if,['â©»',['S',['S','Z']],['S','Z']],[::,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']],[::,['S','Z'],[insert,['S',['S','Z']],'â\x88\\x85\']]]],RET),depth(13))
-                                  -->(60,eval('&self',[==,['S',['S','Z']],['S','Z']],RET),depth(15))
-                                      -->(61,eval('&self',['S',['S','Z']],RET),depth(17))
-                                          -->(62,eval('&self',['S','Z'],RET),depth(19))
-                                          -->(63,eval('&self',['S','Z'],RET),depth(19))
-                                      -->(64,eval('&self',['S','Z'],RET),depth(17))
-                                  <--(60,retval('False'))
-                                  -->(65,eval('&self',[if,['â©»',['S',['S','Z']],['S','Z']],[::,['S',['S','Z']],[::,['S','Z'],'â\x88\\x85\']],[::,['S','Z'],[insert,['S',['S','Z']],'â\x88\\x85\']]],RET),depth(15))
-                                      -->(66,eval('&self',['â©»',['S',['S','Z']],['S','Z']],RET),depth(17))
-                                        -->(67,eval('&self',['â©»',['S','Z'],'Z'],RET),depth(18))
-                                      -->(68,eval('&self',[::,['S','Z'],[insert,['S',['S','Z']],'â\x88\\x85\']],RET),depth(17))
-                                          -->(69,eval('&self',['S','Z'],RET),depth(19))
-                                          -->(70,eval('&self',[insert,['S',['S','Z']],'â\x88\\x85\'],RET),depth(19))
-                                            -->(71,eval('&self',[::,['S',['S','Z']],'â\x88\\x85\'],RET),depth(20))
-                                                -->(72,eval('&self',['S',['S','Z']],RET),depth(22))
-                                                    -->(73,eval('&self',['S','Z'],RET),depth(24))
-                                                    -->(74,eval('&self',['S','Z'],RET),depth(24))
-                                                -->(75,eval('&self',['S',['S','Z']],RET),depth(22))
-                                                    -->(76,eval('&self',['S','Z'],RET),depth(24))
-                                                    -->(77,eval('&self',['S','Z'],RET),depth(24))
-                                              -->(78,eval('&self',['S',['S','Z']],RET),depth(21))
-                                                  -->(79,eval('&self',['S','Z'],RET),depth(23))
-                                                  -->(80,eval('&self',['S','Z'],RET),depth(23))
-                                        -->(81,eval('&self',[::,['S','Z'],[::,['S',['S','Z']],'â\x88\\x85\']],RET),depth(18))
-                                            -->(82,eval('&self',['S','Z'],RET),depth(20))
-                                            -->(83,eval('&self',[::,['S',['S','Z']],'â\x88\\x85\'],RET),depth(20))
-                                                -->(84,eval('&self',['S',['S','Z']],RET),depth(22))
-                                                    -->(85,eval('&self',['S','Z'],RET),depth(24))
-                                                    -->(86,eval('&self',['S','Z'],RET),depth(24))
-                                                -->(87,eval('&self',['S',['S','Z']],RET),depth(22))
-                                                    -->(88,eval('&self',['S','Z'],RET),depth(24))
-                                                    -->(89,eval('&self',['S','Z'],RET),depth(24))
-                                            -->(90,eval('&self',['S','Z'],RET),depth(20))
-                                            -->(91,eval('&self',[::,['S',['S','Z']],'â\x88\\x85\'],RET),depth(20))
-                                                -->(92,eval('&self',['S',['S','Z']],RET),depth(22))
-                                                    -->(93,eval('&self',['S','Z'],RET),depth(24))
-                                                    -->(94,eval('&self',['S','Z'],RET),depth(24))
-                                                -->(95,eval('&self',['S',['S','Z']],RET),depth(22))
-                                                    -->(96,eval('&self',['S','Z'],RET),depth(24))
-                                                    -->(97,eval('&self',['S','Z'],RET),depth(24))
-                                          -->(98,eval('&self',['S','Z'],RET),depth(19))
-                                          -->(99,eval('&self',[::,['S',['S','Z']],'â\x88\\x85\'],RET),depth(19))
-                                              -->(100,eval('&self',['S',['S','Z']],RET),depth(21))
+                          -->(5,eval('&self','Z',RET),depth(11))
+                          -->(6,eval('&self','â\x88\\x85\',RET),depth(11))
+                          -->(7,eval('&self',::,RET),depth(11))
+                          -->(8,eval('&self','Z',RET),depth(11))
+                          -->(9,eval('&self','â\x88\\x85\',RET),depth(11))
+                      <--(4,retval([::,'Z','â\x88\\x85\']))
+                  <--(3,retval([::,'Z','â\x88\\x85\']))
 Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
 ; EVAL TEST
-; took 5.26 seconds.
-<span class="ansi31">(@ loonit_failureR 
-  (equal_enough_for_test  
-    ( (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) â))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S Z) 
-            (:: 
-              (S 
-                (S Z)) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S 
-              (S Z)) â))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z â))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â))))) 
-    ( (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) â))))))
+; took 0.047 secs. (46.96 milliseconds) 
+<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((:: Z â)) ((:: Z (:: (S Z) (:: (S (S Z)) â))))))
 </span>Deterministic: <span class="ansi33">
-  (got 
-    ( (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) â))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S Z) 
-            (:: 
-              (S 
-                (S Z)) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S 
-              (S Z)) 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z 
-            (:: 
-              (S Z) â)))) 
-      (:: 
-        (S Z) 
-        (:: Z 
-          (:: 
-            (S 
-              (S Z)) â))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: Z â))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â)))) 
-      (:: 
-        (S Z) 
-        (:: 
-          (S 
-            (S Z)) 
-          (:: 
-            (S Z) 
-            (:: Z â))))) 
-    ( (expected  $_3230)) 
-    ( (:: Z 
-        (:: 
-          (S Z) 
-          (:: 
-            (S 
-              (S Z)) â)))))
+(got ((:: Z â)) ((expected  $_332358)) ((:: Z (:: (S Z) (:: (S (S Z)) â)))))
 
-</span><span class="ansi32">% 69,784,960 inferences, 10.602 CPU in 10.604 seconds (100% CPU, 6582107 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/OrderedSetTest.metta" 0)
+</span><span class="ansi32">% 2,361,259 inferences, 1.209 CPU in 1.299 seconds (93% CPU, 1953383 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/OrderedSetTest.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 11

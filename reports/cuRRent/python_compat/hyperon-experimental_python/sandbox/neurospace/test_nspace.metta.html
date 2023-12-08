@@ -96,28 +96,77 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
- (@ track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta")
+ (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta")
 %~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta')
-1=[(Error (extend-py! neurospace) Exception caught:
-1=KeyError: 'OPENAI_API_KEY'
-1=
-1=At:
-1=  <frozen os>(679): __getitem__
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/sandbox/neurospace/neurospace.py(6): <module>
-1=  <frozen importlib._bootstrap>(241): _call_with_frames_removed
-1=  <frozen importlib._bootstrap_external>(940): exec_module
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(165): load_py_module_from_path
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(154): load_py_module_from_mod_or_file
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(78): <lambda>
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(320): execute
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/atoms.py(167): _priv_call_execute_on_grounded_atom
-1=  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/hyperon-experimental/python/hyperon/runner.py(31): run_step
-1=  (18): run_step
-1=)]
-1=0.31user 0.04system 0:00.36elapsed 99%CPU (0avgtext+0avgdata 67584maxresident)k
-1=0inputs+16outputs (0major+9867minor)pagefaults 0swaps
+1=thread 'main' panicked at src/metta_shim.rs:168:20:
+1=called `Result::unwrap()` on an `Err` value: PyErr { type: <class 'openai.error.AuthenticationError'>, value: AuthenticationError(message='Incorrect API key provided: freeve. You can find your API key at https://platform.openai.com/account/api-keys.', http_status=401, request_id=None), traceback: Some(<traceback object at 0x7f2c53265880>) }
+1=stack backtrace:
+1=   0:     0x55c52e94ed3c - std::backtrace_rs::backtrace::libunwind::trace::h67a838aed1f4d6ec
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/../../backtrace/src/backtrace/libunwind.rs:93:5
+1=   1:     0x55c52e94ed3c - std::backtrace_rs::backtrace::trace_unsynchronized::h1d1786bb1962baf8
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5
+1=   2:     0x55c52e94ed3c - std::sys_common::backtrace::_print_fmt::h5a0b1f807a002d23
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/sys_common/backtrace.rs:67:5
+1=   3:     0x55c52e94ed3c - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hf84ab6ad0b91784c
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/sys_common/backtrace.rs:44:22
+1=   4:     0x55c52e97185c - core::fmt::rt::Argument::fmt::h28f463bd1fdabed5
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/core/src/fmt/rt.rs:138:9
+1=   5:     0x55c52e97185c - core::fmt::write::ha37c23b175e921b3
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/core/src/fmt/mod.rs:1114:21
+1=   6:     0x55c52e94beee - std::io::Write::write_fmt::haa1b000741bcbbe1
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/io/mod.rs:1763:15
+1=   7:     0x55c52e94eb24 - std::sys_common::backtrace::_print::h1ff1030b04dfb157
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/sys_common/backtrace.rs:47:5
+1=   8:     0x55c52e94eb24 - std::sys_common::backtrace::print::hb982056c6f29541c
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/sys_common/backtrace.rs:34:9
+1=   9:     0x55c52e9500a3 - std::panicking::default_hook::{{closure}}::h11f92f82c62fbd68
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:272:22
+1=  10:     0x55c52e94fdc4 - std::panicking::default_hook::hb8810fe276772c66
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:292:9
+1=  11:     0x55c52e950625 - std::panicking::rust_panic_with_hook::hd2f0efd2fec86cb0
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:731:13
+1=  12:     0x55c52e950521 - std::panicking::begin_panic_handler::{{closure}}::h3651b7fc4f61d784
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:609:13
+1=  13:     0x55c52e94f266 - std::sys_common::backtrace::__rust_end_short_backtrace::hbc468e4b98c7ae04
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/sys_common/backtrace.rs:170:18
+1=  14:     0x55c52e950272 - rust_begin_unwind
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:597:5
+1=  15:     0x55c52e7a7545 - core::panicking::panic_fmt::h979245e2fdb2fabd
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/core/src/panicking.rs:72:14
+1=  16:     0x55c52e7a79e3 - core::result::unwrap_failed::h8c4b86241881fbbb
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/core/src/result.rs:1652:5
+1=  17:     0x55c52e7b8318 - metta::metta_shim::metta_interface_mod::MettaShim::exec::he664f34e01237be7
+1=  18:     0x55c52e7bd52c - metta::main::h4061cff84c875f01
+1=  19:     0x55c52e7c4f93 - std::sys_common::backtrace::__rust_begin_short_backtrace::h9ba8fef5bf9c9a16
+1=  20:     0x55c52e7ca36d - std::rt::lang_start::{{closure}}::h44f0433eb5c0c983
+1=  21:     0x55c52e94665b - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hf9057cfaeeb252e2
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/core/src/ops/function.rs:284:13
+1=  22:     0x55c52e94665b - std::panicking::try::do_call::h629e203a624883e4
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:504:40
+1=  23:     0x55c52e94665b - std::panicking::try::h7b61614724d6a4f1
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:468:19
+1=  24:     0x55c52e94665b - std::panic::catch_unwind::h354ac1c0268491d8
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panic.rs:142:14
+1=  25:     0x55c52e94665b - std::rt::lang_start_internal::{{closure}}::h919fee3c5ba8f617
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/rt.rs:148:48
+1=  26:     0x55c52e94665b - std::panicking::try::do_call::h54583f67455bff32
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:504:40
+1=  27:     0x55c52e94665b - std::panicking::try::hb0e12c4e01d39dc2
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panicking.rs:468:19
+1=  28:     0x55c52e94665b - std::panic::catch_unwind::h367b6339e3ca9a3b
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/panic.rs:142:14
+1=  29:     0x55c52e94665b - std::rt::lang_start_internal::ha5ce8533eaa0fda8
+1=                               at /rustc/79e9716c980570bfd1f666e3b16ac583f0168962/library/std/src/rt.rs:148:20
+1=  30:     0x55c52e7bf8d5 - main
+1=  31:     0x7f2c572f018a - <unknown>
+1=  32:     0x7f2c572f0245 - __libc_start_main
+1=  33:     0x55c52e7a7ca1 - _start
+1=  34:                0x0 - <unknown>
+1=Command exited with non-zero status 101
+1=0.43user 0.04system 0:00.71elapsed 67%CPU (0avgtext+0avgdata 77332maxresident)k
+1=16248inputs+0outputs (82major+11083minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
 
@@ -127,174 +176,154 @@
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['extend-py!',neurospace],OUT).
 
 </span>      -->(0,eval('&self',['extend-py!',neurospace],RET),depth(1))
+        -->(1,eval('&self',neurospace,RET),depth(2))
+        -->(2,eval('&self','extend-py!',RET),depth(2))
+        -->(3,eval('&self',neurospace,RET),depth(2))
+          -->(4,eval('&self','extend-py!',RET),depth(3))
+          -->(5,eval('&self',neurospace,RET),depth(3))
 Deterministic: <span class="ansi33">
-  (extend-py! neurospace)
+(extend-py! neurospace)
 
-</span><span class="ansi38-013099040">!(let $Space 
-  (new-neural-space) 
-  (add-atom &self 
-    (= 
-      (my-nspace) $Space)))
+</span><span class="ansi38-013099040">!(let $Space (new-neural-space) (add-atom &self (= (my-nspace) $Space)))
 
-</span><span class="ansi38-250144246">; !(let $Space 
-  (new-neural-space) 
-  (add-atom &self 
-    (= 
-      (my-nspace) $Space)))
+</span><span class="ansi38-250144246">; !(let $Space (new-neural-space) (add-atom &self (= (my-nspace) $Space)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,Space,['new-neural-space'],['add-atom','&self',[=,['my-nspace'],Space]]],OUT).
 
-</span>      -->(0,eval('&self',[let,_173350,['new-neural-space'],['add-atom','&self',[=,['my-nspace'],_173350]]],RET),depth(1))
+</span>      -->(0,eval('&self',[let,_378180,['new-neural-space'],['add-atom','&self',[=,['my-nspace'],_378180]]],RET),depth(1))
           -->(1,eval('&self',['new-neural-space'],RET),depth(3))
-          -->(2,eval('&self',['add-atom','&self',[=,['my-nspace'],['new-neural-space']]],RET),depth(3))
+            -->(2,eval('&self','new-neural-space',RET),depth(4))
+              -->(3,eval('&self','new-neural-space',RET),depth(5))
+          -->(4,eval('&self',['add-atom','&self',[=,['my-nspace'],['new-neural-space']]],RET),depth(3))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['my-nspace'],['new-neural-space']])
-</span><span class="ansi38-255165000">  (= 
-    (my-nspace) 
-    (new-neural-space))
+</span><span class="ansi38-255165000">(= (my-nspace) (new-neural-space))
 </span>
 
-          <--(2,retval('Empty'))
+              -->(5,eval('&self','Empty',RET),depth(5))
+          <--(4,retval('Empty'))
+          -->(6,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">$Space = 
-  (new-neural-space)
+</span><span class="ansi32">$Space = (new-neural-space)
 
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-nspace) 
-  (The user name is William))
+</span><span class="ansi38-013099040">!(add-atom (my-nspace) (The user name is William))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-nspace) 
-  (The user name is William))
+</span><span class="ansi38-250144246">; !(add-atom (my-nspace) (The user name is William))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-nspace'],['The',user,name,is,'William']],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-nspace'],['The',user,name,is,'William']],RET),depth(1))
           -->(1,eval('&self',['my-nspace'],RET),depth(3))
+              -->(2,eval('&self','new-neural-space',RET),depth(5))
+                -->(3,eval('&self','new-neural-space',RET),depth(6))
+              -->(4,eval('&self','new-neural-space',RET),depth(5))
           <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-neural-space'],['The',user,name,is,'William'])
-</span><span class="ansi38-255165000">  (The user name is William)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-neural-space) 
-    (The user name is William))
+</span><span class="ansi38-255165000">(The user name is William)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-neural-space) (The user name is William))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-nspace) 
-  (William is 26 years old))
+</span><span class="ansi38-013099040">!(add-atom (my-nspace) (William is 26 years old))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-nspace) 
-  (William is 26 years old))
+</span><span class="ansi38-250144246">; !(add-atom (my-nspace) (William is 26 years old))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-nspace'],['William',is,26,years,old]],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-nspace'],['William',is,26,years,old]],RET),depth(1))
           -->(1,eval('&self',['my-nspace'],RET),depth(3))
+              -->(2,eval('&self','new-neural-space',RET),depth(5))
+                -->(3,eval('&self','new-neural-space',RET),depth(6))
+              -->(4,eval('&self','new-neural-space',RET),depth(5))
           <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-neural-space'],['William',is,26,years,old])
-</span><span class="ansi38-255165000">  (William is 26 years old)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-neural-space) 
-    (William is 26 years old))
+</span><span class="ansi38-255165000">(William is 26 years old)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-neural-space) (William is 26 years old))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-nspace) 
-  (William has 2 brothers))
+</span><span class="ansi38-013099040">!(add-atom (my-nspace) (William has 2 brothers))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-nspace) 
-  (William has 2 brothers))
+</span><span class="ansi38-250144246">; !(add-atom (my-nspace) (William has 2 brothers))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-nspace'],['William',has,2,brothers]],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-nspace'],['William',has,2,brothers]],RET),depth(1))
           -->(1,eval('&self',['my-nspace'],RET),depth(3))
+              -->(2,eval('&self','new-neural-space',RET),depth(5))
+                -->(3,eval('&self','new-neural-space',RET),depth(6))
+              -->(4,eval('&self','new-neural-space',RET),depth(5))
           <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-neural-space'],['William',has,2,brothers])
-</span><span class="ansi38-255165000">  (William has 2 brothers)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-neural-space) 
-    (William has 2 brothers))
+</span><span class="ansi38-255165000">(William has 2 brothers)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-neural-space) (William has 2 brothers))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-nspace) 
-  (Brothers names are Mike and Nick))
+</span><span class="ansi38-013099040">!(add-atom (my-nspace) (Brothers names are Mike and Nick))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-nspace) 
-  (Brothers names are Mike and Nick))
+</span><span class="ansi38-250144246">; !(add-atom (my-nspace) (Brothers names are Mike and Nick))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-nspace'],['Brothers',names,are,'Mike',and,'Nick']],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-nspace'],['Brothers',names,are,'Mike',and,'Nick']],RET),depth(1))
           -->(1,eval('&self',['my-nspace'],RET),depth(3))
+              -->(2,eval('&self','new-neural-space',RET),depth(5))
+                -->(3,eval('&self','new-neural-space',RET),depth(6))
+              -->(4,eval('&self','new-neural-space',RET),depth(5))
           <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-neural-space'],['Brothers',names,are,'Mike',and,'Nick'])
-</span><span class="ansi38-255165000">  (Brothers names are Mike and Nick)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-neural-space) 
-    (Brothers names are Mike and Nick))
+</span><span class="ansi38-255165000">(Brothers names are Mike and Nick)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-neural-space) (Brothers names are Mike and Nick))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-nspace) 
-  (Nick is 3 years older than William))
+</span><span class="ansi38-013099040">!(add-atom (my-nspace) (Nick is 3 years older than William))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-nspace) 
-  (Nick is 3 years older than William))
+</span><span class="ansi38-250144246">; !(add-atom (my-nspace) (Nick is 3 years older than William))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-nspace'],['Nick',is,3,years,older,than,'William']],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-nspace'],['Nick',is,3,years,older,than,'William']],RET),depth(1))
           -->(1,eval('&self',['my-nspace'],RET),depth(3))
+              -->(2,eval('&self','new-neural-space',RET),depth(5))
+                -->(3,eval('&self','new-neural-space',RET),depth(6))
+              -->(4,eval('&self','new-neural-space',RET),depth(5))
           <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-neural-space'],['Nick',is,3,years,older,than,'William'])
-</span><span class="ansi38-255165000">  (Nick is 3 years older than William)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-neural-space) 
-    (Nick is 3 years older than William))
+</span><span class="ansi38-255165000">(Nick is 3 years older than William)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-neural-space) (Nick is 3 years older than William))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-nspace) 
-  (Mike is 5 years younger than Nick))
+</span><span class="ansi38-013099040">!(add-atom (my-nspace) (Mike is 5 years younger than Nick))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-nspace) 
-  (Mike is 5 years younger than Nick))
+</span><span class="ansi38-250144246">; !(add-atom (my-nspace) (Mike is 5 years younger than Nick))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-nspace'],['Mike',is,5,years,younger,than,'Nick']],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-nspace'],['Mike',is,5,years,younger,than,'Nick']],RET),depth(1))
           -->(1,eval('&self',['my-nspace'],RET),depth(3))
+              -->(2,eval('&self','new-neural-space',RET),depth(5))
+                -->(3,eval('&self','new-neural-space',RET),depth(6))
+              -->(4,eval('&self','new-neural-space',RET),depth(5))
           <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-neural-space'],['Mike',is,5,years,younger,than,'Nick'])
-</span><span class="ansi38-255165000">  (Mike is 5 years younger than Nick)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-neural-space) 
-    (Mike is 5 years younger than Nick))
+</span><span class="ansi38-255165000">(Mike is 5 years younger than Nick)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-neural-space) (Mike is 5 years younger than Nick))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -304,128 +333,95 @@ Deterministic: <span class="ansi33">Empty
 ;; !(match (my-nspace) (What $x is father name) $x)
 ;; !(match (my-nspace) (What $x is Mike age) $x)
 ;; (match (my-nspace) (What are the names $x of William brothers?) $x)
- <span class="ansi38-013099040">!(match 
-  (my-nspace) 
-  (What are the names $X of William brothers?) 
-  (let $Query 
-    (How old $Z is $X ?) 
-    (match 
-      (my-nspace) $Query 
-      ($X is $Z years old))))
+ <span class="ansi38-013099040">!(match (my-nspace) (What are the names $X of William brothers?) (let $Query (How old $Z is $X ?) (match (my-nspace) $Query ($X is $Z years old))))
 
-</span><span class="ansi38-250144246">; !(match 
-  (my-nspace) 
-  (What are the names $X of William brothers?) 
-  (let $Query 
-    (How old $Z is $X ?) 
-    (match 
-      (my-nspace) $Query 
-      ($X is $Z years old))))
+</span><span class="ansi38-250144246">; !(match (my-nspace) (What are the names $X of William brothers?) (let $Query (How old $Z is $X ?) (match (my-nspace) $Query ($X is $Z years old))))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,['my-nspace'],['What',are,the,names,X,of,'William','brothers?'],[let,Query,['How',old,Z,is,X,?],[match,['my-nspace'],Query,[X,is,Z,years,old]]]],OUT).
 
-</span>      -->(0,eval('&self',[match,['my-nspace'],['What',are,the,names,_82750,of,'William','brothers?'],[let,_83074,['How',old,_83406,is,_82750,?],[match,['my-nspace'],_83074,[_82750,is,_83406,years,old]]]],RET),depth(1))
-          -->(1,eval('&self',['my-nspace'],RET),depth(3))
-          <--(1,retval(['new-neural-space']))
-            -->(2,eval('&self',['new-neural-space'],RET),depth(4))
+</span>      -->(0,eval('&self',[match,['my-nspace'],['What',are,the,names,_87978,of,'William','brothers?'],[let,_88302,['How',old,_88634,is,_87978,?],[match,['my-nspace'],_88302,[_87978,is,_88634,years,old]]]],RET),depth(1))
       <--(0,retval(fail))
 ;; It is a sort of negative example: intents would better work as a function,
 ;; because the variable name is not in the pattern
-<span class="ansi38-013099040">!(let $Space 
-  (new-intent-space) 
-  (add-atom &self 
-    (= 
-      (my-ispace) $Space)))
+<span class="ansi38-013099040">!(let $Space (new-intent-space) (add-atom &self (= (my-ispace) $Space)))
 
-</span><span class="ansi38-250144246">; !(let $Space 
-  (new-intent-space) 
-  (add-atom &self 
-    (= 
-      (my-ispace) $Space)))
+</span><span class="ansi38-250144246">; !(let $Space (new-intent-space) (add-atom &self (= (my-ispace) $Space)))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,Space,['new-intent-space'],['add-atom','&self',[=,['my-ispace'],Space]]],OUT).
 
-</span>      -->(0,eval('&self',[let,_121432,['new-intent-space'],['add-atom','&self',[=,['my-ispace'],_121432]]],RET),depth(1))
+</span>      -->(0,eval('&self',[let,_107436,['new-intent-space'],['add-atom','&self',[=,['my-ispace'],_107436]]],RET),depth(1))
           -->(1,eval('&self',['new-intent-space'],RET),depth(3))
-          -->(2,eval('&self',['add-atom','&self',[=,['my-ispace'],['new-intent-space']]],RET),depth(3))
+            -->(2,eval('&self','new-intent-space',RET),depth(4))
+              -->(3,eval('&self','new-intent-space',RET),depth(5))
+          -->(4,eval('&self',['add-atom','&self',[=,['my-ispace'],['new-intent-space']]],RET),depth(3))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['my-ispace'],['new-intent-space']])
-</span><span class="ansi38-255165000">  (= 
-    (my-ispace) 
-    (new-intent-space))
+</span><span class="ansi38-255165000">(= (my-ispace) (new-intent-space))
 </span>
 
-          <--(2,retval('Empty'))
+              -->(5,eval('&self','Empty',RET),depth(5))
+          <--(4,retval('Empty'))
+          -->(6,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">$Space = 
-  (new-intent-space)
+</span><span class="ansi32">$Space = (new-intent-space)
 
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-ispace) 
-  (lunch-ordering))
+</span><span class="ansi38-013099040">!(add-atom (my-ispace) (lunch-ordering))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-ispace) 
-  (lunch-ordering))
+</span><span class="ansi38-250144246">; !(add-atom (my-ispace) (lunch-ordering))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-ispace'],['lunch-ordering']],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-ispace'],['lunch-ordering']],RET),depth(1))
           -->(1,eval('&self',['my-ispace'],RET),depth(3))
+              -->(2,eval('&self','new-intent-space',RET),depth(5))
+                -->(3,eval('&self','new-intent-space',RET),depth(6))
+              -->(4,eval('&self','new-intent-space',RET),depth(5))
           <--(1,retval(['new-intent-space']))
-            -->(2,eval('&self',['new-intent-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-intent-space'],['lunch-ordering'])
-</span><span class="ansi38-255165000">  (lunch-ordering)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-intent-space) 
-    (lunch-ordering))
+</span><span class="ansi38-255165000">(lunch-ordering)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-intent-space) (lunch-ordering))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-ispace) 
-  (hobby))
+</span><span class="ansi38-013099040">!(add-atom (my-ispace) (hobby))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-ispace) 
-  (hobby))
+</span><span class="ansi38-250144246">; !(add-atom (my-ispace) (hobby))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-ispace'],[hobby]],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-ispace'],[hobby]],RET),depth(1))
           -->(1,eval('&self',['my-ispace'],RET),depth(3))
+              -->(2,eval('&self','new-intent-space',RET),depth(5))
+                -->(3,eval('&self','new-intent-space',RET),depth(6))
+              -->(4,eval('&self','new-intent-space',RET),depth(5))
           <--(1,retval(['new-intent-space']))
-            -->(2,eval('&self',['new-intent-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-intent-space'],[hobby])
-</span><span class="ansi38-255165000">  (hobby)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-intent-space) 
-    (hobby))
+</span><span class="ansi38-255165000">(hobby)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-intent-space) (hobby))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom 
-  (my-ispace) 
-  (user))
+</span><span class="ansi38-013099040">!(add-atom (my-ispace) (user))
 
-</span><span class="ansi38-250144246">; !(add-atom 
-  (my-ispace) 
-  (user))
+</span><span class="ansi38-250144246">; !(add-atom (my-ispace) (user))
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom',['my-ispace'],[user]],OUT).
 
 </span>      -->(0,eval('&self',['add-atom',['my-ispace'],[user]],RET),depth(1))
           -->(1,eval('&self',['my-ispace'],RET),depth(3))
+              -->(2,eval('&self','new-intent-space',RET),depth(5))
+                -->(3,eval('&self','new-intent-space',RET),depth(6))
+              -->(4,eval('&self','new-intent-space',RET),depth(5))
           <--(1,retval(['new-intent-space']))
-            -->(2,eval('&self',['new-intent-space'],RET),depth(4))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-intent-space'],[user])
-</span><span class="ansi38-255165000">  (user)
-</span>; (type-method is_asserted_space metta_assertdb_add 
-    (new-intent-space) 
-    (user))
+</span><span class="ansi38-255165000">(user)
+</span>; (type-method is_asserted_space metta_assertdb_add (new-intent-space) (user))
 
 
+          -->(5,eval('&self','Empty',RET),depth(3))
       <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
@@ -433,50 +429,34 @@ Deterministic: <span class="ansi33">Empty
 ;; !(match (my-ispace) (I am a little bit hungry) $topic)
 ;; !(match (my-ispace) (What is my name, $x?) $topic)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['space-by-intent',user],'my-nspace'])
-</span><span class="ansi38-255165000">  (= 
-    (space-by-intent user) my-nspace)
+</span><span class="ansi38-255165000">(= (space-by-intent user) my-nspace)
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[dispatch,Query,V],[let,Space,['space-by-intent',[match,['my-ispace'],Query,Topic]],[match,[Space],Query,V]]])
-</span><span class="ansi38-255165000">  (= 
-    (dispatch $Query $V) 
-    (let $Space 
-      (space-by-intent 
-        (match 
-          (my-ispace) $Query $Topic)) 
-      (match 
-        ($Space) $Query $V)))
+</span><span class="ansi38-255165000">(= (dispatch $Query $V) (let $Space (space-by-intent (match (my-ispace) $Query $Topic)) (match ($Space) $Query $V)))
 </span>
 
 ;; A nested matching with choosing a "space" to use
- <span class="ansi38-013099040">!(dispatch 
-  (What is my "name," $X ?) $X)
+ <span class="ansi38-013099040">!(dispatch (What is my "name," $X ?) $X)
 
-</span><span class="ansi38-250144246">; !(dispatch 
-  (What is my "name," $X ?) $X)
+</span><span class="ansi38-250144246">; !(dispatch (What is my "name," $X ?) $X)
 </span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[dispatch,['What',is,my,'name,',X,?],X],OUT).
 
-</span>      -->(0,eval('&self',[dispatch,['What',is,my,'name,',_363334,?],_363334],RET),depth(1))
-      <--(0,retval([let,_371494,['space-by-intent',[match,['my-ispace'],['What',is,my,'name,',_371566,?],_371578]],[match,[_371494],['What',is,my,'name,',_371566,?],_371566]]))
-        -->(1,eval('&self',[let,_371356,['space-by-intent',[match,['my-ispace'],['What',is,my,'name,',_363334,?],_371404]],[match,[_371356],['What',is,my,'name,',_363334,?],_363334]],RET),depth(2))
-            -->(2,eval('&self',['space-by-intent',[match,['my-ispace'],['What',is,my,'name,',_363334,?],_371404]],RET),depth(4))
-                -->(3,eval('&self',['my-ispace'],RET),depth(6))
-                  -->(4,eval('&self',['new-intent-space'],RET),depth(7))
-                -->(5,eval('&self',['new-intent-space'],RET),depth(6))
-                <--(3,retval(['new-intent-space']))
-                -->(6,eval('&self',[match,['my-ispace'],['What',is,my,'name,',_363334,?],_371404],RET),depth(6))
-                    -->(7,eval('&self',['my-ispace'],RET),depth(8))
-                      -->(8,eval('&self',['new-intent-space'],RET),depth(9))
-                    <--(7,retval(['new-intent-space']))
-                <--(6,retval(fail))
-                -->(9,eval('&self',[match,['my-ispace'],['What',is,my,'name,',_363334,?],_371404],RET),depth(6))
-                    -->(10,eval('&self',['my-ispace'],RET),depth(8))
-                      -->(11,eval('&self',['new-intent-space'],RET),depth(9))
-                    <--(10,retval(['new-intent-space']))
-                <--(9,retval(fail))
-        <--(1,retval(fail))
-<span class="ansi32">% 302,506 inferences, 0.158 CPU in 0.158 seconds (100% CPU, 1910388 Lips)
-</span> (@ = "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta" 0)
+</span>      -->(0,eval('&self',[dispatch,['What',is,my,'name,',_235442,?],_235442],RET),depth(1))
+            -->(1,eval('&self',['space-by-intent',[match,['my-ispace'],['What',is,my,'name,',_235442,?],_243180]],RET),depth(4))
+                -->(2,eval('&self',['my-ispace'],RET),depth(6))
+                    -->(3,eval('&self','new-intent-space',RET),depth(8))
+                      -->(4,eval('&self','new-intent-space',RET),depth(9))
+                    -->(5,eval('&self','new-intent-space',RET),depth(8))
+                -->(6,eval('&self',['new-intent-space'],RET),depth(6))
+                  -->(7,eval('&self','new-intent-space',RET),depth(7))
+                    -->(8,eval('&self','new-intent-space',RET),depth(8))
+                <--(2,retval(['new-intent-space']))
+              -->(9,eval('&self','space-by-intent',RET),depth(5))
+            <--(1,retval(fail))
+      <--(0,retval(fail))
+<span class="ansi32">% 197,248 inferences, 0.146 CPU in 0.147 seconds (100% CPU, 1347589 Lips)
+</span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta.html" )
 
