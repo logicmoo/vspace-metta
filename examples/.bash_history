@@ -578,3 +578,8 @@ find
 cd ,,
 touch simple_query2_llm.metta
 cd ../..
+grep --help
+cd examples/
+ls output~/ -l
+cd ..
+ls

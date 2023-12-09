@@ -2,9 +2,10 @@
 ;;MeTTaLog: ;; !(pragma! compiler full)
 ;;MeTTaLog: !(pragma! trace-on-fail False)
 ;;MeTTaLog: !(pragma! trace-on-pass False)
-;;MeTTaLog: !(pragma! trace-on-error False)
-;;MeTTaLog: !(pragma! trace-on-overflow False)
+;;MeTTaLog: !(pragma! trace-on-error True)
+;;MeTTaLog: !(pragma! trace-on-overflow True)
 ;;MeTTaLog: !(pragma! trace-on-load False)
+;;MeTTaLog: !(pragma! trace-on-exec True)
 
 !(import! &self NARS.metta)
 

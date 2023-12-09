@@ -1044,12 +1044,15 @@ nb_bind(Name,Value):- nb_setval(Name,Value),!.
 eval_20(Expander,RetType,Depth,Self,['import!',Other,File],RetVal):-
      (( into_space(Depth,Self,Other,Space),!, include_metta(Space,File),!,return_empty(Space,RetVal))),
      check_returnval(Expander,RetType,RetVal). %RetVal=[].
+eval_20(Expander,RetType,Depth,Self,['bind!',Other,['new-space']],RetVal):- atom(Other),!,assert(was_asserted_space(Other)).
 eval_20(Expander,RetType,Depth,Self,['bind!',Other,Expr],RetVal):-
    must_det_ll((into_name(Self,Other,Name),!,eval(Expander,RetType,Depth,Self,Expr,Value),
     nb_bind(Name,Value),  return_empty(Value,RetVal))),
    check_returnval(Expander,RetType,RetVal).
 eval_20(Expander,RetType,Depth,Self,['pragma!',Other,Expr],RetVal):-
-   must_det_ll((into_name(Self,Other,Name),!,nd_ignore((eval(Expander,RetType,Depth,Self,Expr,Value),set_option_value(Name,Value))),  return_empty(Value,RetVal),check_returnval(Expander,RetType,RetVal))).
+   must_det_ll((into_name(Self,Other,Name),!,nd_ignore((eval(Expander,RetType,Depth,Self,Expr,Value),
+     set_option_value(Name,Value))),  return_empty(Value,RetVal),
+     check_returnval(Expander,RetType,RetVal))).
 eval_20(Expander,RetType,_Dpth,Self,['transfer!',File],RetVal):- !, must_det_ll((include_metta(Self,File),  return_empty(Self,RetVal),check_returnval(Expander,RetType,RetVal))).
 
 nd_ignore(Goal):- call(Goal)*->true;true.

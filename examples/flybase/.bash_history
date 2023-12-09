@@ -1373,3 +1373,23 @@ ls
 ls
 cd examples/flybase/
 mkdir sanity
+cd examples/
+cd flybase/
+ls
+wc -l *
+rm *.html
+ls
+wc -l *
+mkdir ~data~
+mv flybase-mined.metta ~data~
+mv flybase-deduced.* ~data~
+mv flybase-mined.* ~data~
+ls
+wc -l *
+mv flybase-mined-flat.* ~data~
+ls
+wc -l *
+mv ~data~ output~
+ls
+ls output~/
+ls output~/ -l

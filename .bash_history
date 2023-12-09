@@ -1598,3 +1598,198 @@ rm  examples/python_compat/extend/*.so
 git status examples/
 git add examples/
 git status examples/
+git commit -am reports
+touch examples/performance/.mettlogrc
+vi examples/performance/.mettlogrc
+./MeTTa examples/performance/ --clean
+find -name "sumo"
+grep --help
+ls
+cd ..
+./MeTTa --clean examples/extended_compat/metta-examples/prob-dep-types/
+cls
+./MeTTa --clean examples/extended_compat/metta-examples/prob-dep-types/
+./MeTTa --clean examples/ --include="*pln"
+./MeTTa --clean examples/ --include="*pln*"
+s axf
+ps axf
+Running tests
+killall -9 swipl
+ps axf
+killall -9 swipl
+ps axf
+find "examples/" -type d -name '*~*' -prune -o -type f -name '*.metta'  -path "*pln*" -print0 | xargs -0 grep -rl 'assert'
+./MeTTa --clean examples/ --include="*pln*"
+find examples/ -type d -name '*~*' -prune -o -type f -name '*.metta'  -path "*pln*" -print0 | xargs -0 grep -rl '^!\([^!]*\)$'
+find examples/ -type d -name '*~*' -prune -o -type f -iname '*test*.metta'  -path "*pln*"
+find examples/ -type d -name '*~*' -prune -o -type f -iname '*test*.metta' -path "*pln*"
+find examples/ -type f -iname '*test*.metta' -path "*pln*" ! -path "*~*"
+./MeTTa --clean examples/ --include="*pln*"
+cls
+./MeTTa --clean examples/ --include="*pln*"
+cls ; ./MeTTa --clean examples/ --include="*pln*"
+cls ; ./MeTTa --clean examples/ 
+grep --help
+cls ; ./MeTTa --clean examples/ --include="*pln*"
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*"
+cls ; ./MeTTa --clean examples/ --include="*pln*"
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*"
+cls ; ./MeTTa --clean examples/ --include="*pln*"
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*"
+cls ; ./MeTTa --clean examples/ --include="*pln*"
+cls ; ./MeTTa --clean examples/ --include="*p*"
+cls ; ./MeTTa --clean examples/
+cls ; ./MeTTa --clean examples/ --include="*p*"
+cls ; ./MeTTa --clean examples/ --include="pln"
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*"
+cls ; ./MeTTa --clean examples/ --exclude-dir="*pln*"
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*"
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*" --relay
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*" --really
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*" --test
+cp MeTTa MeTTa.backed
+git checkout MeTTa
+cls ; ./MeTTa --clean examples/ --include-dir="*pln*" --test
+cls ; ./MeTTa examples/ --include-dir="*pln*" --test --failures
+cls ; ./MeTTa examples/ --include-dir="*pln*" --failures
+cls ; ./MeTTa examples/ --include-dir="*pln*" --failures | grep MeTTa
+ps axf'/
+
+./MeTTa ./examples/baseline_compat/ --clean
+./MeTTa ./examples/baseli* --clean
+./MeTTa ./examples/baseli* --clean --test
+c
+./MeTTa ./examples/ --clean --test
+./MeTTa ./examples/ --failure
+ps axf
+./MeTTa ./examples/ --failure --test
+./MeTTa ./examples/extended_compat/nars/new/tests5.metta
+./MeTTa ./examples/extended_compat/nars/new/tests5.metta --exec=skip
+./MeTTa ./examples/extended_compat/nars/new/tests5.metta --eval=skip
+./MeTTa ./examples/extended_compat/nars/new/tests5.metta -- --eval=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta -- --eval=skip
+cls ;./MeTTa -- ./examples/extended_compat/nars/new/tests5.metta --eval=skip
+cls ;./MeTTa -- ./examples/extended_compat/nars/new/tests5.metta ----eval=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----eval=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----eval=skip --help
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----eval=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----exec=skip --repl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----exec=skip --prolog
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests5.metta ----exec=skip --prolog=true
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/minnars.metta --prolog
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/minnars.metta --prolog ----exec=skip
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/ --test
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/ --test --clean
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/ --test
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/types3.metta --test
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/ --test --failures
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/match_superposed_spaces.metta --test --failures
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/ --test --failures
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta
+kill -9 swipl
+killall -9 swipl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --repl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --repl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --prolog
+cls ;./MeTTa --v_1 ./examples/extended_compat/nars/new/tests0.metta --prolog
+cls ;./MeTTa --v_1a ./examples/extended_compat/nars/new/tests0.metta --prolog
+cls ;./MeTTa --v_1a ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_saved_fav ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_77 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_35 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_34 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_3y ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_2a ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_88 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_1a ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/  --clean --test
+ls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/  --clean --test
+cls ;./MeTTa ./examples/baseline_compat/metta-morph_tests/  --clean --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --repl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --repl ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/prev/tests0.metta --repl ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/prev/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/prev/tests0.metta --repl ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --repl ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --repl=prolog ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --prolog ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/nars_v0/tests0.metta --prolog ----exec=skip
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --prolog ----exec=skip
+cls ;./MeTTa --v_1a ./examples/extended_compat/nars/new/tests0.metta --prolog ----exec=skip
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+cp -a metta
+cp -a metta_vspace/pyswip  metta_vspace/pyswip_newest
+cls ;./MeTTa --v_1a ./examples/extended_compat/nars/new/tests0.metta ----exec=skip
+cp -a metta_vspace/pyswip_saved_fav/ metta_vspace/pyswip_sv -a
+cp -a metta_vspace/pyswip_saved_fav/ metta_vspace/pyswip_sv 
+cls ;./MeTTa --v_saved_fav  ./examples/extended_compat/nars/new/tests0.metta ----exec=skip
+cls ;./MeTTa --v_saved_fav  ./examples/extended_compat/nars/new/tests0.metta
+cls ;./MeTTa --v_sv  ./examples/extended_compat/nars/new/tests0.metta
+cls ;./MeTTa --v_1a ./examples/extended_compat/nars/new/tests0.metta ----exec=skip
+git checkout metta_vspace/metta_eval.pl
+git checkout metta_vspace/pyswip/metta_eval.pl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta 
+git checkout HEAD~3  metta_vspace/pyswip/metta_eval.pl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta 
+git checkout HEAD~5  metta_vspace/pyswip/metta_eval.pl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta 
+git checkout HEAD~6  metta_vspace/pyswip/metta_eval.pl
+git checkout HEAD~8  metta_vspace/pyswip/metta_eval.pl
+git checkout HEAD~10  metta_vspace/pyswip/metta_eval.pl
+git checkout HEAD~12  metta_vspace/pyswip/metta_eval.pl
+git checkout HEAD~15  metta_vspace/pyswip/metta_eval.pl
+git checkout HEAD~25  metta_vspace/pyswip/metta_eval.pl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta 
+git checkout HEAD~35  metta_vspace/pyswip/metta_eval.pl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta 
+git checkout HEAD~40 metta_vspace/pyswip/metta_eval.pl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta 
+cls ;./MeTTa -v_1a ./examples/extended_compat/nars/new/tests0.metta 
+cls ;./MeTTa -v_35 ./examples/extended_compat/nars/new/tests0.metta 
+cls ;./MeTTa --v_3y ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_2a ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_77 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_c1 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_c2 ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa --v_4a ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test 
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test 
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test 
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test 
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test  --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --test --prolog
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --prolog
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --prolog --vGOOD
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --vGOOD
+killall -9 swipl
+cls ;./MeTTa ./examples/extended_compat/nars/new/tests0.metta --vGOOD --repl
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+killall -9 swipl
+./MeTTa examples/extended_compat/nars/new/tests0.metta --vGOOD
+cp metta_vspace/pyswipGOOD  metta_vspace/pyswipVGOOD -a
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
+./MeTTa examples/extended_compat/nars/new/tests0.metta --vGOOD
+./MeTTa examples/extended_compat/nars/new/tests0.metta --prolog
+./MeTTa examples/extended_compat/nars/new/tests0.metta --vGOOD --prolog
+cls  ; ./MeTTa examples/extended_compat/nars/new/tests0.metta --prolog
