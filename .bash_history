@@ -1793,3 +1793,6 @@ cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
 ./MeTTa examples/extended_compat/nars/new/tests0.metta --prolog
 ./MeTTa examples/extended_compat/nars/new/tests0.metta --vGOOD --prolog
 cls  ; ./MeTTa examples/extended_compat/nars/new/tests0.metta --prolog
+git commit -am 222
+git add examples/flybase/output~/flybase-*
+git add examples/flybase/output~/flybase-* -f
