@@ -2198,3 +2198,13 @@ cls ; tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
 git add reports/
 git commit -am reports/
 git push logicmoo 
+git commit -am "Fixed flybase snaitry tests" 
+git push
+git push logicmoo 
+./MeTTa examples/flybase/sanity/ --test
+./MeTTa examples/flybase/sanity/ --test --fresh 
+./MeTTa examples/flybase/sanity/ --test --fresh  --clean
+cls ; tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
+./scripts/pass_fail_totals.sh examples/
+./scripts/test_in_metta.sh -n --report=Y --test
+git add reports/

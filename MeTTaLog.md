@@ -187,6 +187,18 @@ Usage: ./scripts/pass_fail_totals.sh <start_directory>
 |  Pass |  Fail |  Percent | File/Directory Information                                                                              |
 |-------|-------|----------|----------------------------------------------------------------------------------------------------|
 |       |       |          |                                                                                                    |
+|       |       |          | Directory:     ./examples/flybase/sanity/                 |
+|       |       |          |                                                                                                    |
+|     1 |     0 |    100%  | [download_file.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/sanity/download_file.metta.html) |
+|     1 |     0 |    100%  | [load_all_of_flybase.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/sanity/load_all_of_flybase.metta.html) |
+|       |       |          |                                                                                                    |
+|     2 |     0 |    100%  | Total                                                                                              |
+|       |       |          |
+
+
+|  Pass |  Fail |  Percent | File/Directory Information                                                                              |
+|-------|-------|----------|----------------------------------------------------------------------------------------------------|
+|       |       |          |                                                                                                    |
 |       |       |          | Directory:     ./examples/baseline_compat/hyperon-pln_metta/backward-chainer/                 |
 |       |       |          |                                                                                                    |
 |    31 |    14 |     68%  | [backward-chainer-xp.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-pln_metta/backward-chainer/backward-chainer-xp.metta.html) |
@@ -1494,7 +1506,8 @@ Usage: ./scripts/pass_fail_totals.sh <start_directory>
 | FAIL | [SQL-SPACE.SQL-SPACE-TEST.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/sql_space/sql_space_test.metta.html#SQL-SPACE.SQL-SPACE-TEST.01) | (assertEqualToResult (extend-py! sql_space)) | ((extend-py! sql_space)) | () |
 | FAIL | [SQL-SPACE.SQL-SPACE-TEST.02](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/sql_space/sql_space_test.metta.html#SQL-SPACE.SQL-SPACE-TEST.02) | (assertEqualToResult (sql.save-query-result &sql_space &self (, (musicbrainz.artist (id $Id) (name $Name)) (musicbrainz.artist (id $Id) (begin_date_year 1977)) (limit 3)))) | ((sql.save-query-result (new-sql-space musicbrainz_db localhost musicbrainz musicbrainz 5432) &self ... | () |
 | FAIL | [SQL-SPACE.SQL-SPACE-TEST.03](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/sql_space/sql_space_test.metta.html#SQL-SPACE.SQL-SPACE-TEST.03) | (assertEqualToResult (get-atoms &self)) | ((: Any Type) (: Atom Type) (: Bool Type) (: ErrorType Type) (: Expression Type) (: Number Type) (: ... | (GroundingSpace-0x5644bc8f9998) |
-
+| PASS | [SANITY.DOWNLOAD-FILE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/sanity/download_file.metta.html#SANITY.DOWNLOAD-FILE.01) | (assertEqualToResult ("MettaLog Test")) | (("MettaLog Test")) | (("MettaLog Test")) |
+| PASS | [SANITY.LOAD-ALL-OF-FLYBASE.01](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/flybase/sanity/load_all_of_flybase.metta.html#SANITY.LOAD-ALL-OF-FLYBASE.01) | (assertEqualToResult ("MettaLog Test")) | (("MettaLog Test")) | (("MettaLog Test")) |
 </details>
 
 
