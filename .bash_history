@@ -2139,3 +2139,60 @@ rm *.UNITS
 git status .
 git add examples/
 git status .
+git commit -am units2
+git push
+git push logicmoo 
+./scripts/pass_fail_totals.sh 
+./scripts/pass_fail_totals.sh examples/
+ls
+cat TEST_LINKS.md 
+grep PASS
+grep PASS .
+grep PASS *
+grep PASS . -R
+ls
+rm *.bak
+grep PASS reports/
+grep PASS reports/ -R
+grep 01 reports/ -R
+grep "\.03" reports/ -R
+ls
+cat TEE_20231211072934_3148127_7761.ansi.UNITS 
+cat /tmp/*.UNITS
+find -name "*.html" -delete 
+cd ..
+./scripts/pass_fail_totals.sh 
+./scripts/pass_fail_totals.sh examples/
+cat /dev/null > /tmp/SHARED.UNITS 
+./MeTTa examples/ --timeout=30 --test
+touch examples/features/concurrency/builtins.metta
+mkdir examples/features/concurrency/
+touch examples/features/concurrency/builtins.metta
+mv examples/features/concurrency/ examples/features/parallelism
+git add examples/features/parallelism/builtins.metta 
+./MeTTa examples/features/parallelism/ --test
+cat /tmp/*.UNITS
+cat /tmp/*.UNITS | sort 
+cls
+cat /tmp/*.UNITS | sort 
+cat /tmp/*.UNITS | sort | uniq -u
+cat /tmp/*.UNITS | sort | uniq -u | grep FAIL
+./scripts/pass_fail_totals.sh examples/
+cls
+./scripts/pass_fail_totals.sh examples/
+./scripts/test_in_metta,sh -n --report=Y
+./scripts/test_in_metta.shh -n --report=Y
+./scripts/test_in_metta.sh -n --report=Y
+./scripts/test_in_metta.sh -n --report=Y --test
+cls
+./scripts/pass_fail_totals.sh examples/
+cat /tmp/SHARED.UNITS 
+awk '!seen[$0]++'  /tmp/SHARED.UNITS 
+cls
+awk '!seen[$0]++'  /tmp/SHARED.UNITS 
+cat /tmp/SHARED.UNITS | tac | awk '!seen[$0]++' | tac
+tac --help
+tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
+tac /tmp/SHARED.UNITS | awk '!seen[$0]++'
+cls ; tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
+git add reports/

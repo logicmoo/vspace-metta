@@ -583,3 +583,7 @@ cd examples/
 ls output~/ -l
 cd ..
 ls
+cat /tmp/*.UNITS
+cd examples/
+find -name "*.html"
+find -name "*.html" -delete 
