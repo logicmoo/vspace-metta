@@ -218,6 +218,7 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta')
 1=["=== Entail ==="]
@@ -261,46 +262,65 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; Nat ;;
 ;;;;;;;;;;
 ;;; Define Nat
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nat','Type'])
 </span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Z','Nat'])
 </span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">(: S (-> Nat Nat))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'S',[->,'Nat','Nat']])
+</span><span class="ansi38-255165000">(: S 
+  (-> Nat Nat))
 </span>
 
 ;;; Define <=
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,<=,[->,A,A,'Bool']])
+</span><span class="ansi38-255165000">(: <= 
+  (-> $A $A Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
+</span><span class="ansi38-255165000">(= 
+  (<= $X $Y) 
+  (or 
+    (< $X $Y) 
+    (== $X $Y)))
 </span>
 
 ;;; Define cast functions between Nat and Number
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
+</span><span class="ansi38-255165000">(: fromNumber 
+  (-> Number Nat))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
+</span><span class="ansi38-255165000">(= 
+  (fromNumber $N) 
+  (if 
+    (<= $N 0) Z 
+    (S 
+      (fromNumber 
+        (- $N 1)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
+</span><span class="ansi38-255165000">(: fromNat 
+  (-> Nat Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">(= (fromNat Z) 0)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fromNat,'Z'],0])
+</span><span class="ansi38-255165000">(= 
+  (fromNat Z) 0)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fromNat 
+    (S $K)) 
+  (+ 1 
+    (fromNat $K)))
 </span>
 
 ;;;;;;;;;;;;;
@@ -309,141 +329,336 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
  <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!"=== Entail ==="
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult "=== Entail ===" ("=== Entail ==="))
+<span class="ansi38-013099040">!(assertEqualToResult "=== Entail ===" 
+  ("=== Entail ==="))
 
 </span><span class="ansi38-250144246">; !"=== Entail ==="
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self','=== Entail ===',OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self','=== Entail ===',OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,'=== Entail ===',['=== Entail ===']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,'=== Entail ===',['=== Entail ===']],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.01">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.01</h3>
-        -->(1,eval('&self','=== Entail ===',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.000120 secs. (120.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ("=== Entail ===") ("=== Entail ===")))
-</span>          -->(2,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000023 secs. (22.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ("=== Entail ===") 
+    ("=== Entail ===")))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Foward chainer
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fc_entail,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">(: fc_entail (-> Atom (-> Atom) (-> Atom) Nat Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fc_entail,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
+</span><span class="ansi38-255165000">(: fc_entail 
+  (-> Atom 
+    (-> Atom) 
+    (-> Atom) Nat Atom))
 </span>
 
 ;;; Base case
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_entail,['â\x8A\¢',Premise],Kb,Rb,Depth],['â\x8A\¢',Premise]])
-</span><span class="ansi38-255165000">(= (fc_entail (â¢ $Premise) $Kb $Rb $Depth) (â¢ $Premise))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_entail,['â\x8A\¢',Premise],Kb,Rb,Depth],['â\x8A\¢',Premise]])
+</span><span class="ansi38-255165000">(= 
+  (fc_entail 
+    (â¢ $Premise) $Kb $Rb $Depth) 
+  (â¢ $Premise))
 </span>
 
 ;;; Recursive cases
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_entail,['â\x8A\¢',Premise1],Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[['â\x8A\¢',Premise2],[Kb]]],[fc_entail,['â\x8A\¢',Conclusion],Kb,Rb,K]]])
-</span><span class="ansi38-255165000">(= (fc_entail (â¢ $Premise1) $Kb $Rb (S $K)) (let* (((â¢ $Premise1 $Premise2 $Conclusion) ($Rb)) ((â¢ $Premise2) ($Kb))) (fc_entail (â¢ $Conclusion) $Kb $Rb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_entail,['â\x8A\¢',Premise1],Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[['â\x8A\¢',Premise2],[Kb]]],[fc_entail,['â\x8A\¢',Conclusion],Kb,Rb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_entail 
+    (â¢ $Premise1) $Kb $Rb 
+    (S $K)) 
+  (let* 
+    ( ( (â¢ $Premise1 $Premise2 $Conclusion) 
+        ($Rb)) 
+      ( (â¢ $Premise2) 
+        ($Kb))) 
+    (fc_entail 
+      (â¢ $Conclusion) $Kb $Rb $K)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_entail,['â\x8A\¢',Premise2],Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[['â\x8A\¢',Premise1],[Kb]]],[fc_entail,['â\x8A\¢',Conclusion],Kb,Rb,K]]])
-</span><span class="ansi38-255165000">(= (fc_entail (â¢ $Premise2) $Kb $Rb (S $K)) (let* (((â¢ $Premise1 $Premise2 $Conclusion) ($Rb)) ((â¢ $Premise1) ($Kb))) (fc_entail (â¢ $Conclusion) $Kb $Rb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_entail,['â\x8A\¢',Premise2],Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[['â\x8A\¢',Premise1],[Kb]]],[fc_entail,['â\x8A\¢',Conclusion],Kb,Rb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_entail 
+    (â¢ $Premise2) $Kb $Rb 
+    (S $K)) 
+  (let* 
+    ( ( (â¢ $Premise1 $Premise2 $Conclusion) 
+        ($Rb)) 
+      ( (â¢ $Premise1) 
+        ($Kb))) 
+    (fc_entail 
+      (â¢ $Conclusion) $Kb $Rb $K)))
 </span>
 
 ;;; Knowledge base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb_entail,[->,'Atom']])
-</span><span class="ansi38-255165000">(: kb_entail (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,kb_entail,[->,'Atom']])
+</span><span class="ansi38-255165000">(: kb_entail 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[kb_entail],[superpose,[['â\x8A\¢',['â\x86\\x92\','A','B']],['â\x8A\¢',['â\x86\\x92\','B','C']],['â\x8A\¢','A']]]])
-</span><span class="ansi38-255165000">(= (kb_entail) (superpose ((â¢ (â A B)) (â¢ (â B C)) (â¢ A))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[kb_entail],[superpose,[['â\x8A\¢',['â\x86\\x92\','A','B']],['â\x8A\¢',['â\x86\\x92\','B','C']],['â\x8A\¢','A']]]])
+</span><span class="ansi38-255165000">(= 
+  (kb_entail) 
+  (superpose 
+    ( (â¢ 
+        (â A B)) 
+      (â¢ 
+        (â B C)) 
+      (â¢ A))))
 </span>
 
 ;;; Rule base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb_entail,[->,'Atom']])
-</span><span class="ansi38-255165000">(: rb_entail (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,rb_entail,[->,'Atom']])
+</span><span class="ansi38-255165000">(: rb_entail 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rb_entail],['â\x8A\¢',['â\x86\\x92\',P,Q],P,Q]])
-</span><span class="ansi38-255165000">(= (rb_entail) (â¢ (â $P $Q) $P $Q))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[rb_entail],['â\x8A\¢',['â\x86\\x92\',P,Q],P,Q]])
+</span><span class="ansi38-255165000">(= 
+  (rb_entail) 
+  (â¢ 
+    (â $P $Q) $P $Q))
 </span>
 
 ;;; Premises
 ;;; Conclusion
 ;;; Test forward chainer
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_entail (â¢ A) kb_entail rb_entail (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_entail 
+  (â¢ A) kb_entail rb_entail 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_entail (â¢ A) kb_entail rb_entail (fromNumber 2)) ((⊢ A)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_entail 
+    (â¢ A) kb_entail rb_entail 
+    (fromNumber 2)) 
+  ( (⊢ A)))
 
 </span><span class="ansi38-250144246">; !(fc_entail (â¢ A) kb_entail rb_entail (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_entail,['â\x8A\¢','A'],kb_entail,rb_entail,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_entail,['â\x8A\¢','A'],kb_entail,rb_entail,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_entail,['â\x8A\¢','A'],kb_entail,rb_entail,[fromNumber,2]],[[⊢,'A']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_entail,['â\x8A\¢','A'],kb_entail,rb_entail,[fromNumber,2]],[[⊢,'A']]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.02">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.02</h3>
-          -->(1,eval('&self',[fc_entail,['â\x8A\¢','A'],kb_entail,rb_entail,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self','A',RET),depth(5))
-              -->(3,eval('&self','â\x8A\¢',RET),depth(5))
-              -->(4,eval('&self','A',RET),depth(5))
-                -->(5,eval('&self','â\x8A\¢',RET),depth(6))
-                -->(6,eval('&self','A',RET),depth(6))
-              -->(7,eval('&self','â\x8A\¢',RET),depth(5))
-              -->(8,eval('&self','A',RET),depth(5))
-          <--(1,retval(['â\x8A\¢','A']))
+      -->(1,eval('&self',[fc_entail,['â\x8A\¢','A'],kb_entail,rb_entail,[fromNumber,2]],RET),depth(1))
+              2-->subst_args(_116374,_116376,'&self',['â\x8A\¢','A'],depth(5))
+            3-->subst_args(_116968,_116970,'&self',['â\x8A\¢','A'],depth(4))
+      <--(1,retval(['â\x8A\¢','A']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.37 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â¢ A)) ((⊢ A))))
-</span>          -->(9,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000549 secs. (549.50 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â¢ A)) 
+    ( (⊢ A))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_entail (â¢ (â A B)) kb_entail rb_entail (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_entail 
+  (â¢ 
+    (â A B)) kb_entail rb_entail 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_entail (â¢ (â A B)) kb_entail rb_entail (fromNumber 2)) ((⊢ (→ A B))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_entail 
+    (â¢ 
+      (â A B)) kb_entail rb_entail 
+    (fromNumber 2)) 
+  ( (⊢ 
+      (→ A B))))
 
 </span><span class="ansi38-250144246">; !(fc_entail (â¢ (â A B)) kb_entail rb_entail (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],[[⊢,[→,'A','B']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],[[⊢,[→,'A','B']]]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.03">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.03</h3>
-          -->(1,eval('&self',[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],RET),depth(3))
-                -->(2,eval('&self',['â\x86\\x92\','A','B'],RET),depth(6))
-                  -->(3,eval('&self','A',RET),depth(7))
-                  -->(4,eval('&self','B',RET),depth(7))
-                  -->(5,eval('&self','â\x86\\x92\',RET),depth(7))
-                  -->(6,eval('&self','A',RET),depth(7))
-                  -->(7,eval('&self','B',RET),depth(7))
-                    -->(8,eval('&self','â\x86\\x92\',RET),depth(8))
-                    -->(9,eval('&self','A',RET),depth(8))
-          <--(1,retval(['â\x8A\¢',['â\x86\\x92\','A','B']]))
+      -->(1,eval('&self',[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],RET),depth(1))
+          -->(2,eval('&self',['â\x86\\x92\','A','B'],RET),depth(3))
+                3-->subst_args(_46686,_46688,'&self',['â\x86\\x92\','A','B'],depth(6))
+          <--(2,retval(['â\x86\\x92\','A','B']))
+          -->(4,eval('&self',['â\x86\\x92\','A','B'],RET),depth(3))
+                5-->subst_args(_48234,_48236,'&self',['â\x86\\x92\','A','B'],depth(6))
+          <--(4,retval(['â\x86\\x92\','A','B']))
+              6-->subst_args(_48950,_48952,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(5))
+                  7-->subst_args(_49394,_49396,'&self',['â\x86\\x92\','A','B'],depth(7))
+                  8-->subst_args(_50054,_50056,'&self',['â\x86\\x92\','A','B'],depth(7))
+            9-->subst_args(_50746,_50748,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(4))
+                10-->subst_args(_51190,_51192,'&self',['â\x86\\x92\','A','B'],depth(6))
+                11-->subst_args(_51850,_51852,'&self',['â\x86\\x92\','A','B'],depth(6))
+      <--(1,retval(['â\x8A\¢',['â\x86\\x92\','A','B']]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.65 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â¢ (â A B))) ((⊢ (→ A B)))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (1.66 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â¢ 
+        (â A B))) 
+    ( (⊢ 
+        (→ A B)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; !(fc_entail (â¢ (â $x $y)) kb_entail rb_entail (fromNumber 2))
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let (â¢ (â $X $Y)) (kb_entail) (fc_entail (â¢ (â $X $Y)) kb_entail rb_entail (fromNumber 2)))
+</span><span class="ansi1 ansi38-255238088">!(let 
+  (â¢ 
+    (â $X $Y)) 
+  (kb_entail) 
+  (fc_entail 
+    (â¢ 
+      (â $X $Y)) kb_entail rb_entail 
+    (fromNumber 2)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (let (â¢ (â $X $Y)) (kb_entail) (fc_entail (â¢ (â $X $Y)) kb_entail rb_entail (fromNumber 2))) ((⊢ (→ A B)) (⊢ (→ B C))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (let 
+    (â¢ 
+      (â $X $Y)) 
+    (kb_entail) 
+    (fc_entail 
+      (â¢ 
+        (â $X $Y)) kb_entail rb_entail 
+      (fromNumber 2))) 
+  ( (⊢ 
+      (→ A B)) 
+    (⊢ 
+      (→ B C))))
 
 </span><span class="ansi38-250144246">; !(let (â¢ (â $X $Y)) (kb_entail) (fc_entail (â¢ (â $X $Y)) kb_entail rb_entail (fromNumber 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['â\x8A\¢',['â\x86\\x92\',X,Y]],[kb_entail],[fc_entail,['â\x8A\¢',['â\x86\\x92\',X,Y]],kb_entail,rb_entail,[fromNumber,2]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[let,['â\x8A\¢',['â\x86\\x92\',X,Y]],[kb_entail],[fc_entail,['â\x8A\¢',['â\x86\\x92\',X,Y]],kb_entail,rb_entail,[fromNumber,2]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,['â\x8A\¢',['â\x86\\x92\',_379312,_379596]],[kb_entail],[fc_entail,['â\x8A\¢',['â\x86\\x92\',_379312,_379596]],kb_entail,rb_entail,[fromNumber,2]]],[[⊢,[→,'A','B']],[⊢,[→,'B','C']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[let,['â\x8A\¢',['â\x86\\x92\',_99976,_100260]],[kb_entail],[fc_entail,['â\x8A\¢',['â\x86\\x92\',_99976,_100260]],kb_entail,rb_entail,[fromNumber,2]]],[[⊢,[→,'A','B']],[⊢,[→,'B','C']]]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.04">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.04</h3>
-          -->(1,eval('&self',[let,['â\x8A\¢',['â\x86\\x92\',_379312,_379596]],[kb_entail],[fc_entail,['â\x8A\¢',['â\x86\\x92\',_379312,_379596]],kb_entail,rb_entail,[fromNumber,2]]],RET),depth(3))
-              -->(2,eval('&self',[kb_entail],RET),depth(5))
-                    -->(3,eval('&self',['â\x8A\¢',['â\x86\\x92\','A','B']],RET),depth(8))
-                        -->(4,eval('&self',['â\x86\\x92\','A','B'],RET),depth(10))
-                          -->(5,eval('&self','A',RET),depth(11))
-                          -->(6,eval('&self','B',RET),depth(11))
-                          -->(7,eval('&self','â\x86\\x92\',RET),depth(11))
-                          -->(8,eval('&self','A',RET),depth(11))
-                          -->(9,eval('&self','B',RET),depth(11))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[let,['â\x8A\¢',['â\x86\\x92\',_99976,_100260]],[kb_entail],[fc_entail,['â\x8A\¢',['â\x86\\x92\',_99976,_100260]],kb_entail,rb_entail,[fromNumber,2]]],RET),depth(1))
+        -->(2,eval('&self',[kb_entail],RET),depth(2))
+            -->(3,eval('&self',['â\x8A\¢',['â\x86\\x92\','A','B']],RET),depth(4))
+              -->(4,eval('&self',['â\x86\\x92\','A','B'],RET),depth(5))
+                    5-->subst_args(_118188,_118190,'&self',['â\x86\\x92\','A','B'],depth(8))
+              <--(4,retval(['â\x86\\x92\','A','B']))
+              -->(6,eval('&self',['â\x86\\x92\','A','B'],RET),depth(5))
+                    7-->subst_args(_119736,_119738,'&self',['â\x86\\x92\','A','B'],depth(8))
+              <--(6,retval(['â\x86\\x92\','A','B']))
+                  8-->subst_args(_120452,_120454,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(7))
+                      9-->subst_args(_120896,_120898,'&self',['â\x86\\x92\','A','B'],depth(9))
+                      10-->subst_args(_121556,_121558,'&self',['â\x86\\x92\','A','B'],depth(9))
+            <--(3,retval(['â\x8A\¢',['â\x86\\x92\','A','B']]))
+              -->(11,eval('&self',['â\x86\\x92\','A','B'],RET),depth(5))
+                    12-->subst_args(_123256,_123258,'&self',['â\x86\\x92\','A','B'],depth(8))
+              <--(11,retval(['â\x86\\x92\','A','B']))
+              -->(13,eval('&self',['â\x86\\x92\','A','B'],RET),depth(5))
+                    14-->subst_args(_124804,_124806,'&self',['â\x86\\x92\','A','B'],depth(8))
+              <--(13,retval(['â\x86\\x92\','A','B']))
+                  15-->subst_args(_125520,_125522,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(7))
+                      16-->subst_args(_125964,_125966,'&self',['â\x86\\x92\','A','B'],depth(9))
+                      17-->subst_args(_126624,_126626,'&self',['â\x86\\x92\','A','B'],depth(9))
+                18-->subst_args(_127316,_127318,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(6))
+                    19-->subst_args(_127760,_127762,'&self',['â\x86\\x92\','A','B'],depth(8))
+                    20-->subst_args(_128420,_128422,'&self',['â\x86\\x92\','A','B'],depth(8))
+              21-->subst_args(_129112,_129114,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(5))
+                  22-->subst_args(_129556,_129558,'&self',['â\x86\\x92\','A','B'],depth(7))
+                  23-->subst_args(_130216,_130218,'&self',['â\x86\\x92\','A','B'],depth(7))
+        -->(24,eval('&self',[fc_entail,['â\x8A\¢',['â\x86\\x92\','A','B']],kb_entail,rb_entail,[fromNumber,2]],RET),depth(2))
+            -->(25,eval('&self',['â\x86\\x92\','A','B'],RET),depth(4))
+                  26-->subst_args(_7142,_7144,'&self',['â\x86\\x92\','A','B'],depth(7))
+            <--(25,retval(['â\x86\\x92\','A','B']))
+            -->(27,eval('&self',['â\x86\\x92\','A','B'],RET),depth(4))
+                  28-->subst_args(_8690,_8692,'&self',['â\x86\\x92\','A','B'],depth(7))
+            <--(27,retval(['â\x86\\x92\','A','B']))
+                29-->subst_args(_9406,_9408,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(6))
+                    30-->subst_args(_9850,_9852,'&self',['â\x86\\x92\','A','B'],depth(8))
+                    31-->subst_args(_10510,_10512,'&self',['â\x86\\x92\','A','B'],depth(8))
+              32-->subst_args(_11202,_11204,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(5))
+                  33-->subst_args(_11646,_11648,'&self',['â\x86\\x92\','A','B'],depth(7))
+                  34-->subst_args(_12306,_12308,'&self',['â\x86\\x92\','A','B'],depth(7))
+          -->(35,eval('&self',['â\x86\\x92\','A','B'],RET),depth(3))
+                36-->subst_args(_14006,_14008,'&self',['â\x86\\x92\','A','B'],depth(6))
+          <--(35,retval(['â\x86\\x92\','A','B']))
+          -->(37,eval('&self',['â\x86\\x92\','A','B'],RET),depth(3))
+                38-->subst_args(_15554,_15556,'&self',['â\x86\\x92\','A','B'],depth(6))
+          <--(37,retval(['â\x86\\x92\','A','B']))
+              39-->subst_args(_16270,_16272,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(5))
+                  40-->subst_args(_16714,_16716,'&self',['â\x86\\x92\','A','B'],depth(7))
+                  41-->subst_args(_17374,_17376,'&self',['â\x86\\x92\','A','B'],depth(7))
+            42-->subst_args(_18066,_18068,'&self',['â\x8A\¢',['â\x86\\x92\','A','B']],depth(4))
+                43-->subst_args(_18510,_18512,'&self',['â\x86\\x92\','A','B'],depth(6))
+                44-->subst_args(_19170,_19172,'&self',['â\x86\\x92\','A','B'],depth(6))
+        <--(24,retval(['â\x8A\¢',['â\x86\\x92\','A','B']]))
+            -->(45,eval('&self',['â\x8A\¢',['â\x86\\x92\','B','C']],RET),depth(4))
+              -->(46,eval('&self',['â\x86\\x92\','B','C'],RET),depth(5))
+                    47-->subst_args(_21488,_21490,'&self',['â\x86\\x92\','B','C'],depth(8))
+              <--(46,retval(['â\x86\\x92\','B','C']))
+              -->(48,eval('&self',['â\x86\\x92\','B','C'],RET),depth(5))
+                    49-->subst_args(_23036,_23038,'&self',['â\x86\\x92\','B','C'],depth(8))
+              <--(48,retval(['â\x86\\x92\','B','C']))
+                  50-->subst_args(_23752,_23754,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(7))
+                      51-->subst_args(_24196,_24198,'&self',['â\x86\\x92\','B','C'],depth(9))
+                      52-->subst_args(_24856,_24858,'&self',['â\x86\\x92\','B','C'],depth(9))
+            <--(45,retval(['â\x8A\¢',['â\x86\\x92\','B','C']]))
+              -->(53,eval('&self',['â\x86\\x92\','B','C'],RET),depth(5))
+                    54-->subst_args(_26556,_26558,'&self',['â\x86\\x92\','B','C'],depth(8))
+              <--(53,retval(['â\x86\\x92\','B','C']))
+              -->(55,eval('&self',['â\x86\\x92\','B','C'],RET),depth(5))
+                    56-->subst_args(_28104,_28106,'&self',['â\x86\\x92\','B','C'],depth(8))
+              <--(55,retval(['â\x86\\x92\','B','C']))
+                  57-->subst_args(_28820,_28822,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(7))
+                      58-->subst_args(_29264,_29266,'&self',['â\x86\\x92\','B','C'],depth(9))
+                      59-->subst_args(_29924,_29926,'&self',['â\x86\\x92\','B','C'],depth(9))
+                60-->subst_args(_30616,_30618,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(6))
+                    61-->subst_args(_31060,_31062,'&self',['â\x86\\x92\','B','C'],depth(8))
+                    62-->subst_args(_31720,_31722,'&self',['â\x86\\x92\','B','C'],depth(8))
+              63-->subst_args(_32412,_32414,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(5))
+                  64-->subst_args(_32856,_32858,'&self',['â\x86\\x92\','B','C'],depth(7))
+                  65-->subst_args(_33516,_33518,'&self',['â\x86\\x92\','B','C'],depth(7))
+        -->(66,eval('&self',[fc_entail,['â\x8A\¢',['â\x86\\x92\','B','C']],kb_entail,rb_entail,[fromNumber,2]],RET),depth(2))
+            -->(67,eval('&self',['â\x86\\x92\','B','C'],RET),depth(4))
+                  68-->subst_args(_36004,_36006,'&self',['â\x86\\x92\','B','C'],depth(7))
+            <--(67,retval(['â\x86\\x92\','B','C']))
+            -->(69,eval('&self',['â\x86\\x92\','B','C'],RET),depth(4))
+                  70-->subst_args(_37552,_37554,'&self',['â\x86\\x92\','B','C'],depth(7))
+            <--(69,retval(['â\x86\\x92\','B','C']))
+                71-->subst_args(_38268,_38270,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(6))
+                    72-->subst_args(_38712,_38714,'&self',['â\x86\\x92\','B','C'],depth(8))
+                    73-->subst_args(_39372,_39374,'&self',['â\x86\\x92\','B','C'],depth(8))
+              74-->subst_args(_40064,_40066,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(5))
+                  75-->subst_args(_40508,_40510,'&self',['â\x86\\x92\','B','C'],depth(7))
+                  76-->subst_args(_41168,_41170,'&self',['â\x86\\x92\','B','C'],depth(7))
+          -->(77,eval('&self',['â\x86\\x92\','B','C'],RET),depth(3))
+                78-->subst_args(_42868,_42870,'&self',['â\x86\\x92\','B','C'],depth(6))
+          <--(77,retval(['â\x86\\x92\','B','C']))
+          -->(79,eval('&self',['â\x86\\x92\','B','C'],RET),depth(3))
+                80-->subst_args(_44416,_44418,'&self',['â\x86\\x92\','B','C'],depth(6))
+          <--(79,retval(['â\x86\\x92\','B','C']))
+              81-->subst_args(_45132,_45134,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(5))
+                  82-->subst_args(_45576,_45578,'&self',['â\x86\\x92\','B','C'],depth(7))
+                  83-->subst_args(_46236,_46238,'&self',['â\x86\\x92\','B','C'],depth(7))
+            84-->subst_args(_46928,_46930,'&self',['â\x8A\¢',['â\x86\\x92\','B','C']],depth(4))
+                85-->subst_args(_47372,_47374,'&self',['â\x86\\x92\','B','C'],depth(6))
+                86-->subst_args(_48032,_48034,'&self',['â\x86\\x92\','B','C'],depth(6))
+        <--(66,retval(['â\x8A\¢',['â\x86\\x92\','B','C']]))
+            -->(87,eval('&self',['â\x8A\¢','A'],RET),depth(4))
+                  88-->subst_args(_49528,_49530,'&self',['â\x8A\¢','A'],depth(7))
+            <--(87,retval(['â\x8A\¢','A']))
+                  89-->subst_args(_50290,_50292,'&self',['â\x8A\¢','A'],depth(7))
+                90-->subst_args(_50884,_50886,'&self',['â\x8A\¢','A'],depth(6))
+              91-->subst_args(_51478,_51480,'&self',['â\x8A\¢','A'],depth(5))
+        <--(2,retval(['â\x8A\¢','A']))
+      <--(1,retval(['â\x8A\¢',['â\x86\\x92\','B','C']]))
+; 
 ; EVAL TEST
-; took 0.010 secs. (9.71 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â¢ (â A B)) (â¢ (â B C))) ((⊢ (→ A B)) (⊢ (→ B C)))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.014 secs. (14.02 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â¢ 
+        (â A B)) 
+      (â¢ 
+        (â B C))) 
+    ( (⊢ 
+        (→ A B)) 
+      (⊢ 
+        (→ B C)))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;
 ;;; Bare entail ;;
@@ -452,137 +667,211 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101));
  <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!"=== Bare entail ==="
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult "=== Bare entail ===" ("=== Bare entail ==="))
+<span class="ansi38-013099040">!(assertEqualToResult "=== Bare entail ===" 
+  ("=== Bare entail ==="))
 
 </span><span class="ansi38-250144246">; !"=== Bare entail ==="
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self','=== Bare entail ===',OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self','=== Bare entail ===',OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,'=== Bare entail ===',['=== Bare entail ===']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,'=== Bare entail ===',['=== Bare entail ===']],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.05">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.05</h3>
-        -->(1,eval('&self','=== Bare entail ===',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.000114 secs. (114.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ("=== Bare entail ===") ("=== Bare entail ===")))
-</span>          -->(2,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000024 secs. (23.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ("=== Bare entail ===") 
+    ("=== Bare entail ===")))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Foward chainer
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fc_bare,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">(: fc_bare (-> Atom (-> Atom) (-> Atom) Nat Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fc_bare,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
+</span><span class="ansi38-255165000">(: fc_bare 
+  (-> Atom 
+    (-> Atom) 
+    (-> Atom) Nat Atom))
 </span>
 
 ;;; Base case
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_bare,Premise,Kb,Rb,Depth],Premise])
-</span><span class="ansi38-255165000">(= (fc_bare $Premise $Kb $Rb $Depth) $Premise)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_bare,Premise,Kb,Rb,Depth],Premise])
+</span><span class="ansi38-255165000">(= 
+  (fc_bare $Premise $Kb $Rb $Depth) $Premise)
 </span>
 
 ;;; Recursive cases
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_bare,Premise1,Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[Premise2,[Kb]]],[fc_bare,Conclusion,Kb,Rb,K]]])
-</span><span class="ansi38-255165000">(= (fc_bare $Premise1 $Kb $Rb (S $K)) (let* (((â¢ $Premise1 $Premise2 $Conclusion) ($Rb)) ($Premise2 ($Kb))) (fc_bare $Conclusion $Kb $Rb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_bare,Premise1,Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[Premise2,[Kb]]],[fc_bare,Conclusion,Kb,Rb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_bare $Premise1 $Kb $Rb 
+    (S $K)) 
+  (let* 
+    ( ( (â¢ $Premise1 $Premise2 $Conclusion) 
+        ($Rb)) 
+      ($Premise2 
+        ($Kb))) 
+    (fc_bare $Conclusion $Kb $Rb $K)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_bare,Premise2,Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[Premise1,[Kb]]],[fc_bare,Conclusion,Kb,Rb,K]]])
-</span><span class="ansi38-255165000">(= (fc_bare $Premise2 $Kb $Rb (S $K)) (let* (((â¢ $Premise1 $Premise2 $Conclusion) ($Rb)) ($Premise1 ($Kb))) (fc_bare $Conclusion $Kb $Rb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_bare,Premise2,Kb,Rb,['S',K]],['let*',[[['â\x8A\¢',Premise1,Premise2,Conclusion],[Rb]],[Premise1,[Kb]]],[fc_bare,Conclusion,Kb,Rb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_bare $Premise2 $Kb $Rb 
+    (S $K)) 
+  (let* 
+    ( ( (â¢ $Premise1 $Premise2 $Conclusion) 
+        ($Rb)) 
+      ($Premise1 
+        ($Kb))) 
+    (fc_bare $Conclusion $Kb $Rb $K)))
 </span>
 
 ;;; Knowledge base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb_bare,[->,'Atom']])
-</span><span class="ansi38-255165000">(: kb_bare (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,kb_bare,[->,'Atom']])
+</span><span class="ansi38-255165000">(: kb_bare 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[kb_bare],[superpose,[['â\x86\\x92\','A','B'],['â\x86\\x92\','B','C'],'A']]])
-</span><span class="ansi38-255165000">(= (kb_bare) (superpose ((â A B) (â B C) A)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[kb_bare],[superpose,[['â\x86\\x92\','A','B'],['â\x86\\x92\','B','C'],'A']]])
+</span><span class="ansi38-255165000">(= 
+  (kb_bare) 
+  (superpose 
+    ( (â A B) 
+      (â B C) A)))
 </span>
 
 ;;; Rule base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb_bare,[->,'Atom']])
-</span><span class="ansi38-255165000">(: rb_bare (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,rb_bare,[->,'Atom']])
+</span><span class="ansi38-255165000">(: rb_bare 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rb_bare],['â\x8A\¢',['â\x86\\x92\',P,Q],P,Q]])
-</span><span class="ansi38-255165000">(= (rb_bare) (â¢ (â $P $Q) $P $Q))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[rb_bare],['â\x8A\¢',['â\x86\\x92\',P,Q],P,Q]])
+</span><span class="ansi38-255165000">(= 
+  (rb_bare) 
+  (â¢ 
+    (â $P $Q) $P $Q))
 </span>
 
 ;;; Premises
 ;;; Conclusion
 ;;; Test forward chainer
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_bare A kb_bare rb_bare (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_bare A kb_bare rb_bare 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_bare A kb_bare rb_bare (fromNumber 2)) (A))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_bare A kb_bare rb_bare 
+    (fromNumber 2)) 
+  (A))
 
 </span><span class="ansi38-250144246">; !(fc_bare A kb_bare rb_bare (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_bare,'A',kb_bare,rb_bare,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_bare,'A',kb_bare,rb_bare,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_bare,'A',kb_bare,rb_bare,[fromNumber,2]],['A']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_bare,'A',kb_bare,rb_bare,[fromNumber,2]],['A']],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.06">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.06</h3>
-          -->(1,eval('&self',[fc_bare,'A',kb_bare,rb_bare,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self','A',RET),depth(5))
-          <--(1,retval('A'))
+      -->(1,eval('&self',[fc_bare,'A',kb_bare,rb_bare,[fromNumber,2]],RET),depth(1))
+      <--(1,retval('A'))
 ; 
 ; EVAL TEST
-; took 0.000259 secs. (258.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (A) (A)))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000153 secs. (152.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (A) 
+    (A)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_bare (â A B) kb_bare rb_bare (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_bare 
+  (â A B) kb_bare rb_bare 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_bare (â A B) kb_bare rb_bare (fromNumber 2)) ((→ A B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_bare 
+    (â A B) kb_bare rb_bare 
+    (fromNumber 2)) 
+  ( (→ A B)))
 
 </span><span class="ansi38-250144246">; !(fc_bare (â A B) kb_bare rb_bare (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],[[→,'A','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],[[→,'A','B']]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.07">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.07</h3>
-          -->(1,eval('&self',[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self','A',RET),depth(5))
-              -->(3,eval('&self','B',RET),depth(5))
-              -->(4,eval('&self','â\x86\\x92\',RET),depth(5))
-              -->(5,eval('&self','A',RET),depth(5))
-              -->(6,eval('&self','B',RET),depth(5))
-                -->(7,eval('&self','â\x86\\x92\',RET),depth(6))
-                -->(8,eval('&self','A',RET),depth(6))
-                -->(9,eval('&self','B',RET),depth(6))
-          <--(1,retval(['â\x86\\x92\','A','B']))
+      -->(1,eval('&self',[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],RET),depth(1))
+              2-->subst_args(_77658,_77660,'&self',['â\x86\\x92\','A','B'],depth(5))
+            3-->subst_args(_78308,_78310,'&self',['â\x86\\x92\','A','B'],depth(4))
+      <--(1,retval(['â\x86\\x92\','A','B']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.08 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â A B)) ((→ A B))))
-</span>      <--(0,retval('Empty'))
+; took 0.000531 secs. (531.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â A B)) 
+    ( (→ A B))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; !(fc_bare (â $x $y) kb_bare rb_bare (fromNumber 2))
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let (â $X $Y) (kb_bare) (fc_bare (â $X $Y) kb_bare rb_bare (fromNumber 2)))
+</span><span class="ansi1 ansi38-255238088">!(let 
+  (â $X $Y) 
+  (kb_bare) 
+  (fc_bare 
+    (â $X $Y) kb_bare rb_bare 
+    (fromNumber 2)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (let (â $X $Y) (kb_bare) (fc_bare (â $X $Y) kb_bare rb_bare (fromNumber 2))) ((→ A B) (→ B C)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (let 
+    (â $X $Y) 
+    (kb_bare) 
+    (fc_bare 
+      (â $X $Y) kb_bare rb_bare 
+      (fromNumber 2))) 
+  ( (→ A B) 
+    (→ B C)))
 
 </span><span class="ansi38-250144246">; !(let (â $X $Y) (kb_bare) (fc_bare (â $X $Y) kb_bare rb_bare (fromNumber 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['â\x86\\x92\',X,Y],[kb_bare],[fc_bare,['â\x86\\x92\',X,Y],kb_bare,rb_bare,[fromNumber,2]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[let,['â\x86\\x92\',X,Y],[kb_bare],[fc_bare,['â\x86\\x92\',X,Y],kb_bare,rb_bare,[fromNumber,2]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,['â\x86\\x92\',_374676,_374960],[kb_bare],[fc_bare,['â\x86\\x92\',_374676,_374960],kb_bare,rb_bare,[fromNumber,2]]],[[→,'A','B'],[→,'B','C']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[let,['â\x86\\x92\',_116362,_116646],[kb_bare],[fc_bare,['â\x86\\x92\',_116362,_116646],kb_bare,rb_bare,[fromNumber,2]]],[[→,'A','B'],[→,'B','C']]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.08">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.08</h3>
-          -->(1,eval('&self',[let,['â\x86\\x92\',_374676,_374960],[kb_bare],[fc_bare,['â\x86\\x92\',_374676,_374960],kb_bare,rb_bare,[fromNumber,2]]],RET),depth(3))
-              -->(2,eval('&self',[kb_bare],RET),depth(5))
-                    -->(3,eval('&self',['â\x86\\x92\','A','B'],RET),depth(8))
-                      -->(4,eval('&self','A',RET),depth(9))
-                      -->(5,eval('&self','B',RET),depth(9))
-                      -->(6,eval('&self','â\x86\\x92\',RET),depth(9))
-                      -->(7,eval('&self','A',RET),depth(9))
-                      -->(8,eval('&self','B',RET),depth(9))
-                        -->(9,eval('&self','â\x86\\x92\',RET),depth(10))
-              <--(2,retval('A'))
-          <--(1,retval(['â\x86\\x92\','B','C']))
+      -->(1,eval('&self',[let,['â\x86\\x92\',_116362,_116646],[kb_bare],[fc_bare,['â\x86\\x92\',_116362,_116646],kb_bare,rb_bare,[fromNumber,2]]],RET),depth(1))
+        -->(2,eval('&self',[kb_bare],RET),depth(2))
+            -->(3,eval('&self',['â\x86\\x92\','A','B'],RET),depth(4))
+                  4-->subst_args(_6446,_6448,'&self',['â\x86\\x92\','A','B'],depth(7))
+            <--(3,retval(['â\x86\\x92\','A','B']))
+                  5-->subst_args(_7320,_7322,'&self',['â\x86\\x92\','A','B'],depth(7))
+                6-->subst_args(_7970,_7972,'&self',['â\x86\\x92\','A','B'],depth(6))
+              7-->subst_args(_8620,_8622,'&self',['â\x86\\x92\','A','B'],depth(5))
+        -->(8,eval('&self',[fc_bare,['â\x86\\x92\','A','B'],kb_bare,rb_bare,[fromNumber,2]],RET),depth(2))
+                9-->subst_args(_10246,_10248,'&self',['â\x86\\x92\','A','B'],depth(6))
+              10-->subst_args(_10896,_10898,'&self',['â\x86\\x92\','A','B'],depth(5))
+              11-->subst_args(_11770,_11772,'&self',['â\x86\\x92\','A','B'],depth(5))
+            12-->subst_args(_12420,_12422,'&self',['â\x86\\x92\','A','B'],depth(4))
+        <--(8,retval(['â\x86\\x92\','A','B']))
+            -->(13,eval('&self',['â\x86\\x92\','B','C'],RET),depth(4))
+                  14-->subst_args(_13912,_13914,'&self',['â\x86\\x92\','B','C'],depth(7))
+            <--(13,retval(['â\x86\\x92\','B','C']))
+                  15-->subst_args(_14786,_14788,'&self',['â\x86\\x92\','B','C'],depth(7))
+                16-->subst_args(_15436,_15438,'&self',['â\x86\\x92\','B','C'],depth(6))
+              17-->subst_args(_16086,_16088,'&self',['â\x86\\x92\','B','C'],depth(5))
+        -->(18,eval('&self',[fc_bare,['â\x86\\x92\','B','C'],kb_bare,rb_bare,[fromNumber,2]],RET),depth(2))
+                19-->subst_args(_17712,_17714,'&self',['â\x86\\x92\','B','C'],depth(6))
+              20-->subst_args(_18362,_18364,'&self',['â\x86\\x92\','B','C'],depth(5))
+              21-->subst_args(_19236,_19238,'&self',['â\x86\\x92\','B','C'],depth(5))
+            22-->subst_args(_19886,_19888,'&self',['â\x86\\x92\','B','C'],depth(4))
+        <--(18,retval(['â\x86\\x92\','B','C']))
+        <--(2,retval('A'))
+      <--(1,retval(['â\x86\\x92\','B','C']))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.57 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â A B) (â B C)) ((→ A B) (→ B C))))
-</span>      <--(0,retval('Empty'))
+; took 0.004 secs. (3.99 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â A B) 
+      (â B C)) 
+    ( (→ A B) 
+      (→ B C))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;
@@ -591,127 +880,192 @@ Deterministic: <span class="ansi33">Empty
  <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!"=== Equality ==="
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult "=== Equality ===" ("=== Equality ==="))
+<span class="ansi38-013099040">!(assertEqualToResult "=== Equality ===" 
+  ("=== Equality ==="))
 
 </span><span class="ansi38-250144246">; !"=== Equality ==="
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self','=== Equality ===',OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self','=== Equality ===',OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,'=== Equality ===',['=== Equality ===']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,'=== Equality ===',['=== Equality ===']],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.09">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.09</h3>
-        -->(1,eval('&self','=== Equality ===',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.000134 secs. (134.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ("=== Equality ===") ("=== Equality ===")))
-</span>          -->(2,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000039 secs. (38.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ("=== Equality ===") 
+    ("=== Equality ===")))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Knowledge base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb_eq,[->,'Atom']])
-</span><span class="ansi38-255165000">(: kb_eq (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,kb_eq,[->,'Atom']])
+</span><span class="ansi38-255165000">(: kb_eq 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[kb_eq],[superpose,[['â\x86\\x92\','A','B'],['â\x86\\x92\','B','C'],'A']]])
-</span><span class="ansi38-255165000">(= (kb_eq) (superpose ((â A B) (â B C) A)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[kb_eq],[superpose,[['â\x86\\x92\','A','B'],['â\x86\\x92\','B','C'],'A']]])
+</span><span class="ansi38-255165000">(= 
+  (kb_eq) 
+  (superpose 
+    ( (â A B) 
+      (â B C) A)))
 </span>
 
 ;;; Forward chainer.  The rule based is directly embedded in the
 ;;; forward chainer function.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fc_eq,[->,'Atom',[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">(: fc_eq (-> Atom (-> Atom) Nat Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fc_eq,[->,'Atom',[->,'Atom'],'Nat','Atom']])
+</span><span class="ansi38-255165000">(: fc_eq 
+  (-> Atom 
+    (-> Atom) Nat Atom))
 </span>
 
 ;;; Base case
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_eq,Premise,Kb,Depth],Premise])
-</span><span class="ansi38-255165000">(= (fc_eq $Premise $Kb $Depth) $Premise)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_eq,Premise,Kb,Depth],Premise])
+</span><span class="ansi38-255165000">(= 
+  (fc_eq $Premise $Kb $Depth) $Premise)
 </span>
 
 ;;; Recursive case (modus ponens)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_eq,['â\x86\\x92\',P,Q],Kb,['S',K]],[let,P,[kb_eq],[fc_eq,Q,Kb,K]]])
-</span><span class="ansi38-255165000">(= (fc_eq (â $P $Q) $Kb (S $K)) (let $P (kb_eq) (fc_eq $Q $Kb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_eq,['â\x86\\x92\',P,Q],Kb,['S',K]],[let,P,[kb_eq],[fc_eq,Q,Kb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_eq 
+    (â $P $Q) $Kb 
+    (S $K)) 
+  (let $P 
+    (kb_eq) 
+    (fc_eq $Q $Kb $K)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_eq,P,Kb,['S',K]],[let,['â\x86\\x92\',P,Q],[kb_eq],[fc_eq,Q,Kb,K]]])
-</span><span class="ansi38-255165000">(= (fc_eq $P $Kb (S $K)) (let (â $P $Q) (kb_eq) (fc_eq $Q $Kb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_eq,P,Kb,['S',K]],[let,['â\x86\\x92\',P,Q],[kb_eq],[fc_eq,Q,Kb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_eq $P $Kb 
+    (S $K)) 
+  (let 
+    (â $P $Q) 
+    (kb_eq) 
+    (fc_eq $Q $Kb $K)))
 </span>
 
 ;;; Test forward chainer
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_eq A kb_eq (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_eq A kb_eq 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_eq A kb_eq (fromNumber 2)) (A))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_eq A kb_eq 
+    (fromNumber 2)) 
+  (A))
 
 </span><span class="ansi38-250144246">; !(fc_eq A kb_eq (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_eq,'A',kb_eq,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_eq,'A',kb_eq,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_eq,'A',kb_eq,[fromNumber,2]],['A']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_eq,'A',kb_eq,[fromNumber,2]],['A']],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.10">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.10</h3>
-          -->(1,eval('&self',[fc_eq,'A',kb_eq,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self','A',RET),depth(5))
-          <--(1,retval('A'))
+      -->(1,eval('&self',[fc_eq,'A',kb_eq,[fromNumber,2]],RET),depth(1))
+      <--(1,retval('A'))
 ; 
 ; EVAL TEST
-; took 0.000370 secs. (370.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (A) (A)))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000157 secs. (157.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (A) 
+    (A)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_eq (â A B) kb_eq (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_eq 
+  (â A B) kb_eq 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_eq (â A B) kb_eq (fromNumber 2)) ((→ A B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_eq 
+    (â A B) kb_eq 
+    (fromNumber 2)) 
+  ( (→ A B)))
 
 </span><span class="ansi38-250144246">; !(fc_eq (â A B) kb_eq (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],[[→,'A','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],[[→,'A','B']]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.11">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.11</h3>
-          -->(1,eval('&self',[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self','A',RET),depth(5))
-              -->(3,eval('&self','B',RET),depth(5))
-              -->(4,eval('&self','â\x86\\x92\',RET),depth(5))
-              -->(5,eval('&self','A',RET),depth(5))
-              -->(6,eval('&self','B',RET),depth(5))
-                -->(7,eval('&self','â\x86\\x92\',RET),depth(6))
-                -->(8,eval('&self','A',RET),depth(6))
-                -->(9,eval('&self','B',RET),depth(6))
-          <--(1,retval(['â\x86\\x92\','A','B']))
+      -->(1,eval('&self',[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],RET),depth(1))
+              2-->subst_args(_31632,_31634,'&self',['â\x86\\x92\','A','B'],depth(5))
+            3-->subst_args(_32282,_32284,'&self',['â\x86\\x92\','A','B'],depth(4))
+      <--(1,retval(['â\x86\\x92\','A','B']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.16 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â A B)) ((→ A B))))
-</span>      <--(0,retval('Empty'))
+; took 0.000817 secs. (817.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â A B)) 
+    ( (→ A B))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; !(fc_eq (â $x $y) kb_eq (fromNumber 2))
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let (â $X $Y) (kb_eq) (fc_eq (â $X $Y) kb_eq (fromNumber 2)))
+</span><span class="ansi1 ansi38-255238088">!(let 
+  (â $X $Y) 
+  (kb_eq) 
+  (fc_eq 
+    (â $X $Y) kb_eq 
+    (fromNumber 2)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (let (â $X $Y) (kb_eq) (fc_eq (â $X $Y) kb_eq (fromNumber 2))) ((→ A B) (→ B C)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (let 
+    (â $X $Y) 
+    (kb_eq) 
+    (fc_eq 
+      (â $X $Y) kb_eq 
+      (fromNumber 2))) 
+  ( (→ A B) 
+    (→ B C)))
 
 </span><span class="ansi38-250144246">; !(let (â $X $Y) (kb_eq) (fc_eq (â $X $Y) kb_eq (fromNumber 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['â\x86\\x92\',X,Y],[kb_eq],[fc_eq,['â\x86\\x92\',X,Y],kb_eq,[fromNumber,2]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[let,['â\x86\\x92\',X,Y],[kb_eq],[fc_eq,['â\x86\\x92\',X,Y],kb_eq,[fromNumber,2]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,['â\x86\\x92\',_222578,_222862],[kb_eq],[fc_eq,['â\x86\\x92\',_222578,_222862],kb_eq,[fromNumber,2]]],[[→,'A','B'],[→,'B','C']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[let,['â\x86\\x92\',_65932,_66216],[kb_eq],[fc_eq,['â\x86\\x92\',_65932,_66216],kb_eq,[fromNumber,2]]],[[→,'A','B'],[→,'B','C']]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.12">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.12</h3>
-          -->(1,eval('&self',[let,['â\x86\\x92\',_222578,_222862],[kb_eq],[fc_eq,['â\x86\\x92\',_222578,_222862],kb_eq,[fromNumber,2]]],RET),depth(3))
-              -->(2,eval('&self',[kb_eq],RET),depth(5))
-                    -->(3,eval('&self',['â\x86\\x92\','A','B'],RET),depth(8))
-                      -->(4,eval('&self','A',RET),depth(9))
-                      -->(5,eval('&self','B',RET),depth(9))
-                      -->(6,eval('&self','â\x86\\x92\',RET),depth(9))
-                      -->(7,eval('&self','A',RET),depth(9))
-                      -->(8,eval('&self','B',RET),depth(9))
-                        -->(9,eval('&self','â\x86\\x92\',RET),depth(10))
-              <--(2,retval('A'))
-          <--(1,retval(['â\x86\\x92\','B','C']))
+      -->(1,eval('&self',[let,['â\x86\\x92\',_65932,_66216],[kb_eq],[fc_eq,['â\x86\\x92\',_65932,_66216],kb_eq,[fromNumber,2]]],RET),depth(1))
+        -->(2,eval('&self',[kb_eq],RET),depth(2))
+            -->(3,eval('&self',['â\x86\\x92\','A','B'],RET),depth(4))
+                  4-->subst_args(_82004,_82006,'&self',['â\x86\\x92\','A','B'],depth(7))
+            <--(3,retval(['â\x86\\x92\','A','B']))
+                  5-->subst_args(_82878,_82880,'&self',['â\x86\\x92\','A','B'],depth(7))
+                6-->subst_args(_83528,_83530,'&self',['â\x86\\x92\','A','B'],depth(6))
+              7-->subst_args(_84178,_84180,'&self',['â\x86\\x92\','A','B'],depth(5))
+        -->(8,eval('&self',[fc_eq,['â\x86\\x92\','A','B'],kb_eq,[fromNumber,2]],RET),depth(2))
+                9-->subst_args(_85798,_85800,'&self',['â\x86\\x92\','A','B'],depth(6))
+              10-->subst_args(_86448,_86450,'&self',['â\x86\\x92\','A','B'],depth(5))
+              11-->subst_args(_87322,_87324,'&self',['â\x86\\x92\','A','B'],depth(5))
+            12-->subst_args(_87972,_87974,'&self',['â\x86\\x92\','A','B'],depth(4))
+        <--(8,retval(['â\x86\\x92\','A','B']))
+            -->(13,eval('&self',['â\x86\\x92\','B','C'],RET),depth(4))
+                  14-->subst_args(_89464,_89466,'&self',['â\x86\\x92\','B','C'],depth(7))
+            <--(13,retval(['â\x86\\x92\','B','C']))
+                  15-->subst_args(_90338,_90340,'&self',['â\x86\\x92\','B','C'],depth(7))
+                16-->subst_args(_90988,_90990,'&self',['â\x86\\x92\','B','C'],depth(6))
+              17-->subst_args(_91638,_91640,'&self',['â\x86\\x92\','B','C'],depth(5))
+        -->(18,eval('&self',[fc_eq,['â\x86\\x92\','B','C'],kb_eq,[fromNumber,2]],RET),depth(2))
+                19-->subst_args(_93258,_93260,'&self',['â\x86\\x92\','B','C'],depth(6))
+              20-->subst_args(_93908,_93910,'&self',['â\x86\\x92\','B','C'],depth(5))
+              21-->subst_args(_94782,_94784,'&self',['â\x86\\x92\','B','C'],depth(5))
+            22-->subst_args(_95432,_95434,'&self',['â\x86\\x92\','B','C'],depth(4))
+        <--(18,retval(['â\x86\\x92\','B','C']))
+        <--(2,retval('A'))
+      <--(1,retval(['â\x86\\x92\','B','C']))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (4.43 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((â A B) (â B C)) ((→ A B) (→ B C))))
-</span>      <--(0,retval('Empty'))
+; took 0.004 secs. (3.80 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (â A B) 
+      (â B C)) 
+    ( (→ A B) 
+      (→ B C))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;
@@ -723,139 +1077,223 @@ Deterministic: <span class="ansi33">Empty
  <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!"=== DTL ==="
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult "=== DTL ===" ("=== DTL ==="))
+<span class="ansi38-013099040">!(assertEqualToResult "=== DTL ===" 
+  ("=== DTL ==="))
 
 </span><span class="ansi38-250144246">; !"=== DTL ==="
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self','=== DTL ===',OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self','=== DTL ===',OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,'=== DTL ===',['=== DTL ===']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,'=== DTL ===',['=== DTL ===']],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.13">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.13</h3>
-        -->(1,eval('&self','=== DTL ===',RET),depth(2))
 ; 
 ; EVAL TEST
-; took 0.000099 secs. (99.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ("=== DTL ===") ("=== DTL ===")))
-</span>          -->(2,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000017 secs. (17.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ("=== DTL ===") 
+    ("=== DTL ===")))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Foward chainer
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fc_dtl,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
-</span><span class="ansi38-255165000">(: fc_dtl (-> Atom (-> Atom) (-> Atom) Nat Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fc_dtl,[->,'Atom',[->,'Atom'],[->,'Atom'],'Nat','Atom']])
+</span><span class="ansi38-255165000">(: fc_dtl 
+  (-> Atom 
+    (-> Atom) 
+    (-> Atom) Nat Atom))
 </span>
 
 ;;; Base case
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_dtl,[:,Proof,Premise],Kb,Rb,Depth],[:,Proof,Premise]])
-</span><span class="ansi38-255165000">(= (fc_dtl (: $Proof $Premise) $Kb $Rb $Depth) (: $Proof $Premise))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_dtl,[:,Proof,Premise],Kb,Rb,Depth],[:,Proof,Premise]])
+</span><span class="ansi38-255165000">(= 
+  (fc_dtl 
+    (: $Proof $Premise) $Kb $Rb $Depth) 
+  (: $Proof $Premise))
 </span>
 
 ;;; Recursive cases
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_dtl,[:,Proof1,Premise1],Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[Rb]],[[:,Proof2,Premise2],[Kb]]],[fc_dtl,[:,[Ructor,Proof1,Proof2],Conclusion],Kb,Rb,K]]])
-</span><span class="ansi38-255165000">(= (fc_dtl (: $Proof1 $Premise1) $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) ($Rb)) ((: $Proof2 $Premise2) ($Kb))) (fc_dtl (: ($Ructor $Proof1 $Proof2) $Conclusion) $Kb $Rb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_dtl,[:,Proof1,Premise1],Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[Rb]],[[:,Proof2,Premise2],[Kb]]],[fc_dtl,[:,[Ructor,Proof1,Proof2],Conclusion],Kb,Rb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_dtl 
+    (: $Proof1 $Premise1) $Kb $Rb 
+    (S $K)) 
+  (let* 
+    ( ( (: $Ructor 
+          (-> $Premise1 $Premise2 $Conclusion)) 
+        ($Rb)) 
+      ( (: $Proof2 $Premise2) 
+        ($Kb))) 
+    (fc_dtl 
+      (: 
+        ($Ructor $Proof1 $Proof2) $Conclusion) $Kb $Rb $K)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fc_dtl,[:,Proof2,Premise2],Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[Rb]],[[:,Proof1,Premise1],[Kb]]],[fc_dtl,[:,[Ructor,Proof1,Proof2],Conclusion],Kb,Rb,K]]])
-</span><span class="ansi38-255165000">(= (fc_dtl (: $Proof2 $Premise2) $Kb $Rb (S $K)) (let* (((: $Ructor (-> $Premise1 $Premise2 $Conclusion)) ($Rb)) ((: $Proof1 $Premise1) ($Kb))) (fc_dtl (: ($Ructor $Proof1 $Proof2) $Conclusion) $Kb $Rb $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fc_dtl,[:,Proof2,Premise2],Kb,Rb,['S',K]],['let*',[[[:,Ructor,[->,Premise1,Premise2,Conclusion]],[Rb]],[[:,Proof1,Premise1],[Kb]]],[fc_dtl,[:,[Ructor,Proof1,Proof2],Conclusion],Kb,Rb,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fc_dtl 
+    (: $Proof2 $Premise2) $Kb $Rb 
+    (S $K)) 
+  (let* 
+    ( ( (: $Ructor 
+          (-> $Premise1 $Premise2 $Conclusion)) 
+        ($Rb)) 
+      ( (: $Proof1 $Premise1) 
+        ($Kb))) 
+    (fc_dtl 
+      (: 
+        ($Ructor $Proof1 $Proof2) $Conclusion) $Kb $Rb $K)))
 </span>
 
 ;;; Knowledge base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,kb_dtl,[->,'Atom']])
-</span><span class="ansi38-255165000">(: kb_dtl (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,kb_dtl,[->,'Atom']])
+</span><span class="ansi38-255165000">(: kb_dtl 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[kb_dtl],[superpose,[[:,ab,['â\x86\\x92\','A','B']],[:,bc,['â\x86\\x92\','B','C']],[:,a,'A']]]])
-</span><span class="ansi38-255165000">(= (kb_dtl) (superpose ((: ab (â A B)) (: bc (â B C)) (: a A))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[kb_dtl],[superpose,[[:,ab,['â\x86\\x92\','A','B']],[:,bc,['â\x86\\x92\','B','C']],[:,a,'A']]]])
+</span><span class="ansi38-255165000">(= 
+  (kb_dtl) 
+  (superpose 
+    ( (: ab 
+        (â A B)) 
+      (: bc 
+        (â B C)) 
+      (: a A))))
 </span>
 
 ;;; Rule base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,rb_dtl,[->,'Atom']])
-</span><span class="ansi38-255165000">(: rb_dtl (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,rb_dtl,[->,'Atom']])
+</span><span class="ansi38-255165000">(: rb_dtl 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rb_dtl],[:,'ModusPonens',[->,['â\x86\\x92\',P,Q],P,Q]]])
-</span><span class="ansi38-255165000">(= (rb_dtl) (: ModusPonens (-> (â $P $Q) $P $Q)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[rb_dtl],[:,'ModusPonens',[->,['â\x86\\x92\',P,Q],P,Q]]])
+</span><span class="ansi38-255165000">(= 
+  (rb_dtl) 
+  (: ModusPonens 
+    (-> 
+      (â $P $Q) $P $Q)))
 </span>
 
 ;;; Premises
 ;;; Conclusion
 ;;; Test forward chainer
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_dtl (: a A) kb_dtl rb_dtl (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_dtl 
+  (: a A) kb_dtl rb_dtl 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_dtl (: a A) kb_dtl rb_dtl (fromNumber 2)) ((: a A)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_dtl 
+    (: a A) kb_dtl rb_dtl 
+    (fromNumber 2)) 
+  ( (: a A)))
 
 </span><span class="ansi38-250144246">; !(fc_dtl (: a A) kb_dtl rb_dtl (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_dtl,[:,a,'A'],kb_dtl,rb_dtl,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_dtl,[:,a,'A'],kb_dtl,rb_dtl,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_dtl,[:,a,'A'],kb_dtl,rb_dtl,[fromNumber,2]],[[:,a,'A']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_dtl,[:,a,'A'],kb_dtl,rb_dtl,[fromNumber,2]],[[:,a,'A']]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.14">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.14</h3>
-          -->(1,eval('&self',[fc_dtl,[:,a,'A'],kb_dtl,rb_dtl,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self',:,RET),depth(5))
-              -->(3,eval('&self',a,RET),depth(5))
-              -->(4,eval('&self','A',RET),depth(5))
-          <--(1,retval([:,a,'A']))
+      -->(1,eval('&self',[fc_dtl,[:,a,'A'],kb_dtl,rb_dtl,[fromNumber,2]],RET),depth(1))
+      <--(1,retval([:,a,'A']))
 ; 
 ; EVAL TEST
-; took 0.000472 secs. (472.30 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((: a A)) ((: a A))))
-</span>          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000201 secs. (201.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (: a A)) 
+    ( (: a A))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(fc_dtl (: ab (â A B)) kb_dtl rb_dtl (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(fc_dtl 
+  (: ab 
+    (â A B)) kb_dtl rb_dtl 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (fc_dtl (: ab (â A B)) kb_dtl rb_dtl (fromNumber 2)) ((: ab (→ A B))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fc_dtl 
+    (: ab 
+      (â A B)) kb_dtl rb_dtl 
+    (fromNumber 2)) 
+  ( (: ab 
+      (→ A B))))
 
 </span><span class="ansi38-250144246">; !(fc_dtl (: ab (â A B)) kb_dtl rb_dtl (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],[[:,ab,[→,'A','B']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],[[:,ab,[→,'A','B']]]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.15">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.15</h3>
-          -->(1,eval('&self',[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self',:,RET),depth(5))
-              -->(3,eval('&self',ab,RET),depth(5))
-                -->(4,eval('&self',['â\x86\\x92\','A','B'],RET),depth(6))
-                  -->(5,eval('&self','A',RET),depth(7))
-                  -->(6,eval('&self','B',RET),depth(7))
-                  -->(7,eval('&self','â\x86\\x92\',RET),depth(7))
-                  -->(8,eval('&self','A',RET),depth(7))
-                  -->(9,eval('&self','B',RET),depth(7))
-          <--(1,retval([:,ab,['â\x86\\x92\','A','B']]))
+      -->(1,eval('&self',[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],RET),depth(1))
+      <--(1,retval([:,ab,['â\x86\\x92\','A','B']]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.47 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((: ab (â A B))) ((: ab (→ A B)))))
-</span>      <--(0,retval('Empty'))
+; took 0.000186 secs. (186.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (: ab 
+        (â A B))) 
+    ( (: ab 
+        (→ A B)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; !(fc_dtl (: $proof (â $x $y)) kb_dtl rb_dtl (fromNumber 2))
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let (: $Prf (â $X $Y)) (kb_dtl) (fc_dtl (: $Prf (â $X $Y)) kb_dtl rb_dtl (fromNumber 2)))
+</span><span class="ansi1 ansi38-255238088">!(let 
+  (: $Prf 
+    (â $X $Y)) 
+  (kb_dtl) 
+  (fc_dtl 
+    (: $Prf 
+      (â $X $Y)) kb_dtl rb_dtl 
+    (fromNumber 2)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (let (: $Prf (â $X $Y)) (kb_dtl) (fc_dtl (: $Prf (â $X $Y)) kb_dtl rb_dtl (fromNumber 2))) ((: ab (→ A B)) (: bc (→ B C))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (let 
+    (: $Prf 
+      (â $X $Y)) 
+    (kb_dtl) 
+    (fc_dtl 
+      (: $Prf 
+        (â $X $Y)) kb_dtl rb_dtl 
+      (fromNumber 2))) 
+  ( (: ab 
+      (→ A B)) 
+    (: bc 
+      (→ B C))))
 
 </span><span class="ansi38-250144246">; !(let (: $Prf (â $X $Y)) (kb_dtl) (fc_dtl (: $Prf (â $X $Y)) kb_dtl rb_dtl (fromNumber 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,[:,Prf,['â\x86\\x92\',X,Y]],[kb_dtl],[fc_dtl,[:,Prf,['â\x86\\x92\',X,Y]],kb_dtl,rb_dtl,[fromNumber,2]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[let,[:,Prf,['â\x86\\x92\',X,Y]],[kb_dtl],[fc_dtl,[:,Prf,['â\x86\\x92\',X,Y]],kb_dtl,rb_dtl,[fromNumber,2]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[let,[:,_82334,['â\x86\\x92\',_82646,_82930]],[kb_dtl],[fc_dtl,[:,_82334,['â\x86\\x92\',_82646,_82930]],kb_dtl,rb_dtl,[fromNumber,2]]],[[:,ab,[→,'A','B']],[:,bc,[→,'B','C']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[let,[:,_36632,['â\x86\\x92\',_36944,_37228]],[kb_dtl],[fc_dtl,[:,_36632,['â\x86\\x92\',_36944,_37228]],kb_dtl,rb_dtl,[fromNumber,2]]],[[:,ab,[→,'A','B']],[:,bc,[→,'B','C']]]],RET),depth(0))
 <h3 id="FORWARD-CHAINER.FORWARD-CHAINER-TEST.16">;; FORWARD-CHAINER.FORWARD-CHAINER-TEST.16</h3>
-          -->(1,eval('&self',[let,[:,_82334,['â\x86\\x92\',_82646,_82930]],[kb_dtl],[fc_dtl,[:,_82334,['â\x86\\x92\',_82646,_82930]],kb_dtl,rb_dtl,[fromNumber,2]]],RET),depth(3))
-              -->(2,eval('&self',[kb_dtl],RET),depth(5))
-                    -->(3,eval('&self',[:,ab,['â\x86\\x92\','A','B']],RET),depth(8))
-                    -->(4,eval('&self',:,RET),depth(8))
-                    -->(5,eval('&self',ab,RET),depth(8))
-                      -->(6,eval('&self',['â\x86\\x92\','A','B'],RET),depth(9))
-                        -->(7,eval('&self','A',RET),depth(10))
-                        -->(8,eval('&self','B',RET),depth(10))
-                        -->(9,eval('&self','â\x86\\x92\',RET),depth(10))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[let,[:,_36632,['â\x86\\x92\',_36944,_37228]],[kb_dtl],[fc_dtl,[:,_36632,['â\x86\\x92\',_36944,_37228]],kb_dtl,rb_dtl,[fromNumber,2]]],RET),depth(1))
+        -->(2,eval('&self',[kb_dtl],RET),depth(2))
+        -->(3,eval('&self',[fc_dtl,[:,ab,['â\x86\\x92\','A','B']],kb_dtl,rb_dtl,[fromNumber,2]],RET),depth(2))
+        <--(3,retval([:,ab,['â\x86\\x92\','A','B']]))
+        -->(4,eval('&self',[fc_dtl,[:,bc,['â\x86\\x92\','B','C']],kb_dtl,rb_dtl,[fromNumber,2]],RET),depth(2))
+        <--(4,retval([:,bc,['â\x86\\x92\','B','C']]))
+        <--(2,retval([:,a,'A']))
+      <--(1,retval([:,bc,['â\x86\\x92\','B','C']]))
+; 
 ; EVAL TEST
-; took 0.005 secs. (4.62 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((: ab (â A B)) (: bc (â B C))) ((: ab (→ A B)) (: bc (→ B C)))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.000657 secs. (657.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (: ab 
+        (â A B)) 
+      (: bc 
+        (â B C))) 
+    ( (: ab 
+        (→ A B)) 
+      (: bc 
+        (→ B C)))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 924,947 inferences, 1.205 CPU in 1.205 seconds (100% CPU, 767557 Lips)
+</span><span class="ansi32">% 718,788 inferences, 1.023 CPU in 1.023 seconds (100% CPU, 702884 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

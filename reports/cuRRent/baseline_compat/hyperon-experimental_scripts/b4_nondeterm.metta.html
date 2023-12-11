@@ -151,16 +151,19 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Nondeterminism in matching and interpretation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[color],green])
-</span><span class="ansi38-255165000">(= (color) green)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[color],green])
+</span><span class="ansi38-255165000">(= 
+  (color) green)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[color],yellow])
-</span><span class="ansi38-255165000">(= (color) yellow)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[color],yellow])
+</span><span class="ansi38-255165000">(= 
+  (color) yellow)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[color],red])
-</span><span class="ansi38-255165000">(= (color) red)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[color],red])
+</span><span class="ansi38-255165000">(= 
+  (color) red)
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -169,28 +172,30 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; The same is true for equality queries
 ;; `superpose` turns a tuple into a non-deterministic result (for comparison here)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (match &self (= (color) $X) $X) (superpose (red yellow green)))
+<span class="ansi38-013099040">!(assertEqual 
+  (match &self 
+    (= 
+      (color) $X) $X) 
+  (superpose 
+    (red yellow green)))
 
 </span><span class="ansi38-250144246">; !(match &self (= (color) $X) $X)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[=,[color],X],X],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[=,[color],X],X],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[match,'&self',[=,[color],_38804],_38804],[superpose,[red,yellow,green]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[match,'&self',[=,[color],_109570],_109570],[superpose,[red,yellow,green]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.01</h3>
-          -->(1,eval('&self',[match,'&self',[=,[color],_38804],_38804],RET),depth(3))
-              -->(2,eval('&self',green,RET),depth(5))
-            -->(3,eval('&self',green,RET),depth(4))
-              -->(4,eval('&self',green,RET),depth(5))
-              -->(5,eval('&self',yellow,RET),depth(5))
-            -->(6,eval('&self',yellow,RET),depth(4))
-              -->(7,eval('&self',yellow,RET),depth(5))
-              -->(8,eval('&self',red,RET),depth(5))
-            -->(9,eval('&self',red,RET),depth(4))
-          <--(1,retval(red))
+      -->(1,eval('&self',[match,'&self',[=,[color],_109570],_109570],RET),depth(1))
+      <--(1,retval(red))
+      -->(2,eval('&self',[superpose,[red,yellow,green]],RET),depth(1))
+      <--(2,retval(green))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.04 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (green yellow red) (red yellow green)))
-</span>      <--(0,retval('Empty'))
+; took 0.000481 secs. (480.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (green yellow red) 
+    (red yellow green)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;!(assertEqual (match &self (= (color) $x) $x) (color))
@@ -201,24 +206,27 @@ Deterministic: <span class="ansi33">Empty
 ;; We don't use it above, because the order of non-deterministic results
 ;; is not guaranteed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (collapse (match &self (= (shape) $X) $X)) ())
+<span class="ansi38-013099040">!(assertEqual 
+  (collapse 
+    (match &self 
+      (= 
+        (shape) $X) $X)) ())
 
 </span><span class="ansi38-250144246">; !(collapse (match &self (= (shape) $X) $X))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[collapse,[match,'&self',[=,[shape],X],X]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[collapse,[match,'&self',[=,[shape],X],X]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[collapse,[match,'&self',[=,[shape],_88858],_88858]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[collapse,[match,'&self',[=,[shape],_32706],_32706]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.02</h3>
-          -->(1,eval('&self',[collapse,[match,'&self',[=,[shape],_88858],_88858]],RET),depth(3))
-              -->(2,eval('&self',[match,'&self',[=,[shape],_88858],_88858],RET),depth(5))
-              <--(2,retval(fail))
-          <--(1,retval([]))
-        -->(3,eval('&self',[],RET),depth(2))
+      -->(1,eval('&self',[collapse,[match,'&self',[=,[shape],_32706],_32706]],RET),depth(1))
+        -->(2,eval('&self',[match,'&self',[=,[shape],_32706],_32706],RET),depth(2))
+        <--(2,retval(fail))
+      <--(1,retval([]))
 ; 
 ; EVAL TEST
-; took 0.000655 secs. (654.60 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000386 secs. (385.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -226,29 +234,28 @@ Deterministic: <span class="ansi33">Empty
 ;; Multiple results from equality queries
 ;; are also returned by the interpreter
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (color) (superpose (red yellow green)))
+<span class="ansi38-013099040">!(assertEqual 
+  (color) 
+  (superpose 
+    (red yellow green)))
 
 </span><span class="ansi38-250144246">; !(color)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[color],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[color],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[color],[superpose,[red,yellow,green]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[color],[superpose,[red,yellow,green]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.03</h3>
-          -->(1,eval('&self',[color],RET),depth(3))
-              -->(2,eval('&self',green,RET),depth(5))
-              -->(3,eval('&self',yellow,RET),depth(5))
-              -->(4,eval('&self',red,RET),depth(5))
-          <--(1,retval(red))
-          -->(5,eval('&self',[superpose,[red,yellow,green]],RET),depth(3))
-            -->(6,eval('&self',red,RET),depth(4))
-              -->(7,eval('&self',red,RET),depth(5))
-            -->(8,eval('&self',yellow,RET),depth(4))
-              -->(9,eval('&self',yellow,RET),depth(5))
-          <--(5,retval(green))
+      -->(1,eval('&self',[color],RET),depth(1))
+      <--(1,retval(red))
+      -->(2,eval('&self',[superpose,[red,yellow,green]],RET),depth(1))
+      <--(2,retval(green))
 ; 
 ; EVAL TEST
-; took 0.000941 secs. (941.30 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (green yellow red) (red yellow green)))
-</span>      <--(0,retval('Empty'))
+; took 0.000519 secs. (519.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (green yellow red) 
+    (red yellow green)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -256,31 +263,38 @@ Deterministic: <span class="ansi33">Empty
 ;; `superpose` reverts `collapse`
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `let` is used to introduce temporary variable bindings within an expression
-<span class="ansi38-013099040">!(assertEqual (color) (let $X (collapse (color)) (superpose $X)))
+<span class="ansi38-013099040">!(assertEqual 
+  (color) 
+  (let $X 
+    (collapse 
+      (color)) 
+    (superpose $X)))
 
 </span><span class="ansi38-250144246">; !(color)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[color],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[color],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[color],[let,_175364,[collapse,[color]],[superpose,_175364]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[color],[let,_2018,[collapse,[color]],[superpose,_2018]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.04</h3>
-          -->(1,eval('&self',[color],RET),depth(3))
-              -->(2,eval('&self',green,RET),depth(5))
-              -->(3,eval('&self',yellow,RET),depth(5))
-              -->(4,eval('&self',red,RET),depth(5))
-          <--(1,retval(red))
-          -->(5,eval('&self',[let,_175364,[collapse,[color]],[superpose,_175364]],RET),depth(3))
-              -->(6,eval('&self',[collapse,[color]],RET),depth(5))
-                  -->(7,eval('&self',[color],RET),depth(7))
-                      -->(8,eval('&self',green,RET),depth(9))
-                      -->(9,eval('&self',yellow,RET),depth(9))
-                  <--(7,retval(red))
-              <--(6,retval([green,yellow,red]))
-          <--(5,retval(red))
+      -->(1,eval('&self',[color],RET),depth(1))
+      <--(1,retval(red))
+      -->(2,eval('&self',[let,_2018,[collapse,[color]],[superpose,_2018]],RET),depth(1))
+        -->(3,eval('&self',[collapse,[color]],RET),depth(2))
+          -->(4,eval('&self',[color],RET),depth(3))
+          <--(4,retval(red))
+                -->(5,subst_args('&self',[green,yellow,red],RET),depth(6))
+              -->(6,subst_args('&self',[green,yellow,red],RET),depth(5))
+        <--(3,retval([green,yellow,red]))
+        -->(7,eval('&self',[superpose,[green,yellow,red]],RET),depth(2))
+        <--(7,retval(red))
+      <--(2,retval(red))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.98 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (green yellow red) (green yellow red)))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.31 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (green yellow red) 
+    (green yellow red)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -288,46 +302,65 @@ Deterministic: <span class="ansi33">Empty
 ;; In contrast to `match`, if the equality query returns an empty result
 ;; the interpreter doesn't reduce a symbolic expression
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (collapse (shape)) ((shape)))
+<span class="ansi38-013099040">!(assertEqual 
+  (collapse 
+    (shape)) 
+  ( (shape)))
 
 </span><span class="ansi38-250144246">; !(collapse (shape))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[collapse,[shape]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[collapse,[shape]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[collapse,[shape]],[[shape]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[collapse,[shape]],[[shape]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.05</h3>
-          -->(1,eval('&self',[collapse,[shape]],RET),depth(3))
-              -->(2,eval('&self',[shape],RET),depth(5))
-                -->(3,eval('&self',shape,RET),depth(6))
-                  -->(4,eval('&self',shape,RET),depth(7))
-                -->(5,eval('&self',[shape],RET),depth(6))
-                  -->(6,eval('&self',shape,RET),depth(7))
-                    -->(7,eval('&self',shape,RET),depth(8))
-                  -->(8,eval('&self',[shape],RET),depth(7))
-                    -->(9,eval('&self',shape,RET),depth(8))
-          <--(1,retval([[shape]]))
+      -->(1,eval('&self',[collapse,[shape]],RET),depth(1))
+        -->(2,eval('&self',[shape],RET),depth(2))
+              -->(3,subst_args('&self',[shape],RET),depth(5))
+        <--(2,retval([shape]))
+          -->(4,eval('&self',[shape],RET),depth(3))
+                -->(5,subst_args('&self',[shape],RET),depth(6))
+          <--(4,retval([shape]))
+              -->(6,subst_args('&self',[[shape]],RET),depth(5))
+                  -->(7,subst_args('&self',[shape],RET),depth(7))
+            -->(8,subst_args('&self',[[shape]],RET),depth(4))
+                -->(9,subst_args('&self',[shape],RET),depth(6))
+      <--(1,retval([[shape]]))
+      -->(10,eval('&self',[[shape]],RET),depth(1))
+        -->(11,eval('&self',[shape],RET),depth(2))
+              -->(12,subst_args('&self',[shape],RET),depth(5))
+        <--(11,retval([shape]))
+            -->(13,subst_args('&self',[[shape]],RET),depth(4))
+                -->(14,subst_args('&self',[shape],RET),depth(6))
+      <--(10,retval([[shape]]))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.52 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (((shape))) (((shape)))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (2.21 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( ( (shape))) 
+    ( ( (shape)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (shape) ((shape)))
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (shape) 
+  ( (shape)))
 
 </span><span class="ansi38-250144246">; !(shape)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[shape],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[shape],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[shape],[[shape]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[shape],[[shape]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.06</h3>
-          -->(1,eval('&self',[shape],RET),depth(3))
-            -->(2,eval('&self',shape,RET),depth(4))
-              -->(3,eval('&self',shape,RET),depth(5))
+      -->(1,eval('&self',[shape],RET),depth(1))
+            -->(2,subst_args('&self',[shape],RET),depth(4))
+      <--(1,retval([shape]))
 ; 
 ; EVAL TEST
-; took 0.000285 secs. (285.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((shape)) ((shape))))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000312 secs. (311.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (shape)) 
+    ( (shape))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -335,42 +368,85 @@ Deterministic: <span class="ansi33">Empty
 ;; If the expression is composed over nondeterministic
 ;; expressions, all combinations will be produced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[bin],'A'])
-</span><span class="ansi38-255165000">(= (bin) A)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[bin],'A'])
+</span><span class="ansi38-255165000">(= 
+  (bin) A)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[bin],'B'])
-</span><span class="ansi38-255165000">(= (bin) B)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[bin],'B'])
+</span><span class="ansi38-255165000">(= 
+  (bin) B)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[pair,X,Y],[X,Y]])
-</span><span class="ansi38-255165000">(= (pair $X $Y) ($X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[pair,X,Y],[X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (pair $X $Y) 
+  ($X $Y))
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult (pair (bin) (bin)) ((A A) (A B) (B A) (B B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (pair 
+    (bin) 
+    (bin)) 
+  ( (A A) 
+    (A B) 
+    (B A) 
+    (B B)))
 
 </span><span class="ansi38-250144246">; !(pair (bin) (bin))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[pair,[bin],[bin]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[pair,[bin],[bin]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[pair,[bin],[bin]],[['A','A'],['A','B'],['B','A'],['B','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[pair,[bin],[bin]],[['A','A'],['A','B'],['B','A'],['B','B']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.07</h3>
-          -->(1,eval('&self',[pair,[bin],[bin]],RET),depth(3))
-                -->(2,eval('&self',['A',[bin]],RET),depth(6))
-                    -->(3,eval('&self',[bin],RET),depth(8))
-                        -->(4,eval('&self','A',RET),depth(10))
-                        -->(5,eval('&self','B',RET),depth(10))
-                    <--(3,retval('B'))
-                  -->(6,eval('&self','A',RET),depth(7))
-                    -->(7,eval('&self',[bin],RET),depth(8))
-                        -->(8,eval('&self','A',RET),depth(10))
-                    -->(9,eval('&self','A',RET),depth(8))
-                    <--(7,retval('B'))
-                <--(2,retval(['A','B']))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[pair,[bin],[bin]],RET),depth(1))
+          -->(2,eval('&self',['A',[bin]],RET),depth(3))
+            -->(3,eval('&self',[bin],RET),depth(4))
+            <--(3,retval('B'))
+            -->(4,eval('&self',[bin],RET),depth(4))
+                  -->(5,subst_args('&self',['A','A'],RET),depth(7))
+                -->(6,subst_args('&self',['A','A'],RET),depth(6))
+                -->(7,subst_args('&self',['A','A'],RET),depth(6))
+              -->(8,subst_args('&self',['A','A'],RET),depth(5))
+            -->(9,subst_args('&self',['A','A'],RET),depth(4))
+                  -->(10,subst_args('&self',['A','B'],RET),depth(7))
+                -->(11,subst_args('&self',['A','B'],RET),depth(6))
+                -->(12,subst_args('&self',['A','B'],RET),depth(6))
+              -->(13,subst_args('&self',['A','B'],RET),depth(5))
+            -->(14,subst_args('&self',['A','B'],RET),depth(4))
+            <--(4,retval('B'))
+          <--(2,retval(['A','B']))
+          -->(15,eval('&self',['B',[bin]],RET),depth(3))
+            -->(16,eval('&self',[bin],RET),depth(4))
+            <--(16,retval('B'))
+            -->(17,eval('&self',[bin],RET),depth(4))
+                  -->(18,subst_args('&self',['B','A'],RET),depth(7))
+                -->(19,subst_args('&self',['B','A'],RET),depth(6))
+                -->(20,subst_args('&self',['B','A'],RET),depth(6))
+              -->(21,subst_args('&self',['B','A'],RET),depth(5))
+            -->(22,subst_args('&self',['B','A'],RET),depth(4))
+                  -->(23,subst_args('&self',['B','B'],RET),depth(7))
+                -->(24,subst_args('&self',['B','B'],RET),depth(6))
+                -->(25,subst_args('&self',['B','B'],RET),depth(6))
+              -->(26,subst_args('&self',['B','B'],RET),depth(5))
+            -->(27,subst_args('&self',['B','B'],RET),depth(4))
+            <--(17,retval('B'))
+          <--(15,retval(['B','B']))
+      <--(1,retval(['B','B']))
+; 
 ; EVAL TEST
-; took 0.006 secs. (6.23 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((A A) (A B) (B A) (B B) (A A) (B A) (A B) (B B)) ((A A) (A B) (B A) (B B))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.005 secs. (5.36 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (A A) 
+      (A B) 
+      (B A) 
+      (B B)) 
+    ( (A A) 
+      (A B) 
+      (B A) 
+      (B B))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -381,79 +457,136 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101));
 ;; but without reduction. However, `match` can be called
 ;; directly to filter out non-reducible results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[foo],red])
-</span><span class="ansi38-255165000">(= (foo) red)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[foo],red])
+</span><span class="ansi38-255165000">(= 
+  (foo) red)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[foo],boo])
-</span><span class="ansi38-255165000">(= (foo) boo)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[foo],boo])
+</span><span class="ansi38-255165000">(= 
+  (foo) boo)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[eq,X,X],'T'])
-</span><span class="ansi38-255165000">(= (eq $X $X) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[eq,X,X],'T'])
+</span><span class="ansi38-255165000">(= 
+  (eq $X $X) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['find-equal',X,Y],[match,'&self',[=,[eq,X,Y],'T'],X]])
-</span><span class="ansi38-255165000">(= (find-equal $X $Y) (match &self (= (eq $X $Y) T) $X))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['find-equal',X,Y],[match,'&self',[=,[eq,X,Y],'T'],X]])
+</span><span class="ansi38-255165000">(= 
+  (find-equal $X $Y) 
+  (match &self 
+    (= 
+      (eq $X $Y) T) $X))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (find-equal (color) (foo)) red)
+<span class="ansi38-013099040">!(assertEqual 
+  (find-equal 
+    (color) 
+    (foo)) red)
 
 </span><span class="ansi38-250144246">; !(find-equal (color) (foo))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['find-equal',[color],[foo]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['find-equal',[color],[foo]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['find-equal',[color],[foo]],red],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['find-equal',[color],[foo]],red],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.08</h3>
-          -->(1,eval('&self',['find-equal',[color],[foo]],RET),depth(3))
-          <--(1,retval(fail))
-        -->(2,eval('&self',red,RET),depth(2))
+      -->(1,eval('&self',['find-equal',[color],[foo]],RET),depth(1))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.000400 secs. (399.70 microseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (red)))
-</span>          -->(3,eval('&self',[],RET),depth(3))
-            -->(4,eval('&self',[expected(_39106)],RET),depth(4))
-              -->(5,eval('&self',expected(_39106),RET),depth(5))
-                  -->(6,eval('&self',expected(_39106),RET),depth(7))
-                      -->(7,eval('&self',expected(_39106),RET),depth(9))
-                          -->(8,eval('&self',expected(_39106),RET),depth(11))
-                              -->(9,eval('&self',expected(_39106),RET),depth(13))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.000239 secs. (239.10 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  () 
+    (red)))
+</span>        -->(2,eval('&self',[expected(_92214)],RET),depth(2))
+          -->(3,eval('&self',expected(_92214),RET),depth(3))
+              -->(4,subst_args('&self',expected(_92214),RET),depth(5))
+          <--(3,retval(expected(_94542)))
+              -->(5,subst_args('&self',[expected(_92214)],RET),depth(5))
+                -->(6,subst_args('&self',expected(_92214),RET),depth(6))
+        <--(2,retval([expected(_95866)]))
+        -->(7,eval('&self',[red],RET),depth(2))
+              -->(8,subst_args('&self',[red],RET),depth(5))
+        <--(7,retval([red]))
+        -->(9,eval('&self',[expected(_92214)],RET),depth(2))
+          -->(10,eval('&self',expected(_92214),RET),depth(3))
+              -->(11,subst_args('&self',expected(_92214),RET),depth(5))
+          <--(10,retval(expected(_99512)))
+              -->(12,subst_args('&self',[expected(_92214)],RET),depth(5))
+                -->(13,subst_args('&self',expected(_92214),RET),depth(6))
+        <--(9,retval([expected(_100836)]))
+        -->(14,eval('&self',[red],RET),depth(2))
+              -->(15,subst_args('&self',[red],RET),depth(5))
+        <--(14,retval([red]))
+            -->(16,subst_args('&self',[got,[],[expected(_92214)],[red]],RET),depth(4))
+                -->(17,subst_args('&self',[expected(_92214)],RET),depth(6))
+                  -->(18,subst_args('&self',expected(_92214),RET),depth(7))
+                -->(19,subst_args('&self',[red],RET),depth(6))
+                -->(20,subst_args('&self',[expected(_92214)],RET),depth(6))
+                  -->(21,subst_args('&self',expected(_92214),RET),depth(7))
+                -->(22,subst_args('&self',[red],RET),depth(6))
+          -->(23,subst_args('&self',[got,[],[expected(_92214)],[red]],RET),depth(3))
+              -->(24,subst_args('&self',[expected(_92214)],RET),depth(5))
+                -->(25,subst_args('&self',expected(_92214),RET),depth(6))
+              -->(26,subst_args('&self',[red],RET),depth(5))
+              -->(27,subst_args('&self',[expected(_92214)],RET),depth(5))
+                -->(28,subst_args('&self',expected(_92214),RET),depth(6))
+              -->(29,subst_args('&self',[red],RET),depth(5))
+    <--(0,retval([got,[],[expected(_111498)],[red]]))
 Deterministic: <span class="ansi33">
-(got () ((expected  $_39106)) (red))
+(got () 
+  ( (expected  $_92214)) 
+  (red))
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; One can pass nondeterministic expressions to an ordinary
 ;; function and get multiple results.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[rev,X,Y],[Y,X]])
-</span><span class="ansi38-255165000">(= (rev $X $Y) ($Y $X))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[rev,X,Y],[Y,X]])
+</span><span class="ansi38-255165000">(= 
+  (rev $X $Y) 
+  ($Y $X))
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult (rev A (superpose (B C D))) ((B A) (C A) (D A)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (rev A 
+    (superpose 
+      (B C D))) 
+  ( (B A) 
+    (C A) 
+    (D A)))
 
 </span><span class="ansi38-250144246">; !(rev A (superpose (B C D)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[rev,'A',[superpose,['B','C','D']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[rev,'A',[superpose,['B','C','D']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[rev,'A',[superpose,['B','C','D']]],[['B','A'],['C','A'],['D','A']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[rev,'A',[superpose,['B','C','D']]],[['B','A'],['C','A'],['D','A']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.09</h3>
-          -->(1,eval('&self',[rev,'A',[superpose,['B','C','D']]],RET),depth(3))
-              -->(2,eval('&self','A',RET),depth(5))
-                -->(3,eval('&self',[superpose,['B','C','D']],RET),depth(6))
-                  -->(4,eval('&self','B',RET),depth(7))
-                    -->(5,eval('&self','B',RET),depth(8))
-              -->(6,eval('&self','A',RET),depth(5))
-                -->(7,eval('&self','A',RET),depth(6))
-                -->(8,eval('&self','B',RET),depth(6))
-                -->(9,eval('&self','A',RET),depth(6))
-                <--(3,retval('D'))
-          <--(1,retval(['D','A']))
+      -->(1,eval('&self',[rev,'A',[superpose,['B','C','D']]],RET),depth(1))
+          -->(2,eval('&self',[superpose,['B','C','D']],RET),depth(3))
+                -->(3,subst_args('&self',['B','A'],RET),depth(6))
+              -->(4,subst_args('&self',['B','A'],RET),depth(5))
+            -->(5,subst_args('&self',['B','A'],RET),depth(4))
+                -->(6,subst_args('&self',['C','A'],RET),depth(6))
+              -->(7,subst_args('&self',['C','A'],RET),depth(5))
+            -->(8,subst_args('&self',['C','A'],RET),depth(4))
+          <--(2,retval('D'))
+                -->(9,subst_args('&self',['D','A'],RET),depth(6))
+              -->(10,subst_args('&self',['D','A'],RET),depth(5))
+            -->(11,subst_args('&self',['D','A'],RET),depth(4))
+      <--(1,retval(['D','A']))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.65 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((B A) (C A) (D A)) ((B A) (C A) (D A))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (2.08 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (B A) 
+      (C A) 
+      (D A)) 
+    ( (B A) 
+      (C A) 
+      (D A))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -461,110 +594,254 @@ Deterministic: <span class="ansi33">Empty
 ;; Extended example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some rules
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ift,'T',Then],Then])
-</span><span class="ansi38-255165000">(= (ift T $Then) $Then)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[ift,'T',Then],Then])
+</span><span class="ansi38-255165000">(= 
+  (ift T $Then) $Then)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['And','T','T'],'T'])
-</span><span class="ansi38-255165000">(= (And T T) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['And','T','T'],'T'])
+</span><span class="ansi38-255165000">(= 
+  (And T T) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[make,X],[ift,[makes,Y,X],[start,Y]]])
-</span><span class="ansi38-255165000">(= (make $X) (ift (makes $Y $X) (start $Y)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[make,X],[ift,[makes,Y,X],[start,Y]]])
+</span><span class="ansi38-255165000">(= 
+  (make $X) 
+  (ift 
+    (makes $Y $X) 
+    (start $Y)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[make,X],[ift,['And',[prevents,[making,Y],[making,X]],[makes,Z,Y]],[stop,Z]]])
-</span><span class="ansi38-255165000">(= (make $X) (ift (And (prevents (making $Y) (making $X)) (makes $Z $Y)) (stop $Z)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[make,X],[ift,['And',[prevents,[making,Y],[making,X]],[makes,Z,Y]],[stop,Z]]])
+</span><span class="ansi38-255165000">(= 
+  (make $X) 
+  (ift 
+    (And 
+      (prevents 
+        (making $Y) 
+        (making $X)) 
+      (makes $Z $Y)) 
+    (stop $Z)))
 </span>
 
 ;; Add facts to knowledge base
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[prevents,[making,[air,dry]],[making,[air,wet]]],'T'])
-</span><span class="ansi38-255165000">(= (prevents (making (air dry)) (making (air wet))) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prevents,[making,[air,dry]],[making,[air,wet]]],'T'])
+</span><span class="ansi38-255165000">(= 
+  (prevents 
+    (making 
+      (air dry)) 
+    (making 
+      (air wet))) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[prevents,[making,[air,wet]],[making,[air,dry]]],'T'])
-</span><span class="ansi38-255165000">(= (prevents (making (air wet)) (making (air dry))) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prevents,[making,[air,wet]],[making,[air,dry]]],'T'])
+</span><span class="ansi38-255165000">(= 
+  (prevents 
+    (making 
+      (air wet)) 
+    (making 
+      (air dry))) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[makes,humidifier,[air,wet]],'T'])
-</span><span class="ansi38-255165000">(= (makes humidifier (air wet)) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[makes,humidifier,[air,wet]],'T'])
+</span><span class="ansi38-255165000">(= 
+  (makes humidifier 
+    (air wet)) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[makes,kettle,[air,wet]],'T'])
-</span><span class="ansi38-255165000">(= (makes kettle (air wet)) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[makes,kettle,[air,wet]],'T'])
+</span><span class="ansi38-255165000">(= 
+  (makes kettle 
+    (air wet)) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[makes,ventilation,[air,dry]],'T'])
-</span><span class="ansi38-255165000">(= (makes ventilation (air dry)) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[makes,ventilation,[air,dry]],'T'])
+</span><span class="ansi38-255165000">(= 
+  (makes ventilation 
+    (air dry)) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[is,[air,dry]],[make,[air,wet]]])
-</span><span class="ansi38-255165000">(= (is (air dry)) (make (air wet)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[is,[air,dry]],[make,[air,wet]]])
+</span><span class="ansi38-255165000">(= 
+  (is 
+    (air dry)) 
+  (make 
+    (air wet)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[is,[air,wet]],[make,[air,dry]]])
-</span><span class="ansi38-255165000">(= (is (air wet)) (make (air dry)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[is,[air,wet]],[make,[air,dry]]])
+</span><span class="ansi38-255165000">(= 
+  (is 
+    (air wet)) 
+  (make 
+    (air dry)))
 </span>
 
 ;; the results are not sequential in sense that their order is arbitrary
-<span class="ansi38-013099040">!(assertEqual (is (air dry)) (superpose ((stop ventilation) (start kettle) (start humidifier))))
+<span class="ansi38-013099040">!(assertEqual 
+  (is 
+    (air dry)) 
+  (superpose 
+    ( (stop ventilation) 
+      (start kettle) 
+      (start humidifier))))
 
 </span><span class="ansi38-250144246">; !(is (air dry))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[is,[air,dry]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[is,[air,dry]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[is,[air,dry]],[superpose,[[stop,ventilation],[start,kettle],[start,humidifier]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[is,[air,dry]],[superpose,[[stop,ventilation],[start,kettle],[start,humidifier]]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.10">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.10</h3>
-          -->(1,eval('&self',[is,[air,dry]],RET),depth(3))
-                  -->(2,eval('&self',[air,wet],RET),depth(7))
-                    -->(3,eval('&self',wet,RET),depth(8))
-                    -->(4,eval('&self',air,RET),depth(8))
-                    -->(5,eval('&self',wet,RET),depth(8))
-                      -->(6,eval('&self',air,RET),depth(9))
-                      -->(7,eval('&self',wet,RET),depth(9))
-                -->(8,eval('&self',ift,RET),depth(6))
-                  -->(9,eval('&self',[makes,_358790,[air,wet]],RET),depth(7))
-                  <--(9,retval('T'))
-          <--(1,retval([stop,ventilation]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[is,[air,dry]],RET),depth(1))
+            -->(2,eval('&self',[makes,_90420,[air,wet]],RET),depth(4))
+            -->(3,eval('&self',[start,humidifier],RET),depth(4))
+                  -->(4,subst_args('&self',[start,humidifier],RET),depth(7))
+            <--(3,retval([start,humidifier]))
+                    -->(5,subst_args('&self',[start,humidifier],RET),depth(8))
+                  -->(6,subst_args('&self',[start,humidifier],RET),depth(7))
+                -->(7,subst_args('&self',[start,humidifier],RET),depth(6))
+              -->(8,subst_args('&self',[start,humidifier],RET),depth(5))
+            -->(9,subst_args('&self',[start,humidifier],RET),depth(4))
+            -->(10,eval('&self',[start,kettle],RET),depth(4))
+                  -->(11,subst_args('&self',[start,kettle],RET),depth(7))
+            <--(10,retval([start,kettle]))
+                    -->(12,subst_args('&self',[start,kettle],RET),depth(8))
+                  -->(13,subst_args('&self',[start,kettle],RET),depth(7))
+                -->(14,subst_args('&self',[start,kettle],RET),depth(6))
+              -->(15,subst_args('&self',[start,kettle],RET),depth(5))
+            -->(16,subst_args('&self',[start,kettle],RET),depth(4))
+            <--(2,retval('T'))
+            -->(17,eval('&self',['And',[prevents,[making,_102914],[making,[air,wet]]],[makes,_102950,_102914]],RET),depth(4))
+              -->(18,eval('&self',[prevents,[making,_102914],[making,[air,wet]]],RET),depth(5))
+              -->(19,eval('&self',[makes,_102950,[air,dry]],RET),depth(5))
+            -->(20,eval('&self',[stop,ventilation],RET),depth(4))
+                  -->(21,subst_args('&self',[stop,ventilation],RET),depth(7))
+            <--(20,retval([stop,ventilation]))
+                    -->(22,subst_args('&self',[stop,ventilation],RET),depth(8))
+                  -->(23,subst_args('&self',[stop,ventilation],RET),depth(7))
+                -->(24,subst_args('&self',[stop,ventilation],RET),depth(6))
+              -->(25,subst_args('&self',[stop,ventilation],RET),depth(5))
+            -->(26,subst_args('&self',[stop,ventilation],RET),depth(4))
+              <--(19,retval('T'))
+              <--(18,retval('T'))
+            <--(17,retval('T'))
+      <--(1,retval([stop,ventilation]))
+      -->(27,eval('&self',[superpose,[[stop,ventilation],[start,kettle],[start,humidifier]]],RET),depth(1))
+        -->(28,eval('&self',[stop,ventilation],RET),depth(2))
+              -->(29,subst_args('&self',[stop,ventilation],RET),depth(5))
+        <--(28,retval([stop,ventilation]))
+              -->(30,subst_args('&self',[stop,ventilation],RET),depth(5))
+            -->(31,subst_args('&self',[stop,ventilation],RET),depth(4))
+        -->(32,eval('&self',[start,kettle],RET),depth(2))
+              -->(33,subst_args('&self',[start,kettle],RET),depth(5))
+        <--(32,retval([start,kettle]))
+              -->(34,subst_args('&self',[start,kettle],RET),depth(5))
+            -->(35,subst_args('&self',[start,kettle],RET),depth(4))
+        -->(36,eval('&self',[start,humidifier],RET),depth(2))
+              -->(37,subst_args('&self',[start,humidifier],RET),depth(5))
+        <--(36,retval([start,humidifier]))
+              -->(38,subst_args('&self',[start,humidifier],RET),depth(5))
+            -->(39,subst_args('&self',[start,humidifier],RET),depth(4))
+      <--(27,retval([start,humidifier]))
+; 
 ; EVAL TEST
-; took 0.009 secs. (9.37 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((start humidifier) (stop ventilation)) ((stop ventilation) (start kettle) (start humidifier))))
-</span>Deterministic: <span class="ansi33">
-(got ((start humidifier) (stop ventilation)) ((expected  $_429534)) ((stop ventilation) (start kettle) (start humidifier)))
+; took 0.008 secs. (8.08 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (start humidifier) 
+      (start kettle) 
+      (stop ventilation)) 
+    ( (stop ventilation) 
+      (start kettle) 
+      (start humidifier))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (is (air wet)) (superpose ((stop kettle) (stop humidifier) (start ventilation))))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (is 
+    (air wet)) 
+  (superpose 
+    ( (stop kettle) 
+      (stop humidifier) 
+      (start ventilation))))
 
 </span><span class="ansi38-250144246">; !(is (air wet))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[is,[air,wet]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[is,[air,wet]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[is,[air,wet]],[superpose,[[stop,kettle],[stop,humidifier],[start,ventilation]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[is,[air,wet]],[superpose,[[stop,kettle],[stop,humidifier],[start,ventilation]]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.11">;; HYPERON-EXPERIMENTAL-SCRIPTS.B4-NONDETERM.11</h3>
-          -->(1,eval('&self',[is,[air,wet]],RET),depth(3))
-                  -->(2,eval('&self',[air,dry],RET),depth(7))
-                    -->(3,eval('&self',dry,RET),depth(8))
-                    -->(4,eval('&self',air,RET),depth(8))
-                    -->(5,eval('&self',dry,RET),depth(8))
-                      -->(6,eval('&self',air,RET),depth(9))
-                      -->(7,eval('&self',dry,RET),depth(9))
-                -->(8,eval('&self',ift,RET),depth(6))
-                  -->(9,eval('&self',[makes,_481904,[air,dry]],RET),depth(7))
-                  <--(9,retval('T'))
-          <--(1,retval([stop,humidifier]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[is,[air,wet]],RET),depth(1))
+            -->(2,eval('&self',[makes,_21102,[air,dry]],RET),depth(4))
+            -->(3,eval('&self',[start,ventilation],RET),depth(4))
+                  -->(4,subst_args('&self',[start,ventilation],RET),depth(7))
+            <--(3,retval([start,ventilation]))
+                    -->(5,subst_args('&self',[start,ventilation],RET),depth(8))
+                  -->(6,subst_args('&self',[start,ventilation],RET),depth(7))
+                -->(7,subst_args('&self',[start,ventilation],RET),depth(6))
+              -->(8,subst_args('&self',[start,ventilation],RET),depth(5))
+            -->(9,subst_args('&self',[start,ventilation],RET),depth(4))
+            <--(2,retval('T'))
+            -->(10,eval('&self',['And',[prevents,[making,_27820],[making,[air,dry]]],[makes,_27856,_27820]],RET),depth(4))
+              -->(11,eval('&self',[prevents,[making,_27820],[making,[air,dry]]],RET),depth(5))
+              -->(12,eval('&self',[makes,_27856,[air,wet]],RET),depth(5))
+            -->(13,eval('&self',[stop,humidifier],RET),depth(4))
+                  -->(14,subst_args('&self',[stop,humidifier],RET),depth(7))
+            <--(13,retval([stop,humidifier]))
+                    -->(15,subst_args('&self',[stop,humidifier],RET),depth(8))
+                  -->(16,subst_args('&self',[stop,humidifier],RET),depth(7))
+                -->(17,subst_args('&self',[stop,humidifier],RET),depth(6))
+              -->(18,subst_args('&self',[stop,humidifier],RET),depth(5))
+            -->(19,subst_args('&self',[stop,humidifier],RET),depth(4))
+            -->(20,eval('&self',[stop,kettle],RET),depth(4))
+                  -->(21,subst_args('&self',[stop,kettle],RET),depth(7))
+            <--(20,retval([stop,kettle]))
+                    -->(22,subst_args('&self',[stop,kettle],RET),depth(8))
+                  -->(23,subst_args('&self',[stop,kettle],RET),depth(7))
+                -->(24,subst_args('&self',[stop,kettle],RET),depth(6))
+              -->(25,subst_args('&self',[stop,kettle],RET),depth(5))
+            -->(26,subst_args('&self',[stop,kettle],RET),depth(4))
+              <--(12,retval('T'))
+              <--(11,retval('T'))
+            <--(10,retval('T'))
+      <--(1,retval([stop,kettle]))
+      -->(27,eval('&self',[superpose,[[stop,kettle],[stop,humidifier],[start,ventilation]]],RET),depth(1))
+        -->(28,eval('&self',[stop,kettle],RET),depth(2))
+              -->(29,subst_args('&self',[stop,kettle],RET),depth(5))
+        <--(28,retval([stop,kettle]))
+              -->(30,subst_args('&self',[stop,kettle],RET),depth(5))
+            -->(31,subst_args('&self',[stop,kettle],RET),depth(4))
+        -->(32,eval('&self',[stop,humidifier],RET),depth(2))
+              -->(33,subst_args('&self',[stop,humidifier],RET),depth(5))
+        <--(32,retval([stop,humidifier]))
+              -->(34,subst_args('&self',[stop,humidifier],RET),depth(5))
+            -->(35,subst_args('&self',[stop,humidifier],RET),depth(4))
+        -->(36,eval('&self',[start,ventilation],RET),depth(2))
+              -->(37,subst_args('&self',[start,ventilation],RET),depth(5))
+        <--(36,retval([start,ventilation]))
+              -->(38,subst_args('&self',[start,ventilation],RET),depth(5))
+            -->(39,subst_args('&self',[start,ventilation],RET),depth(4))
+      <--(27,retval([start,ventilation]))
+; 
 ; EVAL TEST
-; took 0.009 secs. (8.98 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((start ventilation) (stop humidifier)) ((stop kettle) (stop humidifier) (start ventilation))))
-</span>Deterministic: <span class="ansi33">
-(got ((start ventilation) (stop humidifier)) ((expected  $_32784)) ((stop kettle) (stop humidifier) (start ventilation)))
+; took 0.006 secs. (6.41 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (start ventilation) 
+      (stop humidifier) 
+      (stop kettle)) 
+    ( (stop kettle) 
+      (stop humidifier) 
+      (start ventilation))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 748,707 inferences, 0.876 CPU in 1.087 seconds (81% CPU, 854548 Lips)
+</span><span class="ansi32">% 382,694 inferences, 0.586 CPU in 0.586 seconds (100% CPU, 652992 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b4_nondeterm.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 8
-</span><span class="ansi31">Failures: 3
+<span class="ansi32">Successes: 10
+</span><span class="ansi31">Failures: 1
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b4_nondeterm.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211072024_3127801_31587.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b4_nondeterm.metta.html" )
 
 </pre>
 </body>

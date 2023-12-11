@@ -38,7 +38,6 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/and_or.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/and_or.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/and_or.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/and_or.metta')
 1=[1]
@@ -48,56 +47,67 @@
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/and_or.metta', 1, [1]).
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom']])
-</span><span class="ansi38-255165000">(: If (-> Bool Atom Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom']])
+</span><span class="ansi38-255165000">(: If 
+  (-> Bool Atom Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If','True',Then],Then])
-</span><span class="ansi38-255165000">(= (If True $Then) $Then)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['If','True',Then],Then])
+</span><span class="ansi38-255165000">(= 
+  (If True $Then) $Then)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If','False',Then],[let,X,0,[let,X,1,X]]])
-</span><span class="ansi38-255165000">(= (If False $Then) (let $X 0 (let $X 1 $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['If','False',Then],[let,X,0,[let,X,1,X]]])
+</span><span class="ansi38-255165000">(= 
+  (If False $Then) 
+  (let $X 0 
+    (let $X 1 $X)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
-</span><span class="ansi38-255165000">(: If (-> Bool Atom Atom Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
+</span><span class="ansi38-255165000">(: If 
+  (-> Bool Atom Atom Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If',Cond,Then,Else],[if,Cond,Then,Else]])
-</span><span class="ansi38-255165000">(= (If $Cond $Then $Else) (if $Cond $Then $Else))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['If',Cond,Then,Else],[if,Cond,Then,Else]])
+</span><span class="ansi38-255165000">(= 
+  (If $Cond $Then $Else) 
+  (if $Cond $Then $Else))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(If (or (and True False) True) 1 2)
+</span><span class="ansi1 ansi38-255238088">!(If 
+  (or 
+    (and True False) True) 1 2)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (If (or (and True False) True) 1 2) (1))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (If 
+    (or 
+      (and True False) True) 1 2) 
+  (1))
 
 </span><span class="ansi38-250144246">; !(If (or (and True False) True) 1 2)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['If',[or,[and,'True','False'],'True'],1,2],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['If',[or,[and,'True','False'],'True'],1,2],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['If',[or,[and,'True','False'],'True'],1,2],[1]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['If',[or,[and,'True','False'],'True'],1,2],[1]],RET),depth(0))
 <h3 id="METTA-MORPH-TESTS.AND-OR.01">;; METTA-MORPH-TESTS.AND-OR.01</h3>
-          -->(1,eval('&self',['If',[or,[and,'True','False'],'True'],1,2],RET),depth(3))
-              -->(2,eval('&self',[or,[and,'True','False'],'True'],RET),depth(5))
-                  -->(3,eval('&self',[and,'True','False'],RET),depth(7))
-                    -->(4,eval('&self','True',RET),depth(8))
-                    -->(5,eval('&self','False',RET),depth(8))
-                      -->(6,eval('&self','False',RET),depth(9))
-                  <--(3,retval('False'))
-                -->(7,eval('&self','True',RET),depth(6))
-                  -->(8,eval('&self','True',RET),depth(7))
-              <--(2,retval('True'))
-            -->(9,eval('&self',1,RET),depth(4))
-          <--(1,retval(1))
+      -->(1,eval('&self',['If',[or,[and,'True','False'],'True'],1,2],RET),depth(1))
+        -->(2,eval('&self',[or,[and,'True','False'],'True'],RET),depth(2))
+          -->(3,eval('&self',[and,'True','False'],RET),depth(3))
+          <--(3,retval('False'))
+        <--(2,retval('True'))
+      <--(1,retval(1))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.17 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (1) (1)))
-</span>      <--(0,retval('Empty'))
+; took 0.000736 secs. (736.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (1) 
+    (1)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 260,349 inferences, 0.095 CPU in 0.095 seconds (100% CPU, 2754584 Lips)
+</span><span class="ansi32">% 57,449 inferences, 0.022 CPU in 0.022 seconds (100% CPU, 2651794 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/and_or.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

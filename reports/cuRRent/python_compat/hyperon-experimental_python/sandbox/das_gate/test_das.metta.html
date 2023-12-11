@@ -12,49 +12,39 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 </style>
 </head>
@@ -85,159 +75,242 @@
 
 <span class="ansi38-013099040">!(extend-py! dasgate)
 
-</span><span class="ansi38-250144246">; !(extend-py! dasgate)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['extend-py!',dasgate],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['extend-py!',dasgate],OUT).
 
-</span>      -->(0,eval('&self',['extend-py!',dasgate],RET),depth(1))
-        -->(1,eval('&self',dasgate,RET),depth(2))
-        -->(2,eval('&self','extend-py!',RET),depth(2))
-        -->(3,eval('&self',dasgate,RET),depth(2))
-          -->(4,eval('&self','extend-py!',RET),depth(3))
-          -->(5,eval('&self',dasgate,RET),depth(3))
+</span>    -->(0,eval('&self',['extend-py!',dasgate],RET),depth(0))
+          -->(1,subst_args('&self',['extend-py!',dasgate],RET),depth(3))
+    <--(0,retval(['extend-py!',dasgate]))
 Deterministic: <span class="ansi33">
 (extend-py! dasgate)
 
-</span><span class="ansi38-013099040">!(bind! &das (new-das))
+</span><span class="ansi38-013099040">!(bind! &das 
+  (new-das))
 
-</span><span class="ansi38-250144246">; !(bind! &das (new-das))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&das',['new-das']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['bind!','&das',['new-das']],OUT).
 
-</span>      -->(0,eval('&self',['bind!','&das',['new-das']],RET),depth(1))
-          -->(1,eval('&self',['new-das'],RET),depth(3))
-            -->(2,eval('&self','new-das',RET),depth(4))
-              -->(3,eval('&self','new-das',RET),depth(5))
-          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+</span>    -->(0,eval('&self',['bind!','&das',['new-das']],RET),depth(0))
+      -->(1,eval('&self',['new-das'],RET),depth(1))
+            -->(2,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom &das (Test (Test 2)))
+</span><span class="ansi38-013099040">!(add-atom &das 
+  (Test 
+    (Test 2)))
 
-</span><span class="ansi38-250144246">; !(add-atom &das (Test (Test 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom','&das',['Test',['Test',2]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['add-atom','&das',['Test',['Test',2]]],OUT).
 
-</span>      -->(0,eval('&self',['add-atom','&das',['Test',['Test',2]]],RET),depth(1))
-        -->(1,eval('&self','&das',RET),depth(2))
-            -->(2,eval('&self','new-das',RET),depth(4))
-              -->(3,eval('&self','new-das',RET),depth(5))
-            -->(4,eval('&self','new-das',RET),depth(4))
-        <--(1,retval(['new-das']))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-das'],['Test',['Test',2]])
-</span><span class="ansi38-255165000">(Test (Test 2))
-</span>; (type-method is_asserted_space metta_assertdb_add (new-das) (Test (Test 2)))
+</span>    -->(0,eval('&self',['add-atom','&das',['Test',['Test',2]]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom(['new-das'],['Test',['Test',2]])
+</span><span class="ansi38-255165000">(Test 
+  (Test 2))
+</span>
 
-
-          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom &das (Best (Test 2)))
+</span><span class="ansi38-013099040">!(add-atom &das 
+  (Best 
+    (Test 2)))
 
-</span><span class="ansi38-250144246">; !(add-atom &das (Best (Test 2)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom','&das',['Best',['Test',2]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['add-atom','&das',['Best',['Test',2]]],OUT).
 
-</span>      -->(0,eval('&self',['add-atom','&das',['Best',['Test',2]]],RET),depth(1))
-        -->(1,eval('&self','&das',RET),depth(2))
-            -->(2,eval('&self','new-das',RET),depth(4))
-              -->(3,eval('&self','new-das',RET),depth(5))
-            -->(4,eval('&self','new-das',RET),depth(4))
-        <--(1,retval(['new-das']))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-das'],['Best',['Test',2]])
-</span><span class="ansi38-255165000">(Best (Test 2))
-</span>; (type-method is_asserted_space metta_assertdb_add (new-das) (Best (Test 2)))
+</span>    -->(0,eval('&self',['add-atom','&das',['Best',['Test',2]]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom(['new-das'],['Best',['Test',2]])
+</span><span class="ansi38-255165000">(Best 
+  (Test 2))
+</span>
 
-
-          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-013099040">!(add-atom &das Test)
 
-</span><span class="ansi38-250144246">; !(add-atom &das Test)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom','&das','Test'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['add-atom','&das','Test'],OUT).
 
-</span>      -->(0,eval('&self',['add-atom','&das','Test'],RET),depth(1))
-        -->(1,eval('&self','&das',RET),depth(2))
-            -->(2,eval('&self','new-das',RET),depth(4))
-              -->(3,eval('&self','new-das',RET),depth(5))
-            -->(4,eval('&self','new-das',RET),depth(4))
-        <--(1,retval(['new-das']))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-das'],'Test')
+</span>    -->(0,eval('&self',['add-atom','&das','Test'],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom(['new-das'],'Test')
 </span><span class="ansi38-255165000">Test
-</span>; (type-method is_asserted_space metta_assertdb_add (new-das) Test)
+</span>
 
-
-          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; The simplest match with grounding the variable in the node
-<span class="ansi38-013099040">!(match &das ($V1 (Test 2)) (This $V1 works))
+<span class="ansi38-013099040">!(match &das 
+  ($V1 
+    (Test 2)) 
+  (This $V1 works))
 
-</span><span class="ansi38-250144246">; !(match &das ($V1 (Test 2)) (This $V1 works))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&das',[V1,['Test',2]],['This',V1,works]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&das',[V1,['Test',2]],['This',V1,works]],OUT).
 
-</span>      -->(0,eval('&self',[match,'&das',[_451680,['Test',2]],['This',_451680,works]],RET),depth(1))
-      <--(0,retval(fail))
+</span>    -->(0,eval('&self',[match,'&das',[_10450,['Test',2]],['This',_10450,works]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+            -->(4,subst_args('&self',['This','Test',works],RET),depth(4))
+          -->(5,subst_args('&self',['This','Test',works],RET),depth(3))
+NDet Result(1): <span class="ansi33">
+(This Test works)
+
+</span><span class="ansi32">$V1 = Test
+
+
+</span>            -->(6,subst_args('&self',['This','Best',works],RET),depth(4))
+          -->(7,subst_args('&self',['This','Best',works],RET),depth(3))
+NDet Result(2): <span class="ansi33">
+(This Best works)
+
+</span><span class="ansi32">$V1 = Best
+
+
+</span>    <--(0,retval(['This','Best',works]))
 ;; The simplest match with grounding the variable in the link
-<span class="ansi38-013099040">!(match &das (Test $V2) (This $V2 works))
+<span class="ansi38-013099040">!(match &das 
+  (Test $V2) 
+  (This $V2 works))
 
-</span><span class="ansi38-250144246">; !(match &das (Test $V2) (This $V2 works))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&das',['Test',V2],['This',V2,works]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&das',['Test',V2],['This',V2,works]],OUT).
 
-</span>      -->(0,eval('&self',[match,'&das',['Test',_464982],['This',_464982,works]],RET),depth(1))
-      <--(0,retval(fail))
-<span class="ansi38-013099040">!(add-atom &das (Rest (Test 3)))
+</span>    -->(0,eval('&self',[match,'&das',['Test',_4768],['This',_4768,works]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+        -->(4,eval('&self',['Test',2],RET),depth(2))
+              -->(5,subst_args('&self',['Test',2],RET),depth(5))
+        <--(4,retval(['Test',2]))
+        -->(6,eval('&self',['Test',2],RET),depth(2))
+              -->(7,subst_args('&self',['Test',2],RET),depth(5))
+        <--(6,retval(['Test',2]))
+            -->(8,subst_args('&self',['This',['Test',2],works],RET),depth(4))
+                -->(9,subst_args('&self',['Test',2],RET),depth(6))
+                -->(10,subst_args('&self',['Test',2],RET),depth(6))
+          -->(11,subst_args('&self',['This',['Test',2],works],RET),depth(3))
+              -->(12,subst_args('&self',['Test',2],RET),depth(5))
+              -->(13,subst_args('&self',['Test',2],RET),depth(5))
+NDet Result(1): <span class="ansi33">
+(This 
+  (Test 2) works)
 
-</span><span class="ansi38-250144246">; !(add-atom &das (Rest (Test 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom','&das',['Rest',['Test',3]]],OUT).
-
-</span>      -->(0,eval('&self',['add-atom','&das',['Rest',['Test',3]]],RET),depth(1))
-        -->(1,eval('&self','&das',RET),depth(2))
-            -->(2,eval('&self','new-das',RET),depth(4))
-              -->(3,eval('&self','new-das',RET),depth(5))
-            -->(4,eval('&self','new-das',RET),depth(4))
-        <--(1,retval(['new-das']))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-das'],['Rest',['Test',3]])
-</span><span class="ansi38-255165000">(Rest (Test 3))
-</span>; (type-method is_asserted_space metta_assertdb_add (new-das) (Rest (Test 3)))
+</span><span class="ansi32">$V2 = (Test 2)
 
 
-          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+</span>    <--(0,retval(['This',['Test',2],works]))
+<span class="ansi38-013099040">!(add-atom &das 
+  (Rest 
+    (Test 3)))
+
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['add-atom','&das',['Rest',['Test',3]]],OUT).
+
+</span>    -->(0,eval('&self',['add-atom','&das',['Rest',['Test',3]]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom(['new-das'],['Rest',['Test',3]])
+</span><span class="ansi38-255165000">(Rest 
+  (Test 3))
+</span>
+
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(add-atom &das (Test (Test 3)))
+</span><span class="ansi38-013099040">!(add-atom &das 
+  (Test 
+    (Test 3)))
 
-</span><span class="ansi38-250144246">; !(add-atom &das (Test (Test 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['add-atom','&das',['Test',['Test',3]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['add-atom','&das',['Test',['Test',3]]],OUT).
 
-</span>      -->(0,eval('&self',['add-atom','&das',['Test',['Test',3]]],RET),depth(1))
-        -->(1,eval('&self','&das',RET),depth(2))
-            -->(2,eval('&self','new-das',RET),depth(4))
-              -->(3,eval('&self','new-das',RET),depth(5))
-            -->(4,eval('&self','new-das',RET),depth(4))
-        <--(1,retval(['new-das']))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom(['new-das'],['Test',['Test',3]])
-</span><span class="ansi38-255165000">(Test (Test 3))
-</span>; (type-method is_asserted_space metta_assertdb_add (new-das) (Test (Test 3)))
+</span>    -->(0,eval('&self',['add-atom','&das',['Test',['Test',3]]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom(['new-das'],['Test',['Test',3]])
+</span><span class="ansi38-255165000">(Test 
+  (Test 3))
+</span>
 
-
-          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Compositional (And) query test
-<span class="ansi38-013099040">!(match &das (, (Best $X) ($V $X)) ($V $X))
+<span class="ansi38-013099040">!(match &das 
+  (, 
+    (Best $X) 
+    ($V $X)) 
+  ($V $X))
 
-</span><span class="ansi38-250144246">; !(match &das (, (Best $X) ($V $X)) ($V $X))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&das',[',',['Best',X],[V,X]],[V,X]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&das',[',',['Best',X],[V,X]],[V,X]],OUT).
 
-</span>      -->(0,eval('&self',[match,'&das',[',',['Best',_3552],[_3844,_3552]],[_3844,_3552]],RET),depth(1))
-      <--(0,retval(fail))
-<span class="ansi32">% 102,318 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 1038109 Lips)
+</span>    -->(0,eval('&self',[match,'&das',[',',['Best',_19770],[_20062,_19770]],[_20062,_19770]],RET),depth(0))
+      -->(1,eval('&self','&das',RET),depth(1))
+              -->(2,subst_args('&self',['new-das'],RET),depth(5))
+            -->(3,subst_args('&self',['new-das'],RET),depth(4))
+      <--(1,retval(['new-das']))
+        -->(4,eval('&self',['Test',2],RET),depth(2))
+              -->(5,subst_args('&self',['Test',2],RET),depth(5))
+        <--(4,retval(['Test',2]))
+        -->(6,eval('&self',['Test',2],RET),depth(2))
+              -->(7,subst_args('&self',['Test',2],RET),depth(5))
+        <--(6,retval(['Test',2]))
+        -->(8,eval('&self',['Test',2],RET),depth(2))
+              -->(9,subst_args('&self',['Test',2],RET),depth(5))
+        <--(8,retval(['Test',2]))
+            -->(10,subst_args('&self',['Test',['Test',2]],RET),depth(4))
+                -->(11,subst_args('&self',['Test',2],RET),depth(6))
+                -->(12,subst_args('&self',['Test',2],RET),depth(6))
+          -->(13,subst_args('&self',['Test',['Test',2]],RET),depth(3))
+              -->(14,subst_args('&self',['Test',2],RET),depth(5))
+              -->(15,subst_args('&self',['Test',2],RET),depth(5))
+NDet Result(1): <span class="ansi33">
+(Test 
+  (Test 2))
+
+</span><span class="ansi32">$V = Test
+$X = (Test 2)
+
+
+</span>        -->(16,eval('&self',['Test',2],RET),depth(2))
+              -->(17,subst_args('&self',['Test',2],RET),depth(5))
+        <--(16,retval(['Test',2]))
+        -->(18,eval('&self',['Test',2],RET),depth(2))
+              -->(19,subst_args('&self',['Test',2],RET),depth(5))
+        <--(18,retval(['Test',2]))
+            -->(20,subst_args('&self',['Best',['Test',2]],RET),depth(4))
+                -->(21,subst_args('&self',['Test',2],RET),depth(6))
+                -->(22,subst_args('&self',['Test',2],RET),depth(6))
+          -->(23,subst_args('&self',['Best',['Test',2]],RET),depth(3))
+              -->(24,subst_args('&self',['Test',2],RET),depth(5))
+              -->(25,subst_args('&self',['Test',2],RET),depth(5))
+NDet Result(2): <span class="ansi33">
+(Best 
+  (Test 2))
+
+</span><span class="ansi32">$V = Best
+$X = (Test 2)
+
+
+</span>    <--(0,retval(['Best',['Test',2]]))
+<span class="ansi32">% 105,245 inferences, 0.072 CPU in 0.072 seconds (100% CPU, 1470054 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/das_gate/test_das.metta" 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/das_gate/test_das.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211064715_3125862_14237.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/das_gate/test_das.metta.html" )
 
 </pre>
 </body>

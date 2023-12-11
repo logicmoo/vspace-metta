@@ -59,7 +59,8 @@
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
+.ansi38-218112214 { color: #DA70D6; }
+.ansi38-013099040 { color: #0D6328; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
@@ -86,6 +87,11 @@
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta")
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta')
+1=+ '[' 0 -eq 1 ']'
+1=+ echo 'Doing: timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta'
+1=Doing: timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta
+1=+ eval 'timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta'
+1=++ timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta
 1=[()]
 2=[()]
 3=[()]
@@ -100,8 +106,8 @@
 11=Expected: []
 11=Got: [()]
 12=Excessive result: ())]
-12=0.19user 0.00system 0:00.19elapsed 99%CPU (0avgtext+0avgdata 33068maxresident)k
-12=0inputs+0outputs (0major+3480minor)pagefaults 0swaps
+12=0.18user 0.01system 0:00.20elapsed 98%CPU (0avgtext+0avgdata 33176maxresident)k
+12=216inputs+0outputs (0major+3496minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta', 1, [[]]).
@@ -117,489 +123,1129 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta', 11, [[]]).
 
 ;; cases are processed sequentially
-<span class="ansi38-013099040">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 2 3))))
+<span class="ansi38-013099040">!(assertEqual 
+  (+ 1 
+    (superpose 
+      (1 2 3))) 
+  (+ 1 
+    (superpose 
+      (1 2 3))))
 
 </span><span class="ansi38-250144246">; !(+ 1 (superpose (1 2 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[+,1,[superpose,[1,2,3]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[+,1,[superpose,[1,2,3]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[+,1,[superpose,[1,2,3]]],[+,1,[superpose,[1,2,3]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[+,1,[superpose,[1,2,3]]],[+,1,[superpose,[1,2,3]]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.01">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.01</h3>
-          -->(1,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[1,2,3]],RET),depth(5))
-                -->(3,eval('&self',1,RET),depth(6))
-                  -->(4,eval('&self',1,RET),depth(7))
-              -->(5,eval('&self',2,RET),depth(5))
-                -->(6,eval('&self',2,RET),depth(6))
-                  -->(7,eval('&self',2,RET),depth(7))
-              -->(8,eval('&self',3,RET),depth(5))
-                -->(9,eval('&self',3,RET),depth(6))
-              <--(2,retval(3))
-          <--(1,retval(4))
+      -->(1,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(1))
+        -->(2,eval('&self',[superpose,[1,2,3]],RET),depth(2))
+        <--(2,retval(3))
+      <--(1,retval(4))
+      -->(3,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(1))
+        -->(4,eval('&self',[superpose,[1,2,3]],RET),depth(2))
+        <--(4,retval(3))
+      <--(3,retval(4))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.84 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (2 3 4) (2 3 4)))
-</span>      <--(0,retval('Empty'))
+; took 0.000834 secs. (834.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (2 3 4) 
+    (2 3 4)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (+ 1 (superpose (1 2 3))) (+ 1 (superpose (1 (superpose (2 3))))))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (+ 1 
+    (superpose 
+      (1 2 3))) 
+  (+ 1 
+    (superpose 
+      (1 
+        (superpose 
+          (2 3))))))
 
 </span><span class="ansi38-250144246">; !(+ 1 (superpose (1 2 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[+,1,[superpose,[1,2,3]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[+,1,[superpose,[1,2,3]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[+,1,[superpose,[1,2,3]]],[+,1,[superpose,[1,[superpose,[2,3]]]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[+,1,[superpose,[1,2,3]]],[+,1,[superpose,[1,[superpose,[2,3]]]]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.02">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.02</h3>
-          -->(1,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[1,2,3]],RET),depth(5))
-                -->(3,eval('&self',1,RET),depth(6))
-                  -->(4,eval('&self',1,RET),depth(7))
-              -->(5,eval('&self',2,RET),depth(5))
-                -->(6,eval('&self',2,RET),depth(6))
-                  -->(7,eval('&self',2,RET),depth(7))
-              -->(8,eval('&self',3,RET),depth(5))
-                -->(9,eval('&self',3,RET),depth(6))
-              <--(2,retval(3))
-          <--(1,retval(4))
+      -->(1,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(1))
+        -->(2,eval('&self',[superpose,[1,2,3]],RET),depth(2))
+        <--(2,retval(3))
+      <--(1,retval(4))
+      -->(3,eval('&self',[+,1,[superpose,[1,[superpose,[2,3]]]]],RET),depth(1))
+        -->(4,eval('&self',[superpose,[1,[superpose,[2,3]]]],RET),depth(2))
+          -->(5,eval('&self',[superpose,[2,3]],RET),depth(3))
+          <--(5,retval(3))
+        <--(4,retval(3))
+      <--(3,retval(4))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.50 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (2 3 4) (2 3 4)))
-</span>      <--(0,retval('Empty'))
+; took 0.000736 secs. (735.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (2 3 4) 
+    (2 3 4)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual ((superpose (1 2 3))) ((superpose (1 (superpose ((+ 1 1) 3))))))
+</span><span class="ansi38-013099040">!(assertEqual 
+  ( (superpose 
+      (1 2 3))) 
+  ( (superpose 
+      (1 
+        (superpose 
+          ( (+ 1 1) 3))))))
 
 </span><span class="ansi38-250144246">; !((superpose (1 2 3)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[superpose,[1,2,3]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[[superpose,[1,2,3]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[[superpose,[1,2,3]]],[[superpose,[1,[superpose,[[+,1,1],3]]]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[[superpose,[1,2,3]]],[[superpose,[1,[superpose,[[+,1,1],3]]]]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.03">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.03</h3>
-          -->(1,eval('&self',[[superpose,[1,2,3]]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[1,2,3]],RET),depth(5))
-                -->(3,eval('&self',1,RET),depth(6))
-                  -->(4,eval('&self',1,RET),depth(7))
-                -->(5,eval('&self',1,RET),depth(6))
-              -->(6,eval('&self',1,RET),depth(5))
-                -->(7,eval('&self',2,RET),depth(6))
-                  -->(8,eval('&self',2,RET),depth(7))
-                -->(9,eval('&self',2,RET),depth(6))
-              <--(2,retval(3))
-          <--(1,retval([3]))
+      -->(1,eval('&self',[[superpose,[1,2,3]]],RET),depth(1))
+        -->(2,eval('&self',[superpose,[1,2,3]],RET),depth(2))
+        <--(2,retval(3))
+      <--(1,retval([3]))
+      -->(3,eval('&self',[[superpose,[1,[superpose,[[+,1,1],3]]]]],RET),depth(1))
+        -->(4,eval('&self',[superpose,[1,[superpose,[[+,1,1],3]]]],RET),depth(2))
+          -->(5,eval('&self',[superpose,[[+,1,1],3]],RET),depth(3))
+            -->(6,eval('&self',[+,1,1],RET),depth(4))
+            <--(6,retval(2))
+          <--(5,retval(3))
+        <--(4,retval(3))
+      <--(3,retval([3]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.07 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((1) (2) (3)) ((1) (2) (3))))
-</span>      <--(0,retval('Empty'))
+; took 0.000900 secs. (899.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (1) 
+      (2) 
+      (3)) 
+    ( (1) 
+      (2) 
+      (3))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; cases are processed sequentially
-<span class="ansi38-013099040">!(assertEqual (case (+ 1 5) ((5 Error) (6 OK) (6 Error))) OK)
+<span class="ansi38-013099040">!(assertEqual 
+  (case 
+    (+ 1 5) 
+    ( (5 Error) 
+      (6 OK) 
+      (6 Error))) OK)
 
 </span><span class="ansi38-250144246">; !(case (+ 1 5) ((5 Error) (6 OK) (6 Error)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],'OK'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],'OK'],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.04">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.04</h3>
-          -->(1,eval('&self',[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],RET),depth(3))
-              -->(2,eval('&self',[+,1,5],RET),depth(5))
-                -->(3,eval('&self',5,RET),depth(6))
-                  -->(4,eval('&self',6,RET),depth(7))
-              <--(2,retval(6))
-            -->(5,eval('&self','OK',RET),depth(4))
-              -->(6,eval('&self','OK',RET),depth(5))
-          <--(1,retval('OK'))
-        -->(7,eval('&self','OK',RET),depth(2))
+      -->(1,eval('&self',[case,[+,1,5],[[5,'Error'],[6,'OK'],[6,'Error']]],RET),depth(1))
+        -->(2,eval('&self',[+,1,5],RET),depth(2))
+        <--(2,retval(6))
+      <--(1,retval('OK'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.48 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (OK) (OK)))
-</span>          -->(8,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000399 secs. (399.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (OK) 
+    (OK)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; we can use variables as cases
-<span class="ansi38-013099040">!(assertEqual (case (+ 1 5) (($X (+ 1 $X)))) 7)
+<span class="ansi38-013099040">!(assertEqual 
+  (case 
+    (+ 1 5) 
+    ( ($X 
+        (+ 1 $X)))) 7)
 
 </span><span class="ansi38-250144246">; !(case (+ 1 5) (($X (+ 1 $X))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[+,1,5],[[X,[+,1,X]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[+,1,5],[[X,[+,1,X]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[case,[+,1,5],[[_86250,[+,1,_86250]]]],7],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[case,[+,1,5],[[_2046,[+,1,_2046]]]],7],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.05">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.05</h3>
-          -->(1,eval('&self',[case,[+,1,5],[[_86250,[+,1,_86250]]]],RET),depth(3))
-              -->(2,eval('&self',[+,1,5],RET),depth(5))
-                -->(3,eval('&self',5,RET),depth(6))
-                  -->(4,eval('&self',6,RET),depth(7))
-              <--(2,retval(6))
-              -->(5,eval('&self',[+,1,6],RET),depth(5))
-                -->(6,eval('&self',6,RET),depth(6))
-                  -->(7,eval('&self',7,RET),depth(7))
-              <--(5,retval(7))
-              -->(8,eval('&self',7,RET),depth(5))
-          <--(1,retval(7))
-        -->(9,eval('&self',7,RET),depth(2))
+      -->(1,eval('&self',[case,[+,1,5],[[_2046,[+,1,_2046]]]],RET),depth(1))
+        -->(2,eval('&self',[+,1,5],RET),depth(2))
+        <--(2,retval(6))
+        -->(3,eval('&self',[+,1,6],RET),depth(2))
+        <--(3,retval(7))
+      <--(1,retval(7))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.28 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (7) (7)))
-</span>      <--(0,retval('Empty'))
+; took 0.000561 secs. (561.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (7) 
+    (7)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; cases are not necessarily exhaustive,
 ;; and the result can be empty
-<span class="ansi38-013099040">!(assertEqual (case 5 ((6 OK))) (superpose ()))
+<span class="ansi38-013099040">!(assertEqual 
+  (case 5 
+    ( (6 OK))) 
+  (superpose ()))
 
 </span><span class="ansi38-250144246">; !(case 5 ((6 OK)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,5,[[6,'OK']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,5,[[6,'OK']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[case,5,[[6,'OK']]],[superpose,[]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[case,5,[[6,'OK']]],[superpose,[]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.06">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.06</h3>
-          -->(1,eval('&self',[case,5,[[6,'OK']]],RET),depth(3))
-            -->(2,eval('&self',5,RET),depth(4))
-            -->(3,eval('&self',6,RET),depth(4))
-          <--(1,retval(fail))
-          -->(4,eval('&self',[superpose,[]],RET),depth(3))
-              -->(5,eval('&self','Empty',RET),depth(5))
-          <--(4,retval('Empty'))
+      -->(1,eval('&self',[case,5,[[6,'OK']]],RET),depth(1))
+      <--(1,retval(fail))
+      -->(2,eval('&self',[superpose,[]],RET),depth(1))
+      <--(2,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.000817 secs. (817.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000345 secs. (345.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; it is non-deterministic: each value is matched against all cases
-<span class="ansi38-013099040">!(assertEqual (case (+ 1 (superpose (1 2 3))) ((3 OK-3) (4 OK-4))) (superpose (OK-3 OK-4)))
+<span class="ansi38-013099040">!(assertEqual 
+  (case 
+    (+ 1 
+      (superpose 
+        (1 2 3))) 
+    ( (3 OK-3) 
+      (4 OK-4))) 
+  (superpose 
+    (OK-3 OK-4)))
 
 </span><span class="ansi38-250144246">; !(case (+ 1 (superpose (1 2 3))) ((3 OK-3) (4 OK-4)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],[superpose,['OK-3','OK-4']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],[superpose,['OK-3','OK-4']]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.07">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.07</h3>
-          -->(1,eval('&self',[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],RET),depth(3))
-              -->(2,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(5))
-                  -->(3,eval('&self',[superpose,[1,2,3]],RET),depth(7))
-                    -->(4,eval('&self',1,RET),depth(8))
-                      -->(5,eval('&self',1,RET),depth(9))
-                  -->(6,eval('&self',2,RET),depth(7))
-            -->(7,eval('&self',3,RET),depth(4))
-            -->(8,eval('&self',4,RET),depth(4))
-                    -->(9,eval('&self',2,RET),depth(8))
-                  <--(3,retval(3))
-              <--(2,retval(4))
-          <--(1,retval('OK-4'))
+      -->(1,eval('&self',[case,[+,1,[superpose,[1,2,3]]],[[3,'OK-3'],[4,'OK-4']]],RET),depth(1))
+        -->(2,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(2))
+          -->(3,eval('&self',[superpose,[1,2,3]],RET),depth(3))
+          <--(3,retval(3))
+        <--(2,retval(4))
+      <--(1,retval('OK-4'))
+      -->(4,eval('&self',[superpose,['OK-3','OK-4']],RET),depth(1))
+      <--(4,retval('OK-4'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.39 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (OK-3 OK-4) (OK-3 OK-4)))
-</span>      <--(0,retval('Empty'))
+; took 0.000799 secs. (798.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (OK-3 OK-4) 
+    (OK-3 OK-4)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; one case can produce multiple results
-<span class="ansi38-013099040">!(assertEqual (case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X)))) (superpose (3 4 5)))
+<span class="ansi38-013099040">!(assertEqual 
+  (case 
+    (+ 1 
+      (superpose 
+        (1 2 3))) 
+    ( ($X 
+        (+ 1 $X)))) 
+  (superpose 
+    (3 4 5)))
 
 </span><span class="ansi38-250144246">; !(case (+ 1 (superpose (1 2 3))) (($X (+ 1 $X))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[+,1,[superpose,[1,2,3]]],[[X,[+,1,X]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[+,1,[superpose,[1,2,3]]],[[X,[+,1,X]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[case,[+,1,[superpose,[1,2,3]]],[[_179106,[+,1,_179106]]]],[superpose,[3,4,5]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[case,[+,1,[superpose,[1,2,3]]],[[_13524,[+,1,_13524]]]],[superpose,[3,4,5]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.08">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.08</h3>
-          -->(1,eval('&self',[case,[+,1,[superpose,[1,2,3]]],[[_179106,[+,1,_179106]]]],RET),depth(3))
-              -->(2,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(5))
-                  -->(3,eval('&self',[superpose,[1,2,3]],RET),depth(7))
-                    -->(4,eval('&self',1,RET),depth(8))
-                      -->(5,eval('&self',1,RET),depth(9))
-                  -->(6,eval('&self',2,RET),depth(7))
-              -->(7,eval('&self',[+,1,2],RET),depth(5))
-                -->(8,eval('&self',2,RET),depth(6))
-                  -->(9,eval('&self',3,RET),depth(7))
-              <--(7,retval(3))
-                  <--(3,retval(3))
-              <--(2,retval(4))
-          <--(1,retval(5))
+      -->(1,eval('&self',[case,[+,1,[superpose,[1,2,3]]],[[_13524,[+,1,_13524]]]],RET),depth(1))
+        -->(2,eval('&self',[+,1,[superpose,[1,2,3]]],RET),depth(2))
+          -->(3,eval('&self',[superpose,[1,2,3]],RET),depth(3))
+        -->(4,eval('&self',[+,1,2],RET),depth(2))
+        <--(4,retval(3))
+        -->(5,eval('&self',[+,1,3],RET),depth(2))
+        <--(5,retval(4))
+          <--(3,retval(3))
+        <--(2,retval(4))
+        -->(6,eval('&self',[+,1,4],RET),depth(2))
+        <--(6,retval(5))
+      <--(1,retval(5))
+      -->(7,eval('&self',[superpose,[3,4,5]],RET),depth(1))
+      <--(7,retval(5))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.90 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (3 4 5) (3 4 5)))
-</span>      <--(0,retval('Empty'))
+; took 0.000914 secs. (913.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (3 4 5) 
+    (3 4 5)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (superpose ()) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (superpose ()) ())
 
 </span><span class="ansi38-250144246">; !(superpose ())
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[superpose,[]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[superpose,[]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[superpose,[]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[superpose,[]],[]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.09">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.09</h3>
-          -->(1,eval('&self',[superpose,[]],RET),depth(3))
-              -->(2,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
+      -->(1,eval('&self',[superpose,[]],RET),depth(1))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.000294 secs. (294.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000227 secs. (226.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (collapse (superpose ())) (()))
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (collapse 
+    (superpose ())) 
+  (()))
 
 </span><span class="ansi38-250144246">; !(collapse (superpose ()))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[collapse,[superpose,[]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[collapse,[superpose,[]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[collapse,[superpose,[]]],[[]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[collapse,[superpose,[]]],[[]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.10">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.10</h3>
-          -->(1,eval('&self',[collapse,[superpose,[]]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[]],RET),depth(5))
-                  -->(3,eval('&self','Empty',RET),depth(7))
-              <--(2,retval('Empty'))
-          <--(1,retval([]))
+      -->(1,eval('&self',[collapse,[superpose,[]]],RET),depth(1))
+        -->(2,eval('&self',[superpose,[]],RET),depth(2))
+        <--(2,retval(fail))
+      <--(1,retval([]))
 ; 
 ; EVAL TEST
-; took 0.000489 secs. (489.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000373 secs. (373.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () 
+    (())))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (superpose ((nop 1))) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (superpose 
+    ( (nop 1))) ())
 
 </span><span class="ansi38-250144246">; !(superpose ((nop 1)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[superpose,[[nop,1]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[superpose,[[nop,1]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[superpose,[[nop,1]]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[superpose,[[nop,1]]],[]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.11">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.11</h3>
-          -->(1,eval('&self',[superpose,[[nop,1]]],RET),depth(3))
-              -->(2,eval('&self',[nop,1],RET),depth(5))
-                -->(3,eval('&self',1,RET),depth(6))
-                  -->(4,eval('&self','Empty',RET),depth(7))
-              <--(2,retval('Empty'))
-              -->(5,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
+      -->(1,eval('&self',[superpose,[[nop,1]]],RET),depth(1))
+        -->(2,eval('&self',[nop,1],RET),depth(2))
+        <--(2,retval('Empty'))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.000708 secs. (708.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000319 secs. (319.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (collapse (superpose ((nop 1)))) (()))
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (collapse 
+    (superpose 
+      ( (nop 1)))) 
+  (()))
 
 </span><span class="ansi38-250144246">; !(collapse (superpose ((nop 1))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[collapse,[superpose,[[nop,1]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[collapse,[superpose,[[nop,1]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[collapse,[superpose,[[nop,1]]]],[[]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[collapse,[superpose,[[nop,1]]]],[[]]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.12">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.12</h3>
-          -->(1,eval('&self',[collapse,[superpose,[[nop,1]]]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[[nop,1]]],RET),depth(5))
-                  -->(3,eval('&self',[nop,1],RET),depth(7))
-                    -->(4,eval('&self',1,RET),depth(8))
-                      -->(5,eval('&self','Empty',RET),depth(9))
-                  <--(3,retval('Empty'))
-                  -->(6,eval('&self','Empty',RET),depth(7))
-              <--(2,retval('Empty'))
-          <--(1,retval([]))
+      -->(1,eval('&self',[collapse,[superpose,[[nop,1]]]],RET),depth(1))
+        -->(2,eval('&self',[superpose,[[nop,1]]],RET),depth(2))
+          -->(3,eval('&self',[nop,1],RET),depth(3))
+          <--(3,retval('Empty'))
+        <--(2,retval(fail))
+      <--(1,retval([]))
 ; 
 ; EVAL TEST
-; took 0.000952 secs. (951.60 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(7,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000345 secs. (345.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () 
+    (())))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Rel-P','P','P','P'],10])
-</span><span class="ansi38-255165000">(= (Rel-P P P P) 10)
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Rel-P','P','P','P'],10])
+</span><span class="ansi38-255165000">(= 
+  (Rel-P P P P) 10)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-P','A','B'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['Rel-P','A','B'])
 </span><span class="ansi38-255165000">(Rel-P A B)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Rel-Q','A','C'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['Rel-Q','A','C'])
 </span><span class="ansi38-255165000">(Rel-Q A C)
 </span>
 
 <span class="ansi38-013099040">!(match &self $Num1 $Num1)
 
-</span><span class="ansi38-250144246">; !(match &self $Num1 $Num1)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',Num1,Num1],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',Num1,Num1],OUT).
 
-</span>      -->(0,eval('&self',[match,'&self',_332354,_332354],RET),depth(1))
-          -->(1,eval('&self',=,RET),depth(3))
-        -->(2,eval('&self',=,RET),depth(2))
-          -->(3,eval('&self','P',RET),depth(3))
-          -->(4,eval('&self','P',RET),depth(3))
-          -->(5,eval('&self','P',RET),depth(3))
-          -->(6,eval('&self','P',RET),depth(3))
-          -->(7,eval('&self','P',RET),depth(3))
-          -->(8,eval('&self','P',RET),depth(3))
-          -->(9,eval('&self','P',RET),depth(3))
-NDet Result(0): <span class="ansi33">
+</span>    -->(0,eval('&self',[match,'&self',_1950,_1950],RET),depth(0))
+NDet Result(1): <span class="ansi33">
+(: Any Type)
+
+</span><span class="ansi32">$Num1 = (: Any Type)
+
+
+</span>NDet Result(2): <span class="ansi33">
+(: Atom Type)
+
+</span><span class="ansi32">$Num1 = (: Atom Type)
+
+
+</span>NDet Result(3): <span class="ansi33">
+(: Bool Type)
+
+</span><span class="ansi32">$Num1 = (: Bool Type)
+
+
+</span>NDet Result(4): <span class="ansi33">
+(: ErrorType Type)
+
+</span><span class="ansi32">$Num1 = (: ErrorType Type)
+
+
+</span>NDet Result(5): <span class="ansi33">
+(: Expression Type)
+
+</span><span class="ansi32">$Num1 = (: Expression Type)
+
+
+</span>NDet Result(6): <span class="ansi33">
+(: Number Type)
+
+</span><span class="ansi32">$Num1 = (: Number Type)
+
+
+</span>NDet Result(7): <span class="ansi33">
+(: ReturnType Type)
+
+</span><span class="ansi32">$Num1 = (: ReturnType Type)
+
+
+</span>NDet Result(8): <span class="ansi33">
+(: Space Type)
+
+</span><span class="ansi32">$Num1 = (: Space Type)
+
+
+</span>NDet Result(9): <span class="ansi33">
+(: Symbol Type)
+
+</span><span class="ansi32">$Num1 = (: Symbol Type)
+
+
+</span>NDet Result(10): <span class="ansi33">
+(: MemoizedState Type)
+
+</span><span class="ansi32">$Num1 = (: MemoizedState Type)
+
+
+</span>NDet Result(11): <span class="ansi33">
+(: Type Type)
+
+</span><span class="ansi32">$Num1 = (: Type Type)
+
+
+</span>NDet Result(12): <span class="ansi33">
+(: %Undefined% Type)
+
+</span><span class="ansi32">$Num1 = (: %Undefined% Type)
+
+
+</span>NDet Result(13): <span class="ansi33">
+(: Variable Type)
+
+</span><span class="ansi32">$Num1 = (: Variable Type)
+
+
+</span>NDet Result(14): <span class="ansi33">
+(: match 
+  (-> Space Atom Atom %Undefined%))
+
+</span><span class="ansi32">$Num1 = (: match 
+  (-> Space Atom Atom %Undefined%))
+
+
+</span>NDet Result(15): <span class="ansi33">
+(: remove-atom 
+  (-> Space Atom EmptyType))
+
+</span><span class="ansi32">$Num1 = (: remove-atom 
+  (-> Space Atom EmptyType))
+
+
+</span>NDet Result(16): <span class="ansi33">
+(: add-atom 
+  (-> Space Atom EmptyType))
+
+</span><span class="ansi32">$Num1 = (: add-atom 
+  (-> Space Atom EmptyType))
+
+
+</span>NDet Result(17): <span class="ansi33">
+(: get-atoms 
+  (-> Space Atom))
+
+</span><span class="ansi32">$Num1 = (: get-atoms 
+  (-> Space Atom))
+
+
+</span>NDet Result(18): <span class="ansi33">
+(: car-atom 
+  (-> Expression Atom))
+
+</span><span class="ansi32">$Num1 = (: car-atom 
+  (-> Expression Atom))
+
+
+</span>NDet Result(19): <span class="ansi33">
+(: cdr-atom 
+  (-> Expression Expression))
+
+</span><span class="ansi32">$Num1 = (: cdr-atom 
+  (-> Expression Expression))
+
+
+</span>NDet Result(20): <span class="ansi33">
+(: let 
+  (-> Atom %Undefined% Atom Atom))
+
+</span><span class="ansi32">$Num1 = (: let 
+  (-> Atom %Undefined% Atom Atom))
+
+
+</span>NDet Result(21): <span class="ansi33">
+(: let* 
+  (-> Expression Atom Atom))
+
+</span><span class="ansi32">$Num1 = (: let* 
+  (-> Expression Atom Atom))
+
+
+</span>NDet Result(22): <span class="ansi33">
+(: and 
+  (-> Bool Bool Bool))
+
+</span><span class="ansi32">$Num1 = (: and 
+  (-> Bool Bool Bool))
+
+
+</span>NDet Result(23): <span class="ansi33">
+(: or 
+  (-> Bool Bool Bool))
+
+</span><span class="ansi32">$Num1 = (: or 
+  (-> Bool Bool Bool))
+
+
+</span>NDet Result(24): <span class="ansi33">
+(: case 
+  (-> Expression Atom Atom))
+
+</span><span class="ansi32">$Num1 = (: case 
+  (-> Expression Atom Atom))
+
+
+</span>NDet Result(25): <span class="ansi33">
+(: unify 
+  (-> Atom Atom Atom Atom %Undefined%))
+
+</span><span class="ansi32">$Num1 = (: unify 
+  (-> Atom Atom Atom Atom %Undefined%))
+
+
+</span>NDet Result(26): <span class="ansi33">
+(: if 
+  (-> Bool Atom Atom $_3332))
+
+</span><span class="ansi32">$Num1 = (: if 
+  (-> Bool Atom Atom $_3332))
+
+
+</span>NDet Result(27): <span class="ansi33">
+(: % 
+  (-> Number Number Number))
+
+</span><span class="ansi32">$Num1 = (: % 
+  (-> Number Number Number))
+
+
+</span>NDet Result(28): <span class="ansi33">
+(: * 
+  (-> Number Number Number))
+
+</span><span class="ansi32">$Num1 = (: * 
+  (-> Number Number Number))
+
+
+</span>NDet Result(29): <span class="ansi33">
+(: - 
+  (-> Number Number Number))
+
+</span><span class="ansi32">$Num1 = (: - 
+  (-> Number Number Number))
+
+
+</span>NDet Result(30): <span class="ansi33">
+(: + 
+  (-> Number Number Number))
+
+</span><span class="ansi32">$Num1 = (: + 
+  (-> Number Number Number))
+
+
+</span>NDet Result(31): <span class="ansi33">
+(: combine 
+  (-> $_3332 $_3332 $_3332))
+
+</span><span class="ansi32">$Num1 = (: combine 
+  (-> $_3332 $_3332 $_3332))
+
+
+</span>NDet Result(32): <span class="ansi33">
+(: bind! 
+  (-> Symbol %Undefined% EmptyType))
+
+</span><span class="ansi32">$Num1 = (: bind! 
+  (-> Symbol %Undefined% EmptyType))
+
+
+</span>NDet Result(33): <span class="ansi33">
+(: import! 
+  (-> Space Atom EmptyType))
+
+</span><span class="ansi32">$Num1 = (: import! 
+  (-> Space Atom EmptyType))
+
+
+</span>NDet Result(34): <span class="ansi33">
+(: get-type 
+  (-> Atom Type))
+
+</span><span class="ansi32">$Num1 = (: get-type 
+  (-> Atom Type))
+
+
+</span>            1-->subst_args(_27426,_27428,'&self',['Rel-P','A','B'],depth(4))
+          2-->subst_args(_28016,_28018,'&self',['Rel-P','A','B'],depth(3))
+NDet Result(35): <span class="ansi33">
 (Rel-P A B)
 
 </span><span class="ansi32">$Num1 = (Rel-P A B)
 
 
-</span>NDet Result(1): <span class="ansi33">
+</span>            3-->subst_args(_30948,_30950,'&self',['Rel-Q','A','C'],depth(4))
+          4-->subst_args(_31598,_31600,'&self',['Rel-Q','A','C'],depth(3))
+NDet Result(36): <span class="ansi33">
 (Rel-Q A C)
 
 </span><span class="ansi32">$Num1 = (Rel-Q A C)
 
 
-</span>      <--(0,retval(['Rel-Q','A','C']))
+</span>    <--(0,retval(['Rel-Q','A','C']))
 <span class="ansi38-013099040">!(get-atoms &self)
 
-</span><span class="ansi38-250144246">; !(get-atoms &self)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-atoms','&self'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-atoms','&self'],OUT).
 
-</span>      -->(0,eval('&self',['get-atoms','&self'],RET),depth(1))
-          -->(1,eval('&self',=,RET),depth(3))
-            -->(2,eval('&self',['Rel-P','P','P','P'],RET),depth(4))
-                -->(3,eval('&self',10,RET),depth(6))
-          -->(4,eval('&self',10,RET),depth(3))
-NDet Result(0): <span class="ansi33">
-(= 10 10)
-
-</span>            <--(2,retval(10))
-          -->(5,eval('&self','Rel-P',RET),depth(3))
-          -->(6,eval('&self','A',RET),depth(3))
-          -->(7,eval('&self','B',RET),depth(3))
-            -->(8,eval('&self','Rel-P',RET),depth(4))
-            -->(9,eval('&self','A',RET),depth(4))
+</span>    -->(0,eval('&self',['get-atoms','&self'],RET),depth(0))
 NDet Result(1): <span class="ansi33">
+(: Any Type)
+
+</span>NDet Result(2): <span class="ansi33">
+(: Atom Type)
+
+</span>NDet Result(3): <span class="ansi33">
+(: Bool Type)
+
+</span>NDet Result(4): <span class="ansi33">
+(: ErrorType Type)
+
+</span>NDet Result(5): <span class="ansi33">
+(: Expression Type)
+
+</span>NDet Result(6): <span class="ansi33">
+(: Number Type)
+
+</span>NDet Result(7): <span class="ansi33">
+(: ReturnType Type)
+
+</span>NDet Result(8): <span class="ansi33">
+(: Space Type)
+
+</span>NDet Result(9): <span class="ansi33">
+(: Symbol Type)
+
+</span>NDet Result(10): <span class="ansi33">
+(: MemoizedState Type)
+
+</span>NDet Result(11): <span class="ansi33">
+(: Type Type)
+
+</span>NDet Result(12): <span class="ansi33">
+(: %Undefined% Type)
+
+</span>NDet Result(13): <span class="ansi33">
+(: Variable Type)
+
+</span>NDet Result(14): <span class="ansi33">
+(: match 
+  (-> Space Atom Atom %Undefined%))
+
+</span>NDet Result(15): <span class="ansi33">
+(: remove-atom 
+  (-> Space Atom EmptyType))
+
+</span>NDet Result(16): <span class="ansi33">
+(: add-atom 
+  (-> Space Atom EmptyType))
+
+</span>NDet Result(17): <span class="ansi33">
+(: get-atoms 
+  (-> Space Atom))
+
+</span>NDet Result(18): <span class="ansi33">
+(: car-atom 
+  (-> Expression Atom))
+
+</span>NDet Result(19): <span class="ansi33">
+(: cdr-atom 
+  (-> Expression Expression))
+
+</span>NDet Result(20): <span class="ansi33">
+(: let 
+  (-> Atom %Undefined% Atom Atom))
+
+</span>NDet Result(21): <span class="ansi33">
+(: let* 
+  (-> Expression Atom Atom))
+
+</span>NDet Result(22): <span class="ansi33">
+(: and 
+  (-> Bool Bool Bool))
+
+</span>NDet Result(23): <span class="ansi33">
+(: or 
+  (-> Bool Bool Bool))
+
+</span>NDet Result(24): <span class="ansi33">
+(: case 
+  (-> Expression Atom Atom))
+
+</span>NDet Result(25): <span class="ansi33">
+(: unify 
+  (-> Atom Atom Atom Atom %Undefined%))
+
+</span>NDet Result(26): <span class="ansi33">
+(: if 
+  (-> Bool Atom Atom $_14796))
+
+</span>NDet Result(27): <span class="ansi33">
+(: % 
+  (-> Number Number Number))
+
+</span>NDet Result(28): <span class="ansi33">
+(: * 
+  (-> Number Number Number))
+
+</span>NDet Result(29): <span class="ansi33">
+(: - 
+  (-> Number Number Number))
+
+</span>NDet Result(30): <span class="ansi33">
+(: + 
+  (-> Number Number Number))
+
+</span>NDet Result(31): <span class="ansi33">
+(: combine 
+  (-> $_14796 $_14796 $_14796))
+
+</span>NDet Result(32): <span class="ansi33">
+(: bind! 
+  (-> Symbol %Undefined% EmptyType))
+
+</span>NDet Result(33): <span class="ansi33">
+(: import! 
+  (-> Space Atom EmptyType))
+
+</span>NDet Result(34): <span class="ansi33">
+(: get-type 
+  (-> Atom Type))
+
+</span>NDet Result(35): <span class="ansi33">
+(= 
+  (Rel-P P P P) 10)
+
+</span>            1-->subst_args(_10738,_10740,'&self',['Rel-P','A','B'],depth(4))
+          2-->subst_args(_11328,_11330,'&self',['Rel-P','A','B'],depth(3))
+NDet Result(36): <span class="ansi33">
 (Rel-P A B)
 
-</span>      <--(0,retval(['Rel-Q','A','C']))
-Last Result(2): <span class="ansi33">
+</span>            3-->subst_args(_14260,_14262,'&self',['Rel-Q','A','C'],depth(4))
+          4-->subst_args(_14910,_14912,'&self',['Rel-Q','A','C'],depth(3))
+    <--(0,retval(['Rel-Q','A','C']))
+Last Result(37): <span class="ansi33">
 (Rel-Q A C)
 
-</span>;;;l !(repl!)
-<span class="ansi38-013099040">!(assertEqualToResult (match &self ($Rel A $X) ($Rel A $X)) ((Rel-P A B) (Rel-Q A C)))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (match &self $Num1 $Num1) 
+  (get-atoms &self))
 
-</span><span class="ansi38-250144246">; !(match &self ($Rel A $X) ($Rel A $X))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[Rel,'A',X],[Rel,'A',X]],OUT).
+</span><span class="ansi38-250144246">; !(match &self $Num1 $Num1)
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',Num1,Num1],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[_417064,'A',_417368],[_417064,'A',_417368]],[['Rel-P','A','B'],['Rel-Q','A','C']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[match,'&self',_27992,_27992],['get-atoms','&self']],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.13">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.13</h3>
-          -->(1,eval('&self',[match,'&self',[_417064,'A',_417368],[_417064,'A',_417368]],RET),depth(3))
-            -->(2,eval('&self','Rel-P',RET),depth(4))
-            -->(3,eval('&self','A',RET),depth(4))
-            -->(4,eval('&self','B',RET),depth(4))
-              -->(5,eval('&self','Rel-P',RET),depth(5))
-            -->(6,eval('&self','Rel-P',RET),depth(4))
-              -->(7,eval('&self','A',RET),depth(5))
-            -->(8,eval('&self','A',RET),depth(4))
-              -->(9,eval('&self','B',RET),depth(5))
-          <--(1,retval(['Rel-Q','A','C']))
+      -->(1,eval('&self',[match,'&self',_27992,_27992],RET),depth(1))
+              2-->subst_args(_45282,_45284,'&self',['Rel-P','A','B'],depth(5))
+            3-->subst_args(_45872,_45874,'&self',['Rel-P','A','B'],depth(4))
+              4-->subst_args(_46700,_46702,'&self',['Rel-Q','A','C'],depth(5))
+            5-->subst_args(_47350,_47352,'&self',['Rel-Q','A','C'],depth(4))
+      <--(1,retval(['Rel-Q','A','C']))
+      -->(6,eval('&self',['get-atoms','&self'],RET),depth(1))
+              7-->subst_args(_56558,_56560,'&self',['Rel-P','A','B'],depth(5))
+            8-->subst_args(_57148,_57150,'&self',['Rel-P','A','B'],depth(4))
+              9-->subst_args(_57976,_57978,'&self',['Rel-Q','A','C'],depth(5))
+            10-->subst_args(_58626,_58628,'&self',['Rel-Q','A','C'],depth(4))
+      <--(6,retval(['Rel-Q','A','C']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.08 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Rel-P A B) (Rel-Q A C)) ((Rel-P A B) (Rel-Q A C))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (2.31 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (: Any Type) 
+      (: Atom Type) 
+      (: Bool Type) 
+      (: ErrorType Type) 
+      (: Expression Type) 
+      (: Number Type) 
+      (: ReturnType Type) 
+      (: Space Type) 
+      (: Symbol Type) 
+      (: MemoizedState Type) 
+      (: Type Type) 
+      (: %Undefined% Type) 
+      (: Variable Type) 
+      (: match 
+        (-> Space Atom Atom %Undefined%)) 
+      (: remove-atom 
+        (-> Space Atom EmptyType)) 
+      (: add-atom 
+        (-> Space Atom EmptyType)) 
+      (: get-atoms 
+        (-> Space Atom)) 
+      (: car-atom 
+        (-> Expression Atom)) 
+      (: cdr-atom 
+        (-> Expression Expression)) 
+      (: let 
+        (-> Atom %Undefined% Atom Atom)) 
+      (: let* 
+        (-> Expression Atom Atom)) 
+      (: and 
+        (-> Bool Bool Bool)) 
+      (: or 
+        (-> Bool Bool Bool)) 
+      (: case 
+        (-> Expression Atom Atom)) 
+      (: unify 
+        (-> Atom Atom Atom Atom %Undefined%)) 
+      (: if 
+        (-> Bool Atom Atom $_3972)) 
+      (: % 
+        (-> Number Number Number)) 
+      (: * 
+        (-> Number Number Number)) 
+      (: - 
+        (-> Number Number Number)) 
+      (: + 
+        (-> Number Number Number)) 
+      (: combine 
+        (-> $_3714 $_3714 $_3714)) 
+      (: bind! 
+        (-> Symbol %Undefined% EmptyType)) 
+      (: import! 
+        (-> Space Atom EmptyType)) 
+      (: get-type 
+        (-> Atom Type)) 
+      (Rel-P A B) 
+      (Rel-Q A C)) 
+    ( (: Any Type) 
+      (: Atom Type) 
+      (: Bool Type) 
+      (: ErrorType Type) 
+      (: Expression Type) 
+      (: Number Type) 
+      (: ReturnType Type) 
+      (: Space Type) 
+      (: Symbol Type) 
+      (: MemoizedState Type) 
+      (: Type Type) 
+      (: %Undefined% Type) 
+      (: Variable Type) 
+      (: match 
+        (-> Space Atom Atom %Undefined%)) 
+      (: remove-atom 
+        (-> Space Atom EmptyType)) 
+      (: add-atom 
+        (-> Space Atom EmptyType)) 
+      (: get-atoms 
+        (-> Space Atom)) 
+      (: car-atom 
+        (-> Expression Atom)) 
+      (: cdr-atom 
+        (-> Expression Expression)) 
+      (: let 
+        (-> Atom %Undefined% Atom Atom)) 
+      (: let* 
+        (-> Expression Atom Atom)) 
+      (: and 
+        (-> Bool Bool Bool)) 
+      (: or 
+        (-> Bool Bool Bool)) 
+      (: case 
+        (-> Expression Atom Atom)) 
+      (: unify 
+        (-> Atom Atom Atom Atom %Undefined%)) 
+      (: if 
+        (-> Bool Atom Atom $_5394)) 
+      (: % 
+        (-> Number Number Number)) 
+      (: * 
+        (-> Number Number Number)) 
+      (: - 
+        (-> Number Number Number)) 
+      (: + 
+        (-> Number Number Number)) 
+      (: combine 
+        (-> $_5136 $_5136 $_5136)) 
+      (: bind! 
+        (-> Symbol %Undefined% EmptyType)) 
+      (: import! 
+        (-> Space Atom EmptyType)) 
+      (: get-type 
+        (-> Atom Type)) 
+      (= 
+        (Rel-P P P P) 10) 
+      (Rel-P A B) 
+      (Rel-Q A C))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (superpose ((Rel-P B) (Rel-Q C))) ((Rel-P B) (Rel-Q C)))
+</span>;;;l !(repl!)
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    ($Rel A $X) 
+    ($Rel A $X)) 
+  ( (Rel-P A B) 
+    (Rel-Q A C)))
 
-</span><span class="ansi38-250144246">; !(superpose ((Rel-P B) (Rel-Q C)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[superpose,[['Rel-P','B'],['Rel-Q','C']]],OUT).
+</span><span class="ansi38-250144246">; !(match &self ($Rel A $X) ($Rel A $X))
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[Rel,'A',X],[Rel,'A',X]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[superpose,[['Rel-P','B'],['Rel-Q','C']]],[['Rel-P','B'],['Rel-Q','C']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[_53426,'A',_53730],[_53426,'A',_53730]],[['Rel-P','A','B'],['Rel-Q','A','C']]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.14">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.14</h3>
-          -->(1,eval('&self',[superpose,[['Rel-P','B'],['Rel-Q','C']]],RET),depth(3))
-              -->(2,eval('&self',['Rel-P','B'],RET),depth(5))
-                -->(3,eval('&self','Rel-P',RET),depth(6))
-                -->(4,eval('&self','B',RET),depth(6))
-                  -->(5,eval('&self','Rel-P',RET),depth(7))
-                  -->(6,eval('&self','B',RET),depth(7))
-              -->(7,eval('&self','Rel-P',RET),depth(5))
-              -->(8,eval('&self','B',RET),depth(5))
-                -->(9,eval('&self','Rel-P',RET),depth(6))
-          <--(1,retval(['Rel-Q','C']))
+      -->(1,eval('&self',[match,'&self',[_2066,'A',_2090],[_2066,'A',_2090]],RET),depth(1))
+              2-->subst_args(_5094,_5096,'&self',['Rel-P','A','B'],depth(5))
+            3-->subst_args(_5684,_5686,'&self',['Rel-P','A','B'],depth(4))
+              4-->subst_args(_6494,_6496,'&self',['Rel-Q','A','C'],depth(5))
+            5-->subst_args(_7144,_7146,'&self',['Rel-Q','A','C'],depth(4))
+      <--(1,retval(['Rel-Q','A','C']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.56 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Rel-P B) (Rel-Q C)) ((Rel-P B) (Rel-Q C))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.14 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Rel-P A B) 
+      (Rel-Q A C)) 
+    ( (Rel-P A B) 
+      (Rel-Q A C))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (superpose 
+    ( (Rel-P B) 
+      (Rel-Q C))) 
+  ( (Rel-P B) 
+    (Rel-Q C)))
+
+</span><span class="ansi38-250144246">; !(superpose ((Rel-P B) (Rel-Q C)))
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[superpose,[['Rel-P','B'],['Rel-Q','C']]],OUT).
+
+</span>    -->(0,eval('&self',[assertEqualToResult,[superpose,[['Rel-P','B'],['Rel-Q','C']]],[['Rel-P','B'],['Rel-Q','C']]],RET),depth(0))
+<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.15">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.15</h3>
+      -->(1,eval('&self',[superpose,[['Rel-P','B'],['Rel-Q','C']]],RET),depth(1))
+        -->(2,eval('&self',['Rel-P','B'],RET),depth(2))
+              3-->subst_args(_38362,_38364,'&self',['Rel-P','B'],depth(5))
+        <--(2,retval(['Rel-P','B']))
+              4-->subst_args(_39124,_39126,'&self',['Rel-P','B'],depth(5))
+            5-->subst_args(_39718,_39720,'&self',['Rel-P','B'],depth(4))
+        -->(6,eval('&self',['Rel-Q','C'],RET),depth(2))
+              7-->subst_args(_41098,_41100,'&self',['Rel-Q','C'],depth(5))
+        <--(6,retval(['Rel-Q','C']))
+              8-->subst_args(_41860,_41862,'&self',['Rel-Q','C'],depth(5))
+            9-->subst_args(_42454,_42456,'&self',['Rel-Q','C'],depth(4))
+      <--(1,retval(['Rel-Q','C']))
+; 
+; EVAL TEST
+; took 0.002 secs. (1.66 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Rel-P B) 
+      (Rel-Q C)) 
+    ( (Rel-P B) 
+      (Rel-Q C))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Basic Match
-<span class="ansi38-013099040">!(assertEqual (match &self ($Rel A $X) ($Rel $X)) (superpose ((Rel-P B) (Rel-Q C))))
+<span class="ansi38-013099040">!(assertEqual 
+  (match &self 
+    ($Rel A $X) 
+    ($Rel $X)) 
+  (superpose 
+    ( (Rel-P B) 
+      (Rel-Q C))))
 
 </span><span class="ansi38-250144246">; !(match &self ($Rel A $X) ($Rel $X))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[Rel,'A',X],[Rel,X]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[Rel,'A',X],[Rel,X]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[match,'&self',[_2244,'A',_2268],[_2244,_2268]],[superpose,[['Rel-P','B'],['Rel-Q','C']]]],RET),depth(1))
-<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.15">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.15</h3>
-          -->(1,eval('&self',[match,'&self',[_2244,'A',_2268],[_2244,_2268]],RET),depth(3))
-            -->(2,eval('&self','Rel-P',RET),depth(4))
-            -->(3,eval('&self','B',RET),depth(4))
-              -->(4,eval('&self','Rel-P',RET),depth(5))
-            -->(5,eval('&self','Rel-P',RET),depth(4))
-              -->(6,eval('&self','B',RET),depth(5))
-            -->(7,eval('&self','B',RET),depth(4))
-              -->(8,eval('&self','Rel-P',RET),depth(5))
-              -->(9,eval('&self','B',RET),depth(5))
-          <--(1,retval(['Rel-Q','C']))
+</span>    -->(0,eval('&self',[assertEqual,[match,'&self',[_2548,'A',_2572],[_2548,_2572]],[superpose,[['Rel-P','B'],['Rel-Q','C']]]],RET),depth(0))
+<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.16">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.16</h3>
+      -->(1,eval('&self',[match,'&self',[_2548,'A',_2572],[_2548,_2572]],RET),depth(1))
+              2-->subst_args(_14962,_14964,'&self',['Rel-P','B'],depth(5))
+            3-->subst_args(_15556,_15558,'&self',['Rel-P','B'],depth(4))
+              4-->subst_args(_16314,_16316,'&self',['Rel-Q','C'],depth(5))
+            5-->subst_args(_16908,_16910,'&self',['Rel-Q','C'],depth(4))
+      <--(1,retval(['Rel-Q','C']))
+      -->(6,eval('&self',[superpose,[['Rel-P','B'],['Rel-Q','C']]],RET),depth(1))
+        -->(7,eval('&self',['Rel-P','B'],RET),depth(2))
+              8-->subst_args(_19000,_19002,'&self',['Rel-P','B'],depth(5))
+        <--(7,retval(['Rel-P','B']))
+              9-->subst_args(_19762,_19764,'&self',['Rel-P','B'],depth(5))
+            10-->subst_args(_20356,_20358,'&self',['Rel-P','B'],depth(4))
+        -->(11,eval('&self',['Rel-Q','C'],RET),depth(2))
+              12-->subst_args(_21736,_21738,'&self',['Rel-Q','C'],depth(5))
+        <--(11,retval(['Rel-Q','C']))
+              13-->subst_args(_22498,_22500,'&self',['Rel-Q','C'],depth(5))
+            14-->subst_args(_23092,_23094,'&self',['Rel-Q','C'],depth(4))
+      <--(6,retval(['Rel-Q','C']))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (3.89 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Rel-P B) (Rel-Q C)) ((Rel-P B) (Rel-Q C))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (1.99 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Rel-P B) 
+      (Rel-Q C)) 
+    ( (Rel-P B) 
+      (Rel-Q C))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; cases can be used for deconstruction
-<span class="ansi38-013099040">!(assertEqual (superpose ((P B) (Q C))) (case (match &self ($Rel A $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)))))
+<span class="ansi38-013099040">!(assertEqual 
+  (superpose 
+    ( (P B) 
+      (Q C))) 
+  (case 
+    (match &self 
+      ($Rel A $X) 
+      ($Rel $X)) 
+    ( ( (Rel-P $Y) 
+        (P $Y)) 
+      ( (Rel-Q $Y) 
+        (Q $Y)))))
 
 </span><span class="ansi38-250144246">; !(superpose ((P B) (Q C)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[superpose,[['P','B'],['Q','C']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[superpose,[['P','B'],['Q','C']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[superpose,[['P','B'],['Q','C']]],[case,[match,'&self',[_64324,'A',_64628],[_64324,_64628]],[[['Rel-P',_65524],['P',_65524]],[['Rel-Q',_65524],['Q',_65524]]]]],RET),depth(1))
-<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.16">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.16</h3>
-          -->(1,eval('&self',[superpose,[['P','B'],['Q','C']]],RET),depth(3))
-              -->(2,eval('&self',['P','B'],RET),depth(5))
-                -->(3,eval('&self','B',RET),depth(6))
-                -->(4,eval('&self','P',RET),depth(6))
-                -->(5,eval('&self','B',RET),depth(6))
-                  -->(6,eval('&self','P',RET),depth(7))
-                  -->(7,eval('&self','B',RET),depth(7))
-              -->(8,eval('&self','B',RET),depth(5))
-              -->(9,eval('&self','P',RET),depth(5))
-          <--(1,retval(['Q','C']))
+</span>    -->(0,eval('&self',[assertEqual,[superpose,[['P','B'],['Q','C']]],[case,[match,'&self',[_50316,'A',_50620],[_50316,_50620]],[[['Rel-P',_51516],['P',_51516]],[['Rel-Q',_51516],['Q',_51516]]]]],RET),depth(0))
+<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.17">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.17</h3>
+      -->(1,eval('&self',[superpose,[['P','B'],['Q','C']]],RET),depth(1))
+        -->(2,eval('&self',['P','B'],RET),depth(2))
+              3-->subst_args(_6164,_6166,'&self',['P','B'],depth(5))
+        <--(2,retval(['P','B']))
+              4-->subst_args(_6926,_6928,'&self',['P','B'],depth(5))
+            5-->subst_args(_7520,_7522,'&self',['P','B'],depth(4))
+        -->(6,eval('&self',['Q','C'],RET),depth(2))
+              7-->subst_args(_8900,_8902,'&self',['Q','C'],depth(5))
+        <--(6,retval(['Q','C']))
+              8-->subst_args(_9662,_9664,'&self',['Q','C'],depth(5))
+            9-->subst_args(_10256,_10258,'&self',['Q','C'],depth(4))
+      <--(1,retval(['Q','C']))
+      -->(10,eval('&self',[case,[match,'&self',[_2244,'A',_2268],[_2244,_2268]],[[['Rel-P',_2328],['P',_2328]],[['Rel-Q',_2328],['Q',_2328]]]],RET),depth(1))
+        -->(11,eval('&self',[match,'&self',[_2244,'A',_2268],[_2244,_2268]],RET),depth(2))
+                12-->subst_args(_13030,_13032,'&self',['Rel-P','B'],depth(6))
+              13-->subst_args(_13624,_13626,'&self',['Rel-P','B'],depth(5))
+        -->(14,eval('&self',['P','B'],RET),depth(2))
+              15-->subst_args(_15280,_15282,'&self',['P','B'],depth(5))
+        <--(14,retval(['P','B']))
+              16-->subst_args(_16042,_16044,'&self',['P','B'],depth(5))
+            17-->subst_args(_16636,_16638,'&self',['P','B'],depth(4))
+                18-->subst_args(_17394,_17396,'&self',['Rel-Q','C'],depth(6))
+              19-->subst_args(_17988,_17990,'&self',['Rel-Q','C'],depth(5))
+        -->(20,eval('&self',['Q','C'],RET),depth(2))
+              21-->subst_args(_19644,_19646,'&self',['Q','C'],depth(5))
+        <--(20,retval(['Q','C']))
+              22-->subst_args(_20406,_20408,'&self',['Q','C'],depth(5))
+            23-->subst_args(_21000,_21002,'&self',['Q','C'],depth(4))
+        <--(11,retval(['Rel-Q','C']))
+      <--(10,retval(['Q','C']))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (6.50 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((P B) (Q C)) ((P B) (Q C))))
-</span>      <--(0,retval('Empty'))
+; took 0.005 secs. (4.75 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (P B) 
+      (Q C)) 
+    ( (P B) 
+      (Q C))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; %void% can be used to capture empty results
-<span class="ansi38-013099040">!(assertEqual (case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match))) no-match)
+<span class="ansi38-013099040">!(assertEqual 
+  (case 
+    (match &self 
+      ($Rel B $X) 
+      ($Rel $X)) 
+    ( ( (Rel-P $Y) 
+        (P $Y)) 
+      ( (Rel-Q $Y) 
+        (Q $Y)) 
+      (%void% no-match))) no-match)
 
 </span><span class="ansi38-250144246">; !(case (match &self ($Rel B $X) ($Rel $X)) (((Rel-P $Y) (P $Y)) ((Rel-Q $Y) (Q $Y)) (%void% no-match)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[match,'&self',[Rel,'B',X],[Rel,X]],[[['Rel-P',Y],['P',Y]],[['Rel-Q',Y],['Q',Y]],['%void%','no-match']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[match,'&self',[Rel,'B',X],[Rel,X]],[[['Rel-P',Y],['P',Y]],[['Rel-Q',Y],['Q',Y]],['%void%','no-match']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[case,[match,'&self',[_151630,'B',_151934],[_151630,_151934]],[[['Rel-P',_152830],['P',_152830]],[['Rel-Q',_152830],['Q',_152830]],['%void%','no-match']]],'no-match'],RET),depth(1))
-<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.17">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.17</h3>
-          -->(1,eval('&self',[case,[match,'&self',[_151630,'B',_151934],[_151630,_151934]],[[['Rel-P',_152830],['P',_152830]],[['Rel-Q',_152830],['Q',_152830]],['%void%','no-match']]],RET),depth(3))
-              -->(2,eval('&self',[match,'&self',[_151630,'B',_151934],[_151630,_151934]],RET),depth(5))
-              <--(2,retval(fail))
-            -->(3,eval('&self','no-match',RET),depth(4))
-              -->(4,eval('&self','no-match',RET),depth(5))
-          <--(1,retval('no-match'))
-        -->(5,eval('&self','no-match',RET),depth(2))
+</span>    -->(0,eval('&self',[assertEqual,[case,[match,'&self',[_46718,'B',_47022],[_46718,_47022]],[[['Rel-P',_47918],['P',_47918]],[['Rel-Q',_47918],['Q',_47918]],['%void%','no-match']]],'no-match'],RET),depth(0))
+<h3 id="HYPERON-METTALOG-SANITY.00-LANG-CASE.18">;; HYPERON-METTALOG-SANITY.00-LANG-CASE.18</h3>
+      -->(1,eval('&self',[case,[match,'&self',[_46718,'B',_47022],[_46718,_47022]],[[['Rel-P',_47918],['P',_47918]],[['Rel-Q',_47918],['Q',_47918]],['%void%','no-match']]],RET),depth(1))
+        -->(2,eval('&self',[match,'&self',[_46718,'B',_47022],[_46718,_47022]],RET),depth(2))
+        <--(2,retval(fail))
+      <--(1,retval('no-match'))
 ; 
 ; EVAL TEST
-; took 0.000955 secs. (955.50 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (no-match) (no-match)))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000397 secs. (397.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (no-match) 
+    (no-match)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 568,065 inferences, 0.454 CPU in 0.454 seconds (100% CPU, 1252431 Lips)
+</span><span class="ansi32">% 544,860 inferences, 0.333 CPU in 0.333 seconds (100% CPU, 1635496 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 17
+<span class="ansi32">Successes: 18
 </span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta.html" )

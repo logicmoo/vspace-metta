@@ -10,7 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
@@ -46,6 +45,24 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
@@ -61,95 +78,167 @@
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-peg-space.metta', 1, []).
 
 ;; Move a disk from peg X to peg Y.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['move-disk',Disk,X,Y],[if,[and,['can-remove',X,Disk],['can-place',Y,Disk]],[seq,['remove-atom','&$x',[position,bottom,Disk]],['add-atom','&$y',[position,middle,Disk]]],nop]])
-</span><span class="ansi38-255165000">(= (move-disk $Disk $X $Y) (if (and (can-remove $X $Disk) (can-place $Y $Disk)) (seq (remove-atom &$x (position bottom $Disk)) (add-atom &$y (position middle $Disk))) nop))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['move-disk',Disk,X,Y],[if,[and,['can-remove',X,Disk],['can-place',Y,Disk]],[seq,['remove-atom','&$x',[position,bottom,Disk]],['add-atom','&$y',[position,middle,Disk]]],nop]])
+</span><span class="ansi38-255165000">(= 
+  (move-disk $Disk $X $Y) 
+  (if 
+    (and 
+      (can-remove $X $Disk) 
+      (can-place $Y $Disk)) 
+    (seq 
+      (remove-atom &$x 
+        (position bottom $Disk)) 
+      (add-atom &$y 
+        (position middle $Disk))) nop))
 </span>
 
 ;; Check if a disk can be removed from a peg
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['can-remove',X,Disk],['atom-exists',X,[position,bottom,Disk]]])
-</span><span class="ansi38-255165000">(= (can-remove $X $Disk) (atom-exists $X (position bottom $Disk)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['can-remove',X,Disk],['atom-exists',X,[position,bottom,Disk]]])
+</span><span class="ansi38-255165000">(= 
+  (can-remove $X $Disk) 
+  (atom-exists $X 
+    (position bottom $Disk)))
 </span>
 
 ;; Check if a disk can be placed on a peg
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['can-place',Y,Disk],[or,[not,['any-disk-exists',Y]],['smaller-than-top',Y,Disk]]])
-</span><span class="ansi38-255165000">(= (can-place $Y $Disk) (or (not (any-disk-exists $Y)) (smaller-than-top $Y $Disk)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['can-place',Y,Disk],[or,[not,['any-disk-exists',Y]],['smaller-than-top',Y,Disk]]])
+</span><span class="ansi38-255165000">(= 
+  (can-place $Y $Disk) 
+  (or 
+    (not 
+      (any-disk-exists $Y)) 
+    (smaller-than-top $Y $Disk)))
 </span>
 
 ;; Check if any disk exists on a peg
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['any-disk-exists',Y],[or,['atom-exists',Y,[position,middle,'red-disk']],['atom-exists',Y,[position,middle,'blue-disk']],['atom-exists',Y,[position,middle,'green-disk']]]])
-</span><span class="ansi38-255165000">(= (any-disk-exists $Y) (or (atom-exists $Y (position middle red-disk)) (atom-exists $Y (position middle blue-disk)) (atom-exists $Y (position middle green-disk))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['any-disk-exists',Y],[or,['atom-exists',Y,[position,middle,'red-disk']],['atom-exists',Y,[position,middle,'blue-disk']],['atom-exists',Y,[position,middle,'green-disk']]]])
+</span><span class="ansi38-255165000">(= 
+  (any-disk-exists $Y) 
+  (or 
+    (atom-exists $Y 
+      (position middle red-disk)) 
+    (atom-exists $Y 
+      (position middle blue-disk)) 
+    (atom-exists $Y 
+      (position middle green-disk))))
 </span>
 
 ;; Check if a disk is smaller than the top disk on a peg
 ;; GPT4: Youd need to define the logic for this
 ;; USER: Will use prolog''s "standard-order"
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['smaller-than-top',Y,Disk],[and,[@<,Y,Disk]]])
-</span><span class="ansi38-255165000">(= (smaller-than-top $Y $Disk) (and (@< $Y $Disk)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['smaller-than-top',Y,Disk],[and,[@<,Y,Disk]]])
+</span><span class="ansi38-255165000">(= 
+  (smaller-than-top $Y $Disk) 
+  (and 
+    (@< $Y $Disk)))
 </span>
 
 ;; Towers of Hanoi test
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],['move-disk','red-disk',Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],['move-disk','red-disk',Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]]])
-</span><span class="ansi38-255165000">(= (hanoi $N $Src $Aux $Dest) (if (eq $N 1) (move-disk red-disk $Src $Dest) (seq (hanoi (- $N 1) $Src $Dest $Aux) (move-disk red-disk $Src $Dest) (hanoi (- $N 1) $Aux $Src $Dest))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],['move-disk','red-disk',Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],['move-disk','red-disk',Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]]])
+</span><span class="ansi38-255165000">(= 
+  (hanoi $N $Src $Aux $Dest) 
+  (if 
+    (eq $N 1) 
+    (move-disk red-disk $Src $Dest) 
+    (seq 
+      (hanoi 
+        (- $N 1) $Src $Dest $Aux) 
+      (move-disk red-disk $Src $Dest) 
+      (hanoi 
+        (- $N 1) $Aux $Src $Dest))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[hanoi_test],[let,[[src,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']],[aux,[]],[dest,[]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']]]])
-</span><span class="ansi38-255165000">(= (hanoi_test) (let ((src (position bottom red-disk) (position middle blue-disk) (position top green-disk)) (aux ()) (dest ())) (hanoi 3 src aux dest) (assertEqual dest (position bottom red-disk) (position middle blue-disk) (position top green-disk))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[hanoi_test],[let,[[src,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']],[aux,[]],[dest,[]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[position,bottom,'red-disk'],[position,middle,'blue-disk'],[position,top,'green-disk']]]])
+</span><span class="ansi38-255165000">(= 
+  (hanoi_test) 
+  (let 
+    ( (src 
+        (position bottom red-disk) 
+        (position middle blue-disk) 
+        (position top green-disk)) 
+      (aux ()) 
+      (dest ())) 
+    (hanoi 3 src aux dest) 
+    (assertEqual dest 
+      (position bottom red-disk) 
+      (position middle blue-disk) 
+      (position top green-disk))))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(hanoi_test)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (hanoi_test) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (hanoi_test) ())
 
 </span><span class="ansi38-250144246">; !(hanoi_test)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[hanoi_test],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[hanoi_test],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[hanoi_test],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[hanoi_test],[]],RET),depth(0))
 <h3 id="PERFORMANCE.HANOI-PEG-SPACE.01">;; PERFORMANCE.HANOI-PEG-SPACE.01</h3>
-          -->(1,eval('&self',[hanoi_test],RET),depth(3))
-                -->(2,eval('&self',[hanoi,3,src,aux,dest],RET),depth(6))
-                      -->(3,eval('&self',[eq,3,1],RET),depth(9))
-                        -->(4,eval('&self',3,RET),depth(10))
-                        -->(5,eval('&self',1,RET),depth(10))
-                        -->(6,eval('&self',eq,RET),depth(10))
-                        -->(7,eval('&self',3,RET),depth(10))
-                        -->(8,eval('&self',1,RET),depth(10))
-                          -->(9,eval('&self',eq,RET),depth(11))
-%~ eval_call(apply(not,[['any-disk-exists',dest]]),TF)
-%~ user: message_hook(
-%~          error(existence_error(source_sink,'any-disk-exists'),Existence_error),
-%~          error,
-%~          ['~w `~p\' does not exist'-[source_sink,'any-disk-exists']]).
-<span class="ansi1 ansi31">ERROR: source_sink `'any-disk-exists'' does not exist
-</span>%~ user: message_hook(
-%~          error(existence_error(source_sink,dest),Existence_error),
-%~          error,
-%~          ['~w `~p\' does not exist'-[source_sink,dest]]).
-<span class="ansi1 ansi31">ERROR: source_sink `dest' does not exist
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&$y',[position,middle,'red-disk'])
+      -->(1,eval('&self',[hanoi_test],RET),depth(1))
+          -->(2,eval('&self',[hanoi,3,src,aux,dest],RET),depth(3))
+              -->(3,eval('&self',[eq,3,1],RET),depth(5))
+                    -->(4,subst_args('&self',[eq,3,1],RET),depth(8))
+              <--(3,retval([eq,3,1]))
+              -->(5,eval('&self',['move-disk','red-disk',src,dest],RET),depth(5))
+                  -->(6,eval('&self',[and,['can-remove',src,'red-disk'],['can-place',dest,'red-disk']],RET),depth(7))
+                    -->(7,eval('&self',['can-remove',src,'red-disk'],RET),depth(8))
+                    -->(18,eval('&self',['can-place',dest,'red-disk'],RET),depth(8))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=asserted_metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000">(position bottom red-disk)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&$y',[position,middle,'red-disk'])
 </span><span class="ansi38-255165000">(position middle red-disk)
-</span>; (type-method is_asserted_space metta_assertdb_add &$y (position middle red-disk))
+</span>
 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=asserted_metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000">(position bottom red-disk)
+</span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&$y',[position,middle,'red-disk'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&$y',[position,middle,'red-disk'])
 </span><span class="ansi38-255165000">(position middle red-disk)
-</span>; (type-method is_asserted_space metta_assertdb_add &$y (position middle red-disk))
+</span>
 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=asserted_metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000">(position bottom red-disk)
+</span>
 
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&$y',[position,middle,'red-disk'])
+</span><span class="ansi38-255165000">(position middle red-disk)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: unload=asserted_metta_atom('&$x',[position,bottom,'red-disk'])
+</span><span class="ansi38-255165000">(position bottom red-disk)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&$y',[position,middle,'red-disk'])
+</span><span class="ansi38-255165000">(position middle red-disk)
+</span>
+
+                    <--(18,retval('True'))
+                    <--(7,retval(['atom-exists',src,[position,bottom,'red-disk']]))
+                  <--(6,retval('True'))
+              <--(5,retval([seq,'Empty','Empty']))
+          <--(2,retval([seq,'Empty','Empty']))
+      <--(1,retval(fail))
+; 
 ; EVAL TEST
-; took 0.059 secs. (59.48 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.031 secs. (31.31 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 508,107 inferences, 0.237 CPU in 0.237 seconds (100% CPU, 2147501 Lips)
+</span><span class="ansi32">% 260,436 inferences, 0.127 CPU in 0.127 seconds (100% CPU, 2046832 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-peg-space.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 1
 </span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-peg-space.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211064538_3124846_11708.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-peg-space.metta.html" )
 
 </pre>
 </body>

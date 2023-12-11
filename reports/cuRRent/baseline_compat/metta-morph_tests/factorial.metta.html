@@ -41,47 +41,73 @@
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/factorial.metta', 1, [3628800]).
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
-</span><span class="ansi38-255165000">(: If (-> Bool Atom Atom Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'If',[->,'Bool','Atom','Atom','Atom']])
+</span><span class="ansi38-255165000">(: If 
+  (-> Bool Atom Atom Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['If',Cond,Then,Else],[if,Cond,Then,Else]])
-</span><span class="ansi38-255165000">(= (If $Cond $Then $Else) (if $Cond $Then $Else))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['If',Cond,Then,Else],[if,Cond,Then,Else]])
+</span><span class="ansi38-255165000">(= 
+  (If $Cond $Then $Else) 
+  (if $Cond $Then $Else))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[facF,N],['If',[==,N,0],1,[*,N,[facF,[-,N,1]]]]])
-</span><span class="ansi38-255165000">(= (facF $N) (If (== $N 0) 1 (* $N (facF (- $N 1)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[facF,N],['If',[==,N,0],1,[*,N,[facF,[-,N,1]]]]])
+</span><span class="ansi38-255165000">(= 
+  (facF $N) 
+  (If 
+    (== $N 0) 1 
+    (* $N 
+      (facF 
+        (- $N 1)))))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(facF 10)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (facF 10) (3628800))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (facF 10) 
+  (3628800))
 
 </span><span class="ansi38-250144246">; !(facF 10)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[facF,10],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[facF,10],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[facF,10],[3628800]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[facF,10],[3628800]],RET),depth(0))
 <h3 id="METTA-MORPH-TESTS.FACTORIAL.01">;; METTA-MORPH-TESTS.FACTORIAL.01</h3>
-          -->(1,eval('&self',[facF,10],RET),depth(3))
-                -->(2,eval('&self',[==,10,0],RET),depth(6))
-                    -->(3,eval('&self','False',RET),depth(8))
-                <--(2,retval('False'))
-                -->(4,eval('&self',[*,10,[facF,[-,10,1]]],RET),depth(6))
-                    -->(5,eval('&self',[facF,[-,10,1]],RET),depth(8))
-                          -->(6,eval('&self',[==,[-,10,1],0],RET),depth(11))
-                            -->(7,eval('&self',==,RET),depth(12))
-                              -->(8,eval('&self',[-,10,1],RET),depth(13))
-                                -->(9,eval('&self',1,RET),depth(14))
-                              <--(8,retval(9))
-                          <--(6,retval('False'))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[facF,10],RET),depth(1))
+          -->(2,eval('&self',[==,10,0],RET),depth(3))
+          <--(2,retval('False'))
+          -->(3,eval('&self',[*,10,[facF,[-,10,1]]],RET),depth(3))
+            -->(4,eval('&self',[facF,[-,10,1]],RET),depth(4))
+                -->(5,eval('&self',[==,[-,10,1],0],RET),depth(6))
+                  -->(6,eval('&self',[-,10,1],RET),depth(7))
+                  <--(6,retval(9))
+                <--(5,retval('False'))
+                -->(7,eval('&self',[*,[-,10,1],[facF,[-,[-,10,1],1]]],RET),depth(6))
+                  -->(8,eval('&self',[-,10,1],RET),depth(7))
+                  <--(8,retval(9))
+                  -->(9,eval('&self',[facF,[-,[-,10,1],1]],RET),depth(7))
+                      -->(10,eval('&self',[==,[-,[-,10,1],1],0],RET),depth(9))
+                      -->(13,eval('&self',[*,[-,[-,10,1],1],[facF,[-,[-,[-,10,1],1],1]]],RET),depth(9))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                      <--(13,retval(40320))
+                      <--(10,retval('False'))
+                  <--(9,retval(40320))
+                <--(7,retval(362880))
+            <--(4,retval(362880))
+          <--(3,retval(3628800))
+      <--(1,retval(3628800))
+; 
 ; EVAL TEST
-; took 0.018 secs. (17.65 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (3628800) (3628800)))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.022 secs. (21.96 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (3628800) 
+    (3628800)))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 313,414 inferences, 0.122 CPU in 0.122 seconds (100% CPU, 2575522 Lips)
+</span><span class="ansi32">% 120,712 inferences, 0.040 CPU in 0.040 seconds (100% CPU, 3038094 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/factorial.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

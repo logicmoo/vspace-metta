@@ -14,11 +14,7 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi34 { color: #0000aa; }
-.ansi36 { color: #00aaaa; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
@@ -66,6 +62,7 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta')
 1=[]
@@ -81,79 +78,81 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 ;; Pathfinding using a simple graph
 ;; Graph is represented as one-way edge-f functions
-<span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(pragma! compile full)
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (pragma! compile full) ())
+<span class="ansi38-013099040">!(pragma! compile full)
 
-</span><span class="ansi38-250144246">; !(pragma! compile full)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['pragma!',compile,full],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['pragma!',compile,full],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['pragma!',compile,full],[]],RET),depth(1))
-<h3 id="PERFORMANCE.PATHFINDING-EASY-F.01">;; PERFORMANCE.PATHFINDING-EASY-F.01</h3>
-          -->(1,eval('&self',['pragma!',compile,full],RET),depth(3))
-            -->(2,eval('&self',full,RET),depth(4))
-              -->(3,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
-; 
-; EVAL TEST
-; took 0.000520 secs. (520.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+</span>    -->(0,eval('&self',['pragma!',compile,full],RET),depth(0))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'edge-f',[->,'Symbol','Symbol']])
-</span><span class="ansi38-255165000">(: edge-f (-> Symbol Symbol))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'edge-f',[->,'Symbol','Symbol']])
+</span><span class="ansi38-255165000">(: edge-f 
+  (-> Symbol Symbol))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['edge-f',a],b])
-</span><span class="ansi38-255165000">(= (edge-f a) b)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['edge-f',a],b])
+</span><span class="ansi38-255165000">(= 
+  (edge-f a) b)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['edge-f',b],c])
-</span><span class="ansi38-255165000">(= (edge-f b) c)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['edge-f',b],c])
+</span><span class="ansi38-255165000">(= 
+  (edge-f b) c)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['edge-f',c],d])
-</span><span class="ansi38-255165000">(= (edge-f c) d)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['edge-f',c],d])
+</span><span class="ansi38-255165000">(= 
+  (edge-f c) d)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['edge-f',e],f])
-</span><span class="ansi38-255165000">(= (edge-f e) f)
-</span>
-
-;; Pathfinding rule
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'epath-f',[->,'Symbol','Symbol']])
-</span><span class="ansi38-255165000">(: epath-f (-> Symbol Symbol))
-</span>
-
-;; recursive case
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['epath-f',X],['epath-f',['edge-f',X]]])
-</span><span class="ansi38-255165000">(= (epath-f $X) (epath-f (edge-f $X)))
-</span>
-
-;; was base case, node to itself
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['epath-f',X],X])
-</span><span class="ansi38-255165000">(= (epath-f $X) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['edge-f',e],f])
+</span><span class="ansi38-255165000">(= 
+  (edge-f e) f)
 </span>
 
 ;; Pathfinding rule
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'path-f',[->,'Symbol','Symbol']])
-</span><span class="ansi38-255165000">(: path-f (-> Symbol Symbol))
-</span>
-
-;; was base case, node to itself
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['path-f',X],X])
-</span><span class="ansi38-255165000">(= (path-f $X) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'epath-f',[->,'Symbol','Symbol']])
+</span><span class="ansi38-255165000">(: epath-f 
+  (-> Symbol Symbol))
 </span>
 
 ;; recursive case
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['path-f',X],['edge-f',['path-f',X]]])
-</span><span class="ansi38-255165000">(= (path-f $X) (edge-f (path-f $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['epath-f',X],['epath-f',['edge-f',X]]])
+</span><span class="ansi38-255165000">(= 
+  (epath-f $X) 
+  (epath-f 
+    (edge-f $X)))
+</span>
+
+;; was base case, node to itself
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['epath-f',X],X])
+</span><span class="ansi38-255165000">(= 
+  (epath-f $X) $X)
+</span>
+
+;; Pathfinding rule
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'path-f',[->,'Symbol','Symbol']])
+</span><span class="ansi38-255165000">(: path-f 
+  (-> Symbol Symbol))
+</span>
+
+;; was base case, node to itself
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['path-f',X],X])
+</span><span class="ansi38-255165000">(= 
+  (path-f $X) $X)
+</span>
+
+;; recursive case
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['path-f',X],['edge-f',['path-f',X]]])
+</span><span class="ansi38-255165000">(= 
+  (path-f $X) 
+  (edge-f 
+    (path-f $X)))
 </span>
 
 ;; Present
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta:557 
 %~ [ convert(Convert),
 %~   head_preconds_into_body( exec(Assign_Exec_AssertTrue) :-
 %~                              u_assign(['edge-f',a],Assign_B) ,
@@ -164,129 +163,77 @@ exec(A) :-
     u_assign('True', _),
     u_assign(assertTrue(B==b), A).
 <span class="ansi38-017068017">exec(Exec) :- 
-  u_assign(['edge-f',a],_81614) , 
-  u_assign('True',_81942) , 
-  u_assign(assertTrue(_81614==b),_78326)
+  u_assign(['edge-f',a],_2348) , 
+  u_assign('True',_2360) , 
+  u_assign(assertTrue(_2348==b),_2032)
 </span>
-<span class="ansi38-013099040">!(assertTrue (== (edge-f a) b))
+<span class="ansi38-013099040">!(assertTrue 
+  (== 
+    (edge-f a) b))
 
-</span><span class="ansi38-250144246">; !(, (u_assign  (edge-f a) $_81614) (,  (u_assign  True $_81942) (u_assign  (assertTrue  (==  $_81614 b)) $OUT)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',(u_assign(['edge-f',a],_81614),u_assign('True',_81942),u_assign(assertTrue(_81614==b),OUT)),OUT).
+</span><span class="ansi38-250144246">; !(, (u_assign  (edge-f a) $_2348) (,  (u_assign  True $_2360) (u_assign  (assertTrue  (==  $_2348 b)) $OUT)))
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',(u_assign(['edge-f',a],_2348),u_assign('True',_2360),u_assign(assertTrue(_2348==b),OUT)),OUT).
 
-</span>^  <span class="ansi1 ansi32">Exit: </span>(130) [system] sig_atomic(rtrace:restart_rtrace)
-^  <span class="ansi1 ansi32">Call: </span>(131) [user] call((dcall((u_assign(['edge-f', a], _81614), u_assign('True', _81942), u_assign(assertTrue(_81614==b), _78164))), deterministic(_140182)))
-^  <span class="ansi1 ansi34">Unify: </span>(131) [system] call(user:(dcall((u_assign(['edge-f', a], _81614), u_assign('True', _81942), u_assign(assertTrue(_81614==b), _78164))), deterministic(_140182)))
-   <span class="ansi1 ansi32">Call: </span>(133) [user] dcall((u_assign(['edge-f', a], _81614), u_assign('True', _81942), u_assign(assertTrue(_81614==b), _78164)))
-   <span class="ansi1 ansi34">Unify: </span>(133) [user] dcall((u_assign(['edge-f', a], _81614), u_assign('True', _81942), u_assign(assertTrue(_81614==b), _78164)))
-   <span class="ansi1 ansi32">Call: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] ['edge-f', a]=@=_81614
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] ['edge-f', a]=@=_81614
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] number(['edge-f', a])
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] number(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [user] self_eval(['edge-f', a])
-   <span class="ansi1 ansi34">Unify: </span>(136) [user] self_eval(['edge-f', a])
-^  <span class="ansi1 ansi32">Call: </span>(138) [system] setup_call_cleanup('$notrace'(_165830, _165832), once(user:self_eval0(['edge-f', a])), '$restore_trace'(_165830, _165832))
-^  <span class="ansi1 ansi34">Unify: </span>(138) [system] setup_call_cleanup(system:'$notrace'(_165830, _165832), system:once(user:self_eval0(['edge-f', a])), system:'$restore_trace'(_165830, _165832))
-^  <span class="ansi1 ansi32">Call: </span>(139) [system] sig_atomic(system:'$notrace'(_165830, _165832))
-   <span class="ansi1 ansi31">Fail: </span>(136) [user] self_eval(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], ['edge-f'|_174180])
-   <span class="ansi1 ansi32">Call: </span>(136) [system] nonvar('edge-f')
-   <span class="ansi1 ansi32">Exit: </span>(136) [system] nonvar('edge-f')
-   <span class="ansi1 ansi32">Call: </span>(136) [user] is_metta_data_functor('edge-f')
-   <span class="ansi1 ansi34">Unify: </span>(136) [user] is_metta_data_functor('edge-f')
-   <span class="ansi1 ansi32">Call: </span>(137) [user] current_self(_178770)
-   <span class="ansi1 ansi34">Unify: </span>(137) [user] current_self(_178770)
-   <span class="ansi1 ansi32">Call: </span>(138) [system] nb_current(self_space, _178770)
-   <span class="ansi1 ansi32">Exit: </span>(138) [system] nb_current(self_space, '&self')
-   <span class="ansi1 ansi32">Exit: </span>(137) [user] current_self('&self')
-   <span class="ansi1 ansi32">Call: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi34">Unify: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-^  <span class="ansi1 ansi32">Call: </span>(138) [user] clause(is_data_functor('edge-f'), _185276)
-^  <span class="ansi1 ansi31">Fail: </span>(138) [user] clause(is_data_functor('edge-f'), _186210)
-   <span class="ansi1 ansi33">Redo: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi34">Unify: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi32">Call: </span>(138) [system] 'edge-f'\=='Right'
-   <span class="ansi1 ansi32">Exit: </span>(138) [system] 'edge-f'\=='Right'
-   <span class="ansi1 ansi32">Call: </span>(138) [system] 'edge-f'\=='Something'
-   <span class="ansi1 ansi32">Exit: </span>(138) [system] 'edge-f'\=='Something'
-   <span class="ansi1 ansi32">Call: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_atom('&self', ['edge-f', _193536|_193538])
-   <span class="ansi1 ansi32">Call: </span>(139) [system] '&self'=='&flybase'
-   <span class="ansi1 ansi33">Redo: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi32">Call: </span>(139) [user] typed_list('&self', _197294, _197216)
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] typed_list('&self', _198214, _197216)
-   <span class="ansi1 ansi32">Call: </span>(140) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(140) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(139) [user] typed_list('&self', _200982, _197216)
-   <span class="ansi1 ansi33">Redo: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi32">Call: </span>(139) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Exit: </span>(139) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Call: </span>(139) [system] nonvar(['edge-f'|_192616])
-   <span class="ansi1 ansi32">Exit: </span>(139) [system] nonvar(['edge-f'|_192616])
-   <span class="ansi1 ansi32">Call: </span>(139) [user] metta_atom_stdlib(['edge-f'|_192616])
-   <span class="ansi1 ansi33">Redo: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi31">Fail: </span>(138) [user] metta_atom('&self', ['edge-f'|_192616])
-   <span class="ansi1 ansi33">Redo: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi32">Call: </span>(138) [user] metta_defn('&self', ['edge-f'|_211018], _211098)
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_defn('&self', ['edge-f'|_211018], _212018)
-   <span class="ansi1 ansi32">Call: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi32">Call: </span>(140) [system] '&self'=='&flybase'
-   <span class="ansi1 ansi33">Redo: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi32">Call: </span>(140) [user] typed_list('&self', _217548, _217470)
-   <span class="ansi1 ansi34">Unify: </span>(140) [user] typed_list('&self', _218468, _217470)
-   <span class="ansi1 ansi32">Call: </span>(141) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(141) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(140) [user] typed_list('&self', _221236, _217470)
-   <span class="ansi1 ansi33">Redo: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi32">Call: </span>(140) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Exit: </span>(140) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Call: </span>(140) [system] nonvar([=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi32">Exit: </span>(140) [system] nonvar([=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi32">Call: </span>(140) [user] metta_atom_stdlib([=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi33">Redo: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_211018], _212874])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f', a], b])
-   <span class="ansi1 ansi32">Exit: </span>(139) [user] metta_atom('&self', [=, ['edge-f', a], b])
-   <span class="ansi1 ansi32">Exit: </span>(138) [user] metta_defn('&self', ['edge-f', a], b)
-   <span class="ansi1 ansi31">Fail: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi31">Fail: </span>(136) [user] is_metta_data_functor('edge-f')
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] compound(['edge-f', a])
-   <span class="ansi1 ansi32">Exit: </span>(136) [system] compound(['edge-f', a])
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] 'edge-f'==(:-)
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] 'edge-f'==(:-)
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _81614)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] atom('edge-f')
-   <span class="ansi1 ansi32">Exit: </span>(136) [system] atom('edge-f')
-   <span class="ansi1 ansi32">Call: </span>(136) [lists] lists:append([a], [_81614], _244160)
-   <span class="ansi1 ansi34">Unify: </span>(136) [lists] lists:append([a], [_81614], [a|_245098])
-   <span class="ansi1 ansi32">Call: </span>(137) [lists] lists:append([], [_81614], _245098)
-   <span class="ansi1 ansi34">Unify: </span>(137) [lists] lists:append([], [_81614], [_81614])
-   <span class="ansi1 ansi32">Exit: </span>(137) [lists] lists:append([], [_81614], [_81614])
-   <span class="ansi1 ansi32">Exit: </span>(136) [lists] lists:append([a], [_81614], [a, _81614])
-^  <span class="ansi1 ansi32">Call: </span>(138) [rtrace] rtrace:quietly3(user:apply('edge-f', [a, _81614]))
-^  <span class="ansi1 ansi34">Unify: </span>(138) [rtrace] rtrace:quietly3(user:apply('edge-f', [a, _81614]))
+</span>^  <span class="ansi1 ansi32">Call: </span>(117) [user] call(locally(set_prolog_flag(gc, false), ((dcall((u_assign(['edge-f', a], _2348), u_assign('True', _2360), u_assign(assertTrue(... == ...), _1974))), deterministic(_53986)), nb_setarg(1, res(_1568), _1974))))
+^  <span class="ansi1 ansi34">Unify: </span>(117) [system] call(user:locally(set_prolog_flag(gc, false), ((dcall((u_assign(['edge-f'|...], _2348), u_assign('True', _2360), u_assign(assertTrue(...), _1974))), deterministic(_53986)), nb_setarg(1, res(_1568), _1974))))
+   <span class="ansi1 ansi32">Call: </span>(125) [system] set_prolog_flag(gc, false)
+   <span class="ansi1 ansi32">Exit: </span>(125) [system] set_prolog_flag(gc, false)
+   <span class="ansi1 ansi32">Call: </span>(124) [user] dcall((u_assign(['edge-f', a], _2348), u_assign('True', _2360), u_assign(assertTrue(_2348==b), _1974)))
+   <span class="ansi1 ansi34">Unify: </span>(124) [user] dcall((u_assign(['edge-f', a], _2348), u_assign('True', _2360), u_assign(assertTrue(_2348==b), _1974)))
+   <span class="ansi1 ansi32">Call: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] ['edge-f', a]=@=_2348
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] ['edge-f', a]=@=_2348
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] number(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] number(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [user] self_eval(['edge-f', a])
+   <span class="ansi1 ansi34">Unify: </span>(127) [user] self_eval(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [user] self_eval(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], ['edge-f'|_87594])
+   <span class="ansi1 ansi32">Call: </span>(127) [system] nonvar('edge-f')
+   <span class="ansi1 ansi32">Exit: </span>(127) [system] nonvar('edge-f')
+   <span class="ansi1 ansi32">Call: </span>(127) [user] is_metta_data_functor(_90410, 'edge-f')
+   <span class="ansi1 ansi34">Unify: </span>(127) [user] is_metta_data_functor(_91326, 'edge-f')
+   <span class="ansi1 ansi32">Call: </span>(128) [user] current_self(_92168)
+   <span class="ansi1 ansi34">Unify: </span>(128) [user] current_self(_92168)
+   <span class="ansi1 ansi32">Call: </span>(132) [clpfd] clpfd:make_clpfd_var(self_space)
+   <span class="ansi1 ansi31">Fail: </span>(132) [clpfd] clpfd:make_clpfd_var(self_space)
+   <span class="ansi1 ansi31">Fail: </span>(128) [user] current_self(_92168)
+   <span class="ansi1 ansi31">Fail: </span>(127) [user] is_metta_data_functor(_96830, 'edge-f')
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] compound(['edge-f', a])
+   <span class="ansi1 ansi32">Exit: </span>(127) [system] compound(['edge-f', a])
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] 'edge-f'==(:-)
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] 'edge-f'==(:-)
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _2348)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] atom('edge-f')
+   <span class="ansi1 ansi32">Exit: </span>(127) [system] atom('edge-f')
+   <span class="ansi1 ansi32">Call: </span>(127) [lists] lists:append([a], [_2348], _107738)
+   <span class="ansi1 ansi34">Unify: </span>(127) [lists] lists:append([a], [_2348], [a|_108676])
+   <span class="ansi1 ansi32">Exit: </span>(127) [lists] lists:append([a], [_2348], [a, _2348])
+<no-results>
+
+(unknown_do_metta 
+  (file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta") load &self !
+  (assertTrue 
+    (== 
+      (edge-f a) b)))
 ;; Not present
 %~ [ convert(Convert),
 %~   head_preconds_into_body( exec(Assign_Exec_AssertFalse) :-
@@ -298,137 +245,79 @@ exec(A) :-
     u_assign('True', _),
     u_assign(assertFalse(B==d), A).
 <span class="ansi38-017068017">exec(Exec) :- 
-  u_assign(['edge-f',a],_93236) , 
-  u_assign('True',_93564) , 
-  u_assign(assertFalse(_93236==d),_89948)
+  u_assign(['edge-f',a],_420380) , 
+  u_assign('True',_420708) , 
+  u_assign(assertFalse(_420380==d),_416876)
 </span>
-<span class="ansi38-013099040">!(assertFalse (== (edge-f a) d))
+<span class="ansi38-013099040">!(assertFalse 
+  (== 
+    (edge-f a) d))
 
-</span><span class="ansi38-250144246">; !(, (u_assign  (edge-f a) $_93236) (,  (u_assign  True $_93564) (u_assign  (assertFalse  (==  $_93236 d)) $OUT)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',(u_assign(['edge-f',a],_93236),u_assign('True',_93564),u_assign(assertFalse(_93236==d),OUT)),OUT).
+</span><span class="ansi38-250144246">; !(, (u_assign  (edge-f a) $_420380) (,  (u_assign  True $_420708) (u_assign  (assertFalse  (==  $_420380 d)) $OUT)))
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',(u_assign(['edge-f',a],_420380),u_assign('True',_420708),u_assign(assertFalse(_420380==d),OUT)),OUT).
 
-</span>^  <span class="ansi1 ansi32">Exit: </span>(130) [system] sig_atomic(rtrace:restart_rtrace)
-^  <span class="ansi1 ansi32">Call: </span>(131) [user] call((dcall((u_assign(['edge-f', a], _93236), u_assign('True', _93564), u_assign(assertFalse(_93236==d), _89786))), deterministic(_152098)))
-^  <span class="ansi1 ansi34">Unify: </span>(131) [system] call(user:(dcall((u_assign(['edge-f', a], _93236), u_assign('True', _93564), u_assign(assertFalse(_93236==d), _89786))), deterministic(_152098)))
-   <span class="ansi1 ansi32">Call: </span>(133) [user] dcall((u_assign(['edge-f', a], _93236), u_assign('True', _93564), u_assign(assertFalse(_93236==d), _89786)))
-   <span class="ansi1 ansi34">Unify: </span>(133) [user] dcall((u_assign(['edge-f', a], _93236), u_assign('True', _93564), u_assign(assertFalse(_93236==d), _89786)))
-   <span class="ansi1 ansi32">Call: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] ['edge-f', a]=@=_93236
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] ['edge-f', a]=@=_93236
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] number(['edge-f', a])
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] number(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [user] self_eval(['edge-f', a])
-   <span class="ansi1 ansi34">Unify: </span>(136) [user] self_eval(['edge-f', a])
-^  <span class="ansi1 ansi32">Call: </span>(138) [system] setup_call_cleanup('$notrace'(_177746, _177748), once(user:self_eval0(['edge-f', a])), '$restore_trace'(_177746, _177748))
-^  <span class="ansi1 ansi34">Unify: </span>(138) [system] setup_call_cleanup(system:'$notrace'(_177746, _177748), system:once(user:self_eval0(['edge-f', a])), system:'$restore_trace'(_177746, _177748))
-^  <span class="ansi1 ansi32">Call: </span>(139) [system] sig_atomic(system:'$notrace'(_177746, _177748))
-   <span class="ansi1 ansi31">Fail: </span>(136) [user] self_eval(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] var(['edge-f', a])
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], ['edge-f'|_186096])
-   <span class="ansi1 ansi32">Call: </span>(136) [system] nonvar('edge-f')
-   <span class="ansi1 ansi32">Exit: </span>(136) [system] nonvar('edge-f')
-   <span class="ansi1 ansi32">Call: </span>(136) [user] is_metta_data_functor('edge-f')
-   <span class="ansi1 ansi34">Unify: </span>(136) [user] is_metta_data_functor('edge-f')
-   <span class="ansi1 ansi32">Call: </span>(137) [user] current_self(_190686)
-   <span class="ansi1 ansi34">Unify: </span>(137) [user] current_self(_190686)
-   <span class="ansi1 ansi32">Call: </span>(138) [system] nb_current(self_space, _190686)
-   <span class="ansi1 ansi32">Exit: </span>(138) [system] nb_current(self_space, '&self')
-   <span class="ansi1 ansi32">Exit: </span>(137) [user] current_self('&self')
-   <span class="ansi1 ansi32">Call: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi34">Unify: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-^  <span class="ansi1 ansi32">Call: </span>(138) [user] clause(is_data_functor('edge-f'), _197192)
-^  <span class="ansi1 ansi31">Fail: </span>(138) [user] clause(is_data_functor('edge-f'), _198126)
-   <span class="ansi1 ansi33">Redo: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi34">Unify: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi32">Call: </span>(138) [system] 'edge-f'\=='Right'
-   <span class="ansi1 ansi32">Exit: </span>(138) [system] 'edge-f'\=='Right'
-   <span class="ansi1 ansi32">Call: </span>(138) [system] 'edge-f'\=='Something'
-   <span class="ansi1 ansi32">Exit: </span>(138) [system] 'edge-f'\=='Something'
-   <span class="ansi1 ansi32">Call: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_atom('&self', ['edge-f', _205452|_205454])
-   <span class="ansi1 ansi32">Call: </span>(139) [system] '&self'=='&flybase'
-   <span class="ansi1 ansi33">Redo: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi32">Call: </span>(139) [user] typed_list('&self', _209210, _209132)
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] typed_list('&self', _210130, _209132)
-   <span class="ansi1 ansi32">Call: </span>(140) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(140) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(139) [user] typed_list('&self', _212898, _209132)
-   <span class="ansi1 ansi33">Redo: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi32">Call: </span>(139) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Exit: </span>(139) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Call: </span>(139) [system] nonvar(['edge-f'|_204532])
-   <span class="ansi1 ansi32">Exit: </span>(139) [system] nonvar(['edge-f'|_204532])
-   <span class="ansi1 ansi32">Call: </span>(139) [user] metta_atom_stdlib(['edge-f'|_204532])
-   <span class="ansi1 ansi33">Redo: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi31">Fail: </span>(138) [user] metta_atom('&self', ['edge-f'|_204532])
-   <span class="ansi1 ansi33">Redo: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi32">Call: </span>(138) [user] metta_defn('&self', ['edge-f'|_222934], _223014)
-   <span class="ansi1 ansi34">Unify: </span>(138) [user] metta_defn('&self', ['edge-f'|_222934], _223934)
-   <span class="ansi1 ansi32">Call: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi32">Call: </span>(140) [system] '&self'=='&flybase'
-   <span class="ansi1 ansi33">Redo: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi32">Call: </span>(140) [user] typed_list('&self', _229464, _229386)
-   <span class="ansi1 ansi34">Unify: </span>(140) [user] typed_list('&self', _230384, _229386)
-   <span class="ansi1 ansi32">Call: </span>(141) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(141) [system] compound('&self')
-   <span class="ansi1 ansi31">Fail: </span>(140) [user] typed_list('&self', _233152, _229386)
-   <span class="ansi1 ansi33">Redo: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi32">Call: </span>(140) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Exit: </span>(140) [system] nonvar('&self')
-   <span class="ansi1 ansi32">Call: </span>(140) [system] nonvar([=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi32">Exit: </span>(140) [system] nonvar([=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi32">Call: </span>(140) [user] metta_atom_stdlib([=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi33">Redo: </span>(139) [user] metta_atom('&self', [=, ['edge-f'|_222934], _224790])
-   <span class="ansi1 ansi34">Unify: </span>(139) [user] metta_atom('&self', [=, ['edge-f', a], b])
-   <span class="ansi1 ansi32">Exit: </span>(139) [user] metta_atom('&self', [=, ['edge-f', a], b])
-   <span class="ansi1 ansi32">Exit: </span>(138) [user] metta_defn('&self', ['edge-f', a], b)
-   <span class="ansi1 ansi31">Fail: </span>(137) [user] is_metta_data_functor('&self', 'edge-f')
-   <span class="ansi1 ansi31">Fail: </span>(136) [user] is_metta_data_functor('edge-f')
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] compound(['edge-f', a])
-   <span class="ansi1 ansi32">Exit: </span>(136) [system] compound(['edge-f', a])
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] 'edge-f'==(:-)
-   <span class="ansi1 ansi31">Fail: </span>(136) [system] 'edge-f'==(:-)
-   <span class="ansi1 ansi33">Redo: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi34">Unify: </span>(135) [user] u_assign(['edge-f', a], _93236)
-   <span class="ansi1 ansi32">Call: </span>(136) [system] atom('edge-f')
-   <span class="ansi1 ansi32">Exit: </span>(136) [system] atom('edge-f')
-   <span class="ansi1 ansi32">Call: </span>(136) [lists] lists:append([a], [_93236], _256076)
-   <span class="ansi1 ansi34">Unify: </span>(136) [lists] lists:append([a], [_93236], [a|_257014])
-   <span class="ansi1 ansi32">Call: </span>(137) [lists] lists:append([], [_93236], _257014)
-   <span class="ansi1 ansi34">Unify: </span>(137) [lists] lists:append([], [_93236], [_93236])
-   <span class="ansi1 ansi32">Exit: </span>(137) [lists] lists:append([], [_93236], [_93236])
-   <span class="ansi1 ansi32">Exit: </span>(136) [lists] lists:append([a], [_93236], [a, _93236])
-^  <span class="ansi1 ansi32">Call: </span>(138) [rtrace] rtrace:quietly3(user:apply('edge-f', [a, _93236]))
-^  <span class="ansi1 ansi34">Unify: </span>(138) [rtrace] rtrace:quietly3(user:apply('edge-f', [a, _93236]))
-<span class="ansi32">% 2,911,873 inferences, 0.682 CPU in 0.682 seconds (100% CPU, 4267479 Lips)
+</span>^  <span class="ansi1 ansi32">Call: </span>(117) [user] call(locally(set_prolog_flag(gc, false), ((dcall((u_assign(['edge-f', a], _420380), u_assign('True', _420708), u_assign(assertFalse(... == ...), _416714))), deterministic(_479462)), nb_setarg(1, res(_1568), _416714))))
+^  <span class="ansi1 ansi34">Unify: </span>(117) [system] call(user:locally(set_prolog_flag(gc, false), ((dcall((u_assign(['edge-f'|...], _420380), u_assign('True', _420708), u_assign(assertFalse(...), _416714))), deterministic(_479462)), nb_setarg(1, res(_1568), _416714))))
+   <span class="ansi1 ansi32">Call: </span>(125) [system] set_prolog_flag(gc, false)
+   <span class="ansi1 ansi32">Exit: </span>(125) [system] set_prolog_flag(gc, false)
+   <span class="ansi1 ansi32">Call: </span>(124) [user] dcall((u_assign(['edge-f', a], _420380), u_assign('True', _420708), u_assign(assertFalse(_420380==d), _416714)))
+   <span class="ansi1 ansi34">Unify: </span>(124) [user] dcall((u_assign(['edge-f', a], _420380), u_assign('True', _420708), u_assign(assertFalse(_420380==d), _416714)))
+   <span class="ansi1 ansi32">Call: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] ['edge-f', a]=@=_420380
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] ['edge-f', a]=@=_420380
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] number(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] number(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [user] self_eval(['edge-f', a])
+   <span class="ansi1 ansi34">Unify: </span>(127) [user] self_eval(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [user] self_eval(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] var(['edge-f', a])
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], ['edge-f'|_513072])
+   <span class="ansi1 ansi32">Call: </span>(127) [system] nonvar('edge-f')
+   <span class="ansi1 ansi32">Exit: </span>(127) [system] nonvar('edge-f')
+   <span class="ansi1 ansi32">Call: </span>(127) [user] is_metta_data_functor(_515888, 'edge-f')
+   <span class="ansi1 ansi34">Unify: </span>(127) [user] is_metta_data_functor(_516804, 'edge-f')
+   <span class="ansi1 ansi32">Call: </span>(128) [user] current_self(_517646)
+   <span class="ansi1 ansi34">Unify: </span>(128) [user] current_self(_517646)
+   <span class="ansi1 ansi31">Fail: </span>(128) [user] current_self(_517646)
+   <span class="ansi1 ansi31">Fail: </span>(127) [user] is_metta_data_functor(_520458, 'edge-f')
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] compound(['edge-f', a])
+   <span class="ansi1 ansi32">Exit: </span>(127) [system] compound(['edge-f', a])
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] 'edge-f'==(:-)
+   <span class="ansi1 ansi31">Fail: </span>(127) [system] 'edge-f'==(:-)
+   <span class="ansi1 ansi33">Redo: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi34">Unify: </span>(126) [user] u_assign(['edge-f', a], _420380)
+   <span class="ansi1 ansi32">Call: </span>(127) [system] atom('edge-f')
+   <span class="ansi1 ansi32">Exit: </span>(127) [system] atom('edge-f')
+   <span class="ansi1 ansi32">Call: </span>(127) [lists] lists:append([a], [_420380], _531366)
+   <span class="ansi1 ansi34">Unify: </span>(127) [lists] lists:append([a], [_420380], [a|_532304])
+   <span class="ansi1 ansi32">Exit: </span>(127) [lists] lists:append([a], [_420380], [a, _420380])
+<no-results>
+
+(unknown_do_metta 
+  (file  "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta") load &self !
+  (assertFalse 
+    (== 
+      (edge-f a) d)))<span class="ansi32">
+% 2,661,532 inferences, 0.471 CPU in 0.471 seconds (100% CPU, 5655613 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta" 0)
-<span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi32">Failures: 0
-</span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta.html" )
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211064541_3124959_29897.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/pathfinding-easy-f.metta.html" )
 
 </pre>
 </body>

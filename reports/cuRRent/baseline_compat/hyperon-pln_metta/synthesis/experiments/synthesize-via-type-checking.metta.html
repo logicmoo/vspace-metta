@@ -13,10 +13,7 @@
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
 .ansi36 { color: #00aaaa; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
@@ -331,6 +328,7 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta')
 1=(synthesize= (Cons f (Cons g Nil)) (S Z) (Cons f (Cons g Nil)))
@@ -369,17 +367,12 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta', 14, [['Cons', ['.', f, f], ['Cons', ['.', f, g], ['Cons', ['.', g, f], ['Cons', ['.', g, g], 'Nil']]]]]).
 
 ;;; Import modules
-<span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(import! &self "../../common/Num.metta")
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (import! &self "../../common/Num.metta") (()))
+<span class="ansi38-013099040">!(import! &self "../../common/Num.metta")
 
-</span><span class="ansi38-250144246">; !(import! &self "../../common/Num.metta")
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['import!','&self','../../common/Num.metta'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['import!','&self','../../common/Num.metta'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['import!','&self','../../common/Num.metta'],[[]]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.01">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.01</h3>
-          -->(1,eval('&self',['import!','&self','../../common/Num.metta'],RET),depth(3))
+</span>    -->(0,eval('&self',['import!','&self','../../common/Num.metta'],RET),depth(0))
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/common/Num.metta')
 ;;; ;; Type definitions checker
@@ -389,326 +382,492 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;; Define an heterogeneous list.
 ;;; Collection of functions operating on numbers
 ;;; Define max
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,max,[->,A,A,A]])
-</span><span class="ansi38-255165000">(: max (-> $A $A $A))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,max,[->,A,A,A]])
+</span><span class="ansi38-255165000">(: max 
+  (-> $A $A $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
-</span><span class="ansi38-255165000">(= (max $X $Y) (if (> $X $Y) $X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (max $X $Y) 
+  (if 
+    (> $X $Y) $X $Y))
 </span>
 
 ;;; Define min
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,min,[->,A,A,A]])
-</span><span class="ansi38-255165000">(: min (-> $A $A $A))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,min,[->,A,A,A]])
+</span><span class="ansi38-255165000">(: min 
+  (-> $A $A $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
-</span><span class="ansi38-255165000">(= (min $X $Y) (if (< $X $Y) $X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (min $X $Y) 
+  (if 
+    (< $X $Y) $X $Y))
 </span>
 
 ;;; Clamp a number to be within a certain range
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,clamp,[->,A,A,A,A]])
-</span><span class="ansi38-255165000">(: clamp (-> $A $A $A $A))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,clamp,[->,A,A,A,A]])
+</span><span class="ansi38-255165000">(: clamp 
+  (-> $A $A $A $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
-</span><span class="ansi38-255165000">(= (clamp $X $L $U) (max $L (min $U $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[clamp,X,L,U],[max,L,[min,U,X]]])
+</span><span class="ansi38-255165000">(= 
+  (clamp $X $L $U) 
+  (max $L 
+    (min $U $X)))
 </span>
 
 ;;; Define abs
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,abs,[->,A,A]])
-</span><span class="ansi38-255165000">(: abs (-> $A $A))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,abs,[->,A,A]])
+</span><span class="ansi38-255165000">(: abs 
+  (-> $A $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
-</span><span class="ansi38-255165000">(= (abs $X) (if (< $X 0) (* -1 $X) $X))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[abs,X],[if,[<,X,0],[*,-1,X],X]])
+</span><span class="ansi38-255165000">(= 
+  (abs $X) 
+  (if 
+    (< $X 0) 
+    (* -1 $X) $X))
 </span>
 
 ;;; Define <=
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,<=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">(: <= (-> $A $A Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,<=,[->,A,A,'Bool']])
+</span><span class="ansi38-255165000">(: <= 
+  (-> $A $A Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">(= (<= $X $Y) (or (< $X $Y) (== $X $Y)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[<=,X,Y],[or,[<,X,Y],[==,X,Y]]])
+</span><span class="ansi38-255165000">(= 
+  (<= $X $Y) 
+  (or 
+    (< $X $Y) 
+    (== $X $Y)))
 </span>
 
 ;;; Define >=
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,>=,[->,A,A,'Bool']])
-</span><span class="ansi38-255165000">(: >= (-> $A $A Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,>=,[->,A,A,'Bool']])
+</span><span class="ansi38-255165000">(: >= 
+  (-> $A $A Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
-</span><span class="ansi38-255165000">(= (>= $X $Y) (or (> $X $Y) (== $X $Y)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[>=,X,Y],[or,[>,X,Y],[==,X,Y]]])
+</span><span class="ansi38-255165000">(= 
+  (>= $X $Y) 
+  (or 
+    (> $X $Y) 
+    (== $X $Y)))
 </span>
 
 ;;; Define approximately equal
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
-</span><span class="ansi38-255165000">(: approxEq (-> $A $A $A Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,approxEq,[->,A,A,A,'Bool']])
+</span><span class="ansi38-255165000">(: approxEq 
+  (-> $A $A $A Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
-</span><span class="ansi38-255165000">(= (approxEq $X $Y $Epsilon) (<= (abs (- $X $Y)) $Epsilon))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[approxEq,X,Y,Epsilon],[<=,[abs,[-,X,Y]],Epsilon]])
+</span><span class="ansi38-255165000">(= 
+  (approxEq $X $Y $Epsilon) 
+  (<= 
+    (abs 
+      (- $X $Y)) $Epsilon))
 </span>
 
 ;;; Define Nat
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nat','Type'])
 </span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Z','Nat'])
 </span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">(: S (-> Nat Nat))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'S',[->,'Nat','Nat']])
+</span><span class="ansi38-255165000">(: S 
+  (-> Nat Nat))
 </span>
 
 ;;; Define cast functions between Nat and Number
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
-</span><span class="ansi38-255165000">(: fromNumber (-> Number Nat))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fromNumber,[->,'Number','Nat']])
+</span><span class="ansi38-255165000">(: fromNumber 
+  (-> Number Nat))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
-</span><span class="ansi38-255165000">(= (fromNumber $N) (if (<= $N 0) Z (S (fromNumber (- $N 1)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fromNumber,N],[if,[<=,N,0],'Z',['S',[fromNumber,[-,N,1]]]]])
+</span><span class="ansi38-255165000">(= 
+  (fromNumber $N) 
+  (if 
+    (<= $N 0) Z 
+    (S 
+      (fromNumber 
+        (- $N 1)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
-</span><span class="ansi38-255165000">(: fromNat (-> Nat Number))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fromNat,[->,'Nat','Number']])
+</span><span class="ansi38-255165000">(: fromNat 
+  (-> Nat Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,'Z'],0])
-</span><span class="ansi38-255165000">(= (fromNat Z) 0)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fromNat,'Z'],0])
+</span><span class="ansi38-255165000">(= 
+  (fromNat Z) 0)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
-</span><span class="ansi38-255165000">(= (fromNat (S $K)) (+ 1 (fromNat $K)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fromNat,['S',K]],[+,1,[fromNat,K]]])
+</span><span class="ansi38-255165000">(= 
+  (fromNat 
+    (S $K)) 
+  (+ 1 
+    (fromNat $K)))
 </span>
 
 ;;; Define a generic less than operator, â©», for Nat.  < cannot be used
 ;;; because it is a built-in, its type is hardwired and cannot be
 ;;; overloaded.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
-</span><span class="ansi38-255165000">(: â©» (-> Nat Nat Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'â©»',[->,'Nat','Nat','Bool']])
+</span><span class="ansi38-255165000">(: â©» 
+  (-> Nat Nat Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',_,'Z'],'False'])
-</span><span class="ansi38-255165000">(= (â©» $_ Z) False)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['â©»',_,'Z'],'False'])
+</span><span class="ansi38-255165000">(= 
+  (â©» $_ Z) False)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
-</span><span class="ansi38-255165000">(= (â©» Z (S $_)) True)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['â©»','Z',['S',_]],'True'])
+</span><span class="ansi38-255165000">(= 
+  (â©» Z 
+    (S $_)) True)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
-</span><span class="ansi38-255165000">(= (â©» (S $X) (S $Y)) (â©» $X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['â©»',['S',X],['S',Y]],['â©»',X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (â©» 
+    (S $X) 
+    (S $Y)) 
+  (â©» $X $Y))
 </span>
 
 ;;; Overload â©» for Number.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
-</span><span class="ansi38-255165000">(: â©» (-> Number Number Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'â©»',[->,'Number','Number','Bool']])
+</span><span class="ansi38-255165000">(: â©» 
+  (-> Number Number Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
-</span><span class="ansi38-255165000">(= (â©» $X $Y) (< $X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['â©»',X,Y],[<,X,Y]])
+</span><span class="ansi38-255165000">(= 
+  (â©» $X $Y) 
+  (< $X $Y))
 </span>
 
 ;;; Return the ceiling of a non negative number.  If the number is
 ;;; negative it returns 1.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,ceil,[->,'Number','Number']])
-</span><span class="ansi38-255165000">(: ceil (-> Number Number))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,ceil,[->,'Number','Number']])
+</span><span class="ansi38-255165000">(: ceil 
+  (-> Number Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
-</span><span class="ansi38-255165000">(= (ceil $N) (fromNat (fromNumber $N)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[ceil,N],[fromNat,[fromNumber,N]]])
+</span><span class="ansi38-255165000">(= 
+  (ceil $N) 
+  (fromNat 
+    (fromNumber $N)))
 </span>
 
 ;;; Convert Number to Bool.  Anything above 0 converts to True.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
-</span><span class="ansi38-255165000">(: number->bool (-> Number Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'number->bool',[->,'Number','Bool']])
+</span><span class="ansi38-255165000">(: number->bool 
+  (-> Number Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['number->bool',X],[<,0,X]])
-</span><span class="ansi38-255165000">(= (number->bool $X) (< 0 $X))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['number->bool',X],[<,0,X]])
+</span><span class="ansi38-255165000">(= 
+  (number->bool $X) 
+  (< 0 $X))
 </span>
 
 ;;; Convert Bool to Number.  False converts to 0, True converts to 1.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
-</span><span class="ansi38-255165000">(: bool->number (-> Bool Number))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'bool->number',[->,'Bool','Number']])
+</span><span class="ansi38-255165000">(: bool->number 
+  (-> Bool Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','False'],0])
-</span><span class="ansi38-255165000">(= (bool->number False) 0)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['bool->number','False'],0])
+</span><span class="ansi38-255165000">(= 
+  (bool->number False) 0)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['bool->number','True'],1])
-</span><span class="ansi38-255165000">(= (bool->number True) 1)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['bool->number','True'],1])
+</span><span class="ansi38-255165000">(= 
+  (bool->number True) 1)
 </span>
 
 ;;; Define a less than type.  Note that it is purposefully different
 ;;; than â©» as it is a type, not an operator.  Inhabitants of (â x y)
 ;;; are proofs that x â©» y == True.  For now â is only axiomatized for
 ;;; Nat.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
-</span><span class="ansi38-255165000">(: â (-> $T $T Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'â\x8D\\x83\',[->,T,T,'Type']])
+</span><span class="ansi38-255165000">(: â 
+  (-> $T $T Type))
 </span>
 
 ;;; Zero is always less than the successor of something
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
-</span><span class="ansi38-255165000">(: (zero-lt-succ-axiom) (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,['zero-lt-succ-axiom'],[->,'Atom']])
+</span><span class="ansi38-255165000">(: 
+  (zero-lt-succ-axiom) 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
-</span><span class="ansi38-255165000">(= (zero-lt-succ-axiom) (: ZeroLTSucc (â Z (S $K))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['zero-lt-succ-axiom'],[:,'ZeroLTSucc',['â\x8D\\x83\','Z',['S',K]]]])
+</span><span class="ansi38-255165000">(= 
+  (zero-lt-succ-axiom) 
+  (: ZeroLTSucc 
+    (â Z 
+      (S $K))))
 </span>
 
 ;;; If x â y then (S x) â (S y)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
-</span><span class="ansi38-255165000">(: (succ-monotonicity-rule) (-> Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,['succ-monotonicity-rule'],[->,'Atom']])
+</span><span class="ansi38-255165000">(: 
+  (succ-monotonicity-rule) 
+  (-> Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
-</span><span class="ansi38-255165000">(= (succ-monotonicity-rule) (: SuccMonotonicity (-> (â $X $Y) (â (S $X) (S $Y)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['succ-monotonicity-rule'],[:,'SuccMonotonicity',[->,['â\x8D\\x83\',X,Y],['â\x8D\\x83\',['S',X],['S',Y]]]]])
+</span><span class="ansi38-255165000">(= 
+  (succ-monotonicity-rule) 
+  (: SuccMonotonicity 
+    (-> 
+      (â $X $Y) 
+      (â 
+        (S $X) 
+        (S $Y)))))
 </span>
 
-              -->(2,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
-; 
-; EVAL TEST
-; took 0.286 secs. (285.77 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List','Type'])
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'List','Type'])
 </span><span class="ansi38-255165000">(: List Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nil','List'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nil','List'])
 </span><span class="ansi38-255165000">(: Nil List)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,A,'List','List']])
-</span><span class="ansi38-255165000">(: Cons (-> $A List List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Cons',[->,A,'List','List']])
+</span><span class="ansi38-255165000">(: Cons 
+  (-> $A List List))
 </span>
 
 ;;; Define map, a map implementation operating on List
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,map,[->,[->,A,B],'List','List']])
-</span><span class="ansi38-255165000">(: map (-> (-> $A $B) List List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,map,[->,[->,A,B],'List','List']])
+</span><span class="ansi38-255165000">(: map 
+  (-> 
+    (-> $A $B) List List))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[map,Fn,'Nil'],'Nil'])
-</span><span class="ansi38-255165000">(= (map $Fn Nil) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[map,Fn,'Nil'],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (map $Fn Nil) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[map,Fn,['Cons',Head,Tail]],['Cons',[Fn,Head],[map,Fn,Tail]]])
-</span><span class="ansi38-255165000">(= (map $Fn (Cons $Head $Tail)) (Cons ($Fn $Head) (map $Fn $Tail)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[map,Fn,['Cons',Head,Tail]],['Cons',[Fn,Head],[map,Fn,Tail]]])
+</span><span class="ansi38-255165000">(= 
+  (map $Fn 
+    (Cons $Head $Tail)) 
+  (Cons 
+    ($Fn $Head) 
+    (map $Fn $Tail)))
 </span>
 
 ;;; Define filter, a filter implementation operating on List
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,filter,[->,[->,A,'Bool'],'List','List']])
-</span><span class="ansi38-255165000">(: filter (-> (-> $A Bool) List List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,filter,[->,[->,A,'Bool'],'List','List']])
+</span><span class="ansi38-255165000">(: filter 
+  (-> 
+    (-> $A Bool) List List))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[filter,Prd,'Nil'],'Nil'])
-</span><span class="ansi38-255165000">(= (filter $Prd Nil) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[filter,Prd,'Nil'],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (filter $Prd Nil) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[filter,Prd,['Cons',Head,Tail]],[if,[Prd,Head],['Cons',Head,[filter,Prd,Tail]],[filter,Prd,Tail]]])
-</span><span class="ansi38-255165000">(= (filter $Prd (Cons $Head $Tail)) (if ($Prd $Head) (Cons $Head (filter $Prd $Tail)) (filter $Prd $Tail)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[filter,Prd,['Cons',Head,Tail]],[if,[Prd,Head],['Cons',Head,[filter,Prd,Tail]],[filter,Prd,Tail]]])
+</span><span class="ansi38-255165000">(= 
+  (filter $Prd 
+    (Cons $Head $Tail)) 
+  (if 
+    ($Prd $Head) 
+    (Cons $Head 
+      (filter $Prd $Tail)) 
+    (filter $Prd $Tail)))
 </span>
 
 ;;; Define lambda (essentially lambda is curried let)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,lambda,[->,A,T,[->,A,T]]])
-</span><span class="ansi38-255165000">(: lambda (-> $A $T (-> $A $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,lambda,[->,A,T,[->,A,T]]])
+</span><span class="ansi38-255165000">(: lambda 
+  (-> $A $T 
+    (-> $A $T)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[[lambda,Var,Body],Arg],[let,Var,Arg,Body]])
-</span><span class="ansi38-255165000">(= ((lambda $Var $Body) $Arg) (let $Var $Arg $Body))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[[lambda,Var,Body],Arg],[let,Var,Arg,Body]])
+</span><span class="ansi38-255165000">(= 
+  ( (lambda $Var $Body) $Arg) 
+  (let $Var $Arg $Body))
 </span>
 
 ;;; Define curry.  Given a binary function, and its first argument,
 ;;; return a unary function corresponding to the partial evaluation of
 ;;; the binary function over the first argument.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,curry,[->,[->,A,B,C],A,[->,B,C]]])
-</span><span class="ansi38-255165000">(: curry (-> (-> $A $B $C) $A (-> $B $C)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,curry,[->,[->,A,B,C],A,[->,B,C]]])
+</span><span class="ansi38-255165000">(: curry 
+  (-> 
+    (-> $A $B $C) $A 
+    (-> $B $C)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[[curry,F,X],Y],[F,X,Y]])
-</span><span class="ansi38-255165000">(= ((curry $F $X) $Y) ($F $X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[[curry,F,X],Y],[F,X,Y]])
+</span><span class="ansi38-255165000">(= 
+  ( (curry $F $X) $Y) 
+  ($F $X $Y))
 </span>
 
 ;;; Interleave two lists
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,interleave,[->,'List','List','List']])
-</span><span class="ansi38-255165000">(: interleave (-> List List List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,interleave,[->,'List','List','List']])
+</span><span class="ansi38-255165000">(: interleave 
+  (-> List List List))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[interleave,'Nil',Ys],Ys])
-</span><span class="ansi38-255165000">(= (interleave Nil $Ys) $Ys)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[interleave,'Nil',Ys],Ys])
+</span><span class="ansi38-255165000">(= 
+  (interleave Nil $Ys) $Ys)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[interleave,['Cons',Head,Tail],Ys],['Cons',Head,[interleave,Ys,Tail]]])
-</span><span class="ansi38-255165000">(= (interleave (Cons $Head $Tail) $Ys) (Cons $Head (interleave $Ys $Tail)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[interleave,['Cons',Head,Tail],Ys],['Cons',Head,[interleave,Ys,Tail]]])
+</span><span class="ansi38-255165000">(= 
+  (interleave 
+    (Cons $Head $Tail) $Ys) 
+  (Cons $Head 
+    (interleave $Ys $Tail)))
 </span>
 
 ;;; Cartesian product with a given operator on List
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,prodWith,[->,[->,A,B,C],'List','List','List']])
-</span><span class="ansi38-255165000">(: prodWith (-> (-> $A $B $C) List List List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,prodWith,[->,[->,A,B,C],'List','List','List']])
+</span><span class="ansi38-255165000">(: prodWith 
+  (-> 
+    (-> $A $B $C) List List List))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[prodWith,Op,'Nil','Nil'],'Nil'])
-</span><span class="ansi38-255165000">(= (prodWith $Op Nil Nil) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prodWith,Op,'Nil','Nil'],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (prodWith $Op Nil Nil) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[prodWith,Op,'Nil',['Cons',Head,Tail]],'Nil'])
-</span><span class="ansi38-255165000">(= (prodWith $Op Nil (Cons $Head $Tail)) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prodWith,Op,'Nil',['Cons',Head,Tail]],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (prodWith $Op Nil 
+    (Cons $Head $Tail)) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[prodWith,Op,['Cons',Head,Tail],'Nil'],'Nil'])
-</span><span class="ansi38-255165000">(= (prodWith $Op (Cons $Head $Tail) Nil) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prodWith,Op,['Cons',Head,Tail],'Nil'],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (prodWith $Op 
+    (Cons $Head $Tail) Nil) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[prodWith,Op,['Cons',Xhd,Xtl],['Cons',Yhd,Ytl]],['Cons',[Op,Xhd,Yhd],[interleave,[map,[curry,Op,Xhd],Ytl],[prodWith,Op,Xtl,['Cons',Yhd,Ytl]]]]])
-</span><span class="ansi38-255165000">(= (prodWith $Op (Cons $Xhd $Xtl) (Cons $Yhd $Ytl)) (Cons ($Op $Xhd $Yhd) (interleave (map (curry $Op $Xhd) $Ytl) (prodWith $Op $Xtl (Cons $Yhd $Ytl)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prodWith,Op,['Cons',Xhd,Xtl],['Cons',Yhd,Ytl]],['Cons',[Op,Xhd,Yhd],[interleave,[map,[curry,Op,Xhd],Ytl],[prodWith,Op,Xtl,['Cons',Yhd,Ytl]]]]])
+</span><span class="ansi38-255165000">(= 
+  (prodWith $Op 
+    (Cons $Xhd $Xtl) 
+    (Cons $Yhd $Ytl)) 
+  (Cons 
+    ($Op $Xhd $Yhd) 
+    (interleave 
+      (map 
+        (curry $Op $Xhd) $Ytl) 
+      (prodWith $Op $Xtl 
+        (Cons $Yhd $Ytl)))))
 </span>
 
 ;;; Define composition operator
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,->,[->,B,C],[->,A,D],[->,A,C]])
-</span><span class="ansi38-255165000">(: -> (-> $B $C) (-> $A $D) (-> $A $C))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,->,[->,B,C],[->,A,D],[->,A,C]])
+</span><span class="ansi38-255165000">(: -> 
+  (-> $B $C) 
+  (-> $A $D) 
+  (-> $A $C))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[['.',G,F],X],[G,[F,X]]])
-</span><span class="ansi38-255165000">(= ((. $G $F) $X) ($G ($F $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[['.',G,F],X],[G,[F,X]]])
+</span><span class="ansi38-255165000">(= 
+  ( (. $G $F) $X) 
+  ($G 
+    ($F $X)))
 </span>
 
 ;;; Define well-typed.  Returns True iff its argument is well typed.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'well-typed',[->,'Atom','Bool']])
-</span><span class="ansi38-255165000">(: well-typed (-> Atom Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'well-typed',[->,'Atom','Bool']])
+</span><span class="ansi38-255165000">(: well-typed 
+  (-> Atom Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['well-typed',X],[case,X,[[['Error',V,M],'False'],[_,'True']]]])
-</span><span class="ansi38-255165000">(= (well-typed $X) (case $X (((Error $V $M) False) ($_ True))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['well-typed',X],[case,X,[[['Error',V,M],'False'],[_,'True']]]])
+</span><span class="ansi38-255165000">(= 
+  (well-typed $X) 
+  (case $X 
+    ( ( (Error $V $M) False) 
+      ($_ True))))
 </span>
 
 ;;; Program synthesizer.  It takes a list of functions, a depth, and
 ;;; returns a list of programs composing these functions up to the
 ;;; given depth.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,synthesize,[->,'List','Nat','List']])
-</span><span class="ansi38-255165000">(: synthesize (-> List Nat List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,synthesize,[->,'List','Nat','List']])
+</span><span class="ansi38-255165000">(: synthesize 
+  (-> List Nat List))
 </span>
 
 ;; TODO: add type signature as argument
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Fns,'Z'],['trace!',['synthesize=',Fns,'Z','Nil'],'Nil']])
-</span><span class="ansi38-255165000">(= (synthesize $Fns Z) (trace! (synthesize= $Fns Z Nil) Nil))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[synthesize,Fns,'Z'],['trace!',['synthesize=',Fns,'Z','Nil'],'Nil']])
+</span><span class="ansi38-255165000">(= 
+  (synthesize $Fns Z) 
+  (trace! 
+    (synthesize= $Fns Z Nil) Nil))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Fns,['S','Z']],['trace!',['synthesize=',Fns,['S','Z'],Fns],Fns]])
-</span><span class="ansi38-255165000">(= (synthesize $Fns (S Z)) (trace! (synthesize= $Fns (S Z) $Fns) $Fns))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[synthesize,Fns,['S','Z']],['trace!',['synthesize=',Fns,['S','Z'],Fns],Fns]])
+</span><span class="ansi38-255165000">(= 
+  (synthesize $Fns 
+    (S Z)) 
+  (trace! 
+    (synthesize= $Fns 
+      (S Z) $Fns) $Fns))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[synthesize,Fns,['S',['S',K]]],['let*',[[Prgs,[synthesize,Fns,['S',K]]],[Cmbs,[prodWith,'.',Fns,Prgs]],[Vld,[filter,'well-typed',Cmbs]]],['trace!',[info,[variables,[prgs,Prgs],[cmbs,Cmbs]],['synthesize=',Fns,['S',['S',K]],Vld]],Vld]]])
-</span><span class="ansi38-255165000">(= (synthesize $Fns (S (S $K))) (let* (($Prgs (synthesize $Fns (S $K))) ($Cmbs (prodWith . $Fns $Prgs)) ($Vld (filter well-typed $Cmbs))) (trace! (info (variables (prgs $Prgs) (cmbs $Cmbs)) (synthesize= $Fns (S (S $K)) $Vld)) $Vld)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[synthesize,Fns,['S',['S',K]]],['let*',[[Prgs,[synthesize,Fns,['S',K]]],[Cmbs,[prodWith,'.',Fns,Prgs]],[Vld,[filter,'well-typed',Cmbs]]],['trace!',[info,[variables,[prgs,Prgs],[cmbs,Cmbs]],['synthesize=',Fns,['S',['S',K]],Vld]],Vld]]])
+</span><span class="ansi38-255165000">(= 
+  (synthesize $Fns 
+    (S 
+      (S $K))) 
+  (let* 
+    ( ($Prgs 
+        (synthesize $Fns 
+          (S $K))) 
+      ($Cmbs 
+        (prodWith . $Fns $Prgs)) 
+      ($Vld 
+        (filter well-typed $Cmbs))) 
+    (trace! 
+      (info 
+        (variables 
+          (prgs $Prgs) 
+          (cmbs $Cmbs)) 
+        (synthesize= $Fns 
+          (S 
+            (S $K)) $Vld)) $Vld)))
 </span>
 
 ;; TODO: should be concatenated with $prgs?
@@ -718,407 +877,1071 @@ Deterministic: <span class="ansi33">Empty
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!("Unit Tests")
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult ("Unit Tests") (("Unit Tests")))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  ("Unit Tests") 
+  ( ("Unit Tests")))
 
 </span><span class="ansi38-250144246">; !("Unit Tests")
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Unit Tests'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['Unit Tests'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['Unit Tests'],[['Unit Tests']]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.02">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.02</h3>
-          -->(1,eval('&self',['Unit Tests'],RET),depth(3))
-            -->(2,eval('&self','Unit Tests',RET),depth(4))
-              -->(3,eval('&self','Unit Tests',RET),depth(5))
+</span>    -->(0,eval('&self',[assertEqualToResult,['Unit Tests'],[['Unit Tests']]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.01">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.01</h3>
+      -->(1,eval('&self',['Unit Tests'],RET),depth(1))
+            2-->subst_args(_16474,_16476,'&self',['Unit Tests'],depth(4))
+      <--(1,retval(['Unit Tests']))
 ; 
 ; EVAL TEST
-; took 0.000381 secs. (380.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (("Unit Tests")) (("Unit Tests"))))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000517 secs. (516.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( ("Unit Tests")) 
+    ( ("Unit Tests"))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;; Test map
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,inc,[->,'Number','Number']])
-</span><span class="ansi38-255165000">(: inc (-> Number Number))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,inc,[->,'Number','Number']])
+</span><span class="ansi38-255165000">(: inc 
+  (-> Number Number))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[inc,N],[+,N,1]])
-</span><span class="ansi38-255165000">(= (inc $N) (+ $N 1))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[inc,N],[+,N,1]])
+</span><span class="ansi38-255165000">(= 
+  (inc $N) 
+  (+ $N 1))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(map inc (Cons 2 (Cons 3 (Cons 1 Nil))))
+</span><span class="ansi1 ansi38-255238088">!(map inc 
+  (Cons 2 
+    (Cons 3 
+      (Cons 1 Nil))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (map inc (Cons 2 (Cons 3 (Cons 1 Nil)))) ((Cons 3 (Cons 4 (Cons 2 Nil)))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (map inc 
+    (Cons 2 
+      (Cons 3 
+        (Cons 1 Nil)))) 
+  ( (Cons 3 
+      (Cons 4 
+        (Cons 2 Nil)))))
 
 </span><span class="ansi38-250144246">; !(map inc (Cons 2 (Cons 3 (Cons 1 Nil))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[map,inc,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[map,inc,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[map,inc,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],[['Cons',3,['Cons',4,['Cons',2,'Nil']]]]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.03">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.03</h3>
-          -->(1,eval('&self',[map,inc,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],RET),depth(3))
-                -->(2,eval('&self',[inc,2],RET),depth(6))
-                    -->(3,eval('&self',1,RET),depth(8))
-                      -->(4,eval('&self',3,RET),depth(9))
-                    -->(5,eval('&self',3,RET),depth(8))
-                <--(2,retval(3))
-                -->(6,eval('&self',[map,inc,['Cons',3,['Cons',1,'Nil']]],RET),depth(6))
-                      -->(7,eval('&self',[inc,3],RET),depth(9))
-                          -->(8,eval('&self',1,RET),depth(11))
-                            -->(9,eval('&self',4,RET),depth(12))
-                      <--(7,retval(4))
-                <--(6,retval(['Cons',4,['Cons',2,'Nil']]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+</span>    -->(0,eval('&self',[assertEqualToResult,[map,inc,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],[['Cons',3,['Cons',4,['Cons',2,'Nil']]]]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.02">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.02</h3>
+      -->(1,eval('&self',[map,inc,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],RET),depth(1))
+          -->(2,eval('&self',[inc,2],RET),depth(3))
+          -->(3,eval('&self',[map,inc,['Cons',3,['Cons',1,'Nil']]],RET),depth(3))
+              -->(4,eval('&self',[inc,3],RET),depth(5))
+              -->(5,eval('&self',[map,inc,['Cons',1,'Nil']],RET),depth(5))
+                  -->(6,eval('&self',[inc,1],RET),depth(7))
+                  -->(7,eval('&self',[map,inc,'Nil'],RET),depth(7))
+                        8-->subst_args(_98088,_98090,'&self',['Cons',2,'Nil'],depth(10))
+                      9-->subst_args(_98650,_98652,'&self',['Cons',2,'Nil'],depth(9))
+                    10-->subst_args(_99212,_99214,'&self',['Cons',2,'Nil'],depth(8))
+                -->(11,eval('&self',['Cons',2,'Nil'],RET),depth(6))
+                      12-->subst_args(_100646,_100648,'&self',['Cons',2,'Nil'],depth(9))
+                <--(11,retval(['Cons',2,'Nil']))
+                    13-->subst_args(_101274,_101276,'&self',['Cons',4,['Cons',2,'Nil']],depth(8))
+                        14-->subst_args(_101726,_101728,'&self',['Cons',2,'Nil'],depth(10))
+                  15-->subst_args(_102336,_102338,'&self',['Cons',4,['Cons',2,'Nil']],depth(7))
+                      16-->subst_args(_102788,_102790,'&self',['Cons',2,'Nil'],depth(9))
+                17-->subst_args(_103398,_103400,'&self',['Cons',4,['Cons',2,'Nil']],depth(6))
+                    18-->subst_args(_103850,_103852,'&self',['Cons',2,'Nil'],depth(8))
+            -->(19,eval('&self',['Cons',4,['Cons',2,'Nil']],RET),depth(4))
+              -->(20,eval('&self',['Cons',2,'Nil'],RET),depth(5))
+                    21-->subst_args(_106042,_106044,'&self',['Cons',2,'Nil'],depth(8))
+              <--(20,retval(['Cons',2,'Nil']))
+                  22-->subst_args(_106670,_106672,'&self',['Cons',4,['Cons',2,'Nil']],depth(7))
+                      23-->subst_args(_107122,_107124,'&self',['Cons',2,'Nil'],depth(9))
+            <--(19,retval(['Cons',4,['Cons',2,'Nil']]))
+                24-->subst_args(_107816,_107818,'&self',['Cons',3,['Cons',4,['Cons',2,'Nil']]],depth(6))
+                    25-->subst_args(_108268,_108270,'&self',['Cons',4,['Cons',2,'Nil']],depth(8))
+                        26-->subst_args(_108720,_108722,'&self',['Cons',2,'Nil'],depth(10))
+              27-->subst_args(_109396,_109398,'&self',['Cons',3,['Cons',4,['Cons',2,'Nil']]],depth(5))
+                  28-->subst_args(_109848,_109850,'&self',['Cons',4,['Cons',2,'Nil']],depth(7))
+                      29-->subst_args(_110300,_110302,'&self',['Cons',2,'Nil'],depth(9))
+            30-->subst_args(_110976,_110978,'&self',['Cons',3,['Cons',4,['Cons',2,'Nil']]],depth(4))
+                31-->subst_args(_111428,_111430,'&self',['Cons',4,['Cons',2,'Nil']],depth(6))
+                    32-->subst_args(_111880,_111882,'&self',['Cons',2,'Nil'],depth(8))
+                  <--(7,retval('Nil'))
+                  <--(6,retval(2))
+              <--(5,retval(['Cons',2,'Nil']))
+              <--(4,retval(4))
+          <--(3,retval(['Cons',4,['Cons',2,'Nil']]))
+          <--(2,retval(3))
+      <--(1,retval(['Cons',3,['Cons',4,['Cons',2,'Nil']]]))
+; 
 ; EVAL TEST
-; took 0.006 secs. (5.71 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 3 (Cons 4 (Cons 2 Nil)))) ((Cons 3 (Cons 4 (Cons 2 Nil))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.003 secs. (3.46 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 3 
+        (Cons 4 
+          (Cons 2 Nil)))) 
+    ( (Cons 3 
+        (Cons 4 
+          (Cons 2 Nil))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons 3 (Cons 4 (Cons 2 Nil)))
 ;;; Test filter
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,even,[->,'Number','Bool']])
-</span><span class="ansi38-255165000">(: even (-> Number Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,even,[->,'Number','Bool']])
+</span><span class="ansi38-255165000">(: even 
+  (-> Number Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[even,N],[==,[*,[ceil,[/,N,2]],2],N]])
-</span><span class="ansi38-255165000">(= (even $N) (== (* (ceil (/ $N 2)) 2) $N))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[even,N],[==,[*,[ceil,[/,N,2]],2],N]])
+</span><span class="ansi38-255165000">(= 
+  (even $N) 
+  (== 
+    (* 
+      (ceil 
+        (/ $N 2)) 2) $N))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(filter even (Cons 2 (Cons 3 (Cons 1 Nil))))
+</span><span class="ansi1 ansi38-255238088">!(filter even 
+  (Cons 2 
+    (Cons 3 
+      (Cons 1 Nil))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (filter even (Cons 2 (Cons 3 (Cons 1 Nil)))) ((Cons 2 Nil)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (filter even 
+    (Cons 2 
+      (Cons 3 
+        (Cons 1 Nil)))) 
+  ( (Cons 2 Nil)))
 
 </span><span class="ansi38-250144246">; !(filter even (Cons 2 (Cons 3 (Cons 1 Nil))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[filter,even,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[filter,even,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[filter,even,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],[['Cons',2,'Nil']]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.04">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.04</h3>
-          -->(1,eval('&self',[filter,even,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],RET),depth(3))
-                -->(2,eval('&self',[even,2],RET),depth(6))
-                    -->(3,eval('&self',==,RET),depth(8))
-                      -->(4,eval('&self',[*,[ceil,[/,2,2]],2],RET),depth(9))
-                          -->(5,eval('&self',[ceil,[/,2,2]],RET),depth(11))
-                                -->(6,eval('&self',[/,2,2],RET),depth(14))
-                                  -->(7,eval('&self',2,RET),depth(15))
-                                  -->(8,eval('&self',2,RET),depth(15))
-                                    -->(9,eval('&self',1,RET),depth(16))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+</span>    -->(0,eval('&self',[assertEqualToResult,[filter,even,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],[['Cons',2,'Nil']]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.03">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.03</h3>
+      -->(1,eval('&self',[filter,even,['Cons',2,['Cons',3,['Cons',1,'Nil']]]],RET),depth(1))
+          -->(2,eval('&self',[even,2],RET),depth(3))
+              -->(3,eval('&self',[*,[ceil,[/,2,2]],2],RET),depth(5))
+                -->(4,eval('&self',[ceil,[/,2,2]],RET),depth(6))
+                    -->(5,eval('&self',[fromNumber,[/,2,2]],RET),depth(8))
+                                28-->subst_args(_33886,_33888,'&self',['S','Z'],depth(14))
+                              29-->subst_args(_34480,_34482,'&self',['S','Z'],depth(13))
+                              30-->subst_args(_35242,_35244,'&self',['S','Z'],depth(13))
+                            31-->subst_args(_35836,_35838,'&self',['S','Z'],depth(12))
+                          32-->subst_args(_36430,_36432,'&self',['S','Z'],depth(11))
+          -->(34,eval('&self',['Cons',2,[filter,even,['Cons',3,['Cons',1,'Nil']]]],RET),depth(3))
+            -->(35,eval('&self',[filter,even,['Cons',3,['Cons',1,'Nil']]],RET),depth(4))
+                -->(36,eval('&self',[even,3],RET),depth(6))
+                    -->(37,eval('&self',[*,[ceil,[/,3,2]],2],RET),depth(8))
+                      -->(38,eval('&self',[ceil,[/,3,2]],RET),depth(9))
+                                            71-->subst_args(_57010,_57012,'&self',['S','Z'],depth(20))
+                                          72-->subst_args(_57604,_57606,'&self',['S','Z'],depth(19))
+                                          73-->subst_args(_58366,_58368,'&self',['S','Z'],depth(19))
+                                        74-->subst_args(_58960,_58962,'&self',['S','Z'],depth(18))
+                                      75-->subst_args(_59554,_59556,'&self',['S','Z'],depth(17))
+                                      77-->subst_args(_60912,_60914,'&self',['S','Z'],depth(17))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                      <--(38,retval(2))
+                    <--(37,retval(4))
+                <--(36,retval('False'))
+            <--(35,retval('Nil'))
+          <--(34,retval(['Cons',2,'Nil']))
+                    <--(5,retval(['S','Z']))
+                <--(4,retval(1))
+              <--(3,retval(2))
+          <--(2,retval('True'))
+      <--(1,retval(['Cons',2,'Nil']))
+; 
 ; EVAL TEST
-; took 0.023 secs. (22.58 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 2 Nil)) ((Cons 2 Nil))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.027 secs. (27.12 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 2 Nil)) 
+    ( (Cons 2 Nil))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons 2 Nil)
 ;;; Test interleave
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(interleave Nil Nil)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (interleave Nil Nil) (Nil))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (interleave Nil Nil) 
+  (Nil))
 
 </span><span class="ansi38-250144246">; !(interleave Nil Nil)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[interleave,'Nil','Nil'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[interleave,'Nil','Nil'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[interleave,'Nil','Nil'],['Nil']],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.05">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.05</h3>
-          -->(1,eval('&self',[interleave,'Nil','Nil'],RET),depth(3))
-              -->(2,eval('&self','Nil',RET),depth(5))
-          <--(1,retval('Nil'))
+</span>    -->(0,eval('&self',[assertEqualToResult,[interleave,'Nil','Nil'],['Nil']],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.04">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.04</h3>
+      -->(1,eval('&self',[interleave,'Nil','Nil'],RET),depth(1))
+      <--(1,retval('Nil'))
 ; 
 ; EVAL TEST
-; took 0.000321 secs. (321.20 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Nil) (Nil)))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000233 secs. (233.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Nil) 
+    (Nil)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Nil
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(interleave (Cons 1 (Cons 2 Nil)) (Cons a (Cons b Nil)))
+</span><span class="ansi1 ansi38-255238088">!(interleave 
+  (Cons 1 
+    (Cons 2 Nil)) 
+  (Cons a 
+    (Cons b Nil)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (interleave (Cons 1 (Cons 2 Nil)) (Cons a (Cons b Nil))) ((Cons 1 (Cons a (Cons 2 (Cons b Nil))))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (interleave 
+    (Cons 1 
+      (Cons 2 Nil)) 
+    (Cons a 
+      (Cons b Nil))) 
+  ( (Cons 1 
+      (Cons a 
+        (Cons 2 
+          (Cons b Nil))))))
 
 </span><span class="ansi38-250144246">; !(interleave (Cons 1 (Cons 2 Nil)) (Cons a (Cons b Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[interleave,['Cons',1,['Cons',2,'Nil']],['Cons',a,['Cons',b,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[interleave,['Cons',1,['Cons',2,'Nil']],['Cons',a,['Cons',b,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[interleave,['Cons',1,['Cons',2,'Nil']],['Cons',a,['Cons',b,'Nil']]],[['Cons',1,['Cons',a,['Cons',2,['Cons',b,'Nil']]]]]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.06">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.06</h3>
-          -->(1,eval('&self',[interleave,['Cons',1,['Cons',2,'Nil']],['Cons',a,['Cons',b,'Nil']]],RET),depth(3))
-              -->(2,eval('&self',1,RET),depth(5))
-                -->(3,eval('&self',[interleave,['Cons',a,['Cons',b,'Nil']],['Cons',2,'Nil']],RET),depth(6))
-                    -->(4,eval('&self',a,RET),depth(8))
-                      -->(5,eval('&self',[interleave,['Cons',2,'Nil'],['Cons',b,'Nil']],RET),depth(9))
-                          -->(6,eval('&self',2,RET),depth(11))
-                            -->(7,eval('&self',[interleave,['Cons',b,'Nil'],'Nil'],RET),depth(12))
-                                -->(8,eval('&self',b,RET),depth(14))
-                                  -->(9,eval('&self',[interleave,'Nil','Nil'],RET),depth(15))
-                                  <--(9,retval('Nil'))
-                            <--(7,retval(['Cons',b,'Nil']))
-                      <--(5,retval(['Cons',2,['Cons',b,'Nil']]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+</span>    -->(0,eval('&self',[assertEqualToResult,[interleave,['Cons',1,['Cons',2,'Nil']],['Cons',a,['Cons',b,'Nil']]],[['Cons',1,['Cons',a,['Cons',2,['Cons',b,'Nil']]]]]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.05">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.05</h3>
+      -->(1,eval('&self',[interleave,['Cons',1,['Cons',2,'Nil']],['Cons',a,['Cons',b,'Nil']]],RET),depth(1))
+          -->(2,eval('&self',[interleave,['Cons',a,['Cons',b,'Nil']],['Cons',2,'Nil']],RET),depth(3))
+              -->(3,eval('&self',[interleave,['Cons',2,'Nil'],['Cons',b,'Nil']],RET),depth(5))
+                  -->(4,eval('&self',[interleave,['Cons',b,'Nil'],'Nil'],RET),depth(7))
+                      -->(5,eval('&self',[interleave,'Nil','Nil'],RET),depth(9))
+                            6-->subst_args(_108978,_108980,'&self',['Cons',b,'Nil'],depth(12))
+                          7-->subst_args(_109584,_109586,'&self',['Cons',b,'Nil'],depth(11))
+                        8-->subst_args(_110190,_110192,'&self',['Cons',b,'Nil'],depth(10))
+                    -->(9,eval('&self',['Cons',b,'Nil'],RET),depth(8))
+                          10-->subst_args(_111668,_111670,'&self',['Cons',b,'Nil'],depth(11))
+                    <--(9,retval(['Cons',b,'Nil']))
+                        11-->subst_args(_112340,_112342,'&self',['Cons',2,['Cons',b,'Nil']],depth(10))
+                            12-->subst_args(_112792,_112794,'&self',['Cons',b,'Nil'],depth(12))
+                      13-->subst_args(_113446,_113448,'&self',['Cons',2,['Cons',b,'Nil']],depth(9))
+                          14-->subst_args(_113898,_113900,'&self',['Cons',b,'Nil'],depth(11))
+                    15-->subst_args(_114552,_114554,'&self',['Cons',2,['Cons',b,'Nil']],depth(8))
+                        16-->subst_args(_115004,_115006,'&self',['Cons',b,'Nil'],depth(10))
+                -->(17,eval('&self',['Cons',2,['Cons',b,'Nil']],RET),depth(6))
+                  -->(18,eval('&self',['Cons',b,'Nil'],RET),depth(7))
+                        19-->subst_args(_117240,_117242,'&self',['Cons',b,'Nil'],depth(10))
+                  <--(18,retval(['Cons',b,'Nil']))
+                      20-->subst_args(_117912,_117914,'&self',['Cons',2,['Cons',b,'Nil']],depth(9))
+                          21-->subst_args(_118364,_118366,'&self',['Cons',b,'Nil'],depth(11))
+                <--(17,retval(['Cons',2,['Cons',b,'Nil']]))
+                    22-->subst_args(_119102,_119104,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(8))
+                        23-->subst_args(_119598,_119600,'&self',['Cons',2,['Cons',b,'Nil']],depth(10))
+                            24-->subst_args(_120050,_120052,'&self',['Cons',b,'Nil'],depth(12))
+                  25-->subst_args(_120770,_120772,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(7))
+                      26-->subst_args(_121266,_121268,'&self',['Cons',2,['Cons',b,'Nil']],depth(9))
+                          27-->subst_args(_121718,_121720,'&self',['Cons',b,'Nil'],depth(11))
+                28-->subst_args(_122438,_122440,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(6))
+                    29-->subst_args(_122934,_122936,'&self',['Cons',2,['Cons',b,'Nil']],depth(8))
+                        30-->subst_args(_123386,_123388,'&self',['Cons',b,'Nil'],depth(10))
+            -->(31,eval('&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],RET),depth(4))
+              -->(32,eval('&self',['Cons',2,['Cons',b,'Nil']],RET),depth(5))
+                -->(33,eval('&self',['Cons',b,'Nil'],RET),depth(6))
+                      34-->subst_args(_126398,_126400,'&self',['Cons',b,'Nil'],depth(9))
+                <--(33,retval(['Cons',b,'Nil']))
+                    35-->subst_args(_127070,_127072,'&self',['Cons',2,['Cons',b,'Nil']],depth(8))
+                        36-->subst_args(_127522,_127524,'&self',['Cons',b,'Nil'],depth(10))
+              <--(32,retval(['Cons',2,['Cons',b,'Nil']]))
+                  37-->subst_args(_128260,_128262,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(7))
+                      38-->subst_args(_128756,_128758,'&self',['Cons',2,['Cons',b,'Nil']],depth(9))
+                          39-->subst_args(_129208,_129210,'&self',['Cons',b,'Nil'],depth(11))
+            <--(31,retval(['Cons',a,['Cons',2,['Cons',b,'Nil']]]))
+                40-->subst_args(_130030,_130032,'&self',['Cons',1,['Cons',a,['Cons',2,['Cons',b,'Nil']]]],depth(6))
+                    41-->subst_args(_130482,_130484,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(8))
+                        42-->subst_args(_5826,_5828,'&self',['Cons',2,['Cons',b,'Nil']],depth(10))
+                            43-->subst_args(_6278,_6280,'&self',['Cons',b,'Nil'],depth(12))
+              44-->subst_args(_7082,_7084,'&self',['Cons',1,['Cons',a,['Cons',2,['Cons',b,'Nil']]]],depth(5))
+                  45-->subst_args(_7534,_7536,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(7))
+                      46-->subst_args(_8030,_8032,'&self',['Cons',2,['Cons',b,'Nil']],depth(9))
+                          47-->subst_args(_8482,_8484,'&self',['Cons',b,'Nil'],depth(11))
+            48-->subst_args(_9286,_9288,'&self',['Cons',1,['Cons',a,['Cons',2,['Cons',b,'Nil']]]],depth(4))
+                49-->subst_args(_9738,_9740,'&self',['Cons',a,['Cons',2,['Cons',b,'Nil']]],depth(6))
+                    50-->subst_args(_10234,_10236,'&self',['Cons',2,['Cons',b,'Nil']],depth(8))
+                        51-->subst_args(_10686,_10688,'&self',['Cons',b,'Nil'],depth(10))
+                      <--(5,retval('Nil'))
+                  <--(4,retval(['Cons',b,'Nil']))
+              <--(3,retval(['Cons',2,['Cons',b,'Nil']]))
+          <--(2,retval(['Cons',a,['Cons',2,['Cons',b,'Nil']]]))
+      <--(1,retval(['Cons',1,['Cons',a,['Cons',2,['Cons',b,'Nil']]]]))
+; 
 ; EVAL TEST
-; took 0.006 secs. (6.09 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 1 (Cons a (Cons 2 (Cons b Nil))))) ((Cons 1 (Cons a (Cons 2 (Cons b Nil)))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.007 secs. (7.37 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 1 
+        (Cons a 
+          (Cons 2 
+            (Cons b Nil))))) 
+    ( (Cons 1 
+        (Cons a 
+          (Cons 2 
+            (Cons b Nil)))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons 1 (Cons "a" (Cons 2 (Cons "b" Nil))))
 ;;; Test prodWith
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith * Nil (Cons 2 Nil))
+</span><span class="ansi1 ansi38-255238088">!(prodWith * Nil 
+  (Cons 2 Nil))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith * Nil (Cons 2 Nil)) (Nil))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith * Nil 
+    (Cons 2 Nil)) 
+  (Nil))
 
 </span><span class="ansi38-250144246">; !(prodWith * Nil (Cons 2 Nil))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,*,'Nil',['Cons',2,'Nil']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,*,'Nil',['Cons',2,'Nil']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,*,'Nil',['Cons',2,'Nil']],['Nil']],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.07">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.07</h3>
-          -->(1,eval('&self',[prodWith,*,'Nil',['Cons',2,'Nil']],RET),depth(3))
-              -->(2,eval('&self','Nil',RET),depth(5))
-          <--(1,retval('Nil'))
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,*,'Nil',['Cons',2,'Nil']],['Nil']],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.06">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.06</h3>
+      -->(1,eval('&self',[prodWith,*,'Nil',['Cons',2,'Nil']],RET),depth(1))
+      <--(1,retval('Nil'))
 ; 
 ; EVAL TEST
-; took 0.000340 secs. (340.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Nil) (Nil)))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000275 secs. (275.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Nil) 
+    (Nil)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Nil
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith * (Cons 1 Nil) Nil)
+</span><span class="ansi1 ansi38-255238088">!(prodWith * 
+  (Cons 1 Nil) Nil)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith * (Cons 1 Nil) Nil) (Nil))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith * 
+    (Cons 1 Nil) Nil) 
+  (Nil))
 
 </span><span class="ansi38-250144246">; !(prodWith * (Cons 1 Nil) Nil)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,*,['Cons',1,'Nil'],'Nil'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,*,['Cons',1,'Nil'],'Nil'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,*,['Cons',1,'Nil'],'Nil'],['Nil']],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.08">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.08</h3>
-          -->(1,eval('&self',[prodWith,*,['Cons',1,'Nil'],'Nil'],RET),depth(3))
-              -->(2,eval('&self','Nil',RET),depth(5))
-          <--(1,retval('Nil'))
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,*,['Cons',1,'Nil'],'Nil'],['Nil']],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.07">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.07</h3>
+      -->(1,eval('&self',[prodWith,*,['Cons',1,'Nil'],'Nil'],RET),depth(1))
+      <--(1,retval('Nil'))
 ; 
 ; EVAL TEST
-; took 0.000446 secs. (446.30 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Nil) (Nil)))
-</span>          -->(3,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000272 secs. (272.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Nil) 
+    (Nil)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Nil
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith * (Cons 1 Nil) (Cons 2 Nil))
+</span><span class="ansi1 ansi38-255238088">!(prodWith * 
+  (Cons 1 Nil) 
+  (Cons 2 Nil))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith * (Cons 1 Nil) (Cons 2 Nil)) ((Cons 2 Nil)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith * 
+    (Cons 1 Nil) 
+    (Cons 2 Nil)) 
+  ( (Cons 2 Nil)))
 
 </span><span class="ansi38-250144246">; !(prodWith * (Cons 1 Nil) (Cons 2 Nil))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,*,['Cons',1,'Nil'],['Cons',2,'Nil']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,*,['Cons',1,'Nil'],['Cons',2,'Nil']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,*,['Cons',1,'Nil'],['Cons',2,'Nil']],[['Cons',2,'Nil']]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.09">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.09</h3>
-          -->(1,eval('&self',[prodWith,*,['Cons',1,'Nil'],['Cons',2,'Nil']],RET),depth(3))
-                -->(2,eval('&self',[*,1,2],RET),depth(6))
-                  -->(3,eval('&self',2,RET),depth(7))
-                    -->(4,eval('&self',2,RET),depth(8))
-                <--(2,retval(2))
-                -->(5,eval('&self',[interleave,[map,[curry,*,1],'Nil'],[prodWith,*,'Nil',['Cons',2,'Nil']]],RET),depth(6))
-                    -->(6,eval('&self',[curry,*,1],RET),depth(8))
-                      -->(7,eval('&self',curry,RET),depth(9))
-                      -->(8,eval('&self',*,RET),depth(9))
-                      -->(9,eval('&self',1,RET),depth(9))
-                <--(5,retval('Nil'))
-          <--(1,retval(['Cons',2,'Nil']))
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,*,['Cons',1,'Nil'],['Cons',2,'Nil']],[['Cons',2,'Nil']]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.08">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.08</h3>
+      -->(1,eval('&self',[prodWith,*,['Cons',1,'Nil'],['Cons',2,'Nil']],RET),depth(1))
+          -->(2,eval('&self',[*,1,2],RET),depth(3))
+          <--(2,retval(2))
+          -->(3,eval('&self',[interleave,[map,[curry,*,1],'Nil'],[prodWith,*,'Nil',['Cons',2,'Nil']]],RET),depth(3))
+            -->(4,eval('&self',[map,[curry,*,1],'Nil'],RET),depth(4))
+            -->(5,eval('&self',[prodWith,*,'Nil',['Cons',2,'Nil']],RET),depth(4))
+                6-->subst_args(_115472,_115474,'&self',['Cons',2,'Nil'],depth(6))
+              7-->subst_args(_116034,_116036,'&self',['Cons',2,'Nil'],depth(5))
+            8-->subst_args(_116596,_116598,'&self',['Cons',2,'Nil'],depth(4))
+            <--(5,retval('Nil'))
+            <--(4,retval('Nil'))
+          <--(3,retval('Nil'))
+      <--(1,retval(['Cons',2,'Nil']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.28 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 2 Nil)) ((Cons 2 Nil))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (1.51 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 2 Nil)) 
+    ( (Cons 2 Nil))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons 2 Nil)
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith * (Cons 1 (Cons 2 Nil)) (Cons 3 (Cons 4 Nil)))
+</span><span class="ansi1 ansi38-255238088">!(prodWith * 
+  (Cons 1 
+    (Cons 2 Nil)) 
+  (Cons 3 
+    (Cons 4 Nil)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith * (Cons 1 (Cons 2 Nil)) (Cons 3 (Cons 4 Nil))) ((Cons 3 (Cons 4 (Cons 6 (Cons 8 Nil))))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith * 
+    (Cons 1 
+      (Cons 2 Nil)) 
+    (Cons 3 
+      (Cons 4 Nil))) 
+  ( (Cons 3 
+      (Cons 4 
+        (Cons 6 
+          (Cons 8 Nil))))))
 
 </span><span class="ansi38-250144246">; !(prodWith * (Cons 1 (Cons 2 Nil)) (Cons 3 (Cons 4 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,*,['Cons',1,['Cons',2,'Nil']],['Cons',3,['Cons',4,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,*,['Cons',1,['Cons',2,'Nil']],['Cons',3,['Cons',4,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,*,['Cons',1,['Cons',2,'Nil']],['Cons',3,['Cons',4,'Nil']]],[['Cons',3,['Cons',4,['Cons',6,['Cons',8,'Nil']]]]]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.10">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.10</h3>
-          -->(1,eval('&self',[prodWith,*,['Cons',1,['Cons',2,'Nil']],['Cons',3,['Cons',4,'Nil']]],RET),depth(3))
-                -->(2,eval('&self',[*,1,3],RET),depth(6))
-                  -->(3,eval('&self',3,RET),depth(7))
-                    -->(4,eval('&self',3,RET),depth(8))
-                <--(2,retval(3))
-                -->(5,eval('&self',[interleave,[map,[curry,*,1],['Cons',4,'Nil']],[prodWith,*,['Cons',2,'Nil'],['Cons',3,['Cons',4,'Nil']]]],RET),depth(6))
-                    -->(6,eval('&self',[curry,*,1],RET),depth(8))
-                      -->(7,eval('&self',curry,RET),depth(9))
-                      -->(8,eval('&self',*,RET),depth(9))
-                      -->(9,eval('&self',1,RET),depth(9))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,*,['Cons',1,['Cons',2,'Nil']],['Cons',3,['Cons',4,'Nil']]],[['Cons',3,['Cons',4,['Cons',6,['Cons',8,'Nil']]]]]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.09">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.09</h3>
+      -->(1,eval('&self',[prodWith,*,['Cons',1,['Cons',2,'Nil']],['Cons',3,['Cons',4,'Nil']]],RET),depth(1))
+          -->(2,eval('&self',[*,1,3],RET),depth(3))
+          <--(2,retval(3))
+          -->(3,eval('&self',[interleave,[map,[curry,*,1],['Cons',4,'Nil']],[prodWith,*,['Cons',2,'Nil'],['Cons',3,['Cons',4,'Nil']]]],RET),depth(3))
+            -->(4,eval('&self',[map,[curry,*,1],['Cons',4,'Nil']],RET),depth(4))
+                -->(5,eval('&self',[[curry,*,1],4],RET),depth(6))
+                -->(6,eval('&self',[map,[curry,*,1],'Nil'],RET),depth(6))
+                      7-->subst_args(_36126,_36128,'&self',['Cons',4,'Nil'],depth(9))
+                    8-->subst_args(_36688,_36690,'&self',['Cons',4,'Nil'],depth(8))
+                  9-->subst_args(_37250,_37252,'&self',['Cons',4,'Nil'],depth(7))
+            -->(10,eval('&self',[prodWith,*,['Cons',2,'Nil'],['Cons',3,['Cons',4,'Nil']]],RET),depth(4))
+                -->(11,eval('&self',[*,2,3],RET),depth(6))
+                <--(11,retval(6))
+                -->(12,eval('&self',[interleave,[map,[curry,*,2],['Cons',4,'Nil']],[prodWith,*,'Nil',['Cons',3,['Cons',4,'Nil']]]],RET),depth(6))
+                  -->(13,eval('&self',[map,[curry,*,2],['Cons',4,'Nil']],RET),depth(7))
+                      -->(14,eval('&self',[[curry,*,2],4],RET),depth(9))
+                      -->(15,eval('&self',[map,[curry,*,2],'Nil'],RET),depth(9))
+                            16-->subst_args(_43236,_43238,'&self',['Cons',8,'Nil'],depth(12))
+                          17-->subst_args(_43798,_43800,'&self',['Cons',8,'Nil'],depth(11))
+                        18-->subst_args(_44360,_44362,'&self',['Cons',8,'Nil'],depth(10))
+                  -->(19,eval('&self',[prodWith,*,'Nil',['Cons',3,['Cons',4,'Nil']]],RET),depth(7))
+                      -->(20,eval('&self',[interleave,'Nil','Nil'],RET),depth(9))
+                            21-->subst_args(_47070,_47072,'&self',['Cons',8,'Nil'],depth(12))
+                          22-->subst_args(_47632,_47634,'&self',['Cons',8,'Nil'],depth(11))
+                        23-->subst_args(_48194,_48196,'&self',['Cons',8,'Nil'],depth(10))
+                      24-->subst_args(_48756,_48758,'&self',['Cons',8,'Nil'],depth(9))
+                  -->(25,eval('&self',['Cons',8,'Nil'],RET),depth(7))
+                        26-->subst_args(_50190,_50192,'&self',['Cons',8,'Nil'],depth(10))
+                  <--(25,retval(['Cons',8,'Nil']))
+                      27-->subst_args(_50818,_50820,'&self',['Cons',6,['Cons',8,'Nil']],depth(9))
+                          28-->subst_args(_51270,_51272,'&self',['Cons',8,'Nil'],depth(11))
+                    29-->subst_args(_51880,_51882,'&self',['Cons',6,['Cons',8,'Nil']],depth(8))
+                        30-->subst_args(_52332,_52334,'&self',['Cons',8,'Nil'],depth(10))
+                  31-->subst_args(_52942,_52944,'&self',['Cons',6,['Cons',8,'Nil']],depth(7))
+                      32-->subst_args(_53394,_53396,'&self',['Cons',8,'Nil'],depth(9))
+                -->(33,eval('&self',[interleave,['Cons',6,['Cons',8,'Nil']],'Nil'],RET),depth(6))
+                    -->(34,eval('&self',[interleave,'Nil',['Cons',8,'Nil']],RET),depth(8))
+                            35-->subst_args(_56012,_56014,'&self',['Cons',8,'Nil'],depth(12))
+                          36-->subst_args(_56574,_56576,'&self',['Cons',8,'Nil'],depth(11))
+                      -->(37,eval('&self',['Cons',8,'Nil'],RET),depth(9))
+                            38-->subst_args(_58008,_58010,'&self',['Cons',8,'Nil'],depth(12))
+                      <--(37,retval(['Cons',8,'Nil']))
+                          39-->subst_args(_58636,_58638,'&self',['Cons',6,['Cons',8,'Nil']],depth(11))
+                              40-->subst_args(_59088,_59090,'&self',['Cons',8,'Nil'],depth(13))
+                        41-->subst_args(_59698,_59700,'&self',['Cons',6,['Cons',8,'Nil']],depth(10))
+                            42-->subst_args(_60150,_60152,'&self',['Cons',8,'Nil'],depth(12))
+                      43-->subst_args(_60760,_60762,'&self',['Cons',6,['Cons',8,'Nil']],depth(9))
+                          44-->subst_args(_61212,_61214,'&self',['Cons',8,'Nil'],depth(11))
+                  -->(45,eval('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(7))
+                    -->(46,eval('&self',['Cons',8,'Nil'],RET),depth(8))
+                          47-->subst_args(_63404,_63406,'&self',['Cons',8,'Nil'],depth(11))
+                    <--(46,retval(['Cons',8,'Nil']))
+                        48-->subst_args(_64032,_64034,'&self',['Cons',6,['Cons',8,'Nil']],depth(10))
+                            49-->subst_args(_64484,_64486,'&self',['Cons',8,'Nil'],depth(12))
+                  <--(45,retval(['Cons',6,['Cons',8,'Nil']]))
+                      50-->subst_args(_65178,_65180,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(9))
+                          51-->subst_args(_65630,_65632,'&self',['Cons',6,['Cons',8,'Nil']],depth(11))
+                              52-->subst_args(_66082,_66084,'&self',['Cons',8,'Nil'],depth(13))
+                    53-->subst_args(_66758,_66760,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(8))
+                        54-->subst_args(_67210,_67212,'&self',['Cons',6,['Cons',8,'Nil']],depth(10))
+                            55-->subst_args(_67662,_67664,'&self',['Cons',8,'Nil'],depth(12))
+                  56-->subst_args(_68338,_68340,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(7))
+                      57-->subst_args(_68790,_68792,'&self',['Cons',6,['Cons',8,'Nil']],depth(9))
+                          58-->subst_args(_69242,_69244,'&self',['Cons',8,'Nil'],depth(11))
+                59-->subst_args(_69918,_69920,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(6))
+                    60-->subst_args(_70370,_70372,'&self',['Cons',6,['Cons',8,'Nil']],depth(8))
+                        61-->subst_args(_70822,_70824,'&self',['Cons',8,'Nil'],depth(10))
+            -->(62,eval('&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],RET),depth(4))
+              -->(63,eval('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(5))
+                -->(64,eval('&self',['Cons',8,'Nil'],RET),depth(6))
+                      65-->subst_args(_73790,_73792,'&self',['Cons',8,'Nil'],depth(9))
+                <--(64,retval(['Cons',8,'Nil']))
+                    66-->subst_args(_74418,_74420,'&self',['Cons',6,['Cons',8,'Nil']],depth(8))
+                        67-->subst_args(_74870,_74872,'&self',['Cons',8,'Nil'],depth(10))
+              <--(63,retval(['Cons',6,['Cons',8,'Nil']]))
+                  68-->subst_args(_75564,_75566,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(7))
+                      69-->subst_args(_76016,_76018,'&self',['Cons',6,['Cons',8,'Nil']],depth(9))
+                          70-->subst_args(_76468,_76470,'&self',['Cons',8,'Nil'],depth(11))
+            <--(62,retval(['Cons',4,['Cons',6,['Cons',8,'Nil']]]))
+                71-->subst_args(_77246,_77248,'&self',['Cons',3,['Cons',4,['Cons',6,['Cons',8,'Nil']]]],depth(6))
+                    72-->subst_args(_77698,_77700,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(8))
+                        73-->subst_args(_78150,_78152,'&self',['Cons',6,['Cons',8,'Nil']],depth(10))
+                            74-->subst_args(_78602,_78604,'&self',['Cons',8,'Nil'],depth(12))
+              75-->subst_args(_79362,_79364,'&self',['Cons',3,['Cons',4,['Cons',6,['Cons',8,'Nil']]]],depth(5))
+                  76-->subst_args(_79814,_79816,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(7))
+                      77-->subst_args(_80266,_80268,'&self',['Cons',6,['Cons',8,'Nil']],depth(9))
+                          78-->subst_args(_80718,_80720,'&self',['Cons',8,'Nil'],depth(11))
+            79-->subst_args(_81478,_81480,'&self',['Cons',3,['Cons',4,['Cons',6,['Cons',8,'Nil']]]],depth(4))
+                80-->subst_args(_81930,_81932,'&self',['Cons',4,['Cons',6,['Cons',8,'Nil']]],depth(6))
+                    81-->subst_args(_82382,_82384,'&self',['Cons',6,['Cons',8,'Nil']],depth(8))
+                        82-->subst_args(_82834,_82836,'&self',['Cons',8,'Nil'],depth(10))
+                    <--(34,retval(['Cons',8,'Nil']))
+                <--(33,retval(['Cons',6,['Cons',8,'Nil']]))
+                      <--(20,retval('Nil'))
+                  <--(19,retval('Nil'))
+                      <--(15,retval('Nil'))
+                      <--(14,retval(8))
+                  <--(13,retval(['Cons',8,'Nil']))
+                <--(12,retval(['Cons',8,'Nil']))
+            <--(10,retval(['Cons',6,['Cons',8,'Nil']]))
+                <--(6,retval('Nil'))
+                <--(5,retval(4))
+            <--(4,retval(['Cons',4,'Nil']))
+          <--(3,retval(['Cons',4,['Cons',6,['Cons',8,'Nil']]]))
+      <--(1,retval(['Cons',3,['Cons',4,['Cons',6,['Cons',8,'Nil']]]]))
+; 
 ; EVAL TEST
-; took 0.012 secs. (11.84 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 3 (Cons 4 (Cons 6 (Cons 8 Nil))))) ((Cons 3 (Cons 4 (Cons 6 (Cons 8 Nil)))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.010 secs. (9.75 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 3 
+        (Cons 4 
+          (Cons 6 
+            (Cons 8 Nil))))) 
+    ( (Cons 3 
+        (Cons 4 
+          (Cons 6 
+            (Cons 8 Nil)))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons 3 (Cons 4 (Cons 6 (Cons 8 Nil))))
 ;;; Test synthesize
 ;;; Define collection of functions to compose
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,f,[->,'Number','String']])
-</span><span class="ansi38-255165000">(: f (-> Number String))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,f,[->,'Number','String']])
+</span><span class="ansi38-255165000">(: f 
+  (-> Number String))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[f,X],[if,[==,X,42],'42','Not-42']])
-</span><span class="ansi38-255165000">(= (f $X) (if (== $X 42) 42 Not-42))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[f,X],[if,[==,X,42],'42','Not-42']])
+</span><span class="ansi38-255165000">(= 
+  (f $X) 
+  (if 
+    (== $X 42) 42 Not-42))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,g,[->,'String','Bool']])
-</span><span class="ansi38-255165000">(: g (-> String Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,g,[->,'String','Bool']])
+</span><span class="ansi38-255165000">(: g 
+  (-> String Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[g,X],[==,X,'42']])
-</span><span class="ansi38-255165000">(= (g $X) (== $X 42))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[g,X],[==,X,'42']])
+</span><span class="ansi38-255165000">(= 
+  (g $X) 
+  (== $X 42))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,h,[->,'Bool','Atom']])
-</span><span class="ansi38-255165000">(: h (-> Bool Atom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,h,[->,'Bool','Atom']])
+</span><span class="ansi38-255165000">(: h 
+  (-> Bool Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[h,X],[if,X,'TrueAtom','FalseAtom']])
-</span><span class="ansi38-255165000">(= (h $X) (if $X TrueAtom FalseAtom))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[h,X],[if,X,'TrueAtom','FalseAtom']])
+</span><span class="ansi38-255165000">(= 
+  (h $X) 
+  (if $X TrueAtom FalseAtom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,functions,[->,'List']])
-</span><span class="ansi38-255165000">(: functions (-> List))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,functions,[->,'List']])
+</span><span class="ansi38-255165000">(: functions 
+  (-> List))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[functions],['Cons',f,['Cons',g,'Nil']]])
-</span><span class="ansi38-255165000">(= (functions) (Cons f (Cons g Nil)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[functions],['Cons',f,['Cons',g,'Nil']]])
+</span><span class="ansi38-255165000">(= 
+  (functions) 
+  (Cons f 
+    (Cons g Nil)))
 </span>
 
 ;;; Uncomment to try `synthesize` with more functions
 ;;; (= (functions) (Cons f (Cons g (Cons h Nil))))
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith . (Cons g Nil) (Cons f Nil))
+</span><span class="ansi1 ansi38-255238088">!(prodWith . 
+  (Cons g Nil) 
+  (Cons f Nil))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith . (Cons g Nil) (Cons f Nil)) ((Cons (. g f) Nil)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith . 
+    (Cons g Nil) 
+    (Cons f Nil)) 
+  ( (Cons 
+      (. g f) Nil)))
 
 </span><span class="ansi38-250144246">; !(prodWith . (Cons g Nil) (Cons f Nil))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,'.',['Cons',g,'Nil'],['Cons',f,'Nil']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,'.',['Cons',g,'Nil'],['Cons',f,'Nil']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,'.',['Cons',g,'Nil'],['Cons',f,'Nil']],[['Cons',['.',g,f],'Nil']]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.11">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.11</h3>
-          -->(1,eval('&self',[prodWith,'.',['Cons',g,'Nil'],['Cons',f,'Nil']],RET),depth(3))
-                -->(2,eval('&self',['.',g,f],RET),depth(6))
-                  -->(3,eval('&self','.',RET),depth(7))
-                  -->(4,eval('&self',g,RET),depth(7))
-                  -->(5,eval('&self',f,RET),depth(7))
-                    -->(6,eval('&self','.',RET),depth(8))
-                    -->(7,eval('&self',g,RET),depth(8))
-                    -->(8,eval('&self',f,RET),depth(8))
-                -->(9,eval('&self',[interleave,[map,[curry,'.',g],'Nil'],[prodWith,'.','Nil',['Cons',f,'Nil']]],RET),depth(6))
-                <--(9,retval('Nil'))
-          <--(1,retval(['Cons',['.',g,f],'Nil']))
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,'.',['Cons',g,'Nil'],['Cons',f,'Nil']],[['Cons',['.',g,f],'Nil']]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.10">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.10</h3>
+      -->(1,eval('&self',[prodWith,'.',['Cons',g,'Nil'],['Cons',f,'Nil']],RET),depth(1))
+          -->(2,eval('&self',['.',g,f],RET),depth(3))
+                3-->subst_args(_95028,_95030,'&self',['.',g,f],depth(6))
+          <--(2,retval(['.',g,f]))
+          -->(4,eval('&self',[interleave,[map,[curry,'.',g],'Nil'],[prodWith,'.','Nil',['Cons',f,'Nil']]],RET),depth(3))
+            -->(5,eval('&self',[map,[curry,'.',g],'Nil'],RET),depth(4))
+            -->(6,eval('&self',[prodWith,'.','Nil',['Cons',f,'Nil']],RET),depth(4))
+            -->(7,eval('&self',['.',g,f],RET),depth(4))
+                  8-->subst_args(_8778,_8780,'&self',['.',g,f],depth(7))
+            <--(7,retval(['.',g,f]))
+                9-->subst_args(_9884,_9886,'&self',['Cons',['.',g,f],'Nil'],depth(6))
+                    10-->subst_args(_10336,_10338,'&self',['.',g,f],depth(8))
+              11-->subst_args(_11424,_11426,'&self',['Cons',['.',g,f],'Nil'],depth(5))
+                  12-->subst_args(_11876,_11878,'&self',['.',g,f],depth(7))
+            13-->subst_args(_12964,_12966,'&self',['Cons',['.',g,f],'Nil'],depth(4))
+                14-->subst_args(_13416,_13418,'&self',['.',g,f],depth(6))
+            <--(6,retval('Nil'))
+            <--(5,retval('Nil'))
+          <--(4,retval('Nil'))
+      <--(1,retval(['Cons',['.',g,f],'Nil']))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.31 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons (. g f) Nil)) ((Cons (. g f) Nil))))
-</span>      <--(0,retval('Empty'))
+; took 0.003 secs. (2.66 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 
+        (. g f) Nil)) 
+    ( (Cons 
+        (. g f) Nil))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons (. g f) Nil)
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith . (Cons f Nil) (Cons g Nil))
+</span><span class="ansi1 ansi38-255238088">!(prodWith . 
+  (Cons f Nil) 
+  (Cons g Nil))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith . (Cons f Nil) (Cons g Nil)) ((Cons (. f g) Nil)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith . 
+    (Cons f Nil) 
+    (Cons g Nil)) 
+  ( (Cons 
+      (. f g) Nil)))
 
 </span><span class="ansi38-250144246">; !(prodWith . (Cons f Nil) (Cons g Nil))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,'.',['Cons',f,'Nil'],['Cons',g,'Nil']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,'.',['Cons',f,'Nil'],['Cons',g,'Nil']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,'.',['Cons',f,'Nil'],['Cons',g,'Nil']],[['Cons',['.',f,g],'Nil']]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.12">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.12</h3>
-          -->(1,eval('&self',[prodWith,'.',['Cons',f,'Nil'],['Cons',g,'Nil']],RET),depth(3))
-                -->(2,eval('&self',['.',f,g],RET),depth(6))
-                  -->(3,eval('&self','.',RET),depth(7))
-                  -->(4,eval('&self',f,RET),depth(7))
-                  -->(5,eval('&self',g,RET),depth(7))
-                    -->(6,eval('&self','.',RET),depth(8))
-                    -->(7,eval('&self',f,RET),depth(8))
-                    -->(8,eval('&self',g,RET),depth(8))
-                -->(9,eval('&self',[interleave,[map,[curry,'.',f],'Nil'],[prodWith,'.','Nil',['Cons',g,'Nil']]],RET),depth(6))
-                <--(9,retval('Nil'))
-          <--(1,retval(['Cons',['.',f,g],'Nil']))
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,'.',['Cons',f,'Nil'],['Cons',g,'Nil']],[['Cons',['.',f,g],'Nil']]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.11">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.11</h3>
+      -->(1,eval('&self',[prodWith,'.',['Cons',f,'Nil'],['Cons',g,'Nil']],RET),depth(1))
+          -->(2,eval('&self',['.',f,g],RET),depth(3))
+                3-->subst_args(_47136,_47138,'&self',['.',f,g],depth(6))
+          <--(2,retval(['.',f,g]))
+          -->(4,eval('&self',[interleave,[map,[curry,'.',f],'Nil'],[prodWith,'.','Nil',['Cons',g,'Nil']]],RET),depth(3))
+            -->(5,eval('&self',[map,[curry,'.',f],'Nil'],RET),depth(4))
+            -->(6,eval('&self',[prodWith,'.','Nil',['Cons',g,'Nil']],RET),depth(4))
+            -->(7,eval('&self',['.',f,g],RET),depth(4))
+                  8-->subst_args(_8758,_8760,'&self',['.',f,g],depth(7))
+            <--(7,retval(['.',f,g]))
+                9-->subst_args(_9864,_9866,'&self',['Cons',['.',f,g],'Nil'],depth(6))
+                    10-->subst_args(_10316,_10318,'&self',['.',f,g],depth(8))
+              11-->subst_args(_11404,_11406,'&self',['Cons',['.',f,g],'Nil'],depth(5))
+                  12-->subst_args(_11856,_11858,'&self',['.',f,g],depth(7))
+            13-->subst_args(_12944,_12946,'&self',['Cons',['.',f,g],'Nil'],depth(4))
+                14-->subst_args(_13396,_13398,'&self',['.',f,g],depth(6))
+            <--(6,retval('Nil'))
+            <--(5,retval('Nil'))
+          <--(4,retval('Nil'))
+      <--(1,retval(['Cons',['.',f,g],'Nil']))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.09 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons (. f g) Nil)) ((Cons (. f g) Nil))))
-</span>      <--(0,retval('Empty'))
+; took 0.003 secs. (2.52 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 
+        (. f g) Nil)) 
+    ( (Cons 
+        (. f g) Nil))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons (. f g) Nil)
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(prodWith . (Cons f (Cons g Nil)) (Cons f (Cons g Nil)))
+</span><span class="ansi1 ansi38-255238088">!(prodWith . 
+  (Cons f 
+    (Cons g Nil)) 
+  (Cons f 
+    (Cons g Nil)))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (prodWith . (Cons f (Cons g Nil)) (Cons f (Cons g Nil))) ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (prodWith . 
+    (Cons f 
+      (Cons g Nil)) 
+    (Cons f 
+      (Cons g Nil))) 
+  ( (Cons 
+      (. f f) 
+      (Cons 
+        (. f g) 
+        (Cons 
+          (. g f) 
+          (Cons 
+            (. g g) Nil))))))
 
 </span><span class="ansi38-250144246">; !(prodWith . (Cons f (Cons g Nil)) (Cons f (Cons g Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[prodWith,'.',['Cons',f,['Cons',g,'Nil']],['Cons',f,['Cons',g,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[prodWith,'.',['Cons',f,['Cons',g,'Nil']],['Cons',f,['Cons',g,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[prodWith,'.',['Cons',f,['Cons',g,'Nil']],['Cons',f,['Cons',g,'Nil']]],[['Cons',['.',f,f],['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]]]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.13">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.13</h3>
-          -->(1,eval('&self',[prodWith,'.',['Cons',f,['Cons',g,'Nil']],['Cons',f,['Cons',g,'Nil']]],RET),depth(3))
-                -->(2,eval('&self',['.',f,f],RET),depth(6))
-                  -->(3,eval('&self','.',RET),depth(7))
-                  -->(4,eval('&self',f,RET),depth(7))
-                  -->(5,eval('&self',f,RET),depth(7))
-                    -->(6,eval('&self','.',RET),depth(8))
-                    -->(7,eval('&self',f,RET),depth(8))
-                    -->(8,eval('&self',f,RET),depth(8))
-                -->(9,eval('&self',[interleave,[map,[curry,'.',f],['Cons',g,'Nil']],[prodWith,'.',['Cons',g,'Nil'],['Cons',f,['Cons',g,'Nil']]]],RET),depth(6))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+</span>    -->(0,eval('&self',[assertEqualToResult,[prodWith,'.',['Cons',f,['Cons',g,'Nil']],['Cons',f,['Cons',g,'Nil']]],[['Cons',['.',f,f],['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]]]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.12">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.12</h3>
+      -->(1,eval('&self',[prodWith,'.',['Cons',f,['Cons',g,'Nil']],['Cons',f,['Cons',g,'Nil']]],RET),depth(1))
+          -->(2,eval('&self',['.',f,f],RET),depth(3))
+                3-->subst_args(_51182,_51184,'&self',['.',f,f],depth(6))
+          <--(2,retval(['.',f,f]))
+          -->(4,eval('&self',[interleave,[map,[curry,'.',f],['Cons',g,'Nil']],[prodWith,'.',['Cons',g,'Nil'],['Cons',f,['Cons',g,'Nil']]]],RET),depth(3))
+            -->(5,eval('&self',[map,[curry,'.',f],['Cons',g,'Nil']],RET),depth(4))
+                -->(6,eval('&self',[[curry,'.',f],g],RET),depth(6))
+                        7-->subst_args(_8074,_8076,'&self',['.',f,g],depth(10))
+                      8-->subst_args(_9070,_9072,'&self',['.',f,g],depth(9))
+                -->(9,eval('&self',[map,[curry,'.',f],'Nil'],RET),depth(6))
+                  -->(10,eval('&self',['.',f,g],RET),depth(7))
+                        11-->subst_args(_11804,_11806,'&self',['.',f,g],depth(10))
+                  <--(10,retval(['.',f,g]))
+                      12-->subst_args(_12910,_12912,'&self',['Cons',['.',f,g],'Nil'],depth(9))
+                          13-->subst_args(_13362,_13364,'&self',['.',f,g],depth(11))
+                    14-->subst_args(_14450,_14452,'&self',['Cons',['.',f,g],'Nil'],depth(8))
+                        15-->subst_args(_14902,_14904,'&self',['.',f,g],depth(10))
+                  16-->subst_args(_15990,_15992,'&self',['Cons',['.',f,g],'Nil'],depth(7))
+                      17-->subst_args(_16442,_16444,'&self',['.',f,g],depth(9))
+            -->(18,eval('&self',[prodWith,'.',['Cons',g,'Nil'],['Cons',f,['Cons',g,'Nil']]],RET),depth(4))
+                -->(19,eval('&self',['.',g,f],RET),depth(6))
+                      20-->subst_args(_19304,_19306,'&self',['.',g,f],depth(9))
+                <--(19,retval(['.',g,f]))
+                -->(21,eval('&self',[interleave,[map,[curry,'.',g],['Cons',g,'Nil']],[prodWith,'.','Nil',['Cons',f,['Cons',g,'Nil']]]],RET),depth(6))
+                  -->(22,eval('&self',[map,[curry,'.',g],['Cons',g,'Nil']],RET),depth(7))
+                      -->(23,eval('&self',[[curry,'.',g],g],RET),depth(9))
+                              24-->subst_args(_22810,_22812,'&self',['.',g,g],depth(13))
+                            25-->subst_args(_23806,_23808,'&self',['.',g,g],depth(12))
+                      -->(26,eval('&self',[map,[curry,'.',g],'Nil'],RET),depth(9))
+                              28-->subst_args(_26408,_26410,'&self',['.',g,g],depth(13))
+                            29-->subst_args(_27520,_27522,'&self',['Cons',['.',g,g],'Nil'],depth(12))
+                                30-->subst_args(_27972,_27974,'&self',['.',g,g],depth(14))
+                          31-->subst_args(_29060,_29062,'&self',['Cons',['.',g,g],'Nil'],depth(11))
+                              32-->subst_args(_29512,_29514,'&self',['.',g,g],depth(13))
+                        33-->subst_args(_30600,_30602,'&self',['Cons',['.',g,g],'Nil'],depth(10))
+                            34-->subst_args(_31052,_31054,'&self',['.',g,g],depth(12))
+                  -->(35,eval('&self',[prodWith,'.','Nil',['Cons',f,['Cons',g,'Nil']]],RET),depth(7))
+                      -->(36,eval('&self',['.',g,g],RET),depth(9))
+                            37-->subst_args(_34062,_34064,'&self',['.',g,g],depth(12))
+                      <--(36,retval(['.',g,g]))
+                      -->(38,eval('&self',[interleave,'Nil','Nil'],RET),depth(9))
+                              40-->subst_args(_36664,_36666,'&self',['.',g,g],depth(13))
+                            41-->subst_args(_8448,_8450,'&self',['Cons',['.',g,g],'Nil'],depth(12))
+                                42-->subst_args(_8900,_8902,'&self',['.',g,g],depth(14))
+                          43-->subst_args(_9988,_9990,'&self',['Cons',['.',g,g],'Nil'],depth(11))
+                              44-->subst_args(_10440,_10442,'&self',['.',g,g],depth(13))
+                        45-->subst_args(_11528,_11530,'&self',['Cons',['.',g,g],'Nil'],depth(10))
+                            46-->subst_args(_11980,_11982,'&self',['.',g,g],depth(12))
+                      47-->subst_args(_13068,_13070,'&self',['Cons',['.',g,g],'Nil'],depth(9))
+                          48-->subst_args(_13520,_13522,'&self',['.',g,g],depth(11))
+                  -->(49,eval('&self',['.',g,f],RET),depth(7))
+                        50-->subst_args(_15498,_15500,'&self',['.',g,f],depth(10))
+                  <--(49,retval(['.',g,f]))
+                  -->(51,eval('&self',['Cons',['.',g,g],'Nil'],RET),depth(7))
+                    -->(52,eval('&self',['.',g,g],RET),depth(8))
+                          53-->subst_args(_17988,_17990,'&self',['.',g,g],depth(11))
+                    <--(52,retval(['.',g,g]))
+                        54-->subst_args(_19094,_19096,'&self',['Cons',['.',g,g],'Nil'],depth(10))
+                            55-->subst_args(_19546,_19548,'&self',['.',g,g],depth(12))
+                  <--(51,retval(['Cons',['.',g,g],'Nil']))
+                      56-->subst_args(_20718,_20720,'&self',['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],depth(9))
+                          57-->subst_args(_21170,_21172,'&self',['.',g,f],depth(11))
+                          58-->subst_args(_22130,_22132,'&self',['Cons',['.',g,g],'Nil'],depth(11))
+                              59-->subst_args(_22582,_22584,'&self',['.',g,g],depth(13))
+                    60-->subst_args(_23754,_23756,'&self',['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],depth(8))
+                        61-->subst_args(_24206,_24208,'&self',['.',g,f],depth(10))
+                        62-->subst_args(_25166,_25168,'&self',['Cons',['.',g,g],'Nil'],depth(10))
+                            63-->subst_args(_25618,_25620,'&self',['.',g,g],depth(12))
+                  64-->subst_args(_26790,_26792,'&self',['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],depth(7))
+                      65-->subst_args(_27242,_27244,'&self',['.',g,f],depth(9))
+                      66-->subst_args(_28202,_28204,'&self',['Cons',['.',g,g],'Nil'],depth(9))
+                          67-->subst_args(_28654,_28656,'&self',['.',g,g],depth(11))
+                -->(68,eval('&self',['.',f,g],RET),depth(6))
+                      69-->subst_args(_30906,_30908,'&self',['.',f,g],depth(9))
+                <--(68,retval(['.',f,g]))
+                -->(70,eval('&self',[interleave,['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],'Nil'],RET),depth(6))
+                    -->(71,eval('&self',['.',g,f],RET),depth(8))
+                          72-->subst_args(_33550,_33552,'&self',['.',g,f],depth(11))
+                    <--(71,retval(['.',g,f]))
+                    -->(73,eval('&self',[interleave,'Nil',['Cons',['.',g,g],'Nil']],RET),depth(8))
+                              75-->subst_args(_36026,_36028,'&self',['.',g,g],depth(13))
+                            76-->subst_args(_37138,_37140,'&self',['Cons',['.',g,g],'Nil'],depth(12))
+                                77-->subst_args(_37590,_37592,'&self',['.',g,g],depth(14))
+                          78-->subst_args(_38678,_38680,'&self',['Cons',['.',g,g],'Nil'],depth(11))
+                              79-->subst_args(_39130,_39132,'&self',['.',g,g],depth(13))
+                      -->(80,eval('&self',['.',g,f],RET),depth(9))
+                            81-->subst_args(_41108,_41110,'&self',['.',g,f],depth(12))
+                      <--(80,retval(['.',g,f]))
+                      -->(82,eval('&self',['Cons',['.',g,g],'Nil'],RET),depth(9))
+                              84-->subst_args(_43466,_43468,'&self',['.',g,g],depth(13))
+                            85-->subst_args(_44578,_44580,'&self',['Cons',['.',g,g],'Nil'],depth(12))
+                                86-->subst_args(_45030,_45032,'&self',['.',g,g],depth(14))
+                      <--(82,retval(['Cons',['.',g,g],'Nil']))
+                          87-->subst_args(_46202,_46204,'&self',['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],depth(11))
+                              88-->subst_args(_46654,_46656,'&self',['.',g,f],depth(13))
+                              89-->subst_args(_9108,_9110,'&self',['Cons',['.',g,g],'Nil'],depth(13))
+                                  90-->subst_args(_9560,_9562,'&self',['.',g,g],depth(15))
+                        91-->subst_args(_10732,_10734,'&self',['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],depth(10))
+                            92-->subst_args(_11184,_11186,'&self',['.',g,f],depth(12))
+                            93-->subst_args(_12144,_12146,'&self',['Cons',['.',g,g],'Nil'],depth(12))
+                                94-->subst_args(_12596,_12598,'&self',['.',g,g],depth(14))
+                      95-->subst_args(_13768,_13770,'&self',['Cons',['.',g,f],['Cons',['.',g,g],'Nil']],depth(9))
+                          96-->subst_args(_14220,_14222,'&self',['.',g,f],depth(11))
+                          97-->subst_args(_15180,_15182,'&self',['Cons',['.',g,g],'Nil'],depth(11))
+                              98-->subst_args(_15632,_15634,'&self',['.',g,g],depth(13))
+                  -->(99,eval('&self',['.',f,g],RET),depth(7))
+                        100-->subst_args(_17730,_17732,'&self',['.',f,g],depth(10))
+                  <--(99,retval(['.',f,g]))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                    <--(73,retval(['Cons',['.',g,g],'Nil']))
+                <--(70,retval(['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]))
+                      <--(38,retval('Nil'))
+                  <--(35,retval('Nil'))
+                      <--(26,retval('Nil'))
+                      <--(23,retval(['.',g,g]))
+                  <--(22,retval(['Cons',['.',g,g],'Nil']))
+                <--(21,retval(['Cons',['.',g,g],'Nil']))
+            <--(18,retval(['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]))
+                <--(9,retval('Nil'))
+                <--(6,retval(['.',f,g]))
+            <--(5,retval(['Cons',['.',f,g],'Nil']))
+          <--(4,retval(['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]))
+      <--(1,retval(['Cons',['.',f,f],['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]]))
+; 
 ; EVAL TEST
-; took 0.046 secs. (46.49 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))) ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.028 secs. (28.39 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 
+        (. f f) 
+        (Cons 
+          (. f g) 
+          (Cons 
+            (. g f) 
+            (Cons 
+              (. g g) Nil))))) 
+    ( (Cons 
+        (. f f) 
+        (Cons 
+          (. f g) 
+          (Cons 
+            (. g f) 
+            (Cons 
+              (. g g) Nil)))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(synthesize (functions) (fromNumber 2))
+</span><span class="ansi1 ansi38-255238088">!(synthesize 
+  (functions) 
+  (fromNumber 2))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (synthesize (functions) (fromNumber 2)) ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (synthesize 
+    (functions) 
+    (fromNumber 2)) 
+  ( (Cons 
+      (. f f) 
+      (Cons 
+        (. f g) 
+        (Cons 
+          (. g f) 
+          (Cons 
+            (. g g) Nil))))))
 
 </span><span class="ansi38-250144246">; !(synthesize (functions) (fromNumber 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[synthesize,[functions],[fromNumber,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[synthesize,[functions],[fromNumber,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[synthesize,[functions],[fromNumber,2]],[['Cons',['.',f,f],['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]]]],RET),depth(1))
-<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.14">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.14</h3>
-          -->(1,eval('&self',[synthesize,[functions],[fromNumber,2]],RET),depth(3))
-              -->(2,eval('&self',[functions],RET),depth(5))
-                  -->(3,eval('&self',f,RET),depth(7))
-                    -->(4,eval('&self',['Cons',g,'Nil'],RET),depth(8))
-                      -->(5,eval('&self',g,RET),depth(9))
-                      -->(6,eval('&self','Nil',RET),depth(9))
-                        -->(7,eval('&self','Cons',RET),depth(10))
-                        -->(8,eval('&self',g,RET),depth(10))
-                        -->(9,eval('&self','Nil',RET),depth(10))
-              <--(2,retval(['Cons',f,['Cons',g,'Nil']]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
-(synthesize= (Cons f (Cons g Nil)) (S Z) (Cons f (Cons g Nil)))
-(info (variables (prgs (Cons f (Cons g Nil))) (cmbs (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))))) (synthesize= (Cons f (Cons g Nil)) (S (S Z)) (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))))
-(synthesize= (Cons f (Cons g Nil)) (S Z) (Cons f (Cons g Nil)))
-(info (variables (prgs (Cons f (Cons g Nil))) (cmbs (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))))) (synthesize= (Cons f (Cons g Nil)) (S (S Z)) (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))))
+</span>    -->(0,eval('&self',[assertEqualToResult,[synthesize,[functions],[fromNumber,2]],[['Cons',['.',f,f],['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]]]],RET),depth(0))
+<h3 id="EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.13">;; EXPERIMENTS.SYNTHESIZE-VIA-TYPE-CHECKING.13</h3>
+      -->(1,eval('&self',[synthesize,[functions],[fromNumber,2]],RET),depth(1))
+        -->(2,eval('&self',[functions],RET),depth(2))
+            -->(3,eval('&self',['Cons',g,'Nil'],RET),depth(4))
+                  4-->subst_args(_79818,_79820,'&self',['Cons',g,'Nil'],depth(7))
+            <--(3,retval(['Cons',g,'Nil']))
+                5-->subst_args(_80490,_80492,'&self',['Cons',f,['Cons',g,'Nil']],depth(6))
+                    6-->subst_args(_80986,_80988,'&self',['Cons',g,'Nil'],depth(8))
+              7-->subst_args(_81640,_81642,'&self',['Cons',f,['Cons',g,'Nil']],depth(5))
+                  8-->subst_args(_82136,_82138,'&self',['Cons',g,'Nil'],depth(7))
+        -->(9,eval('&self',[fromNumber,2],RET),depth(2))
+            -->(10,eval('&self',[<=,2,0],RET),depth(4))
+                -->(11,eval('&self',[<,2,0],RET),depth(6))
+                <--(11,retval('False'))
+                -->(12,eval('&self',[==,2,0],RET),depth(6))
+                <--(12,retval('False'))
+            -->(13,eval('&self',['S',[fromNumber,[-,2,1]]],RET),depth(4))
+              -->(14,eval('&self',[fromNumber,[-,2,1]],RET),depth(5))
+                  -->(15,eval('&self',[<=,[-,2,1],0],RET),depth(7))
+                      -->(16,eval('&self',[<,[-,2,1],0],RET),depth(9))
+                      <--(16,retval('False'))
+                      -->(18,eval('&self',[==,[-,2,1],0],RET),depth(9))
+                      <--(18,retval('False'))
+                  -->(20,eval('&self',['S',[fromNumber,[-,[-,2,1],1]]],RET),depth(7))
+                    -->(21,eval('&self',[fromNumber,[-,[-,2,1],1]],RET),depth(8))
+                    <--(21,retval('Z'))
+                    -->(29,eval('&self',[fromNumber,[-,[-,2,1],1]],RET),depth(8))
+                          37-->subst_args(_28416,_28418,'&self',['S','Z'],depth(11))
+                        38-->subst_args(_29010,_29012,'&self',['S','Z'],depth(10))
+                        39-->subst_args(_29772,_29774,'&self',['S','Z'],depth(10))
+                      40-->subst_args(_30366,_30368,'&self',['S','Z'],depth(9))
+                    41-->subst_args(_30960,_30962,'&self',['S','Z'],depth(8))
+              -->(42,eval('&self',['S','Z'],RET),depth(5))
+                    43-->subst_args(_32450,_32452,'&self',['S','Z'],depth(8))
+              <--(42,retval(['S','Z']))
+                    <--(29,retval('Z'))
+                  <--(20,retval(['S','Z']))
+                  <--(15,retval('False'))
+              <--(14,retval(['S','Z']))
+              -->(44,eval('&self',[fromNumber,[-,2,1]],RET),depth(5))
+                  -->(45,eval('&self',[<=,[-,2,1],0],RET),depth(7))
+                      -->(46,eval('&self',[<,[-,2,1],0],RET),depth(9))
+                      <--(46,retval('False'))
+                      -->(48,eval('&self',[==,[-,2,1],0],RET),depth(9))
+                      <--(48,retval('False'))
+                  -->(50,eval('&self',['S',[fromNumber,[-,[-,2,1],1]]],RET),depth(7))
+                    -->(51,eval('&self',[fromNumber,[-,[-,2,1],1]],RET),depth(8))
+                    <--(51,retval('Z'))
+                    -->(59,eval('&self',[fromNumber,[-,[-,2,1],1]],RET),depth(8))
+                          67-->subst_args(_28366,_28368,'&self',['S','Z'],depth(11))
+                        68-->subst_args(_28960,_28962,'&self',['S','Z'],depth(10))
+                        69-->subst_args(_29722,_29724,'&self',['S','Z'],depth(10))
+                      70-->subst_args(_30316,_30318,'&self',['S','Z'],depth(9))
+                    71-->subst_args(_30910,_30912,'&self',['S','Z'],depth(8))
+                -->(72,eval('&self',['S','Z'],RET),depth(6))
+                      73-->subst_args(_32444,_32446,'&self',['S','Z'],depth(9))
+                <--(72,retval(['S','Z']))
+                -->(74,eval('&self',['S','Z'],RET),depth(6))
+                      75-->subst_args(_33934,_33936,'&self',['S','Z'],depth(9))
+                <--(74,retval(['S','Z']))
+                -->(76,eval('&self',['S','Z'],RET),depth(6))
+                      77-->subst_args(_35370,_35372,'&self',['S','Z'],depth(9))
+                <--(76,retval(['S','Z']))
+                    78-->subst_args(_36024,_36026,'&self',['S',['S','Z']],depth(8))
+                        79-->subst_args(_36468,_36470,'&self',['S','Z'],depth(10))
+                        80-->subst_args(_37072,_37074,'&self',['S','Z'],depth(10))
+                  81-->subst_args(_37702,_37704,'&self',['S',['S','Z']],depth(7))
+                      82-->subst_args(_38146,_38148,'&self',['S','Z'],depth(9))
+                      83-->subst_args(_38750,_38752,'&self',['S','Z'],depth(9))
+              -->(84,eval('&self',['S','Z'],RET),depth(5))
+                    85-->subst_args(_40332,_40334,'&self',['S','Z'],depth(8))
+              <--(84,retval(['S','Z']))
+              -->(86,eval('&self',['S','Z'],RET),depth(5))
+                    87-->subst_args(_41822,_41824,'&self',['S','Z'],depth(8))
+              <--(86,retval(['S','Z']))
+              -->(88,eval('&self',['S','Z'],RET),depth(5))
+                    89-->subst_args(_43258,_43260,'&self',['S','Z'],depth(8))
+              <--(88,retval(['S','Z']))
+                  90-->subst_args(_43912,_43914,'&self',['S',['S','Z']],depth(7))
+                      91-->subst_args(_44356,_44358,'&self',['S','Z'],depth(9))
+                      92-->subst_args(_44960,_44962,'&self',['S','Z'],depth(9))
+                93-->subst_args(_45590,_45592,'&self',['S',['S','Z']],depth(6))
+                    94-->subst_args(_46034,_46036,'&self',['S','Z'],depth(8))
+                    95-->subst_args(_46638,_46640,'&self',['S','Z'],depth(8))
+              96-->subst_args(_47268,_47270,'&self',['S',['S','Z']],depth(5))
+                  97-->subst_args(_47712,_47714,'&self',['S','Z'],depth(7))
+                  98-->subst_args(_48316,_48318,'&self',['S','Z'],depth(7))
+            -->(99,eval('&self',[synthesize,['Cons',f,['Cons',g,'Nil']],['S','Z']],RET),depth(4))
+                -->(100,eval('&self',['synthesize=',['Cons',f,['Cons',g,'Nil']],['S','Z'],['Cons',f,['Cons',g,'Nil']]],RET),depth(6))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                <--(100,retval(['synthesize=',['Cons',f,['Cons',g,'Nil']],['S','Z'],['Cons',f,['Cons',g,'Nil']]]))
+(synthesize= 
+  (Cons f 
+    (Cons g Nil)) 
+  (S Z) 
+  (Cons f 
+    (Cons g Nil)))
+(info 
+  (variables 
+    (prgs 
+      (Cons f 
+        (Cons g Nil))) 
+    (cmbs 
+      (Cons 
+        (. f f) 
+        (Cons 
+          (. f g) 
+          (Cons 
+            (. g f) 
+            (Cons 
+              (. g g) Nil)))))) 
+  (synthesize= 
+    (Cons f 
+      (Cons g Nil)) 
+    (S 
+      (S Z)) 
+    (Cons 
+      (. f f) 
+      (Cons 
+        (. f g) 
+        (Cons 
+          (. g f) 
+          (Cons 
+            (. g g) Nil))))))
+            <--(99,retval(['Cons',f,['Cons',g,'Nil']]))
+                    <--(59,retval('Z'))
+                  <--(50,retval(['S','Z']))
+                  <--(45,retval('False'))
+              <--(44,retval(['S','Z']))
+            <--(13,retval(['S',['S','Z']]))
+            <--(10,retval('False'))
+        <--(9,retval(['S',['S','Z']]))
+        <--(2,retval(['Cons',f,['Cons',g,'Nil']]))
+      <--(1,retval(['Cons',['.',f,f],['Cons',['.',f,g],['Cons',['.',g,f],['Cons',['.',g,g],'Nil']]]]))
 ; 
 ; EVAL TEST
-; took 0.736 secs. (736.08 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))) (Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil))))) ((Cons (. f f) (Cons (. f g) (Cons (. g f) (Cons (. g g) Nil)))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.118 secs. (118.17 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 
+        (. f f) 
+        (Cons 
+          (. f g) 
+          (Cons 
+            (. g f) 
+            (Cons 
+              (. g g) Nil))))) 
+    ( (Cons 
+        (. f f) 
+        (Cons 
+          (. f g) 
+          (Cons 
+            (. g f) 
+            (Cons 
+              (. g g) Nil)))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 4,362,017 inferences, 2.064 CPU in 2.064 seconds (100% CPU, 2113616 Lips)
+</span><span class="ansi32">% 1,546,828 inferences, 1.267 CPU in 1.267 seconds (100% CPU, 1221163 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 14
+<span class="ansi32">Successes: 13
 </span><span class="ansi32">Failures: 0
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/synthesize-via-type-checking.metta.html" )

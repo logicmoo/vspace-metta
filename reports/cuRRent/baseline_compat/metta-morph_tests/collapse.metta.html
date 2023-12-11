@@ -23,6 +23,7 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/collapse.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/collapse.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/collapse.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/collapse.metta')
 1=[((1 2 3))]
@@ -33,33 +34,42 @@
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/collapse.metta', 1, [[[1, 2, 3]]]).
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(collapse (1 2 3))
+</span><span class="ansi1 ansi38-255238088">!(collapse 
+  (1 2 3))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (collapse (1 2 3)) (((1 2 3))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (collapse 
+    (1 2 3)) 
+  ( ( (1 2 3))))
 
 </span><span class="ansi38-250144246">; !(collapse (1 2 3))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[collapse,[1,2,3]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[collapse,[1,2,3]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[collapse,[1,2,3]],[[[1,2,3]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[collapse,[1,2,3]],[[[1,2,3]]]],RET),depth(0))
 <h3 id="METTA-MORPH-TESTS.COLLAPSE.01">;; METTA-MORPH-TESTS.COLLAPSE.01</h3>
-          -->(1,eval('&self',[collapse,[1,2,3]],RET),depth(3))
-              -->(2,eval('&self',[1,2,3],RET),depth(5))
-                  -->(3,eval('&self',1,RET),depth(7))
-                  -->(4,eval('&self',2,RET),depth(7))
-                  -->(5,eval('&self',3,RET),depth(7))
-                -->(6,eval('&self',[1,2,3],RET),depth(6))
-                    -->(7,eval('&self',1,RET),depth(8))
-                    -->(8,eval('&self',2,RET),depth(8))
-                    -->(9,eval('&self',3,RET),depth(8))
-          <--(1,retval([[1,2,3]]))
+      -->(1,eval('&self',[collapse,[1,2,3]],RET),depth(1))
+        -->(2,eval('&self',[1,2,3],RET),depth(2))
+              3-->subst_args(_23610,_23612,'&self',[1,2,3],depth(5))
+        <--(2,retval([1,2,3]))
+          -->(4,eval('&self',[1,2,3],RET),depth(3))
+                5-->subst_args(_24986,_24988,'&self',[1,2,3],depth(6))
+          <--(4,retval([1,2,3]))
+              6-->subst_args(_25558,_25560,'&self',[[1,2,3]],depth(5))
+                  7-->subst_args(_25998,_26000,'&self',[1,2,3],depth(7))
+            8-->subst_args(_26540,_26542,'&self',[[1,2,3]],depth(4))
+                9-->subst_args(_26980,_26982,'&self',[1,2,3],depth(6))
+      <--(1,retval([[1,2,3]]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.15 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (((1 2 3))) (((1 2 3)))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.11 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( ( (1 2 3))) 
+    ( ( (1 2 3)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 231,975 inferences, 0.086 CPU in 0.086 seconds (100% CPU, 2687515 Lips)
+</span><span class="ansi32">% 28,172 inferences, 0.013 CPU in 0.013 seconds (100% CPU, 2176822 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/collapse.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

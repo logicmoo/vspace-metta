@@ -57,6 +57,7 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b1_equal_chain.metta")
+%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b1_equal_chain.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b1_equal_chain.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b1_equal_chain.metta')
 1=[()]
@@ -86,21 +87,27 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; until the match is empty (when the equality match is
 ;; empty, the expression is evaluated to itself).
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['I',X],X])
-</span><span class="ansi38-255165000">(= (I $X) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['I',X],X])
+</span><span class="ansi38-255165000">(= 
+  (I $X) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[['K',X],Y],X])
-</span><span class="ansi38-255165000">(= ((K $X) $Y) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[['K',X],Y],X])
+</span><span class="ansi38-255165000">(= 
+  ( (K $X) $Y) $X)
 </span>
 
 ;; Note that `(K $x)` is allowed here
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['K',X,Y],X])
-</span><span class="ansi38-255165000">(= (K $X $Y) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['K',X,Y],X])
+</span><span class="ansi38-255165000">(= 
+  (K $X $Y) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['S',X,Y,Z],[X,Z,[Y,Z]]])
-</span><span class="ansi38-255165000">(= (S $X $Y $Z) ($X $Z ($Y $Z)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['S',X,Y,Z],[X,Z,[Y,Z]]])
+</span><span class="ansi38-255165000">(= 
+  (S $X $Y $Z) 
+  ($X $Z 
+    ($Y $Z)))
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -109,24 +116,24 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; of two expressions (both expressions can have empty
 ;; sets of results, so `assertEqualToResult` is safer)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (S K K x) x)
+<span class="ansi38-013099040">!(assertEqual 
+  (S K K x) x)
 
 </span><span class="ansi38-250144246">; !(S K K x)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['S','K','K',x],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['S','K','K',x],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['S','K','K',x],x],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['S','K','K',x],x],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.01</h3>
-          -->(1,eval('&self',['S','K','K',x],RET),depth(3))
-                -->(2,eval('&self',x,RET),depth(6))
-              -->(3,eval('&self',x,RET),depth(5))
-          <--(1,retval(x))
-        -->(4,eval('&self',x,RET),depth(2))
+      -->(1,eval('&self',['S','K','K',x],RET),depth(1))
+      <--(1,retval(x))
 ; 
 ; EVAL TEST
-; took 0.000377 secs. (377.30 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (x) (x)))
-</span>          -->(5,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000244 secs. (243.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (x) 
+    (x)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -134,63 +141,89 @@ Deterministic: <span class="ansi33">Empty
 ;; Here, we use `assertEqualToResult` to make sure
 ;; that the expression is evaluated to itself
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqualToResult (expression without known equalities) ((expression without known equalities)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (expression without known equalities) 
+  ( (expression without known equalities)))
 
 </span><span class="ansi38-250144246">; !(expression without known equalities)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[expression,without,known,equalities],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[expression,without,known,equalities],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[expression,without,known,equalities],[[expression,without,known,equalities]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[expression,without,known,equalities],[[expression,without,known,equalities]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.02</h3>
-          -->(1,eval('&self',[expression,without,known,equalities],RET),depth(3))
-            -->(2,eval('&self',without,RET),depth(4))
-            -->(3,eval('&self',known,RET),depth(4))
-            -->(4,eval('&self',equalities,RET),depth(4))
-            -->(5,eval('&self',expression,RET),depth(4))
-            -->(6,eval('&self',without,RET),depth(4))
-            -->(7,eval('&self',known,RET),depth(4))
-            -->(8,eval('&self',equalities,RET),depth(4))
-              -->(9,eval('&self',expression,RET),depth(5))
+      -->(1,eval('&self',[expression,without,known,equalities],RET),depth(1))
+            2-->subst_args(_5422,_5424,'&self',[expression,without,known,equalities],depth(4))
+      <--(1,retval([expression,without,known,equalities]))
 ; 
 ; EVAL TEST
-; took 0.000812 secs. (811.70 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((expression without known equalities)) ((expression without known equalities))))
-</span>      <--(0,retval('Empty'))
+; took 0.000462 secs. (461.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (expression without known equalities)) 
+    ( (expression without known equalities))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Another example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Add',X,'Z'],X])
-</span><span class="ansi38-255165000">(= (Add $X Z) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Add',X,'Z'],X])
+</span><span class="ansi38-255165000">(= 
+  (Add $X Z) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Add',X,['S',Y]],['Add',['S',X],Y]])
-</span><span class="ansi38-255165000">(= (Add $X (S $Y)) (Add (S $X) $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Add',X,['S',Y]],['Add',['S',X],Y]])
+</span><span class="ansi38-255165000">(= 
+  (Add $X 
+    (S $Y)) 
+  (Add 
+    (S $X) $Y))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (Add (S Z) (S Z)) (S (S Z)))
+<span class="ansi38-013099040">!(assertEqual 
+  (Add 
+    (S Z) 
+    (S Z)) 
+  (S 
+    (S Z)))
 
 </span><span class="ansi38-250144246">; !(Add (S Z) (S Z))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Add',['S','Z'],['S','Z']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['Add',['S','Z'],['S','Z']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['Add',['S','Z'],['S','Z']],['S',['S','Z']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['Add',['S','Z'],['S','Z']],['S',['S','Z']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.03</h3>
-          -->(1,eval('&self',['Add',['S','Z'],['S','Z']],RET),depth(3))
-                  -->(2,eval('&self',['S','Z'],RET),depth(7))
-                    -->(3,eval('&self','S',RET),depth(8))
-                    -->(4,eval('&self','Z',RET),depth(8))
-                      -->(5,eval('&self','S',RET),depth(9))
-                      -->(6,eval('&self','Z',RET),depth(9))
-                -->(7,eval('&self','S',RET),depth(6))
-                  -->(8,eval('&self',['S','Z'],RET),depth(7))
-                    -->(9,eval('&self','S',RET),depth(8))
-          <--(1,retval(['S',['S','Z']]))
+      -->(1,eval('&self',['Add',['S','Z'],['S','Z']],RET),depth(1))
+            -->(2,eval('&self',['S','Z'],RET),depth(4))
+                  3-->subst_args(_15054,_15056,'&self',['S','Z'],depth(7))
+            <--(2,retval(['S','Z']))
+                4-->subst_args(_15708,_15710,'&self',['S',['S','Z']],depth(6))
+                    5-->subst_args(_16290,_16292,'&self',['S','Z'],depth(8))
+                    6-->subst_args(_16894,_16896,'&self',['S','Z'],depth(8))
+              7-->subst_args(_17524,_17526,'&self',['S',['S','Z']],depth(5))
+                  8-->subst_args(_18106,_18108,'&self',['S','Z'],depth(7))
+                  9-->subst_args(_18710,_18712,'&self',['S','Z'],depth(7))
+            10-->subst_args(_19340,_19342,'&self',['S',['S','Z']],depth(4))
+                11-->subst_args(_19922,_19924,'&self',['S','Z'],depth(6))
+                12-->subst_args(_20526,_20528,'&self',['S','Z'],depth(6))
+      <--(1,retval(['S',['S','Z']]))
+      -->(13,eval('&self',['S',['S','Z']],RET),depth(1))
+        -->(14,eval('&self',['S','Z'],RET),depth(2))
+              15-->subst_args(_22714,_22716,'&self',['S','Z'],depth(5))
+        <--(14,retval(['S','Z']))
+            16-->subst_args(_23368,_23370,'&self',['S',['S','Z']],depth(4))
+                17-->subst_args(_23950,_23952,'&self',['S','Z'],depth(6))
+                18-->subst_args(_24554,_24556,'&self',['S','Z'],depth(6))
+      <--(13,retval(['S',['S','Z']]))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.38 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((S (S Z))) ((S (S Z)))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (2.32 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (S 
+        (S Z))) 
+    ( (S 
+        (S Z)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -198,28 +231,118 @@ Deterministic: <span class="ansi33">Empty
 ;; In the current implementation, child expressions
 ;; are reduced
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (Something? (Add (S Z) (S Z))) (Something? (S (S Z))))
+<span class="ansi38-013099040">!(assertEqual 
+  (Something? 
+    (Add 
+      (S Z) 
+      (S Z))) 
+  (Something? 
+    (S 
+      (S Z))))
 
 </span><span class="ansi38-250144246">; !(Something? (Add (S Z) (S Z)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Something?',['Add',['S','Z'],['S','Z']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['Something?',['Add',['S','Z'],['S','Z']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['Something?',['Add',['S','Z'],['S','Z']]],['Something?',['S',['S','Z']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['Something?',['Add',['S','Z'],['S','Z']]],['Something?',['S',['S','Z']]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.04</h3>
-          -->(1,eval('&self',['Something?',['Add',['S','Z'],['S','Z']]],RET),depth(3))
-              -->(2,eval('&self',['Add',['S','Z'],['S','Z']],RET),depth(5))
-                      -->(3,eval('&self',['S','Z'],RET),depth(9))
-                        -->(4,eval('&self','S',RET),depth(10))
-                        -->(5,eval('&self','Z',RET),depth(10))
-                          -->(6,eval('&self','S',RET),depth(11))
-                          -->(7,eval('&self','Z',RET),depth(11))
-                    -->(8,eval('&self','S',RET),depth(8))
-                      -->(9,eval('&self',['S','Z'],RET),depth(9))
-              <--(2,retval(['S',['S','Z']]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',['Something?',['Add',['S','Z'],['S','Z']]],RET),depth(1))
+        -->(2,eval('&self',['Add',['S','Z'],['S','Z']],RET),depth(2))
+              -->(3,eval('&self',['S','Z'],RET),depth(5))
+                    4-->subst_args(_30478,_30480,'&self',['S','Z'],depth(8))
+              <--(3,retval(['S','Z']))
+                  5-->subst_args(_31132,_31134,'&self',['S',['S','Z']],depth(7))
+                      6-->subst_args(_31714,_31716,'&self',['S','Z'],depth(9))
+                      7-->subst_args(_32318,_32320,'&self',['S','Z'],depth(9))
+                8-->subst_args(_4398,_4400,'&self',['S',['S','Z']],depth(6))
+                    9-->subst_args(_4980,_4982,'&self',['S','Z'],depth(8))
+                    10-->subst_args(_5584,_5586,'&self',['S','Z'],depth(8))
+              11-->subst_args(_6214,_6216,'&self',['S',['S','Z']],depth(5))
+                  12-->subst_args(_6796,_6798,'&self',['S','Z'],depth(7))
+                  13-->subst_args(_7400,_7402,'&self',['S','Z'],depth(7))
+        <--(2,retval(['S',['S','Z']]))
+        -->(14,eval('&self',['Add',['S','Z'],['S','Z']],RET),depth(2))
+              -->(15,eval('&self',['S','Z'],RET),depth(5))
+                    16-->subst_args(_9836,_9838,'&self',['S','Z'],depth(8))
+              <--(15,retval(['S','Z']))
+                  17-->subst_args(_10490,_10492,'&self',['S',['S','Z']],depth(7))
+                      18-->subst_args(_11072,_11074,'&self',['S','Z'],depth(9))
+                      19-->subst_args(_11676,_11678,'&self',['S','Z'],depth(9))
+                20-->subst_args(_12306,_12308,'&self',['S',['S','Z']],depth(6))
+                    21-->subst_args(_12888,_12890,'&self',['S','Z'],depth(8))
+                    22-->subst_args(_13492,_13494,'&self',['S','Z'],depth(8))
+              23-->subst_args(_14122,_14124,'&self',['S',['S','Z']],depth(5))
+                  24-->subst_args(_14704,_14706,'&self',['S','Z'],depth(7))
+                  25-->subst_args(_15308,_15310,'&self',['S','Z'],depth(7))
+          -->(26,eval('&self',['S',['S','Z']],RET),depth(3))
+            -->(27,eval('&self',['S','Z'],RET),depth(4))
+                  28-->subst_args(_17576,_17578,'&self',['S','Z'],depth(7))
+            <--(27,retval(['S','Z']))
+                29-->subst_args(_18230,_18232,'&self',['S',['S','Z']],depth(6))
+                    30-->subst_args(_18812,_18814,'&self',['S','Z'],depth(8))
+                    31-->subst_args(_19416,_19418,'&self',['S','Z'],depth(8))
+          <--(26,retval(['S',['S','Z']]))
+          -->(32,eval('&self',['S',['S','Z']],RET),depth(3))
+            -->(33,eval('&self',['S','Z'],RET),depth(4))
+                  34-->subst_args(_21586,_21588,'&self',['S','Z'],depth(7))
+            <--(33,retval(['S','Z']))
+                35-->subst_args(_22240,_22242,'&self',['S',['S','Z']],depth(6))
+                    36-->subst_args(_22822,_22824,'&self',['S','Z'],depth(8))
+                    37-->subst_args(_23426,_23428,'&self',['S','Z'],depth(8))
+          <--(32,retval(['S',['S','Z']]))
+              38-->subst_args(_24128,_24130,'&self',['Something?',['S',['S','Z']]],depth(5))
+                  39-->subst_args(_24572,_24574,'&self',['S',['S','Z']],depth(7))
+                      40-->subst_args(_25154,_25156,'&self',['S','Z'],depth(9))
+                      41-->subst_args(_25758,_25760,'&self',['S','Z'],depth(9))
+                  42-->subst_args(_26398,_26400,'&self',['S',['S','Z']],depth(7))
+                      43-->subst_args(_26980,_26982,'&self',['S','Z'],depth(9))
+                      44-->subst_args(_27584,_27586,'&self',['S','Z'],depth(9))
+            45-->subst_args(_28262,_28264,'&self',['Something?',['S',['S','Z']]],depth(4))
+                46-->subst_args(_28706,_28708,'&self',['S',['S','Z']],depth(6))
+                    47-->subst_args(_29288,_29290,'&self',['S','Z'],depth(8))
+                    48-->subst_args(_29892,_29894,'&self',['S','Z'],depth(8))
+                49-->subst_args(_30532,_30534,'&self',['S',['S','Z']],depth(6))
+                    50-->subst_args(_31114,_31116,'&self',['S','Z'],depth(8))
+                    51-->subst_args(_31718,_31720,'&self',['S','Z'],depth(8))
+        <--(14,retval(['S',['S','Z']]))
+      <--(1,retval(['Something?',['S',['S','Z']]]))
+      -->(52,eval('&self',['Something?',['S',['S','Z']]],RET),depth(1))
+        -->(53,eval('&self',['S',['S','Z']],RET),depth(2))
+          -->(54,eval('&self',['S','Z'],RET),depth(3))
+                55-->subst_args(_6088,_6090,'&self',['S','Z'],depth(6))
+          <--(54,retval(['S','Z']))
+              56-->subst_args(_6742,_6744,'&self',['S',['S','Z']],depth(5))
+                  57-->subst_args(_7324,_7326,'&self',['S','Z'],depth(7))
+                  58-->subst_args(_7928,_7930,'&self',['S','Z'],depth(7))
+        <--(53,retval(['S',['S','Z']]))
+        -->(59,eval('&self',['S',['S','Z']],RET),depth(2))
+          -->(60,eval('&self',['S','Z'],RET),depth(3))
+                61-->subst_args(_10098,_10100,'&self',['S','Z'],depth(6))
+          <--(60,retval(['S','Z']))
+              62-->subst_args(_10752,_10754,'&self',['S',['S','Z']],depth(5))
+                  63-->subst_args(_11334,_11336,'&self',['S','Z'],depth(7))
+                  64-->subst_args(_11938,_11940,'&self',['S','Z'],depth(7))
+        <--(59,retval(['S',['S','Z']]))
+            65-->subst_args(_12640,_12642,'&self',['Something?',['S',['S','Z']]],depth(4))
+                66-->subst_args(_13084,_13086,'&self',['S',['S','Z']],depth(6))
+                    67-->subst_args(_13666,_13668,'&self',['S','Z'],depth(8))
+                    68-->subst_args(_14270,_14272,'&self',['S','Z'],depth(8))
+                69-->subst_args(_14910,_14912,'&self',['S',['S','Z']],depth(6))
+                    70-->subst_args(_15492,_15494,'&self',['S','Z'],depth(8))
+                    71-->subst_args(_16096,_16098,'&self',['S','Z'],depth(8))
+      <--(52,retval(['Something?',['S',['S','Z']]]))
+; 
 ; EVAL TEST
-; took 0.006 secs. (5.73 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Something? (S (S Z)))) ((Something? (S (S Z))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.009 secs. (9.45 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Something? 
+        (S 
+          (S Z)))) 
+    ( (Something? 
+        (S 
+          (S Z))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -227,56 +350,57 @@ Switched off tracing. For a longer trace !(pragma! tracelen 101));
 ;; side of expressions, and that the "function" doesn't need to
 ;; cover all possible inputs (i.e. it can be "non-total")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[eq,X,X],'T'])
-</span><span class="ansi38-255165000">(= (eq $X $X) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[eq,X,X],'T'])
+</span><span class="ansi38-255165000">(= 
+  (eq $X $X) T)
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (eq (S K K x) x) T)
+<span class="ansi38-013099040">!(assertEqual 
+  (eq 
+    (S K K x) x) T)
 
 </span><span class="ansi38-250144246">; !(eq (S K K x) x)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[eq,['S','K','K',x],x],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[eq,['S','K','K',x],x],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[eq,['S','K','K',x],x],'T'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[eq,['S','K','K',x],x],'T'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.05</h3>
-          -->(1,eval('&self',[eq,['S','K','K',x],x],RET),depth(3))
-              -->(2,eval('&self',['S','K','K',x],RET),depth(5))
-                    -->(3,eval('&self',x,RET),depth(8))
-                  -->(4,eval('&self',x,RET),depth(7))
-              -->(5,eval('&self','T',RET),depth(5))
-              <--(2,retval(x))
-          <--(1,retval('T'))
-        -->(6,eval('&self','T',RET),depth(2))
+      -->(1,eval('&self',[eq,['S','K','K',x],x],RET),depth(1))
+        -->(2,eval('&self',['S','K','K',x],RET),depth(2))
+        <--(2,retval(x))
+      <--(1,retval('T'))
 ; 
 ; EVAL TEST
-; took 0.000736 secs. (736.30 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (T) (T)))
-</span>          -->(7,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000370 secs. (370.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (T) 
+    (T)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (eq Green Blue) ((eq Green Blue)))
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (eq Green Blue) 
+  ( (eq Green Blue)))
 
 </span><span class="ansi38-250144246">; !(eq Green Blue)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[eq,'Green','Blue'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[eq,'Green','Blue'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[eq,'Green','Blue'],[[eq,'Green','Blue']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[eq,'Green','Blue'],[[eq,'Green','Blue']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.B1-EQUAL-CHAIN.06</h3>
-          -->(1,eval('&self',[eq,'Green','Blue'],RET),depth(3))
-            -->(2,eval('&self',eq,RET),depth(4))
-            -->(3,eval('&self','Green',RET),depth(4))
-            -->(4,eval('&self','Blue',RET),depth(4))
-              -->(5,eval('&self',eq,RET),depth(5))
-              -->(6,eval('&self','Green',RET),depth(5))
-              -->(7,eval('&self','Blue',RET),depth(5))
+      -->(1,eval('&self',[eq,'Green','Blue'],RET),depth(1))
+            2-->subst_args(_15150,_15152,'&self',[eq,'Green','Blue'],depth(4))
+      <--(1,retval([eq,'Green','Blue']))
 ; 
 ; EVAL TEST
-; took 0.000474 secs. (474.10 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((eq Green Blue)) ((eq Green Blue))))
-</span>          -->(8,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000266 secs. (265.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (eq Green Blue)) 
+    ( (eq Green Blue))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 391,971 inferences, 0.239 CPU in 0.239 seconds (100% CPU, 1637713 Lips)
+</span><span class="ansi32">% 186,102 inferences, 0.172 CPU in 0.172 seconds (100% CPU, 1081697 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b1_equal_chain.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

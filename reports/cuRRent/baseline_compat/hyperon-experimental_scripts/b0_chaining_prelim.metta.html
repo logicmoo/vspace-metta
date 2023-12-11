@@ -76,153 +76,263 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; Some knowledge base entries
 ;; `:=` is a custom symbol
 ;; Combinatory logic rules
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['I',X],X])
-</span><span class="ansi38-255165000">(:= (I $X) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['I',X],X])
+</span><span class="ansi38-255165000">(:= 
+  (I $X) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,[['K',X],Y],X])
-</span><span class="ansi38-255165000">(:= ((K $X) $Y) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,[['K',X],Y],X])
+</span><span class="ansi38-255165000">(:= 
+  ( (K $X) $Y) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['K',X,Y],X])
-</span><span class="ansi38-255165000">(:= (K $X $Y) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['K',X,Y],X])
+</span><span class="ansi38-255165000">(:= 
+  (K $X $Y) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['S',X,Y,Z],[X,Z,[Y,Z]]])
-</span><span class="ansi38-255165000">(:= (S $X $Y $Z) ($X $Z ($Y $Z)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['S',X,Y,Z],[X,Z,[Y,Z]]])
+</span><span class="ansi38-255165000">(:= 
+  (S $X $Y $Z) 
+  ($X $Z 
+    ($Y $Z)))
 </span>
 
 ;; A single matching step
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (S K K x) $R) $R) ((K x (K x))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (S K K x) $R) $R) 
+  ( (K x 
+      (K x))))
 
 </span><span class="ansi38-250144246">; !(match &self (:= (S K K x) $R) $R)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['S','K','K',x],R],R],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['S','K','K',x],R],R],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_507884],_507884],[['K',x,['K',x]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_2130],_2130],[['K',x,['K',x]]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.01</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['S','K','K',x],_507884],_507884],RET),depth(3))
-              -->(2,eval('&self',['K',x,['K',x]],RET),depth(5))
-                -->(3,eval('&self',x,RET),depth(6))
-                  -->(4,eval('&self',['K',x],RET),depth(7))
-                    -->(5,eval('&self',x,RET),depth(8))
-                    -->(6,eval('&self','K',RET),depth(8))
-                    -->(7,eval('&self',x,RET),depth(8))
-                      -->(8,eval('&self','K',RET),depth(9))
-                      -->(9,eval('&self',x,RET),depth(9))
-          <--(1,retval(['K',x,['K',x]]))
+      -->(1,eval('&self',[match,'&self',[:=,['S','K','K',x],_2130],_2130],RET),depth(1))
+          -->(2,eval('&self',['K',x],RET),depth(3))
+                3-->subst_args(_8964,_8966,'&self',['K',x],depth(6))
+          <--(2,retval(['K',x]))
+          -->(4,eval('&self',['K',x],RET),depth(3))
+                5-->subst_args(_10460,_10462,'&self',['K',x],depth(6))
+          <--(4,retval(['K',x]))
+          -->(6,eval('&self',['K',x],RET),depth(3))
+                7-->subst_args(_11946,_11948,'&self',['K',x],depth(6))
+          <--(6,retval(['K',x]))
+              8-->subst_args(_12600,_12602,'&self',['K',x,['K',x]],depth(5))
+                  9-->subst_args(_13094,_13096,'&self',['K',x],depth(7))
+                  10-->subst_args(_13748,_13750,'&self',['K',x],depth(7))
+            11-->subst_args(_14384,_14386,'&self',['K',x,['K',x]],depth(4))
+                12-->subst_args(_14878,_14880,'&self',['K',x],depth(6))
+                13-->subst_args(_15532,_15534,'&self',['K',x],depth(6))
+      <--(1,retval(['K',x,['K',x]]))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (4.05 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((K x (K x))) ((K x (K x)))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (1.95 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (K x 
+        (K x))) 
+    ( (K x 
+        (K x)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; A second matching step; the result of the previous
 ;; step is manually used as input for the next query
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (K x (K x)) $R) $R) (x))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (K x 
+        (K x)) $R) $R) 
+  (x))
 
 </span><span class="ansi38-250144246">; !(match &self (:= (K x (K x)) $R) $R)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['K',x,['K',x]],R],R],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['K',x,['K',x]],R],R],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_62174],_62174],[x]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['K',x,['K',x]],_11584],_11584],[x]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.02</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['K',x,['K',x]],_62174],_62174],RET),depth(3))
-            -->(2,eval('&self',x,RET),depth(4))
-              -->(3,eval('&self',x,RET),depth(5))
-          <--(1,retval(x))
+      -->(1,eval('&self',[match,'&self',[:=,['K',x,['K',x]],_11584],_11584],RET),depth(1))
+      <--(1,retval(x))
 ; 
 ; EVAL TEST
-; took 0.000288 secs. (288.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (x) (x)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000180 secs. (180.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (x) 
+    (x)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Combined reduction via matching in two steps
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2)) (x))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (S K K x) $R) 
+    (match &self 
+      (:= $R $R2) $R2)) 
+  (x))
 
 </span><span class="ansi38-250144246">; !(match &self (:= (S K K x) $R) (match &self (:= $R $R2) $R2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['S','K','K',x],R],[match,'&self',[:=,R,R2],R2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['S','K','K',x],R],[match,'&self',[:=,R,R2],R2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_96394],[match,'&self',[:=,_96394,_96998],_96998]],[x]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['S','K','K',x],_18296],[match,'&self',[:=,_18296,_18900],_18900]],[x]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.03</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['S','K','K',x],_96394],[match,'&self',[:=,_96394,_96998],_96998]],RET),depth(3))
-              -->(2,eval('&self',[match,'&self',[:=,['K',x,['K',x]],_96998],_96998],RET),depth(5))
-                -->(3,eval('&self',x,RET),depth(6))
-                  -->(4,eval('&self',x,RET),depth(7))
-              -->(5,eval('&self',x,RET),depth(5))
-              <--(2,retval(x))
-          <--(1,retval(x))
+      -->(1,eval('&self',[match,'&self',[:=,['S','K','K',x],_18296],[match,'&self',[:=,_18296,_18900],_18900]],RET),depth(1))
+      <--(1,retval(x))
 ; 
 ; EVAL TEST
-; took 0.000728 secs. (727.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (x) (x)))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000281 secs. (281.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (x) 
+    (x)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Another example (Peano summation)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Add',X,'Z'],X])
-</span><span class="ansi38-255165000">(:= (Add $X Z) $X)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['Add',X,'Z'],X])
+</span><span class="ansi38-255165000">(:= 
+  (Add $X Z) $X)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Add',X,['S',Y]],['Add',['S',X],Y]])
-</span><span class="ansi38-255165000">(:= (Add $X (S $Y)) (Add (S $X) $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['Add',X,['S',Y]],['Add',['S',X],Y]])
+</span><span class="ansi38-255165000">(:= 
+  (Add $X 
+    (S $Y)) 
+  (Add 
+    (S $X) $Y))
 </span>
 
 ;; First step
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) $R) ((Add (S (S Z)) Z)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Add 
+        (S Z) 
+        (S Z)) $R) $R) 
+  ( (Add 
+      (S 
+        (S Z)) Z)))
 
 </span><span class="ansi38-250144246">; !(match &self (:= (Add (S Z) (S Z)) $R) $R)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],R],R],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],R],R],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_151200],_151200],[['Add',['S',['S','Z']],'Z']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_19250],_19250],[['Add',['S',['S','Z']],'Z']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.04</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_151200],_151200],RET),depth(3))
-              -->(2,eval('&self',['Add',['S',['S','Z']],'Z'],RET),depth(5))
-                  -->(3,eval('&self',['S',['S','Z']],RET),depth(7))
-                      -->(4,eval('&self',['S','Z'],RET),depth(9))
-                        -->(5,eval('&self','Z',RET),depth(10))
-                        -->(6,eval('&self','S',RET),depth(10))
-                        -->(7,eval('&self','Z',RET),depth(10))
-                          -->(8,eval('&self','S',RET),depth(11))
-                          -->(9,eval('&self','Z',RET),depth(11))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
-; EVAL TEST
-; took 0.007 secs. (6.77 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Add (S (S Z)) Z)) ((Add (S (S Z)) Z))))
-</span>Deterministic: <span class="ansi33">Empty
-
-</span>;; Two steps together
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2)) ((S (S Z))))
-
-</span><span class="ansi38-250144246">; !(match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],R],[match,'&self',[:=,R,R2],R2]],OUT).
-
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_251476],[match,'&self',[:=,_251476,_252080],_252080]],[['S',['S','Z']]]],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_251476],[match,'&self',[:=,_251476,_252080],_252080]],RET),depth(3))
-              -->(2,eval('&self',[match,'&self',[:=,['Add',['S',['S','Z']],'Z'],_252080],_252080],RET),depth(5))
-                  -->(3,eval('&self',['S',['S','Z']],RET),depth(7))
-                      -->(4,eval('&self',['S','Z'],RET),depth(9))
-                        -->(5,eval('&self','Z',RET),depth(10))
-                        -->(6,eval('&self','S',RET),depth(10))
-                        -->(7,eval('&self','Z',RET),depth(10))
-                          -->(8,eval('&self','S',RET),depth(11))
-                          -->(9,eval('&self','Z',RET),depth(11))
-              <--(2,retval(['S',['S','Z']]))
-          <--(1,retval(['S',['S','Z']]))
+      -->(1,eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_19250],_19250],RET),depth(1))
+          -->(2,eval('&self',['S',['S','Z']],RET),depth(3))
+            -->(3,eval('&self',['S','Z'],RET),depth(4))
+                  4-->subst_args(_5928,_5930,'&self',['S','Z'],depth(7))
+            <--(3,retval(['S','Z']))
+            -->(5,eval('&self',['S','Z'],RET),depth(4))
+                  6-->subst_args(_7418,_7420,'&self',['S','Z'],depth(7))
+            <--(5,retval(['S','Z']))
+            -->(7,eval('&self',['S','Z'],RET),depth(4))
+                  8-->subst_args(_8854,_8856,'&self',['S','Z'],depth(7))
+            <--(7,retval(['S','Z']))
+                9-->subst_args(_9508,_9510,'&self',['S',['S','Z']],depth(6))
+                    10-->subst_args(_9952,_9954,'&self',['S','Z'],depth(8))
+                    11-->subst_args(_10556,_10558,'&self',['S','Z'],depth(8))
+          <--(2,retval(['S',['S','Z']]))
+          -->(12,eval('&self',['S',['S','Z']],RET),depth(3))
+            -->(13,eval('&self',['S','Z'],RET),depth(4))
+                  14-->subst_args(_12812,_12814,'&self',['S','Z'],depth(7))
+            <--(13,retval(['S','Z']))
+            -->(15,eval('&self',['S','Z'],RET),depth(4))
+                  16-->subst_args(_14302,_14304,'&self',['S','Z'],depth(7))
+            <--(15,retval(['S','Z']))
+            -->(17,eval('&self',['S','Z'],RET),depth(4))
+                  18-->subst_args(_15738,_15740,'&self',['S','Z'],depth(7))
+            <--(17,retval(['S','Z']))
+                19-->subst_args(_16392,_16394,'&self',['S',['S','Z']],depth(6))
+                    20-->subst_args(_16836,_16838,'&self',['S','Z'],depth(8))
+                    21-->subst_args(_17440,_17442,'&self',['S','Z'],depth(8))
+          <--(12,retval(['S',['S','Z']]))
+              22-->subst_args(_18192,_18194,'&self',['Add',['S',['S','Z']],'Z'],depth(5))
+                  23-->subst_args(_18636,_18638,'&self',['S',['S','Z']],depth(7))
+                      24-->subst_args(_19080,_19082,'&self',['S','Z'],depth(9))
+                      25-->subst_args(_19684,_19686,'&self',['S','Z'],depth(9))
+                  26-->subst_args(_20324,_20326,'&self',['S',['S','Z']],depth(7))
+                      27-->subst_args(_20768,_20770,'&self',['S','Z'],depth(9))
+                      28-->subst_args(_21372,_21374,'&self',['S','Z'],depth(9))
+            29-->subst_args(_22106,_22108,'&self',['Add',['S',['S','Z']],'Z'],depth(4))
+                30-->subst_args(_22550,_22552,'&self',['S',['S','Z']],depth(6))
+                    31-->subst_args(_22994,_22996,'&self',['S','Z'],depth(8))
+                    32-->subst_args(_23598,_23600,'&self',['S','Z'],depth(8))
+                33-->subst_args(_24238,_24240,'&self',['S',['S','Z']],depth(6))
+                    34-->subst_args(_24682,_24684,'&self',['S','Z'],depth(8))
+                    35-->subst_args(_25286,_25288,'&self',['S','Z'],depth(8))
+      <--(1,retval(['Add',['S',['S','Z']],'Z']))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.55 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((S (S Z))) ((S (S Z)))))
-</span>      <--(0,retval('Empty'))
+; took 0.005 secs. (4.70 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Add 
+        (S 
+          (S Z)) Z)) 
+    ( (Add 
+        (S 
+          (S Z)) Z))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 392,141 inferences, 0.168 CPU in 0.168 seconds (100% CPU, 2340816 Lips)
+</span>;; Two steps together
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Add 
+        (S Z) 
+        (S Z)) $R) 
+    (match &self 
+      (:= $R $R2) $R2)) 
+  ( (S 
+      (S Z))))
+
+</span><span class="ansi38-250144246">; !(match &self (:= (Add (S Z) (S Z)) $R) (match &self (:= $R $R2) $R2))
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],R],[match,'&self',[:=,R,R2],R2]],OUT).
+
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_18766],[match,'&self',[:=,_18766,_19370],_19370]],[['S',['S','Z']]]],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.B0-CHAINING-PRELIM.05</h3>
+      -->(1,eval('&self',[match,'&self',[:=,['Add',['S','Z'],['S','Z']],_18766],[match,'&self',[:=,_18766,_19370],_19370]],RET),depth(1))
+            -->(2,eval('&self',['S','Z'],RET),depth(4))
+                  3-->subst_args(_5730,_5732,'&self',['S','Z'],depth(7))
+            <--(2,retval(['S','Z']))
+            -->(4,eval('&self',['S','Z'],RET),depth(4))
+                  5-->subst_args(_7220,_7222,'&self',['S','Z'],depth(7))
+            <--(4,retval(['S','Z']))
+            -->(6,eval('&self',['S','Z'],RET),depth(4))
+                  7-->subst_args(_8656,_8658,'&self',['S','Z'],depth(7))
+            <--(6,retval(['S','Z']))
+                8-->subst_args(_9310,_9312,'&self',['S',['S','Z']],depth(6))
+                    9-->subst_args(_9754,_9756,'&self',['S','Z'],depth(8))
+                    10-->subst_args(_10358,_10360,'&self',['S','Z'],depth(8))
+              11-->subst_args(_10988,_10990,'&self',['S',['S','Z']],depth(5))
+                  12-->subst_args(_11432,_11434,'&self',['S','Z'],depth(7))
+                  13-->subst_args(_12036,_12038,'&self',['S','Z'],depth(7))
+            14-->subst_args(_12666,_12668,'&self',['S',['S','Z']],depth(4))
+                15-->subst_args(_13110,_13112,'&self',['S','Z'],depth(6))
+                16-->subst_args(_13714,_13716,'&self',['S','Z'],depth(6))
+      <--(1,retval(['S',['S','Z']]))
+; 
+; EVAL TEST
+; took 0.002 secs. (2.29 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (S 
+        (S Z))) 
+    ( (S 
+        (S Z)))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span><span class="ansi32">% 163,908 inferences, 0.084 CPU in 0.084 seconds (100% CPU, 1961143 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

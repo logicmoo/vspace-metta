@@ -108,137 +108,245 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Simple type definitions:
 ;; Defines the natural numbers `Nat` for counting
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nat','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nat','Type'])
 </span><span class="ansi38-255165000">(: Nat Type)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Z','Nat'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Z','Nat'])
 </span><span class="ansi38-255165000">(: Z Nat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'S',[->,'Nat','Nat']])
-</span><span class="ansi38-255165000">(: S (-> Nat Nat))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'S',[->,'Nat','Nat']])
+</span><span class="ansi38-255165000">(: S 
+  (-> Nat Nat))
 </span>
 
 ;; `Vec` takes a `$t` type and a `Nat` length.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Vec',[->,T,'Nat','Type']])
-</span><span class="ansi38-255165000">(: Vec (-> $T Nat Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Vec',[->,T,'Nat','Type']])
+</span><span class="ansi38-255165000">(: Vec 
+  (-> $T Nat Type))
 </span>
 
 ;; `Cons` and `Nil` construct `Vec` values, with `Cons` incrementing the length by 1.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,T,['Vec',T,X],['Vec',T,['S',X]]]])
-</span><span class="ansi38-255165000">(: Cons (-> $T (Vec $T $X) (Vec $T (S $X))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Cons',[->,T,['Vec',T,X],['Vec',T,['S',X]]]])
+</span><span class="ansi38-255165000">(: Cons 
+  (-> $T 
+    (Vec $T $X) 
+    (Vec $T 
+      (S $X))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nil',['Vec',T,'Z']])
-</span><span class="ansi38-255165000">(: Nil (Vec $T Z))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nil',['Vec',T,'Z']])
+</span><span class="ansi38-255165000">(: Nil 
+  (Vec $T Z))
 </span>
 
 ;; We can query the derived type
-<span class="ansi38-013099040">!(assertEqual (get-type (Cons 0 (Cons 1 Nil))) (Vec Number (S (S Z))))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (Cons 0 
+      (Cons 1 Nil))) 
+  (Vec Number 
+    (S 
+      (S Z))))
 
 </span><span class="ansi38-250144246">; !(get-type (Cons 0 (Cons 1 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['Cons',0,['Cons',1,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['Cons',0,['Cons',1,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',['Cons',0,['Cons',1,'Nil']]],['Vec','Number',['S',['S','Z']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',['Cons',0,['Cons',1,'Nil']]],['Vec','Number',['S',['S','Z']]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.01</h3>
-          -->(1,eval('&self',['get-type',['Cons',0,['Cons',1,'Nil']]],RET),depth(3))
-              -->(2,eval('&self','Number',RET),depth(5))
-                -->(3,eval('&self',['S',['S','Z']],RET),depth(6))
-                    -->(4,eval('&self',['S','Z'],RET),depth(8))
-                      -->(5,eval('&self','Z',RET),depth(9))
-                      -->(6,eval('&self','S',RET),depth(9))
-                      -->(7,eval('&self','Z',RET),depth(9))
-                        -->(8,eval('&self','S',RET),depth(10))
-                        -->(9,eval('&self','Z',RET),depth(10))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',['get-type',['Cons',0,['Cons',1,'Nil']]],RET),depth(1))
+          -->(2,eval('&self',['S',['S','Z']],RET),depth(3))
+            -->(3,eval('&self',['S','Z'],RET),depth(4))
+                  4-->subst_args(_32938,_32940,'&self',['S','Z'],depth(7))
+            <--(3,retval(['S','Z']))
+            -->(5,eval('&self',['S','Z'],RET),depth(4))
+                  6-->subst_args(_34428,_34430,'&self',['S','Z'],depth(7))
+            <--(5,retval(['S','Z']))
+            -->(7,eval('&self',['S','Z'],RET),depth(4))
+                  8-->subst_args(_35864,_35866,'&self',['S','Z'],depth(7))
+            <--(7,retval(['S','Z']))
+                9-->subst_args(_36518,_36520,'&self',['S',['S','Z']],depth(6))
+                    10-->subst_args(_36962,_36964,'&self',['S','Z'],depth(8))
+                    11-->subst_args(_37566,_37568,'&self',['S','Z'],depth(8))
+          <--(2,retval(['S',['S','Z']]))
+          -->(12,eval('&self',['S',['S','Z']],RET),depth(3))
+            -->(13,eval('&self',['S','Z'],RET),depth(4))
+                  14-->subst_args(_39872,_39874,'&self',['S','Z'],depth(7))
+            <--(13,retval(['S','Z']))
+            -->(15,eval('&self',['S','Z'],RET),depth(4))
+                  16-->subst_args(_41362,_41364,'&self',['S','Z'],depth(7))
+            <--(15,retval(['S','Z']))
+            -->(17,eval('&self',['S','Z'],RET),depth(4))
+                  18-->subst_args(_42798,_42800,'&self',['S','Z'],depth(7))
+            <--(17,retval(['S','Z']))
+                19-->subst_args(_43452,_43454,'&self',['S',['S','Z']],depth(6))
+                    20-->subst_args(_43896,_43898,'&self',['S','Z'],depth(8))
+                    21-->subst_args(_44500,_44502,'&self',['S','Z'],depth(8))
+          <--(12,retval(['S',['S','Z']]))
+              22-->subst_args(_45202,_45204,'&self',['Vec','Number',['S',['S','Z']]],depth(5))
+                  23-->subst_args(_45696,_45698,'&self',['S',['S','Z']],depth(7))
+                      24-->subst_args(_46140,_46142,'&self',['S','Z'],depth(9))
+                      25-->subst_args(_46744,_46746,'&self',['S','Z'],depth(9))
+                  26-->subst_args(_47434,_47436,'&self',['S',['S','Z']],depth(7))
+                      27-->subst_args(_47878,_47880,'&self',['S','Z'],depth(9))
+                      28-->subst_args(_48482,_48484,'&self',['S','Z'],depth(9))
+            29-->subst_args(_49166,_49168,'&self',['Vec','Number',['S',['S','Z']]],depth(4))
+                30-->subst_args(_49660,_49662,'&self',['S',['S','Z']],depth(6))
+                    31-->subst_args(_50104,_50106,'&self',['S','Z'],depth(8))
+                    32-->subst_args(_50708,_50710,'&self',['S','Z'],depth(8))
+                33-->subst_args(_51398,_51400,'&self',['S',['S','Z']],depth(6))
+                    34-->subst_args(_51842,_51844,'&self',['S','Z'],depth(8))
+                    35-->subst_args(_52446,_52448,'&self',['S','Z'],depth(8))
+      <--(1,retval(['Vec','Number',['S',['S','Z']]]))
+      -->(36,eval('&self',['Vec','Number',['S',['S','Z']]],RET),depth(1))
+        -->(37,eval('&self',['S',['S','Z']],RET),depth(2))
+          -->(38,eval('&self',['S','Z'],RET),depth(3))
+                39-->subst_args(_55762,_55764,'&self',['S','Z'],depth(6))
+          <--(38,retval(['S','Z']))
+          -->(40,eval('&self',['S','Z'],RET),depth(3))
+                41-->subst_args(_57252,_57254,'&self',['S','Z'],depth(6))
+          <--(40,retval(['S','Z']))
+          -->(42,eval('&self',['S','Z'],RET),depth(3))
+                43-->subst_args(_58688,_58690,'&self',['S','Z'],depth(6))
+          <--(42,retval(['S','Z']))
+              44-->subst_args(_59342,_59344,'&self',['S',['S','Z']],depth(5))
+                  45-->subst_args(_59786,_59788,'&self',['S','Z'],depth(7))
+                  46-->subst_args(_60390,_60392,'&self',['S','Z'],depth(7))
+        <--(37,retval(['S',['S','Z']]))
+        -->(47,eval('&self',['S',['S','Z']],RET),depth(2))
+          -->(48,eval('&self',['S','Z'],RET),depth(3))
+                49-->subst_args(_62696,_62698,'&self',['S','Z'],depth(6))
+          <--(48,retval(['S','Z']))
+          -->(50,eval('&self',['S','Z'],RET),depth(3))
+                51-->subst_args(_64186,_64188,'&self',['S','Z'],depth(6))
+          <--(50,retval(['S','Z']))
+          -->(52,eval('&self',['S','Z'],RET),depth(3))
+                53-->subst_args(_4564,_4566,'&self',['S','Z'],depth(6))
+          <--(52,retval(['S','Z']))
+              54-->subst_args(_5218,_5220,'&self',['S',['S','Z']],depth(5))
+                  55-->subst_args(_5662,_5664,'&self',['S','Z'],depth(7))
+                  56-->subst_args(_6266,_6268,'&self',['S','Z'],depth(7))
+        <--(47,retval(['S',['S','Z']]))
+            57-->subst_args(_6968,_6970,'&self',['Vec','Number',['S',['S','Z']]],depth(4))
+                58-->subst_args(_7462,_7464,'&self',['S',['S','Z']],depth(6))
+                    59-->subst_args(_7906,_7908,'&self',['S','Z'],depth(8))
+                    60-->subst_args(_8510,_8512,'&self',['S','Z'],depth(8))
+                61-->subst_args(_9200,_9202,'&self',['S',['S','Z']],depth(6))
+                    62-->subst_args(_9644,_9646,'&self',['S','Z'],depth(8))
+                    63-->subst_args(_10248,_10250,'&self',['S','Z'],depth(8))
+      <--(36,retval(['Vec','Number',['S',['S','Z']]]))
+; 
 ; EVAL TEST
-; took 0.008 secs. (7.50 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Vec Number (S (S Z)))) ((Vec Number (S (S Z))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.009 secs. (9.07 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Vec Number 
+        (S 
+          (S Z)))) 
+    ( (Vec Number 
+        (S 
+          (S Z))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; `drop` removes the head from a `Vec`, returning a `Vec` with length decrease by 1
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,drop,[->,['Vec',T,['S',X]],['Vec',T,X]]])
-</span><span class="ansi38-255165000">(: drop (-> (Vec $T (S $X)) (Vec $T $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,drop,[->,['Vec',T,['S',X]],['Vec',T,X]]])
+</span><span class="ansi38-255165000">(: drop 
+  (-> 
+    (Vec $T 
+      (S $X)) 
+    (Vec $T $X)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[drop,['Cons',X,Xs]],Xs])
-</span><span class="ansi38-255165000">(= (drop (Cons $X $Xs)) $Xs)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[drop,['Cons',X,Xs]],Xs])
+</span><span class="ansi38-255165000">(= 
+  (drop 
+    (Cons $X $Xs)) $Xs)
 </span>
 
 ;; Query type
-<span class="ansi38-013099040">!(assertEqual (get-type (drop (Cons 1 Nil))) (Vec Number Z))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (drop 
+      (Cons 1 Nil))) 
+  (Vec Number Z))
 
 </span><span class="ansi38-250144246">; !(get-type (drop (Cons 1 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[drop,['Cons',1,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[drop,['Cons',1,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[drop,['Cons',1,'Nil']]],['Vec','Number','Z']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[drop,['Cons',1,'Nil']]],['Vec','Number','Z']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.02</h3>
-          -->(1,eval('&self',['get-type',[drop,['Cons',1,'Nil']]],RET),depth(3))
-              -->(2,eval('&self','Number',RET),depth(5))
-              -->(3,eval('&self','Z',RET),depth(5))
-              -->(4,eval('&self','Vec',RET),depth(5))
-              -->(5,eval('&self','Number',RET),depth(5))
-              -->(6,eval('&self','Z',RET),depth(5))
-                -->(7,eval('&self','Vec',RET),depth(6))
-                -->(8,eval('&self','Number',RET),depth(6))
-                -->(9,eval('&self','Z',RET),depth(6))
-          <--(1,retval(['Vec','Number','Z']))
+      -->(1,eval('&self',['get-type',[drop,['Cons',1,'Nil']]],RET),depth(1))
+              2-->subst_args(_34080,_34082,'&self',['Vec','Number','Z'],depth(5))
+            3-->subst_args(_34730,_34732,'&self',['Vec','Number','Z'],depth(4))
+      <--(1,retval(['Vec','Number','Z']))
+      -->(4,eval('&self',['Vec','Number','Z'],RET),depth(1))
+            5-->subst_args(_36290,_36292,'&self',['Vec','Number','Z'],depth(4))
+      <--(4,retval(['Vec','Number','Z']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.45 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Vec Number Z)) ((Vec Number Z))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.08 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Vec Number Z)) 
+    ( (Vec Number Z))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Check length after dropping
-<span class="ansi38-013099040">!(assertEqual (drop (Cons 2 (Cons 1 Nil))) (Cons 1 Nil))
+<span class="ansi38-013099040">!(assertEqual 
+  (drop 
+    (Cons 2 
+      (Cons 1 Nil))) 
+  (Cons 1 Nil))
 
 </span><span class="ansi38-250144246">; !(drop (Cons 2 (Cons 1 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[drop,['Cons',2,['Cons',1,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[drop,['Cons',2,['Cons',1,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[drop,['Cons',2,['Cons',1,'Nil']]],['Cons',1,'Nil']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[drop,['Cons',2,['Cons',1,'Nil']]],['Cons',1,'Nil']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.03</h3>
-          -->(1,eval('&self',[drop,['Cons',2,['Cons',1,'Nil']]],RET),depth(3))
-              -->(2,eval('&self',1,RET),depth(5))
-              -->(3,eval('&self','Nil',RET),depth(5))
-                -->(4,eval('&self','Cons',RET),depth(6))
-                -->(5,eval('&self',1,RET),depth(6))
-                -->(6,eval('&self','Nil',RET),depth(6))
-              -->(7,eval('&self','Cons',RET),depth(5))
-              -->(8,eval('&self',1,RET),depth(5))
-              -->(9,eval('&self','Nil',RET),depth(5))
-          <--(1,retval(['Cons',1,'Nil']))
+      -->(1,eval('&self',[drop,['Cons',2,['Cons',1,'Nil']]],RET),depth(1))
+              2-->subst_args(_8238,_8240,'&self',['Cons',1,'Nil'],depth(5))
+            3-->subst_args(_8800,_8802,'&self',['Cons',1,'Nil'],depth(4))
+      <--(1,retval(['Cons',1,'Nil']))
+      -->(4,eval('&self',['Cons',1,'Nil'],RET),depth(1))
+            5-->subst_args(_10228,_10230,'&self',['Cons',1,'Nil'],depth(4))
+      <--(4,retval(['Cons',1,'Nil']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.19 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 1 Nil)) ((Cons 1 Nil))))
-</span>      <--(0,retval('Empty'))
+; took 0.000671 secs. (671.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 1 Nil)) 
+    ( (Cons 1 Nil))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Types can protect against misuse, like dropping from empty Vec
-<span class="ansi38-013099040">!(assertEqualToResult (get-type (drop Nil)) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (drop Nil)) ())
 
 </span><span class="ansi38-250144246">; !(get-type (drop Nil))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[drop,'Nil']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[drop,'Nil']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[drop,'Nil']],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[drop,'Nil']],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.04</h3>
-          -->(1,eval('&self',['get-type',[drop,'Nil']],RET),depth(3))
-              -->(2,eval('&self',[drop,'Nil'],RET),depth(5))
-                -->(3,eval('&self',drop,RET),depth(6))
-                -->(4,eval('&self','Nil',RET),depth(6))
-                  -->(5,eval('&self',drop,RET),depth(7))
-                  -->(6,eval('&self','Nil',RET),depth(7))
-                -->(7,eval('&self',[drop,'Nil'],RET),depth(6))
-                  -->(8,eval('&self',drop,RET),depth(7))
-                  -->(9,eval('&self','Nil',RET),depth(7))
-          <--(1,retval(fail))
+      -->(1,eval('&self',['get-type',[drop,'Nil']],RET),depth(1))
+        -->(2,eval('&self',[drop,'Nil'],RET),depth(2))
+              3-->subst_args(_47436,_47438,'&self',[drop,'Nil'],depth(5))
+        <--(2,retval([drop,'Nil']))
+          -->(4,eval('&self',[drop,'Nil'],RET),depth(3))
+                5-->subst_args(_49052,_49054,'&self',[drop,'Nil'],depth(6))
+          <--(4,retval([drop,'Nil']))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.62 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.15 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -248,108 +356,150 @@ Deterministic: <span class="ansi33">Empty
 ;; NOTE: tests below is the current behavior, which may be changed
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `VecN` and `ConsN` use grounded `+` to increment the length.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'VecN',[->,T,'Number','Type']])
-</span><span class="ansi38-255165000">(: VecN (-> $T Number Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'VecN',[->,T,'Number','Type']])
+</span><span class="ansi38-255165000">(: VecN 
+  (-> $T Number Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'ConsN',[->,T,['VecN',T,X],['VecN',T,[+,X,1]]]])
-</span><span class="ansi38-255165000">(: ConsN (-> $T (VecN $T $X) (VecN $T (+ $X 1))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'ConsN',[->,T,['VecN',T,X],['VecN',T,[+,X,1]]]])
+</span><span class="ansi38-255165000">(: ConsN 
+  (-> $T 
+    (VecN $T $X) 
+    (VecN $T 
+      (+ $X 1))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'NilN',['VecN',T,0]])
-</span><span class="ansi38-255165000">(: NilN (VecN $T 0))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'NilN',['VecN',T,0]])
+</span><span class="ansi38-255165000">(: NilN 
+  (VecN $T 0))
 </span>
 
 ;; When querying types, grounded ops are reduced
-<span class="ansi38-013099040">!(assertEqual (get-type (ConsN 1 (ConsN 2 NilN))) (VecN String 2))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (ConsN 1 
+      (ConsN 2 NilN))) 
+  (VecN String 2))
 
 </span><span class="ansi38-250144246">; !(get-type (ConsN 1 (ConsN 2 NilN)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['ConsN','1',['ConsN','2','NilN']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['ConsN','1',['ConsN','2','NilN']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',['ConsN','1',['ConsN','2','NilN']]],['VecN','String',2]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',['ConsN','1',['ConsN','2','NilN']]],['VecN','String',2]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.05</h3>
-          -->(1,eval('&self',['get-type',['ConsN','1',['ConsN','2','NilN']]],RET),depth(3))
-              -->(2,eval('&self','1',RET),depth(5))
-              -->(3,eval('&self','2',RET),depth(5))
-              -->(4,eval('&self','2',RET),depth(5))
-              -->(5,eval('&self','1',RET),depth(5))
-              -->(6,eval('&self','2',RET),depth(5))
-              -->(7,eval('&self','2',RET),depth(5))
-              -->(8,eval('&self','String',RET),depth(5))
-                -->(9,eval('&self',[+,[+,0,1],1],RET),depth(6))
-                <--(9,retval(2))
-          <--(1,retval(['VecN','String',2]))
+      -->(1,eval('&self',['get-type',['ConsN','1',['ConsN','2','NilN']]],RET),depth(1))
+          -->(2,eval('&self',[+,[+,0,1],1],RET),depth(3))
+            -->(3,eval('&self',[+,0,1],RET),depth(4))
+            <--(3,retval(1))
+          <--(2,retval(2))
+          -->(4,eval('&self',[+,[+,0,1],1],RET),depth(3))
+            -->(5,eval('&self',[+,0,1],RET),depth(4))
+            <--(5,retval(1))
+                6-->subst_args(_21932,_21934,'&self',['VecN','String',2],depth(6))
+              7-->subst_args(_22538,_22540,'&self',['VecN','String',2],depth(5))
+            8-->subst_args(_23144,_23146,'&self',['VecN','String',2],depth(4))
+          <--(4,retval(2))
+      <--(1,retval(['VecN','String',2]))
+      -->(9,eval('&self',['VecN','String',2],RET),depth(1))
+            10-->subst_args(_24660,_24662,'&self',['VecN','String',2],depth(4))
+      <--(9,retval(['VecN','String',2]))
 ; 
 ; EVAL TEST
 ; took 0.003 secs. (3.08 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((VecN String 2)) ((VecN String 2))))
-</span>      <--(0,retval('Empty'))
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (VecN String 2)) 
+    ( (VecN String 2))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Similarly, `-` reduces the length in `dropN` type.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,dropN,[->,['VecN',T,X],['VecN',T,[-,X,1]]]])
-</span><span class="ansi38-255165000">(: dropN (-> (VecN $T $X) (VecN $T (- $X 1))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,dropN,[->,['VecN',T,X],['VecN',T,[-,X,1]]]])
+</span><span class="ansi38-255165000">(: dropN 
+  (-> 
+    (VecN $T $X) 
+    (VecN $T 
+      (- $X 1))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[dropN,['ConsN',X,Xs]],Xs])
-</span><span class="ansi38-255165000">(= (dropN (ConsN $X $Xs)) $Xs)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[dropN,['ConsN',X,Xs]],Xs])
+</span><span class="ansi38-255165000">(= 
+  (dropN 
+    (ConsN $X $Xs)) $Xs)
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type (dropN (ConsN 1 NilN))) (VecN String 0))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (dropN 
+      (ConsN 1 NilN))) 
+  (VecN String 0))
 
 </span><span class="ansi38-250144246">; !(get-type (dropN (ConsN 1 NilN)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[dropN,['ConsN','1','NilN']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[dropN,['ConsN','1','NilN']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[dropN,['ConsN','1','NilN']]],['VecN','String',0]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[dropN,['ConsN','1','NilN']]],['VecN','String',0]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.06</h3>
-          -->(1,eval('&self',['get-type',[dropN,['ConsN','1','NilN']]],RET),depth(3))
-              -->(2,eval('&self','1',RET),depth(5))
-              -->(3,eval('&self','1',RET),depth(5))
-              -->(4,eval('&self','1',RET),depth(5))
-              -->(5,eval('&self','1',RET),depth(5))
-              -->(6,eval('&self','String',RET),depth(5))
-                -->(7,eval('&self',[-,[+,0,1],1],RET),depth(6))
-                    -->(8,eval('&self',[+,0,1],RET),depth(8))
-                      -->(9,eval('&self',1,RET),depth(9))
-                    <--(8,retval(1))
-                <--(7,retval(0))
-          <--(1,retval(['VecN','String',0]))
+      -->(1,eval('&self',['get-type',[dropN,['ConsN','1','NilN']]],RET),depth(1))
+          -->(2,eval('&self',[-,[+,0,1],1],RET),depth(3))
+            -->(3,eval('&self',[+,0,1],RET),depth(4))
+            <--(3,retval(1))
+          <--(2,retval(0))
+          -->(4,eval('&self',[-,[+,0,1],1],RET),depth(3))
+            -->(5,eval('&self',[+,0,1],RET),depth(4))
+            <--(5,retval(1))
+                6-->subst_args(_37494,_37496,'&self',['VecN','String',0],depth(6))
+              7-->subst_args(_38100,_38102,'&self',['VecN','String',0],depth(5))
+            8-->subst_args(_38706,_38708,'&self',['VecN','String',0],depth(4))
+          <--(4,retval(0))
+      <--(1,retval(['VecN','String',0]))
+      -->(9,eval('&self',['VecN','String',0],RET),depth(1))
+            10-->subst_args(_40222,_40224,'&self',['VecN','String',0],depth(4))
+      <--(9,retval(['VecN','String',0]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.85 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((VecN String 0)) ((VecN String 0))))
-</span>      <--(0,retval('Empty'))
+; took 0.003 secs. (2.67 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (VecN String 0)) 
+    ( (VecN String 0))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; TODO: doesn't work after type checking fixes
 ;; However, without any validation, invalid lengths like -1 can be derived.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[assertEqual,[['get-type',[dropN,[dropN,['ConsN','1','NilN']]]]],['VecN','String',-1]])
-</span><span class="ansi38-255165000">(assertEqual ((get-type (dropN (dropN (ConsN 1 NilN))))) (VecN String -1))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[assertEqual,[['get-type',[dropN,[dropN,['ConsN','1','NilN']]]]],['VecN','String',-1]])
+</span><span class="ansi38-255165000">(assertEqual 
+  ( (get-type 
+      (dropN 
+        (dropN 
+          (ConsN 1 NilN))))) 
+  (VecN String -1))
 </span>
 
 ;; Applying `dropN` to `NilN` is not badly typed, but it
 ;; doesn't reduce, since there are no definitions for this case.
-<span class="ansi38-013099040">!(assertEqualToResult (dropN NilN) ((dropN NilN)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (dropN NilN) 
+  ( (dropN NilN)))
 
 </span><span class="ansi38-250144246">; !(dropN NilN)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[dropN,'NilN'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[dropN,'NilN'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[dropN,'NilN'],[[dropN,'NilN']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[dropN,'NilN'],[[dropN,'NilN']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.D3-DEPTYPES.07</h3>
-          -->(1,eval('&self',[dropN,'NilN'],RET),depth(3))
-            -->(2,eval('&self',dropN,RET),depth(4))
-            -->(3,eval('&self','NilN',RET),depth(4))
-              -->(4,eval('&self',dropN,RET),depth(5))
-              -->(5,eval('&self','NilN',RET),depth(5))
+      -->(1,eval('&self',[dropN,'NilN'],RET),depth(1))
+            2-->subst_args(_14376,_14378,'&self',[dropN,'NilN'],depth(4))
+      <--(1,retval([dropN,'NilN']))
 ; 
 ; EVAL TEST
-; took 0.000506 secs. (506.40 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((dropN NilN)) ((dropN NilN))))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000294 secs. (293.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (dropN NilN)) 
+    ( (dropN NilN))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 457,580 inferences, 0.275 CPU in 0.275 seconds (100% CPU, 1666724 Lips)
+</span><span class="ansi32">% 256,489 inferences, 0.206 CPU in 0.206 seconds (100% CPU, 1242973 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d3_deptypes.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

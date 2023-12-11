@@ -143,404 +143,532 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; Basic types of grounded symbols
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `get-type` returns the type of its argument
-<span class="ansi38-013099040">!(assertEqual (get-type 5) Number)
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 5) Number)
 
 </span><span class="ansi38-250144246">; !(get-type 5)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',5],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',5],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',5],'Number'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',5],'Number'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.01</h3>
-          -->(1,eval('&self',['get-type',5],RET),depth(3))
-              -->(2,eval('&self','Number',RET),depth(5))
-          <--(1,retval('Number'))
-        -->(3,eval('&self','Number',RET),depth(2))
+      -->(1,eval('&self',['get-type',5],RET),depth(1))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.000428 secs. (427.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Number) (Number)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000229 secs. (228.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Number) 
+    (Number)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (get-type (+ 5 7)) Number)
+</span><span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (+ 5 7)) Number)
 
 </span><span class="ansi38-250144246">; !(get-type (+ 5 7))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[+,5,7]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[+,5,7]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[+,5,7]],'Number'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[+,5,7]],'Number'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.02</h3>
-          -->(1,eval('&self',['get-type',[+,5,7]],RET),depth(3))
-              -->(2,eval('&self','Number',RET),depth(5))
-          <--(1,retval('Number'))
-        -->(3,eval('&self','Number',RET),depth(2))
+      -->(1,eval('&self',['get-type',[+,5,7]],RET),depth(1))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.000460 secs. (459.70 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Number) (Number)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000279 secs. (279.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Number) 
+    (Number)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; It works for built-in symbols too
-<span class="ansi38-013099040">!(assertEqual (get-type +) (-> Number Number Number))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type +) 
+  (-> Number Number Number))
 
 </span><span class="ansi38-250144246">; !(get-type +)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',+],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',+],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',+],[->,'Number','Number','Number']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',+],[->,'Number','Number','Number']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.03</h3>
-          -->(1,eval('&self',['get-type',+],RET),depth(3))
-              -->(2,eval('&self',->,RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-              -->(4,eval('&self','Number',RET),depth(5))
-              -->(5,eval('&self','Number',RET),depth(5))
-          <--(1,retval([->,'Number','Number','Number']))
-          -->(6,eval('&self',[->,'Number','Number','Number'],RET),depth(3))
+      -->(1,eval('&self',['get-type',+],RET),depth(1))
+      <--(1,retval([->,'Number','Number','Number']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.16 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((-> Number Number Number)) ((-> Number Number Number))))
-</span>          -->(7,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000217 secs. (216.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (-> Number Number Number)) 
+    ( (-> Number Number Number))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; If its argument is a badly typed expression,
 ;; `get-type` returns the empty set
-<span class="ansi38-013099040">!(assertEqualToResult (get-type (+ 5 4)) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (+ 5 4)) ())
 
 </span><span class="ansi38-250144246">; !(get-type (+ 5 4))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[+,5,'4']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[+,5,'4']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[+,5,'4']],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[+,5,'4']],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.04</h3>
-          -->(1,eval('&self',['get-type',[+,5,'4']],RET),depth(3))
-              -->(2,eval('&self','4',RET),depth(5))
-              -->(3,eval('&self','4',RET),depth(5))
-              -->(4,eval('&self','4',RET),depth(5))
-              -->(5,eval('&self',[+,5,'4'],RET),depth(5))
-                -->(6,eval('&self','4',RET),depth(6))
-                -->(7,eval('&self',+,RET),depth(6))
-                -->(8,eval('&self',5,RET),depth(6))
-                -->(9,eval('&self','4',RET),depth(6))
-          <--(1,retval('Number'))
+      -->(1,eval('&self',['get-type',[+,5,'4']],RET),depth(1))
+        -->(2,eval('&self',[+,5,'4'],RET),depth(2))
+              -->(3,subst_args('&self',[+,5,'4'],RET),depth(5))
+              <--(3,retval(fail))
+        <--(2,retval([+,5,'4']))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.21 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  (Number) ()))
-</span>      <--(0,retval([got,['Number'],expected,[]]))
+; took 0.001 secs. (1.42 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    (Number) ()))
+</span>        -->(4,eval('&self',['Number'],RET),depth(2))
+              -->(5,subst_args('&self',['Number'],RET),depth(5))
+        <--(4,retval(['Number']))
+        -->(6,eval('&self',['Number'],RET),depth(2))
+              -->(7,subst_args('&self',['Number'],RET),depth(5))
+        <--(6,retval(['Number']))
+            -->(8,subst_args('&self',[got,['Number'],expected,[]],RET),depth(4))
+                -->(9,subst_args('&self',['Number'],RET),depth(6))
+                -->(10,subst_args('&self',['Number'],RET),depth(6))
+          -->(11,subst_args('&self',[got,['Number'],expected,[]],RET),depth(3))
+              -->(12,subst_args('&self',['Number'],RET),depth(5))
+              -->(13,subst_args('&self',['Number'],RET),depth(5))
+    <--(0,retval([got,['Number'],expected,[]]))
 Deterministic: <span class="ansi33">
-(got (Number) expected ())
+(got 
+  (Number) expected ())
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (get-type (+ -)) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (+ -)) ())
 
 </span><span class="ansi38-250144246">; !(get-type (+ -))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[+,-]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[+,-]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[+,-]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[+,-]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.05</h3>
-          -->(1,eval('&self',['get-type',[+,-]],RET),depth(3))
-              -->(2,eval('&self',[+,-],RET),depth(5))
-                -->(3,eval('&self',-,RET),depth(6))
-                -->(4,eval('&self',+,RET),depth(6))
-                -->(5,eval('&self',-,RET),depth(6))
-                  -->(6,eval('&self',+,RET),depth(7))
-                  -->(7,eval('&self',-,RET),depth(7))
-              -->(8,eval('&self','Number',RET),depth(5))
-          <--(1,retval('Number'))
+      -->(1,eval('&self',['get-type',[+,-]],RET),depth(1))
+        -->(2,eval('&self',[+,-],RET),depth(2))
+              -->(3,subst_args('&self',[+,-],RET),depth(5))
+        <--(2,retval([+,-]))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.28 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  (Number) ()))
-</span>            -->(9,eval('&self',['Number'],RET),depth(4))
-      <--(0,retval([got,['Number'],expected,[]]))
+; took 0.000574 secs. (573.70 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    (Number) ()))
+</span>        -->(4,eval('&self',['Number'],RET),depth(2))
+              -->(5,subst_args('&self',['Number'],RET),depth(5))
+        <--(4,retval(['Number']))
+        -->(6,eval('&self',['Number'],RET),depth(2))
+              -->(7,subst_args('&self',['Number'],RET),depth(5))
+        <--(6,retval(['Number']))
+            -->(8,subst_args('&self',[got,['Number'],expected,[]],RET),depth(4))
+                -->(9,subst_args('&self',['Number'],RET),depth(6))
+                -->(10,subst_args('&self',['Number'],RET),depth(6))
+          -->(11,subst_args('&self',[got,['Number'],expected,[]],RET),depth(3))
+              -->(12,subst_args('&self',['Number'],RET),depth(5))
+              -->(13,subst_args('&self',['Number'],RET),depth(5))
+    <--(0,retval([got,['Number'],expected,[]]))
 Deterministic: <span class="ansi33">
-(got (Number) expected ())
+(got 
+  (Number) expected ())
 
 </span>;; Also works for custom types
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Either','Type'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Either','Type'])
 </span><span class="ansi38-255165000">(: Either Type)
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type Either) Type)
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type Either) Type)
 
 </span><span class="ansi38-250144246">; !(get-type Either)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type','Either'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type','Either'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type','Either'],'Type'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type','Either'],'Type'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.06</h3>
-          -->(1,eval('&self',['get-type','Either'],RET),depth(3))
-              -->(2,eval('&self','Type',RET),depth(5))
-          <--(1,retval('Type'))
-        -->(3,eval('&self','Type',RET),depth(2))
+      -->(1,eval('&self',['get-type','Either'],RET),depth(1))
+      <--(1,retval('Type'))
 ; 
 ; EVAL TEST
-; took 0.000434 secs. (433.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Type) (Type)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000176 secs. (176.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Type) 
+    (Type)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Arrow types of functions and constructors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Left',[->,'%Undefined%','Either']])
-</span><span class="ansi38-255165000">(: Left (-> %Undefined% Either))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Left',[->,'%Undefined%','Either']])
+</span><span class="ansi38-255165000">(: Left 
+  (-> %Undefined% Either))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Right',[->,'%Undefined%','Either']])
-</span><span class="ansi38-255165000">(: Right (-> %Undefined% Either))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Right',[->,'%Undefined%','Either']])
+</span><span class="ansi38-255165000">(: Right 
+  (-> %Undefined% Either))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type (Left 5)) Either)
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (Left 5)) Either)
 
 </span><span class="ansi38-250144246">; !(get-type (Left 5))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['Left',5]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['Left',5]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',['Left',5]],'Either'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',['Left',5]],'Either'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.07</h3>
-          -->(1,eval('&self',['get-type',['Left',5]],RET),depth(3))
-              -->(2,eval('&self','Either',RET),depth(5))
-          <--(1,retval('Either'))
-        -->(3,eval('&self','Either',RET),depth(2))
+      -->(1,eval('&self',['get-type',['Left',5]],RET),depth(1))
+      <--(1,retval('Either'))
 ; 
 ; EVAL TEST
-; took 0.000390 secs. (389.70 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Either) (Either)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000239 secs. (238.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Either) 
+    (Either)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
-</span><span class="ansi38-255165000">(: isLeft (-> Either Bool))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,isLeft,[->,'Either','Bool']])
+</span><span class="ansi38-255165000">(: isLeft 
+  (-> Either Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[isLeft,['Left',X]],'True'])
-</span><span class="ansi38-255165000">(= (isLeft (Left $X)) True)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[isLeft,['Left',X]],'True'])
+</span><span class="ansi38-255165000">(= 
+  (isLeft 
+    (Left $X)) True)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[isLeft,['Right',X]],'False'])
-</span><span class="ansi38-255165000">(= (isLeft (Right $X)) False)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[isLeft,['Right',X]],'False'])
+</span><span class="ansi38-255165000">(= 
+  (isLeft 
+    (Right $X)) False)
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type (isLeft (Right 5))) Bool)
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (isLeft 
+      (Right 5))) Bool)
 
 </span><span class="ansi38-250144246">; !(get-type (isLeft (Right 5)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[isLeft,['Right',5]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[isLeft,['Right',5]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[isLeft,['Right',5]]],'Bool'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[isLeft,['Right',5]]],'Bool'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.08</h3>
-          -->(1,eval('&self',['get-type',[isLeft,['Right',5]]],RET),depth(3))
-              -->(2,eval('&self','Bool',RET),depth(5))
-          <--(1,retval('Bool'))
-        -->(3,eval('&self','Bool',RET),depth(2))
+      -->(1,eval('&self',['get-type',[isLeft,['Right',5]]],RET),depth(1))
+      <--(1,retval('Bool'))
 ; 
 ; EVAL TEST
-; took 0.000569 secs. (569.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Bool) (Bool)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000333 secs. (332.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Bool) 
+    (Bool)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Badly typed expression
-<span class="ansi38-013099040">!(assertEqualToResult (get-type (isLeft 5)) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (isLeft 5)) ())
 
 </span><span class="ansi38-250144246">; !(get-type (isLeft 5))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[isLeft,5]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[isLeft,5]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[isLeft,5]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[isLeft,5]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.09</h3>
-          -->(1,eval('&self',['get-type',[isLeft,5]],RET),depth(3))
-              -->(2,eval('&self',[isLeft,5],RET),depth(5))
-                -->(3,eval('&self',isLeft,RET),depth(6))
-                -->(4,eval('&self',5,RET),depth(6))
-                  -->(5,eval('&self',isLeft,RET),depth(7))
-                  -->(6,eval('&self',5,RET),depth(7))
-              -->(7,eval('&self','Bool',RET),depth(5))
-          <--(1,retval('Bool'))
+      -->(1,eval('&self',['get-type',[isLeft,5]],RET),depth(1))
+        -->(2,eval('&self',[isLeft,5],RET),depth(2))
+              -->(3,subst_args('&self',[isLeft,5],RET),depth(5))
+        <--(2,retval([isLeft,5]))
+      <--(1,retval('Bool'))
 ; 
 ; EVAL TEST
-; took 0.000681 secs. (680.60 microseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  (Bool) ()))
-</span>            -->(8,eval('&self',['Bool'],RET),depth(4))
-              -->(9,eval('&self','Bool',RET),depth(5))
-      <--(0,retval([got,['Bool'],expected,[]]))
+; took 0.000552 secs. (551.60 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    (Bool) ()))
+</span>        -->(4,eval('&self',['Bool'],RET),depth(2))
+              -->(5,subst_args('&self',['Bool'],RET),depth(5))
+        <--(4,retval(['Bool']))
+        -->(6,eval('&self',['Bool'],RET),depth(2))
+              -->(7,subst_args('&self',['Bool'],RET),depth(5))
+        <--(6,retval(['Bool']))
+            -->(8,subst_args('&self',[got,['Bool'],expected,[]],RET),depth(4))
+                -->(9,subst_args('&self',['Bool'],RET),depth(6))
+                -->(10,subst_args('&self',['Bool'],RET),depth(6))
+          -->(11,subst_args('&self',[got,['Bool'],expected,[]],RET),depth(3))
+              -->(12,subst_args('&self',['Bool'],RET),depth(5))
+              -->(13,subst_args('&self',['Bool'],RET),depth(5))
+    <--(0,retval([got,['Bool'],expected,[]]))
 Deterministic: <span class="ansi33">
-(got (Bool) expected ())
+(got 
+  (Bool) expected ())
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'EitherP',[->,T,'Type']])
-</span><span class="ansi38-255165000">(: EitherP (-> $T Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'EitherP',[->,T,'Type']])
+</span><span class="ansi38-255165000">(: EitherP 
+  (-> $T Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'LeftP',[->,T,['EitherP',T]]])
-</span><span class="ansi38-255165000">(: LeftP (-> $T (EitherP $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'LeftP',[->,T,['EitherP',T]]])
+</span><span class="ansi38-255165000">(: LeftP 
+  (-> $T 
+    (EitherP $T)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'RightP',[->,T,['EitherP',T]]])
-</span><span class="ansi38-255165000">(: RightP (-> $T (EitherP $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'RightP',[->,T,['EitherP',T]]])
+</span><span class="ansi38-255165000">(: RightP 
+  (-> $T 
+    (EitherP $T)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type (LeftP 5)) (EitherP Number))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (LeftP 5)) 
+  (EitherP Number))
 
 </span><span class="ansi38-250144246">; !(get-type (LeftP 5))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['LeftP',5]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['LeftP',5]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',['LeftP',5]],['EitherP','Number']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',['LeftP',5]],['EitherP','Number']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.10">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.10</h3>
-          -->(1,eval('&self',['get-type',['LeftP',5]],RET),depth(3))
-              -->(2,eval('&self','EitherP',RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-                -->(4,eval('&self','EitherP',RET),depth(6))
-                -->(5,eval('&self','Number',RET),depth(6))
-              -->(6,eval('&self','EitherP',RET),depth(5))
-              -->(7,eval('&self','Number',RET),depth(5))
-          <--(1,retval(['EitherP','Number']))
-          -->(8,eval('&self',['EitherP','Number'],RET),depth(3))
-            -->(9,eval('&self','EitherP',RET),depth(4))
+      -->(1,eval('&self',['get-type',['LeftP',5]],RET),depth(1))
+              -->(2,subst_args('&self',['EitherP','Number'],RET),depth(5))
+            -->(3,subst_args('&self',['EitherP','Number'],RET),depth(4))
+      <--(1,retval(['EitherP','Number']))
+      -->(4,eval('&self',['EitherP','Number'],RET),depth(1))
+            -->(5,subst_args('&self',['EitherP','Number'],RET),depth(4))
+      <--(4,retval(['EitherP','Number']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.65 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((EitherP Number)) ((EitherP Number))))
-</span>      <--(0,retval('Empty'))
+; took 0.000881 secs. (881.40 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (EitherP Number)) 
+    ( (EitherP Number))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Pair',[->,A,B,'Type']])
-</span><span class="ansi38-255165000">(: Pair (-> $A $B Type))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Pair',[->,A,B,'Type']])
+</span><span class="ansi38-255165000">(: Pair 
+  (-> $A $B Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,pair,[->,A,B,['Pair',A,B]]])
-</span><span class="ansi38-255165000">(: pair (-> $A $B (Pair $A $B)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,pair,[->,A,B,['Pair',A,B]]])
+</span><span class="ansi38-255165000">(: pair 
+  (-> $A $B 
+    (Pair $A $B)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type (pair (LeftP 5) String)) (Pair (EitherP Number) String))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (pair 
+      (LeftP 5) String)) 
+  (Pair 
+    (EitherP Number) String))
 
 </span><span class="ansi38-250144246">; !(get-type (pair (LeftP 5) String))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[pair,['LeftP',5],'String']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[pair,['LeftP',5],'String']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[pair,['LeftP',5],'String']],['Pair',['EitherP','Number'],'String']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[pair,['LeftP',5],'String']],['Pair',['EitherP','Number'],'String']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.11">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.11</h3>
-          -->(1,eval('&self',['get-type',[pair,['LeftP',5],'String']],RET),depth(3))
-                -->(2,eval('&self',['EitherP','Number'],RET),depth(6))
-                  -->(3,eval('&self','EitherP',RET),depth(7))
-                  -->(4,eval('&self','Number',RET),depth(7))
-                    -->(5,eval('&self','EitherP',RET),depth(8))
-                    -->(6,eval('&self','Number',RET),depth(8))
-              -->(7,eval('&self','Pair',RET),depth(5))
-                -->(8,eval('&self',['EitherP','Number'],RET),depth(6))
-                  -->(9,eval('&self','EitherP',RET),depth(7))
-          <--(1,retval(['Pair',['EitherP','Number'],'String']))
+      -->(1,eval('&self',['get-type',[pair,['LeftP',5],'String']],RET),depth(1))
+          -->(2,eval('&self',['EitherP','Number'],RET),depth(3))
+                -->(3,subst_args('&self',['EitherP','Number'],RET),depth(6))
+          <--(2,retval(['EitherP','Number']))
+          -->(4,eval('&self',['EitherP','Number'],RET),depth(3))
+                -->(5,subst_args('&self',['EitherP','Number'],RET),depth(6))
+          <--(4,retval(['EitherP','Number']))
+              -->(6,subst_args('&self',['Pair',['EitherP','Number'],'String'],RET),depth(5))
+                  -->(7,subst_args('&self',['EitherP','Number'],RET),depth(7))
+                  -->(8,subst_args('&self',['EitherP','Number'],RET),depth(7))
+            -->(9,subst_args('&self',['Pair',['EitherP','Number'],'String'],RET),depth(4))
+                -->(10,subst_args('&self',['EitherP','Number'],RET),depth(6))
+                -->(11,subst_args('&self',['EitherP','Number'],RET),depth(6))
+      <--(1,retval(['Pair',['EitherP','Number'],'String']))
+      -->(12,eval('&self',['Pair',['EitherP','Number'],'String'],RET),depth(1))
+        -->(13,eval('&self',['EitherP','Number'],RET),depth(2))
+              -->(14,subst_args('&self',['EitherP','Number'],RET),depth(5))
+        <--(13,retval(['EitherP','Number']))
+        -->(15,eval('&self',['EitherP','Number'],RET),depth(2))
+              -->(16,subst_args('&self',['EitherP','Number'],RET),depth(5))
+        <--(15,retval(['EitherP','Number']))
+            -->(17,subst_args('&self',['Pair',['EitherP','Number'],'String'],RET),depth(4))
+                -->(18,subst_args('&self',['EitherP','Number'],RET),depth(6))
+                -->(19,subst_args('&self',['EitherP','Number'],RET),depth(6))
+      <--(12,retval(['Pair',['EitherP','Number'],'String']))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.24 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Pair (EitherP Number) String)) ((Pair (EitherP Number) String))))
-</span>      <--(0,retval('Empty'))
+; took 0.003 secs. (3.34 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Pair 
+        (EitherP Number) String)) 
+    ( (Pair 
+        (EitherP Number) String))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Recursively parameterized types
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List',[->,A,'Type']])
-</span><span class="ansi38-255165000">(: List (-> $A Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'List',[->,A,'Type']])
+</span><span class="ansi38-255165000">(: List 
+  (-> $A Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nil',['List',A]])
-</span><span class="ansi38-255165000">(: Nil (List $A))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nil',['List',A]])
+</span><span class="ansi38-255165000">(: Nil 
+  (List $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,A,['List',A],['List',A]]])
-</span><span class="ansi38-255165000">(: Cons (-> $A (List $A) (List $A)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Cons',[->,A,['List',A],['List',A]]])
+</span><span class="ansi38-255165000">(: Cons 
+  (-> $A 
+    (List $A) 
+    (List $A)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (get-type (Cons 5 (Cons 6 Nil))) (List Number))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (Cons 5 
+      (Cons 6 Nil))) 
+  (List Number))
 
 </span><span class="ansi38-250144246">; !(get-type (Cons 5 (Cons 6 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['Cons',5,['Cons',6,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['Cons',5,['Cons',6,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',['Cons',5,['Cons',6,'Nil']]],['List','Number']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',['Cons',5,['Cons',6,'Nil']]],['List','Number']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.12">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.12</h3>
-          -->(1,eval('&self',['get-type',['Cons',5,['Cons',6,'Nil']]],RET),depth(3))
-              -->(2,eval('&self','List',RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-                -->(4,eval('&self','List',RET),depth(6))
-                -->(5,eval('&self','Number',RET),depth(6))
-              -->(6,eval('&self','List',RET),depth(5))
-              -->(7,eval('&self','Number',RET),depth(5))
-          <--(1,retval(['List','Number']))
-          -->(8,eval('&self',['List','Number'],RET),depth(3))
-            -->(9,eval('&self','List',RET),depth(4))
+      -->(1,eval('&self',['get-type',['Cons',5,['Cons',6,'Nil']]],RET),depth(1))
+              -->(2,subst_args('&self',['List','Number'],RET),depth(5))
+            -->(3,subst_args('&self',['List','Number'],RET),depth(4))
+      <--(1,retval(['List','Number']))
+      -->(4,eval('&self',['List','Number'],RET),depth(1))
+            -->(5,subst_args('&self',['List','Number'],RET),depth(4))
+      <--(4,retval(['List','Number']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.22 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((List Number)) ((List Number))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.17 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (List Number)) 
+    ( (List Number))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (get-type (Cons 5 (Cons 6 Nil))) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (Cons 5 
+      (Cons 6 Nil))) ())
 
 </span><span class="ansi38-250144246">; !(get-type (Cons 5 (Cons 6 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['Cons',5,['Cons','6','Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['Cons',5,['Cons','6','Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',['Cons',5,['Cons','6','Nil']]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',['Cons',5,['Cons','6','Nil']]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.13">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.13</h3>
-          -->(1,eval('&self',['get-type',['Cons',5,['Cons','6','Nil']]],RET),depth(3))
-              -->(2,eval('&self','6',RET),depth(5))
-              -->(3,eval('&self','6',RET),depth(5))
-              -->(4,eval('&self',['Cons','6','Nil'],RET),depth(5))
-                -->(5,eval('&self','6',RET),depth(6))
-                -->(6,eval('&self','Nil',RET),depth(6))
-                  -->(7,eval('&self','Cons',RET),depth(7))
-                  -->(8,eval('&self','6',RET),depth(7))
-                  -->(9,eval('&self','Nil',RET),depth(7))
-          <--(1,retval(fail))
+      -->(1,eval('&self',['get-type',['Cons',5,['Cons','6','Nil']]],RET),depth(1))
+        -->(2,eval('&self',['Cons','6','Nil'],RET),depth(2))
+              -->(3,subst_args('&self',['Cons','6','Nil'],RET),depth(5))
+        <--(2,retval(['Cons','6','Nil']))
+          -->(4,eval('&self',['Cons','6','Nil'],RET),depth(3))
+                -->(5,subst_args('&self',['Cons','6','Nil'],RET),depth(6))
+          <--(4,retval(['Cons','6','Nil']))
+        -->(6,eval('&self',['Cons',5,['Cons','6','Nil']],RET),depth(2))
+          -->(7,eval('&self',['Cons','6','Nil'],RET),depth(3))
+                -->(8,subst_args('&self',['Cons','6','Nil'],RET),depth(6))
+          <--(7,retval(['Cons','6','Nil']))
+              -->(9,subst_args('&self',['Cons',5,['Cons','6','Nil']],RET),depth(5))
+                  -->(10,subst_args('&self',['Cons','6','Nil'],RET),depth(7))
+        <--(6,retval(['Cons',5,['Cons','6','Nil']]))
+          -->(11,eval('&self',['Cons','6','Nil'],RET),depth(3))
+                -->(12,subst_args('&self',['Cons','6','Nil'],RET),depth(6))
+          <--(11,retval(['Cons','6','Nil']))
+            -->(13,eval('&self',['Cons','6','Nil'],RET),depth(4))
+                  -->(14,subst_args('&self',['Cons','6','Nil'],RET),depth(7))
+            <--(13,retval(['Cons','6','Nil']))
+          -->(15,eval('&self',['Cons',5,['Cons','6','Nil']],RET),depth(3))
+            -->(16,eval('&self',['Cons','6','Nil'],RET),depth(4))
+                  -->(17,subst_args('&self',['Cons','6','Nil'],RET),depth(7))
+            <--(16,retval(['Cons','6','Nil']))
+                -->(18,subst_args('&self',['Cons',5,['Cons','6','Nil']],RET),depth(6))
+                    -->(19,subst_args('&self',['Cons','6','Nil'],RET),depth(8))
+          <--(15,retval(['Cons',5,['Cons','6','Nil']]))
+        -->(20,eval('&self',['Cons','6','Nil'],RET),depth(2))
+              -->(21,subst_args('&self',['Cons','6','Nil'],RET),depth(5))
+        <--(20,retval(['Cons','6','Nil']))
+          -->(22,eval('&self',['Cons','6','Nil'],RET),depth(3))
+                -->(23,subst_args('&self',['Cons','6','Nil'],RET),depth(6))
+          <--(22,retval(['Cons','6','Nil']))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.007 secs. (7.38 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>      <--(0,retval('Empty'))
+; took 0.006 secs. (5.91 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `let` can be convenient to extract information from `get-type` results
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-013099040">!(assertEqual (let (List $T) (get-type (Cons 5 (Cons 6 Nil))) $T) Number)
+<span class="ansi38-013099040">!(assertEqual 
+  (let 
+    (List $T) 
+    (get-type 
+      (Cons 5 
+        (Cons 6 Nil))) $T) Number)
 
 </span><span class="ansi38-250144246">; !(let (List $T) (get-type (Cons 5 (Cons 6 Nil))) $T)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[let,['List',T],['get-type',['Cons',5,['Cons',6,'Nil']]],T],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[let,['List',T],['get-type',['Cons',5,['Cons',6,'Nil']]],T],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[let,['List',_218466],['get-type',['Cons',5,['Cons',6,'Nil']]],_218466],'Number'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[let,['List',_66372],['get-type',['Cons',5,['Cons',6,'Nil']]],_66372],'Number'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.14">;; HYPERON-EXPERIMENTAL-SCRIPTS.D1-GADT.14</h3>
-          -->(1,eval('&self',[let,['List',_218466],['get-type',['Cons',5,['Cons',6,'Nil']]],_218466],RET),depth(3))
-              -->(2,eval('&self',['get-type',['Cons',5,['Cons',6,'Nil']]],RET),depth(5))
-                  -->(3,eval('&self','List',RET),depth(7))
-                  -->(4,eval('&self','Number',RET),depth(7))
-                    -->(5,eval('&self','List',RET),depth(8))
-                    -->(6,eval('&self','Number',RET),depth(8))
-                  -->(7,eval('&self','List',RET),depth(7))
-                  -->(8,eval('&self','Number',RET),depth(7))
-              <--(2,retval(['List','Number']))
-            -->(9,eval('&self','Number',RET),depth(4))
-          <--(1,retval('Number'))
+      -->(1,eval('&self',[let,['List',_66372],['get-type',['Cons',5,['Cons',6,'Nil']]],_66372],RET),depth(1))
+        -->(2,eval('&self',['get-type',['Cons',5,['Cons',6,'Nil']]],RET),depth(2))
+                -->(3,subst_args('&self',['List','Number'],RET),depth(6))
+              -->(4,subst_args('&self',['List','Number'],RET),depth(5))
+        <--(2,retval(['List','Number']))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.69 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Number) (Number)))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.01 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Number) 
+    (Number)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 522,049 inferences, 0.394 CPU in 0.435 seconds (91% CPU, 1324473 Lips)
+</span><span class="ansi32">% 325,422 inferences, 0.245 CPU in 0.245 seconds (100% CPU, 1326493 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d1_gadt.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 11
 </span><span class="ansi31">Failures: 3
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d1_gadt.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211072029_3127985_6883.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d1_gadt.metta.html" )
 
 </pre>
 </body>

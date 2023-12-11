@@ -46,43 +46,63 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; although Concept and List will not be turned into types
 ;; and will remain just symbols in expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Sam'],['ConceptNode',flies]]])
-</span><span class="ansi38-255165000">(EvaluationLink (PredicateNode eats) (ListLink (ConceptNode Sam) (ConceptNode flies)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Sam'],['ConceptNode',flies]]])
+</span><span class="ansi38-255165000">(EvaluationLink 
+  (PredicateNode eats) 
+  (ListLink 
+    (ConceptNode Sam) 
+    (ConceptNode flies)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Bill'],['ConceptNode',pizza]]])
-</span><span class="ansi38-255165000">(EvaluationLink (PredicateNode eats) (ListLink (ConceptNode Bill) (ConceptNode pizza)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Bill'],['ConceptNode',pizza]]])
+</span><span class="ansi38-255165000">(EvaluationLink 
+  (PredicateNode eats) 
+  (ListLink 
+    (ConceptNode Bill) 
+    (ConceptNode pizza)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Fritz'],['ConceptNode',flies]]])
-</span><span class="ansi38-255165000">(EvaluationLink (PredicateNode eats) (ListLink (ConceptNode Fritz) (ConceptNode flies)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['EvaluationLink',['PredicateNode',eats],['ListLink',['ConceptNode','Fritz'],['ConceptNode',flies]]])
+</span><span class="ansi38-255165000">(EvaluationLink 
+  (PredicateNode eats) 
+  (ListLink 
+    (ConceptNode Fritz) 
+    (ConceptNode flies)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (EvaluationLink (PredicateNode eats) (ListLink $X (ConceptNode flies))) $X) ((ConceptNode Sam) (ConceptNode Fritz)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (EvaluationLink 
+      (PredicateNode eats) 
+      (ListLink $X 
+        (ConceptNode flies))) $X) 
+  ( (ConceptNode Sam) 
+    (ConceptNode Fritz)))
 
 </span><span class="ansi38-250144246">; !(match &self (EvaluationLink (PredicateNode eats) (ListLink $X (ConceptNode flies))) $X)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',X,['ConceptNode',flies]]],X],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',X,['ConceptNode',flies]]],X],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_468516,['ConceptNode',flies]]],_468516],[['ConceptNode','Sam'],['ConceptNode','Fritz']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_11592,['ConceptNode',flies]]],_11592],[['ConceptNode','Sam'],['ConceptNode','Fritz']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.A2-OPENCOGGY.01</h3>
-          -->(1,eval('&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_468516,['ConceptNode',flies]]],_468516],RET),depth(3))
-              -->(2,eval('&self',['ConceptNode','Sam'],RET),depth(5))
-                -->(3,eval('&self','Sam',RET),depth(6))
-                -->(4,eval('&self','ConceptNode',RET),depth(6))
-                -->(5,eval('&self','Sam',RET),depth(6))
-                  -->(6,eval('&self','ConceptNode',RET),depth(7))
-                  -->(7,eval('&self','Sam',RET),depth(7))
-              -->(8,eval('&self','Sam',RET),depth(5))
-              -->(9,eval('&self','ConceptNode',RET),depth(5))
-          <--(1,retval(['ConceptNode','Fritz']))
+      -->(1,eval('&self',[match,'&self',['EvaluationLink',['PredicateNode',eats],['ListLink',_11592,['ConceptNode',flies]]],_11592],RET),depth(1))
+              2-->subst_args(_24634,_24636,'&self',['ConceptNode','Sam'],depth(5))
+            3-->subst_args(_25228,_25230,'&self',['ConceptNode','Sam'],depth(4))
+              4-->subst_args(_25998,_26000,'&self',['ConceptNode','Fritz'],depth(5))
+            5-->subst_args(_26592,_26594,'&self',['ConceptNode','Fritz'],depth(4))
+      <--(1,retval(['ConceptNode','Fritz']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.01 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((ConceptNode Sam) (ConceptNode Fritz)) ((ConceptNode Fritz) (ConceptNode Sam))))
-</span>      <--(0,retval('Empty'))
+; took 0.000768 secs. (767.50 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (ConceptNode Sam) 
+      (ConceptNode Fritz)) 
+    ( (ConceptNode Fritz) 
+      (ConceptNode Sam))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 261,233 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 2648213 Lips)
+</span><span class="ansi32">% 57,099 inferences, 0.025 CPU in 0.025 seconds (100% CPU, 2268309 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a2_opencoggy.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

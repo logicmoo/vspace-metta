@@ -35,41 +35,63 @@
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/nested_parameters.metta', 1, [[1.0, 0.81]]).
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['Truth_Deduction',[F1,C1],[F2,C2]],[[*,F1,F2],[*,[*,F1,F2],[*,C1,C2]]]])
-</span><span class="ansi38-255165000">(= (Truth_Deduction ($F1 $C1) ($F2 $C2)) ((* $F1 $F2) (* (* $F1 $F2) (* $C1 $C2))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Truth_Deduction',[F1,C1],[F2,C2]],[[*,F1,F2],[*,[*,F1,F2],[*,C1,C2]]]])
+</span><span class="ansi38-255165000">(= 
+  (Truth_Deduction 
+    ($F1 $C1) 
+    ($F2 $C2)) 
+  ( (* $F1 $F2) 
+    (* 
+      (* $F1 $F2) 
+      (* $C1 $C2))))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(Truth_Deduction (1.0 0.9) (1.0 0.9))
+</span><span class="ansi1 ansi38-255238088">!(Truth_Deduction 
+  (1.0 0.9) 
+  (1.0 0.9))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (Truth_Deduction (1.0 0.9) (1.0 0.9)) ((1.0 0.81)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (Truth_Deduction 
+    (1.0 0.9) 
+    (1.0 0.9)) 
+  ( (1.0 0.81)))
 
 </span><span class="ansi38-250144246">; !(Truth_Deduction (1.0 0.9) (1.0 0.9))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['Truth_Deduction',[1.0,0.9],[1.0,0.9]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['Truth_Deduction',[1.0,0.9],[1.0,0.9]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['Truth_Deduction',[1.0,0.9],[1.0,0.9]],[[1.0,0.81]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['Truth_Deduction',[1.0,0.9],[1.0,0.9]],[[1.0,0.81]]],RET),depth(0))
 <h3 id="METTA-MORPH-TESTS.NESTED-PARAMETERS.01">;; METTA-MORPH-TESTS.NESTED-PARAMETERS.01</h3>
-          -->(1,eval('&self',['Truth_Deduction',[1.0,0.9],[1.0,0.9]],RET),depth(3))
-                -->(2,eval('&self',[*,[*,1.0,1.0],[*,0.9,0.9]],RET),depth(6))
-                    -->(3,eval('&self',[*,1.0,1.0],RET),depth(8))
-                      -->(4,eval('&self',1.0,RET),depth(9))
-                        -->(5,eval('&self',1.0,RET),depth(10))
-                    <--(3,retval(1.0))
-                    -->(6,eval('&self',[*,0.9,0.9],RET),depth(8))
-                      -->(7,eval('&self',0.9,RET),depth(9))
-                        -->(8,eval('&self',0.81,RET),depth(10))
-                    <--(6,retval(0.81))
-                    -->(9,eval('&self',0.81,RET),depth(8))
-                <--(2,retval(0.81))
-          <--(1,retval([1.0,0.81]))
+      -->(1,eval('&self',['Truth_Deduction',[1.0,0.9],[1.0,0.9]],RET),depth(1))
+          -->(2,eval('&self',[*,[*,1.0,1.0],[*,0.9,0.9]],RET),depth(3))
+            -->(3,eval('&self',[*,1.0,1.0],RET),depth(4))
+            <--(3,retval(1.0))
+            -->(4,eval('&self',[*,0.9,0.9],RET),depth(4))
+            <--(4,retval(0.81))
+          <--(2,retval(0.81))
+          -->(5,eval('&self',[*,1.0,1.0],RET),depth(3))
+          <--(5,retval(1.0))
+          -->(6,eval('&self',[*,[*,1.0,1.0],[*,0.9,0.9]],RET),depth(3))
+            -->(7,eval('&self',[*,1.0,1.0],RET),depth(4))
+            <--(7,retval(1.0))
+            -->(8,eval('&self',[*,0.9,0.9],RET),depth(4))
+            <--(8,retval(0.81))
+                -->(9,subst_args('&self',[1.0,0.81],RET),depth(6))
+              -->(10,subst_args('&self',[1.0,0.81],RET),depth(5))
+            -->(11,subst_args('&self',[1.0,0.81],RET),depth(4))
+          <--(6,retval(0.81))
+      <--(1,retval([1.0,0.81]))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.90 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((1.0 0.81)) ((1.0 0.81))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (1.98 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (1.0 0.81)) 
+    ( (1.0 0.81))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 245,692 inferences, 0.099 CPU in 0.099 seconds (100% CPU, 2494317 Lips)
+</span><span class="ansi32">% 41,828 inferences, 0.015 CPU in 0.015 seconds (100% CPU, 2734929 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/nested_parameters.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

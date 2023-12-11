@@ -17,18 +17,12 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
@@ -44,10 +38,7 @@
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-255238088 { color: #FFEE58; }
@@ -65,7 +56,6 @@
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
  (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta")
-%~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta')
 1=[()]
@@ -98,97 +88,78 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; This is a way to address particular state atoms without creating
 ;; unique tokens for them (it can be used for any grounded atom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['new-goal-status!',Goal,Status],[let,New_state,['new-state',Status],['add-atom','&self',[=,[status,['Goal',Goal]],New_state]]]])
-</span><span class="ansi38-255165000">(= (new-goal-status! $Goal $Status) (let $New_state (new-state $Status) (add-atom &self (= (status (Goal $Goal)) $New_state))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['new-goal-status!',Goal,Status],[let,New_state,['new-state',Status],['add-atom','&self',[=,[status,['Goal',Goal]],New_state]]]])
+</span><span class="ansi38-255165000">(= 
+  (new-goal-status! $Goal $Status) 
+  (let $New_state 
+    (new-state $Status) 
+    (add-atom &self 
+      (= 
+        (status 
+          (Goal $Goal)) $New_state))))
 </span>
 
- <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(new-goal-status! lunch-order inactive)
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (new-goal-status! lunch-order inactive) (()))
+ <span class="ansi38-013099040">!(new-goal-status! lunch-order inactive)
 
-</span><span class="ansi38-250144246">; !(new-goal-status! lunch-order inactive)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-goal-status!','lunch-order',inactive],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['new-goal-status!','lunch-order',inactive],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['new-goal-status!','lunch-order',inactive],[[]]],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01</h3>
-          -->(1,eval('&self',['new-goal-status!','lunch-order',inactive],RET),depth(3))
-                -->(2,eval('&self',['new-state',inactive],RET),depth(6))
-                  -->(3,eval('&self',inactive,RET),depth(7))
-                    -->(4,eval('&self','State'(inactive,_475452),RET),depth(8))
-                <--(2,retval('State'(inactive,_476316)))
-                -->(5,eval('&self',['add-atom','&self',[=,[status,['Goal','lunch-order']],'State'(inactive,_475452)]],RET),depth(6))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[status,['Goal','lunch-order']],'State'(inactive,_475452)])
-</span><span class="ansi38-255165000">(= (status (Goal lunch-order)) (State  inactive $_475452))
+</span>    -->(0,eval('&self',['new-goal-status!','lunch-order',inactive],RET),depth(0))
+        -->(1,eval('&self',['new-state',inactive],RET),depth(2))
+        <--(1,retval('State'(inactive,_50626)))
+        -->(2,eval('&self',['add-atom','&self',[=,[status,['Goal','lunch-order']],'State'(inactive,_50496)]],RET),depth(2))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[status,['Goal','lunch-order']],'State'(inactive,_50496)])
+</span><span class="ansi38-255165000">(= 
+  (status 
+    (Goal lunch-order)) 
+  (State  inactive $_50496))
 </span>
 
-                    -->(6,eval('&self','Empty',RET),depth(8))
-                <--(5,retval('Empty'))
-                -->(7,eval('&self','Empty',RET),depth(6))
-              -->(8,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
-; 
-; EVAL TEST
-; took 0.002 secs. (1.89 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(9,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+        <--(2,retval('Empty'))
+NDet Result(1): <span class="ansi33">Empty
 
-</span> <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(new-goal-status! meditation inactive)
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (new-goal-status! meditation inactive) (()))
+</span>    <--(0,retval('Empty'))
+ <span class="ansi38-013099040">!(new-goal-status! meditation inactive)
 
-</span><span class="ansi38-250144246">; !(new-goal-status! meditation inactive)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['new-goal-status!',meditation,inactive],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['new-goal-status!',meditation,inactive],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['new-goal-status!',meditation,inactive],[[]]],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02</h3>
-          -->(1,eval('&self',['new-goal-status!',meditation,inactive],RET),depth(3))
-                -->(2,eval('&self',['new-state',inactive],RET),depth(6))
-                  -->(3,eval('&self',inactive,RET),depth(7))
-                    -->(4,eval('&self','State'(inactive,_517030),RET),depth(8))
-                <--(2,retval('State'(inactive,_517894)))
-                -->(5,eval('&self',['add-atom','&self',[=,[status,['Goal',meditation]],'State'(inactive,_517030)]],RET),depth(6))
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[status,['Goal',meditation]],'State'(inactive,_517030)])
-</span><span class="ansi38-255165000">(= (status (Goal meditation)) (State  inactive $_517030))
+</span>    -->(0,eval('&self',['new-goal-status!',meditation,inactive],RET),depth(0))
+        -->(1,eval('&self',['new-state',inactive],RET),depth(2))
+        <--(1,retval('State'(inactive,_22848)))
+        -->(2,eval('&self',['add-atom','&self',[=,[status,['Goal',meditation]],'State'(inactive,_22718)]],RET),depth(2))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[status,['Goal',meditation]],'State'(inactive,_22718)])
+</span><span class="ansi38-255165000">(= 
+  (status 
+    (Goal meditation)) 
+  (State  inactive $_22718))
 </span>
 
-                    -->(6,eval('&self','Empty',RET),depth(8))
-                <--(5,retval('Empty'))
-                -->(7,eval('&self','Empty',RET),depth(6))
-              -->(8,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
-; 
-; EVAL TEST
-; took 0.004 secs. (3.62 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(9,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+        <--(2,retval('Empty'))
+NDet Result(1): <span class="ansi33">Empty
 
-</span>;; We can use `status` as a function to access corresponding state
-<span class="ansi38-013099040">!(assertEqual (get-state (status (Goal lunch-order))) inactive)
+</span>    <--(0,retval('Empty'))
+;; We can use `status` as a function to access corresponding state
+<span class="ansi38-013099040">!(assertEqual 
+  (get-state 
+    (status 
+      (Goal lunch-order))) inactive)
 
 </span><span class="ansi38-250144246">; !(get-state (status (Goal lunch-order)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-state',[status,['Goal','lunch-order']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-state',[status,['Goal','lunch-order']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-state',[status,['Goal','lunch-order']]],inactive],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03</h3>
-          -->(1,eval('&self',['get-state',[status,['Goal','lunch-order']]],RET),depth(3))
-              -->(2,eval('&self',[status,['Goal','lunch-order']],RET),depth(5))
-                  -->(3,eval('&self','State'(inactive,_38718),RET),depth(7))
-              <--(2,retval('State'(inactive,_39582)))
-              -->(4,eval('&self',inactive,RET),depth(5))
-          <--(1,retval(inactive))
-        -->(5,eval('&self',inactive,RET),depth(2))
+</span>    -->(0,eval('&self',[assertEqual,['get-state',[status,['Goal','lunch-order']]],inactive],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.01</h3>
+      -->(1,eval('&self',['get-state',[status,['Goal','lunch-order']]],RET),depth(1))
+        -->(2,eval('&self',[status,['Goal','lunch-order']],RET),depth(2))
+        <--(2,retval('State'(inactive,_62422)))
+      <--(1,retval(inactive))
 ; 
 ; EVAL TEST
-; took 0.000677 secs. (677.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (inactive) (inactive)))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000433 secs. (433.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (inactive) 
+    (inactive)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -197,31 +168,36 @@ Deterministic: <span class="ansi33">Empty
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `nop` is used only to get () for passing unit tests
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(nop (change-state! (status (Goal lunch-order)) active))
+</span><span class="ansi1 ansi38-255238088">!(nop 
+  (change-state! 
+    (status 
+      (Goal lunch-order)) active))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (nop (change-state! (status (Goal lunch-order)) active)) (()))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (nop 
+    (change-state! 
+      (status 
+        (Goal lunch-order)) active)) 
+  (()))
 
 </span><span class="ansi38-250144246">; !(nop (change-state! (status (Goal lunch-order)) active))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[nop,['change-state!',[status,['Goal','lunch-order']],active]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[nop,['change-state!',[status,['Goal','lunch-order']],active]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[nop,['change-state!',[status,['Goal','lunch-order']],active]],[[]]],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04</h3>
-          -->(1,eval('&self',[nop,['change-state!',[status,['Goal','lunch-order']],active]],RET),depth(3))
-              -->(2,eval('&self',['change-state!',[status,['Goal','lunch-order']],active],RET),depth(5))
-                  -->(3,eval('&self',[status,['Goal','lunch-order']],RET),depth(7))
-                      -->(4,eval('&self','State'(inactive,_78584),RET),depth(9))
-                  <--(3,retval('State'(inactive,_79448)))
-                -->(5,eval('&self',active,RET),depth(6))
-                  -->(6,eval('&self','State'(active,_78584),RET),depth(7))
-              <--(2,retval('State'(active,_81242)))
-              -->(7,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
+</span>    -->(0,eval('&self',[assertEqualToResult,[nop,['change-state!',[status,['Goal','lunch-order']],active]],[[]]],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.02</h3>
+      -->(1,eval('&self',[nop,['change-state!',[status,['Goal','lunch-order']],active]],RET),depth(1))
+        -->(2,eval('&self',['change-state!',[status,['Goal','lunch-order']],active],RET),depth(2))
+          -->(3,eval('&self',[status,['Goal','lunch-order']],RET),depth(3))
+          <--(3,retval('State'(inactive,_41870)))
+        <--(2,retval('State'(active,_42052)))
+      <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.32 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(8,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000465 secs. (465.20 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () 
+    (())))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; The result is now different. This might be surprising, since
@@ -229,155 +205,270 @@ Deterministic: <span class="ansi33">Empty
 ;; intention behind states: the atom remains the same, and we don't
 ;; need to reinsert it into Space, but the state it wraps changes
 ;; (even if it is inside equality).
-<span class="ansi38-013099040">!(assertEqual (get-state (status (Goal lunch-order))) active)
+<span class="ansi38-013099040">!(assertEqual 
+  (get-state 
+    (status 
+      (Goal lunch-order))) active)
 
 </span><span class="ansi38-250144246">; !(get-state (status (Goal lunch-order)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-state',[status,['Goal','lunch-order']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-state',[status,['Goal','lunch-order']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-state',[status,['Goal','lunch-order']]],active],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.05</h3>
-          -->(1,eval('&self',['get-state',[status,['Goal','lunch-order']]],RET),depth(3))
-              -->(2,eval('&self',[status,['Goal','lunch-order']],RET),depth(5))
-                  -->(3,eval('&self','State'(inactive,_111068),RET),depth(7))
-              <--(2,retval('State'(inactive,_111932)))
-              -->(4,eval('&self',inactive,RET),depth(5))
-          <--(1,retval(inactive))
-        -->(5,eval('&self',active,RET),depth(2))
+</span>    -->(0,eval('&self',[assertEqual,['get-state',[status,['Goal','lunch-order']]],active],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.03</h3>
+      -->(1,eval('&self',['get-state',[status,['Goal','lunch-order']]],RET),depth(1))
+        -->(2,eval('&self',[status,['Goal','lunch-order']],RET),depth(2))
+        <--(2,retval('State'(inactive,_11026)))
+      <--(1,retval(inactive))
 ; 
 ; EVAL TEST
-; took 0.000757 secs. (756.70 microseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  (inactive) (active)))
-</span>            -->(6,eval('&self',[inactive],RET),depth(4))
-              -->(7,eval('&self',inactive,RET),depth(5))
-                -->(8,eval('&self',inactive,RET),depth(6))
-            -->(9,eval('&self',[expected(_116358)],RET),depth(4))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.000343 secs. (342.50 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    (inactive) 
+    (active)))
+</span>        -->(3,eval('&self',[inactive],RET),depth(2))
+              -->(4,subst_args('&self',[inactive],RET),depth(5))
+        <--(3,retval([inactive]))
+        -->(5,eval('&self',[expected(_15846)],RET),depth(2))
+          -->(6,eval('&self',expected(_15846),RET),depth(3))
+              -->(7,subst_args('&self',expected(_15846),RET),depth(5))
+          <--(6,retval(expected(_19570)))
+              -->(8,subst_args('&self',[expected(_15846)],RET),depth(5))
+                -->(9,subst_args('&self',expected(_15846),RET),depth(6))
+        <--(5,retval([expected(_20894)]))
+        -->(10,eval('&self',[active],RET),depth(2))
+              -->(11,subst_args('&self',[active],RET),depth(5))
+        <--(10,retval([active]))
+        -->(12,eval('&self',[inactive],RET),depth(2))
+              -->(13,subst_args('&self',[inactive],RET),depth(5))
+        <--(12,retval([inactive]))
+        -->(14,eval('&self',[expected(_15846)],RET),depth(2))
+          -->(15,eval('&self',expected(_15846),RET),depth(3))
+              -->(16,subst_args('&self',expected(_15846),RET),depth(5))
+          <--(15,retval(expected(_25936)))
+              -->(17,subst_args('&self',[expected(_15846)],RET),depth(5))
+                -->(18,subst_args('&self',expected(_15846),RET),depth(6))
+        <--(14,retval([expected(_27260)]))
+        -->(19,eval('&self',[active],RET),depth(2))
+              -->(20,subst_args('&self',[active],RET),depth(5))
+        <--(19,retval([active]))
+            -->(21,subst_args('&self',[got,[inactive],[expected(_15846)],[active]],RET),depth(4))
+                -->(22,subst_args('&self',[inactive],RET),depth(6))
+                -->(23,subst_args('&self',[expected(_15846)],RET),depth(6))
+                  -->(24,subst_args('&self',expected(_15846),RET),depth(7))
+                -->(25,subst_args('&self',[active],RET),depth(6))
+                -->(26,subst_args('&self',[inactive],RET),depth(6))
+                -->(27,subst_args('&self',[expected(_15846)],RET),depth(6))
+                  -->(28,subst_args('&self',expected(_15846),RET),depth(7))
+                -->(29,subst_args('&self',[active],RET),depth(6))
+          -->(30,subst_args('&self',[got,[inactive],[expected(_15846)],[active]],RET),depth(3))
+              -->(31,subst_args('&self',[inactive],RET),depth(5))
+              -->(32,subst_args('&self',[expected(_15846)],RET),depth(5))
+                -->(33,subst_args('&self',expected(_15846),RET),depth(6))
+              -->(34,subst_args('&self',[active],RET),depth(5))
+              -->(35,subst_args('&self',[inactive],RET),depth(5))
+              -->(36,subst_args('&self',[expected(_15846)],RET),depth(5))
+                -->(37,subst_args('&self',expected(_15846),RET),depth(6))
+              -->(38,subst_args('&self',[active],RET),depth(5))
+    <--(0,retval([got,[inactive],[expected(_40620)],[active]]))
 Deterministic: <span class="ansi33">
-(got (inactive) ((expected  $_116358)) (active))
+(got 
+  (inactive) 
+  ( (expected  $_15846)) 
+  (active))
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Introducing tokens for states is not recommended, because these states are mutable
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(bind! &state-active (new-state active))
-</span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (bind! &state-active (new-state active)) (()))
+<span class="ansi38-013099040">!(bind! &state-active 
+  (new-state active))
 
-</span><span class="ansi38-250144246">; !(bind! &state-active (new-state active))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['bind!','&state-active',['new-state',active]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['bind!','&state-active',['new-state',active]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['bind!','&state-active',['new-state',active]],[[]]],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.06</h3>
-          -->(1,eval('&self',['bind!','&state-active',['new-state',active]],RET),depth(3))
-              -->(2,eval('&self',['new-state',active],RET),depth(5))
-                -->(3,eval('&self',active,RET),depth(6))
-                  -->(4,eval('&self','State'(active,_225352),RET),depth(7))
-              <--(2,retval('State'(active,_226216)))
-              -->(5,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
-; 
-; EVAL TEST
-; took 0.000829 secs. (828.80 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+</span>    -->(0,eval('&self',['bind!','&state-active',['new-state',active]],RET),depth(0))
+      -->(1,eval('&self',['new-state',active],RET),depth(1))
+      <--(1,retval('State'(active,_57986)))
+    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span><span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(nop (change-state! &state-active inactive))
+</span><span class="ansi1 ansi38-255238088">!(nop 
+  (change-state! &state-active inactive))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (nop (change-state! &state-active inactive)) (()))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (nop 
+    (change-state! &state-active inactive)) 
+  (()))
 
 </span><span class="ansi38-250144246">; !(nop (change-state! &state-active inactive))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[nop,['change-state!','&state-active',inactive]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[nop,['change-state!','&state-active',inactive]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[nop,['change-state!','&state-active',inactive]],[[]]],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.07</h3>
-          -->(1,eval('&self',[nop,['change-state!','&state-active',inactive]],RET),depth(3))
-              -->(2,eval('&self',['change-state!','&state-active',inactive],RET),depth(5))
-                -->(3,eval('&self','&state-active',RET),depth(6))
-                    -->(4,eval('&self','State'(active,_226598),RET),depth(8))
-                <--(3,retval('State'(active,_258780)))
-                -->(5,eval('&self',inactive,RET),depth(6))
-                  -->(6,eval('&self','State'(inactive,_226598),RET),depth(7))
-              <--(2,retval('State'(inactive,_260574)))
-              -->(7,eval('&self','Empty',RET),depth(5))
-          <--(1,retval('Empty'))
+</span>    -->(0,eval('&self',[assertEqualToResult,[nop,['change-state!','&state-active',inactive]],[[]]],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.04</h3>
+      -->(1,eval('&self',[nop,['change-state!','&state-active',inactive]],RET),depth(1))
+        -->(2,eval('&self',['change-state!','&state-active',inactive],RET),depth(2))
+          -->(3,eval('&self','&state-active',RET),depth(3))
+          <--(3,retval('State'(active,_27430)))
+        <--(2,retval('State'(inactive,_27612)))
+      <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.33 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () (())))
-</span>          -->(8,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000425 secs. (425.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () 
+    (())))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; We cannot put `(new-state active)` inside `match`, because it doesn't
 ;; reduce the input pattern expression. Instead, we should use
 ;; `(let $state-active (new-state active)) ...) here.
 ;; In any case, direct matching against expressions with states work:
-<span class="ansi38-013099040">!(assertEqual (match &self (= (status (Goal $Goal)) &state-active) $Goal) meditation)
+<span class="ansi38-013099040">!(assertEqual 
+  (match &self 
+    (= 
+      (status 
+        (Goal $Goal)) &state-active) $Goal) meditation)
 
 </span><span class="ansi38-250144246">; !(match &self (= (status (Goal $Goal)) &state-active) $Goal)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[=,[status,['Goal',Goal]],'&state-active'],Goal],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[=,[status,['Goal',Goal]],'&state-active'],Goal],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[match,'&self',[=,[status,['Goal',_278234]],'&state-active'],_278234],meditation],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.08</h3>
-          -->(1,eval('&self',[match,'&self',[=,[status,['Goal',_278234]],'&state-active'],_278234],RET),depth(3))
-          <--(1,retval(fail))
-        -->(2,eval('&self',meditation,RET),depth(2))
+</span>    -->(0,eval('&self',[assertEqual,[match,'&self',[=,[status,['Goal',_45154]],'&state-active'],_45154],meditation],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.05</h3>
+      -->(1,eval('&self',[match,'&self',[=,[status,['Goal',_45154]],'&state-active'],_45154],RET),depth(1))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.000491 secs. (491.20 microseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  () (meditation)))
-</span>          -->(3,eval('&self',[],RET),depth(3))
-            -->(4,eval('&self',[expected(_291730)],RET),depth(4))
-              -->(5,eval('&self',expected(_291730),RET),depth(5))
-                  -->(6,eval('&self',expected(_291730),RET),depth(7))
-                      -->(7,eval('&self',expected(_291730),RET),depth(9))
-                          -->(8,eval('&self',expected(_291730),RET),depth(11))
-                              -->(9,eval('&self',expected(_291730),RET),depth(13))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.000208 secs. (208.20 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  () 
+    (meditation)))
+</span>        -->(2,eval('&self',[expected(_60868)],RET),depth(2))
+          -->(3,eval('&self',expected(_60868),RET),depth(3))
+              -->(4,subst_args('&self',expected(_60868),RET),depth(5))
+          <--(3,retval(expected(_63196)))
+              -->(5,subst_args('&self',[expected(_60868)],RET),depth(5))
+                -->(6,subst_args('&self',expected(_60868),RET),depth(6))
+        <--(2,retval([expected(_64520)]))
+        -->(7,eval('&self',[meditation],RET),depth(2))
+              -->(8,subst_args('&self',[meditation],RET),depth(5))
+        <--(7,retval([meditation]))
+        -->(9,eval('&self',[expected(_3564)],RET),depth(2))
+          -->(10,eval('&self',expected(_3564),RET),depth(3))
+              -->(11,subst_args('&self',expected(_3564),RET),depth(5))
+          <--(10,retval(expected(_6710)))
+              -->(12,subst_args('&self',[expected(_3564)],RET),depth(5))
+                -->(13,subst_args('&self',expected(_3564),RET),depth(6))
+        <--(9,retval([expected(_8034)]))
+        -->(14,eval('&self',[meditation],RET),depth(2))
+              -->(15,subst_args('&self',[meditation],RET),depth(5))
+        <--(14,retval([meditation]))
+            -->(16,subst_args('&self',[got,[],[expected(_3564)],[meditation]],RET),depth(4))
+                -->(17,subst_args('&self',[expected(_3564)],RET),depth(6))
+                  -->(18,subst_args('&self',expected(_3564),RET),depth(7))
+                -->(19,subst_args('&self',[meditation],RET),depth(6))
+                -->(20,subst_args('&self',[expected(_3564)],RET),depth(6))
+                  -->(21,subst_args('&self',expected(_3564),RET),depth(7))
+                -->(22,subst_args('&self',[meditation],RET),depth(6))
+          -->(23,subst_args('&self',[got,[],[expected(_3564)],[meditation]],RET),depth(3))
+              -->(24,subst_args('&self',[expected(_3564)],RET),depth(5))
+                -->(25,subst_args('&self',expected(_3564),RET),depth(6))
+              -->(26,subst_args('&self',[meditation],RET),depth(5))
+              -->(27,subst_args('&self',[expected(_3564)],RET),depth(5))
+                -->(28,subst_args('&self',expected(_3564),RET),depth(6))
+              -->(29,subst_args('&self',[meditation],RET),depth(5))
+    <--(0,retval([got,[],[expected(_18696)],[meditation]]))
 Deterministic: <span class="ansi33">
-(got () ((expected  $_291730)) (meditation))
+(got () 
+  ( (expected  $_3564)) 
+  (meditation))
 
 </span>;; But we can also find all goal statuses, unwrap them from State,
 ;; and compare to the desirable result
-<span class="ansi38-013099040">!(assertEqual (if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ())) lunch-order)
+<span class="ansi38-013099040">!(assertEqual 
+  (if 
+    (== 
+      (get-state 
+        (status 
+          (Goal $Goal))) active) $Goal 
+    (superpose ())) lunch-order)
 
 </span><span class="ansi38-250144246">; !(if (== (get-state (status (Goal $Goal))) active) $Goal (superpose ()))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[if,[==,['get-state',[status,['Goal',Goal]]],active],Goal,[superpose,[]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[if,[==,['get-state',[status,['Goal',Goal]]],active],Goal,[superpose,[]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[if,[==,['get-state',[status,['Goal',_389892]]],active],_389892,[superpose,[]]],'lunch-order'],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.09</h3>
-          -->(1,eval('&self',[if,[==,['get-state',[status,['Goal',_389892]]],active],_389892,[superpose,[]]],RET),depth(3))
-              -->(2,eval('&self',[==,['get-state',[status,['Goal',_389892]]],active],RET),depth(5))
-                -->(3,eval('&self',==,RET),depth(6))
-                  -->(4,eval('&self',['get-state',[status,['Goal',_389892]]],RET),depth(7))
-                      -->(5,eval('&self',[status,['Goal',_389892]],RET),depth(9))
-                          -->(6,eval('&self','State'(inactive,_407562),RET),depth(11))
-                      <--(5,retval('State'(inactive,_408426)))
-                      -->(7,eval('&self',inactive,RET),depth(9))
-                  <--(4,retval(inactive))
-                -->(8,eval('&self',active,RET),depth(6))
-                  -->(9,eval('&self',==,RET),depth(7))
-              <--(2,retval([==,inactive,active]))
-          <--(1,retval('lunch-order'))
+</span>    -->(0,eval('&self',[assertEqual,[if,[==,['get-state',[status,['Goal',_30970]]],active],_30970,[superpose,[]]],'lunch-order'],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.E3-MATCH-STATES.06</h3>
+      -->(1,eval('&self',[if,[==,['get-state',[status,['Goal',_30970]]],active],_30970,[superpose,[]]],RET),depth(1))
+        -->(2,eval('&self',[==,['get-state',[status,['Goal',_30970]]],active],RET),depth(2))
+          -->(3,eval('&self',['get-state',[status,['Goal',_2124]]],RET),depth(3))
+            -->(4,eval('&self',[status,['Goal',_2124]],RET),depth(4))
+                -->(5,subst_args('&self',[==,inactive,active],RET),depth(6))
+                <--(5,retval('False'))
+        -->(6,eval('&self',[superpose,[]],RET),depth(2))
+        <--(6,retval(fail))
+                -->(7,subst_args('&self',[==,inactive,active],RET),depth(6))
+                <--(7,retval('False'))
+        -->(8,eval('&self',[superpose,[]],RET),depth(2))
+        <--(8,retval(fail))
+            <--(4,retval('State'(inactive,_8440)))
+          <--(3,retval(inactive))
+        <--(2,retval('False'))
+      <--(1,retval(fail))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.27 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (lunch-order) (lunch-order)))
-</span>      <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+; took 0.002 secs. (1.92 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  () 
+    (lunch-order)))
+</span>        -->(9,eval('&self',[expected(_14890)],RET),depth(2))
+          -->(10,eval('&self',expected(_14890),RET),depth(3))
+              -->(11,subst_args('&self',expected(_14890),RET),depth(5))
+          <--(10,retval(expected(_17218)))
+              -->(12,subst_args('&self',[expected(_14890)],RET),depth(5))
+                -->(13,subst_args('&self',expected(_14890),RET),depth(6))
+        <--(9,retval([expected(_18542)]))
+        -->(14,eval('&self',['lunch-order'],RET),depth(2))
+              -->(15,subst_args('&self',['lunch-order'],RET),depth(5))
+        <--(14,retval(['lunch-order']))
+        -->(16,eval('&self',[expected(_14890)],RET),depth(2))
+          -->(17,eval('&self',expected(_14890),RET),depth(3))
+              -->(18,subst_args('&self',expected(_14890),RET),depth(5))
+          <--(17,retval(expected(_22188)))
+              -->(19,subst_args('&self',[expected(_14890)],RET),depth(5))
+                -->(20,subst_args('&self',expected(_14890),RET),depth(6))
+        <--(16,retval([expected(_23512)]))
+        -->(21,eval('&self',['lunch-order'],RET),depth(2))
+              -->(22,subst_args('&self',['lunch-order'],RET),depth(5))
+        <--(21,retval(['lunch-order']))
+            -->(23,subst_args('&self',[got,[],[expected(_14890)],['lunch-order']],RET),depth(4))
+                -->(24,subst_args('&self',[expected(_14890)],RET),depth(6))
+                  -->(25,subst_args('&self',expected(_14890),RET),depth(7))
+                -->(26,subst_args('&self',['lunch-order'],RET),depth(6))
+                -->(27,subst_args('&self',[expected(_14890)],RET),depth(6))
+                  -->(28,subst_args('&self',expected(_14890),RET),depth(7))
+                -->(29,subst_args('&self',['lunch-order'],RET),depth(6))
+          -->(30,subst_args('&self',[got,[],[expected(_14890)],['lunch-order']],RET),depth(3))
+              -->(31,subst_args('&self',[expected(_14890)],RET),depth(5))
+                -->(32,subst_args('&self',expected(_14890),RET),depth(6))
+              -->(33,subst_args('&self',['lunch-order'],RET),depth(5))
+              -->(34,subst_args('&self',[expected(_14890)],RET),depth(5))
+                -->(35,subst_args('&self',expected(_14890),RET),depth(6))
+              -->(36,subst_args('&self',['lunch-order'],RET),depth(5))
+    <--(0,retval([got,[],[expected(_34174)],['lunch-order']]))
+Deterministic: <span class="ansi33">
+(got () 
+  ( (expected  $_14890)) 
+  (lunch-order))
 
-</span><span class="ansi32">% 448,997 inferences, 0.318 CPU in 0.328 seconds (97% CPU, 1410064 Lips)
+</span><span class="ansi32">% 175,118 inferences, 0.157 CPU in 0.157 seconds (100% CPU, 1118377 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 7
-</span><span class="ansi31">Failures: 2
+<span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 3
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211072035_3128234_15564.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta.html" )
 
 </pre>
 </body>

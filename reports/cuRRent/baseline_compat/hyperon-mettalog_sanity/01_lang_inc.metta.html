@@ -30,66 +30,91 @@
 %~ /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta:1 
 %~ load_answer_file( '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta.answers',
 %~   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta')
+1=+ '[' 0 -eq 1 ']'
+1=+ echo 'Doing: timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta'
+1=Doing: timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta
+1=+ eval 'timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta'
+1=++ timeout --foreground --kill-after=5 --signal=SIGINT 121 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta
 1=[()]
 2=[()]
-3=0.11user 0.00system 0:00.12elapsed 98%CPU (0avgtext+0avgdata 33136maxresident)k
-3=0inputs+0outputs (0major+3474minor)pagefaults 0swaps
+3=0.10user 0.01system 0:00.11elapsed 99%CPU (0avgtext+0avgdata 32988maxresident)k
+3=0inputs+0outputs (0major+3504minor)pagefaults 0swaps
 :- dynamic file_answers/3.
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta', 1, [[]]).
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta', 2, [[]]).
 
 ;; a functional example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['maybe-inc',X],[case,X,[[['Just',V],['Just',[+,1,V]]],['Nothing','Nothing']]]])
-</span><span class="ansi38-255165000">(= (maybe-inc $X) (case $X (((Just $V) (Just (+ 1 $V))) (Nothing Nothing))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['maybe-inc',X],[case,X,[[['Just',V],['Just',[+,1,V]]],['Nothing','Nothing']]]])
+</span><span class="ansi38-255165000">(= 
+  (maybe-inc $X) 
+  (case $X 
+    ( ( (Just $V) 
+        (Just 
+          (+ 1 $V))) 
+      (Nothing Nothing))))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (maybe-inc Nothing) Nothing)
+<span class="ansi38-013099040">!(assertEqual 
+  (maybe-inc Nothing) Nothing)
 
 </span><span class="ansi38-250144246">; !(maybe-inc Nothing)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['maybe-inc','Nothing'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['maybe-inc','Nothing'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['maybe-inc','Nothing'],'Nothing'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['maybe-inc','Nothing'],'Nothing'],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.01">;; HYPERON-METTALOG-SANITY.01-LANG-INC.01</h3>
-          -->(1,eval('&self',['maybe-inc','Nothing'],RET),depth(3))
-              -->(2,eval('&self','Nothing',RET),depth(5))
-          <--(1,retval('Nothing'))
-        -->(3,eval('&self','Nothing',RET),depth(2))
+      -->(1,eval('&self',['maybe-inc','Nothing'],RET),depth(1))
+      <--(1,retval('Nothing'))
 ; 
 ; EVAL TEST
-; took 0.000438 secs. (437.80 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Nothing) (Nothing)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000247 secs. (246.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Nothing) 
+    (Nothing)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (maybe-inc (Just 2)) (Just 3))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (maybe-inc 
+    (Just 2)) 
+  (Just 3))
 
 </span><span class="ansi38-250144246">; !(maybe-inc (Just 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['maybe-inc',['Just',2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['maybe-inc',['Just',2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['maybe-inc',['Just',2]],['Just',3]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['maybe-inc',['Just',2]],['Just',3]],RET),depth(0))
 <h3 id="HYPERON-METTALOG-SANITY.01-LANG-INC.02">;; HYPERON-METTALOG-SANITY.01-LANG-INC.02</h3>
-          -->(1,eval('&self',['maybe-inc',['Just',2]],RET),depth(3))
-                -->(2,eval('&self',['Just',2],RET),depth(6))
-                  -->(3,eval('&self',2,RET),depth(7))
-                  -->(4,eval('&self','Just',RET),depth(7))
-                  -->(5,eval('&self',2,RET),depth(7))
-                    -->(6,eval('&self','Just',RET),depth(8))
-                    -->(7,eval('&self',2,RET),depth(8))
-                -->(8,eval('&self',['Just',[+,1,2]],RET),depth(6))
-                    -->(9,eval('&self',[+,1,2],RET),depth(8))
-                    <--(9,retval(3))
-                <--(8,retval(['Just',3]))
-          <--(1,retval(['Just',3]))
+      -->(1,eval('&self',['maybe-inc',['Just',2]],RET),depth(1))
+          -->(2,eval('&self',['Just',2],RET),depth(3))
+                3-->subst_args(_16246,_16248,'&self',['Just',2],depth(6))
+          <--(2,retval(['Just',2]))
+          -->(4,eval('&self',['Just',[+,1,2]],RET),depth(3))
+            -->(5,eval('&self',[+,1,2],RET),depth(4))
+            <--(5,retval(3))
+            -->(6,eval('&self',[+,1,2],RET),depth(4))
+            <--(6,retval(3))
+                  7-->subst_args(_18806,_18808,'&self',['Just',3],depth(7))
+                8-->subst_args(_19356,_19358,'&self',['Just',3],depth(6))
+          <--(4,retval(['Just',3]))
+                9-->subst_args(_20074,_20076,'&self',['Just',3],depth(6))
+              10-->subst_args(_20624,_20626,'&self',['Just',3],depth(5))
+            11-->subst_args(_21174,_21176,'&self',['Just',3],depth(4))
+      <--(1,retval(['Just',3]))
+      -->(12,eval('&self',['Just',3],RET),depth(1))
+            13-->subst_args(_22572,_22574,'&self',['Just',3],depth(4))
+      <--(12,retval(['Just',3]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.56 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Just 3)) ((Just 3))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (2.45 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Just 3)) 
+    ( (Just 3))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 253,664 inferences, 0.096 CPU in 0.096 seconds (100% CPU, 2651822 Lips)
+</span><span class="ansi32">% 48,992 inferences, 0.022 CPU in 0.022 seconds (100% CPU, 2209275 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-mettalog_sanity/01_lang_inc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

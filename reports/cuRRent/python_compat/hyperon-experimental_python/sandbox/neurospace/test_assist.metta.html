@@ -61,7 +61,6 @@
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-250144246 { color: #FA90F6; }
 .ansi38-218112214 { color: #DA70D6; }
 </style>
 </head>
@@ -96,97 +95,177 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(extend-py! llm_gate)
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (extend-py! llm_gate) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (extend-py! llm_gate) ())
 
 </span><span class="ansi38-250144246">; !(extend-py! llm_gate)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['extend-py!',llm_gate],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['extend-py!',llm_gate],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['extend-py!',llm_gate],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['extend-py!',llm_gate],[]],RET),depth(0))
 <h3 id="NEUROSPACE.TEST-ASSIST.01">;; NEUROSPACE.TEST-ASSIST.01</h3>
-          -->(1,eval('&self',['extend-py!',llm_gate],RET),depth(3))
-            -->(2,eval('&self',llm_gate,RET),depth(4))
-            -->(3,eval('&self','extend-py!',RET),depth(4))
-            -->(4,eval('&self',llm_gate,RET),depth(4))
-              -->(5,eval('&self','extend-py!',RET),depth(5))
-              -->(6,eval('&self',llm_gate,RET),depth(5))
+      -->(1,eval('&self',['extend-py!',llm_gate],RET),depth(1))
+            -->(2,subst_args('&self',['extend-py!',llm_gate],RET),depth(4))
+      <--(1,retval(['extend-py!',llm_gate]))
 ; 
 ; EVAL TEST
-; took 0.000757 secs. (756.90 microseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((extend-py! llm_gate)) ()))
-</span>            -->(7,eval('&self',[['extend-py!',llm_gate]],RET),depth(4))
-                -->(8,eval('&self',['extend-py!',llm_gate],RET),depth(6))
-                  -->(9,eval('&self',llm_gate,RET),depth(7))
-      <--(0,retval([got,[['extend-py!',llm_gate]],expected,[]]))
+; took 0.000721 secs. (721.40 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (extend-py! llm_gate)) ()))
+</span>        -->(3,eval('&self',[['extend-py!',llm_gate]],RET),depth(2))
+          -->(4,eval('&self',['extend-py!',llm_gate],RET),depth(3))
+                -->(5,subst_args('&self',['extend-py!',llm_gate],RET),depth(6))
+          <--(4,retval(['extend-py!',llm_gate]))
+              -->(6,subst_args('&self',[['extend-py!',llm_gate]],RET),depth(5))
+                  -->(7,subst_args('&self',['extend-py!',llm_gate],RET),depth(7))
+        <--(3,retval([['extend-py!',llm_gate]]))
+        -->(8,eval('&self',[['extend-py!',llm_gate]],RET),depth(2))
+          -->(9,eval('&self',['extend-py!',llm_gate],RET),depth(3))
+                -->(10,subst_args('&self',['extend-py!',llm_gate],RET),depth(6))
+          <--(9,retval(['extend-py!',llm_gate]))
+              -->(11,subst_args('&self',[['extend-py!',llm_gate]],RET),depth(5))
+                  -->(12,subst_args('&self',['extend-py!',llm_gate],RET),depth(7))
+        <--(8,retval([['extend-py!',llm_gate]]))
+            -->(13,subst_args('&self',[got,[['extend-py!',llm_gate]],expected,[]],RET),depth(4))
+                -->(14,subst_args('&self',[['extend-py!',llm_gate]],RET),depth(6))
+                    -->(15,subst_args('&self',['extend-py!',llm_gate],RET),depth(8))
+                -->(16,subst_args('&self',[['extend-py!',llm_gate]],RET),depth(6))
+                    -->(17,subst_args('&self',['extend-py!',llm_gate],RET),depth(8))
+          -->(18,subst_args('&self',[got,[['extend-py!',llm_gate]],expected,[]],RET),depth(3))
+              -->(19,subst_args('&self',[['extend-py!',llm_gate]],RET),depth(5))
+                  -->(20,subst_args('&self',['extend-py!',llm_gate],RET),depth(7))
+              -->(21,subst_args('&self',[['extend-py!',llm_gate]],RET),depth(5))
+                  -->(22,subst_args('&self',['extend-py!',llm_gate],RET),depth(7))
+    <--(0,retval([got,[['extend-py!',llm_gate]],expected,[]]))
 Deterministic: <span class="ansi33">
-(got ((extend-py! llm_gate)) expected ())
+(got 
+  ( (extend-py! llm_gate)) expected ())
 
-</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['append-expr',Xs,X],[collapse,[superpose,[[superpose,Xs],X]]]])
-</span><span class="ansi38-255165000">(= (append-expr $Xs $X) (collapse (superpose ((superpose $Xs) $X))))
+</span><span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['append-expr',Xs,X],[collapse,[superpose,[[superpose,Xs],X]]]])
+</span><span class="ansi38-255165000">(= 
+  (append-expr $Xs $X) 
+  (collapse 
+    (superpose 
+      ( (superpose $Xs) $X))))
 </span>
 
 ;; We could use $_, so this message would be automatically added to any prompt,
 ;; but in this case it would be difficult to avoid its duplication
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[message,init],[system,'You are the SingularityNet AI platform and marketplace assistant']])
-</span><span class="ansi38-255165000">(= (message init) (system "You are the SingularityNet AI platform and marketplace assistant"))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[message,init],[system,'You are the SingularityNet AI platform and marketplace assistant']])
+</span><span class="ansi38-255165000">(= 
+  (message init) 
+  (system "You are the SingularityNet AI platform and marketplace assistant"))
 </span>
 
 ;; We need to duplicate this message
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[message,'platform-desc'],[message,init]])
-</span><span class="ansi38-255165000">(= (message platform-desc) (message init))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[message,'platform-desc'],[message,init]])
+</span><span class="ansi38-255165000">(= 
+  (message platform-desc) 
+  (message init))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[message,'platform-desc'],[system,'SingularityNET (SNET) is an open and decentralized network of AI services made accessible through the Blockchain. Developers publish their services to the SingularityNET network, where they can be used by anyone with an internet connection. Developers are able to charge for the use of their services using the native AGIX token.\nServices can span the entire gamut of offerings in artificial intelligence and machine learning. Services can provide inference or model training across myriad domains such as image/video, speech, text, time-series, bio-AI, network analysis, etc. The services can be as simple as wrapping a well-known algorithm such as A* path planning, a complete end-to-end solution for an industry problem, or a standalone AI application. Developers can also deploy autonomous AI agents that interoperate with other services on the network.\nThe SingularityNET platform contains a number of critical components that work together to enable a decentralized network of AI services to flourish. The core components are designed to allow for a functional, scalable, and extensible system. We arrived at the current architecture through a careful process, guided by a few key decisions governing Blockchain interactions, AI service integration, and abstraction and by the goal of building an AI marketplace that is both open and compliant with regulatory and legal requirements.\nFirst, we made the conscious choice to minimize our dependence on our current Blockchain, Ethereum. Both conceptual and practical issues motivated this decision. Conceptually, we desire to be Blockchain-agnostic and, if necessary, will consider building our own consensus algorithm based on reputation. The speed, reliability, and costs of Ethereum Blockchain interactions dictate that any scalable system built on top of it must minimize gas costs and the delays introduced by block-mining time. These decisions are reflected in our use of tools to abstract away all Blockchain interactions (the daemon, CLI, and SDK) and in our use of a multi-party escrow contract and atomic unidirectional channels for payments.\nSecond, on AI services integration, we wanted to abstract away as much of the network as possible, in order to reduce the learning curve and minimize the overhead associated with providing AI services via the network. This abstraction is achieved with a single flexible tool, the daemon, that will help us provide scalability, robustness, distribution, and management features to the entire community.\nFinally, to make our marketplace compliant with regulations without compromising on openness, we implemented it separately from our fully decentralized registry of AI services currently available on the Blockchain.']])
-</span><span class="ansi38-255165000">(= (message platform-desc) (system "SingularityNET (SNET) is an open and decentralized network of AI services made accessible through the Blockchain. Developers publish their services to the SingularityNET network, where they can be used by anyone with an internet connection. Developers are able to charge for the use of their services using the native AGIX token.\nServices can span the entire gamut of offerings in artificial intelligence and machine learning. Services can provide inference or model training across myriad domains such as image/video, speech, text, time-series, bio-AI, network analysis, etc. The services can be as simple as wrapping a well-known algorithm such as A* path planning, a complete end-to-end solution for an industry problem, or a standalone AI application. Developers can also deploy autonomous AI agents that interoperate with other services on the network.\nThe SingularityNET platform contains a number of critical components that work together to enable a decentralized network of AI services to flourish. The core components are designed to allow for a functional, scalable, and extensible system. We arrived at the current architecture through a careful process, guided by a few key decisions governing Blockchain interactions, AI service integration, and abstraction and by the goal of building an AI marketplace that is both open and compliant with regulatory and legal requirements.\nFirst, we made the conscious choice to minimize our dependence on our current Blockchain, Ethereum. Both conceptual and practical issues motivated this decision. Conceptually, we desire to be Blockchain-agnostic and, if necessary, will consider building our own consensus algorithm based on reputation. The speed, reliability, and costs of Ethereum Blockchain interactions dictate that any scalable system built on top of it must minimize gas costs and the delays introduced by block-mining time. These decisions are reflected in our use of tools to abstract away all Blockchain interactions (the daemon, CLI, and SDK) and in our use of a multi-party escrow contract and atomic unidirectional channels for payments.\nSecond, on AI services integration, we wanted to abstract away as much of the network as possible, in order to reduce the learning curve and minimize the overhead associated with providing AI services via the network. This abstraction is achieved with a single flexible tool, the daemon, that will help us provide scalability, robustness, distribution, and management features to the entire community.\nFinally, to make our marketplace compliant with regulations without compromising on openness, we implemented it separately from our fully decentralized registry of AI services currently available on the Blockchain."))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[message,'platform-desc'],[system,'SingularityNET (SNET) is an open and decentralized network of AI services made accessible through the Blockchain. Developers publish their services to the SingularityNET network, where they can be used by anyone with an internet connection. Developers are able to charge for the use of their services using the native AGIX token.\nServices can span the entire gamut of offerings in artificial intelligence and machine learning. Services can provide inference or model training across myriad domains such as image/video, speech, text, time-series, bio-AI, network analysis, etc. The services can be as simple as wrapping a well-known algorithm such as A* path planning, a complete end-to-end solution for an industry problem, or a standalone AI application. Developers can also deploy autonomous AI agents that interoperate with other services on the network.\nThe SingularityNET platform contains a number of critical components that work together to enable a decentralized network of AI services to flourish. The core components are designed to allow for a functional, scalable, and extensible system. We arrived at the current architecture through a careful process, guided by a few key decisions governing Blockchain interactions, AI service integration, and abstraction and by the goal of building an AI marketplace that is both open and compliant with regulatory and legal requirements.\nFirst, we made the conscious choice to minimize our dependence on our current Blockchain, Ethereum. Both conceptual and practical issues motivated this decision. Conceptually, we desire to be Blockchain-agnostic and, if necessary, will consider building our own consensus algorithm based on reputation. The speed, reliability, and costs of Ethereum Blockchain interactions dictate that any scalable system built on top of it must minimize gas costs and the delays introduced by block-mining time. These decisions are reflected in our use of tools to abstract away all Blockchain interactions (the daemon, CLI, and SDK) and in our use of a multi-party escrow contract and atomic unidirectional channels for payments.\nSecond, on AI services integration, we wanted to abstract away as much of the network as possible, in order to reduce the learning curve and minimize the overhead associated with providing AI services via the network. This abstraction is achieved with a single flexible tool, the daemon, that will help us provide scalability, robustness, distribution, and management features to the entire community.\nFinally, to make our marketplace compliant with regulations without compromising on openness, we implemented it separately from our fully decentralized registry of AI services currently available on the Blockchain.']])
+</span><span class="ansi38-255165000">(= 
+  (message platform-desc) 
+  (system "SingularityNET (SNET) is an open and decentralized network of AI services made accessible through the Blockchain. Developers publish their services to the SingularityNET network, where they can be used by anyone with an internet connection. Developers are able to charge for the use of their services using the native AGIX token.\nServices can span the entire gamut of offerings in artificial intelligence and machine learning. Services can provide inference or model training across myriad domains such as image/video, speech, text, time-series, bio-AI, network analysis, etc. The services can be as simple as wrapping a well-known algorithm such as A* path planning, a complete end-to-end solution for an industry problem, or a standalone AI application. Developers can also deploy autonomous AI agents that interoperate with other services on the network.\nThe SingularityNET platform contains a number of critical components that work together to enable a decentralized network of AI services to flourish. The core components are designed to allow for a functional, scalable, and extensible system. We arrived at the current architecture through a careful process, guided by a few key decisions governing Blockchain interactions, AI service integration, and abstraction and by the goal of building an AI marketplace that is both open and compliant with regulatory and legal requirements.\nFirst, we made the conscious choice to minimize our dependence on our current Blockchain, Ethereum. Both conceptual and practical issues motivated this decision. Conceptually, we desire to be Blockchain-agnostic and, if necessary, will consider building our own consensus algorithm based on reputation. The speed, reliability, and costs of Ethereum Blockchain interactions dictate that any scalable system built on top of it must minimize gas costs and the delays introduced by block-mining time. These decisions are reflected in our use of tools to abstract away all Blockchain interactions (the daemon, CLI, and SDK) and in our use of a multi-party escrow contract and atomic unidirectional channels for payments.\nSecond, on AI services integration, we wanted to abstract away as much of the network as possible, in order to reduce the learning curve and minimize the overhead associated with providing AI services via the network. This abstraction is achieved with a single flexible tool, the daemon, that will help us provide scalability, robustness, distribution, and management features to the entire community.\nFinally, to make our marketplace compliant with regulations without compromising on openness, we implemented it separately from our fully decentralized registry of AI services currently available on the Blockchain."))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[message,'service-list'],[system,'Select the service, which is most relevant to the user question. The list of services with descriptions\n     style-transfer : Provide two images and use this service to transfer the artistic-style of one image to the second image provided.\n     image2text-handwritten : The service receives an image of a English-language handwritten text line and outputs the result of  image recognition as a text sequence.\n     speech-emotions : Submit a WAV file (up to 4 MB and no longer than 90 seconds) with English speech and get an emotion label from the provided WAV file.\n     super-resolution : The service takes a low-resolution image in binary format, uses it as input for a pre-trained model, and outputs the result as a higher-quality image.\n   ']])
-</span><span class="ansi38-255165000">(= (message service-list) (system "Select the service, which is most relevant to the user question. The list of services with descriptions\n     style-transfer : Provide two images and use this service to transfer the artistic-style of one image to the second image provided.\n     image2text-handwritten : The service receives an image of a English-language handwritten text line and outputs the result of  image recognition as a text sequence.\n     speech-emotions : Submit a WAV file (up to 4 MB and no longer than 90 seconds) with English speech and get an emotion label from the provided WAV file.\n     super-resolution : The service takes a low-resolution image in binary format, uses it as input for a pre-trained model, and outputs the result as a higher-quality image.\n   "))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[message,'service-list'],[system,'Select the service, which is most relevant to the user question. The list of services with descriptions\n     style-transfer : Provide two images and use this service to transfer the artistic-style of one image to the second image provided.\n     image2text-handwritten : The service receives an image of a English-language handwritten text line and outputs the result of  image recognition as a text sequence.\n     speech-emotions : Submit a WAV file (up to 4 MB and no longer than 90 seconds) with English speech and get an emotion label from the provided WAV file.\n     super-resolution : The service takes a low-resolution image in binary format, uses it as input for a pre-trained model, and outputs the result as a higher-quality image.\n   ']])
+</span><span class="ansi38-255165000">(= 
+  (message service-list) 
+  (system "Select the service, which is most relevant to the user question. The list of services with descriptions\n     style-transfer : Provide two images and use this service to transfer the artistic-style of one image to the second image provided.\n     image2text-handwritten : The service receives an image of a English-language handwritten text line and outputs the result of  image recognition as a text sequence.\n     speech-emotions : Submit a WAV file (up to 4 MB and no longer than 90 seconds) with English speech and get an emotion label from the provided WAV file.\n     super-resolution : The service takes a low-resolution image in binary format, uses it as input for a pre-trained model, and outputs the result as a higher-quality image.\n   "))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[function,init],set_subgoal])
-</span><span class="ansi38-255165000">(= (function init) set_subgoal)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[function,init],set_subgoal])
+</span><span class="ansi38-255165000">(= 
+  (function init) set_subgoal)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[doc,set_subgoal],['Doc',[description,'You should always call this function to answer the user'],[parameters,[goal,'The goal of the user',[greeting,'general question about platform','search for particular service','service list']]]]])
-</span><span class="ansi38-255165000">(= (doc set_subgoal) (Doc (description "You should always call this function to answer the user") (parameters (goal "The goal of the user" (greeting "general question about platform" "search for particular service" "service list")))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[doc,set_subgoal],['Doc',[description,'You should always call this function to answer the user'],[parameters,[goal,'The goal of the user',[greeting,'general question about platform','search for particular service','service list']]]]])
+</span><span class="ansi38-255165000">(= 
+  (doc set_subgoal) 
+  (Doc 
+    (description "You should always call this function to answer the user") 
+    (parameters 
+      (goal "The goal of the user" 
+        (greeting "general question about platform" "search for particular service" "service list")))))
 </span>
 
 ;; We suppose that the second argument has a certain structure built by compose-prompt
 ;; so it can be deconstructed by the corresponding argument pattern
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[set_subgoal,['general question about platform'],['Messages',History,Prev_state_msg,User_msg]],[llm,['compose-prompt','platform-desc',History,User_msg]]])
-</span><span class="ansi38-255165000">(= (set_subgoal ("general question about platform") (Messages $History $Prev_state_msg $User_msg)) (llm (compose-prompt platform-desc $History $User_msg)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[set_subgoal,['general question about platform'],['Messages',History,Prev_state_msg,User_msg]],[llm,['compose-prompt','platform-desc',History,User_msg]]])
+</span><span class="ansi38-255165000">(= 
+  (set_subgoal 
+    ("general question about platform") 
+    (Messages $History $Prev_state_msg $User_msg)) 
+  (llm 
+    (compose-prompt platform-desc $History $User_msg)))
 </span>
 
 ;; (llm (append-expr $msgs (message platform-desc))
 ;; Extracting components of input messages, ignoring $prev-state-msg and calling
 ;; compose-prompt is a standard pattern to keep the user message at the end
 ;; of the message list inserting new system messages in-between
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[set_subgoal,['search for particular service'],['Messages',History,Prev_state_msg,User_msg]],[llm,['compose-prompt','service-list',History,User_msg],['Functions',describe_service]]])
-</span><span class="ansi38-255165000">(= (set_subgoal ("search for particular service") (Messages $History $Prev_state_msg $User_msg)) (llm (compose-prompt service-list $History $User_msg) (Functions describe_service)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[set_subgoal,['search for particular service'],['Messages',History,Prev_state_msg,User_msg]],[llm,['compose-prompt','service-list',History,User_msg],['Functions',describe_service]]])
+</span><span class="ansi38-255165000">(= 
+  (set_subgoal 
+    ("search for particular service") 
+    (Messages $History $Prev_state_msg $User_msg)) 
+  (llm 
+    (compose-prompt service-list $History $User_msg) 
+    (Functions describe_service)))
 </span>
 
 ;; In this example, we just append the list of messages with the new system message
 ;; for further elaboration on the service.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[describe_service,[Args],Msgs],[llm,['append-expr',Msgs,[system,['You selected the service ',Args,' Please describe it.']]]]])
-</span><span class="ansi38-255165000">(= (describe_service ($Args) $Msgs) (llm (append-expr $Msgs (system ("You selected the service " $Args " Please describe it.")))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[describe_service,[Args],Msgs],[llm,['append-expr',Msgs,[system,['You selected the service ',Args,' Please describe it.']]]]])
+</span><span class="ansi38-255165000">(= 
+  (describe_service 
+    ($Args) $Msgs) 
+  (llm 
+    (append-expr $Msgs 
+      (system 
+        ("You selected the service " $Args " Please describe it.")))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[doc,describe_service],['Doc',[description,'You should call this function to describe the service.'],[parameters,[service,'The service to be described',['style-transfer','image2text-handwritten','speech-emotions','super-resolution']]]]])
-</span><span class="ansi38-255165000">(= (doc describe_service) (Doc (description "You should call this function to describe the service.") (parameters (service "The service to be described" (style-transfer image2text-handwritten speech-emotions super-resolution)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[doc,describe_service],['Doc',[description,'You should call this function to describe the service.'],[parameters,[service,'The service to be described',['style-transfer','image2text-handwritten','speech-emotions','super-resolution']]]]])
+</span><span class="ansi38-255165000">(= 
+  (doc describe_service) 
+  (Doc 
+    (description "You should call this function to describe the service.") 
+    (parameters 
+      (service "The service to be described" 
+        (style-transfer image2text-handwritten speech-emotions super-resolution)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['compose-prompt',State,History,New_msg],[let,Msgs_state,[collapse,[message,State]],['Messages',History,['cons-atom','Messages',Msgs_state],New_msg]]])
-</span><span class="ansi38-255165000">(= (compose-prompt $State $History $New_msg) (let $Msgs_state (collapse (message $State)) (Messages $History (cons-atom Messages $Msgs_state) $New_msg)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['compose-prompt',State,History,New_msg],[let,Msgs_state,[collapse,[message,State]],['Messages',History,['cons-atom','Messages',Msgs_state],New_msg]]])
+</span><span class="ansi38-255165000">(= 
+  (compose-prompt $State $History $New_msg) 
+  (let $Msgs_state 
+    (collapse 
+      (message $State)) 
+    (Messages $History 
+      (cons-atom Messages $Msgs_state) $New_msg)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['compose-functions',State],[let,Fn_calls,[collapse,[function,State]],['cons-atom','Functions',Fn_calls]]])
-</span><span class="ansi38-255165000">(= (compose-functions $State) (let $Fn_calls (collapse (function $State)) (cons-atom Functions $Fn_calls)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['compose-functions',State],[let,Fn_calls,[collapse,[function,State]],['cons-atom','Functions',Fn_calls]]])
+</span><span class="ansi38-255165000">(= 
+  (compose-functions $State) 
+  (let $Fn_calls 
+    (collapse 
+      (function $State)) 
+    (cons-atom Functions $Fn_calls)))
 </span>
 
 ;; TODO? Assuming that $user-msg is not wrapped into (user ...) is convenient
 ;; for the first call, but not convenient for using `respond` from functional calls
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[respond,State,History,User_msg],[llm,['compose-prompt',State,History,[user,User_msg]],['compose-functions',State]]])
-</span><span class="ansi38-255165000">(= (respond $State $History $User_msg) (llm (compose-prompt $State $History (user $User_msg)) (compose-functions $State)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[respond,State,History,User_msg],[llm,['compose-prompt',State,History,[user,User_msg]],['compose-functions',State]]])
+</span><span class="ansi38-255165000">(= 
+  (respond $State $History $User_msg) 
+  (llm 
+    (compose-prompt $State $History 
+      (user $User_msg)) 
+    (compose-functions $State)))
 </span>
 
 ;; !(compose-prompt init () (user "What services do you have on the platform?"))
@@ -196,33 +275,115 @@ Deterministic: <span class="ansi33">
 ;;!(respond init () "Hello. What can you do?")
 <span class="ansi38-013099040">!(respond init () "What is the SingularityNET platform?")
 
-</span><span class="ansi38-250144246">; !(respond init () "What is the SingularityNET platform?")
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[respond,init,[],'What is the SingularityNET platform?'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[respond,init,[],'What is the SingularityNET platform?'],OUT).
 
-</span>      -->(0,eval('&self',[respond,init,[],'What is the SingularityNET platform?'],RET),depth(1))
-            -->(1,eval('&self',['compose-prompt',init,[],[user,'What is the SingularityNET platform?']],RET),depth(4))
-                  -->(2,eval('&self',[collapse,[message,init]],RET),depth(7))
-                      -->(3,eval('&self',[message,init],RET),depth(9))
-                          -->(4,eval('&self','You are the SingularityNet AI platform and marketplace assistant',RET),depth(11))
-                          -->(5,eval('&self',system,RET),depth(11))
-                          -->(6,eval('&self','You are the SingularityNet AI platform and marketplace assistant',RET),depth(11))
-                            -->(7,eval('&self',system,RET),depth(12))
-                            -->(8,eval('&self','You are the SingularityNet AI platform and marketplace assistant',RET),depth(12))
-                          -->(9,eval('&self',system,RET),depth(11))
-                      <--(3,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
-                  <--(2,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
-Switched off tracing. For a longer trace !(pragma! tracelen 101))
-NDet Result(0): <span class="ansi33">
-(llm (Messages () (cons-atom Messages ((system "You are the SingularityNet AI platform and marketplace assistant"))) (user "What is the SingularityNET platform?")) (cons-atom Functions (set_subgoal)))
+</span>    -->(0,eval('&self',[respond,init,[],'What is the SingularityNET platform?'],RET),depth(0))
+        -->(1,eval('&self',['compose-prompt',init,[],[user,'What is the SingularityNET platform?']],RET),depth(2))
+            -->(2,eval('&self',[collapse,[message,init]],RET),depth(4))
+              -->(3,eval('&self',[message,init],RET),depth(5))
+                      -->(4,subst_args('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(9))
+                    -->(5,subst_args('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(8))
+              <--(3,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                -->(6,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(6))
+                      -->(7,subst_args('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(9))
+                <--(6,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                    -->(8,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(8))
+                  -->(10,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(7))
+                      -->(11,subst_args('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(9))
+            <--(2,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+            -->(12,eval('&self',['Messages',[],['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],[user,'What is the SingularityNET platform?']],RET),depth(4))
+              -->(13,eval('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(5))
+                -->(14,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(15,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(15,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(17,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(14,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                -->(19,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(20,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(20,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(22,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(19,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                    -->(24,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(8))
+              <--(13,retval(['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]]))
+              -->(29,eval('&self',[user,'What is the SingularityNET platform?'],RET),depth(5))
+                    -->(30,subst_args('&self',[user,'What is the SingularityNET platform?'],RET),depth(8))
+              <--(29,retval([user,'What is the SingularityNET platform?']))
+              -->(31,eval('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(5))
+                -->(32,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(33,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(33,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(35,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(32,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                -->(37,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(38,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(38,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(40,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(37,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                    -->(42,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(8))
+              <--(31,retval(['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]]))
+              -->(47,eval('&self',[user,'What is the SingularityNET platform?'],RET),depth(5))
+                    -->(48,subst_args('&self',[user,'What is the SingularityNET platform?'],RET),depth(8))
+              <--(47,retval([user,'What is the SingularityNET platform?']))
+                  -->(49,subst_args('&self',['Messages',[],['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],[user,'What is the SingularityNET platform?']],RET),depth(7))
+                      -->(50,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(9))
+                      -->(55,subst_args('&self',[user,'What is the SingularityNET platform?'],RET),depth(9))
+                      -->(56,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(9))
+                      -->(61,subst_args('&self',[user,'What is the SingularityNET platform?'],RET),depth(9))
+            <--(12,retval(['Messages',[],['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],[user,'What is the SingularityNET platform?']]))
+              -->(62,eval('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(5))
+                -->(63,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(64,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(64,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(66,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(63,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                -->(68,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(69,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(69,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(71,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(68,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                    -->(73,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(8))
+              <--(62,retval(['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]]))
+              -->(78,eval('&self',[user,'What is the SingularityNET platform?'],RET),depth(5))
+                    -->(79,subst_args('&self',[user,'What is the SingularityNET platform?'],RET),depth(8))
+              <--(78,retval([user,'What is the SingularityNET platform?']))
+              -->(80,eval('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(5))
+                -->(81,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(82,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(82,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(84,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(81,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                -->(86,eval('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(6))
+                  -->(87,eval('&self',[system,'You are the SingularityNet AI platform and marketplace assistant'],RET),depth(7))
+                  <--(87,retval([system,'You are the SingularityNet AI platform and marketplace assistant']))
+                      -->(89,subst_args('&self',[[system,'You are the SingularityNet AI platform and marketplace assistant']],RET),depth(9))
+                <--(86,retval([[system,'You are the SingularityNet AI platform and marketplace assistant']]))
+                    -->(91,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(8))
+              <--(80,retval(['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]]))
+              -->(96,eval('&self',[user,'What is the SingularityNET platform?'],RET),depth(5))
+                    -->(97,subst_args('&self',[user,'What is the SingularityNET platform?'],RET),depth(8))
+              <--(96,retval([user,'What is the SingularityNET platform?']))
+                  -->(98,subst_args('&self',['Messages',[],['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],[user,'What is the SingularityNET platform?']],RET),depth(7))
+                      -->(99,subst_args('&self',['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],RET),depth(9))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+        <--(1,retval(['Messages',[],['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],[user,'What is the SingularityNET platform?']]))
+NDet Result(1): <span class="ansi33">
+(llm 
+  (Messages () 
+    (cons-atom Messages 
+      ( (system "You are the SingularityNet AI platform and marketplace assistant"))) 
+    (user "What is the SingularityNET platform?")) 
+  (cons-atom Functions 
+    (set_subgoal)))
 
-</span><span class="ansi32">% 650,839 inferences, 0.805 CPU in 0.805 seconds (100% CPU, 808303 Lips)
+</span>    <--(0,retval([llm,['Messages',[],['cons-atom','Messages',[[system,'You are the SingularityNet AI platform and marketplace assistant']]],[user,'What is the SingularityNET platform?']],['cons-atom','Functions',[set_subgoal]]]))
+<span class="ansi32">% 378,040 inferences, 0.715 CPU in 0.715 seconds (100% CPU, 528749 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_assist.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 0
 </span><span class="ansi31">Failures: 1
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_assist.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211064716_3125917_11091.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/neurospace/test_assist.metta.html" )
 
 </pre>
 </body>

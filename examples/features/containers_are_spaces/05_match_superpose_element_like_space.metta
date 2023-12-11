@@ -2,13 +2,8 @@
 
 (= (kb)
   (superpose
-    ((SS-P_Each A_Each B_Each)
-     (SS-Q_Each A_Each C_Each))))
-
-(= (kb2)
-  (superpose
-    ((PQ SS-P_Each B_Each)
-     (PQ SS-Q_Each C_Each))))
+    (((SS-P_Each A_Each B_Each))
+     ((SS-Q_Each A_Each C_Each)))))
 
 !(assertEqualToResult
   (match  (kb)

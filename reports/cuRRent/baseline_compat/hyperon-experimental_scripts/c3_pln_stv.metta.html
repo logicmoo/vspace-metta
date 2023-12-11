@@ -106,16 +106,23 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; examples/pln/conjunction, extended with implication
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some helpful definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[min,A,B],[if,[<,A,B],A,B]])
-</span><span class="ansi38-255165000">(= (min $A $B) (if (< $A $B) $A $B))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[min,A,B],[if,[<,A,B],A,B]])
+</span><span class="ansi38-255165000">(= 
+  (min $A $B) 
+  (if 
+    (< $A $B) $A $B))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['s-tv',[stv,S,C]],S])
-</span><span class="ansi38-255165000">(= (s-tv (stv $S $C)) $S)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['s-tv',[stv,S,C]],S])
+</span><span class="ansi38-255165000">(= 
+  (s-tv 
+    (stv $S $C)) $S)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['c-tv',[stv,S,C]],C])
-</span><span class="ansi38-255165000">(= (c-tv (stv $S $C)) $C)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['c-tv',[stv,S,C]],C])
+</span><span class="ansi38-255165000">(= 
+  (c-tv 
+    (stv $S $C)) $C)
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -125,19 +132,47 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; PLN-like expressions with their truth values.
 ;; Some `.tv` facts will be defined below
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['TV',X],[match,'&self',['.tv',X,Stv],Stv]])
-</span><span class="ansi38-255165000">(= (TV $X) (match &self (.tv $X $Stv) $Stv))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['TV',X],[match,'&self',['.tv',X,Stv],Stv]])
+</span><span class="ansi38-255165000">(= 
+  (TV $X) 
+  (match &self 
+    (.tv $X $Stv) $Stv))
 </span>
 
 ;; Definition of TV for a conjunction
 ;; we could use `(.tv (And $a $b) (stv ...))` instead of this
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['TV',['And',A,B]],[stv,[min,['s-tv',['TV',A]],['s-tv',['TV',B]]],[min,['c-tv',['TV',A]],['c-tv',['TV',B]]]]])
-</span><span class="ansi38-255165000">(= (TV (And $A $B)) (stv (min (s-tv (TV $A)) (s-tv (TV $B))) (min (c-tv (TV $A)) (c-tv (TV $B)))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['TV',['And',A,B]],[stv,[min,['s-tv',['TV',A]],['s-tv',['TV',B]]],[min,['c-tv',['TV',A]],['c-tv',['TV',B]]]]])
+</span><span class="ansi38-255165000">(= 
+  (TV 
+    (And $A $B)) 
+  (stv 
+    (min 
+      (s-tv 
+        (TV $A)) 
+      (s-tv 
+        (TV $B))) 
+    (min 
+      (c-tv 
+        (TV $A)) 
+      (c-tv 
+        (TV $B)))))
 </span>
 
 ;; Definition of TV for $x when it's the consequent of an implication
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['TV',X],[match,'&self',['.tv',['Implication',Y,X],[stv,S,C]],[stv,[*,S,['s-tv',['TV',Y]]],[*,C,['c-tv',['TV',Y]]]]]])
-</span><span class="ansi38-255165000">(= (TV $X) (match &self (.tv (Implication $Y $X) (stv $S $C)) (stv (* $S (s-tv (TV $Y))) (* $C (c-tv (TV $Y))))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['TV',X],[match,'&self',['.tv',['Implication',Y,X],[stv,S,C]],[stv,[*,S,['s-tv',['TV',Y]]],[*,C,['c-tv',['TV',Y]]]]]])
+</span><span class="ansi38-255165000">(= 
+  (TV $X) 
+  (match &self 
+    (.tv 
+      (Implication $Y $X) 
+      (stv $S $C)) 
+    (stv 
+      (* $S 
+        (s-tv 
+          (TV $Y))) 
+      (* $C 
+        (c-tv 
+          (TV $Y))))))
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -147,188 +182,453 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; matched by the TV "metarules" above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some facts
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Evaluation',['Predicate','P'],['Concept','A']],[stv,0.5,0.8]])
-</span><span class="ansi38-255165000">(.tv (Evaluation (Predicate P) (Concept A)) (stv 0.5 0.8))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',['Evaluation',['Predicate','P'],['Concept','A']],[stv,0.5,0.8]])
+</span><span class="ansi38-255165000">(.tv 
+  (Evaluation 
+    (Predicate P) 
+    (Concept A)) 
+  (stv 0.5 0.8))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Evaluation',['Predicate','P'],['Concept','B']],[stv,0.3,0.9]])
-</span><span class="ansi38-255165000">(.tv (Evaluation (Predicate P) (Concept B)) (stv 0.3 0.9))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',['Evaluation',['Predicate','P'],['Concept','B']],[stv,0.3,0.9]])
+</span><span class="ansi38-255165000">(.tv 
+  (Evaluation 
+    (Predicate P) 
+    (Concept B)) 
+  (stv 0.3 0.9))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Implication',['Evaluation',['Predicate','P'],['Concept','A']],['Evaluation',['Predicate','F'],['Concept','A']]],[stv,0.8,1.0]])
-</span><span class="ansi38-255165000">(.tv (Implication (Evaluation (Predicate P) (Concept A)) (Evaluation (Predicate F) (Concept A))) (stv 0.8 1.0))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',['Implication',['Evaluation',['Predicate','P'],['Concept','A']],['Evaluation',['Predicate','F'],['Concept','A']]],[stv,0.8,1.0]])
+</span><span class="ansi38-255165000">(.tv 
+  (Implication 
+    (Evaluation 
+      (Predicate P) 
+      (Concept A)) 
+    (Evaluation 
+      (Predicate F) 
+      (Concept A))) 
+  (stv 0.8 1.0))
 </span>
 
 ;; FIXME? `(PA)` and `(PB)` are used because otherwise
 ;; substitution is not invoked (atm of test creation)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['PA'],['Evaluation',['Predicate','P'],['Concept','A']]])
-</span><span class="ansi38-255165000">(= (PA) (Evaluation (Predicate P) (Concept A)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['PA'],['Evaluation',['Predicate','P'],['Concept','A']]])
+</span><span class="ansi38-255165000">(= 
+  (PA) 
+  (Evaluation 
+    (Predicate P) 
+    (Concept A)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['PB'],['Evaluation',['Predicate','P'],['Concept','B']]])
-</span><span class="ansi38-255165000">(= (PB) (Evaluation (Predicate P) (Concept B)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['PB'],['Evaluation',['Predicate','P'],['Concept','B']]])
+</span><span class="ansi38-255165000">(= 
+  (PB) 
+  (Evaluation 
+    (Predicate P) 
+    (Concept B)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['FA'],['Evaluation',['Predicate','F'],['Concept','A']]])
-</span><span class="ansi38-255165000">(= (FA) (Evaluation (Predicate F) (Concept A)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['FA'],['Evaluation',['Predicate','F'],['Concept','A']]])
+</span><span class="ansi38-255165000">(= 
+  (FA) 
+  (Evaluation 
+    (Predicate F) 
+    (Concept A)))
 </span>
 
 ;; Tests
-<span class="ansi38-013099040">!(assertEqual (TV (And (PA) (PB))) (stv 0.3 0.8))
+<span class="ansi38-013099040">!(assertEqual 
+  (TV 
+    (And 
+      (PA) 
+      (PB))) 
+  (stv 0.3 0.8))
 
 </span><span class="ansi38-250144246">; !(TV (And (PA) (PB)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['TV',['And',['PA'],['PB']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['TV',['And',['PA'],['PB']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['TV',['And',['PA'],['PB']]],[stv,0.3,0.8]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['TV',['And',['PA'],['PB']]],[stv,0.3,0.8]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.01</h3>
-          -->(1,eval('&self',['TV',['And',['PA'],['PB']]],RET),depth(3))
-          <--(1,retval(fail))
-          -->(2,eval('&self',[stv,0.3,0.8],RET),depth(3))
-            -->(3,eval('&self',0.3,RET),depth(4))
-            -->(4,eval('&self',0.8,RET),depth(4))
-            -->(5,eval('&self',stv,RET),depth(4))
-            -->(6,eval('&self',0.3,RET),depth(4))
-            -->(7,eval('&self',0.8,RET),depth(4))
-              -->(8,eval('&self',stv,RET),depth(5))
-              -->(9,eval('&self',0.3,RET),depth(5))
+      -->(1,eval('&self',['TV',['And',['PA'],['PB']]],RET),depth(1))
+          -->(2,eval('&self',[min,['s-tv',['TV',['PA']]],['s-tv',['TV',['PB']]]],RET),depth(3))
+              -->(3,eval('&self',[<,['s-tv',['TV',['PA']]],['s-tv',['TV',['PB']]]],RET),depth(5))
+                -->(4,eval('&self',['s-tv',['TV',['PA']]],RET),depth(6))
+                  -->(5,eval('&self',['TV',['PA']],RET),depth(7))
+                  <--(5,retval(fail))
+                      -->(6,subst_args('&self',['s-tv',['TV',['PA']]],RET),depth(9))
+                            <--(8,retval(fail))
+                            <--(9,retval(fail))
+                          <--(7,retval([match,'&self',['.tv',['Implication',_42182,['PA']],[stv,_42212,_42218]],[stv,[*,_42212,['s-tv',['TV',_42182]]],[*,_42218,['c-tv',['TV',_42182]]]]]))
+                <--(4,retval(['s-tv',['TV',['PA']]]))
+                -->(10,eval('&self',['s-tv',['TV',['PB']]],RET),depth(6))
+                  -->(11,eval('&self',['TV',['PB']],RET),depth(7))
+                  <--(11,retval(fail))
+                      -->(12,subst_args('&self',['s-tv',['TV',['PB']]],RET),depth(9))
+                            <--(14,retval(fail))
+                            <--(15,retval(fail))
+                          <--(13,retval([match,'&self',['.tv',['Implication',_44832,['PB']],[stv,_44862,_44868]],[stv,[*,_44862,['s-tv',['TV',_44832]]],[*,_44868,['c-tv',['TV',_44832]]]]]))
+                <--(10,retval(['s-tv',['TV',['PB']]]))
+                -->(16,eval('&self',['s-tv',['TV',['PA']]],RET),depth(6))
+                  -->(17,eval('&self',['TV',['PA']],RET),depth(7))
+                  <--(17,retval(fail))
+                      -->(18,subst_args('&self',['s-tv',['TV',['PA']]],RET),depth(9))
+                            <--(20,retval(fail))
+                            <--(21,retval(fail))
+                          <--(19,retval([match,'&self',['.tv',['Implication',_6966,['PA']],[stv,_6996,_7002]],[stv,[*,_6996,['s-tv',['TV',_6966]]],[*,_7002,['c-tv',['TV',_6966]]]]]))
+                <--(16,retval(['s-tv',['TV',['PA']]]))
+                -->(22,eval('&self',['s-tv',['TV',['PB']]],RET),depth(6))
+                  -->(23,eval('&self',['TV',['PB']],RET),depth(7))
+                  <--(23,retval(fail))
+                      -->(24,subst_args('&self',['s-tv',['TV',['PB']]],RET),depth(9))
+                            <--(26,retval(fail))
+                            <--(27,retval(fail))
+                          <--(25,retval([match,'&self',['.tv',['Implication',_9486,['PB']],[stv,_9516,_9522]],[stv,[*,_9516,['s-tv',['TV',_9486]]],[*,_9522,['c-tv',['TV',_9486]]]]]))
+                <--(22,retval(['s-tv',['TV',['PB']]]))
+                    -->(28,subst_args('&self',[<,['s-tv',['TV',['PA']]],['s-tv',['TV',['PB']]]],RET),depth(8))
+                              <--(31,retval(fail))
+                              <--(32,retval(fail))
+                            <--(30,retval([match,'&self',['.tv',['Implication',_11842,['PA']],[stv,_11872,_11878]],[stv,[*,_11872,['s-tv',['TV',_11842]]],[*,_11878,['c-tv',['TV',_11842]]]]]))
+                              <--(35,retval(fail))
+                              <--(36,retval(fail))
+                            <--(34,retval([match,'&self',['.tv',['Implication',_13482,['PB']],[stv,_13512,_13518]],[stv,[*,_13512,['s-tv',['TV',_13482]]],[*,_13518,['c-tv',['TV',_13482]]]]]))
+                    <--(28,retval(fail))
+                  -->(37,eval('&self',['s-tv',['TV',['PA']]],RET),depth(7))
+                    -->(38,eval('&self',['TV',['PA']],RET),depth(8))
+                    <--(38,retval(fail))
+                              <--(41,retval(fail))
+                              <--(42,retval(fail))
+                            <--(40,retval([match,'&self',['.tv',['Implication',_16016,['PA']],[stv,_16046,_16052]],[stv,[*,_16046,['s-tv',['TV',_16016]]],[*,_16052,['c-tv',['TV',_16016]]]]]))
+                  <--(37,retval(['s-tv',['TV',['PA']]]))
+                  -->(43,eval('&self',['s-tv',['TV',['PB']]],RET),depth(7))
+                    -->(44,eval('&self',['TV',['PB']],RET),depth(8))
+                    <--(44,retval(fail))
+                              <--(47,retval(fail))
+                              <--(48,retval(fail))
+                            <--(46,retval([match,'&self',['.tv',['Implication',_18404,['PB']],[stv,_18434,_18440]],[stv,[*,_18434,['s-tv',['TV',_18404]]],[*,_18440,['c-tv',['TV',_18404]]]]]))
+                  <--(43,retval(['s-tv',['TV',['PB']]]))
+              <--(3,retval([<,['s-tv',['TV',['PA']]],['s-tv',['TV',['PB']]]]))
+              -->(49,eval('&self',['s-tv',['TV',['PA']]],RET),depth(5))
+                -->(50,eval('&self',['TV',['PA']],RET),depth(6))
+                <--(50,retval(fail))
+                    -->(51,subst_args('&self',['s-tv',['TV',['PA']]],RET),depth(8))
+                          <--(53,retval(fail))
+                          <--(54,retval(fail))
+                        <--(52,retval([match,'&self',['.tv',['Implication',_21042,['PA']],[stv,_21072,_21078]],[stv,[*,_21072,['s-tv',['TV',_21042]]],[*,_21078,['c-tv',['TV',_21042]]]]]))
+              <--(49,retval(['s-tv',['TV',['PA']]]))
+                -->(55,eval('&self',['TV',['PA']],RET),depth(6))
+                <--(55,retval(fail))
+                    -->(56,subst_args('&self',['s-tv',['TV',['PA']]],RET),depth(8))
+                          <--(58,retval(fail))
+                          <--(59,retval(fail))
+                        <--(57,retval([match,'&self',['.tv',['Implication',_22934,['PA']],[stv,_22964,_22970]],[stv,[*,_22964,['s-tv',['TV',_22934]]],[*,_22970,['c-tv',['TV',_22934]]]]]))
+                  -->(60,subst_args('&self',['s-tv',['TV',['PA']]],RET),depth(7))
+                      -->(61,subst_args('&self',['TV',['PA']],RET),depth(9))
+                        <--(62,retval(fail))
+                        <--(63,retval(fail))
+                      <--(61,retval([match,'&self',['.tv',['Implication',_24872,['PA']],[stv,_24902,_24908]],[stv,[*,_24902,['s-tv',['TV',_24872]]],[*,_24908,['c-tv',['TV',_24872]]]]]))
+                -->(64,subst_args('&self',['s-tv',['TV',['PA']]],RET),depth(6))
+                    -->(65,subst_args('&self',['TV',['PA']],RET),depth(8))
+                      -->(66,subst_args('&self',[match,'&self',['.tv',['PA'],_26530],_26530],RET),depth(9))
+                      <--(66,retval(fail))
+                      -->(67,subst_args('&self',[match,'&self',['.tv',['Implication',_26628,['PA']],[stv,_26652,_26658]],[stv,[*,_26652,['s-tv',['TV',_26628]]],[*,_26658,['c-tv',['TV',_26628]]]]],RET),depth(9))
+                      <--(67,retval(fail))
+                    <--(65,retval([match,'&self',['.tv',['Implication',_26810,['PA']],[stv,_26840,_26846]],[stv,[*,_26840,['s-tv',['TV',_26810]]],[*,_26846,['c-tv',['TV',_26810]]]]]))
+          -->(68,eval('&self',[min,['c-tv',['TV',['PA']]],['c-tv',['TV',['PB']]]],RET),depth(3))
+              -->(69,eval('&self',[<,['c-tv',['TV',['PA']]],['c-tv',['TV',['PB']]]],RET),depth(5))
+                -->(70,eval('&self',['c-tv',['TV',['PA']]],RET),depth(6))
+                  -->(71,eval('&self',['TV',['PA']],RET),depth(7))
+                  <--(71,retval(fail))
+                      -->(72,subst_args('&self',['c-tv',['TV',['PA']]],RET),depth(9))
+                            <--(74,retval(fail))
+                            <--(75,retval(fail))
+                          <--(73,retval([match,'&self',['.tv',['Implication',_31066,['PA']],[stv,_31096,_31102]],[stv,[*,_31096,['s-tv',['TV',_31066]]],[*,_31102,['c-tv',['TV',_31066]]]]]))
+                <--(70,retval(['c-tv',['TV',['PA']]]))
+                -->(76,eval('&self',['c-tv',['TV',['PB']]],RET),depth(6))
+                  -->(77,eval('&self',['TV',['PB']],RET),depth(7))
+                  <--(77,retval(fail))
+                      -->(78,subst_args('&self',['c-tv',['TV',['PB']]],RET),depth(9))
+                            <--(80,retval(fail))
+                            <--(81,retval(fail))
+                          <--(79,retval([match,'&self',['.tv',['Implication',_33716,['PB']],[stv,_33746,_33752]],[stv,[*,_33746,['s-tv',['TV',_33716]]],[*,_33752,['c-tv',['TV',_33716]]]]]))
+                <--(76,retval(['c-tv',['TV',['PB']]]))
+                -->(82,eval('&self',['c-tv',['TV',['PA']]],RET),depth(6))
+                  -->(83,eval('&self',['TV',['PA']],RET),depth(7))
+                  <--(83,retval(fail))
+                      -->(84,subst_args('&self',['c-tv',['TV',['PA']]],RET),depth(9))
+                            <--(86,retval(fail))
+                            <--(87,retval(fail))
+                          <--(85,retval([match,'&self',['.tv',['Implication',_7204,['PA']],[stv,_7234,_7240]],[stv,[*,_7234,['s-tv',['TV',_7204]]],[*,_7240,['c-tv',['TV',_7204]]]]]))
+                <--(82,retval(['c-tv',['TV',['PA']]]))
+                -->(88,eval('&self',['c-tv',['TV',['PB']]],RET),depth(6))
+                  -->(89,eval('&self',['TV',['PB']],RET),depth(7))
+                  <--(89,retval(fail))
+                      -->(90,subst_args('&self',['c-tv',['TV',['PB']]],RET),depth(9))
+                            <--(92,retval(fail))
+                            <--(93,retval(fail))
+                          <--(91,retval([match,'&self',['.tv',['Implication',_9724,['PB']],[stv,_9754,_9760]],[stv,[*,_9754,['s-tv',['TV',_9724]]],[*,_9760,['c-tv',['TV',_9724]]]]]))
+                <--(88,retval(['c-tv',['TV',['PB']]]))
+                    -->(94,subst_args('&self',[<,['c-tv',['TV',['PA']]],['c-tv',['TV',['PB']]]],RET),depth(8))
+                              <--(97,retval(fail))
+                              <--(98,retval(fail))
+                            <--(96,retval([match,'&self',['.tv',['Implication',_12080,['PA']],[stv,_12110,_12116]],[stv,[*,_12110,['s-tv',['TV',_12080]]],[*,_12116,['c-tv',['TV',_12080]]]]]))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+              <--(69,retval([<,['c-tv',['TV',['PA']]],['c-tv',['TV',['PB']]]]))
+          <--(68,retval(['c-tv',['TV',['PA']]]))
+          <--(2,retval(['s-tv',['TV',['PA']]]))
+      <--(1,retval([stv,['s-tv',['TV',['PA']]],['c-tv',['TV',['PA']]]]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.27 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  () ((stv 0.3 0.8))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.025 secs. (25.24 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (stv 
+        (s-tv 
+          (TV 
+            (PA))) 
+        (c-tv 
+          (TV 
+            (PA))))) 
+    ( (stv 0.3 0.8))))
+</span>    <--(0,retval([got,[[stv,['s-tv',['TV',['PA']]],['c-tv',['TV',['PA']]]]],[expected(_27586)],[[stv,0.3,0.8]]]))
 Deterministic: <span class="ansi33">
-(got () ((expected  $_190616)) ((stv 0.3 0.8)))
+(got 
+  ( (stv 
+      (s-tv 
+        (TV 
+          (PA))) 
+      (c-tv 
+        (TV 
+          (PA))))) 
+  ( (expected  $_25368)) 
+  ( (stv 0.3 0.8)))
 
-</span><span class="ansi38-013099040">!(assertEqual (TV (FA)) (stv 0.4 0.8))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (TV 
+    (FA)) 
+  (stv 0.4 0.8))
 
 </span><span class="ansi38-250144246">; !(TV (FA))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['TV',['FA']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['TV',['FA']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['TV',['FA']],[stv,0.4,0.8]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['TV',['FA']],[stv,0.4,0.8]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.02</h3>
-          -->(1,eval('&self',['TV',['FA']],RET),depth(3))
-          <--(1,retval(fail))
-          -->(2,eval('&self',[stv,0.4,0.8],RET),depth(3))
-            -->(3,eval('&self',0.4,RET),depth(4))
-            -->(4,eval('&self',0.8,RET),depth(4))
-            -->(5,eval('&self',stv,RET),depth(4))
-            -->(6,eval('&self',0.4,RET),depth(4))
-            -->(7,eval('&self',0.8,RET),depth(4))
-              -->(8,eval('&self',stv,RET),depth(5))
-              -->(9,eval('&self',0.4,RET),depth(5))
+      -->(1,eval('&self',['TV',['FA']],RET),depth(1))
+      <--(1,retval(fail))
+      -->(2,eval('&self',[stv,0.4,0.8],RET),depth(1))
+            -->(3,subst_args('&self',[stv,0.4,0.8],RET),depth(4))
+      <--(2,retval([stv,0.4,0.8]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.10 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  () ((stv 0.4 0.8))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.000663 secs. (662.80 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  () 
+    ( (stv 0.4 0.8))))
+</span>        -->(4,eval('&self',[expected(_58880)],RET),depth(2))
+          -->(5,eval('&self',expected(_58880),RET),depth(3))
+              -->(6,subst_args('&self',expected(_58880),RET),depth(5))
+          <--(5,retval(expected(_61208)))
+              -->(7,subst_args('&self',[expected(_58880)],RET),depth(5))
+                -->(8,subst_args('&self',expected(_58880),RET),depth(6))
+        <--(4,retval([expected(_62532)]))
+        -->(9,eval('&self',[[stv,0.4,0.8]],RET),depth(2))
+          -->(10,eval('&self',[stv,0.4,0.8],RET),depth(3))
+                -->(11,subst_args('&self',[stv,0.4,0.8],RET),depth(6))
+          <--(10,retval([stv,0.4,0.8]))
+              -->(12,subst_args('&self',[[stv,0.4,0.8]],RET),depth(5))
+                  -->(13,subst_args('&self',[stv,0.4,0.8],RET),depth(7))
+        <--(9,retval([[stv,0.4,0.8]]))
+        -->(14,eval('&self',[expected(_3480)],RET),depth(2))
+          -->(15,eval('&self',expected(_3480),RET),depth(3))
+              -->(16,subst_args('&self',expected(_3480),RET),depth(5))
+          <--(15,retval(expected(_7176)))
+              -->(17,subst_args('&self',[expected(_3480)],RET),depth(5))
+                -->(18,subst_args('&self',expected(_3480),RET),depth(6))
+        <--(14,retval([expected(_8500)]))
+        -->(19,eval('&self',[[stv,0.4,0.8]],RET),depth(2))
+          -->(20,eval('&self',[stv,0.4,0.8],RET),depth(3))
+                -->(21,subst_args('&self',[stv,0.4,0.8],RET),depth(6))
+          <--(20,retval([stv,0.4,0.8]))
+              -->(22,subst_args('&self',[[stv,0.4,0.8]],RET),depth(5))
+                  -->(23,subst_args('&self',[stv,0.4,0.8],RET),depth(7))
+        <--(19,retval([[stv,0.4,0.8]]))
+            -->(24,subst_args('&self',[got,[],[expected(_3480)],[[stv,0.4,0.8]]],RET),depth(4))
+                -->(25,subst_args('&self',[expected(_3480)],RET),depth(6))
+                  -->(26,subst_args('&self',expected(_3480),RET),depth(7))
+                -->(27,subst_args('&self',[[stv,0.4,0.8]],RET),depth(6))
+                    -->(28,subst_args('&self',[stv,0.4,0.8],RET),depth(8))
+                -->(29,subst_args('&self',[expected(_3480)],RET),depth(6))
+                  -->(30,subst_args('&self',expected(_3480),RET),depth(7))
+                -->(31,subst_args('&self',[[stv,0.4,0.8]],RET),depth(6))
+                    -->(32,subst_args('&self',[stv,0.4,0.8],RET),depth(8))
+          -->(33,subst_args('&self',[got,[],[expected(_3480)],[[stv,0.4,0.8]]],RET),depth(3))
+              -->(34,subst_args('&self',[expected(_3480)],RET),depth(5))
+                -->(35,subst_args('&self',expected(_3480),RET),depth(6))
+              -->(36,subst_args('&self',[[stv,0.4,0.8]],RET),depth(5))
+                  -->(37,subst_args('&self',[stv,0.4,0.8],RET),depth(7))
+              -->(38,subst_args('&self',[expected(_3480)],RET),depth(5))
+                -->(39,subst_args('&self',expected(_3480),RET),depth(6))
+              -->(40,subst_args('&self',[[stv,0.4,0.8]],RET),depth(5))
+                  -->(41,subst_args('&self',[stv,0.4,0.8],RET),depth(7))
+    <--(0,retval([got,[],[expected(_24088)],[[stv,0.4,0.8]]]))
 Deterministic: <span class="ansi33">
-(got () ((expected  $_307476)) ((stv 0.4 0.8)))
+(got () 
+  ( (expected  $_3480)) 
+  ( (stv 0.4 0.8)))
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Second example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Implication rule
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Implication',['And',[croaks,X],[eat_flies,X]],[frog,X]],[stv,0.9,0.8]])
-</span><span class="ansi38-255165000">(.tv (Implication (And (croaks $X) (eat_flies $X)) (frog $X)) (stv 0.9 0.8))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',['Implication',['And',[croaks,X],[eat_flies,X]],[frog,X]],[stv,0.9,0.8]])
+</span><span class="ansi38-255165000">(.tv 
+  (Implication 
+    (And 
+      (croaks $X) 
+      (eat_flies $X)) 
+    (frog $X)) 
+  (stv 0.9 0.8))
 </span>
 
 ;; Some facts
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',[croaks,'Fritz'],[stv,0.95,0.85]])
-</span><span class="ansi38-255165000">(.tv (croaks Fritz) (stv 0.95 0.85))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',[croaks,'Fritz'],[stv,0.95,0.85]])
+</span><span class="ansi38-255165000">(.tv 
+  (croaks Fritz) 
+  (stv 0.95 0.85))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',[eat_flies,'Fritz'],[stv,0.87,0.95]])
-</span><span class="ansi38-255165000">(.tv (eat_flies Fritz) (stv 0.87 0.95))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',[eat_flies,'Fritz'],[stv,0.87,0.95]])
+</span><span class="ansi38-255165000">(.tv 
+  (eat_flies Fritz) 
+  (stv 0.87 0.95))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['.tv',['Implication',[frog,X],[green,X]],[stv,0.9,1.0]])
-</span><span class="ansi38-255165000">(.tv (Implication (frog $X) (green $X)) (stv 0.9 1.0))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['.tv',['Implication',[frog,X],[green,X]],[stv,0.9,1.0]])
+</span><span class="ansi38-255165000">(.tv 
+  (Implication 
+    (frog $X) 
+    (green $X)) 
+  (stv 0.9 1.0))
 </span>
 
 ;; Tests
-<span class="ansi38-013099040">!(assertEqual (TV (croaks Fritz)) (stv 0.95 0.85))
+<span class="ansi38-013099040">!(assertEqual 
+  (TV 
+    (croaks Fritz)) 
+  (stv 0.95 0.85))
 
 </span><span class="ansi38-250144246">; !(TV (croaks Fritz))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['TV',[croaks,'Fritz']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['TV',[croaks,'Fritz']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['TV',[croaks,'Fritz']],[stv,0.95,0.85]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['TV',[croaks,'Fritz']],[stv,0.95,0.85]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.03</h3>
-          -->(1,eval('&self',['TV',[croaks,'Fritz']],RET),depth(3))
-              -->(2,eval('&self',0.95,RET),depth(5))
-              -->(3,eval('&self',0.85,RET),depth(5))
-              -->(4,eval('&self',stv,RET),depth(5))
-              -->(5,eval('&self',0.95,RET),depth(5))
-              -->(6,eval('&self',0.85,RET),depth(5))
-                -->(7,eval('&self',stv,RET),depth(6))
-              -->(8,eval('&self',stv,RET),depth(5))
-              -->(9,eval('&self',0.95,RET),depth(5))
-          <--(1,retval([stv,0.95,0.85]))
+      -->(1,eval('&self',['TV',[croaks,'Fritz']],RET),depth(1))
+                -->(2,subst_args('&self',[stv,0.95,0.85],RET),depth(6))
+              -->(3,subst_args('&self',[stv,0.95,0.85],RET),depth(5))
+            -->(4,subst_args('&self',[stv,0.95,0.85],RET),depth(4))
+      <--(1,retval([stv,0.95,0.85]))
+      -->(5,eval('&self',[stv,0.95,0.85],RET),depth(1))
+            -->(6,subst_args('&self',[stv,0.95,0.85],RET),depth(4))
+      <--(5,retval([stv,0.95,0.85]))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.86 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((stv 0.95 0.85)) ((stv 0.95 0.85))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.36 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (stv 0.95 0.85)) 
+    ( (stv 0.95 0.85))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (TV (frog Fritz)) (stv 0.783 0.68))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (TV 
+    (frog Fritz)) 
+  (stv 0.783 0.68))
 
 </span><span class="ansi38-250144246">; !(TV (frog Fritz))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['TV',[frog,'Fritz']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['TV',[frog,'Fritz']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['TV',[frog,'Fritz']],[stv,0.783,0.68]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['TV',[frog,'Fritz']],[stv,0.783,0.68]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.04</h3>
-          -->(1,eval('&self',['TV',[frog,'Fritz']],RET),depth(3))
-          <--(1,retval(fail))
-          -->(2,eval('&self',[stv,0.783,0.68],RET),depth(3))
-            -->(3,eval('&self',0.783,RET),depth(4))
-            -->(4,eval('&self',0.68,RET),depth(4))
-            -->(5,eval('&self',stv,RET),depth(4))
-            -->(6,eval('&self',0.783,RET),depth(4))
-            -->(7,eval('&self',0.68,RET),depth(4))
-              -->(8,eval('&self',stv,RET),depth(5))
-              -->(9,eval('&self',0.783,RET),depth(5))
+      -->(1,eval('&self',['TV',[frog,'Fritz']],RET),depth(1))
+            -->(2,eval('&self',[*,0.9,['s-tv',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]]]],RET),depth(4))
+              -->(3,eval('&self',['s-tv',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]]],RET),depth(5))
+                -->(4,eval('&self',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]],RET),depth(6))
+                    -->(5,eval('&self',[min,['s-tv',['TV',[croaks,'Fritz']]],['s-tv',['TV',[eat_flies,'Fritz']]]],RET),depth(8))
+                    -->(22,eval('&self',[min,['c-tv',['TV',[croaks,'Fritz']]],['c-tv',['TV',[eat_flies,'Fritz']]]],RET),depth(8))
+                    <--(22,retval(0.85))
+                    <--(5,retval(0.87))
+                    -->(39,eval('&self',[min,['s-tv',['TV',[croaks,'Fritz']]],['s-tv',['TV',[eat_flies,'Fritz']]]],RET),depth(8))
+                    -->(56,eval('&self',[min,['c-tv',['TV',[croaks,'Fritz']]],['c-tv',['TV',[eat_flies,'Fritz']]]],RET),depth(8))
+                      -->(75,subst_args('&self',[stv,0.87,0.85],RET),depth(9))
+            -->(76,eval('&self',[*,0.8,['c-tv',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]]]],RET),depth(4))
+              -->(77,eval('&self',['c-tv',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]]],RET),depth(5))
+                -->(78,eval('&self',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]],RET),depth(6))
+                    -->(79,eval('&self',[min,['s-tv',['TV',[croaks,'Fritz']]],['s-tv',['TV',[eat_flies,'Fritz']]]],RET),depth(8))
+                    -->(96,eval('&self',[min,['c-tv',['TV',[croaks,'Fritz']]],['c-tv',['TV',[eat_flies,'Fritz']]]],RET),depth(8))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                    <--(96,retval(0.85))
+                    <--(79,retval(0.87))
+                <--(78,retval([stv,0.87,0.85]))
+              <--(77,retval(0.85))
+            <--(76,retval(0.68))
+                    <--(56,retval(0.85))
+                    <--(39,retval(0.87))
+                <--(4,retval([stv,0.87,0.85]))
+              <--(3,retval(0.87))
+            <--(2,retval(0.783))
+      <--(1,retval([stv,0.783,0.68]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.47 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  () ((stv 0.783 0.68))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
-Deterministic: <span class="ansi33">
-(got () ((expected  $_3234)) ((stv 0.783 0.68)))
+; took 0.023 secs. (23.41 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (stv 0.783 0.68)) 
+    ( (stv 0.783 0.68))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (TV (green Fritz)) (stv 0.7047 0.68))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (TV 
+    (green Fritz)) 
+  (stv 0.7047 0.68))
 
 </span><span class="ansi38-250144246">; !(TV (green Fritz))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['TV',[green,'Fritz']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['TV',[green,'Fritz']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['TV',[green,'Fritz']],[stv,0.7047,0.68]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['TV',[green,'Fritz']],[stv,0.7047,0.68]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.C3-PLN-STV.05</h3>
-          -->(1,eval('&self',['TV',[green,'Fritz']],RET),depth(3))
-          <--(1,retval(fail))
-          -->(2,eval('&self',[stv,0.7047,0.68],RET),depth(3))
-            -->(3,eval('&self',0.7047,RET),depth(4))
-            -->(4,eval('&self',0.68,RET),depth(4))
-            -->(5,eval('&self',stv,RET),depth(4))
-            -->(6,eval('&self',0.7047,RET),depth(4))
-            -->(7,eval('&self',0.68,RET),depth(4))
-              -->(8,eval('&self',stv,RET),depth(5))
-              -->(9,eval('&self',0.7047,RET),depth(5))
+      -->(1,eval('&self',['TV',[green,'Fritz']],RET),depth(1))
+            -->(2,eval('&self',[*,0.9,['s-tv',['TV',[frog,'Fritz']]]],RET),depth(4))
+              -->(3,eval('&self',['s-tv',['TV',[frog,'Fritz']]],RET),depth(5))
+                -->(4,eval('&self',['TV',[frog,'Fritz']],RET),depth(6))
+                      -->(5,eval('&self',[*,0.9,['s-tv',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]]]],RET),depth(9))
+                      -->(79,eval('&self',[*,0.8,['c-tv',['TV',['And',[croaks,'Fritz'],[eat_flies,'Fritz']]]]],RET),depth(9))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                      <--(79,retval(0.68))
+                      <--(5,retval(0.783))
+                <--(4,retval([stv,0.783,0.68]))
+              <--(3,retval(0.783))
+            <--(2,retval(0.7047))
+      <--(1,retval([stv,0.7047,0.68]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.04 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  () ((stv 0.7047 0.68))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
-Deterministic: <span class="ansi33">
-(got () ((expected  $_105298)) ((stv 0.7047 0.68)))
+; took 0.085 secs. (84.86 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (stv 0.7047 0.68)) 
+    ( (stv 0.7047 0.68))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 576,569 inferences, 0.475 CPU in 0.511 seconds (93% CPU, 1215104 Lips)
+</span><span class="ansi32">% 830,006 inferences, 0.419 CPU in 0.419 seconds (100% CPU, 1982490 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/c3_pln_stv.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi31">Failures: 4
+<span class="ansi32">Successes: 3
+</span><span class="ansi31">Failures: 2
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/c3_pln_stv.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211072028_3127930_12720.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/c3_pln_stv.metta.html" )
 
 </pre>
 </body>

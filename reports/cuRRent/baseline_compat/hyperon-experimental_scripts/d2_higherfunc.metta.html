@@ -271,102 +271,115 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; Higher-order functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Type definition for `curry` function
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,curry,[->,[->,A,B,C],[->,A,[->,B,C]]]])
-</span><span class="ansi38-255165000">(: curry (-> (-> $A $B $C) (-> $A (-> $B $C))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,curry,[->,[->,A,B,C],[->,A,[->,B,C]]]])
+</span><span class="ansi38-255165000">(: curry 
+  (-> 
+    (-> $A $B $C) 
+    (-> $A 
+      (-> $B $C))))
 </span>
 
 ;; A trick to define `curry` in MeTTa without `lambda`
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[[[curry,F],X],Y],[F,X,Y]])
-</span><span class="ansi38-255165000">(= (((curry $F) $X) $Y) ($F $X $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[[[curry,F],X],Y],[F,X,Y]])
+</span><span class="ansi38-255165000">(= 
+  ( ( (curry $F) $X) $Y) 
+  ($F $X $Y))
 </span>
 
 ;; Type checks
-<span class="ansi38-013099040">!(assertEqual (get-type (curry +)) (-> Number (-> Number Number)))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (curry +)) 
+  (-> Number 
+    (-> Number Number)))
 
 </span><span class="ansi38-250144246">; !(get-type (curry +))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[curry,+]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[curry,+]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[curry,+]],[->,'Number',[->,'Number','Number']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[curry,+]],[->,'Number',[->,'Number','Number']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.01</h3>
-          -->(1,eval('&self',['get-type',[curry,+]],RET),depth(3))
-              -->(2,eval('&self',->,RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-                -->(4,eval('&self',[->,'Number','Number'],RET),depth(6))
-          <--(1,retval([->,'Number',[->,'Number','Number']]))
-          -->(5,eval('&self',[->,'Number',[->,'Number','Number']],RET),depth(3))
+      -->(1,eval('&self',['get-type',[curry,+]],RET),depth(1))
+      <--(1,retval([->,'Number',[->,'Number','Number']]))
 ; 
 ; EVAL TEST
-; took 0.000907 secs. (907.00 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((-> Number (-> Number Number))) ((-> Number (-> Number Number)))))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000281 secs. (280.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (-> Number 
+        (-> Number Number))) 
+    ( (-> Number 
+        (-> Number Number)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (get-type ((curry +) 2)) (-> Number Number))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    ( (curry +) 2)) 
+  (-> Number Number))
 
 </span><span class="ansi38-250144246">; !(get-type ((curry +) 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[[curry,+],2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[[curry,+],2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[[curry,+],2]],[->,'Number','Number']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[[curry,+],2]],[->,'Number','Number']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.02</h3>
-          -->(1,eval('&self',['get-type',[[curry,+],2]],RET),depth(3))
-              -->(2,eval('&self',->,RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-              -->(4,eval('&self','Number',RET),depth(5))
-          <--(1,retval([->,'Number','Number']))
-          -->(5,eval('&self',[->,'Number','Number'],RET),depth(3))
+      -->(1,eval('&self',['get-type',[[curry,+],2]],RET),depth(1))
+      <--(1,retval([->,'Number','Number']))
 ; 
 ; EVAL TEST
-; took 0.000782 secs. (781.70 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((-> Number Number)) ((-> Number Number))))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000477 secs. (477.40 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (-> Number Number)) 
+    ( (-> Number Number))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Partial application is not reduced, basically
-<span class="ansi38-013099040">!(assertEqualToResult ((curry +) 2) (((curry +) 2)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  ( (curry +) 2) 
+  ( ( (curry +) 2)))
 
 </span><span class="ansi38-250144246">; !((curry +) 2)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[curry,+],2],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[[curry,+],2],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[[curry,+],2],[[[curry,+],2]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[[curry,+],2],[[[curry,+],2]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.03</h3>
-          -->(1,eval('&self',[[curry,+],2],RET),depth(3))
-            -->(2,eval('&self',2,RET),depth(4))
-              -->(3,eval('&self',[curry,+],RET),depth(5))
-                -->(4,eval('&self',+,RET),depth(6))
-                -->(5,eval('&self',curry,RET),depth(6))
-                -->(6,eval('&self',+,RET),depth(6))
-                  -->(7,eval('&self',curry,RET),depth(7))
-                  -->(8,eval('&self',+,RET),depth(7))
-            -->(9,eval('&self',2,RET),depth(4))
+      -->(1,eval('&self',[[curry,+],2],RET),depth(1))
+        -->(2,eval('&self',[curry,+],RET),depth(2))
+              -->(3,subst_args('&self',[curry,+],RET),depth(5))
+        <--(2,retval([curry,+]))
+            -->(4,subst_args('&self',[[curry,+],2],RET),depth(4))
+                -->(5,subst_args('&self',[curry,+],RET),depth(6))
+      <--(1,retval([[curry,+],2]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.21 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (((curry +) 2)) (((curry +) 2))))
-</span>      <--(0,retval('Empty'))
+; took 0.000886 secs. (886.30 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( ( (curry +) 2)) 
+    ( ( (curry +) 2))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Full application will be reduced
-<span class="ansi38-013099040">!(assertEqual (((curry +) 2) 3) 5)
+<span class="ansi38-013099040">!(assertEqual 
+  ( ( (curry +) 2) 3) 5)
 
 </span><span class="ansi38-250144246">; !(((curry +) 2) 3)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[[curry,+],2],3],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[[[curry,+],2],3],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[[[curry,+],2],3],5],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[[[curry,+],2],3],5],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.04</h3>
-          -->(1,eval('&self',[[[curry,+],2],3],RET),depth(3))
-              -->(2,eval('&self',3,RET),depth(5))
-                -->(3,eval('&self',5,RET),depth(6))
-              -->(4,eval('&self',5,RET),depth(5))
-          <--(1,retval(5))
-        -->(5,eval('&self',5,RET),depth(2))
+      -->(1,eval('&self',[[[curry,+],2],3],RET),depth(1))
+      <--(1,retval(5))
 ; 
 ; EVAL TEST
-; took 0.000449 secs. (449.30 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (5) (5)))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000193 secs. (192.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (5) 
+    (5)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -374,101 +387,123 @@ Deterministic: <span class="ansi33">Empty
 ;; Curry with first application
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'curry-a',[->,[->,A,B,C],A,[->,B,C]]])
-</span><span class="ansi38-255165000">(: curry-a (-> (-> $A $B $C) $A (-> $B $C)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'curry-a',[->,[->,A,B,C],A,[->,B,C]]])
+</span><span class="ansi38-255165000">(: curry-a 
+  (-> 
+    (-> $A $B $C) $A 
+    (-> $B $C)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[['curry-a',F,A],B],[F,A,B]])
-</span><span class="ansi38-255165000">(= ((curry-a $F $A) $B) ($F $A $B))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[['curry-a',F,A],B],[F,A,B]])
+</span><span class="ansi38-255165000">(= 
+  ( (curry-a $F $A) $B) 
+  ($F $A $B))
 </span>
 
 ;; Tests
-<span class="ansi38-013099040">!(assertEqual (get-type (curry-a + 2)) (-> Number Number))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (curry-a + 2)) 
+  (-> Number Number))
 
 </span><span class="ansi38-250144246">; !(get-type (curry-a + 2))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',['curry-a',+,2]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',['curry-a',+,2]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',['curry-a',+,2]],[->,'Number','Number']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',['curry-a',+,2]],[->,'Number','Number']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.05</h3>
-          -->(1,eval('&self',['get-type',['curry-a',+,2]],RET),depth(3))
-              -->(2,eval('&self',->,RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-              -->(4,eval('&self','Number',RET),depth(5))
-          <--(1,retval([->,'Number','Number']))
-          -->(5,eval('&self',[->,'Number','Number'],RET),depth(3))
+      -->(1,eval('&self',['get-type',['curry-a',+,2]],RET),depth(1))
+      <--(1,retval([->,'Number','Number']))
 ; 
 ; EVAL TEST
-; took 0.000633 secs. (633.10 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((-> Number Number)) ((-> Number Number))))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000265 secs. (264.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (-> Number Number)) 
+    ( (-> Number Number))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (get-type ((curry-a + 2) 3)) Number)
+</span><span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    ( (curry-a + 2) 3)) Number)
 
 </span><span class="ansi38-250144246">; !(get-type ((curry-a + 2) 3))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[['curry-a',+,2],3]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[['curry-a',+,2],3]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[['curry-a',+,2],3]],'Number'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[['curry-a',+,2],3]],'Number'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.06</h3>
-          -->(1,eval('&self',['get-type',[['curry-a',+,2],3]],RET),depth(3))
-              -->(2,eval('&self','Number',RET),depth(5))
-          <--(1,retval('Number'))
-        -->(3,eval('&self','Number',RET),depth(2))
+      -->(1,eval('&self',['get-type',[['curry-a',+,2],3]],RET),depth(1))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.000608 secs. (607.50 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (Number) (Number)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000508 secs. (507.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (Number) 
+    (Number)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Badly typed
-<span class="ansi38-013099040">!(assertEqualToResult (get-type ((curry-a + 2) S)) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    ( (curry-a + 2) S)) ())
 
 </span><span class="ansi38-250144246">; !(get-type ((curry-a + 2) S))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[['curry-a',+,2],'S']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[['curry-a',+,2],'S']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[['curry-a',+,2],'S']],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[['curry-a',+,2],'S']],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.07</h3>
-          -->(1,eval('&self',['get-type',[['curry-a',+,2],'S']],RET),depth(3))
-                -->(2,eval('&self',['S'],RET),depth(6))
-                  -->(3,eval('&self','S',RET),depth(7))
-                    -->(4,eval('&self','S',RET),depth(8))
-                -->(5,eval('&self',['S'],RET),depth(6))
-                  -->(6,eval('&self','S',RET),depth(7))
-                    -->(7,eval('&self','S',RET),depth(8))
-              -->(8,eval('&self','Number',RET),depth(5))
-          <--(1,retval('Number'))
+      -->(1,eval('&self',['get-type',[['curry-a',+,2],'S']],RET),depth(1))
+          -->(2,eval('&self',['S'],RET),depth(3))
+                -->(3,subst_args('&self',['S'],RET),depth(6))
+          <--(2,retval(['S']))
+          -->(4,eval('&self',['S'],RET),depth(3))
+                -->(5,subst_args('&self',['S'],RET),depth(6))
+          <--(4,retval(['S']))
+      <--(1,retval('Number'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.25 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  (Number) ()))
-</span>            -->(9,eval('&self',['Number'],RET),depth(4))
-      <--(0,retval([got,['Number'],expected,[]]))
+; took 0.001 secs. (1.35 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    (Number) ()))
+</span>        -->(6,eval('&self',['Number'],RET),depth(2))
+              -->(7,subst_args('&self',['Number'],RET),depth(5))
+        <--(6,retval(['Number']))
+        -->(8,eval('&self',['Number'],RET),depth(2))
+              -->(9,subst_args('&self',['Number'],RET),depth(5))
+        <--(8,retval(['Number']))
+            -->(10,subst_args('&self',[got,['Number'],expected,[]],RET),depth(4))
+                -->(11,subst_args('&self',['Number'],RET),depth(6))
+                -->(12,subst_args('&self',['Number'],RET),depth(6))
+          -->(13,subst_args('&self',[got,['Number'],expected,[]],RET),depth(3))
+              -->(14,subst_args('&self',['Number'],RET),depth(5))
+              -->(15,subst_args('&self',['Number'],RET),depth(5))
+    <--(0,retval([got,['Number'],expected,[]]))
 Deterministic: <span class="ansi33">
-(got (Number) expected ())
+(got 
+  (Number) expected ())
 
 </span>;; Full application works
-<span class="ansi38-013099040">!(assertEqual ((curry-a + 2) 3) 5)
+<span class="ansi38-013099040">!(assertEqual 
+  ( (curry-a + 2) 3) 5)
 
 </span><span class="ansi38-250144246">; !((curry-a + 2) 3)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[['curry-a',+,2],3],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[['curry-a',+,2],3],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[['curry-a',+,2],3],5],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[['curry-a',+,2],3],5],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.08">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.08</h3>
-          -->(1,eval('&self',[['curry-a',+,2],3],RET),depth(3))
-              -->(2,eval('&self',3,RET),depth(5))
-                -->(3,eval('&self',5,RET),depth(6))
-              -->(4,eval('&self',5,RET),depth(5))
-          <--(1,retval(5))
-        -->(5,eval('&self',5,RET),depth(2))
+      -->(1,eval('&self',[['curry-a',+,2],3],RET),depth(1))
+      <--(1,retval(5))
 ; 
 ; EVAL TEST
-; took 0.000726 secs. (725.70 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (5) (5)))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000307 secs. (307.00 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (5) 
+    (5)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -476,97 +511,100 @@ Deterministic: <span class="ansi33">Empty
 ;; More tests with partial application wrapping
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Socrates','Entity'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Socrates','Entity'])
 </span><span class="ansi38-255165000">(: Socrates Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Human','Entity'])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Human','Entity'])
 </span><span class="ansi38-255165000">(: Human Entity)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,is,[->,'Entity','Entity','Bool']])
-</span><span class="ansi38-255165000">(: is (-> Entity Entity Bool))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,is,[->,'Entity','Entity','Bool']])
+</span><span class="ansi38-255165000">(: is 
+  (-> Entity Entity Bool))
 </span>
 
 ;; Facts
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[is,'Socrates','Human'],'True'])
-</span><span class="ansi38-255165000">(= (is Socrates Human) True)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[is,'Socrates','Human'],'True'])
+</span><span class="ansi38-255165000">(= 
+  (is Socrates Human) True)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['is-socrates'],['curry-a',is,'Socrates']])
-</span><span class="ansi38-255165000">(= (is-socrates) (curry-a is Socrates))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['is-socrates'],['curry-a',is,'Socrates']])
+</span><span class="ansi38-255165000">(= 
+  (is-socrates) 
+  (curry-a is Socrates))
 </span>
 
 ;; Tests
-<span class="ansi38-013099040">!(assertEqualToResult (is-socrates) ((curry-a is Socrates)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (is-socrates) 
+  ( (curry-a is Socrates)))
 
 </span><span class="ansi38-250144246">; !(is-socrates)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['is-socrates'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['is-socrates'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['is-socrates'],[['curry-a',is,'Socrates']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['is-socrates'],[['curry-a',is,'Socrates']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.09">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.09</h3>
-          -->(1,eval('&self',['is-socrates'],RET),depth(3))
-              -->(2,eval('&self','curry-a',RET),depth(5))
-              -->(3,eval('&self',is,RET),depth(5))
-              -->(4,eval('&self','Socrates',RET),depth(5))
-                -->(5,eval('&self','curry-a',RET),depth(6))
-                -->(6,eval('&self',is,RET),depth(6))
-                -->(7,eval('&self','Socrates',RET),depth(6))
-              -->(8,eval('&self','curry-a',RET),depth(5))
-              -->(9,eval('&self',is,RET),depth(5))
-          <--(1,retval(['curry-a',is,'Socrates']))
+      -->(1,eval('&self',['is-socrates'],RET),depth(1))
+              -->(2,subst_args('&self',['curry-a',is,'Socrates'],RET),depth(5))
+            -->(3,subst_args('&self',['curry-a',is,'Socrates'],RET),depth(4))
+      <--(1,retval(['curry-a',is,'Socrates']))
 ; 
 ; EVAL TEST
-; took 0.000728 secs. (728.10 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((curry-a is Socrates)) ((curry-a is Socrates))))
-</span>      <--(0,retval('Empty'))
+; took 0.000576 secs. (576.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (curry-a is Socrates)) 
+    ( (curry-a is Socrates))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; not reduced
-<span class="ansi38-013099040">!(assertEqual ((curry-a is Socrates) Human) (is Socrates Human))
+<span class="ansi38-013099040">!(assertEqual 
+  ( (curry-a is Socrates) Human) 
+  (is Socrates Human))
 
 </span><span class="ansi38-250144246">; !((curry-a is Socrates) Human)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[['curry-a',is,'Socrates'],'Human'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[['curry-a',is,'Socrates'],'Human'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[['curry-a',is,'Socrates'],'Human'],[is,'Socrates','Human']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[['curry-a',is,'Socrates'],'Human'],[is,'Socrates','Human']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.10">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.10</h3>
-          -->(1,eval('&self',[['curry-a',is,'Socrates'],'Human'],RET),depth(3))
-                -->(2,eval('&self','True',RET),depth(6))
-              -->(3,eval('&self','True',RET),depth(5))
-          <--(1,retval('True'))
-          -->(4,eval('&self',[is,'Socrates','Human'],RET),depth(3))
-              -->(5,eval('&self','True',RET),depth(5))
-          <--(4,retval('True'))
+      -->(1,eval('&self',[['curry-a',is,'Socrates'],'Human'],RET),depth(1))
+      <--(1,retval('True'))
+      -->(2,eval('&self',[is,'Socrates','Human'],RET),depth(1))
+      <--(2,retval('True'))
 ; 
 ; EVAL TEST
-; took 0.000777 secs. (776.70 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (True) (True)))
-</span>          -->(6,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000563 secs. (562.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (True) 
+    (True)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; reduced
-<span class="ansi38-013099040">!(assertEqual ((is-socrates) Human) True)
+<span class="ansi38-013099040">!(assertEqual 
+  ( (is-socrates) Human) True)
 
 </span><span class="ansi38-250144246">; !((is-socrates) Human)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[['is-socrates'],'Human'],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[['is-socrates'],'Human'],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[['is-socrates'],'Human'],'True'],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[['is-socrates'],'Human'],'True'],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.11">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.11</h3>
-          -->(1,eval('&self',[['is-socrates'],'Human'],RET),depth(3))
-              -->(2,eval('&self',[['curry-a',is,'Socrates'],'Human'],RET),depth(5))
-                    -->(3,eval('&self','True',RET),depth(8))
-                  -->(4,eval('&self','True',RET),depth(7))
-              -->(5,eval('&self','True',RET),depth(5))
-              <--(2,retval('True'))
-          <--(1,retval('True'))
-        -->(6,eval('&self','True',RET),depth(2))
+      -->(1,eval('&self',[['is-socrates'],'Human'],RET),depth(1))
+        -->(2,eval('&self',[['curry-a',is,'Socrates'],'Human'],RET),depth(2))
+        <--(2,retval('True'))
+      <--(1,retval('True'))
 ; 
 ; EVAL TEST
-; took 0.000862 secs. (861.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (True) (True)))
-</span>          -->(7,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000328 secs. (328.10 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (True) 
+    (True)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -576,99 +614,108 @@ Deterministic: <span class="ansi33">Empty
 ;; FIXME: how to make parameterized type here?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Definitions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,lambda,[->,'Atom',T,[->,A,T]]])
-</span><span class="ansi38-255165000">(: lambda (-> Atom $T (-> $A $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,lambda,[->,'Atom',T,[->,A,T]]])
+</span><span class="ansi38-255165000">(: lambda 
+  (-> Atom $T 
+    (-> $A $T)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[[lambda,Var,Body],Arg],[let,Var,Arg,Body]])
-</span><span class="ansi38-255165000">(= ((lambda $Var $Body) $Arg) (let $Var $Arg $Body))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[[lambda,Var,Body],Arg],[let,Var,Arg,Body]])
+</span><span class="ansi38-255165000">(= 
+  ( (lambda $Var $Body) $Arg) 
+  (let $Var $Arg $Body))
 </span>
 
 ;; Tests
-<span class="ansi38-013099040">!(assertEqual ((lambda $X (+ $X 1)) 2) 3)
+<span class="ansi38-013099040">!(assertEqual 
+  ( (lambda $X 
+      (+ $X 1)) 2) 3)
 
 </span><span class="ansi38-250144246">; !((lambda $X (+ $X 1)) 2)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[lambda,X,[+,X,1]],2],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[[lambda,X,[+,X,1]],2],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[[lambda,_121582,[+,_121582,1]],2],3],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[[lambda,_2052,[+,_2052,1]],2],3],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.12">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.12</h3>
-          -->(1,eval('&self',[[lambda,_121582,[+,_121582,1]],2],RET),depth(3))
-              -->(2,eval('&self',2,RET),depth(5))
-                -->(3,eval('&self',[+,2,1],RET),depth(6))
-                  -->(4,eval('&self',1,RET),depth(7))
-                    -->(5,eval('&self',3,RET),depth(8))
-                <--(3,retval(3))
-                -->(6,eval('&self',3,RET),depth(6))
-              -->(7,eval('&self',3,RET),depth(5))
-          <--(1,retval(3))
-        -->(8,eval('&self',3,RET),depth(2))
+      -->(1,eval('&self',[[lambda,_2052,[+,_2052,1]],2],RET),depth(1))
+          -->(2,eval('&self',[+,2,1],RET),depth(3))
+          <--(2,retval(3))
+      <--(1,retval(3))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.05 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (3) (3)))
-</span>          -->(9,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000513 secs. (512.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (3) 
+    (3)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual ((lambda ($X $Y) (+ $X $Y)) (2 7)) 9)
+</span><span class="ansi38-013099040">!(assertEqual 
+  ( (lambda 
+      ($X $Y) 
+      (+ $X $Y)) 
+    (2 7)) 9)
 
 </span><span class="ansi38-250144246">; !((lambda ($X $Y) (+ $X $Y)) (2 7))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[lambda,[X,Y],[+,X,Y]],[2,7]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[[lambda,[X,Y],[+,X,Y]],[2,7]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[[lambda,[_174186,_174470],[+,_174186,_174470]],[2,7]],9],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[[lambda,[_51130,_51414],[+,_51130,_51414]],[2,7]],9],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.13">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.13</h3>
-          -->(1,eval('&self',[[lambda,[_174186,_174470],[+,_174186,_174470]],[2,7]],RET),depth(3))
-                -->(2,eval('&self',[2,7],RET),depth(6))
-                    -->(3,eval('&self',2,RET),depth(8))
-                    -->(4,eval('&self',7,RET),depth(8))
-                -->(5,eval('&self',[+,2,7],RET),depth(6))
-                  -->(6,eval('&self',7,RET),depth(7))
-                    -->(7,eval('&self',9,RET),depth(8))
-                <--(5,retval(9))
-                -->(8,eval('&self',9,RET),depth(6))
-              -->(9,eval('&self',9,RET),depth(5))
-          <--(1,retval(9))
+      -->(1,eval('&self',[[lambda,[_51130,_51414],[+,_51130,_51414]],[2,7]],RET),depth(1))
+          -->(2,eval('&self',[2,7],RET),depth(3))
+                -->(3,subst_args('&self',[2,7],RET),depth(6))
+          <--(2,retval([2,7]))
+          -->(4,eval('&self',[+,2,7],RET),depth(3))
+          <--(4,retval(9))
+      <--(1,retval(9))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.17 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (9) (9)))
-</span>      <--(0,retval('Empty'))
+; took 0.000641 secs. (640.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (9) 
+    (9)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Another example
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['part-appl',F,X],[lambda,Y,[F,X,Y]]])
-</span><span class="ansi38-255165000">(= (part-appl $F $X) (lambda $Y ($F $X $Y)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['part-appl',F,X],[lambda,Y,[F,X,Y]]])
+</span><span class="ansi38-255165000">(= 
+  (part-appl $F $X) 
+  (lambda $Y 
+    ($F $X $Y)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[inc],['part-appl',+,1]])
-</span><span class="ansi38-255165000">(= (inc) (part-appl + 1))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[inc],['part-appl',+,1]])
+</span><span class="ansi38-255165000">(= 
+  (inc) 
+  (part-appl + 1))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual ((inc) 5) 6)
+<span class="ansi38-013099040">!(assertEqual 
+  ( (inc) 5) 6)
 
 </span><span class="ansi38-250144246">; !((inc) 5)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[[inc],5],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[[inc],5],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[[inc],5],6],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[[inc],5],6],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.14">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.14</h3>
-          -->(1,eval('&self',[[inc],5],RET),depth(3))
-              -->(2,eval('&self',[['part-appl',+,1],5],RET),depth(5))
-                  -->(3,eval('&self',[[lambda,_315928,[+,1,_315928]],5],RET),depth(7))
-                      -->(4,eval('&self',5,RET),depth(9))
-                        -->(5,eval('&self',[+,1,5],RET),depth(10))
-                          -->(6,eval('&self',5,RET),depth(11))
-                            -->(7,eval('&self',6,RET),depth(12))
-                        <--(5,retval(6))
-                        -->(8,eval('&self',6,RET),depth(10))
-                      -->(9,eval('&self',6,RET),depth(9))
-                  <--(3,retval(6))
-              <--(2,retval(6))
-          <--(1,retval(6))
+      -->(1,eval('&self',[[inc],5],RET),depth(1))
+        -->(2,eval('&self',[['part-appl',+,1],5],RET),depth(2))
+          -->(3,eval('&self',[[lambda,_82664,[+,1,_82664]],5],RET),depth(3))
+              -->(4,eval('&self',[+,1,5],RET),depth(5))
+              <--(4,retval(6))
+          <--(3,retval(6))
+        <--(2,retval(6))
+      <--(1,retval(6))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.47 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (6) (6)))
-</span>      <--(0,retval('Empty'))
+; took 0.000695 secs. (694.80 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (6) 
+    (6)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; REM:
@@ -680,28 +727,38 @@ Deterministic: <span class="ansi33">Empty
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Let's introduce some functors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Maybe',[->,T,'Type']])
-</span><span class="ansi38-255165000">(: Maybe (-> $T Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Maybe',[->,T,'Type']])
+</span><span class="ansi38-255165000">(: Maybe 
+  (-> $T Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nothing',[->,['Maybe',T]]])
-</span><span class="ansi38-255165000">(: Nothing (-> (Maybe $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nothing',[->,['Maybe',T]]])
+</span><span class="ansi38-255165000">(: Nothing 
+  (-> 
+    (Maybe $T)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Something',[->,T,['Maybe',T]]])
-</span><span class="ansi38-255165000">(: Something (-> $T (Maybe $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Something',[->,T,['Maybe',T]]])
+</span><span class="ansi38-255165000">(: Something 
+  (-> $T 
+    (Maybe $T)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Either',[->,T,'Type']])
-</span><span class="ansi38-255165000">(: Either (-> $T Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Either',[->,T,'Type']])
+</span><span class="ansi38-255165000">(: Either 
+  (-> $T Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Left',[->,T,['Either',T]]])
-</span><span class="ansi38-255165000">(: Left (-> $T (Either $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Left',[->,T,['Either',T]]])
+</span><span class="ansi38-255165000">(: Left 
+  (-> $T 
+    (Either $T)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Right',[->,T,['Either',T]]])
-</span><span class="ansi38-255165000">(: Right (-> $T (Either $T)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Right',[->,T,['Either',T]]])
+</span><span class="ansi38-255165000">(: Right 
+  (-> $T 
+    (Either $T)))
 </span>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -710,25 +767,41 @@ Deterministic: <span class="ansi33">Empty
 ;; concrete patterns in the type constructors above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Instead, we implement `fmap` as:
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,fmap,[->,[->,A,B],[F,A],[F,B]]])
-</span><span class="ansi38-255165000">(: fmap (-> (-> $A $B) ($F $A) ($F $B)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,fmap,[->,[->,A,B],[F,A],[F,B]]])
+</span><span class="ansi38-255165000">(: fmap 
+  (-> 
+    (-> $A $B) 
+    ($F $A) 
+    ($F $B)))
 </span>
 
 ;; Mapping over empty functor, returns empty functor
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fmap,F,[C0]],[C0]])
-</span><span class="ansi38-255165000">(= (fmap $F ($C0)) ($C0))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fmap,F,[C0]],[C0]])
+</span><span class="ansi38-255165000">(= 
+  (fmap $F 
+    ($C0)) 
+  ($C0))
 </span>
 
 ;; Inductive case for singleton functor: apply $f to the
 ;; element and rewrap in $C.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fmap,F,[C,X]],[C,[F,X]]])
-</span><span class="ansi38-255165000">(= (fmap $F ($C $X)) ($C ($F $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fmap,F,[C,X]],[C,[F,X]]])
+</span><span class="ansi38-255165000">(= 
+  (fmap $F 
+    ($C $X)) 
+  ($C 
+    ($F $X)))
 </span>
 
 ;; Inductive case for non-empty functor: apply to the
 ;; head and recurse on the tail.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[fmap,F,[C,X,Xs]],[C,[F,X],[fmap,F,Xs]]])
-</span><span class="ansi38-255165000">(= (fmap $F ($C $X $Xs)) ($C ($F $X) (fmap $F $Xs)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[fmap,F,[C,X,Xs]],[C,[F,X],[fmap,F,Xs]]])
+</span><span class="ansi38-255165000">(= 
+  (fmap $F 
+    ($C $X $Xs)) 
+  ($C 
+    ($F $X) 
+    (fmap $F $Xs)))
 </span>
 
 ;; NOTE: We had to define `Nothing` as a functional constructor.
@@ -737,314 +810,958 @@ Deterministic: <span class="ansi33">Empty
 ;; TODO? This could be avoided if we could indicate that $C0
 ;;       is a `Symbol` (not `Expression` or `Atom` in general)
 ;; Tests
-<span class="ansi38-013099040">!(assertEqual (fmap (curry-a + 2) (Something 5)) (Something 7))
+<span class="ansi38-013099040">!(assertEqual 
+  (fmap 
+    (curry-a + 2) 
+    (Something 5)) 
+  (Something 7))
 
 </span><span class="ansi38-250144246">; !(fmap (curry-a + 2) (Something 5))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fmap,['curry-a',+,2],['Something',5]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fmap,['curry-a',+,2],['Something',5]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['Something',5]],['Something',7]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['Something',5]],['Something',7]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.15">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.15</h3>
-          -->(1,eval('&self',[fmap,['curry-a',+,2],['Something',5]],RET),depth(3))
-                -->(2,eval('&self',['curry-a',+,2],RET),depth(6))
-                  -->(3,eval('&self','curry-a',RET),depth(7))
-                  -->(4,eval('&self',+,RET),depth(7))
-                  -->(5,eval('&self',2,RET),depth(7))
-                    -->(6,eval('&self','curry-a',RET),depth(8))
-                    -->(7,eval('&self',+,RET),depth(8))
-                    -->(8,eval('&self',2,RET),depth(8))
-              -->(9,eval('&self','Something',RET),depth(5))
-          <--(1,retval(['Something',7]))
+      -->(1,eval('&self',[fmap,['curry-a',+,2],['Something',5]],RET),depth(1))
+          -->(2,eval('&self',[['curry-a',+,2],5],RET),depth(3))
+          <--(2,retval(7))
+          -->(3,eval('&self',[['curry-a',+,2],5],RET),depth(3))
+                -->(4,subst_args('&self',['Something',7],RET),depth(6))
+              -->(5,subst_args('&self',['Something',7],RET),depth(5))
+            -->(6,subst_args('&self',['Something',7],RET),depth(4))
+          <--(3,retval(7))
+      <--(1,retval(['Something',7]))
+      -->(7,eval('&self',['Something',7],RET),depth(1))
+            -->(8,subst_args('&self',['Something',7],RET),depth(4))
+      <--(7,retval(['Something',7]))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.45 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Something 7)) ((Something 7))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (1.98 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Something 7)) 
+    ( (Something 7))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (fmap (curry-a + 2) (Nothing)) (Nothing))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (fmap 
+    (curry-a + 2) 
+    (Nothing)) 
+  (Nothing))
 
 </span><span class="ansi38-250144246">; !(fmap (curry-a + 2) (Nothing))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fmap,['curry-a',+,2],['Nothing']],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fmap,['curry-a',+,2],['Nothing']],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['Nothing']],['Nothing']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['Nothing']],['Nothing']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.16">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.16</h3>
-          -->(1,eval('&self',[fmap,['curry-a',+,2],['Nothing']],RET),depth(3))
-              -->(2,eval('&self','Nothing',RET),depth(5))
-                -->(3,eval('&self','Nothing',RET),depth(6))
-              -->(4,eval('&self','Nothing',RET),depth(5))
-          <--(1,retval(['Nothing']))
-          -->(5,eval('&self',['Nothing'],RET),depth(3))
-            -->(6,eval('&self','Nothing',RET),depth(4))
-              -->(7,eval('&self','Nothing',RET),depth(5))
+      -->(1,eval('&self',[fmap,['curry-a',+,2],['Nothing']],RET),depth(1))
+              -->(2,subst_args('&self',['Nothing'],RET),depth(5))
+            -->(3,subst_args('&self',['Nothing'],RET),depth(4))
+      <--(1,retval(['Nothing']))
+      -->(4,eval('&self',['Nothing'],RET),depth(1))
+            -->(5,subst_args('&self',['Nothing'],RET),depth(4))
+      <--(4,retval(['Nothing']))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.11 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Nothing)) ((Nothing))))
-</span>          -->(8,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.001 secs. (1.04 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Nothing)) 
+    ( (Nothing))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Type inference works
-<span class="ansi38-013099040">!(assertEqual (get-type (fmap (curry-a + 1) (Left 5))) (Either Number))
+<span class="ansi38-013099040">!(assertEqual 
+  (get-type 
+    (fmap 
+      (curry-a + 1) 
+      (Left 5))) 
+  (Either Number))
 
 </span><span class="ansi38-250144246">; !(get-type (fmap (curry-a + 1) (Left 5)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['get-type',[fmap,['curry-a',+,1],['Left',5]]],['Either','Number']],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['get-type',[fmap,['curry-a',+,1],['Left',5]]],['Either','Number']],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.17">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.17</h3>
-          -->(1,eval('&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],RET),depth(3))
-              -->(2,eval('&self','Either',RET),depth(5))
-              -->(3,eval('&self','Number',RET),depth(5))
-                -->(4,eval('&self','Either',RET),depth(6))
-                -->(5,eval('&self','Number',RET),depth(6))
-              -->(6,eval('&self','Either',RET),depth(5))
-              -->(7,eval('&self','Number',RET),depth(5))
-          <--(1,retval(['Either','Number']))
-          -->(8,eval('&self',['Either','Number'],RET),depth(3))
-            -->(9,eval('&self','Either',RET),depth(4))
+      -->(1,eval('&self',['get-type',[fmap,['curry-a',+,1],['Left',5]]],RET),depth(1))
+              -->(2,subst_args('&self',['Either','Number'],RET),depth(5))
+            -->(3,subst_args('&self',['Either','Number'],RET),depth(4))
+      <--(1,retval(['Either','Number']))
+      -->(4,eval('&self',['Either','Number'],RET),depth(1))
+            -->(5,subst_args('&self',['Either','Number'],RET),depth(4))
+      <--(4,retval(['Either','Number']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.84 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Either Number)) ((Either Number))))
-</span>      <--(0,retval('Empty'))
+; took 0.000952 secs. (951.90 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Either Number)) 
+    ( (Either Number))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; It works for untyped constructors as well, if they
 ;; follow the patterns in `fmap` equalities
-<span class="ansi38-013099040">!(assertEqual (fmap (curry-a + 2) (UntypedC 5)) (UntypedC 7))
+<span class="ansi38-013099040">!(assertEqual 
+  (fmap 
+    (curry-a + 2) 
+    (UntypedC 5)) 
+  (UntypedC 7))
 
 </span><span class="ansi38-250144246">; !(fmap (curry-a + 2) (UntypedC 5))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fmap,['curry-a',+,2],['UntypedC',5]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fmap,['curry-a',+,2],['UntypedC',5]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['UntypedC',5]],['UntypedC',7]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['UntypedC',5]],['UntypedC',7]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.18">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.18</h3>
-          -->(1,eval('&self',[fmap,['curry-a',+,2],['UntypedC',5]],RET),depth(3))
-                -->(2,eval('&self',[['curry-a',+,2],5],RET),depth(6))
-                    -->(3,eval('&self',5,RET),depth(8))
-                      -->(4,eval('&self',7,RET),depth(9))
-                    -->(5,eval('&self',7,RET),depth(8))
-                <--(2,retval(7))
-              -->(6,eval('&self','UntypedC',RET),depth(5))
-                -->(7,eval('&self',[['curry-a',+,2],5],RET),depth(6))
-                    -->(8,eval('&self',5,RET),depth(8))
-                      -->(9,eval('&self',7,RET),depth(9))
-                <--(7,retval(7))
-          <--(1,retval(['UntypedC',7]))
+      -->(1,eval('&self',[fmap,['curry-a',+,2],['UntypedC',5]],RET),depth(1))
+          -->(2,eval('&self',[['curry-a',+,2],5],RET),depth(3))
+          <--(2,retval(7))
+          -->(3,eval('&self',[['curry-a',+,2],5],RET),depth(3))
+                -->(4,subst_args('&self',['UntypedC',7],RET),depth(6))
+              -->(5,subst_args('&self',['UntypedC',7],RET),depth(5))
+            -->(6,subst_args('&self',['UntypedC',7],RET),depth(4))
+          <--(3,retval(7))
+      <--(1,retval(['UntypedC',7]))
+      -->(7,eval('&self',['UntypedC',7],RET),depth(1))
+            -->(8,subst_args('&self',['UntypedC',7],RET),depth(4))
+      <--(7,retval(['UntypedC',7]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.81 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((UntypedC 7)) ((UntypedC 7))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.28 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (UntypedC 7)) 
+    ( (UntypedC 7))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null)))) (UntypedC 7 (UntypedC 10 (Null))))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (fmap 
+    (curry-a + 2) 
+    (UntypedC 5 
+      (UntypedC 8 
+        (Null)))) 
+  (UntypedC 7 
+    (UntypedC 10 
+      (Null))))
 
 </span><span class="ansi38-250144246">; !(fmap (curry-a + 2) (UntypedC 5 (UntypedC 8 (Null))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],['UntypedC',7,['UntypedC',10,['Null']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],['UntypedC',7,['UntypedC',10,['Null']]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.19">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.19</h3>
-          -->(1,eval('&self',[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],RET),depth(3))
-                -->(2,eval('&self',[['curry-a',+,2],5],RET),depth(6))
-                    -->(3,eval('&self',5,RET),depth(8))
-                      -->(4,eval('&self',7,RET),depth(9))
-                    -->(5,eval('&self',7,RET),depth(8))
-                -->(6,eval('&self',[fmap,['curry-a',+,2],['UntypedC',8,['Null']]],RET),depth(6))
-                      -->(7,eval('&self',[['curry-a',+,2],8],RET),depth(9))
-                          -->(8,eval('&self',8,RET),depth(11))
-                            -->(9,eval('&self',10,RET),depth(12))
-                      <--(7,retval(10))
-                <--(6,retval(['UntypedC',10,['Null']]))
-                <--(2,retval(7))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[fmap,['curry-a',+,2],['UntypedC',5,['UntypedC',8,['Null']]]],RET),depth(1))
+          -->(2,eval('&self',[['curry-a',+,2],5],RET),depth(3))
+          -->(3,eval('&self',[fmap,['curry-a',+,2],['UntypedC',8,['Null']]],RET),depth(3))
+              -->(4,eval('&self',[['curry-a',+,2],8],RET),depth(5))
+              -->(5,eval('&self',[fmap,['curry-a',+,2],['Null']],RET),depth(5))
+                      -->(6,subst_args('&self',['Null'],RET),depth(9))
+                    -->(7,subst_args('&self',['Null'],RET),depth(8))
+              <--(5,retval(['Null']))
+              <--(4,retval(10))
+              -->(8,eval('&self',[['curry-a',+,2],8],RET),depth(5))
+              -->(9,eval('&self',[fmap,['curry-a',+,2],['Null']],RET),depth(5))
+                      -->(10,subst_args('&self',['Null'],RET),depth(9))
+                    -->(11,subst_args('&self',['Null'],RET),depth(8))
+                -->(12,eval('&self',['Null'],RET),depth(6))
+                      -->(13,subst_args('&self',['Null'],RET),depth(9))
+                <--(12,retval(['Null']))
+                -->(14,eval('&self',['Null'],RET),depth(6))
+                      -->(15,subst_args('&self',['Null'],RET),depth(9))
+                <--(14,retval(['Null']))
+                    -->(16,subst_args('&self',['UntypedC',10,['Null']],RET),depth(8))
+                  -->(19,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(20,subst_args('&self',['Null'],RET),depth(9))
+                      -->(21,subst_args('&self',['Null'],RET),depth(9))
+                -->(22,subst_args('&self',['UntypedC',10,['Null']],RET),depth(6))
+                    -->(23,subst_args('&self',['Null'],RET),depth(8))
+                    -->(24,subst_args('&self',['Null'],RET),depth(8))
+          -->(25,eval('&self',['UntypedC',10,['Null']],RET),depth(3))
+            -->(26,eval('&self',['Null'],RET),depth(4))
+                  -->(27,subst_args('&self',['Null'],RET),depth(7))
+            <--(26,retval(['Null']))
+            -->(28,eval('&self',['Null'],RET),depth(4))
+                  -->(29,subst_args('&self',['Null'],RET),depth(7))
+            <--(28,retval(['Null']))
+                -->(30,subst_args('&self',['UntypedC',10,['Null']],RET),depth(6))
+                    -->(31,subst_args('&self',['Null'],RET),depth(8))
+                    -->(32,subst_args('&self',['Null'],RET),depth(8))
+          <--(25,retval(['UntypedC',10,['Null']]))
+              <--(9,retval(['Null']))
+              <--(8,retval(10))
+          <--(3,retval(['UntypedC',10,['Null']]))
+          <--(2,retval(7))
+          -->(33,eval('&self',[['curry-a',+,2],5],RET),depth(3))
+          -->(34,eval('&self',[fmap,['curry-a',+,2],['UntypedC',8,['Null']]],RET),depth(3))
+              -->(35,eval('&self',[['curry-a',+,2],8],RET),depth(5))
+              -->(36,eval('&self',[fmap,['curry-a',+,2],['Null']],RET),depth(5))
+                      -->(37,subst_args('&self',['Null'],RET),depth(9))
+                    -->(38,subst_args('&self',['Null'],RET),depth(8))
+              <--(36,retval(['Null']))
+              <--(35,retval(10))
+              -->(39,eval('&self',[['curry-a',+,2],8],RET),depth(5))
+              -->(40,eval('&self',[fmap,['curry-a',+,2],['Null']],RET),depth(5))
+                      -->(41,subst_args('&self',['Null'],RET),depth(9))
+                    -->(42,subst_args('&self',['Null'],RET),depth(8))
+                -->(43,eval('&self',['Null'],RET),depth(6))
+                      -->(44,subst_args('&self',['Null'],RET),depth(9))
+                <--(43,retval(['Null']))
+                -->(45,eval('&self',['Null'],RET),depth(6))
+                      -->(46,subst_args('&self',['Null'],RET),depth(9))
+                <--(45,retval(['Null']))
+                    -->(47,subst_args('&self',['UntypedC',10,['Null']],RET),depth(8))
+                  -->(50,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(51,subst_args('&self',['Null'],RET),depth(9))
+                      -->(52,subst_args('&self',['Null'],RET),depth(9))
+                -->(53,subst_args('&self',['UntypedC',10,['Null']],RET),depth(6))
+                    -->(54,subst_args('&self',['Null'],RET),depth(8))
+                    -->(55,subst_args('&self',['Null'],RET),depth(8))
+            -->(56,eval('&self',['UntypedC',10,['Null']],RET),depth(4))
+              -->(57,eval('&self',['Null'],RET),depth(5))
+                    -->(58,subst_args('&self',['Null'],RET),depth(8))
+              <--(57,retval(['Null']))
+              -->(59,eval('&self',['Null'],RET),depth(5))
+                    -->(60,subst_args('&self',['Null'],RET),depth(8))
+              <--(59,retval(['Null']))
+                  -->(61,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(62,subst_args('&self',['Null'],RET),depth(9))
+                      -->(63,subst_args('&self',['Null'],RET),depth(9))
+            <--(56,retval(['UntypedC',10,['Null']]))
+            -->(64,eval('&self',['UntypedC',10,['Null']],RET),depth(4))
+              -->(65,eval('&self',['Null'],RET),depth(5))
+                    -->(66,subst_args('&self',['Null'],RET),depth(8))
+              <--(65,retval(['Null']))
+              -->(67,eval('&self',['Null'],RET),depth(5))
+                    -->(68,subst_args('&self',['Null'],RET),depth(8))
+              <--(67,retval(['Null']))
+                  -->(69,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(70,subst_args('&self',['Null'],RET),depth(9))
+                      -->(71,subst_args('&self',['Null'],RET),depth(9))
+            <--(64,retval(['UntypedC',10,['Null']]))
+            -->(72,eval('&self',['UntypedC',10,['Null']],RET),depth(4))
+              -->(73,eval('&self',['Null'],RET),depth(5))
+                    -->(74,subst_args('&self',['Null'],RET),depth(8))
+              <--(73,retval(['Null']))
+              -->(75,eval('&self',['Null'],RET),depth(5))
+                    -->(76,subst_args('&self',['Null'],RET),depth(8))
+              <--(75,retval(['Null']))
+                  -->(77,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(78,subst_args('&self',['Null'],RET),depth(9))
+                      -->(79,subst_args('&self',['Null'],RET),depth(9))
+            <--(72,retval(['UntypedC',10,['Null']]))
+                -->(80,subst_args('&self',['UntypedC',7,['UntypedC',10,['Null']]],RET),depth(6))
+                    -->(81,subst_args('&self',['UntypedC',10,['Null']],RET),depth(8))
+                    -->(84,subst_args('&self',['UntypedC',10,['Null']],RET),depth(8))
+              -->(87,subst_args('&self',['UntypedC',7,['UntypedC',10,['Null']]],RET),depth(5))
+                  -->(88,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(89,subst_args('&self',['Null'],RET),depth(9))
+                      -->(90,subst_args('&self',['Null'],RET),depth(9))
+                  -->(91,subst_args('&self',['UntypedC',10,['Null']],RET),depth(7))
+                      -->(92,subst_args('&self',['Null'],RET),depth(9))
+                      -->(93,subst_args('&self',['Null'],RET),depth(9))
+            -->(94,subst_args('&self',['UntypedC',7,['UntypedC',10,['Null']]],RET),depth(4))
+                -->(95,subst_args('&self',['UntypedC',10,['Null']],RET),depth(6))
+                    -->(96,subst_args('&self',['Null'],RET),depth(8))
+                    -->(97,subst_args('&self',['Null'],RET),depth(8))
+                -->(98,subst_args('&self',['UntypedC',10,['Null']],RET),depth(6))
+                    -->(99,subst_args('&self',['Null'],RET),depth(8))
+                    -->(100,subst_args('&self',['Null'],RET),depth(8))
+              <--(40,retval(['Null']))
+              <--(39,retval(10))
+          <--(34,retval(['UntypedC',10,['Null']]))
+          <--(33,retval(7))
+      <--(1,retval(['UntypedC',7,['UntypedC',10,['Null']]]))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101); 
 ; EVAL TEST
-; took 0.018 secs. (17.57 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((UntypedC 7 (UntypedC 10 (Null)))) ((UntypedC 7 (UntypedC 10 (Null))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.018 secs. (18.40 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (UntypedC 7 
+        (UntypedC 10 
+          (Null)))) 
+    ( (UntypedC 7 
+        (UntypedC 10 
+          (Null))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;; Type mismatches are detected:
-<span class="ansi38-013099040">!(assertEqualToResult (get-type (fmap (curry-a + 2) (Left 5))) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (fmap 
+      (curry-a + 2) 
+      (Left 5))) ())
 
 </span><span class="ansi38-250144246">; !(get-type (fmap (curry-a + 2) (Left 5)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[fmap,['curry-a',+,2],['Left','5']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[fmap,['curry-a',+,2],['Left','5']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['Left','5']]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['Left','5']]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.20">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.20</h3>
-          -->(1,eval('&self',['get-type',[fmap,['curry-a',+,2],['Left','5']]],RET),depth(3))
-              -->(2,eval('&self','5',RET),depth(5))
-              -->(3,eval('&self','5',RET),depth(5))
-              -->(4,eval('&self',['Left','5'],RET),depth(5))
-                -->(5,eval('&self','Left',RET),depth(6))
-                -->(6,eval('&self','5',RET),depth(6))
-                  -->(7,eval('&self','Left',RET),depth(7))
-                  -->(8,eval('&self','5',RET),depth(7))
-                -->(9,eval('&self','5',RET),depth(6))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',['get-type',[fmap,['curry-a',+,2],['Left','5']]],RET),depth(1))
+        -->(2,eval('&self',['Left','5'],RET),depth(2))
+              -->(3,subst_args('&self',['Left','5'],RET),depth(5))
+        <--(2,retval(['Left','5']))
+          -->(4,eval('&self',['Left','5'],RET),depth(3))
+                -->(5,subst_args('&self',['Left','5'],RET),depth(6))
+          <--(4,retval(['Left','5']))
+        -->(6,eval('&self',[fmap,['curry-a',+,2],['Left','5']],RET),depth(2))
+            -->(7,eval('&self',[['curry-a',+,2],'5'],RET),depth(4))
+                    -->(8,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(8,retval(fail))
+                  -->(9,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(9,retval(fail))
+            <--(7,retval([+,2,'5']))
+            -->(10,eval('&self',[['curry-a',+,2],'5'],RET),depth(4))
+                    -->(11,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(11,retval(fail))
+                  -->(12,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(12,retval(fail))
+              -->(13,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(14,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(14,retval(fail))
+              <--(13,retval([+,2,'5']))
+              -->(15,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(16,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(16,retval(fail))
+              <--(15,retval([+,2,'5']))
+                  -->(17,subst_args('&self',['Left',[+,2,'5']],RET),depth(7))
+                      -->(18,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(18,retval(fail))
+                      -->(19,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(19,retval(fail))
+                -->(20,subst_args('&self',['Left',[+,2,'5']],RET),depth(6))
+                    -->(21,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(21,retval(fail))
+                    -->(22,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(22,retval(fail))
+              -->(23,subst_args('&self',['Left',[+,2,'5']],RET),depth(5))
+                  -->(24,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(24,retval(fail))
+                  -->(25,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(25,retval(fail))
+            <--(10,retval([+,2,'5']))
+        <--(6,retval(['Left',[+,2,'5']]))
+          -->(26,eval('&self',['curry-a',+,2],RET),depth(3))
+                -->(27,subst_args('&self',['curry-a',+,2],RET),depth(6))
+          <--(26,retval(['curry-a',+,2]))
+          -->(28,eval('&self',['Left','5'],RET),depth(3))
+                -->(29,subst_args('&self',['Left','5'],RET),depth(6))
+          <--(28,retval(['Left','5']))
+            -->(30,eval('&self',['Left','5'],RET),depth(4))
+                  -->(31,subst_args('&self',['Left','5'],RET),depth(7))
+            <--(30,retval(['Left','5']))
+            -->(32,eval('&self',['curry-a',+,2],RET),depth(4))
+                  -->(33,subst_args('&self',['curry-a',+,2],RET),depth(7))
+            <--(32,retval(['curry-a',+,2]))
+          -->(34,eval('&self',[fmap,['curry-a',+,2],['Left','5']],RET),depth(3))
+              -->(35,eval('&self',[['curry-a',+,2],'5'],RET),depth(5))
+                      -->(36,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(36,retval(fail))
+                    -->(37,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(37,retval(fail))
+              <--(35,retval([+,2,'5']))
+              -->(38,eval('&self',[['curry-a',+,2],'5'],RET),depth(5))
+                      -->(39,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(39,retval(fail))
+                    -->(40,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(40,retval(fail))
+                -->(41,eval('&self',[+,2,'5'],RET),depth(6))
+                      -->(42,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(42,retval(fail))
+                <--(41,retval([+,2,'5']))
+                -->(43,eval('&self',[+,2,'5'],RET),depth(6))
+                      -->(44,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(44,retval(fail))
+                <--(43,retval([+,2,'5']))
+                    -->(45,subst_args('&self',['Left',[+,2,'5']],RET),depth(8))
+                        <--(46,retval(fail))
+                        <--(47,retval(fail))
+                  -->(48,subst_args('&self',['Left',[+,2,'5']],RET),depth(7))
+                      -->(49,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(49,retval(fail))
+                      -->(50,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(50,retval(fail))
+                -->(51,subst_args('&self',['Left',[+,2,'5']],RET),depth(6))
+                    -->(52,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(52,retval(fail))
+                    -->(53,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(53,retval(fail))
+          -->(54,eval('&self',['Left',[+,2,'5']],RET),depth(3))
+            -->(55,eval('&self',[+,2,'5'],RET),depth(4))
+                  -->(56,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(56,retval(fail))
+            <--(55,retval([+,2,'5']))
+            -->(57,eval('&self',[+,2,'5'],RET),depth(4))
+                  -->(58,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(58,retval(fail))
+            <--(57,retval([+,2,'5']))
+                -->(59,subst_args('&self',['Left',[+,2,'5']],RET),depth(6))
+                    -->(60,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(60,retval(fail))
+                    -->(61,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(61,retval(fail))
+          <--(54,retval(['Left',[+,2,'5']]))
+            -->(62,eval('&self',[+,2,'5'],RET),depth(4))
+                  -->(63,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(63,retval(fail))
+            <--(62,retval([+,2,'5']))
+              -->(64,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(65,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(65,retval(fail))
+              <--(64,retval([+,2,'5']))
+            -->(66,eval('&self',['Left',[+,2,'5']],RET),depth(4))
+              -->(67,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(68,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(68,retval(fail))
+              <--(67,retval([+,2,'5']))
+              -->(69,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(70,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(70,retval(fail))
+              <--(69,retval([+,2,'5']))
+                  -->(71,subst_args('&self',['Left',[+,2,'5']],RET),depth(7))
+                      -->(72,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(72,retval(fail))
+                      -->(73,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(73,retval(fail))
+            <--(66,retval(['Left',[+,2,'5']]))
+              <--(38,retval([+,2,'5']))
+          <--(34,retval(['Left',[+,2,'5']]))
+        -->(74,eval('&self',['Left','5'],RET),depth(2))
+              -->(75,subst_args('&self',['Left','5'],RET),depth(5))
+        <--(74,retval(['Left','5']))
+          -->(76,eval('&self',['Left','5'],RET),depth(3))
+                -->(77,subst_args('&self',['Left','5'],RET),depth(6))
+          <--(76,retval(['Left','5']))
+      <--(1,retval(fail))
+; 
 ; EVAL TEST
-; took 0.014 secs. (13.60 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.018 secs. (17.62 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC 5))) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (fmap 
+      (curry-a + 2) 
+      (UntypedC 5))) ())
 
 </span><span class="ansi38-250144246">; !(get-type (fmap (curry-a + 2) (UntypedC 5)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC','5']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[fmap,['curry-a',+,2],['UntypedC','5']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC','5']]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC','5']]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.21">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.21</h3>
-          -->(1,eval('&self',['get-type',[fmap,['curry-a',+,2],['UntypedC','5']]],RET),depth(3))
-              -->(2,eval('&self','5',RET),depth(5))
-              -->(3,eval('&self','5',RET),depth(5))
-                -->(4,eval('&self',['UntypedC','5'],RET),depth(6))
-                  -->(5,eval('&self','5',RET),depth(7))
-                  -->(6,eval('&self','UntypedC',RET),depth(7))
-                  -->(7,eval('&self','5',RET),depth(7))
-                    -->(8,eval('&self','UntypedC',RET),depth(8))
-                    -->(9,eval('&self','5',RET),depth(8))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',['get-type',[fmap,['curry-a',+,2],['UntypedC','5']]],RET),depth(1))
+          -->(2,eval('&self',['UntypedC','5'],RET),depth(3))
+                -->(3,subst_args('&self',['UntypedC','5'],RET),depth(6))
+          <--(2,retval(['UntypedC','5']))
+          -->(4,eval('&self',['UntypedC','5'],RET),depth(3))
+                -->(5,subst_args('&self',['UntypedC','5'],RET),depth(6))
+          <--(4,retval(['UntypedC','5']))
+        -->(6,eval('&self',['UntypedC','5'],RET),depth(2))
+              -->(7,subst_args('&self',['UntypedC','5'],RET),depth(5))
+        <--(6,retval(['UntypedC','5']))
+          -->(8,eval('&self',['UntypedC','5'],RET),depth(3))
+                -->(9,subst_args('&self',['UntypedC','5'],RET),depth(6))
+          <--(8,retval(['UntypedC','5']))
+          -->(10,eval('&self',['UntypedC','5'],RET),depth(3))
+                -->(11,subst_args('&self',['UntypedC','5'],RET),depth(6))
+          <--(10,retval(['UntypedC','5']))
+        -->(12,eval('&self',[fmap,['curry-a',+,2],['UntypedC','5']],RET),depth(2))
+            -->(13,eval('&self',[['curry-a',+,2],'5'],RET),depth(4))
+                    -->(14,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(14,retval(fail))
+                  -->(15,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(15,retval(fail))
+            <--(13,retval([+,2,'5']))
+            -->(16,eval('&self',[['curry-a',+,2],'5'],RET),depth(4))
+                    -->(17,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(17,retval(fail))
+                  -->(18,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(18,retval(fail))
+              -->(19,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(20,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(20,retval(fail))
+              <--(19,retval([+,2,'5']))
+              -->(21,eval('&self',[+,2,'5'],RET),depth(5))
+                    -->(22,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(22,retval(fail))
+              <--(21,retval([+,2,'5']))
+                  -->(23,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(7))
+                      -->(24,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(24,retval(fail))
+                      -->(25,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(25,retval(fail))
+                -->(26,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(6))
+                    -->(27,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(27,retval(fail))
+                    -->(28,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(28,retval(fail))
+              -->(29,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(5))
+                  -->(30,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(30,retval(fail))
+                  -->(31,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(31,retval(fail))
+            <--(16,retval([+,2,'5']))
+        <--(12,retval(['UntypedC',[+,2,'5']]))
+          -->(32,eval('&self',['curry-a',+,2],RET),depth(3))
+                -->(33,subst_args('&self',['curry-a',+,2],RET),depth(6))
+          <--(32,retval(['curry-a',+,2]))
+          -->(34,eval('&self',['UntypedC','5'],RET),depth(3))
+                -->(35,subst_args('&self',['UntypedC','5'],RET),depth(6))
+          <--(34,retval(['UntypedC','5']))
+            -->(36,eval('&self',['UntypedC','5'],RET),depth(4))
+                  -->(37,subst_args('&self',['UntypedC','5'],RET),depth(7))
+            <--(36,retval(['UntypedC','5']))
+            -->(38,eval('&self',['curry-a',+,2],RET),depth(4))
+                  -->(39,subst_args('&self',['curry-a',+,2],RET),depth(7))
+            <--(38,retval(['curry-a',+,2]))
+          -->(40,eval('&self',[fmap,['curry-a',+,2],['UntypedC','5']],RET),depth(3))
+              -->(41,eval('&self',[['curry-a',+,2],'5'],RET),depth(5))
+                      -->(42,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(42,retval(fail))
+                    -->(43,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(43,retval(fail))
+              <--(41,retval([+,2,'5']))
+              -->(44,eval('&self',[['curry-a',+,2],'5'],RET),depth(5))
+                      -->(45,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(45,retval(fail))
+                    -->(46,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(46,retval(fail))
+                -->(47,eval('&self',[+,2,'5'],RET),depth(6))
+                      -->(48,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(48,retval(fail))
+                <--(47,retval([+,2,'5']))
+                -->(49,eval('&self',[+,2,'5'],RET),depth(6))
+                      -->(50,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(50,retval(fail))
+                <--(49,retval([+,2,'5']))
+                    -->(51,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(8))
+                        <--(52,retval(fail))
+                        <--(53,retval(fail))
+                  -->(54,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(7))
+                      -->(55,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(55,retval(fail))
+                      -->(56,subst_args('&self',[+,2,'5'],RET),depth(9))
+                      <--(56,retval(fail))
+                -->(57,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(6))
+                    -->(58,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(58,retval(fail))
+                    -->(59,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(59,retval(fail))
+          -->(60,eval('&self',['UntypedC',[+,2,'5']],RET),depth(3))
+            -->(61,eval('&self',[+,2,'5'],RET),depth(4))
+                  -->(62,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(62,retval(fail))
+            <--(61,retval([+,2,'5']))
+            -->(63,eval('&self',[+,2,'5'],RET),depth(4))
+                  -->(64,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(64,retval(fail))
+            <--(63,retval([+,2,'5']))
+                -->(65,subst_args('&self',['UntypedC',[+,2,'5']],RET),depth(6))
+                    -->(66,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(66,retval(fail))
+                    -->(67,subst_args('&self',[+,2,'5'],RET),depth(8))
+                    <--(67,retval(fail))
+          <--(60,retval(['UntypedC',[+,2,'5']]))
+            -->(68,eval('&self',[+,2,'5'],RET),depth(4))
+                  -->(69,subst_args('&self',[+,2,'5'],RET),depth(7))
+                  <--(69,retval(fail))
+            <--(68,retval([+,2,'5']))
+              <--(44,retval([+,2,'5']))
+          <--(40,retval(['UntypedC',[+,2,'5']]))
+              -->(70,subst_args('&self',['Symbol','Number'],RET),depth(5))
+            -->(71,subst_args('&self',['Symbol','Number'],RET),depth(4))
+      <--(1,retval(['Symbol','Number']))
+; 
 ; EVAL TEST
-; took 0.014 secs. (13.76 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Symbol Number)) ()))
-</span>Deterministic: <span class="ansi33">
-(got ((Symbol Number)) expected ())
+; took 0.019 secs. (19.12 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (Symbol Number)) ()))
+</span>        -->(72,eval('&self',[['Symbol','Number']],RET),depth(2))
+          -->(73,eval('&self',['Symbol','Number'],RET),depth(3))
+                -->(74,subst_args('&self',['Symbol','Number'],RET),depth(6))
+          <--(73,retval(['Symbol','Number']))
+              -->(75,subst_args('&self',[['Symbol','Number']],RET),depth(5))
+                  -->(76,subst_args('&self',['Symbol','Number'],RET),depth(7))
+        <--(72,retval([['Symbol','Number']]))
+        -->(77,eval('&self',[['Symbol','Number']],RET),depth(2))
+          -->(78,eval('&self',['Symbol','Number'],RET),depth(3))
+                -->(79,subst_args('&self',['Symbol','Number'],RET),depth(6))
+          <--(78,retval(['Symbol','Number']))
+              -->(80,subst_args('&self',[['Symbol','Number']],RET),depth(5))
+                  -->(81,subst_args('&self',['Symbol','Number'],RET),depth(7))
+        <--(77,retval([['Symbol','Number']]))
+            -->(82,subst_args('&self',[got,[['Symbol','Number']],expected,[]],RET),depth(4))
+                -->(83,subst_args('&self',[['Symbol','Number']],RET),depth(6))
+                    -->(84,subst_args('&self',['Symbol','Number'],RET),depth(8))
+                -->(85,subst_args('&self',[['Symbol','Number']],RET),depth(6))
+                    -->(86,subst_args('&self',['Symbol','Number'],RET),depth(8))
+          -->(87,subst_args('&self',[got,[['Symbol','Number']],expected,[]],RET),depth(3))
+              -->(88,subst_args('&self',[['Symbol','Number']],RET),depth(5))
+                  -->(89,subst_args('&self',['Symbol','Number'],RET),depth(7))
+              -->(90,subst_args('&self',[['Symbol','Number']],RET),depth(5))
+                  -->(91,subst_args('&self',['Symbol','Number'],RET),depth(7))
+    <--(0,retval([got,[['Symbol','Number']],expected,[]]))
+Deterministic: <span class="ansi33">
+(got 
+  ( (Symbol Number)) expected ())
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (get-type (fmap (curry-a + 2) (UntypedC (Null) 5))) ())
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (get-type 
+    (fmap 
+      (curry-a + 2) 
+      (UntypedC 
+        (Null) 5))) ())
 
 </span><span class="ansi38-250144246">; !(get-type (fmap (curry-a + 2) (UntypedC (Null) 5)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],[]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.22">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.22</h3>
-          -->(1,eval('&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],RET),depth(3))
-                -->(2,eval('&self',['Null'],RET),depth(6))
-                  -->(3,eval('&self','Null',RET),depth(7))
-                    -->(4,eval('&self','Null',RET),depth(8))
-                -->(5,eval('&self',['Null'],RET),depth(6))
-                  -->(6,eval('&self','Null',RET),depth(7))
-                    -->(7,eval('&self','Null',RET),depth(8))
-              -->(8,eval('&self',['Null'],RET),depth(5))
-                -->(9,eval('&self','Null',RET),depth(6))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',['get-type',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]]],RET),depth(1))
+          -->(2,eval('&self',['Null'],RET),depth(3))
+                -->(3,subst_args('&self',['Null'],RET),depth(6))
+          <--(2,retval(['Null']))
+          -->(4,eval('&self',['Null'],RET),depth(3))
+                -->(5,subst_args('&self',['Null'],RET),depth(6))
+          <--(4,retval(['Null']))
+        -->(6,eval('&self',['Null'],RET),depth(2))
+              -->(7,subst_args('&self',['Null'],RET),depth(5))
+        <--(6,retval(['Null']))
+          -->(8,eval('&self',['UntypedC',['Null'],5],RET),depth(3))
+            -->(9,eval('&self',['Null'],RET),depth(4))
+                  -->(10,subst_args('&self',['Null'],RET),depth(7))
+            <--(9,retval(['Null']))
+            -->(11,eval('&self',['Null'],RET),depth(4))
+                  -->(12,subst_args('&self',['Null'],RET),depth(7))
+            <--(11,retval(['Null']))
+                -->(13,subst_args('&self',['UntypedC',['Null'],5],RET),depth(6))
+                    -->(14,subst_args('&self',['Null'],RET),depth(8))
+                    -->(15,subst_args('&self',['Null'],RET),depth(8))
+          <--(8,retval(['UntypedC',['Null'],5]))
+          -->(16,eval('&self',['UntypedC',['Null'],5],RET),depth(3))
+            -->(17,eval('&self',['Null'],RET),depth(4))
+                  -->(18,subst_args('&self',['Null'],RET),depth(7))
+            <--(17,retval(['Null']))
+            -->(19,eval('&self',['Null'],RET),depth(4))
+                  -->(20,subst_args('&self',['Null'],RET),depth(7))
+            <--(19,retval(['Null']))
+                -->(21,subst_args('&self',['UntypedC',['Null'],5],RET),depth(6))
+                    -->(22,subst_args('&self',['Null'],RET),depth(8))
+                    -->(23,subst_args('&self',['Null'],RET),depth(8))
+          <--(16,retval(['UntypedC',['Null'],5]))
+        -->(24,eval('&self',['UntypedC',['Null'],5],RET),depth(2))
+          -->(25,eval('&self',['Null'],RET),depth(3))
+                -->(26,subst_args('&self',['Null'],RET),depth(6))
+          <--(25,retval(['Null']))
+          -->(27,eval('&self',['Null'],RET),depth(3))
+                -->(28,subst_args('&self',['Null'],RET),depth(6))
+          <--(27,retval(['Null']))
+              -->(29,subst_args('&self',['UntypedC',['Null'],5],RET),depth(5))
+                  -->(30,subst_args('&self',['Null'],RET),depth(7))
+                  -->(31,subst_args('&self',['Null'],RET),depth(7))
+        <--(24,retval(['UntypedC',['Null'],5]))
+          -->(32,eval('&self',['Null'],RET),depth(3))
+                -->(33,subst_args('&self',['Null'],RET),depth(6))
+          <--(32,retval(['Null']))
+          -->(34,eval('&self',['Null'],RET),depth(3))
+                -->(35,subst_args('&self',['Null'],RET),depth(6))
+          <--(34,retval(['Null']))
+          -->(36,eval('&self',['Null'],RET),depth(3))
+                -->(37,subst_args('&self',['Null'],RET),depth(6))
+          <--(36,retval(['Null']))
+        -->(38,eval('&self',['Null'],RET),depth(2))
+              -->(39,subst_args('&self',['Null'],RET),depth(5))
+        <--(38,retval(['Null']))
+          -->(40,eval('&self',['UntypedC',['Null'],5],RET),depth(3))
+            -->(41,eval('&self',['Null'],RET),depth(4))
+                  -->(42,subst_args('&self',['Null'],RET),depth(7))
+            <--(41,retval(['Null']))
+            -->(43,eval('&self',['Null'],RET),depth(4))
+                  -->(44,subst_args('&self',['Null'],RET),depth(7))
+            <--(43,retval(['Null']))
+                -->(45,subst_args('&self',['UntypedC',['Null'],5],RET),depth(6))
+                    -->(46,subst_args('&self',['Null'],RET),depth(8))
+                    -->(47,subst_args('&self',['Null'],RET),depth(8))
+          <--(40,retval(['UntypedC',['Null'],5]))
+          -->(48,eval('&self',['UntypedC',['Null'],5],RET),depth(3))
+            -->(49,eval('&self',['Null'],RET),depth(4))
+                  -->(50,subst_args('&self',['Null'],RET),depth(7))
+            <--(49,retval(['Null']))
+            -->(51,eval('&self',['Null'],RET),depth(4))
+                  -->(52,subst_args('&self',['Null'],RET),depth(7))
+            <--(51,retval(['Null']))
+                -->(53,subst_args('&self',['UntypedC',['Null'],5],RET),depth(6))
+                    -->(54,subst_args('&self',['Null'],RET),depth(8))
+                    -->(55,subst_args('&self',['Null'],RET),depth(8))
+          <--(48,retval(['UntypedC',['Null'],5]))
+        -->(56,eval('&self',[fmap,['curry-a',+,2],['UntypedC',['Null'],5]],RET),depth(2))
+            -->(57,eval('&self',[['curry-a',+,2],['Null']],RET),depth(4))
+                -->(58,eval('&self',['Null'],RET),depth(6))
+                      -->(59,subst_args('&self',['Null'],RET),depth(9))
+                <--(58,retval(['Null']))
+                -->(60,eval('&self',['Null'],RET),depth(6))
+                      -->(61,subst_args('&self',['Null'],RET),depth(9))
+                <--(60,retval(['Null']))
+                    -->(62,subst_args('&self',[+,2,['Null']],RET),depth(8))
+                    <--(62,retval(fail))
+                  -->(64,eval('&self',['Null'],RET),depth(7))
+                  <--(64,retval(['Null']))
+                  -->(66,subst_args('&self',[+,2,['Null']],RET),depth(7))
+                      -->(67,subst_args('&self',['Null'],RET),depth(9))
+                  <--(66,retval(fail))
+                -->(68,eval('&self',['Null'],RET),depth(6))
+                      -->(69,subst_args('&self',['Null'],RET),depth(9))
+                <--(68,retval(['Null']))
+            -->(70,eval('&self',[fmap,['curry-a',+,2],5],RET),depth(4))
+              -->(71,eval('&self',['curry-a',+,2],RET),depth(5))
+                    -->(72,subst_args('&self',['curry-a',+,2],RET),depth(8))
+              <--(71,retval(['curry-a',+,2]))
+                  -->(73,subst_args('&self',[fmap,['curry-a',+,2],5],RET),depth(7))
+                      -->(74,subst_args('&self',['curry-a',+,2],RET),depth(9))
+            <--(70,retval([fmap,['curry-a',+,2],5]))
+            <--(57,retval([+,2,['Null']]))
+            -->(75,eval('&self',[['curry-a',+,2],['Null']],RET),depth(4))
+                -->(76,eval('&self',['Null'],RET),depth(6))
+                      -->(77,subst_args('&self',['Null'],RET),depth(9))
+                <--(76,retval(['Null']))
+                -->(78,eval('&self',['Null'],RET),depth(6))
+                      -->(79,subst_args('&self',['Null'],RET),depth(9))
+                <--(78,retval(['Null']))
+                    -->(80,subst_args('&self',[+,2,['Null']],RET),depth(8))
+                    <--(80,retval(fail))
+                  -->(82,eval('&self',['Null'],RET),depth(7))
+                  <--(82,retval(['Null']))
+                  -->(84,subst_args('&self',[+,2,['Null']],RET),depth(7))
+                      -->(85,subst_args('&self',['Null'],RET),depth(9))
+                  <--(84,retval(fail))
+                -->(86,eval('&self',['Null'],RET),depth(6))
+                      -->(87,subst_args('&self',['Null'],RET),depth(9))
+                <--(86,retval(['Null']))
+            -->(88,eval('&self',[fmap,['curry-a',+,2],5],RET),depth(4))
+              -->(89,eval('&self',['curry-a',+,2],RET),depth(5))
+                    -->(90,subst_args('&self',['curry-a',+,2],RET),depth(8))
+              <--(89,retval(['curry-a',+,2]))
+                  -->(91,subst_args('&self',[fmap,['curry-a',+,2],5],RET),depth(7))
+                      -->(92,subst_args('&self',['curry-a',+,2],RET),depth(9))
+            <--(88,retval([fmap,['curry-a',+,2],5]))
+              -->(93,eval('&self',[+,2,['Null']],RET),depth(5))
+                -->(94,eval('&self',['Null'],RET),depth(6))
+                      -->(95,subst_args('&self',['Null'],RET),depth(9))
+                <--(94,retval(['Null']))
+                -->(96,eval('&self',['Null'],RET),depth(6))
+                      -->(97,subst_args('&self',['Null'],RET),depth(9))
+                <--(96,retval(['Null']))
+                    -->(98,subst_args('&self',[+,2,['Null']],RET),depth(8))
+                    <--(98,retval(fail))
+                  -->(100,eval('&self',['Null'],RET),depth(7))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                  <--(100,retval(['Null']))
+              <--(93,retval([+,2,['Null']]))
+            <--(75,retval([+,2,['Null']]))
+        <--(56,retval(['UntypedC',[+,2,['Null']],[fmap,['curry-a',+,2],5]]))
+      <--(1,retval(fail))
+; 
 ; EVAL TEST
-; took 0.056 secs. (56.21 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  () ()))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.053 secs. (52.67 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  () ()))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; It is possible to implement `fmap` only as an interface
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Type definition is the same as `fmap` above
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'fmap-i',[->,[->,A,B],[F,A],[F,B]]])
-</span><span class="ansi38-255165000">(: fmap-i (-> (-> $A $B) ($F $A) ($F $B)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'fmap-i',[->,[->,A,B],[F,A],[F,B]]])
+</span><span class="ansi38-255165000">(: fmap-i 
+  (-> 
+    (-> $A $B) 
+    ($F $A) 
+    ($F $B)))
 </span>
 
 ;; Custom implementations for different functors will be
 ;; possible (and needed):
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['fmap-i',F,['Left',X]],['Left',[F,X]]])
-</span><span class="ansi38-255165000">(= (fmap-i $F (Left $X)) (Left ($F $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['fmap-i',F,['Left',X]],['Left',[F,X]]])
+</span><span class="ansi38-255165000">(= 
+  (fmap-i $F 
+    (Left $X)) 
+  (Left 
+    ($F $X)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['fmap-i',F,['Right',X]],['Right',[F,X]]])
-</span><span class="ansi38-255165000">(= (fmap-i $F (Right $X)) (Right ($F $X)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['fmap-i',F,['Right',X]],['Right',[F,X]]])
+</span><span class="ansi38-255165000">(= 
+  (fmap-i $F 
+    (Right $X)) 
+  (Right 
+    ($F $X)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (fmap-i (curry-a - 7) (Right 3)) (Right 4))
+<span class="ansi38-013099040">!(assertEqual 
+  (fmap-i 
+    (curry-a - 7) 
+    (Right 3)) 
+  (Right 4))
 
 </span><span class="ansi38-250144246">; !(fmap-i (curry-a - 7) (Right 3))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['fmap-i',['curry-a',-,7],['Right',3]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['fmap-i',['curry-a',-,7],['Right',3]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['fmap-i',['curry-a',-,7],['Right',3]],['Right',4]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['fmap-i',['curry-a',-,7],['Right',3]],['Right',4]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.23">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.23</h3>
-          -->(1,eval('&self',['fmap-i',['curry-a',-,7],['Right',3]],RET),depth(3))
-                -->(2,eval('&self',['curry-a',-,7],RET),depth(6))
-                  -->(3,eval('&self','curry-a',RET),depth(7))
-                  -->(4,eval('&self',-,RET),depth(7))
-                  -->(5,eval('&self',7,RET),depth(7))
-                    -->(6,eval('&self','curry-a',RET),depth(8))
-                    -->(7,eval('&self',-,RET),depth(8))
-                    -->(8,eval('&self',7,RET),depth(8))
-              -->(9,eval('&self','Right',RET),depth(5))
-          <--(1,retval(['Right',4]))
+      -->(1,eval('&self',['fmap-i',['curry-a',-,7],['Right',3]],RET),depth(1))
+          -->(2,eval('&self',[['curry-a',-,7],3],RET),depth(3))
+          <--(2,retval(4))
+          -->(3,eval('&self',[['curry-a',-,7],3],RET),depth(3))
+                -->(4,subst_args('&self',['Right',4],RET),depth(6))
+              -->(5,subst_args('&self',['Right',4],RET),depth(5))
+            -->(6,subst_args('&self',['Right',4],RET),depth(4))
+          <--(3,retval(4))
+      <--(1,retval(['Right',4]))
+      -->(7,eval('&self',['Right',4],RET),depth(1))
+            -->(8,subst_args('&self',['Right',4],RET),depth(4))
+      <--(7,retval(['Right',4]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.31 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Right 4)) ((Right 4))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.44 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Right 4)) 
+    ( (Right 4))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; More examples
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'List',[->,A,'Type']])
-</span><span class="ansi38-255165000">(: List (-> $A Type))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'List',[->,A,'Type']])
+</span><span class="ansi38-255165000">(: List 
+  (-> $A Type))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Nil',['List',A]])
-</span><span class="ansi38-255165000">(: Nil (List $A))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Nil',['List',A]])
+</span><span class="ansi38-255165000">(: Nil 
+  (List $A))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:,'Cons',[->,A,['List',A],['List',A]]])
-</span><span class="ansi38-255165000">(: Cons (-> $A (List $A) (List $A)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,'Cons',[->,A,['List',A],['List',A]]])
+</span><span class="ansi38-255165000">(: Cons 
+  (-> $A 
+    (List $A) 
+    (List $A)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['fmap-i',F,'Nil'],'Nil'])
-</span><span class="ansi38-255165000">(= (fmap-i $F Nil) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['fmap-i',F,'Nil'],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (fmap-i $F Nil) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,['fmap-i',F,['Cons',X,Xs]],['Cons',[F,X],['fmap-i',F,Xs]]])
-</span><span class="ansi38-255165000">(= (fmap-i $F (Cons $X $Xs)) (Cons ($F $X) (fmap-i $F $Xs)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['fmap-i',F,['Cons',X,Xs]],['Cons',[F,X],['fmap-i',F,Xs]]])
+</span><span class="ansi38-255165000">(= 
+  (fmap-i $F 
+    (Cons $X $Xs)) 
+  (Cons 
+    ($F $X) 
+    (fmap-i $F $Xs)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (fmap-i (curry-a * 2) (Cons 3 (Cons 4 Nil))) (Cons 6 (Cons 8 Nil)))
+<span class="ansi38-013099040">!(assertEqual 
+  (fmap-i 
+    (curry-a * 2) 
+    (Cons 3 
+      (Cons 4 Nil))) 
+  (Cons 6 
+    (Cons 8 Nil)))
 
 </span><span class="ansi38-250144246">; !(fmap-i (curry-a * 2) (Cons 3 (Cons 4 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,'Nil']]],['Cons',6,['Cons',8,'Nil']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,'Nil']]],['Cons',6,['Cons',8,'Nil']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.24">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.24</h3>
-          -->(1,eval('&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,'Nil']]],RET),depth(3))
-                -->(2,eval('&self',[['curry-a',*,2],3],RET),depth(6))
-                    -->(3,eval('&self',3,RET),depth(8))
-                      -->(4,eval('&self',6,RET),depth(9))
-                    -->(5,eval('&self',6,RET),depth(8))
-                -->(6,eval('&self',['fmap-i',['curry-a',*,2],['Cons',4,'Nil']],RET),depth(6))
-                      -->(7,eval('&self',[['curry-a',*,2],4],RET),depth(9))
-                          -->(8,eval('&self',4,RET),depth(11))
-                            -->(9,eval('&self',8,RET),depth(12))
-                      <--(7,retval(8))
-                <--(6,retval(['Cons',8,'Nil']))
-                <--(2,retval(6))
-          <--(1,retval(['Cons',6,['Cons',8,'Nil']]))
+      -->(1,eval('&self',['fmap-i',['curry-a',*,2],['Cons',3,['Cons',4,'Nil']]],RET),depth(1))
+          -->(2,eval('&self',[['curry-a',*,2],3],RET),depth(3))
+          -->(3,eval('&self',['fmap-i',['curry-a',*,2],['Cons',4,'Nil']],RET),depth(3))
+              -->(4,eval('&self',[['curry-a',*,2],4],RET),depth(5))
+              -->(5,eval('&self',['fmap-i',['curry-a',*,2],'Nil'],RET),depth(5))
+                    -->(6,subst_args('&self',['Cons',8,'Nil'],RET),depth(8))
+                  -->(7,subst_args('&self',['Cons',8,'Nil'],RET),depth(7))
+                -->(8,subst_args('&self',['Cons',8,'Nil'],RET),depth(6))
+            -->(9,eval('&self',['Cons',8,'Nil'],RET),depth(4))
+                  -->(10,subst_args('&self',['Cons',8,'Nil'],RET),depth(7))
+            <--(9,retval(['Cons',8,'Nil']))
+                -->(11,subst_args('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(6))
+                    -->(12,subst_args('&self',['Cons',8,'Nil'],RET),depth(8))
+              -->(13,subst_args('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(5))
+                  -->(14,subst_args('&self',['Cons',8,'Nil'],RET),depth(7))
+            -->(15,subst_args('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(4))
+                -->(16,subst_args('&self',['Cons',8,'Nil'],RET),depth(6))
+              <--(5,retval('Nil'))
+              <--(4,retval(8))
+          <--(3,retval(['Cons',8,'Nil']))
+          <--(2,retval(6))
+      <--(1,retval(['Cons',6,['Cons',8,'Nil']]))
+      -->(17,eval('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(1))
+        -->(18,eval('&self',['Cons',8,'Nil'],RET),depth(2))
+              -->(19,subst_args('&self',['Cons',8,'Nil'],RET),depth(5))
+        <--(18,retval(['Cons',8,'Nil']))
+            -->(20,subst_args('&self',['Cons',6,['Cons',8,'Nil']],RET),depth(4))
+                -->(21,subst_args('&self',['Cons',8,'Nil'],RET),depth(6))
+      <--(17,retval(['Cons',6,['Cons',8,'Nil']]))
 ; 
 ; EVAL TEST
-; took 0.005 secs. (4.64 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 6 (Cons 8 Nil))) ((Cons 6 (Cons 8 Nil)))))
-</span>      <--(0,retval('Empty'))
+; took 0.002 secs. (2.46 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 6 
+        (Cons 8 Nil))) 
+    ( (Cons 6 
+        (Cons 8 Nil)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;; Thus, there is no problem in having different implementations
 ;; of the same function for different types. But it will not
 ;; work "for free" (it requires explicit implementation for each type)
-<span class="ansi38-013099040">!(assertEqualToResult (fmap-i (curry-a + 2) (Untyped 5)) ((fmap-i (curry-a + 2) (Untyped 5))))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (fmap-i 
+    (curry-a + 2) 
+    (Untyped 5)) 
+  ( (fmap-i 
+      (curry-a + 2) 
+      (Untyped 5))))
 
 </span><span class="ansi38-250144246">; !(fmap-i (curry-a + 2) (Untyped 5))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',['fmap-i',['curry-a',+,2],['Untyped',5]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',['fmap-i',['curry-a',+,2],['Untyped',5]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,['fmap-i',['curry-a',+,2],['Untyped',5]],[['fmap-i',['curry-a',+,2],['Untyped',5]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,['fmap-i',['curry-a',+,2],['Untyped',5]],[['fmap-i',['curry-a',+,2],['Untyped',5]]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.25">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.25</h3>
-          -->(1,eval('&self',['fmap-i',['curry-a',+,2],['Untyped',5]],RET),depth(3))
-              -->(2,eval('&self',['curry-a',+,2],RET),depth(5))
-                -->(3,eval('&self','curry-a',RET),depth(6))
-                -->(4,eval('&self',+,RET),depth(6))
-                -->(5,eval('&self',2,RET),depth(6))
-                  -->(6,eval('&self','curry-a',RET),depth(7))
-                  -->(7,eval('&self',+,RET),depth(7))
-                  -->(8,eval('&self',2,RET),depth(7))
-              -->(9,eval('&self',['Untyped',5],RET),depth(5))
+      -->(1,eval('&self',['fmap-i',['curry-a',+,2],['Untyped',5]],RET),depth(1))
+        -->(2,eval('&self',['curry-a',+,2],RET),depth(2))
+              -->(3,subst_args('&self',['curry-a',+,2],RET),depth(5))
+        <--(2,retval(['curry-a',+,2]))
+        -->(4,eval('&self',['Untyped',5],RET),depth(2))
+              -->(5,subst_args('&self',['Untyped',5],RET),depth(5))
+        <--(4,retval(['Untyped',5]))
+            -->(6,subst_args('&self',['fmap-i',['curry-a',+,2],['Untyped',5]],RET),depth(4))
+                -->(7,subst_args('&self',['curry-a',+,2],RET),depth(6))
+                -->(8,subst_args('&self',['Untyped',5],RET),depth(6))
+      <--(1,retval(['fmap-i',['curry-a',+,2],['Untyped',5]]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (3.13 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((fmap-i (curry-a + 2) (Untyped 5))) ((fmap-i (curry-a + 2) (Untyped 5)))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.22 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (fmap-i 
+        (curry-a + 2) 
+        (Untyped 5))) 
+    ( (fmap-i 
+        (curry-a + 2) 
+        (Untyped 5)))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1057,76 +1774,259 @@ Deterministic: <span class="ansi33">Empty
 ;; not interfere with executing functions operating on List.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Insert an element in a presumably sorted list
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[insert,X,'Nil'],['Cons',X,'Nil']])
-</span><span class="ansi38-255165000">(= (insert $X Nil) (Cons $X Nil))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[insert,X,'Nil'],['Cons',X,'Nil']])
+</span><span class="ansi38-255165000">(= 
+  (insert $X Nil) 
+  (Cons $X Nil))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[insert,X,['Cons',Head,Tail]],[case,[<,X,Head],[['True',['Cons',X,['Cons',Head,Tail]]],['False',['Cons',Head,[insert,X,Tail]]]]]])
-</span><span class="ansi38-255165000">(= (insert $X (Cons $Head $Tail)) (case (< $X $Head) ((True (Cons $X (Cons $Head $Tail))) (False (Cons $Head (insert $X $Tail))))))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[insert,X,['Cons',Head,Tail]],[case,[<,X,Head],[['True',['Cons',X,['Cons',Head,Tail]]],['False',['Cons',Head,[insert,X,Tail]]]]]])
+</span><span class="ansi38-255165000">(= 
+  (insert $X 
+    (Cons $Head $Tail)) 
+  (case 
+    (< $X $Head) 
+    ( (True 
+        (Cons $X 
+          (Cons $Head $Tail))) 
+      (False 
+        (Cons $Head 
+          (insert $X $Tail))))))
 </span>
 
 ;; Sort a list
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[sort,'Nil'],'Nil'])
-</span><span class="ansi38-255165000">(= (sort Nil) Nil)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[sort,'Nil'],'Nil'])
+</span><span class="ansi38-255165000">(= 
+  (sort Nil) Nil)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[sort,['Cons',Head,Tail]],[insert,Head,[sort,Tail]]])
-</span><span class="ansi38-255165000">(= (sort (Cons $Head $Tail)) (insert $Head (sort $Tail)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[sort,['Cons',Head,Tail]],[insert,Head,[sort,Tail]]])
+</span><span class="ansi38-255165000">(= 
+  (sort 
+    (Cons $Head $Tail)) 
+  (insert $Head 
+    (sort $Tail)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (insert 3 (insert 2 (insert 1 Nil))) (Cons 1 (Cons 2 (Cons 3 Nil))))
+<span class="ansi38-013099040">!(assertEqual 
+  (insert 3 
+    (insert 2 
+      (insert 1 Nil))) 
+  (Cons 1 
+    (Cons 2 
+      (Cons 3 Nil))))
 
 </span><span class="ansi38-250144246">; !(insert 3 (insert 2 (insert 1 Nil)))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[insert,3,[insert,2,[insert,1,'Nil']]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[insert,3,[insert,2,[insert,1,'Nil']]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[insert,3,[insert,2,[insert,1,'Nil']]],['Cons',1,['Cons',2,['Cons',3,'Nil']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[insert,3,[insert,2,[insert,1,'Nil']]],['Cons',1,['Cons',2,['Cons',3,'Nil']]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.26">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.26</h3>
-          -->(1,eval('&self',[insert,3,[insert,2,[insert,1,'Nil']]],RET),depth(3))
-              -->(2,eval('&self',[insert,2,[insert,1,'Nil']],RET),depth(5))
-                  -->(3,eval('&self',[insert,1,'Nil'],RET),depth(7))
-                      -->(4,eval('&self',1,RET),depth(9))
-                      -->(5,eval('&self','Nil',RET),depth(9))
-                        -->(6,eval('&self','Cons',RET),depth(10))
-                        -->(7,eval('&self',1,RET),depth(10))
-                        -->(8,eval('&self','Nil',RET),depth(10))
-                      -->(9,eval('&self','Cons',RET),depth(9))
-                  <--(3,retval(['Cons',1,'Nil']))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[insert,3,[insert,2,[insert,1,'Nil']]],RET),depth(1))
+        -->(2,eval('&self',[insert,2,[insert,1,'Nil']],RET),depth(2))
+          -->(3,eval('&self',[insert,1,'Nil'],RET),depth(3))
+                  -->(4,subst_args('&self',['Cons',1,'Nil'],RET),depth(7))
+                -->(5,subst_args('&self',['Cons',1,'Nil'],RET),depth(6))
+              -->(6,eval('&self',[<,2,1],RET),depth(5))
+              -->(7,eval('&self',['Cons',1,[insert,2,'Nil']],RET),depth(5))
+                -->(8,eval('&self',[insert,2,'Nil'],RET),depth(6))
+                      -->(10,subst_args('&self',['Cons',2,'Nil'],RET),depth(9))
+                  -->(11,eval('&self',['Cons',2,'Nil'],RET),depth(7))
+                  <--(11,retval(['Cons',2,'Nil']))
+                      -->(13,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(9))
+                    -->(15,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(8))
+                -->(17,eval('&self',['Cons',2,'Nil'],RET),depth(6))
+                      -->(18,subst_args('&self',['Cons',2,'Nil'],RET),depth(9))
+                <--(17,retval(['Cons',2,'Nil']))
+                    -->(19,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(8))
+                  -->(21,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(7))
+                      -->(22,subst_args('&self',['Cons',2,'Nil'],RET),depth(9))
+                -->(23,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(6))
+                    -->(24,subst_args('&self',['Cons',2,'Nil'],RET),depth(8))
+              -->(25,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(5))
+                  -->(26,subst_args('&self',['Cons',2,'Nil'],RET),depth(7))
+            -->(27,eval('&self',[<,3,1],RET),depth(4))
+            -->(28,eval('&self',['Cons',1,[insert,3,['Cons',2,'Nil']]],RET),depth(4))
+              -->(29,eval('&self',[insert,3,['Cons',2,'Nil']],RET),depth(5))
+                  -->(30,eval('&self',[<,3,2],RET),depth(7))
+                  -->(31,eval('&self',['Cons',2,[insert,3,'Nil']],RET),depth(7))
+                    -->(32,eval('&self',[insert,3,'Nil'],RET),depth(8))
+                      -->(35,eval('&self',['Cons',3,'Nil'],RET),depth(9))
+                      <--(35,retval(['Cons',3,'Nil']))
+                    -->(41,eval('&self',['Cons',3,'Nil'],RET),depth(8))
+                    <--(41,retval(['Cons',3,'Nil']))
+                      -->(45,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+                    -->(47,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(8))
+                -->(49,eval('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(6))
+                  -->(50,eval('&self',['Cons',3,'Nil'],RET),depth(7))
+                  <--(50,retval(['Cons',3,'Nil']))
+                      -->(52,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+                <--(49,retval(['Cons',2,['Cons',3,'Nil']]))
+                    -->(54,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(8))
+                  -->(57,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(7))
+                      -->(58,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+              -->(60,eval('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(5))
+                -->(61,eval('&self',['Cons',3,'Nil'],RET),depth(6))
+                      -->(62,subst_args('&self',['Cons',3,'Nil'],RET),depth(9))
+                <--(61,retval(['Cons',3,'Nil']))
+                    -->(63,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(8))
+              <--(60,retval(['Cons',2,['Cons',3,'Nil']]))
+                  -->(65,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(7))
+                      -->(66,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+                -->(68,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(6))
+                    -->(69,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(8))
+              -->(71,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(5))
+                  -->(72,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(7))
+                      -->(73,subst_args('&self',['Cons',3,'Nil'],RET),depth(9))
+            -->(74,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(4))
+                -->(75,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(6))
+                    -->(76,subst_args('&self',['Cons',3,'Nil'],RET),depth(8))
+                    <--(32,retval(['Cons',3,'Nil']))
+                  <--(31,retval(['Cons',2,['Cons',3,'Nil']]))
+                  <--(30,retval('False'))
+              <--(29,retval(['Cons',2,['Cons',3,'Nil']]))
+            <--(28,retval(['Cons',1,['Cons',2,['Cons',3,'Nil']]]))
+            <--(27,retval('False'))
+                <--(8,retval(['Cons',2,'Nil']))
+              <--(7,retval(['Cons',1,['Cons',2,'Nil']]))
+              <--(6,retval('False'))
+          <--(3,retval(['Cons',1,'Nil']))
+        <--(2,retval(['Cons',1,['Cons',2,'Nil']]))
+      <--(1,retval(['Cons',1,['Cons',2,['Cons',3,'Nil']]]))
+      -->(77,eval('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(1))
+        -->(78,eval('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(2))
+          -->(79,eval('&self',['Cons',3,'Nil'],RET),depth(3))
+                -->(80,subst_args('&self',['Cons',3,'Nil'],RET),depth(6))
+          <--(79,retval(['Cons',3,'Nil']))
+              -->(81,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(5))
+                  -->(82,subst_args('&self',['Cons',3,'Nil'],RET),depth(7))
+        <--(78,retval(['Cons',2,['Cons',3,'Nil']]))
+            -->(83,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(4))
+                -->(84,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(6))
+                    -->(85,subst_args('&self',['Cons',3,'Nil'],RET),depth(8))
+      <--(77,retval(['Cons',1,['Cons',2,['Cons',3,'Nil']]]))
+; 
 ; EVAL TEST
-; took 0.007 secs. (6.76 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 1 (Cons 2 (Cons 3 Nil)))) ((Cons 1 (Cons 2 (Cons 3 Nil))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.008 secs. (8.07 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 1 
+        (Cons 2 
+          (Cons 3 Nil)))) 
+    ( (Cons 1 
+        (Cons 2 
+          (Cons 3 Nil))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqual (sort (Cons 3 (Cons 1 (Cons 2 Nil)))) (Cons 1 (Cons 2 (Cons 3 Nil))))
+</span><span class="ansi38-013099040">!(assertEqual 
+  (sort 
+    (Cons 3 
+      (Cons 1 
+        (Cons 2 Nil)))) 
+  (Cons 1 
+    (Cons 2 
+      (Cons 3 Nil))))
 
 </span><span class="ansi38-250144246">; !(sort (Cons 3 (Cons 1 (Cons 2 Nil))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[sort,['Cons',3,['Cons',1,['Cons',2,'Nil']]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[sort,['Cons',3,['Cons',1,['Cons',2,'Nil']]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[sort,['Cons',3,['Cons',1,['Cons',2,'Nil']]]],['Cons',1,['Cons',2,['Cons',3,'Nil']]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[sort,['Cons',3,['Cons',1,['Cons',2,'Nil']]]],['Cons',1,['Cons',2,['Cons',3,'Nil']]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.27">;; HYPERON-EXPERIMENTAL-SCRIPTS.D2-HIGHERFUNC.27</h3>
-          -->(1,eval('&self',[sort,['Cons',3,['Cons',1,['Cons',2,'Nil']]]],RET),depth(3))
-                -->(2,eval('&self',['Cons',2,'Nil'],RET),depth(6))
-                  -->(3,eval('&self',2,RET),depth(7))
-                  -->(4,eval('&self','Nil',RET),depth(7))
-                    -->(5,eval('&self','Cons',RET),depth(8))
-                    -->(6,eval('&self',2,RET),depth(8))
-                    -->(7,eval('&self','Nil',RET),depth(8))
-              -->(8,eval('&self',insert,RET),depth(5))
-              -->(9,eval('&self',3,RET),depth(5))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
+      -->(1,eval('&self',[sort,['Cons',3,['Cons',1,['Cons',2,'Nil']]]],RET),depth(1))
+          -->(2,eval('&self',[sort,['Cons',1,['Cons',2,'Nil']]],RET),depth(3))
+              -->(3,eval('&self',[sort,['Cons',2,'Nil']],RET),depth(5))
+                  -->(4,eval('&self',[sort,'Nil'],RET),depth(7))
+                      -->(7,subst_args('&self',['Cons',2,'Nil'],RET),depth(9))
+                    -->(8,subst_args('&self',['Cons',2,'Nil'],RET),depth(8))
+                  -->(9,eval('&self',[<,1,2],RET),depth(7))
+                  -->(10,eval('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(7))
+                    -->(11,eval('&self',['Cons',2,'Nil'],RET),depth(8))
+                    <--(11,retval(['Cons',2,'Nil']))
+                  <--(10,retval(['Cons',1,['Cons',2,'Nil']]))
+                    -->(15,eval('&self',['Cons',2,'Nil'],RET),depth(8))
+                    <--(15,retval(['Cons',2,'Nil']))
+                      -->(19,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(9))
+                    -->(21,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(8))
+                  -->(23,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(7))
+                      -->(24,subst_args('&self',['Cons',2,'Nil'],RET),depth(9))
+                -->(25,subst_args('&self',['Cons',1,['Cons',2,'Nil']],RET),depth(6))
+                    -->(26,subst_args('&self',['Cons',2,'Nil'],RET),depth(8))
+              -->(27,eval('&self',[<,3,1],RET),depth(5))
+              -->(28,eval('&self',['Cons',1,[insert,3,['Cons',2,'Nil']]],RET),depth(5))
+                -->(29,eval('&self',[insert,3,['Cons',2,'Nil']],RET),depth(6))
+                    -->(30,eval('&self',[<,3,2],RET),depth(8))
+                    -->(31,eval('&self',['Cons',2,[insert,3,'Nil']],RET),depth(8))
+                      -->(32,eval('&self',[insert,3,'Nil'],RET),depth(9))
+                      -->(41,eval('&self',['Cons',3,'Nil'],RET),depth(9))
+                      <--(41,retval(['Cons',3,'Nil']))
+                      -->(47,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+                  -->(49,eval('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(7))
+                    -->(50,eval('&self',['Cons',3,'Nil'],RET),depth(8))
+                    <--(50,retval(['Cons',3,'Nil']))
+                  <--(49,retval(['Cons',2,['Cons',3,'Nil']]))
+                      -->(54,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(9))
+                    -->(57,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(8))
+                -->(60,eval('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(6))
+                  -->(61,eval('&self',['Cons',3,'Nil'],RET),depth(7))
+                  <--(61,retval(['Cons',3,'Nil']))
+                      -->(63,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+                <--(60,retval(['Cons',2,['Cons',3,'Nil']]))
+                    -->(65,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(8))
+                  -->(68,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(7))
+                      -->(69,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(9))
+                -->(71,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(6))
+                    -->(72,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(8))
+              -->(74,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(5))
+                  -->(75,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(7))
+                      -->(76,subst_args('&self',['Cons',3,'Nil'],RET),depth(9))
+            -->(77,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(4))
+                -->(78,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(6))
+                    -->(79,subst_args('&self',['Cons',3,'Nil'],RET),depth(8))
+                      <--(32,retval(['Cons',3,'Nil']))
+                    <--(31,retval(['Cons',2,['Cons',3,'Nil']]))
+                    <--(30,retval('False'))
+                <--(29,retval(['Cons',2,['Cons',3,'Nil']]))
+              <--(28,retval(['Cons',1,['Cons',2,['Cons',3,'Nil']]]))
+              <--(27,retval('False'))
+                  <--(9,retval('True'))
+                  <--(4,retval('Nil'))
+              <--(3,retval(['Cons',2,'Nil']))
+          <--(2,retval(['Cons',1,['Cons',2,'Nil']]))
+      <--(1,retval(['Cons',1,['Cons',2,['Cons',3,'Nil']]]))
+      -->(80,eval('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(1))
+        -->(81,eval('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(2))
+          -->(82,eval('&self',['Cons',3,'Nil'],RET),depth(3))
+                -->(83,subst_args('&self',['Cons',3,'Nil'],RET),depth(6))
+          <--(82,retval(['Cons',3,'Nil']))
+              -->(84,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(5))
+                  -->(85,subst_args('&self',['Cons',3,'Nil'],RET),depth(7))
+        <--(81,retval(['Cons',2,['Cons',3,'Nil']]))
+            -->(86,subst_args('&self',['Cons',1,['Cons',2,['Cons',3,'Nil']]],RET),depth(4))
+                -->(87,subst_args('&self',['Cons',2,['Cons',3,'Nil']],RET),depth(6))
+                    -->(88,subst_args('&self',['Cons',3,'Nil'],RET),depth(8))
+      <--(80,retval(['Cons',1,['Cons',2,['Cons',3,'Nil']]]))
+; 
 ; EVAL TEST
-; took 0.011 secs. (10.59 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Cons 1 (Cons 2 (Cons 3 Nil)))) ((Cons 1 (Cons 2 (Cons 3 Nil))))))
-</span>Deterministic: <span class="ansi33">Empty
+; took 0.008 secs. (8.04 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons 1 
+        (Cons 2 
+          (Cons 3 Nil)))) 
+    ( (Cons 1 
+        (Cons 2 
+          (Cons 3 Nil))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 1,254,890 inferences, 1.998 CPU in 2.098 seconds (95% CPU, 628106 Lips)
+</span><span class="ansi32">% 1,121,060 inferences, 1.542 CPU in 1.542 seconds (100% CPU, 727123 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d2_higherfunc.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 25
 </span><span class="ansi31">Failures: 2
 </span><br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d2_higherfunc.metta.html" )
+doing(ansi2html -u < "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231211072030_3128042_10698.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/d2_higherfunc.metta.html" )
 
 </pre>
 </body>

@@ -103,86 +103,101 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ;; It doesn't search in subexpressions.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Some expressions to be matched
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[[leaf1,leaf2],leaf3])
-</span><span class="ansi38-255165000">((leaf1 leaf2) leaf3)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[[leaf1,leaf2],leaf3])
+</span><span class="ansi38-255165000">( (leaf1 leaf2) leaf3)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[[[leaf0,leaf1],leaf2],leaf3])
-</span><span class="ansi38-255165000">(((leaf0 leaf1) leaf2) leaf3)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[[[leaf0,leaf1],leaf2],leaf3])
+</span><span class="ansi38-255165000">( ( (leaf0 leaf1) leaf2) leaf3)
 </span>
 
 ;; This one contains `((leaf1 leaf2) leaf3)` as a subexpression
 ;; and thus will not be matched
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[top,[[leaf1,leaf2],leaf3]])
-</span><span class="ansi38-255165000">(top ((leaf1 leaf2) leaf3))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[top,[[leaf1,leaf2],leaf3]])
+</span><span class="ansi38-255165000">(top 
+  ( (leaf1 leaf2) leaf3))
 </span>
 
 ;; `assertEqualToResult` checks all the results of the first
 ;; expression; it doesn't evaluate the second expression,
 ;; which is treated as a set of expected results.
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (($X leaf2) leaf3) $X) (leaf1 (leaf0 leaf1)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    ( ($X leaf2) leaf3) $X) 
+  (leaf1 
+    (leaf0 leaf1)))
 
 </span><span class="ansi38-250144246">; !(match &self (($X leaf2) leaf3) $X)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[[X,leaf2],leaf3],X],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[[X,leaf2],leaf3],X],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[[_505734,leaf2],leaf3],_505734],[leaf1,[leaf0,leaf1]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[[_21948,leaf2],leaf3],_21948],[leaf1,[leaf0,leaf1]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.01">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.01</h3>
-          -->(1,eval('&self',[match,'&self',[[_505734,leaf2],leaf3],_505734],RET),depth(3))
-            -->(2,eval('&self',leaf1,RET),depth(4))
-              -->(3,eval('&self',leaf1,RET),depth(5))
-              -->(4,eval('&self',[leaf0,leaf1],RET),depth(5))
-                -->(5,eval('&self',leaf1,RET),depth(6))
-                -->(6,eval('&self',leaf0,RET),depth(6))
-                -->(7,eval('&self',leaf1,RET),depth(6))
-                  -->(8,eval('&self',leaf0,RET),depth(7))
-                  -->(9,eval('&self',leaf1,RET),depth(7))
-          <--(1,retval([leaf0,leaf1]))
+      -->(1,eval('&self',[match,'&self',[[_2028,leaf2],leaf3],_2028],RET),depth(1))
+              2-->subst_args(_5098,_5100,'&self',[leaf0,leaf1],depth(5))
+            3-->subst_args(_5692,_5694,'&self',[leaf0,leaf1],depth(4))
+      <--(1,retval([leaf0,leaf1]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.23 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (leaf1 (leaf0 leaf1)) (leaf1 (leaf0 leaf1))))
-</span>      <--(0,retval('Empty'))
+; took 0.000606 secs. (606.40 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (leaf1 
+      (leaf0 leaf1)) 
+    (leaf1 
+      (leaf0 leaf1))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Symbols can be arranged in arbitrary expressions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Sam',is,a,frog])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['Sam',is,a,frog])
 </span><span class="ansi38-255165000">(Sam is a frog)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Tom',is,a,cat])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['Tom',is,a,cat])
 </span><span class="ansi38-255165000">(Tom is a cat)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',['Sophia',is,a,robot])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',['Sophia',is,a,robot])
 </span><span class="ansi38-255165000">(Sophia is a robot)
 </span>
 
 ;; `match` can bind more that one variable
-<span class="ansi38-013099040">!(assertEqualToResult (match &self ($Who is a $What) ($Who the $What)) ((Sam the frog) (Tom the cat) (Sophia the robot)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    ($Who is a $What) 
+    ($Who the $What)) 
+  ( (Sam the frog) 
+    (Tom the cat) 
+    (Sophia the robot)))
 
 </span><span class="ansi38-250144246">; !(match &self ($Who is a $What) ($Who the $What))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[Who,is,a,What],[Who,the,What]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[Who,is,a,What],[Who,the,What]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[_77806,is,a,_78118],[_77806,the,_78118]],[['Sam',the,frog],['Tom',the,cat],['Sophia',the,robot]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[_2096,is,a,_2126],[_2096,the,_2126]],[['Sam',the,frog],['Tom',the,cat],['Sophia',the,robot]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.02">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.02</h3>
-          -->(1,eval('&self',[match,'&self',[_77806,is,a,_78118],[_77806,the,_78118]],RET),depth(3))
-              -->(2,eval('&self',['Sam',the,frog],RET),depth(5))
-                -->(3,eval('&self',the,RET),depth(6))
-                -->(4,eval('&self',frog,RET),depth(6))
-                -->(5,eval('&self','Sam',RET),depth(6))
-                -->(6,eval('&self',the,RET),depth(6))
-                -->(7,eval('&self',frog,RET),depth(6))
-                  -->(8,eval('&self','Sam',RET),depth(7))
-                  -->(9,eval('&self',the,RET),depth(7))
-          <--(1,retval(['Sophia',the,robot]))
+      -->(1,eval('&self',[match,'&self',[_2096,is,a,_2126],[_2096,the,_2126]],RET),depth(1))
+              2-->subst_args(_9866,_9868,'&self',['Sam',the,frog],depth(5))
+            3-->subst_args(_10516,_10518,'&self',['Sam',the,frog],depth(4))
+              4-->subst_args(_11386,_11388,'&self',['Tom',the,cat],depth(5))
+            5-->subst_args(_12036,_12038,'&self',['Tom',the,cat],depth(4))
+              6-->subst_args(_12906,_12908,'&self',['Sophia',the,robot],depth(5))
+            7-->subst_args(_13556,_13558,'&self',['Sophia',the,robot],depth(4))
+      <--(1,retval(['Sophia',the,robot]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.93 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Sam the frog) (Tom the cat) (Sophia the robot)) ((Sam the frog) (Sophia the robot) (Tom the cat))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.45 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Sam the frog) 
+      (Tom the cat) 
+      (Sophia the robot)) 
+    ( (Sam the frog) 
+      (Sophia the robot) 
+      (Tom the cat))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -190,148 +205,177 @@ Deterministic: <span class="ansi33">Empty
 ;; More examples of pattern matching
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; `:=` is a custom symbol. These are still purely symbolic expressions
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Green','Sam'],'T'])
-</span><span class="ansi38-255165000">(:= (Green Sam) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['Green','Sam'],'T'])
+</span><span class="ansi38-255165000">(:= 
+  (Green Sam) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['White','Tom'],'T'])
-</span><span class="ansi38-255165000">(:= (White Tom) T)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['White','Tom'],'T'])
+</span><span class="ansi38-255165000">(:= 
+  (White Tom) T)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[:=,['Green','Tom'],'F'])
-</span><span class="ansi38-255165000">(:= (Green Tom) F)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,['Green','Tom'],'F'])
+</span><span class="ansi38-255165000">(:= 
+  (Green Tom) F)
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (Green $Who) T) ($Who is really green)) ((Sam is really green)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Green $Who) T) 
+    ($Who is really green)) 
+  ( (Sam is really green)))
 
 </span><span class="ansi38-250144246">; !(match &self (:= (Green $Who) T) ($Who is really green))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['Green',Who],'T'],[Who,is,really,green]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['Green',Who],'T'],[Who,is,really,green]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Green',_181336],'T'],[_181336,is,really,green]],[['Sam',is,really,green]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Green',_15246],'T'],[_15246,is,really,green]],[['Sam',is,really,green]]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.03">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.03</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['Green',_181336],'T'],[_181336,is,really,green]],RET),depth(3))
-              -->(2,eval('&self',['Sam',is,really,green],RET),depth(5))
-                -->(3,eval('&self',is,RET),depth(6))
-                -->(4,eval('&self',really,RET),depth(6))
-                -->(5,eval('&self',green,RET),depth(6))
-                -->(6,eval('&self','Sam',RET),depth(6))
-                -->(7,eval('&self',is,RET),depth(6))
-                -->(8,eval('&self',really,RET),depth(6))
-                -->(9,eval('&self',green,RET),depth(6))
-          <--(1,retval(['Sam',is,really,green]))
+      -->(1,eval('&self',[match,'&self',[:=,['Green',_15246],'T'],[_15246,is,really,green]],RET),depth(1))
+              2-->subst_args(_28076,_28078,'&self',['Sam',is,really,green],depth(5))
+            3-->subst_args(_28782,_28784,'&self',['Sam',is,really,green],depth(4))
+      <--(1,retval(['Sam',is,really,green]))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.46 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Sam is really green)) ((Sam is really green))))
-</span>      <--(0,retval('Empty'))
+; took 0.000647 secs. (646.60 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Sam is really green)) 
+    ( (Sam is really green))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (match &self (:= ($Color $Who) T) ($Who is really $Color)) ((Sam is really Green) (Tom is really White)))
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      ($Color $Who) T) 
+    ($Who is really $Color)) 
+  ( (Sam is really Green) 
+    (Tom is really White)))
 
 </span><span class="ansi38-250144246">; !(match &self (:= ($Color $Who) T) ($Who is really $Color))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,[Color,Who],'T'],[Who,is,really,Color]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,[Color,Who],'T'],[Who,is,really,Color]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,[_231598,_231906],'T'],[_231906,is,really,_231598]],[['Sam',is,really,'Green'],['Tom',is,really,'White']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,[_2108,_2126],'T'],[_2126,is,really,_2108]],[['Sam',is,really,'Green'],['Tom',is,really,'White']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.04">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.04</h3>
-          -->(1,eval('&self',[match,'&self',[:=,[_231598,_231906],'T'],[_231906,is,really,_231598]],RET),depth(3))
-              -->(2,eval('&self',['Sam',is,really,'Green'],RET),depth(5))
-                -->(3,eval('&self',is,RET),depth(6))
-                -->(4,eval('&self',really,RET),depth(6))
-                -->(5,eval('&self','Green',RET),depth(6))
-                -->(6,eval('&self','Sam',RET),depth(6))
-                -->(7,eval('&self',is,RET),depth(6))
-                -->(8,eval('&self',really,RET),depth(6))
-                -->(9,eval('&self','Green',RET),depth(6))
-          <--(1,retval(['Tom',is,really,'White']))
+      -->(1,eval('&self',[match,'&self',[:=,[_2108,_2126],'T'],[_2126,is,really,_2108]],RET),depth(1))
+              2-->subst_args(_9996,_9998,'&self',['Sam',is,really,'Green'],depth(5))
+            3-->subst_args(_10702,_10704,'&self',['Sam',is,really,'Green'],depth(4))
+              4-->subst_args(_11684,_11686,'&self',['Tom',is,really,'White'],depth(5))
+            5-->subst_args(_12390,_12392,'&self',['Tom',is,really,'White'],depth(4))
+      <--(1,retval(['Tom',is,really,'White']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.45 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Sam is really Green) (Tom is really White)) ((Sam is really Green) (Tom is really White))))
-</span>      <--(0,retval('Empty'))
+; took 0.001 secs. (1.02 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Sam is really Green) 
+      (Tom is really White)) 
+    ( (Sam is really Green) 
+      (Tom is really White))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi38-013099040">!(assertEqualToResult (match &self (:= ($Color $Who) $Tv) ("It's" $Tv that $Who is $Color)) (("It's" T that Sam is Green) ("It's" T that Tom is White) ("It's" F that Tom is Green)))
+</span><span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      ($Color $Who) $Tv) 
+    ("It's" $Tv that $Who is $Color)) 
+  ( ("It's" T that Sam is Green) 
+    ("It's" T that Tom is White) 
+    ("It's" F that Tom is Green)))
 
 </span><span class="ansi38-250144246">; !(match &self (:= ($Color $Who) $Tv) ("It's" $Tv that $Who is $Color))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,[Color,Who],Tv],['It\'s',Tv,that,Who,is,Color]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,[Color,Who],Tv],['It\'s',Tv,that,Who,is,Color]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,[_302590,_302898],_303194],['It\'s',_303194,that,_302898,is,_302590]],[['It\'s','T',that,'Sam',is,'Green'],['It\'s','T',that,'Tom',is,'White'],['It\'s','F',that,'Tom',is,'Green']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,[_15696,_16004],_16300],['It\'s',_16300,that,_16004,is,_15696]],[['It\'s','T',that,'Sam',is,'Green'],['It\'s','T',that,'Tom',is,'White'],['It\'s','F',that,'Tom',is,'Green']]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.05">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.05</h3>
-          -->(1,eval('&self',[match,'&self',[:=,[_302590,_302898],_303194],['It\'s',_303194,that,_302898,is,_302590]],RET),depth(3))
-              -->(2,eval('&self',['It\'s','T',that,'Sam',is,'Green'],RET),depth(5))
-                -->(3,eval('&self','T',RET),depth(6))
-                -->(4,eval('&self',that,RET),depth(6))
-                -->(5,eval('&self','Sam',RET),depth(6))
-                -->(6,eval('&self',is,RET),depth(6))
-                -->(7,eval('&self','Green',RET),depth(6))
-                -->(8,eval('&self','It\'s',RET),depth(6))
-                -->(9,eval('&self','T',RET),depth(6))
-Switched off tracing. For a longer trace !(pragma! tracelen 101)); 
-; EVAL TEST
-; took 0.004 secs. (4.12 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (("It's" T that Sam is Green) ("It's" T that Tom is White) ("It's" F that Tom is Green)) (("It's" F that Tom is Green) ("It's" T that Sam is Green) ("It's" T that Tom is White))))
-</span>Deterministic: <span class="ansi33">Empty
-
-</span>;; This type of query works as a sort of evaluation/reduction
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (:= (Green Tom) $Tv) $Tv) (F))
-
-</span><span class="ansi38-250144246">; !(match &self (:= (Green Tom) $Tv) $Tv)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[:=,['Green','Tom'],Tv],Tv],OUT).
-
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Green','Tom'],_393042],_393042],['F']],RET),depth(1))
-<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06</h3>
-          -->(1,eval('&self',[match,'&self',[:=,['Green','Tom'],_393042],_393042],RET),depth(3))
-            -->(2,eval('&self','F',RET),depth(4))
-              -->(3,eval('&self','F',RET),depth(5))
-          <--(1,retval('F'))
+      -->(1,eval('&self',[match,'&self',[:=,[_15696,_16004],_16300],['It\'s',_16300,that,_16004,is,_15696]],RET),depth(1))
+              2-->subst_args(_31136,_31138,'&self',['It\'s','T',that,'Sam',is,'Green'],depth(5))
+            3-->subst_args(_31954,_31956,'&self',['It\'s','T',that,'Sam',is,'Green'],depth(4))
+              4-->subst_args(_5252,_5254,'&self',['It\'s','T',that,'Tom',is,'White'],depth(5))
+            5-->subst_args(_6070,_6072,'&self',['It\'s','T',that,'Tom',is,'White'],depth(4))
+              6-->subst_args(_7276,_7278,'&self',['It\'s','F',that,'Tom',is,'Green'],depth(5))
+            7-->subst_args(_8094,_8096,'&self',['It\'s','F',that,'Tom',is,'Green'],depth(4))
+      <--(1,retval(['It\'s','F',that,'Tom',is,'Green']))
 ; 
 ; EVAL TEST
-; took 0.000306 secs. (305.90 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (F) (F)))
-</span>          -->(4,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.002 secs. (2.01 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( ("It's" T that Sam is Green) 
+      ("It's" T that Tom is White) 
+      ("It's" F that Tom is Green)) 
+    ( ("It's" F that Tom is Green) 
+      ("It's" T that Sam is Green) 
+      ("It's" T that Tom is White))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span>;; This type of query works as a sort of evaluation/reduction
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (:= 
+      (Green Tom) $Tv) $Tv) 
+  (F))
+
+</span><span class="ansi38-250144246">; !(match &self (:= (Green Tom) $Tv) $Tv)
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[:=,['Green','Tom'],Tv],Tv],OUT).
+
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[:=,['Green','Tom'],_2292],_2292],['F']],RET),depth(0))
+<h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.06</h3>
+      -->(1,eval('&self',[match,'&self',[:=,['Green','Tom'],_2292],_2292],RET),depth(1))
+      <--(1,retval('F'))
+; 
+; EVAL TEST
+; took 0.000245 secs. (244.70 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (F) 
+    (F)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
 </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; One more example
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[isa,red,color])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[isa,red,color])
 </span><span class="ansi38-255165000">(isa red color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[isa,green,color])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[isa,green,color])
 </span><span class="ansi38-255165000">(isa green color)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[isa,blue,color])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[isa,blue,color])
 </span><span class="ansi38-255165000">(isa blue color)
 </span>
 
-<span class="ansi38-013099040">!(assertEqualToResult (match &self (isa $Color color) $Color) (red green blue))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (match &self 
+    (isa $Color color) $Color) 
+  (red green blue))
 
 </span><span class="ansi38-250144246">; !(match &self (isa $Color color) $Color)
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[match,'&self',[isa,Color,color],Color],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[match,'&self',[isa,Color,color],Color],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[match,'&self',[isa,_436008,color],_436008],[red,green,blue]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[match,'&self',[isa,_18222,color],_18222],[red,green,blue]],RET),depth(0))
 <h3 id="HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.07">;; HYPERON-EXPERIMENTAL-SCRIPTS.A1-SYMBOLS.07</h3>
-          -->(1,eval('&self',[match,'&self',[isa,_436008,color],_436008],RET),depth(3))
-            -->(2,eval('&self',red,RET),depth(4))
-              -->(3,eval('&self',red,RET),depth(5))
-            -->(4,eval('&self',green,RET),depth(4))
-              -->(5,eval('&self',green,RET),depth(5))
-            -->(6,eval('&self',blue,RET),depth(4))
-              -->(7,eval('&self',blue,RET),depth(5))
-          <--(1,retval(blue))
+      -->(1,eval('&self',[match,'&self',[isa,_18222,color],_18222],RET),depth(1))
+      <--(1,retval(blue))
 ; 
 ; EVAL TEST
-; took 0.000575 secs. (574.80 microseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  (red green blue) (blue green red)))
-</span>          -->(8,eval('&self','Empty',RET),depth(3))
-      <--(0,retval('Empty'))
+; took 0.000213 secs. (213.40 microseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (red green blue) 
+    (blue green red)))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 441,593 inferences, 0.257 CPU in 0.257 seconds (100% CPU, 1720684 Lips)
+</span><span class="ansi32">% 219,392 inferences, 0.178 CPU in 0.178 seconds (100% CPU, 1235476 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/a1_symbols.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

@@ -33,39 +33,86 @@
 
 file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/let_superpose_list2.metta', 1, [[]]).
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[wuzaL,X,L],['let*',[[Y,[*,2,X]],[Z,[superpose,L]]],[Y,Z]]])
-</span><span class="ansi38-255165000">(= (wuzaL $X $L) (let* (($Y (* 2 $X)) ($Z (superpose $L))) ($Y $Z)))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[wuzaL,X,L],['let*',[[Y,[*,2,X]],[Z,[superpose,L]]],[Y,Z]]])
+</span><span class="ansi38-255165000">(= 
+  (wuzaL $X $L) 
+  (let* 
+    ( ($Y 
+        (* 2 $X)) 
+      ($Z 
+        (superpose $L))) 
+    ($Y $Z)))
 </span>
 
-<span class="ansi38-013099040">!(assertEqual (wuzaL 2 (3 4)) (superpose ((4 3) (4 4))))
+<span class="ansi38-013099040">!(assertEqual 
+  (wuzaL 2 
+    (3 4)) 
+  (superpose 
+    ( (4 3) 
+      (4 4))))
 
 </span><span class="ansi38-250144246">; !(wuzaL 2 (3 4))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[wuzaL,2,[3,4]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[wuzaL,2,[3,4]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqual,[wuzaL,2,[3,4]],[superpose,[[4,3],[4,4]]]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqual,[wuzaL,2,[3,4]],[superpose,[[4,3],[4,4]]]],RET),depth(0))
 <h3 id="METTA-MORPH-TESTS.LET-SUPERPOSE-LIST2.01">;; METTA-MORPH-TESTS.LET-SUPERPOSE-LIST2.01</h3>
-          -->(1,eval('&self',[wuzaL,2,[3,4]],RET),depth(3))
-                -->(2,eval('&self',[*,2,2],RET),depth(6))
-                  -->(3,eval('&self',2,RET),depth(7))
-                    -->(4,eval('&self',4,RET),depth(8))
-                <--(2,retval(4))
-                -->(5,eval('&self',['let*',[[_450774,[superpose,[3,4]]]],[4,_450774]],RET),depth(6))
-                    -->(6,eval('&self',[superpose,[3,4]],RET),depth(8))
-                      -->(7,eval('&self',3,RET),depth(9))
-                        -->(8,eval('&self',3,RET),depth(10))
-                    -->(9,eval('&self',['let*',[],[4,3]],RET),depth(8))
-                    <--(9,retval([4,3]))
-                    <--(6,retval(4))
-                <--(5,retval([4,4]))
-          <--(1,retval([4,4]))
+      -->(1,eval('&self',[wuzaL,2,[3,4]],RET),depth(1))
+          -->(2,eval('&self',[*,2,2],RET),depth(3))
+          <--(2,retval(4))
+          -->(3,eval('&self',['let*',[[_25604,[superpose,[3,4]]]],[4,_25604]],RET),depth(3))
+            -->(4,eval('&self',[superpose,[3,4]],RET),depth(4))
+            -->(5,eval('&self',['let*',[],[4,3]],RET),depth(4))
+              -->(6,eval('&self',[4,3],RET),depth(5))
+                    7-->subst_args(_29686,_29688,'&self',[4,3],depth(8))
+              <--(6,retval([4,3]))
+                    8-->subst_args(_30350,_30352,'&self',[4,3],depth(8))
+                  9-->subst_args(_30850,_30852,'&self',[4,3],depth(7))
+            <--(5,retval([4,3]))
+                  10-->subst_args(_31514,_31516,'&self',[4,3],depth(7))
+                11-->subst_args(_32014,_32016,'&self',[4,3],depth(6))
+                12-->subst_args(_4460,_4462,'&self',[4,3],depth(6))
+              13-->subst_args(_4960,_4962,'&self',[4,3],depth(5))
+            14-->subst_args(_5460,_5462,'&self',[4,3],depth(4))
+            <--(4,retval(4))
+            -->(15,eval('&self',['let*',[],[4,4]],RET),depth(4))
+              -->(16,eval('&self',[4,4],RET),depth(5))
+                    17-->subst_args(_7498,_7500,'&self',[4,4],depth(8))
+              <--(16,retval([4,4]))
+                    18-->subst_args(_8162,_8164,'&self',[4,4],depth(8))
+                  19-->subst_args(_8662,_8664,'&self',[4,4],depth(7))
+            <--(15,retval([4,4]))
+                  20-->subst_args(_9326,_9328,'&self',[4,4],depth(7))
+                21-->subst_args(_9826,_9828,'&self',[4,4],depth(6))
+          <--(3,retval([4,4]))
+                22-->subst_args(_10490,_10492,'&self',[4,4],depth(6))
+              23-->subst_args(_10990,_10992,'&self',[4,4],depth(5))
+            24-->subst_args(_11490,_11492,'&self',[4,4],depth(4))
+      <--(1,retval([4,4]))
+      -->(25,eval('&self',[superpose,[[4,3],[4,4]]],RET),depth(1))
+        -->(26,eval('&self',[4,3],RET),depth(2))
+              27-->subst_args(_13484,_13486,'&self',[4,3],depth(5))
+        <--(26,retval([4,3]))
+              28-->subst_args(_14148,_14150,'&self',[4,3],depth(5))
+            29-->subst_args(_14648,_14650,'&self',[4,3],depth(4))
+        -->(30,eval('&self',[4,4],RET),depth(2))
+              31-->subst_args(_15930,_15932,'&self',[4,4],depth(5))
+        <--(30,retval([4,4]))
+              32-->subst_args(_16594,_16596,'&self',[4,4],depth(5))
+            33-->subst_args(_17094,_17096,'&self',[4,4],depth(4))
+      <--(25,retval([4,4]))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.60 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((4 3) (4 4)) ((4 3) (4 4))))
-</span>      <--(0,retval('Empty'))
+; took 0.003 secs. (3.48 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (4 3) 
+      (4 4)) 
+    ( (4 3) 
+      (4 4))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 249,319 inferences, 0.091 CPU in 0.091 seconds (100% CPU, 2750123 Lips)
+</span><span class="ansi32">% 44,760 inferences, 0.018 CPU in 0.018 seconds (100% CPU, 2508420 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/let_superpose_list2.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

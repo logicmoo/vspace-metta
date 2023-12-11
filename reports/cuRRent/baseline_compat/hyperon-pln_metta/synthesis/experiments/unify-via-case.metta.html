@@ -76,196 +76,532 @@ file_answers('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 
 ;;; Simple unification
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(case (Link $X B) (((Link A $Y) (Link $X $Y))))
+</span><span class="ansi1 ansi38-255238088">!(case 
+  (Link $X B) 
+  ( ( (Link A $Y) 
+      (Link $X $Y))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (case (Link $X B) (((Link A $Y) (Link $X $Y)))) ((Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (case 
+    (Link $X B) 
+    ( ( (Link A $Y) 
+        (Link $X $Y)))) 
+  ( (Link A B)))
 
 </span><span class="ansi38-250144246">; !(case (Link $X B) (((Link A $Y) (Link $X $Y))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,['Link',X,'B'],[[['Link','A',Y],['Link',X,Y]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,['Link',X,'B'],[[['Link','A',Y],['Link',X,Y]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[case,['Link',_432040,'B'],[[['Link','A',_432372],['Link',_432040,_432372]]]],[['Link','A','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[case,['Link',_2670,'B'],[[['Link','A',_3002],['Link',_2670,_3002]]]],[['Link','A','B']]],RET),depth(0))
 <h3 id="EXPERIMENTS.UNIFY-VIA-CASE.01">;; EXPERIMENTS.UNIFY-VIA-CASE.01</h3>
-          -->(1,eval('&self',[case,['Link',_432040,'B'],[[['Link','A',_432372],['Link',_432040,_432372]]]],RET),depth(3))
-              -->(2,eval('&self',['Link',_432040,'B'],RET),depth(5))
-                -->(3,eval('&self','B',RET),depth(6))
-                -->(4,eval('&self','Link',RET),depth(6))
-                -->(5,eval('&self','B',RET),depth(6))
-                  -->(6,eval('&self','Link',RET),depth(7))
-                  -->(7,eval('&self','B',RET),depth(7))
-              -->(8,eval('&self',['Link',_443602,'B'],RET),depth(5))
-                -->(9,eval('&self','B',RET),depth(6))
-          <--(1,retval(['Link',_455976,'B']))
+      -->(1,eval('&self',[case,['Link',_2670,'B'],[[['Link','A',_3002],['Link',_2670,_3002]]]],RET),depth(1))
+        -->(2,eval('&self',['Link',_2670,'B'],RET),depth(2))
+              -->(3,subst_args('&self',['Link',_2670,'B'],RET),depth(5))
+        <--(2,retval(['Link',_17812,'B']))
+        -->(4,eval('&self',['Link',_16220,'B'],RET),depth(2))
+              -->(5,subst_args('&self',['Link',_16220,'B'],RET),depth(5))
+        <--(4,retval(['Link',_19672,'B']))
+              -->(6,subst_args('&self',['Link',_16220,'B'],RET),depth(5))
+            -->(7,subst_args('&self',['Link',_16220,'B'],RET),depth(4))
+      <--(1,retval(['Link',_21412,'B']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (2.45 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Link $_455994 B)) ((Link A B))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.001 secs. (1.25 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (Link $_21430 B)) 
+    ( (Link A B))))
+</span>        -->(8,eval('&self',[['Link',_21430,'B']],RET),depth(2))
+          -->(9,eval('&self',['Link',_21430,'B'],RET),depth(3))
+                -->(10,subst_args('&self',['Link',_21430,'B'],RET),depth(6))
+          <--(9,retval(['Link',_28958,'B']))
+              -->(11,subst_args('&self',[['Link',_21430,'B']],RET),depth(5))
+                  -->(12,subst_args('&self',['Link',_21430,'B'],RET),depth(7))
+        <--(8,retval([['Link',_30448,'B']]))
+        -->(13,eval('&self',[['Link','A','B']],RET),depth(2))
+          -->(14,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(15,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(14,retval(['Link','A','B']))
+              -->(16,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(17,subst_args('&self',['Link','A','B'],RET),depth(7))
+        <--(13,retval([['Link','A','B']]))
+        -->(18,eval('&self',[['Link',_3864,'B']],RET),depth(2))
+          -->(19,eval('&self',['Link',_3864,'B'],RET),depth(3))
+                -->(20,subst_args('&self',['Link',_3864,'B'],RET),depth(6))
+          <--(19,retval(['Link',_9200,'B']))
+              -->(21,subst_args('&self',[['Link',_3864,'B']],RET),depth(5))
+                  -->(22,subst_args('&self',['Link',_3864,'B'],RET),depth(7))
+        <--(18,retval([['Link',_10690,'B']]))
+        -->(23,eval('&self',[['Link','A','B']],RET),depth(2))
+          -->(24,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(25,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(24,retval(['Link','A','B']))
+              -->(26,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(27,subst_args('&self',['Link','A','B'],RET),depth(7))
+        <--(23,retval([['Link','A','B']]))
+            -->(28,subst_args('&self',[got,[['Link',_3864,'B']],expected,[['Link','A','B']]],RET),depth(4))
+                -->(29,subst_args('&self',[['Link',_3864,'B']],RET),depth(6))
+                    -->(30,subst_args('&self',['Link',_3864,'B'],RET),depth(8))
+                -->(31,subst_args('&self',[['Link','A','B']],RET),depth(6))
+                    -->(32,subst_args('&self',['Link','A','B'],RET),depth(8))
+                -->(33,subst_args('&self',[['Link',_3864,'B']],RET),depth(6))
+                    -->(34,subst_args('&self',['Link',_3864,'B'],RET),depth(8))
+                -->(35,subst_args('&self',[['Link','A','B']],RET),depth(6))
+                    -->(36,subst_args('&self',['Link','A','B'],RET),depth(8))
+          -->(37,subst_args('&self',[got,[['Link',_3864,'B']],expected,[['Link','A','B']]],RET),depth(3))
+              -->(38,subst_args('&self',[['Link',_3864,'B']],RET),depth(5))
+                  -->(39,subst_args('&self',['Link',_3864,'B'],RET),depth(7))
+              -->(40,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(41,subst_args('&self',['Link','A','B'],RET),depth(7))
+              -->(42,subst_args('&self',[['Link',_3864,'B']],RET),depth(5))
+                  -->(43,subst_args('&self',['Link',_3864,'B'],RET),depth(7))
+              -->(44,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(45,subst_args('&self',['Link','A','B'],RET),depth(7))
+    <--(0,retval([got,[['Link',_27676,'B']],expected,[['Link','A','B']]]))
 Deterministic: <span class="ansi33">
-(got ((Link $_455994 B)) expected ((Link A B)))
+(got 
+  ( (Link $_3864 B)) expected 
+  ( (Link A B)))
 
 </span>;; [(Link A B)]
 ;;; Simple unification with the arrow operator
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(case (-> $X B) (((-> A $Y) (-> $X $Y))))
+</span><span class="ansi1 ansi38-255238088">!(case 
+  (-> $X B) 
+  ( ( (-> A $Y) 
+      (-> $X $Y))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (case (-> $X B) (((-> A $Y) (-> $X $Y)))) ((-> A B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (case 
+    (-> $X B) 
+    ( ( (-> A $Y) 
+        (-> $X $Y)))) 
+  ( (-> A B)))
 
 </span><span class="ansi38-250144246">; !(case (-> $X B) (((-> A $Y) (-> $X $Y))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[->,X,'B'],[[[->,'A',Y],[->,X,Y]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[->,X,'B'],[[[->,'A',Y],[->,X,Y]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[case,[->,_15258,'B'],[[[->,'A',_15590],[->,_15258,_15590]]]],[[->,'A','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[case,[->,_19236,'B'],[[[->,'A',_19568],[->,_19236,_19568]]]],[[->,'A','B']]],RET),depth(0))
 <h3 id="EXPERIMENTS.UNIFY-VIA-CASE.02">;; EXPERIMENTS.UNIFY-VIA-CASE.02</h3>
-          -->(1,eval('&self',[case,[->,_15258,'B'],[[[->,'A',_15590],[->,_15258,_15590]]]],RET),depth(3))
-              -->(2,eval('&self',[->,_15258,'B'],RET),depth(5))
-              -->(3,eval('&self',[->,_26852,'B'],RET),depth(5))
-              -->(4,eval('&self',->,RET),depth(5))
-              -->(5,eval('&self','B',RET),depth(5))
-          <--(1,retval([->,_30574,'B']))
+      -->(1,eval('&self',[case,[->,_19236,'B'],[[[->,'A',_19568],[->,_19236,_19568]]]],RET),depth(1))
+      <--(1,retval([->,_5160,'B']))
 ; 
 ; EVAL TEST
-; took 0.000903 secs. (903.00 microseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((-> $_30592 B)) ((-> A B))))
-</span>            -->(6,eval('&self',[[->,_30592,'B']],RET),depth(4))
-                  -->(7,eval('&self',[->,_30592,'B'],RET),depth(7))
-          -->(8,eval('&self',expected,RET),depth(3))
-            -->(9,eval('&self',[[->,'A','B']],RET),depth(4))
-      <--(0,retval([got,[[->,_54662,'B']],expected,[[->,'A','B']]]))
+; took 0.000324 secs. (323.70 microseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (-> $_5178 B)) 
+    ( (-> A B))))
+</span>        -->(2,eval('&self',[[->,_5178,'B']],RET),depth(2))
+              -->(3,subst_args('&self',[[->,_5178,'B']],RET),depth(5))
+        <--(2,retval([[->,_11972,'B']]))
+        -->(4,eval('&self',[[->,'A','B']],RET),depth(2))
+              -->(5,subst_args('&self',[[->,'A','B']],RET),depth(5))
+        <--(4,retval([[->,'A','B']]))
+        -->(6,eval('&self',[[->,_5178,'B']],RET),depth(2))
+              -->(7,subst_args('&self',[[->,_5178,'B']],RET),depth(5))
+        <--(6,retval([[->,_15314,'B']]))
+        -->(8,eval('&self',[[->,'A','B']],RET),depth(2))
+              -->(9,subst_args('&self',[[->,'A','B']],RET),depth(5))
+        <--(8,retval([[->,'A','B']]))
+            -->(10,subst_args('&self',[got,[[->,_5178,'B']],expected,[[->,'A','B']]],RET),depth(4))
+                -->(11,subst_args('&self',[[->,_5178,'B']],RET),depth(6))
+                -->(12,subst_args('&self',[[->,'A','B']],RET),depth(6))
+                -->(13,subst_args('&self',[[->,_5178,'B']],RET),depth(6))
+                -->(14,subst_args('&self',[[->,'A','B']],RET),depth(6))
+          -->(15,subst_args('&self',[got,[[->,_5178,'B']],expected,[[->,'A','B']]],RET),depth(3))
+              -->(16,subst_args('&self',[[->,_5178,'B']],RET),depth(5))
+              -->(17,subst_args('&self',[[->,'A','B']],RET),depth(5))
+              -->(18,subst_args('&self',[[->,_5178,'B']],RET),depth(5))
+              -->(19,subst_args('&self',[[->,'A','B']],RET),depth(5))
+    <--(0,retval([got,[[->,_24216,'B']],expected,[[->,'A','B']]]))
 Deterministic: <span class="ansi33">
-(got ((-> $_30592 B)) expected ((-> A B)))
+(got 
+  ( (-> $_5178 B)) expected 
+  ( (-> A B)))
 
 </span>;; [(-> A B)]
 ;;; Unify a term with the result of function (right-handside)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[f,X],['Link',X,'B']])
-</span><span class="ansi38-255165000">(= (f $X) (Link $X B))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[f,X],['Link',X,'B']])
+</span><span class="ansi38-255165000">(= 
+  (f $X) 
+  (Link $X B))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(case (f $X) (((Link A $Y) (Link $X $Y))))
+</span><span class="ansi1 ansi38-255238088">!(case 
+  (f $X) 
+  ( ( (Link A $Y) 
+      (Link $X $Y))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (case (f $X) (((Link A $Y) (Link $X $Y)))) ((Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (case 
+    (f $X) 
+    ( ( (Link A $Y) 
+        (Link $X $Y)))) 
+  ( (Link A B)))
 
 </span><span class="ansi38-250144246">; !(case (f $X) (((Link A $Y) (Link $X $Y))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[f,X],[[['Link','A',Y],['Link',X,Y]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[f,X],[[['Link','A',Y],['Link',X,Y]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[case,[f,_86814],[[['Link','A',_87138],['Link',_86814,_87138]]]],[['Link','A','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[case,[f,_2280],[[['Link','A',_2328],['Link',_2280,_2328]]]],[['Link','A','B']]],RET),depth(0))
 <h3 id="EXPERIMENTS.UNIFY-VIA-CASE.03">;; EXPERIMENTS.UNIFY-VIA-CASE.03</h3>
-          -->(1,eval('&self',[case,[f,_86814],[[['Link','A',_87138],['Link',_86814,_87138]]]],RET),depth(3))
-              -->(2,eval('&self',[f,_86814],RET),depth(5))
-                  -->(3,eval('&self','B',RET),depth(7))
-                  -->(4,eval('&self','Link',RET),depth(7))
-                  -->(5,eval('&self','B',RET),depth(7))
-                    -->(6,eval('&self','Link',RET),depth(8))
-                    -->(7,eval('&self','B',RET),depth(8))
-                  -->(8,eval('&self','Link',RET),depth(7))
-                  -->(9,eval('&self','B',RET),depth(7))
-              <--(2,retval(['Link',_104196,'B']))
-          <--(1,retval(['Link',_112438,'B']))
+      -->(1,eval('&self',[case,[f,_2280],[[['Link','A',_2328],['Link',_2280,_2328]]]],RET),depth(1))
+        -->(2,eval('&self',[f,_2280],RET),depth(2))
+                -->(3,subst_args('&self',['Link',_2280,'B'],RET),depth(6))
+              -->(4,subst_args('&self',['Link',_2280,'B'],RET),depth(5))
+        -->(5,eval('&self',['Link',_12106,'B'],RET),depth(2))
+              -->(6,subst_args('&self',['Link',_12106,'B'],RET),depth(5))
+        <--(5,retval(['Link',_16492,'B']))
+              -->(7,subst_args('&self',['Link',_12106,'B'],RET),depth(5))
+            -->(8,subst_args('&self',['Link',_12106,'B'],RET),depth(4))
+        <--(2,retval(['Link',_14632,'B']))
+      <--(1,retval(['Link',_18232,'B']))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.80 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Link $_112456 B)) ((Link A B))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.001 secs. (1.26 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (Link $_18250 B)) 
+    ( (Link A B))))
+</span>        -->(9,eval('&self',[['Link',_18250,'B']],RET),depth(2))
+          -->(10,eval('&self',['Link',_18250,'B'],RET),depth(3))
+                -->(11,subst_args('&self',['Link',_18250,'B'],RET),depth(6))
+          <--(10,retval(['Link',_25778,'B']))
+              -->(12,subst_args('&self',[['Link',_18250,'B']],RET),depth(5))
+                  -->(13,subst_args('&self',['Link',_18250,'B'],RET),depth(7))
+        <--(9,retval([['Link',_27268,'B']]))
+        -->(14,eval('&self',[['Link','A','B']],RET),depth(2))
+          -->(15,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(16,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(15,retval(['Link','A','B']))
+              -->(17,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(18,subst_args('&self',['Link','A','B'],RET),depth(7))
+        <--(14,retval([['Link','A','B']]))
+        -->(19,eval('&self',[['Link',_18250,'B']],RET),depth(2))
+          -->(20,eval('&self',['Link',_18250,'B'],RET),depth(3))
+                -->(21,subst_args('&self',['Link',_3860,'B'],RET),depth(6))
+          <--(20,retval(['Link',_5236,'B']))
+              -->(22,subst_args('&self',[['Link',_3860,'B']],RET),depth(5))
+                  -->(23,subst_args('&self',['Link',_3860,'B'],RET),depth(7))
+        <--(19,retval([['Link',_6726,'B']]))
+        -->(24,eval('&self',[['Link','A','B']],RET),depth(2))
+          -->(25,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(26,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(25,retval(['Link','A','B']))
+              -->(27,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(28,subst_args('&self',['Link','A','B'],RET),depth(7))
+        <--(24,retval([['Link','A','B']]))
+            -->(29,subst_args('&self',[got,[['Link',_3860,'B']],expected,[['Link','A','B']]],RET),depth(4))
+                -->(30,subst_args('&self',[['Link',_3860,'B']],RET),depth(6))
+                    -->(31,subst_args('&self',['Link',_3860,'B'],RET),depth(8))
+                -->(32,subst_args('&self',[['Link','A','B']],RET),depth(6))
+                    -->(33,subst_args('&self',['Link','A','B'],RET),depth(8))
+                -->(34,subst_args('&self',[['Link',_3860,'B']],RET),depth(6))
+                    -->(35,subst_args('&self',['Link',_3860,'B'],RET),depth(8))
+                -->(36,subst_args('&self',[['Link','A','B']],RET),depth(6))
+                    -->(37,subst_args('&self',['Link','A','B'],RET),depth(8))
+          -->(38,subst_args('&self',[got,[['Link',_3860,'B']],expected,[['Link','A','B']]],RET),depth(3))
+              -->(39,subst_args('&self',[['Link',_3860,'B']],RET),depth(5))
+                  -->(40,subst_args('&self',['Link',_3860,'B'],RET),depth(7))
+              -->(41,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(42,subst_args('&self',['Link','A','B'],RET),depth(7))
+              -->(43,subst_args('&self',[['Link',_3860,'B']],RET),depth(5))
+                  -->(44,subst_args('&self',['Link',_3860,'B'],RET),depth(7))
+              -->(45,subst_args('&self',[['Link','A','B']],RET),depth(5))
+                  -->(46,subst_args('&self',['Link','A','B'],RET),depth(7))
+    <--(0,retval([got,[['Link',_23712,'B']],expected,[['Link','A','B']]]))
 Deterministic: <span class="ansi33">
-(got ((Link $_112456 B)) expected ((Link A B)))
+(got 
+  ( (Link $_3860 B)) expected 
+  ( (Link A B)))
 
 </span>;; [(Link A B)]
 ;;; Unify a term with the result of function (left-handside, not
 ;;; supposed to work)
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=metta_atom('&self',[=,[g,Y],['Link','A',Y]])
-</span><span class="ansi38-255165000">(= (g $Y) (Link A $Y))
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[g,Y],['Link','A',Y]])
+</span><span class="ansi38-255165000">(= 
+  (g $Y) 
+  (Link A $Y))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(case (Link $X B) (((g $Y) (Link $X $Y))))
+</span><span class="ansi1 ansi38-255238088">!(case 
+  (Link $X B) 
+  ( ( (g $Y) 
+      (Link $X $Y))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (case (Link $X B) (((g $Y) (Link $X $Y)))) ())
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (case 
+    (Link $X B) 
+    ( ( (g $Y) 
+        (Link $X $Y)))) ())
 
 </span><span class="ansi38-250144246">; !(case (Link $X B) (((g $Y) (Link $X $Y))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,['Link',X,'B'],[[[g,Y],['Link',X,Y]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,['Link',X,'B'],[[[g,Y],['Link',X,Y]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[case,['Link',_199032,'B'],[[[g,_199356],['Link',_199032,_199356]]]],[]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[case,['Link',_2256,'B'],[[[g,_2304],['Link',_2256,_2304]]]],[]],RET),depth(0))
 <h3 id="EXPERIMENTS.UNIFY-VIA-CASE.04">;; EXPERIMENTS.UNIFY-VIA-CASE.04</h3>
-          -->(1,eval('&self',[case,['Link',_199032,'B'],[[[g,_199356],['Link',_199032,_199356]]]],RET),depth(3))
-              -->(2,eval('&self',['Link',_199032,'B'],RET),depth(5))
-                -->(3,eval('&self','B',RET),depth(6))
-                -->(4,eval('&self','Link',RET),depth(6))
-                -->(5,eval('&self','B',RET),depth(6))
-                  -->(6,eval('&self','Link',RET),depth(7))
-                  -->(7,eval('&self','B',RET),depth(7))
-              -->(8,eval('&self',[g,_210162],RET),depth(5))
-                  -->(9,eval('&self','A',RET),depth(7))
-              <--(8,retval(['Link','A',_219790]))
-          <--(1,retval(['Link',_227804,'B']))
+      -->(1,eval('&self',[case,['Link',_2256,'B'],[[[g,_2304],['Link',_2256,_2304]]]],RET),depth(1))
+        -->(2,eval('&self',['Link',_2256,'B'],RET),depth(2))
+              -->(3,subst_args('&self',['Link',_2256,'B'],RET),depth(5))
+        <--(2,retval(['Link',_11004,'B']))
+        -->(4,eval('&self',[g,_9400],RET),depth(2))
+                -->(5,subst_args('&self',['Link','A',_9400],RET),depth(6))
+              -->(6,subst_args('&self',['Link','A',_9400],RET),depth(5))
+        <--(4,retval(['Link','A',_13818]))
+        -->(7,eval('&self',['Link',_9412,'B'],RET),depth(2))
+              -->(8,subst_args('&self',['Link',_9412,'B'],RET),depth(5))
+        <--(7,retval(['Link',_15406,'B']))
+              -->(9,subst_args('&self',['Link',_9412,'B'],RET),depth(5))
+            -->(10,subst_args('&self',['Link',_9412,'B'],RET),depth(4))
+      <--(1,retval(['Link',_17146,'B']))
 ; 
 ; EVAL TEST
-; took 0.003 secs. (2.88 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Link $_227822 B)) ()))
-</span>      <--(0,retval([got,[['Link',_270478,'B']],expected,[]]))
+; took 0.002 secs. (2.01 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (Link $_17164 B)) ()))
+</span>        -->(11,eval('&self',[['Link',_17164,'B']],RET),depth(2))
+          -->(12,eval('&self',['Link',_17164,'B'],RET),depth(3))
+                -->(13,subst_args('&self',['Link',_17164,'B'],RET),depth(6))
+          <--(12,retval(['Link',_24318,'B']))
+              -->(14,subst_args('&self',[['Link',_17164,'B']],RET),depth(5))
+                  -->(15,subst_args('&self',['Link',_17164,'B'],RET),depth(7))
+        <--(11,retval([['Link',_25808,'B']]))
+        -->(16,eval('&self',[['Link',_17164,'B']],RET),depth(2))
+          -->(17,eval('&self',['Link',_17164,'B'],RET),depth(3))
+                -->(18,subst_args('&self',['Link',_17164,'B'],RET),depth(6))
+          <--(17,retval(['Link',_28102,'B']))
+              -->(19,subst_args('&self',[['Link',_17164,'B']],RET),depth(5))
+                  -->(20,subst_args('&self',['Link',_17164,'B'],RET),depth(7))
+        <--(16,retval([['Link',_29592,'B']]))
+            -->(21,subst_args('&self',[got,[['Link',_17164,'B']],expected,[]],RET),depth(4))
+                -->(22,subst_args('&self',[['Link',_17164,'B']],RET),depth(6))
+                    -->(23,subst_args('&self',['Link',_17164,'B'],RET),depth(8))
+                -->(24,subst_args('&self',[['Link',_17164,'B']],RET),depth(6))
+                    -->(25,subst_args('&self',['Link',_3780,'B'],RET),depth(8))
+          -->(26,subst_args('&self',[got,[['Link',_3780,'B']],expected,[]],RET),depth(3))
+              -->(27,subst_args('&self',[['Link',_3780,'B']],RET),depth(5))
+                  -->(28,subst_args('&self',['Link',_3780,'B'],RET),depth(7))
+              -->(29,subst_args('&self',[['Link',_3780,'B']],RET),depth(5))
+                  -->(30,subst_args('&self',['Link',_3780,'B'],RET),depth(7))
+    <--(0,retval([got,[['Link',_8624,'B']],expected,[]]))
 Deterministic: <span class="ansi33">
-(got ((Link $_227822 B)) expected ())
+(got 
+  ( (Link $_3780 B)) expected ())
 
 </span>;; []
 ;;; Simple multi-unification via superpose
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(case (superpose ((Link $X B) (Node A) (Link $X C))) (((Link A $Y) (Link $X $Y))))
+</span><span class="ansi1 ansi38-255238088">!(case 
+  (superpose 
+    ( (Link $X B) 
+      (Node A) 
+      (Link $X C))) 
+  ( ( (Link A $Y) 
+      (Link $X $Y))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (case (superpose ((Link $X B) (Node A) (Link $X C))) (((Link A $Y) (Link $X $Y)))) ((Link A B) (Link A C)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (case 
+    (superpose 
+      ( (Link $X B) 
+        (Node A) 
+        (Link $X C))) 
+    ( ( (Link A $Y) 
+        (Link $X $Y)))) 
+  ( (Link A B) 
+    (Link A C)))
 
 </span><span class="ansi38-250144246">; !(case (superpose ((Link $X B) (Node A) (Link $X C))) (((Link A $Y) (Link $X $Y))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[superpose,[['Link',X,'B'],['Node','A'],['Link',X,'C']]],[[['Link','A',Y],['Link',X,Y]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[superpose,[['Link',X,'B'],['Node','A'],['Link',X,'C']]],[[['Link','A',Y],['Link',X,Y]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[case,[superpose,[['Link',_290664,'B'],['Node','A'],['Link',_290664,'C']]],[[['Link','A',_291324],['Link',_290664,_291324]]]],[['Link','A','B'],['Link','A','C']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[case,[superpose,[['Link',_2510,'B'],['Node','A'],['Link',_2510,'C']]],[[['Link','A',_2606],['Link',_2510,_2606]]]],[['Link','A','B'],['Link','A','C']]],RET),depth(0))
 <h3 id="EXPERIMENTS.UNIFY-VIA-CASE.05">;; EXPERIMENTS.UNIFY-VIA-CASE.05</h3>
-          -->(1,eval('&self',[case,[superpose,[['Link',_290664,'B'],['Node','A'],['Link',_290664,'C']]],[[['Link','A',_291324],['Link',_290664,_291324]]]],RET),depth(3))
-              -->(2,eval('&self',[superpose,[['Link',_290664,'B'],['Node','A'],['Link',_290664,'C']]],RET),depth(5))
-                  -->(3,eval('&self',['Link',_290664,'B'],RET),depth(7))
-                    -->(4,eval('&self','B',RET),depth(8))
-                    -->(5,eval('&self','Link',RET),depth(8))
-                    -->(6,eval('&self','B',RET),depth(8))
-                      -->(7,eval('&self','Link',RET),depth(9))
-                      -->(8,eval('&self','B',RET),depth(9))
-                  -->(9,eval('&self','B',RET),depth(7))
-              <--(2,retval(['Link',_340946,'C']))
-          <--(1,retval(['Link',_349188,'C']))
+      -->(1,eval('&self',[case,[superpose,[['Link',_2510,'B'],['Node','A'],['Link',_2510,'C']]],[[['Link','A',_2606],['Link',_2510,_2606]]]],RET),depth(1))
+        -->(2,eval('&self',[superpose,[['Link',_2510,'B'],['Node','A'],['Link',_2510,'C']]],RET),depth(2))
+          -->(3,eval('&self',['Link',_2510,'B'],RET),depth(3))
+                -->(4,subst_args('&self',['Link',_2510,'B'],RET),depth(6))
+          <--(3,retval(['Link',_18674,'B']))
+                -->(5,subst_args('&self',['Link',_2510,'B'],RET),depth(6))
+              -->(6,subst_args('&self',['Link',_2510,'B'],RET),depth(5))
+        -->(7,eval('&self',['Link',_16396,'B'],RET),depth(2))
+              -->(8,subst_args('&self',['Link',_16396,'B'],RET),depth(5))
+        <--(7,retval(['Link',_22274,'B']))
+              -->(9,subst_args('&self',['Link',_16396,'B'],RET),depth(5))
+            -->(10,subst_args('&self',['Link',_16396,'B'],RET),depth(4))
+          -->(11,eval('&self',['Node','A'],RET),depth(3))
+                -->(12,subst_args('&self',['Node','A'],RET),depth(6))
+          <--(11,retval(['Node','A']))
+                -->(13,subst_args('&self',['Node','A'],RET),depth(6))
+              -->(14,subst_args('&self',['Node','A'],RET),depth(5))
+        -->(15,eval('&self',['Link','A',_16384],RET),depth(2))
+              -->(16,subst_args('&self',['Link','A',_16384],RET),depth(5))
+        <--(15,retval(['Link','A',_29134]))
+          -->(17,eval('&self',['Link',_2510,'C'],RET),depth(3))
+                -->(18,subst_args('&self',['Link',_2510,'C'],RET),depth(6))
+          <--(17,retval(['Link',_30712,'C']))
+                -->(19,subst_args('&self',['Link',_2510,'C'],RET),depth(6))
+              -->(20,subst_args('&self',['Link',_2510,'C'],RET),depth(5))
+        <--(2,retval(['Link',_32452,'C']))
+        -->(21,eval('&self',['Link',_4984,'C'],RET),depth(2))
+              -->(22,subst_args('&self',['Link',_4984,'C'],RET),depth(5))
+        <--(21,retval(['Link',_6748,'C']))
+              -->(23,subst_args('&self',['Link',_4984,'C'],RET),depth(5))
+            -->(24,subst_args('&self',['Link',_4984,'C'],RET),depth(4))
+      <--(1,retval(['Link',_8488,'C']))
 ; 
 ; EVAL TEST
-; took 0.006 secs. (5.69 milliseconds) 
-<span class="ansi31">(loonit_failureR (equal_enough_for_test  ((Link $_349230 B) (Link $_349206 C)) ((Link A B) (Link A C))))
-</span>Switched off tracing. For a longer trace !(pragma! tracelen 101))
+; took 0.005 secs. (4.58 milliseconds) 
+<span class="ansi31">(loonit_failureR 
+  (equal_enough_for_test  
+    ( (Link $_8530 B) 
+      (Link $_8506 C)) 
+    ( (Link A B) 
+      (Link A C))))
+</span>        -->(25,eval('&self',[['Link',_8530,'B'],['Link',_8506,'C']],RET),depth(2))
+          -->(26,eval('&self',['Link',_8506,'C'],RET),depth(3))
+                -->(27,subst_args('&self',['Link',_8506,'C'],RET),depth(6))
+          <--(26,retval(['Link',_16712,'C']))
+          -->(28,eval('&self',['Link',_8530,'B'],RET),depth(3))
+                -->(29,subst_args('&self',['Link',_8530,'B'],RET),depth(6))
+          <--(28,retval(['Link',_18302,'B']))
+          -->(30,eval('&self',['Link',_8506,'C'],RET),depth(3))
+                -->(31,subst_args('&self',['Link',_8506,'C'],RET),depth(6))
+          <--(30,retval(['Link',_19896,'C']))
+              -->(32,subst_args('&self',[['Link',_8530,'B'],['Link',_8506,'C']],RET),depth(5))
+                  -->(33,subst_args('&self',['Link',_8530,'B'],RET),depth(7))
+                  -->(34,subst_args('&self',['Link',_8506,'C'],RET),depth(7))
+        <--(25,retval([['Link',_22154,'B'],['Link',_22178,'C']]))
+        -->(35,eval('&self',[['Link','A','B'],['Link','A','C']],RET),depth(2))
+          -->(36,eval('&self',['Link','A','C'],RET),depth(3))
+                -->(37,subst_args('&self',['Link','A','C'],RET),depth(6))
+          <--(36,retval(['Link','A','C']))
+          -->(38,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(39,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(38,retval(['Link','A','B']))
+          -->(40,eval('&self',['Link','A','C'],RET),depth(3))
+                -->(41,subst_args('&self',['Link','A','C'],RET),depth(6))
+          <--(40,retval(['Link','A','C']))
+              -->(42,subst_args('&self',[['Link','A','B'],['Link','A','C']],RET),depth(5))
+                  -->(43,subst_args('&self',['Link','A','B'],RET),depth(7))
+                  -->(44,subst_args('&self',['Link','A','C'],RET),depth(7))
+        <--(35,retval([['Link','A','B'],['Link','A','C']]))
+        -->(45,eval('&self',[['Link',_8530,'B'],['Link',_8506,'C']],RET),depth(2))
+          -->(46,eval('&self',['Link',_8506,'C'],RET),depth(3))
+                -->(47,subst_args('&self',['Link',_4138,'C'],RET),depth(6))
+          <--(46,retval(['Link',_5438,'C']))
+          -->(48,eval('&self',['Link',_4162,'B'],RET),depth(3))
+                -->(49,subst_args('&self',['Link',_4162,'B'],RET),depth(6))
+          <--(48,retval(['Link',_7028,'B']))
+          -->(50,eval('&self',['Link',_4138,'C'],RET),depth(3))
+                -->(51,subst_args('&self',['Link',_4138,'C'],RET),depth(6))
+          <--(50,retval(['Link',_8622,'C']))
+              -->(52,subst_args('&self',[['Link',_4162,'B'],['Link',_4138,'C']],RET),depth(5))
+                  -->(53,subst_args('&self',['Link',_4162,'B'],RET),depth(7))
+                  -->(54,subst_args('&self',['Link',_4138,'C'],RET),depth(7))
+        <--(45,retval([['Link',_10880,'B'],['Link',_10904,'C']]))
+        -->(55,eval('&self',[['Link','A','B'],['Link','A','C']],RET),depth(2))
+          -->(56,eval('&self',['Link','A','C'],RET),depth(3))
+                -->(57,subst_args('&self',['Link','A','C'],RET),depth(6))
+          <--(56,retval(['Link','A','C']))
+          -->(58,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(59,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(58,retval(['Link','A','B']))
+          -->(60,eval('&self',['Link','A','C'],RET),depth(3))
+                -->(61,subst_args('&self',['Link','A','C'],RET),depth(6))
+          <--(60,retval(['Link','A','C']))
+              -->(62,subst_args('&self',[['Link','A','B'],['Link','A','C']],RET),depth(5))
+                  -->(63,subst_args('&self',['Link','A','B'],RET),depth(7))
+                  -->(64,subst_args('&self',['Link','A','C'],RET),depth(7))
+        <--(55,retval([['Link','A','B'],['Link','A','C']]))
+            -->(65,subst_args('&self',[got,[['Link',_4162,'B'],['Link',_4138,'C']],expected,[['Link','A','B'],['Link','A','C']]],RET),depth(4))
+                -->(66,subst_args('&self',[['Link',_4162,'B'],['Link',_4138,'C']],RET),depth(6))
+                    -->(67,subst_args('&self',['Link',_4162,'B'],RET),depth(8))
+                    -->(68,subst_args('&self',['Link',_4138,'C'],RET),depth(8))
+                -->(69,subst_args('&self',[['Link','A','B'],['Link','A','C']],RET),depth(6))
+                    -->(70,subst_args('&self',['Link','A','B'],RET),depth(8))
+                    -->(71,subst_args('&self',['Link','A','C'],RET),depth(8))
+                -->(72,subst_args('&self',[['Link',_4162,'B'],['Link',_4138,'C']],RET),depth(6))
+                    -->(73,subst_args('&self',['Link',_4162,'B'],RET),depth(8))
+                    -->(74,subst_args('&self',['Link',_4138,'C'],RET),depth(8))
+                -->(75,subst_args('&self',[['Link','A','B'],['Link','A','C']],RET),depth(6))
+                    -->(76,subst_args('&self',['Link','A','B'],RET),depth(8))
+                    -->(77,subst_args('&self',['Link','A','C'],RET),depth(8))
+          -->(78,subst_args('&self',[got,[['Link',_4162,'B'],['Link',_4138,'C']],expected,[['Link','A','B'],['Link','A','C']]],RET),depth(3))
+              -->(79,subst_args('&self',[['Link',_4162,'B'],['Link',_4138,'C']],RET),depth(5))
+                  -->(80,subst_args('&self',['Link',_4162,'B'],RET),depth(7))
+                  -->(81,subst_args('&self',['Link',_4138,'C'],RET),depth(7))
+              -->(82,subst_args('&self',[['Link','A','B'],['Link','A','C']],RET),depth(5))
+                  -->(83,subst_args('&self',['Link','A','B'],RET),depth(7))
+                  -->(84,subst_args('&self',['Link','A','C'],RET),depth(7))
+              -->(85,subst_args('&self',[['Link',_4132,'B'],['Link',_4130,'C']],RET),depth(5))
+                  -->(86,subst_args('&self',['Link',_4132,'B'],RET),depth(7))
+                  -->(87,subst_args('&self',['Link',_4130,'C'],RET),depth(7))
+              -->(88,subst_args('&self',[['Link','A','B'],['Link','A','C']],RET),depth(5))
+                  -->(89,subst_args('&self',['Link','A','B'],RET),depth(7))
+                  -->(90,subst_args('&self',['Link','A','C'],RET),depth(7))
+    <--(0,retval([got,[['Link',_10798,'B'],['Link',_10822,'C']],expected,[['Link','A','B'],['Link','A','C']]]))
 Deterministic: <span class="ansi33">
-(got ((Link $_349230 B) (Link $_349206 C)) expected ((Link A B) (Link A C)))
+(got 
+  ( (Link $_4132 B) 
+    (Link $_4130 C)) expected 
+  ( (Link A B) 
+    (Link A C)))
 
 </span>;; [(Link A B), (Link A C)]
 ;;; Unify results of functions (via an intermediate variable, $z)
 <span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(case (g $Y) (($Z (case (f $X) (($Z $Z))))))
+</span><span class="ansi1 ansi38-255238088">!(case 
+  (g $Y) 
+  ( ($Z 
+      (case 
+        (f $X) 
+        ( ($Z $Z))))))
 </span>;; To unit test case:
-<span class="ansi38-013099040">!(assertEqualToResult (case (g $Y) (($Z (case (f $X) (($Z $Z)))))) ((Link A B)))
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (case 
+    (g $Y) 
+    ( ($Z 
+        (case 
+          (f $X) 
+          ( ($Z $Z)))))) 
+  ( (Link A B)))
 
 </span><span class="ansi38-250144246">; !(case (g $Y) (($Z (case (f $X) (($Z $Z))))))
-</span><span class="ansi38-218112214">% DEBUG: eval_args(100,'&self',[case,[g,Y],[[Z,[case,[f,X],[[Z,Z]]]]]],OUT).
+</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[case,[g,Y],[[Z,[case,[f,X],[[Z,Z]]]]]],OUT).
 
-</span>      -->(0,eval('&self',[assertEqualToResult,[case,[g,_404048],[[_404348,[case,[f,_404664],[[_404348,_404348]]]]]],[['Link','A','B']]],RET),depth(1))
+</span>    -->(0,eval('&self',[assertEqualToResult,[case,[g,_2532],[[_2562,[case,[f,_2604],[[_2562,_2562]]]]]],[['Link','A','B']]],RET),depth(0))
 <h3 id="EXPERIMENTS.UNIFY-VIA-CASE.06">;; EXPERIMENTS.UNIFY-VIA-CASE.06</h3>
-          -->(1,eval('&self',[case,[g,_404048],[[_404348,[case,[f,_404664],[[_404348,_404348]]]]]],RET),depth(3))
-              -->(2,eval('&self',[g,_404048],RET),depth(5))
-                  -->(3,eval('&self','A',RET),depth(7))
-                  -->(4,eval('&self','Link',RET),depth(7))
-                  -->(5,eval('&self','A',RET),depth(7))
-                    -->(6,eval('&self','Link',RET),depth(8))
-                    -->(7,eval('&self','A',RET),depth(8))
-                  -->(8,eval('&self','Link',RET),depth(7))
-                  -->(9,eval('&self','A',RET),depth(7))
-              <--(2,retval(['Link','A',_421978]))
-          <--(1,retval(['Link','A','B']))
+      -->(1,eval('&self',[case,[g,_2532],[[_2562,[case,[f,_2604],[[_2562,_2562]]]]]],RET),depth(1))
+        -->(2,eval('&self',[g,_2532],RET),depth(2))
+                -->(3,subst_args('&self',['Link','A',_2532],RET),depth(6))
+              -->(4,subst_args('&self',['Link','A',_2532],RET),depth(5))
+        -->(5,eval('&self',[case,[f,_14190],[[['Link','A',_2532],['Link','A',_2532]]]],RET),depth(2))
+          -->(6,eval('&self',[f,_14190],RET),depth(3))
+                  -->(7,subst_args('&self',['Link',_14190,'B'],RET),depth(7))
+                -->(8,subst_args('&self',['Link',_14190,'B'],RET),depth(6))
+          -->(9,eval('&self',['Link','A','B'],RET),depth(3))
+                -->(10,subst_args('&self',['Link','A','B'],RET),depth(6))
+          <--(9,retval(['Link','A','B']))
+                -->(11,subst_args('&self',['Link','A','B'],RET),depth(6))
+              -->(12,subst_args('&self',['Link','A','B'],RET),depth(5))
+              -->(13,subst_args('&self',['Link','A','B'],RET),depth(5))
+            -->(14,subst_args('&self',['Link','A','B'],RET),depth(4))
+          <--(6,retval(['Link',_20616,'B']))
+        <--(5,retval(['Link','A','B']))
+        <--(2,retval(['Link','A',_16746]))
+      <--(1,retval(['Link','A','B']))
 ; 
 ; EVAL TEST
-; took 0.004 secs. (3.69 milliseconds) 
-<span class="ansi36">(loonit_success (equal_enough_for_test  ((Link A B)) ((Link A B))))
-</span>      <--(0,retval('Empty'))
+; took 0.003 secs. (2.63 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Link A B)) 
+    ( (Link A B))))
+</span>    <--(0,retval('Empty'))
 Deterministic: <span class="ansi33">Empty
 
-</span><span class="ansi32">% 457,445 inferences, 0.253 CPU in 1.097 seconds (23% CPU, 1810529 Lips)
+</span><span class="ansi32">% 233,930 inferences, 0.097 CPU in 0.097 seconds (100% CPU, 2416093 Lips)
 </span> (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-pln_metta/synthesis/experiments/unify-via-case.metta" 0)
 <span class="ansi1">LoonIt Report
 </span>------------

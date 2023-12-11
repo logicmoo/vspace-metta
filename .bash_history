@@ -1796,3 +1796,346 @@ cls  ; ./MeTTa examples/extended_compat/nars/new/tests0.metta --prolog
 git commit -am 222
 git add examples/flybase/output~/flybase-*
 git add examples/flybase/output~/flybase-* -f
+git commit -am 223
+cls  ; ./MeTTa examples/extended_compat/nars/new/ --test
+cls  ; ./MeTTa examples/extended_compat/nars/*/test0.metta --test
+cls  ; ./MeTTa examples/extended_compat/nars/prev/test0.metta
+ls 'examples/extended_compat/nars/prev/test0.metta
+
+ls 'examples/extended_compat/nars/prev/test0.metta'
+ls 'examples/extended_compat/nars/prev/tests0.metta'
+cls  ; ./MeTTa examples/extended_compat/nars/prev/tests0.metta
+cls  ; ./MeTTa examples/extended_compat/nars/prev/tests0.metta --vGOOD
+cp examples/extended_compat/nars/prev/tests0.metta examples/baseline_compat/metta-morph_tests/
+cp examples/extended_compat/nars/nars_v0/tests0.metta
+./MeTTa --vGOOD examples/extended_compat/nars/nars_v0/tests0.metta
+./MeTTa --vVGOOD examples/extended_compat/nars/nars_v0/tests0.metta
+./MeTTa examples/extended_compat/nars/prev/tests0.metta
+./MeTTa  examples/baseline_compat/metta-morph_tests/
+./MeTTa  examples/baseline_compat/metta-morph_tests/ --clean
+./MeTTa  examples/baseline_compat/metta-morph_tests/ --clean --test
+cp examples/extended_compat/nars/nars_v0/NARS.metta "examples/baseline_compat/metta-morph_tests/"
+./MeTTa examples/extended_compat/nars/prev/tests5.metta
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta 
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta --vGOOD
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta --v_1a
+cp examples/extended_compat/nars/prev/NARS.metta "examples/baseline_compat/metta-morph_tests/"
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta
+./MeTTa examples/baseline_compat/metta-morph_tests/ --clean --test
+cp metta_vspace/pyswip -a metta_vspace/pyswip_so
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout 38e4d0f11a8700a200783bbc3f4de0602c6a4458  metta_vspace/pyswip/metta_eval.pl
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta 
+./MeTTa examples/baseline_compat/metta-morph_tests/ --test --clean
+./scripts/total_loonits.sh 
+cls
+./scripts/total_loonits.sh 
+find -name "*.metta.html"
+find examples/  -name "*.metta.html"
+find examples/  -name "*.metta.html" -delete 
+find reports/cuRRent/
+find reports/cuRRent/ --delete
+find reports/cuRRent/ -delete
+find reports/cuRRent/
+find reports/
+./scripts/total_loonits.sh 
+./MeTTa examples/ --continue --test
+watch ./scripts/total_loonits.sh 
+find -name "*.html" examples/
+find examples/ -name "*.html" 
+./MeTTa examples/baseline_compat/ --continue --test
+./MeTTa examples/baseline_compat/ --fail --test
+./MeTTa examples/baseline_compat/ --fail --test --vGOOD
+cp metta_vspace/pyswip -a metta_vspace/pyswip_v9a
+cp metta_vspace/pyswipGOOD/metta_eval.pl metta_vspace/pyswip_v9a/
+mv metta_vspace/pyswip_v9a metta_vspace/pyswip_9a/
+./MeTTa examples/baseline_compat/ --fail --test --v9a
+./MeTTa examples/baseline_compat/ --fail --test --v_9a
+./MeTTa examples/baseline_compat/ --fail --test
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta
+./MeTTa 
+watch ./scripts/total_loonits.sh 
+kilall -9 swipl
+killall -9 swipl
+./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta
+./MeTTa examples/baseline_compat/metta-morph_tests/ --test --failures
+./MeTTa examples/extended_compat/nars/nars_extras/RUN_minnars.metta
+./MeTTa examples/extended_compat/nars/nars_extras/RUN_minnars_trimmed.metta
+./MeTTa examples/extended_compat/nars/new/tests0.metta
+./MeTTa examples/extended_compat/nars/new/tests5.metta
+./MeTTa examples/extended_compat/nars/new/tests4.metta
+./MeTTa examples/extended_compat/nars/new/tests0.metta
+./MeTTa examples/extended_compat/nars/prev/tests3.metta
+cls ; ./MeTTa examples/extended_compat/nars/prev/tests3.metta
+cls ; ./MeTTa examples/baseline_compat/ 
+mv metta_vspace/pyswip/metta_eval_light.pl metta_vspace/pyswip/metta_subst.pl
+cls ; ./MeTTa examples/baseline_compat/ --test --clean
+cls ; ./MeTTa examples/baseline_compat/ --test --falures
+cls ; ./MeTTa examples/extended_compat/ --falures
+cls ; ./MeTTa examples/extended_compat/ --test --falures
+cls ; ./MeTTa examples/extended_compat/ --test --continue
+cls ; ./MeTTa examples/extended_compat/ --test --failures
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/06_loop_1.metta 
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/06_loop_1.metta --fresh 
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/06_loop_1.metta --fresh  --test
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/06_loop_0.metta --fresh  --test
+watch ./scripts/total_loonits.sh 
+find -name "*.sortme"
+cat foo
+mv foo bar
+cat FOUND_UNITS.sortme 
+./scripts/total_loonits.sh 
+grep Failure examples/baseline_compat/metta-morph_tests/tests0.metta.html 
+grep Success examples/baseline_compat/metta-morph_tests/tests0.metta.html 
+rm examples/baseline_compat/metta-morph_tests/tests0.metta.html 
+./scripts/total_loonits.sh 
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/06_loop_2.metta --fresh  --test
+find -name "tests0.*"
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test -cont
+cls ; ./MeTTa --html --repl=false "examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta" --prolog
+cls ; ./MeTTa --html --repl=false "examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta" --repl=prolog
+cls ; ./MeTTa --html --repl=false "examples/baseline_compat/metta-morph_tests/tests0.metta --repl=prolog
+cls ; ./MeTTa --html --repl=false examples/baseline_compat/metta-morph_tests/tests0.metta --repl=prolog
+cls ; ./MeTTa --html --repl=false examples/baseline_compat/metta-morph_tests/tests0.metta --prolog
+cls ; ./MeTTa --html --timeout=666 --repl=false examples/baseline_compat/metta-morph_tests/tests0.metta --prolog
+cls ; ./MeTTa --html --timeout=666 examples/baseline_compat/metta-morph_tests/tests0.metta --prolog
+cls ; ./MeTTa --html --timeout=666 examples/baseline_compat/metta-morph_tests/tests5.metta --prolog
+cls ; ./MeTTa --html --timeout=666 examples/extended_compat/nars/current/tests0.metta --prolog
+cls ; ./MeTTa --html --timeout=666 examples/extended_compat/nars/current/tests5.metta --prolog
+metta examples/extended_compat/nars/current/tests5.metta
+metta examples/extended_compat/nars/current/tests4.metta
+time metta examples/extended_compat/nars/current/tests4.metta
+cls ; ./MeTTa --html --timeout=666 examples/extended_compat/nars/current/tests4.metta --prolog
+cls ; ./MeTTa --html --timeout=666 examples/extended_compat/nars/current/tests4.metta --prolog ----exec=skip
+cls ; ./MeTTa examples/extended_compat/nars/current/tests4.metta --prolog ----exec=skip
+cls ; ./MeTTa examples/extended_compat/nars/current/tests4.metta --prolog
+cls ; ./MeTTa examples/extended_compat/nars/current/tests5.metta --prolog
+cls ; ./MeTTa examples/extended_compat/nars/current/tests1.metta --prolog
+x
+cls ; ./MeTTa examples/extended_compat/nars/prev/tests1.metta --prolog
+cls ; ./MeTTa examples/extended_compat/nars/prev/tests5.metta --prolog
+cls ; ./MeTTa examples/extended_compat/nars/current/tests0.metta --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/minnars.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/minnars.metta ----exec=slip
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/minnars.metta ----exec=skip
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/minnars.metta ----exec=skip --prolog
+mv metta_vspace/pyswip/metta_eval_light.pl metta_vspace/pyswip/metta_subst.bk
+make.
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta ----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta --prolog
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ 
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta --halt==true
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta --halt=true
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/00_lang_case.metta
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+make.
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+mkdir examples/features/loops -p
+mv examples/baseline_compat/hyperon-mettalog_sanity/06_loop_* examples/features/loop/
+mv examples/baseline_compat/hyperon-mettalog_sanity/06_loop_* examples/features/loops/
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test --clean
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test --clean --fresh
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+mkdir examples/features/containers_are_spaces
+mv examples/baseline_compat/hyperon-mettalog_sanity/04_match_list_like_space.metta examples/features/containers_are_spaces/
+mv examples/baseline_compat/hyperon-mettalog_sanity/04_match_list_like_space.met* examples/features/containers_are_spaces/
+mv examples/baseline_compat/hyperon-mettalog_sanity/05_match_superpose_element_like_space.metta* examples/features/containers_are_spaces/
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+cls ; ./MeTTa examples/baseline_compat/ --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test
+cls ; ./MeTTa examples/baseline_compat/hyperon-mettalog_sanity/ --test --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/supercollapse.metta --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/supercollapse.metta --test --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/supercollapse.metta ----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --exec=skip
+killall -9 swipl
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --exec=skip --repl
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test ----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test ----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --prolog
+grep deterministic metta_vspace -R
+grep deterministic metta_vspace -R --include "metta_eval*"
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta ----exec=skip --test --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta ----exec=skip --test --prolog --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta ----exec=skip --test --prolog
+./MeTTa
+/MeTTa
+./MeTTa
+cls
+./MeTTa
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --prolog --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --clean --fresh
+cp -a metta_vspace/pyswip metta_vspace/pyswip_nnnnwq
+git checkout metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --clean --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --clean ----exec=skip
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --clean ----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta  ----exec=skip --prolog
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta 
+git checkout metta_vspace/pyswip
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta  --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --test --fresh clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test -clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --fresh
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test --fresh  
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean --yest
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --vGOOD
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --vVGOOD
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --v_sv
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --v_save
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test --v_saved_fav
+mv metta_vspace/pyswip vspace-metta/metta_vspace/pyswip_sm
+mv metta_vspace/pyswip metta_vspace/pyswip_sm
+git checkout metta_vspace/pyswip
+mv metta_vspace/pyswip metta_vspace/pyswip_lng
+cp -a metta_vspace/pyswip_sm metta_vspace/pyswip 
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/  --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/  --test --v_lng
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/sequential_nested.metta --clean --test
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta --clean --test
+mkdir sanity_now
+cp examples/baseline_compat/metta-morph_tests/tests0.metta sanity_now/
+cp examples/baseline_compat/metta-morph_tests/NARS.metta sanity_now/
+cp examples/baseline_compat/metta-morph_tests/sequential_nested.metta sanity_now/
+mv sanity_now/ SN
+cls ; ./MeTTa SN/ --test -clean
+cls ; ./MeTTa SN/ --test -clean --fresh
+cls ; ./MeTTa SN/ --test
+cls ; ./MeTTa SN/ --test --clean
+cls ; ./MeTTa SN/ --test 
+cls ; ./MeTTa SN/ --test --prolog
+cls ; ./MeTTa SN/ --test --prolog --clean
+grep trace_on_overflow metta_vspace
+grep trace_on_overflow metta_vspace -R
+grep trace_on_overflow metta_vspace -R -1
+grep trace_on_overflow metta_vspace -R -1 --include="*.pl"
+cls
+grep trace_on_overflow metta_vspace -R -1 --include="*.pl"
+grep "\+ trace_on_overflow" metta_vspace -R -1 --include="*.pl"
+grep "\+ trace_on_overflow" metta_vspace -R -1 --include="*.pl" | grep -v Depth
+cls ; ./MeTTa SN/ --test --prolog
+cp metta_vspace/pyswip metta_vspace/pyswip_wow
+cp metta_vspace/pyswip metta_vspace/pyswip_wow -a
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test --clean
+cls ; ./MeTTa SN/ --test --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/tests0.metta --clean --test
+metta
+./MeTTa
+cls ; ./MeTTa SN/ --test --clean
+cp metta_vspace/pyswip metta_vspace/pyswip_wow2 -a
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --test --clean
+cp examples/baseline_compat/metta-morph_tests/* SN/
+\cp examples/baseline_compat/metta-morph_tests/* SN/
+rm SN/nalifier.metta
+rm SN/minnars.metta
+cls ; ./MeTTa SN/ --test --clean
+cls ; ./MeTTa SN/ --test
+cls ; ./MeTTa SN/ --test --prolog
+cls ; ./MeTTa SN/ --test --clean
+git commit -am metta-morpged
+git reset HEAD~1 --soft
+git status .
+git add examples/features/
+git status .
+git add examples/baseline_compat/hyperon-mettalog_sanity/examples/baseline_compat/hyperon-mettalog_sanity/
+git add examples/baseline_compat/hyperon-mettalog_sanity/ examples/baseline_compat/hyperon-mettalog_sanity/
+git status .
+cls
+git status .
+cls ; ./MeTTa examples/baseline_compat/
+cls ; ./MeTTa examples/baseline_compat/ --clean --test
+cls ; ./MeTTa examples/baseline_compat/ --test
+cls ; ./MeTTa examples/extended_compat/ --test
+cls ; ./MeTTa examples/extended_compat/ --test --clean
+top
+service jenkins stop
+top
+service gitlab-runner stop
+top
+gitlab-ctl stop
+top
+ps axf
+gitlab-ctl stop
+gitlab-runner stop
+watch -- ./scripts/total_loonits.sh 
+vi scripts/total_loonits.sh 
+vi scripts/pass_fail_totals.sh
+scripts/pass_fail_totals.sh examples/
+cls
+scripts/pass_fail_totals.sh examples/
+cls
+scripts/pass_fail_totals.sh examples/
+mv examples/features/loops/ examples/features/loop-checks
+mkdir  examples/features/bidirectional_computation
+mv examples/features/reverse-* examples/features/bidirectional_computation/
+ls
+mv examples/features/send-more* examples/features/bidirectional_computation/
+ls
+mkdir examples/features/host_language
+mv examples/features/compiler/ examples/features/host_language/
+mv examples/features/httpclient.metta* examples/features/host_language/
+ls
+vi examples/features/bidirectional_computation/README.md
+scripts/pass_fail_totals.sh examples/
+cls ; scripts/pass_fail_totals.sh examples/
+git add  scripts/pass_fail_totals.sh 
+cls ; scripts/pass_fail_totals.sh examples/
+watch -- scripts/pass_fail_totals.sh examples/
+cls
+watch -- scripts/pass_fail_totals.sh examples/
+cls ; ./MeTTa examples/extended_compat/ --test 
+cls ; ./MeTTa examples  --test 
+cls ; ./MeTTa examples  --timeout 10 --test 
+cls ; ./MeTTa examples  --timeout=10 --test 
+cls ; ./MeTTa examples  --timeout=20 --test 
+rm Sav.MeTTaLog 
+cls ; ./MeTTa examples  --timeout=20 --test 
+ps axf
+./scripts/test_in_metta.sh -n --report=Y
+./scripts/test_in_metta.sh -n --report=Y --test
+cat MeTTaLog.md 
+./scripts/pass_fail_totals.sh 
+./scripts/pass_fail_totals.sh examples/
+cls
+./scripts/pass_fail_totals.sh examples/
+git status .
+git add reports/
+rm *.ansi
+rm *.UNITS
+git status .
+git add examples/
+git status .
