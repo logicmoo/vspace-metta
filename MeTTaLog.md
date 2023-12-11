@@ -59,8 +59,6 @@ Usage: ./scripts/pass_fail_totals.sh <start_directory>
 |   623|   182| 62 |   71% |examples/ |
 
 
-<details><summary>Expand for Core Summaries</summary>
-
 |  Pass |  Fail |  Percent | File/Directory Information                                                                              |
 |-------|-------|----------|----------------------------------------------------------------------------------------------------|
 |       |       |          |                                                                                                    |
@@ -580,6 +578,7 @@ Usage: ./scripts/pass_fail_totals.sh <start_directory>
 |     1 |     6 |     14%  | Total                                                                                              |
 |       |       |          |                                                                                                    |
 
+<details><summary>Expand for Core </summary>
 
 | STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |
 |--------|-----------|----------------|---------------|-----------------|

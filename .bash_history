@@ -2208,3 +2208,6 @@ cls ; tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
 ./scripts/pass_fail_totals.sh examples/
 ./scripts/test_in_metta.sh -n --report=Y --test
 git add reports/
+git commit -am "Fixed flybase snaitry tests" 
+git push
+git push logicmoo 
