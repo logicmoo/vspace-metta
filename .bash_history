@@ -2196,3 +2196,5 @@ tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
 tac /tmp/SHARED.UNITS | awk '!seen[$0]++'
 cls ; tac /tmp/SHARED.UNITS | awk '!seen[$0]++' | tac
 git add reports/
+git commit -am reports/
+git push logicmoo 
