@@ -2248,3 +2248,65 @@ cat Result.html
 cat Result.html 
 ./MeTTa --html --test
 ./MeTTa --html --test --help
+git commit -am "too  much --help" 
+./MeTTa --help
+swipl --help
+./MeTTa --version
+./MeTTa --arch
+swipl --help
+./MeTTa --arch
+./MeTTa 
+./MeTTa -l flybase_metta.qlf 
+./MeTTa -c flybase_metta.qlf 
+watch ./scripts/pass_fail_totals.sh examples/
+killall -9 swipl
+ps axf
+sdsdsd
+cls
+reset
+ks
+ls
+rm *.ansi
+ls
+./MeTTa -g [flybase_metta]
+ls
+./MeTTa
+git stauts .
+git status .
+./MeTTa --test examples/
+./MeTTa --test --regress examples/
+cls
+metta
+./MeTTa --test --regress examples/
+./MeTTa --test --regressions examples/
+git mv PASS_FAIL.md reports/
+git mv TEST_LINKS.md reports/
+cat /dev/null > /tmp/*.UNITS
+ls
+rm *.ansi
+ls
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+cat .bash_history
+watch ./scripts/pass_fail_totals.sh examples/
+cat /tmp/SHARED.UNITS 
+./MeTTa --test --clean examples/  --timeout=20
+awk -F'http|\\) \\| \\(' '{ print $2 " " $0 }' /tmp/SHARED.UNITS | sort | cut -d' ' -f2-
+awk -F'http|\\) \\| \\(' '{ print $2 " " $0 }' /tmp/SHARED.UNITS | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac
+./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md
+git status .
+cp metta_vspace/pyswip/ -a metta_vspace/pyswip_68
+git checkout metta_vspace/pyswip/metta_eval.pl
+cat /dev/null > /tmp/SHARED.UNITS 
+ps axf
+cat /tmp/SHARED.UNITS | awk -F'http|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac
+cat reports/TEST_LINKS.md | awk -F'http|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac
+cat reports/PASS_FAIL.md | awk -F'http|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac
+cat reports/PASS_FAIL.md | awk -F'http|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac > foo
+mv foo reports/PASS_FAIL.md 
+cat reports/PASS_FAIL.md | awk -F'cuRRent|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac > foo
+mv foo reports/PASS_FAIL.md 
+cat reports/PASS_FAIL.md | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac > foo
+mv foo reports/PASS_FAIL.md 
+cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac > examples/PASS_FAIL.md 
+./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md
