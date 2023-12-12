@@ -2224,3 +2224,5 @@ mv TEST_LINKS.md PASS_FAIL.md
 mv PF.md TEST_LINKS.md
 git commit -am PASS_FAIL.md 
 git push logicmoo 
+git commit -am PASS_FAIL.md 
+git push logicmoo 
