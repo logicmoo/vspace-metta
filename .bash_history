@@ -2226,3 +2226,25 @@ git commit -am PASS_FAIL.md
 git push logicmoo 
 git commit -am PASS_FAIL.md 
 git push logicmoo 
+git commit -am PASS_FAIL.md 
+git push logicmoo 
+./MeTTa --help
+git push logicmoo 
+./MeTTa --help
+git diff ./MeTTa 
+./MeTTa --help
+./MeTTa --help --html
+./MeTTa --help
+./MeTTa --help --html
+./MeTTa --help --html examples/baseline_compat/hyperon-pln_metta/dependent-types/DeductionDTL.metta 
+./MeTTa --help --html examples/baseline_compat/hyperon-pln_metta/dependent-types/DeductionDTL.metta --test
+./MeTTa --help --html examples/baseline_compat/hyperon-pln_metta/dependent-types/ --test
+./MeTTa --help --html --test
+./MeTTa --html --test
+mktemp 
+./MeTTa --html --test
+cat Result.html 
+./MeTTa --html --test
+cat Result.html 
+./MeTTa --html --test
+./MeTTa --html --test --help
