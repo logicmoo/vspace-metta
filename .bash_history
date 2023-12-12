@@ -2310,3 +2310,6 @@ cat reports/PASS_FAIL.md | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort
 mv foo reports/PASS_FAIL.md 
 cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac > examples/PASS_FAIL.md 
 ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md
+git commit -am "still baseline"
+rsync -avm --include='*.metta.html' -f 'hide,! */' examples/ reports/cuRRent/
+git add reports/
