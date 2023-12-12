@@ -2,9 +2,7 @@
 
 MeTTaLog is a superfluous implementaton of MeTTa, a language designed to succeed OpenCog Classic Atomese.  It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
 
-[reports/PASS_FAIL.md](reports/PASS_FAIL.md)
-
-[reports/TEST_LINKS.md](reports/TEST_LINKS.md)
+[Latest Test Results](reports/TEST_LINKS.md)
 
 
 

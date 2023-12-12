@@ -2314,3 +2314,5 @@ git commit -am "still baseline"
 rsync -avm --include='*.metta.html' -f 'hide,! */' examples/ reports/cuRRent/
 git add reports/
 git commit -am "still baseline 2"
+git commit -am "still baseline 3"
+git push logicmoo 
