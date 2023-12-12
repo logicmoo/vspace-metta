@@ -2211,3 +2211,14 @@ git add reports/
 git commit -am "Fixed flybase snaitry tests" 
 git push
 git push logicmoo 
+git commit -am "Fixed test output info" 
+git push logicmoo 
+git add PASS_FAIL.md 
+git add PASS_FAIL.md -f
+ls *.md
+cat TEST_LINKS.md 
+git add TEST_LINKS.md 
+git add TEST_LINKS.md -f 
+mv PASS_FAIL.md PF.md
+mv TEST_LINKS.md PASS_FAIL.md
+mv PF.md TEST_LINKS.md
