@@ -2313,3 +2313,4 @@ cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | 
 git commit -am "still baseline"
 rsync -avm --include='*.metta.html' -f 'hide,! */' examples/ reports/cuRRent/
 git add reports/
+git commit -am "still baseline 2"

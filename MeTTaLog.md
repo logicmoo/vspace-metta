@@ -1,10 +1,10 @@
 # MeTTaLog: An Implementation of MeTTa in Prolog
 
-MeTTaLog is a superfluous implementaiton of MeTTa, a language designed to succeed OpenCog Classic Atomese.  It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
+MeTTaLog is a superfluous implementaton of MeTTa, a language designed to succeed OpenCog Classic Atomese.  It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
 
-[PASS_FAIL](PASS_FAIL.md)
+[reports/PASS_FAIL.md](reports/PASS_FAIL.md)
 
-[TEST_LINKS](TEST_LINKS.md)
+[reports/TEST_LINKS.md](reports/TEST_LINKS.md)
 
 
 
