@@ -2390,3 +2390,7 @@ cat /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/exampl
 cat TEST_LINKS.md 
 ./MeTTa --test --failures examples/  --timeout=20
 ./MeTTa
+git commit -am det_results
+./MeTTa
+git diff main~2 .
+cd ../vspace-metta/
