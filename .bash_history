@@ -2316,3 +2316,44 @@ git add reports/
 git commit -am "still baseline 2"
 git commit -am "still baseline 3"
 git push logicmoo 
+git commit -am "still baseline 4"
+git push logicmoo 
+cp metta_vspace/pyswip_68/metta_eval.pl metta_vspace/pyswip
+./MeTTa --test --clean examples/  --timeout=20
+git checkout  metta_vspace/pyswip
+./MeTTa --test --regress examples/  --timeout=20
+cls
+cat /dev/null > /tmp/*.UNITS
+touch retest.sh
+cat TEST_LINKS.md 
+cat /dev/null > /tmp/SHARED.UNITS
+cat TEST_LINKS.md 
+./MeTTa --test --regress examples/  --timeout=20 --explain
+./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md
+./MeTTa --test --regress examples/  --timeout=20
+cat TEST_LINKS.md 
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+. TEST_LINKS.md 
+metta 1-VSpaceTest.metta
+metta 2-VSpaceTest.metta
+./MeTTa
+./MeTTa --prolog
+./MeTTa --prolog=true
+./MeTTa --prolog
+./MeTTa
+./MeTTa --prolog
+echo $PYTHONPATH 
+./MeTTa --prolog
+export PYTHONPATH=$PYTHONPATH:.
+./MeTTa --prolog
+./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+vi /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+vi /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta.answers 
+vi /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+vi /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta.answers 
+./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+git checkout  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta.answers 
+./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+cls ; ./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
+cls ; ./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta --prolog
