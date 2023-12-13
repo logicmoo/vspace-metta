@@ -2360,3 +2360,33 @@ cls ; ./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/n
 git commit -am numme
 gut oush logi
 git push logicmoo 
+git commit -am numme2
+git push logicmoo 
+./MeTTa examples/baseline_compat/hyperon-experimental_scripts/b4_nondeterm.metta
+./MeTTa examples/baseline_compat/hyperon-experimental_scripts/b4_nondeterm.metta --prolog
+fg
+./MeTTa examples/baseline_compat/hyperon-experimental_scripts/b4_nondeterm.metta --prolog
+rm *.ansi
+cat TEST_LINKS.md 
+. TEST_LINKS.md 
+cat TEST_LINKS.md 
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+cd ../vspace-metta/
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+./MeTTa --test --clean examples/  --timeout=20
+cat opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b5_types_prelim.metta.html
+./MeTTa --test --clean examples/  --timeout=20
+cat opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b5_types_prelim.metta.html
+time ./MeTTa --timeout=20 --html --repl=false "examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta" --halt=true
+cat "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231212_2010_2477909.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html"
+time ./MeTTa --timeout=20 --html --repl=false "examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta" --halt=true
+cat "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/TEE_20231212_2010_2477909.ansi" > "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html"
+time ./MeTTa --timeout=20 --html --repl=false "examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta" --halt=true
+ls /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html
+cat /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html
+cls
+cat /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html
+. TEST_LINKS.md 
+cat TEST_LINKS.md 
+./MeTTa --test --failures examples/  --timeout=20
+./MeTTa
