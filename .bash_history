@@ -2404,3 +2404,17 @@ git commit -am "better concurancy examples - remove thread options when not inte
 git push logicmoo 
 git commit -am "better concurancy examples - removed confuctrion example""
 git commit -am "better concurancy examples - removed confusingn example""
+git commit -am "better concurancy examples - removed confusingn example"
+git push logicmoo 
+./MeTTa examples/features/parallelism/builtins.metta
+rm examples/features/parallelism/builtins.metta.answers 
+./MeTTa examples/features/parallelism/builtins.metta
+cls  ; ./MeTTa examples/features/parallelism/builtins.metta
+export DISPLAY=10.0.0.122:0.0
+cls  ; ./MeTTa examples/features/parallelism/builtins.metta
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html 
+cp ../metta-morph-trueagi-io/tests/hyperpose.metta examples/baseline_compat/metta-morph_tests/
+cp ../metta-morph-trueagi-io/tests/* examples/baseline_compat/metta-morph_tests/
+git add examples/baseline_compat/metta-morph_tests/
+git add reports/
+git diff
