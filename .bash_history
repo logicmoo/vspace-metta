@@ -2397,3 +2397,6 @@ cd ../vspace-metta/
 git commit -am "better concurancy exmaples"
 swipl
 ./MeTTa
+git commit -am "better concurancy examples 2"
+git push
+git push logicmoo 

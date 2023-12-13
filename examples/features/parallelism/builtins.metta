@@ -13,25 +13,27 @@
 ; Operation: Executes tasks using 'concurrent-and!', ensuring each completes before the next begins.
 ; Key Difference: Each task must complete before the next one begins.
 ; Expectation: Total time should be more than 19 seconds, as tasks run sequentially.
+; Note  `get-time!` is the host system function `get_time(X)`
+; if a function is not found that contains ! it searches the host system for the function definition
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(let $start (cputime!)  ; Store the start CPU time in $start
+!(let $start (get-time!)  ; Store the start CPU time in $start
       (sequential  ; Begin a sequential block
            (concurrent-and! (between 1 4 $_)  ; For each number between 1 and 4
                   (sleep! 5)  ; Sleep for 5 seconds
                  (threads 4))  ; Use 4 separate threads for the operation
-       (> (- (cputime!) $start) 19))))  ; Check if the total time taken is more than 19 seconds
+       (> (- (get-time!) $start) 19))))  ; Check if the total time taken is more than 19 seconds
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Purpose: Test parallel execution with 'concurrent-forall!'
 ; Operation: Launches a sleep task concurrently across 4 threads.
 ; Expectation: Total execution time should be significantly reduced, demonstrating parallel processing.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-!(let $start (cputime!)  ; Store the start CPU time in $start
+!(let $start (get-time!)  ; Store the start CPU time in $start
     (sequential  ; Begin a sequential block
          (concurrent-forall! (between 1 4 $_)  ; For each number between 1 and 4
                 (sleep 5)  ; Sleep for 5 seconds
                (threads 4))  ; Use 4 separate threads for the operation
-     (< (- (cputime!) $start) 10))))  ; Check if the total time taken is less than 10 seconds
+     (< (- (get-time!) $start) 10))))  ; Check if the total time taken is less than 10 seconds
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Purpose: Define predicate 'is-even' to check if a number is even.
@@ -57,14 +59,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Purpose: Showcase how concurrency handles shared state references
 ; Operation: Concurrently processes numbers, incrementing '$odds' or '$evens' state based on numbers evenness.
-; Expectation: Efficient parallel processing of a range of numbers, updating shared states.
+; Expectation: Parallel processing of a range of numbers, updating shared states.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 !(let*
-    (($Options (threads 4)) ; Use 4 threads
-     ($odds (new-state 0))
+    (($odds (new-state 0))
      ($evens (new-state 0)))
      (sequential
-      (concurrent-forall! (between! 1 100 $X) (if (is-even $X) (incr $evens) (incr $odds)) $Options)
+      (concurrent-forall! (== (between! 1 100) $X) (if (is-even $X) (incr $evens) (incr $odds)))
        (print! ("odds=" (get-state $odds) " evens="  (get-state $evens))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -75,7 +76,7 @@
 !(sequential
   ((bind! &odds (new-state 0))
    (bind! &evens (new-state 0))
-    (concurrent-forall! (between! 1 100 $X) (if (is-even $X) (incr &evens) (incr &odds)))
+    (concurrent-forall! (== (between! 1 100) $X) (if (is-even $X) (incr &evens) (incr &odds)))
     (print! ( "odds=" (get-state &odds) " evens="  (get-state &evens)))))
 
 
