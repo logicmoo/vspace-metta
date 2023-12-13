@@ -2418,3 +2418,8 @@ cp ../metta-morph-trueagi-io/tests/* examples/baseline_compat/metta-morph_tests/
 git add examples/baseline_compat/metta-morph_tests/
 git add reports/
 git diff
+git push
+git push logicmoo 
+cls  ; ./MeTTa examples/features/parallelism/builtins.metta --html
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html 
+cat '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html'
