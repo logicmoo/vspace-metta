@@ -2357,3 +2357,6 @@ git checkout  /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-me
 ./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
 cls ; ./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta
 cls ; ./MeTTa examples/python_compat/hyperon-experimental_python/sandbox/numpy/nm_test.metta --prolog
+git commit -am numme
+gut oush logi
+git push logicmoo 
