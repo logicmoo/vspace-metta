@@ -2394,3 +2394,6 @@ git commit -am det_results
 ./MeTTa
 git diff main~2 .
 cd ../vspace-metta/
+git commit -am "better concurancy exmaples"
+swipl
+./MeTTa
