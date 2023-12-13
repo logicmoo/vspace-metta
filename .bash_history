@@ -2400,3 +2400,7 @@ swipl
 git commit -am "better concurancy examples 2"
 git push
 git push logicmoo 
+git commit -am "better concurancy examples - remove thread options when not interesting"
+git push logicmoo 
+git commit -am "better concurancy examples - removed confuctrion example""
+git commit -am "better concurancy examples - removed confusingn example""
