@@ -8,10 +8,10 @@ The `examples` directory houses a variety of sub-directories, each focusing on s
 ## **Flybase Module**
 
 - **[`flybase`](./flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
-   - [`flybase-vspace.metta`](flybase/flybase-vspace.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
+   - [`flybase-deduced-queries.metta`](flybase/flybase-deduced-queries.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-deduced-queries.metta.html): Contains queries deduced from Flybase data analysis.
    - [`flybase-loader-size-estimates.metta`](flybase/flybase-loader-size-estimates.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-loader-size-estimates.metta.html): Size estimates and optimizations for the Flybase loader.
    - [`flybase-loader.metta`](flybase/flybase-loader.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-loader.metta.html): Loader script for Flybase datasets.
-   - [`flybase-deduced-queries.metta`](flybase/flybase-deduced-queries.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-deduced-queries.metta.html): Contains queries deduced from Flybase data analysis.
+   - [`flybase-vspace.metta`](flybase/flybase-vspace.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
    - [`flybase-deduced-connections.metta`](flybase/flybase-deduced-connections.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-deduced-connections.metta.html): Mapping and connections deduced in Flybase.
    - [`flybase-deduced-types.metta`](flybase/flybase-deduced-types.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-deduced-types.metta.html): Type definitions and structures deduced in Flybase.
   - **[`output~`](./flybase/output~)**: Output files and processed data from Flybase.

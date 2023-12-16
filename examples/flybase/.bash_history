@@ -1412,3 +1412,5 @@ git add .
 git commit -am from_vspace/
 git push logicmoo 
 git add ..
+git commit -am ../README.md 
+git push logicmoo 
