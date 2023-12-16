@@ -4,9 +4,8 @@ The `examples` directory houses a variety of sub-directories, each focusing on s
 
 ---
 
-## Main Directory Structure
 
-#### **Flybase Module**
+## **Flybase Module**
 
 - **[`flybase`](./flybase)**: Focused on the Flybase module, the examples here are designed to provide insights into how this specific component works and can be used.
    - [`flybase-vspace.metta`](flybase/flybase-vspace.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/flybase-vspace.metta.html): Virtual space configuration for Flybase.
@@ -24,6 +23,20 @@ The `examples` directory houses a variety of sub-directories, each focusing on s
     - [`load_all_of_flybase.metta`](flybase/sanity/load_all_of_flybase.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/sanity/load_all_of_flybase.metta.html): Demonstrates loading all 54 million atoms in under 30 seconds.
     - [`simple_query1.metta`](flybase/sanity/simple_query1.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/sanity/simple_query1.metta.html): Queries using the loaded atoms that complete in under a second.
     - [`simple_query2_llm.metta`](flybase/sanity/simple_query2_llm.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/sanity/simple_query2_llm.metta.html): Combined queries with large language models.
+
+### Flybase Integration with DAS and VSPACE
+
+#### **Flybase with Distributed Atomspace (DAS) Integration**
+- **[`flybase/from_das`](./flybase/from_das)**: Showcases the integration of Flybase with Distributed Atomspace (DAS), a system for managing and processing distributed atom-based data.
+  - [`flybase_rust_uses_python_das.metta`](./flybase/from_das/flybase_rust_uses_python_das.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/from_das/flybase_rust_uses_python_das.metta.html): Demonstrates how Flybase utilizes Python and Rust to interact with DAS, enhancing its data analysis and processing capabilities.
+
+#### **Flybase with Rust-Only Implementation**
+- **[`flybase/from_rust`](./flybase/from_rust)**: Features Flybase loaded exclusively in Rust
+  - [`flybase_rust_only.metta`](./flybase/from_rust/flybase_rust_only.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/from_rust/flybase_rust_only.metta.html): Illustrates the pure Rust implementation of Flybase, highlighting its efficiency and direct integration with system-level functionalities.
+
+#### **Flybase with VSPACE (Version Space) Integration**
+- **[`flybase/from_vspace`](./flybase/from_vspace)**: Using Rust to access Flybase with VSPACE ( hosting 56 million atoms )
+  - [`flybase_rust_uses_python_vspace.metta`](./flybase/from_vspace/flybase_rust_uses_python_vspace.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/flybase/from_vspace/flybase_rust_uses_python_vspace.metta.html): Showcases Flybase leveraging Python VSPACE within a Rust environment, focusing on efficient handling and manipulation of a vast space containing millions of atoms.
 
 
 ## Hyperon Miner Examples
@@ -362,7 +375,7 @@ This group of directories explores various representational methods for porting 
   - [`test_list_concatenation.metta`](performance/test_list_concatenation.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/performance/test_list_concatenation.metta.html): Tests for list concatenation performance.
 
 
-#### ** MeTTaLog's Higher Order Virtual Machine (HVM)**
+#### ** MeTTaLog Higher Order Virtual Machine (HVM)**
 
       known for its pure functional runtime, lazy evaluation, non-garbage collection, and massive parallelism. HVM's beta-optimality allows it, in certain higher-order computations, to be exponentially faster than alternatives, including Haskell's GHC.
 

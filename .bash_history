@@ -2656,3 +2656,6 @@ rm *.ansi
 git status .
 git commit -am "exceeds baseline sliughtly"
 git push logicmoo 
+git commit -am "examples/README.md"
+git push
+git push logicmoo 

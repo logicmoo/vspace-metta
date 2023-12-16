@@ -1393,3 +1393,19 @@ mv ~data~ output~
 ls
 ls output~/
 ls output~/ -l
+cd examples/
+cd flybase/
+mkdir from_das
+mkdir from_rust
+mkdir from_vspace
+ls 
+cat README.md 
+cp flybase-loader.metta from_rust/
+cp flybase-loader.metta from_rust/flybase_rust_only.metta
+cp flybase-loader.metta from_vspace/flybase_rust_uses_python_vspace.metta
+cp flybase-loader.metta from_das/flybase_rust_uses_python_das.metta
+find
+rm ./from_rust/flybase-loader.metta
+ls
+tree 
+git add .

@@ -1,15 +1,20 @@
 
 
+;; Load the VSPACE python space
 
-;; !(extend-py! metta_vspace.metta_learner)
-
+!(extend-py! metta_vspace.metta_learner)
 !(ensure-loaded! "./whole_flybase.qlf")
+
+;; make some queries
+
+
 
 (=  (smatch $Query) (match &self  $Query $Query))
 (=  (ematch $Query) (eval &self $Query))
 
 (=  (mmatch $Query) (, (is-literal $Q) (smatch
          (= $_ (eval &self  $Query)))
+
 
 
 
