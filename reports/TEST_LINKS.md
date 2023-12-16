@@ -1,12 +1,14 @@
 | Pass | Fail |Miss|Percent| Directory |
 |------|------|----|-------|-----------|
-|     4|     9|    |   30% |examples/python_compat/hyperon-experimental_python/sandbox/resolve |
-|     4|    13|  3 |   20% |examples/python_compat/hyperon-experimental_python/sandbox |
-|     4|    13|  3 |   20% |examples/python_compat/hyperon-experimental_python |
-|     4|    13|  9 |   15% |examples/python_compat |
+|     1|     2|    |   33% |examples/python_compat/hyperon-experimental_python/sandbox/sql_space |
+|     6|     7|    |   46% |examples/python_compat/hyperon-experimental_python/sandbox/resolve |
+|     1|     0|  1 |   50% |examples/python_compat/hyperon-experimental_python/sandbox/neurospace |
+|     8|     9|  3 |   40% |examples/python_compat/hyperon-experimental_python/sandbox |
+|     8|     9|  3 |   40% |examples/python_compat/hyperon-experimental_python |
+|     8|     9|  9 |   30% |examples/python_compat |
 |    33|    19|  9 |   54% |examples/performance |
 |     2|     0|    |  100% |examples/flybase/sanity |
-|     2|     0|  4 |   33% |examples/flybase |
+|    53|     0|  3 |   94% |examples/flybase |
 |     4|     2|  1 |   57% |examples/features/host_language/compiler |
 |     4|     2|  1 |   57% |examples/features/host_language |
 |     2|     6|    |   25% |examples/features/containers_are_spaces |
@@ -27,7 +29,7 @@
 |     3|     0|    |  100% |examples/extended_compat/hyperon-miner/match |
 |     6|     0|    |  100% |examples/extended_compat/hyperon-miner |
 |   129|    45| 19 |   66% |examples/extended_compat |
-|    75|     1|  2 |   96% |examples/baseline_compat/metta-morph_tests |
+|    75|     1|  3 |   94% |examples/baseline_compat/metta-morph_tests |
 |    24|    17|  5 |   52% |examples/baseline_compat/hyperon-pln_metta/synthesis/experiments |
 |    24|    20|  6 |   48% |examples/baseline_compat/hyperon-pln_metta/synthesis |
 |     2|     1|    |   66% |examples/baseline_compat/hyperon-pln_metta/sumo/orientation |
@@ -45,9 +47,9 @@
 |    31|    14|    |   68% |examples/baseline_compat/hyperon-pln_metta/backward-chainer |
 |   178|    78|  9 |   67% |examples/baseline_compat/hyperon-pln_metta |
 |    33|     0|    |  100% |examples/baseline_compat/hyperon-mettalog_sanity |
-|   175|    24|  1 |   87% |examples/baseline_compat/hyperon-experimental_scripts |
-|   461|   103| 12 |   80% |examples/baseline_compat |
-|   635|   188| 61 |   71% |examples/ |
+|   181|    18|  1 |   90% |examples/baseline_compat/hyperon-experimental_scripts |
+|   467|    97| 13 |   80% |examples/baseline_compat |
+|   696|   178| 61 |   74% |examples/ |
 
 
 
@@ -90,7 +92,7 @@
 |     3 |     3 |     50%  | [e3_match_states.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/e3_match_states.metta.html) |
 |     2 |     0 |    100%  | [e1_kb_write.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/e1_kb_write.metta.html) |
 |     5 |     0 |    100%  | [b2_backchain.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/b2_backchain.metta.html) |
-|     8 |    10 |     44%  | [d4_type_prop.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/d4_type_prop.metta.html) |
+|    14 |     4 |     77%  | [d4_type_prop.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/d4_type_prop.metta.html) |
 |     5 |     0 |    100%  | [c2_spaces.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/c2_spaces.metta.html) |
 |    11 |     3 |     78%  | [d1_gadt.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/d1_gadt.metta.html) |
 |     3 |     0 |    100%  | [b3_direct.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/b3_direct.metta.html) |
@@ -107,7 +109,7 @@
 |     7 |     0 |    100%  | [d3_deptypes.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/d3_deptypes.metta.html) |
 |     3 |     2 |     60%  | [c3_pln_stv.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/hyperon-experimental_scripts/c3_pln_stv.metta.html) |
 |       |       |          |                                                                                                    |
-|   175 |    25 |     87%  | Total                                                                                              |
+|   181 |    19 |     90%  | Total                                                                                              |
 |       |       |          |                                                                                                    |
 
 
@@ -132,6 +134,7 @@
 |       |       |          |                                                                                                    |
 |       |       |          | Directory:     ./examples/baseline_compat/metta-morph_tests/                 |
 |       |       |          |                                                                                                    |
+|    -1 |    -1 |      0%  | [hyperpose.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/hyperpose.metta.html) |
 |    -1 |    -1 |      0%  | [let_superpose_if_case.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/let_superpose_if_case.metta.html) |
 |     7 |     0 |    100%  | [tests0.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/tests0.metta.html) |
 |    11 |     0 |    100%  | [match_void.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/match_void.metta.html) |
@@ -160,7 +163,7 @@
 |     4 |     0 |    100%  | [superpose_nested.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/superpose_nested.metta.html) |
 |     1 |     0 |    100%  | [let_superpose_list2.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/baseline_compat/metta-morph_tests/let_superpose_list2.metta.html) |
 |       |       |          |                                                                                                    |
-|    75 |     3 |     96%  | Total                                                                                              |
+|    75 |     4 |     94%  | Total                                                                                              |
 |       |       |          |                                                                                                    |
 
 
@@ -532,10 +535,10 @@
 |       |       |          |                                                                                                    |
 |       |       |          | Directory:     ./examples/python_compat/hyperon-experimental_python/sandbox/neurospace/                 |
 |       |       |          |                                                                                                    |
-|     0 |     1 |      0%  | [test_assist.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/neurospace/test_assist.metta.html) |
+|     1 |     0 |    100%  | [test_assist.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/neurospace/test_assist.metta.html) |
 |    -1 |    -1 |      0%  | [test_nspace.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/neurospace/test_nspace.metta.html) |
 |       |       |          |                                                                                                    |
-|     0 |     2 |      0%  | Total                                                                                              |
+|     1 |     1 |     50%  | Total                                                                                              |
 |       |       |          |                                                                                                    |
 
 
@@ -544,9 +547,9 @@
 |       |       |          |                                                                                                    |
 |       |       |          | Directory:     ./examples/python_compat/hyperon-experimental_python/sandbox/resolve/                 |
 |       |       |          |                                                                                                    |
-|     4 |     9 |     30%  | [r.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/resolve/r.metta.html) |
+|     6 |     7 |     46%  | [r.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/resolve/r.metta.html) |
 |       |       |          |                                                                                                    |
-|     4 |     9 |     30%  | Total                                                                                              |
+|     6 |     7 |     46%  | Total                                                                                              |
 |       |       |          |                                                                                                    |
 
 
@@ -555,9 +558,9 @@
 |       |       |          |                                                                                                    |
 |       |       |          | Directory:     ./examples/python_compat/hyperon-experimental_python/sandbox/sql_space/                 |
 |       |       |          |                                                                                                    |
-|     0 |     3 |      0%  | [sql_space_test.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/sql_space/sql_space_test.metta.html) |
+|     1 |     2 |     33%  | [sql_space_test.metta](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/cuRRent/python_compat/hyperon-experimental_python/sandbox/sql_space/sql_space_test.metta.html) |
 |       |       |          |                                                                                                    |
-|     0 |     3 |      0%  | Total                                                                                              |
+|     1 |     2 |     33%  | Total                                                                                              |
 |       |       |          |                                                                                                    |
 
 

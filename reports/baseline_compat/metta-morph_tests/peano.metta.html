@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+Script started on 2023-12-16 10:35:56-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/baseline_compat/metta-morph_tests/peano.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
+; init_phase(after_load).
+; init_phase(restore_state).
+; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/baseline_compat/metta-morph_tests/peano.metta,--halt=true]
+;    (compiled_loon default)
+;    (compiled_loon restore)
+;    (compiled_loon goal)
+; init_why(after_boot,program).
+;    (compiled_loon program)
+;   (began_loon toplevel)
+;    (is_cmd_option python --python=enable enable)
+;    (is_cmd_option timeout --timeout=20 20)
+;     (is_cmd_option html --html True)
+;     (is_cmd_option repl --repl=false False)
+
+; (: user 
+  (load_metta_file  &self "./examples/baseline_compat/metta-morph_tests/peano.metta"))
+;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta")
+;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta")
+;                       (= 1 "[(S (S (S (S (S Z)))))]")
+;                       (= 2 "0.10user 0.01system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 33032maxresident)k")
+;                        (= 2 "0inputs+0outputs (0major+3495minor)pagefaults 0swaps")
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Add',X,'Z'],X])
+</span><span class="ansi38-255165000">(= 
+  (Add $X Z) $X)
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Add',X,['S',Y]],['Add',['S',X],Y]])
+</span><span class="ansi38-255165000">(= 
+  (Add $X 
+    (S $Y)) 
+  (Add 
+    (S $X) $Y))
+</span>
+
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(Add 
+  (S 
+    (S Z)) 
+  (S 
+    (S 
+      (S Z))))
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (Add 
+    (S 
+      (S Z)) 
+    (S 
+      (S 
+        (S Z)))) 
+  ( (S 
+      (S 
+        (S 
+          (S 
+            (S Z)))))))
+
+</span><span class="ansi38-250144246">; !(Add (S (S Z)) (S (S (S Z))))
+</span>    -->(0,eval('&self',[assertEqualToResult,['Add',['S',['S','Z']],['S',['S',['S','Z']]]],[['S',['S',['S',['S',['S','Z']]]]]]],RET),depth(0))
+;<h3 id="METTA-MORPH-TESTS.PEANO.01">;; METTA-MORPH-TESTS.PEANO.01</h3>
+      -->(1,eval('&self',['Add',['S',['S','Z']],['S',['S',['S','Z']]]],RET),depth(1))
+                -->(2,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(6))
+                  -->(3,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
+                    -->(4,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(5,eval('&self',['S','Z'],RET),depth(9))
+                      <--(5,retval(['S','Z']))
+                      -->(7,eval('&self',['S','Z'],RET),depth(9))
+                      <--(7,retval(['S','Z']))
+                      -->(9,eval('&self',['S','Z'],RET),depth(9))
+                      <--(9,retval(['S','Z']))
+                    <--(4,retval(['S',['S','Z']]))
+                    -->(13,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(14,eval('&self',['S','Z'],RET),depth(9))
+                      <--(14,retval(['S','Z']))
+                      -->(16,eval('&self',['S','Z'],RET),depth(9))
+                      <--(16,retval(['S','Z']))
+                      -->(18,eval('&self',['S','Z'],RET),depth(9))
+                      <--(18,retval(['S','Z']))
+                    <--(13,retval(['S',['S','Z']]))
+                    -->(22,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(23,eval('&self',['S','Z'],RET),depth(9))
+                      <--(23,retval(['S','Z']))
+                      -->(25,eval('&self',['S','Z'],RET),depth(9))
+                      <--(25,retval(['S','Z']))
+                      -->(27,eval('&self',['S','Z'],RET),depth(9))
+                      <--(27,retval(['S','Z']))
+                    <--(22,retval(['S',['S','Z']]))
+                  <--(3,retval(['S',['S',['S','Z']]]))
+                  -->(34,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
+                    -->(35,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(36,eval('&self',['S','Z'],RET),depth(9))
+                      <--(36,retval(['S','Z']))
+                      -->(38,eval('&self',['S','Z'],RET),depth(9))
+                      <--(38,retval(['S','Z']))
+                      -->(40,eval('&self',['S','Z'],RET),depth(9))
+                      <--(40,retval(['S','Z']))
+                    <--(35,retval(['S',['S','Z']]))
+                    -->(44,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(45,eval('&self',['S','Z'],RET),depth(9))
+                      <--(45,retval(['S','Z']))
+                      -->(47,eval('&self',['S','Z'],RET),depth(9))
+                      <--(47,retval(['S','Z']))
+                      -->(49,eval('&self',['S','Z'],RET),depth(9))
+                      <--(49,retval(['S','Z']))
+                    <--(44,retval(['S',['S','Z']]))
+                    -->(53,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(54,eval('&self',['S','Z'],RET),depth(9))
+                      <--(54,retval(['S','Z']))
+                      -->(56,eval('&self',['S','Z'],RET),depth(9))
+                      <--(56,retval(['S','Z']))
+                      -->(58,eval('&self',['S','Z'],RET),depth(9))
+                      <--(58,retval(['S','Z']))
+                    <--(53,retval(['S',['S','Z']]))
+                  <--(34,retval(['S',['S',['S','Z']]]))
+                  -->(65,eval('&self',['S',['S',['S','Z']]],RET),depth(7))
+                    -->(66,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(67,eval('&self',['S','Z'],RET),depth(9))
+                      <--(67,retval(['S','Z']))
+                      -->(69,eval('&self',['S','Z'],RET),depth(9))
+                      <--(69,retval(['S','Z']))
+                      -->(71,eval('&self',['S','Z'],RET),depth(9))
+                      <--(71,retval(['S','Z']))
+                    <--(66,retval(['S',['S','Z']]))
+                    -->(75,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(76,eval('&self',['S','Z'],RET),depth(9))
+                      <--(76,retval(['S','Z']))
+                      -->(78,eval('&self',['S','Z'],RET),depth(9))
+                      <--(78,retval(['S','Z']))
+                      -->(80,eval('&self',['S','Z'],RET),depth(9))
+                      <--(80,retval(['S','Z']))
+                    <--(75,retval(['S',['S','Z']]))
+                    -->(84,eval('&self',['S',['S','Z']],RET),depth(8))
+                      -->(85,eval('&self',['S','Z'],RET),depth(9))
+                      <--(85,retval(['S','Z']))
+                      -->(87,eval('&self',['S','Z'],RET),depth(9))
+                      <--(87,retval(['S','Z']))
+                      -->(89,eval('&self',['S','Z'],RET),depth(9))
+                      <--(89,retval(['S','Z']))
+                    <--(84,retval(['S',['S','Z']]))
+                  <--(65,retval(['S',['S',['S','Z']]]))
+                      -->(96,subst_args('&self',['S',['S',['S',['S','Z']]]],RET),depth(9))
+                <--(2,retval(['S',['S',['S',['S','Z']]]]))
+                -->(100,eval('&self',['S',['S',['S',['S','Z']]]],RET),depth(6))
+; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
+                <--(100,retval(['S',['S',['S',['S','Z']]]]))
+      <--(1,retval(['S',['S',['S',['S',['S','Z']]]]]))
+; 
+; EVAL TEST
+; took 0.020 secs. (19.54 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (S 
+        (S 
+          (S 
+            (S 
+              (S Z)))))) 
+    ( (S 
+        (S 
+          (S 
+            (S 
+              (S Z))))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span>; Execution took 0.022 secs. (21.53 milliseconds) 
+<span class="ansi32">% 100,343 inferences, 0.033 CPU in 0.033 seconds (100% CPU, 3080198 Lips)
+</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/peano.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+;     (is_cmd_option halt --halt=true True)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span>
+Script done on 2023-12-16 10:35:56-08:00 [COMMAND_EXIT_CODE="7"]
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+Script started on 2023-12-16 10:51:05-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/performance/test_list_concatenation.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
+; init_phase(after_load).
+; init_phase(restore_state).
+; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/performance/test_list_concatenation.metta,--halt=true]
+;    (compiled_loon default)
+;    (compiled_loon restore)
+;    (compiled_loon goal)
+; init_why(after_boot,program).
+;    (compiled_loon program)
+;   (began_loon toplevel)
+;    (is_cmd_option python --python=enable enable)
+;    (is_cmd_option timeout --timeout=20 20)
+;     (is_cmd_option html --html True)
+;     (is_cmd_option repl --repl=false False)
+
+; (: user 
+  (load_metta_file  &self "./examples/performance/test_list_concatenation.metta"))
+;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta")
+;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta")
+;                       (= 1 "[()]")
+;                       (= 2 "0.10user 0.01system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 33132maxresident)k")
+;                        (= 2 "0inputs+0outputs (0major+3485minor)pagefaults 0swaps")
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Concat',['Cons',Head1,'Nil'],List2],['Cons',Head1,List2]])
+</span><span class="ansi38-255165000">(= 
+  (Concat 
+    (Cons $Head1 Nil) $List2) 
+  (Cons $Head1 $List2))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Concat',['Cons',Head1,['Cons',T1,T11]],List2],['Cons',Head1,['Concat',['Cons',T1,T11],List2]]])
+</span><span class="ansi38-255165000">(= 
+  (Concat 
+    (Cons $Head1 
+      (Cons $T1 $T11)) $List2) 
+  (Cons $Head1 
+    (Concat 
+      (Cons $T1 $T11) $List2)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[lst1],['Cons',a1,['Cons',a2,'Nil']]])
+</span><span class="ansi38-255165000">(= 
+  (lst1) 
+  (Cons a1 
+    (Cons a2 Nil)))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[lst2],['Cons',b1,['Cons',b2,'Nil']]])
+</span><span class="ansi38-255165000">(= 
+  (lst2) 
+  (Cons b1 
+    (Cons b2 Nil)))
+</span>
+
+<span class="ansi38-013099040">!(assertEqual 
+  (Concat 
+    (lst1) 
+    (lst2)) 
+  (Cons a1 
+    (Cons a2 
+      (Cons b1 
+        (Cons b2 Nil)))))
+
+</span><span class="ansi38-250144246">; !(Concat (lst1) (lst2))
+</span>    -->(0,eval('&self',[assertEqual,['Concat',[lst1],[lst2]],['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]]],RET),depth(0))
+;<h3 id="PERFORMANCE.TEST-LIST-CONCATENATION.01">;; PERFORMANCE.TEST-LIST-CONCATENATION.01</h3>
+      -->(1,eval('&self',['Concat',[lst1],[lst2]],RET),depth(1))
+        -->(2,eval('&self',[lst1],RET),depth(2))
+            -->(3,eval('&self',['Cons',a2,'Nil'],RET),depth(4))
+                  -->(4,subst_args('&self',['Cons',a2,'Nil'],RET),depth(7))
+            <--(3,retval(['Cons',a2,'Nil']))
+                -->(5,subst_args('&self',['Cons',a1,['Cons',a2,'Nil']],RET),depth(6))
+                    -->(6,subst_args('&self',['Cons',a2,'Nil'],RET),depth(8))
+              -->(7,subst_args('&self',['Cons',a1,['Cons',a2,'Nil']],RET),depth(5))
+                  -->(8,subst_args('&self',['Cons',a2,'Nil'],RET),depth(7))
+        -->(9,eval('&self',[lst2],RET),depth(2))
+            -->(10,eval('&self',['Cons',b2,'Nil'],RET),depth(4))
+                  -->(11,subst_args('&self',['Cons',b2,'Nil'],RET),depth(7))
+            <--(10,retval(['Cons',b2,'Nil']))
+                -->(12,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(6))
+                    -->(13,subst_args('&self',['Cons',b2,'Nil'],RET),depth(8))
+              -->(14,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(5))
+                  -->(15,subst_args('&self',['Cons',b2,'Nil'],RET),depth(7))
+            -->(16,eval('&self',['Concat',['Cons',a2,'Nil'],['Cons',b1,['Cons',b2,'Nil']]],RET),depth(4))
+                -->(17,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(6))
+                  -->(18,eval('&self',['Cons',b2,'Nil'],RET),depth(7))
+                  <--(18,retval(['Cons',b2,'Nil']))
+                      -->(20,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                <--(17,retval(['Cons',b1,['Cons',b2,'Nil']]))
+                    -->(22,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(8))
+                  -->(25,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(26,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+              -->(28,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(5))
+                -->(29,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(6))
+                  -->(30,eval('&self',['Cons',b2,'Nil'],RET),depth(7))
+                  <--(30,retval(['Cons',b2,'Nil']))
+                      -->(32,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+                <--(29,retval(['Cons',b1,['Cons',b2,'Nil']]))
+                    -->(34,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(8))
+              <--(28,retval(['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]))
+                  -->(37,subst_args('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(7))
+                      -->(38,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(9))
+                -->(41,subst_args('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(6))
+                    -->(42,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(8))
+              -->(45,subst_args('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(5))
+                  -->(46,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(7))
+                      -->(47,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(9))
+            -->(49,subst_args('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(4))
+                -->(50,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(6))
+                    -->(51,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+            <--(16,retval(['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]))
+        <--(9,retval(['Cons',b1,['Cons',b2,'Nil']]))
+        <--(2,retval(['Cons',a1,['Cons',a2,'Nil']]))
+      <--(1,retval(['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]]))
+      -->(53,eval('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(1))
+        -->(54,eval('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(2))
+          -->(55,eval('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(3))
+            -->(56,eval('&self',['Cons',b2,'Nil'],RET),depth(4))
+                  -->(57,subst_args('&self',['Cons',b2,'Nil'],RET),depth(7))
+            <--(56,retval(['Cons',b2,'Nil']))
+                -->(58,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(6))
+                    -->(59,subst_args('&self',['Cons',b2,'Nil'],RET),depth(8))
+          <--(55,retval(['Cons',b1,['Cons',b2,'Nil']]))
+              -->(60,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(5))
+                  -->(61,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(7))
+                      -->(62,subst_args('&self',['Cons',b2,'Nil'],RET),depth(9))
+        <--(54,retval(['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]))
+            -->(63,subst_args('&self',['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]],RET),depth(4))
+                -->(64,subst_args('&self',['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]],RET),depth(6))
+                    -->(65,subst_args('&self',['Cons',b1,['Cons',b2,'Nil']],RET),depth(8))
+      <--(53,retval(['Cons',a1,['Cons',a2,['Cons',b1,['Cons',b2,'Nil']]]]))
+; 
+; EVAL TEST
+; took 0.007 secs. (6.84 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 Nil))))) 
+    ( (Cons a1 
+        (Cons a2 
+          (Cons b1 
+            (Cons b2 Nil)))))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span>; Execution took 0.010 secs. (9.61 milliseconds) 
+<span class="ansi32">% 67,277 inferences, 0.030 CPU in 0.030 seconds (100% CPU, 2234107 Lips)
+</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/test_list_concatenation.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+;     (is_cmd_option halt --halt=true True)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span>
+Script done on 2023-12-16 10:51:05-08:00 [COMMAND_EXIT_CODE="7"]
+
+</pre>
+</body>
+
+</html>

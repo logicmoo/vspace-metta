@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255238088 { color: #FFEE58; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+Script started on 2023-12-16 10:35:55-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/baseline_compat/metta-morph_tests/nested_parameters.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
+; init_phase(after_load).
+; init_phase(restore_state).
+; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/baseline_compat/metta-morph_tests/nested_parameters.metta,--halt=true]
+;    (compiled_loon default)
+;    (compiled_loon restore)
+;    (compiled_loon goal)
+; init_why(after_boot,program).
+;    (compiled_loon program)
+;   (began_loon toplevel)
+;    (is_cmd_option python --python=enable enable)
+;    (is_cmd_option timeout --timeout=20 20)
+;     (is_cmd_option html --html True)
+;     (is_cmd_option repl --repl=false False)
+
+; (: user 
+  (load_metta_file  &self "./examples/baseline_compat/metta-morph_tests/nested_parameters.metta"))
+;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/nested_parameters.metta")
+;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/nested_parameters.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/nested_parameters.metta")
+;                       (= 1 "[(1.0 0.81)]")
+;                       (= 2 "0.11user 0.00system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 33032maxresident)k")
+;                        (= 2 "0inputs+0outputs (0major+3513minor)pagefaults 0swaps")
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['Truth_Deduction',[F1,C1],[F2,C2]],[[*,F1,F2],[*,[*,F1,F2],[*,C1,C2]]]])
+</span><span class="ansi38-255165000">(= 
+  (Truth_Deduction 
+    ($F1 $C1) 
+    ($F2 $C2)) 
+  ( (* $F1 $F2) 
+    (* 
+      (* $F1 $F2) 
+      (* $C1 $C2))))
+</span>
+
+<span class="ansi38-255165000">;; In file as:  
+</span><span class="ansi1 ansi38-255238088">!(Truth_Deduction 
+  (1.0 0.9) 
+  (1.0 0.9))
+</span>;; To unit test case:
+<span class="ansi38-013099040">!(assertEqualToResult 
+  (Truth_Deduction 
+    (1.0 0.9) 
+    (1.0 0.9)) 
+  ( (1.0 0.81)))
+
+</span><span class="ansi38-250144246">; !(Truth_Deduction (1.0 0.9) (1.0 0.9))
+</span>    -->(0,eval('&self',[assertEqualToResult,['Truth_Deduction',[1.0,0.9],[1.0,0.9]],[[1.0,0.81]]],RET),depth(0))
+;<h3 id="METTA-MORPH-TESTS.NESTED-PARAMETERS.01">;; METTA-MORPH-TESTS.NESTED-PARAMETERS.01</h3>
+      -->(1,eval('&self',['Truth_Deduction',[1.0,0.9],[1.0,0.9]],RET),depth(1))
+          -->(2,eval('&self',[*,[*,1.0,1.0],[*,0.9,0.9]],RET),depth(3))
+            -->(3,eval('&self',[*,1.0,1.0],RET),depth(4))
+            <--(3,retval(1.0))
+            -->(4,eval('&self',[*,0.9,0.9],RET),depth(4))
+            <--(4,retval(0.81))
+          <--(2,retval(0.81))
+          -->(5,eval('&self',[*,1.0,1.0],RET),depth(3))
+          <--(5,retval(1.0))
+          -->(6,eval('&self',[*,[*,1.0,1.0],[*,0.9,0.9]],RET),depth(3))
+            -->(7,eval('&self',[*,1.0,1.0],RET),depth(4))
+            <--(7,retval(1.0))
+            -->(8,eval('&self',[*,0.9,0.9],RET),depth(4))
+            <--(8,retval(0.81))
+                -->(9,subst_args('&self',[1.0,0.81],RET),depth(6))
+              -->(10,subst_args('&self',[1.0,0.81],RET),depth(5))
+            -->(11,subst_args('&self',[1.0,0.81],RET),depth(4))
+          <--(6,retval(0.81))
+      <--(1,retval([1.0,0.81]))
+; 
+; EVAL TEST
+; took 0.002 secs. (2.17 milliseconds) 
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    ( (1.0 0.81)) 
+    ( (1.0 0.81))))
+</span>    <--(0,retval('Empty'))
+Deterministic: <span class="ansi33">Empty
+
+</span>; Execution took 0.004 secs. (3.51 milliseconds) 
+<span class="ansi32">% 39,409 inferences, 0.013 CPU in 0.013 seconds (100% CPU, 2992172 Lips)
+</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/nested_parameters.metta" 0)
+<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
+;     (is_cmd_option halt --halt=true True)
+<span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span><span class="ansi1">LoonIt Report
+</span>------------
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
+</span>
+Script done on 2023-12-16 10:35:55-08:00 [COMMAND_EXIT_CODE="7"]
+
+</pre>
+</body>
+
+</html>

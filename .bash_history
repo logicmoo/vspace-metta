@@ -2423,3 +2423,234 @@ git push logicmoo
 cls  ; ./MeTTa examples/features/parallelism/builtins.metta --html
 cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html 
 cat '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html'
+git commit -am report
+git push logicmoo 
+cls
+./MeTTa
+cls
+./MeTTa
+git diff .
+./MeTTa
+grep call_ndet metta_vspace -R
+./MeTTa
+./MeTTa --prolog
+cls ; ./MeTTa --prolog
+cls ; ./MeTTa
+rm *.ansi
+cls ; ./MeTTa
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean
+cls ; ./MeTTa examples/baseline_compat/metta-morph_tests/ --clean --test
+./MeTTa --test --html examples/baseline_compat/metta-morph_tests/let_superpose_if_case.m
+./MeTTa --test --html examples/baseline_compat/metta-morph_tests/let_superpose_if_case.metta
+cp metta_vspace/pyswip metta_vspace/pyswip_today -a
+git checkout metta_vspace/pyswip/metta_eval.pl
+./MeTTa --test --html examples/baseline_compat/metta-morph_tests/let_superpose_if_case.metta
+./MeTTa --test --html examples/baseline_compat/metta-morph_tests/
+./MeTTa --test --clean --html examples/baseline_compat/metta-morph_tests/
+rm Sav.MeTTaLog 
+./MeTTa --test --clean --html examples/baseline_compat/metta-morph_tests/
+/MeTTa --test --clean --html examples/baseline_compat/metta-morph_tests/
+./MeTTa --test --clean --html examples/baseline_compat/metta-morph_tests/
+cls
+./MeTTa
+cls
+./MeTTa
+./MeTTa --test --clean --html examples/baseline_compat
+\cp metta_vspace/pyswip/* metta_vspace/pyswip_today -a
+git checkout  metta_vspace/pyswip/metta_eval.pl
+./MeTTa --test --clean --html examples/baseline_compat
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+wc -l metta_vspace/pyswip/metta_*.pl
+./MeTTa --test --clean --html examples/baseline_compat --timeout=20
+cat TEST_LINKS.md 
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+find . -name "*.rs" -type f ! -path "*targ*" | xargs wc -l
+cd -
+cat ./lib/src/metta/interpreter.rs
+cat ../hyperon-experimental/lib/src/metta/interpreter.rs
+cat TEST_LINKS.md 
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.m
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+./MeTTa examples/extended_compat/metta-examples/recursion-schemes/src/examples/expression.metta
+./MeTTa examples/extended_compat/metta-examples/logic/memb.metta
+./MeTTa examples/extended_compat/metta-examples/SICP_book/chapter_1_1.metta
+./MeTTa --test --clean --html examples/ --timeout 20
+./MeTTa --test --timeout 20 examples/
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+git checkout metta_vspace/pyswip/metta_eval.pl
+cls ; ./MeTTa examples/extended_compat/metta-examples/SICP_book/chapter_1_1.metta
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+./MeTTa --test --timeout 20 examples/
+git checkout metta_vspace/pyswip/metta_eval.pl
+./MeTTa --test --timeout 20 examples/
+./MeTTa --test --timeout=20 examples/
+git dif metta_vspace/pyswip/metta_eval.pl
+git diff metta_vspace/pyswip/metta_eval.pl
+./MeTTa --test --timeout=20 examples/
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+git log metta_vspace/pyswip/metta_eval.pl
+git checkout 3b1d49d7f3c53a74cebe5cae6c22ed1e543a9618  metta_vspace/pyswip/metta_eval.pl
+./MeTTa --test --timeout=20 examples/
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+./MeTTa --test --timeout=20 examples/ --clean
+./MeTTa
+swipl
+./scripts/convert_to_metta.sh ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/
+find ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/ -type f -name "*.metta" -exec wc -l {} +
+cat  ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/ontologies/flybase_stock_vocabulary.obo.metta 
+./scripts/convert_to_metta.sh ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/
+cat ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/genes/ncRNA_genes_fb_2023_04.json.metta 
+./scripts/convert_to_metta.sh ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/
+find data -name "*.metta"
+find data -name "*.metta" --delete
+find data -name "*.metta" -delete
+./scripts/convert_to_metta.sh ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/
+ls
+ls *pl*
+*.bak
+rm *.bak
+ls
+head fbp
+rm fbp
+ls *.tmp
+head file_info.tmp 
+rm file_info.tmp 
+cat final_MeTTaLog.md 
+rm final_MeTTaLog.md 
+ls
+rm *.answers
+ls
+cat all_dirs.tmp 
+rm all_dirs.tmp 
+ls
+head ff
+rm ff
+ls
+head ma
+head bar
+cls ; ./MeTTa examples/extended_compat/metta-examples/SICP_book/chapter_1_2.metta
+./MeTTa -G '!(ls!)'
+./MeTTa -G '!(ls!)' -G '!(halt! 777)'
+./MeTTa -G '!(create_flybase_qlf!)' -G '!(halt! 777)'
+ls -l
+tail flybase.metta.pl 
+ls
+tail whole_flybase.pl
+tail whole_flybase.metta 
+tail whole_flybase.pl
+watch tail whole_flybase.pl
+watch tail whole_flybase.metta 
+watch "wc -l whole_flybase.metta && tail whole_flybase"
+watch "wc -l whole_flybase.metta && tail whole_flybase.metta"
+watch "ls -lh whole_flybase.metta &&  wc -l whole_flybase.metta && tail whole_flybase.metta"
+watch "ls -lh whole_flybase.pl &&  wc -l whole_flybase.pl && tail whole_flybase.pl"
+top
+watch "ls -lh whole_flybase.pl &&  wc -l whole_flybase.pl && tail whole_flybase.pl"
+tail whole_flybase.pl 
+wc -l whole_flybase.pl 
+rm whole_flybase.metta 
+swipl -g "qcompile(whole_flybase)" -t halt
+ls -lh
+sort  whole_flybase.pl > wfb
+df / -h
+head wfb
+tail wfb
+grep fb_pred wfb
+watch "ls -lh whole_flybase.pl &&  wc -l whole_flybase.pl && tail whole_flybase.pl"
+cd ../../vspace-metta/
+./MeTTa -G '!(create_flybase_qlf!)' -G '!(halt! 777)'
+grep 0036067 whole_flybase.pl 
+grep "0036067'" whole_flybase.pl 
+cls
+grep "0036067'" whole_flybase.pl 
+grep "long nephron" whole_flybase.pl 
+grep "long nephron" whole_flybase.pl  | grep name
+grep "The collection of muscles that form attachments to the shoulder skeleton." whole_flybase.pl  | grep name
+find .. -name "*.metta"
+find .. -name "*.obo.metta"
+ls -l prebuilt_metta/
+find ../.. -name "*.obo.metta"
+tail flybase.metta.pl 
+tail whole_flybase.pl 
+./MeTTa
+rm /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/flybase/output~/flybase-mined.metta.answers 
+./MeTTa
+rm /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/flybase/output~/flybase-mined-flat.metta.answers 
+./MeTTa
+rm /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/flybase/output~/flybase-mined-flat.metta.answers 
+./MeTTa
+kill -9 %1
+./MeTTa
+git log reports/TEST_LINKS.md
+git checkout 49781e952cca3cf75f3630467a3f2639d252a922 metta_vspace/metta_eval.pl
+git checkout 49781e952cca3cf75f3630467a3f2639d252a922 metta_vspace/pyswip/metta_eval.pl
+./MeTTa
+git checkout 49781e952cca3cf75f3630467a3f2639d252a922 metta_vspace/pyswip/metta_eval.pl
+./MeTTa
+kill -9 %1
+./MeTTa
+./MeTTa --test --clean ./examples/baseline_compat/ --timeout=20
+cls ; ./MeTTa --test --clean ./examples/baseline_compat/ --timeout=20
+cls
+cls ; ./MeTTa --test --clean ./examples/baseline_compat/ --timeout=20
+cp metta_vspace/pyswip/ metta_vspace/pyswip-12-15 -a
+git checkout 49781e952cca3cf75f3630467a3f2639d252a922 metta_vspace/pyswip/metta_subst.pl
+git log  metta_vspace/pyswip/metta_subst.pl
+git log  metta_vspace/pyswip/metta_subst*
+cls ; ./MeTTa --test --clean ./examples/baseline_compat/ --timeout=20
+watch "ls -lh whole_flybase.pl &&  wc -l whole_flybase.pl && tail whole_flybase.pl"
+ls -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/types3.metta.
+ls -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/types3.metta
+ls -l /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/baseline_compat/metta-morph_tests/types3.metta -h
+cls ; ./MeTTa --test ./examples/baseline_compat/ --timeout=20
+cat TEST_LINKS.md 
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+cls ; ./MeTTa --test ./examples/ --timeout=20
+cls ; ./MeTTa --test ./examples/ --timeout=20 --clean
+cls ; ./MeTTa --test ./examples/ --timeout=20
+git checkout  ed55ecc4336997cc5e95b21229c2c16b2f6bfc83 metta_vspace/pyswip/metta_eval.pl 
+cls ; ./MeTTa --test ./examples/ --timeout=20
+git log .
+{  ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md;         echo "| STATUS | TEST NAME | TEST CONDITION | ACTUAL RESULT | EXPECTED RESULT |";         echo "|--------|-----------|----------------|---------------|-----------------|";         cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac; } > ./examples/PASS_FAIL.md
+cls ; ./MeTTa --test ./examples/ --timeout=20 --clean
+git add metta_vspace/pyswip/metta_subst.pl
+rm /tmp/SHARED.UNITS 
+ls
+rm *.ansi
+rm /tmp/SHARED.UNITS 
+ls
+rm /tmp/SHARED.UNITS 
+rm *.ansi
+cls ; ./MeTTa --test ./examples/ --timeout=20 --clean
+rm /tmp/SHARED.UNITS 
+ls
+rm /tmp/SHARED.UNITS 
+rm *.ansi
+ls
+git status .
+cd ..
+rm examples/*.m
+rm reports/README.md 
+cat scripts/test_in_metta.sh 
+rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/
+git add reports/
+git add .
+cd ..
+git status .
+git add INSTALL.md 
+chmod +x INSTALL.md 
+ls data/
+ls 12_ontologies/
+ls data/12_ontologies/
+du data/12_ontologies/
+du data/12_ontologies/ -h
+ls data/12_ontologies/go-plus/
+ls data/12_ontologies/go-plus/ -lh
+cat data/12_ontologies/go-plus/Go-Plus-GO_2023-09-15.scm 
+git status .
+git rm examples/.bash_history
+git rm examples/.bash_history -f
+rm *.ansi
+git status .
