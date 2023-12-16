@@ -154,7 +154,7 @@ This group of directories explores various representational methods for porting 
    - [`List.metta`](baseline_compat/hyperon-pln_metta/common/List.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/List.metta.html): List operations and utilities.
    - [`TruthValue.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/TruthValue.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/truthvalue/TruthValue.metta.html): Base structure for truth values.
    - [`EvidentialTruthValue.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/EvidentialTruthValue.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/truthvalue/EvidentialTruthValue.metta.html): Evidential truth value implementation.
-   - [`EvidentialTruthValueTest.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/re
+   - [`EvidentialTruthValueTest.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/truthvalue/EvidentialTruthValueTest.metta.html): Evidential truth value Tests.
    - [`TruthValueTest.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/truthvalue/TruthValueTest.metta.html): General tests for truth values.
    - [`TemporalTruthValue.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/TemporalTruthValue.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/truthvalue/TemporalTruthValue.metta.html): Temporal aspect of truth values.
    - [`MeasEq.metta`](baseline_compat/hyperon-pln_metta/common/truthvalue/MeasEq.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-pln_metta/common/truthvalue/MeasEq.metta.html): Measurement equality logic.
@@ -303,20 +303,7 @@ This group of directories explores various representational methods for porting 
    - [`b0_chaining_prelim.metta`](baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/baseline_compat/hyperon-experimental_scripts/b0_chaining_prelim.metta.html): Preliminary chaining methods in logic.
 
 
-#### **Feature Demonstrations**
-
-- **[`features`](./features)**: Feature demonstrations and examples.
-   - [`send-more-money.metta`](features/send-more-money.metta): SEND+MORE=MONEY problem solution.
-   - [`compiler`](./features/compiler)**: Addresses compiler-related examples and tests.
-	   - [`compiler/define_if_like.metta`](features/compiler/define_if_like.metta): Compiler features for defining 'if'-like structures.
-	   - [`compiler/00a_lang_compiled_case.metta`](features/compiler/00a_lang_compiled_case.metta): Compiled language case studies.
-   - [`reverse-arithmetic.metta`](features/reverse-arithmetic.metta): Demonstrations of reverse arithmetic operations.
-   - [`send-more.metta`](features/send-more.metta): SEND+MORE problem solutions and variations.
-   - [`httpclient.metta`](features/httpclient.metta): Implementation of an HTTP client in Metta.
-   - [`reverse-functions.metta`](features/reverse-functions.metta): Demonstrations of reverse function implementations.
-
-```
-## Feature Demonstrations
+### **Feature Demonstrations**
 
 #### **Bidirectional Computation**
 - **[`features/bidirectional_computation`](./features/bidirectional_computation)**: Demonstrates bidirectional computation, showcasing how operations can be reversed.
@@ -331,7 +318,7 @@ This group of directories explores various representational methods for porting 
   - [`05_match_superpose_element_like_space.metta`](features/containers_are_spaces/05_match_superpose_element_like_space.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/features/containers_are_spaces/05_match_superpose_element_like_space.metta.html): Shows superposition in element-like spaces.
 
 #### **Host Language Features**
-- **[`features/host_language`](./features/host_language)**: Features leveraging the host programming language's capabilities.
+- **[`features/host_language`](./features/host_language)**: Features leveraging the host programming language(s) capabilities.
   - **[`compiler`](./features/host_language/compiler)**: Compiler-specific features and demonstrations.
     - [`00a_lang_compiled_case.metta`](features/host_language/compiler/00a_lang_compiled_case.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/features/host_language/compiler/00a_lang_compiled_case.metta.html): Explores compiled language case studies.
     - [`define_if_like.metta`](features/host_language/compiler/define_if_like.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/features/host_language/compiler/define_if_like.metta.html): Introduces compiler features for defining 'if'-like structures.

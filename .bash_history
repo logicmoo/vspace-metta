@@ -2654,3 +2654,5 @@ git rm examples/.bash_history
 git rm examples/.bash_history -f
 rm *.ansi
 git status .
+git commit -am "exceeds baseline sliughtly"
+git push logicmoo 
