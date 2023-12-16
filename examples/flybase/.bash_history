@@ -1409,3 +1409,6 @@ rm ./from_rust/flybase-loader.metta
 ls
 tree 
 git add .
+git commit -am from_vspace/
+git push logicmoo 
+git add ..

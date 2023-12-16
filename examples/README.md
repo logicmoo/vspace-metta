@@ -51,32 +51,32 @@ The `examples` directory houses a variety of sub-directories, each focusing on s
 ## Extended Compatibility Examples
 
 ### Combinator Logic Experiments
-- **[`extended_compat/metta-combinator_logic_experiments/`](extended_compat/metta-combinator_logic_experiments/):** Combinator Logic Experiments Directory
-   - [`y_comb_examples.metta`](extended_compat/metta-combinator_logic_experiments/y_comb_examples.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-combinator_logic_experiments/y_comb_examples.metta.html): Examples and experiments with Y combinators.
+- **[`extended_compat/metta-examples/combinator_logic_experiments/`](extended_compat/metta-examples/combinator_logic_experiments/):** Combinator Logic Experiments Directory
+   - [`y_comb_examples.metta`](extended_compat/metta-examples/combinator_logic_experiments/y_comb_examples.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/combinator_logic_experiments/y_comb_examples.metta.html): Examples and experiments with Y combinators.
 
 ### Logic
-- **[`extended_compat/metta-logic/`](extended_compat/metta-logic/):** Metta Logic Directory
-   - [`puzzle.metta`](extended_compat/metta-logic/puzzle.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-logic/puzzle.metta.html): Logic puzzles and solutions in Metta.
-   - [`all_any.metta`](extended_compat/metta-logic/all_any.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-logic/all_any.metta.html): Implementations of universal and existential quantifiers.
-   - [`memb.metta`](extended_compat/metta-logic/memb.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-logic/memb.metta.html): Member checking functions in logical expressions.
+- **[`extended_compat/metta-examples/logic/`](extended_compat/metta-examples/logic/):** Metta Logic Directory
+   - [`puzzle.metta`](extended_compat/metta-examples/logic/puzzle.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/logic/puzzle.metta.html): Logic puzzles and solutions in Metta.
+   - [`all_any.metta`](extended_compat/metta-examples/logic/all_any.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/logic/all_any.metta.html): Implementations of universal and existential quantifiers.
+   - [`memb.metta`](extended_compat/metta-examples/logic/memb.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/logic/memb.metta.html): Member checking functions in logical expressions.
 
 ### SICP Book Examples
-- **[`extended_compat/metta-SICP_book/`](extended_compat/metta-SICP_book/):** SICP Book Examples in Metta
-  - [Chapter 1.1](./extended_compat/metta-SICP_book/chapter_1_1.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-SICP_book/chapter_1_1.metta.html)
-  - [Chapter 1.2](./extended_compat/metta-SICP_book/chapter_1_2.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-SICP_book/chapter_1_2.metta.html)
-  - [Chapter 1.3](./extended_compat/metta-SICP_book/chapter_1_3.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-SICP_book/chapter_1_3.metta.html)
+- **[`extended_compat/metta-examples/SICP_book/`](extended_compat/metta-examples/SICP_book/):** SICP Book Examples in Metta
+  - [Chapter 1.1](extended_compat/metta-examples/SICP_book/chapter_1_1.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/SICP_book/chapter_1_1.metta.html)
+  - [Chapter 1.2](extended_compat/metta-examples/SICP_book/chapter_1_2.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/SICP_book/chapter_1_2.metta.html)
+  - [Chapter 1.3](extended_compat/metta-examples/SICP_book/chapter_1_3.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/SICP_book/chapter_1_3.metta.html)
 
 ### Recursion Schemes
-- **[`extended_compat/metta-recursion-schemes/src/`](extended_compat/metta-recursion-schemes/src/):** Recursion Schemes in Metta
-   - [`schemes.metta`](extended_compat/metta-recursion-schemes/src/schemes.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-recursion-schemes/src/schemes.metta.html): Various recursion schemes implemented in Metta.
-   - [`base.metta`](extended_compat/metta-recursion-schemes/src/base.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-recursion-schemes/src/base.metta.html): Base functions and utilities for recursion schemes.
-   - [`expression.metta`](extended_compat/metta-recursion-schemes/src/expression.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-recursion-schemes/src/expression.metta.html): Expression handling in recursion schemes.
-   - [`benchmark.metta`](extended_compat/metta-recursion-schemes/src/benchmark.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-recursion-schemes/src/benchmark.metta.html): Benchmark tests for recursion scheme implementations.
+- **[`extended_compat/metta-examples/recursion-schemes/src/`](extended_compat/metta-examples/recursion-schemes/src/):** Recursion Schemes in Metta
+   - [`schemes.metta`](extended_compat/metta-examples/recursion-schemes/src/schemes.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/recursion-schemes/src/schemes.metta.html): Various recursion schemes implemented in Metta.
+   - [`base.metta`](extended_compat/metta-examples/recursion-schemes/src/base.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/recursion-schemes/src/base.metta.html): Base functions and utilities for recursion schemes.
+   - [`expression.metta`](extended_compat/metta-examples/recursion-schemes/src/expression.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/recursion-schemes/src/expression.metta.html): Expression handling in recursion schemes.
+   - [`benchmark.metta`](extended_compat/metta-examples/recursion-schemes/src/benchmark.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/recursion-schemes/src/benchmark.metta.html): Benchmark tests for recursion scheme implementations.
 
 ### Probabilistic Dependent Types
-- **[`extended_compat/metta-prob-dep-types/`](extended_compat/metta-prob-dep-types/):** Probabilistic Dependent Types in Metta
-   - [`prob_dep_types.metta`](extended_compat/metta-prob-dep-types/prob_dep_types.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-prob-dep-types/prob_dep_types.metta.html): Definitions and examples of probabilistic dependent types.
-   - [`inf_order_probs.metta`](extended_compat/metta-prob-dep-types/inf_order_probs.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-prob-dep-types/inf_order_probs.metta.html): Infinite order probabilities and their applications.
+- **[`extended_compat/metta-examples/prob-dep-types/`](extended_compat/metta-examples/prob-dep-types/):** Probabilistic Dependent Types in Metta
+   - [`prob_dep_types.metta`](extended_compat/metta-examples/prob-dep-types/prob_dep_types.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/prob-dep-types/prob_dep_types.metta.html): Definitions and examples of probabilistic dependent types.
+   - [`inf_order_probs.metta`](extended_compat/metta-examples/prob-dep-types/inf_order_probs.metta)[[output]](https://htmlpreview.github.io/?https://raw.githubusercontent.com/logicmoo/vspace-metta/main/reports/extended_compat/metta-examples/prob-dep-types/inf_order_probs.metta.html): Infinite order probabilities and their applications.
 
 ## NARS (Non-Axiomatic Reasoning System)
 
