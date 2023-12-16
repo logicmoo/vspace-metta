@@ -1414,3 +1414,5 @@ git push logicmoo
 git add ..
 git commit -am ../README.md 
 git push logicmoo 
+git commit -am ../README.md 
+git push logicmoo 

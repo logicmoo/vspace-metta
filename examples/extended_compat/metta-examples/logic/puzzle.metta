@@ -90,5 +90,21 @@
 )
 
 
-!(let $r (foo $Employers) (if $r $Employers None))
-
+;; !(let $r (foo $Employers) (if $r $Employers None))
+;; DMILES Made into assertEqualToResult since Rust MeTTa is getting superflulous None(s)..  we cant compare our answers to it
+!(assertEqualToResult
+  (let $R
+    (foo $Employers)
+    (if $R $Employers None))
+  ((Cons
+      (Cons ivan
+        (Cons cashier
+          (Cons no_sister Nil)))
+      (Cons
+        (Cons boris
+          (Cons controller
+            (Cons has_sister Nil)))
+        (Cons
+          (Cons semyon
+            (Cons supervisor
+              (Cons $V6_C35_17 Nil))) Nil)))))
