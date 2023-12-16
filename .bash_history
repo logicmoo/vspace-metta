@@ -2659,3 +2659,11 @@ git push logicmoo
 git commit -am "examples/README.md"
 git push
 git push logicmoo 
+cd ..
+find -name .bash_history
+find -name .bash_history -mindepth 1
+find -name .bash_history -mindepth 2
+find -name .bash_history -mindepth 3
+find -name .bash_history -mindepth 3 -delete 
+find . -mindepth 3 -name ".bash_history" -delete 
+git commit -am "removing errant .bash_hitory" files

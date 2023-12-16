@@ -2661,3 +2661,5 @@ git push
 git push logicmoo 
 git push logicmoo 
 cd examples/
+git push logicmoo 
+cd ..
