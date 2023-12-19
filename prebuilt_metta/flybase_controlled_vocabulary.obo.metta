@@ -1,1 +1,0 @@
-../data/ftp.flybase.org/releases/FB2023_04/metta_files/ontologies/flybase_controlled_vocabulary.obo.metta

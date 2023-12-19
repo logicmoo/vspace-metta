@@ -1,1 +1,0 @@
-../data/ftp.flybase.org/releases/FB2023_04/metta_files/genes/fbgn_fbtr_fbpp_expanded_fb_2023_04.tsv.metta

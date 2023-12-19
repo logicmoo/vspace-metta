@@ -1,1 +1,0 @@
-../data/ftp.flybase.org/releases/FB2023_04/metta_files/metadata/dataset_metadata_fb_2023_04.tsv.metta

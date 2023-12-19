@@ -1,1 +1,0 @@
-../data/ftp.flybase.org/releases/FB2023_04/metta_files/genes/scRNA-Seq_gene_expression_fb_2023_04.tsv.metta

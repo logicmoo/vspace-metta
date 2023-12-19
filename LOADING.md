@@ -9717,3 +9717,9 @@ root@gitlab:/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-mett
       1007 ./data/ftp.flybase.org/releases/FB2023_04/precomputed_files/transposons/transposon_sequence_set.gff.metta
   57738360 total
 
+
+
+precomputed_files/transposons/*
+
+.metta
+.datalog

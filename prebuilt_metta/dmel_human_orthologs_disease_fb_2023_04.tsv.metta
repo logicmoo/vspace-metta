@@ -1,1 +1,0 @@
-../data/ftp.flybase.org/releases/FB2023_04/metta_files/orthologs/dmel_human_orthologs_disease_fb_2023_04.tsv.metta
