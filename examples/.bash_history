@@ -2663,3 +2663,9 @@ git push logicmoo
 cd examples/
 git push logicmoo 
 cd ..
+mv data/index.html data/readme.html
+cd examples/
+grep -i english --include="*metta"
+grep -i english flybase/ --include="*metta"
+grep -i english -r flybase/ --include="*metta"
+grep -i english -R flybase/ --include="*metta"
