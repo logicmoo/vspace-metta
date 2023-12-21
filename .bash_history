@@ -2005,3 +2005,5 @@ kill -9 %1
 ./MeTTa
 kill -9 %1
 git status .
+git commit -am "try this remotely"
+git push logicmoo

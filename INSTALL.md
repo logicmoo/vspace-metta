@@ -82,6 +82,12 @@ fi
 echo -e "${BLUE}Setting PYTHONPATH environment variable..${NC}."
 export PYTHONPATH=$PWD/metta_vspace:$PYTHONPATH
 
+if confirm_with_default "Y" "Download Quick Loadable Flybase files" then
+      wget https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
+      gunzip whole_flybase.qlf.gz
+      return 0
+fi
+
 echo -e "${BLUE}Allowing user to override FBPC_VERSION..${NC}."
 export FBPC_VERSION=$(prompt_for_input "Enter the Flybase version slug (or press <enter> to use this default): " "2023_05")
 echo -e "${GREEN}"
@@ -93,13 +99,13 @@ echo -e "${NC}"
 
 need_fb_files="Y"
 if find "$FBPC_LOC" -mindepth 2 -type f -print -quit | grep -q '.'; then
-    need_bf_files="N"
+    need_fb_files="N"
     echo -e -n "${GREEN}Looks like we already have the Flybase data.. \n${BLUE}Really RE-"
 else
    echo -e "${YELLOW}Looks like we *need* have the Flybase data..${NC}."
 fi
 
-if confirm_with_default "${need_bf_files}" "Download Flybase Release?"; then
+if confirm_with_default "${need_fb_files}" "Download Flybase Release?"; then
     echo -e "${BLUE}You may override the Flybase URL${NC}..."
     export FBPC_URL=$(prompt_for_input "Enter the FBPC URL http://" "${FBPC_URL}")
 
@@ -134,10 +140,6 @@ echo -e "${BLUE}Checking disk usage for flybase (should be around 7.9G)..${NC}."
 du -hs $FBPC_LOC
 echo ""
 
-if confirm_with_default "Y "Downlaod Quick Loadable Flybase files" then
-      wget https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
-      gunzip whole_flybase.qlf.gz
-fi
 
 if confirm_with_default "N" "Building the Loadable Files might take around 30 minutes. Do you want to continue"; then
     echo -e "${BLUE}Building the Loadable File..${NC}."
