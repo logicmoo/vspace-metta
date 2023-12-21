@@ -109,27 +109,30 @@ if confirm_with_default "Y" "Download Quick Loadable Flybase files"; then
         echo "whole_flybase.qlf not found. Starting download and extraction process..."
 
         echo "Downloading Quick Loadable Flybase files..."
-        wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
-
-        echo "Download complete. Unzipping the file..."
-        gunzip whole_flybase.qlf.gz
-
-        echo "Unzipping complete."
+        if wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz; then
+            echo "Download complete. Unzipping the file..."
+            if gunzip whole_flybase.qlf.gz; then
+                echo "Unzipping complete."
+            else
+                echo "Error during unzipping."
+                exit 1
+            fi
+        else
+            echo "Error during download."
+            exit 1
+        fi
     else
         echo "whole_flybase.qlf already exists. Skipping download and extraction."
     fi
-    exit $?
-fi
-if confirm_with_default "Y" "Download Quick Loadable Flybase files?"; then
-    echo "Starting download of Quick Loadable Flybase files..."
-    wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
 
-    echo "Download complete. Unzipping the file..."
-    gunzip whole_flybase.qlf.gz
+    if ! grep -B 1 -A 20 Flybase README.md; then
+        echo "Error or no matches found while searching in README.md"
+        exit 1
+    fi
 
-    echo "Unzipping complete."
-    exit $?
+    exit 0
 fi
+
 
 echo -e "${BLUE}Allowing user to override FBPC_VERSION..${NC}."
 export FBPC_VERSION=$(prompt_for_input "Enter the Flybase version slug (or press <enter> to use this default): " "2023_05")
