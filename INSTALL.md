@@ -82,10 +82,10 @@ fi
 echo -e "${BLUE}Setting PYTHONPATH environment variable..${NC}."
 export PYTHONPATH=$PWD/metta_vspace:$PYTHONPATH
 
-if confirm_with_default "Y" "Download Quick Loadable Flybase files" then
+if confirm_with_default "Y" "${YELLOW}Download Quick Loadable Flybase files ${NC}"; then
       wget https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
       gunzip whole_flybase.qlf.gz
-      return 0
+      exit $?
 fi
 
 echo -e "${BLUE}Allowing user to override FBPC_VERSION..${NC}."

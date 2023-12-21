@@ -2007,3 +2007,5 @@ kill -9 %1
 git status .
 git commit -am "try this remotely"
 git push logicmoo
+git commit -am "try this remotely"
+git push logicmoo
