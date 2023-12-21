@@ -59,10 +59,31 @@ if ! command -v swipl &> /dev/null; then
     fi
 fi
 
-echo -e "${BLUE}Installing SWI-Prolog packages... \n ${BOLD}(If asked, say yes to everything and/or accept the defaults)${NC}"
-swipl -g "pack_install(predicate_streams)" -t halt
-swipl -g "pack_install(logicmoo_utils)" -t halt
-swipl -g "pack_install(dictoo)" -t halt
+echo -e "${BLUE}Updating SWI-Prolog packages...${NC}"
+if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    echo "Installing predicate_streams..."
+    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
+    swipl -g "pack_install(predicate_streams)" -t halt
+else
+    echo "predicate_streams is already installed."
+fi
+
+if ! swipl -g "use_module(library(logicmoo_utils)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    echo "Installing logicmoo_utils..."
+    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
+    swipl -g "pack_install(logicmoo_utils)" -t halt
+else
+    echo "logicmoo_utils is already installed."
+fi
+
+if ! swipl -g "use_module(library(dictoo)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    echo "Installing dictoo..."
+    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
+    swipl -g "pack_install(dictoo)" -t halt
+else
+    echo "dictoo is already installed."
+fi
+
 
 
 echo -e "${BLUE}Checking if Pyswip is already installed${NC}..."
