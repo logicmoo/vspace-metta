@@ -105,33 +105,18 @@ echo -e "${BLUE}Setting PYTHONPATH environment variable..${NC}."
 export PYTHONPATH=$PWD/metta_vspace:$PYTHONPATH
 
 if confirm_with_default "Y" "Download Quick Loadable Flybase files"; then
-    if [ ! -f whole_flybase.qlf ]; then
-        echo "whole_flybase.qlf not found. Starting download and extraction process..."
-
-        echo "Downloading Quick Loadable Flybase files..."
-        if wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz; then
-            echo "Download complete. Unzipping the file..."
-            if gunzip whole_flybase.qlf.gz; then
-                echo "Unzipping complete."
-            else
-                echo "Error during unzipping."
-                exit 1
-            fi
-        else
-            echo "Error during download."
-            exit 1
-        fi
-    else
+    if [ -f whole_flybase.qlf ]; then
         echo "whole_flybase.qlf already exists. Skipping download and extraction."
+    else
+        wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz && gunzip whole_flybase.qlf.gz || { echo "Error in download or unzipping." && exit 1; }
+        echo "Download and unzipping complete."
     fi
 
-    if ! grep -B 1 -A 20 Flybase README.md; then
-        echo "Error or no matches found while searching in README.md"
-        exit 1
-    fi
+    grep -B 3 -A 10 whole_flybase README.md || { echo "Error or no matches in README.md" && exit 1; }
 
     exit 0
 fi
+
 
 
 echo -e "${BLUE}Allowing user to override FBPC_VERSION..${NC}."
