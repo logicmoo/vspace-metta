@@ -4,11 +4,12 @@
 
 # Function to prompt for user confirmation with 'N' as the default
 confirm_with_default() {
+    echo -e -n "$2"
     while true; do
         if [ "$1" == "N" ]; then
-            read -s -p "$2 (y/N): " -n 1 yn
+            read -s -p " (y/N): " -n 1 yn
         else
-            read -s -p "$2 (${1}/n): " -n 1 yn
+            read -s -p " (${1}/n): " -n 1 yn
         fi
 
         if [ -z "$yn" ]; then
@@ -82,10 +83,31 @@ fi
 echo -e "${BLUE}Setting PYTHONPATH environment variable..${NC}."
 export PYTHONPATH=$PWD/metta_vspace:$PYTHONPATH
 
-if confirm_with_default "Y" "${YELLOW}Download Quick Loadable Flybase files ${NC}"; then
-      wget https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
-      gunzip whole_flybase.qlf.gz
-      exit $?
+if confirm_with_default "Y" "Download Quick Loadable Flybase files"; then
+    if [ ! -f whole_flybase.qlf ]; then
+        echo "whole_flybase.qlf not found. Starting download and extraction process..."
+
+        echo "Downloading Quick Loadable Flybase files..."
+        wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
+
+        echo "Download complete. Unzipping the file..."
+        gunzip whole_flybase.qlf.gz
+
+        echo "Unzipping complete."
+    else
+        echo "whole_flybase.qlf already exists. Skipping download and extraction."
+    fi
+    exit $?
+fi
+if confirm_with_default "Y" "Download Quick Loadable Flybase files?"; then
+    echo "Starting download of Quick Loadable Flybase files..."
+    wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz
+
+    echo "Download complete. Unzipping the file..."
+    gunzip whole_flybase.qlf.gz
+
+    echo "Unzipping complete."
+    exit $?
 fi
 
 echo -e "${BLUE}Allowing user to override FBPC_VERSION..${NC}."
