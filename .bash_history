@@ -1,43 +1,3 @@
-./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
-./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
-grep adjust_args metta_vspace -R --include="*.pl"
-./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
-fg
-kill -9 swipl
-killall -9 swipl
-reset
-cls ; ./MeTTa --v2a
-cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/
-cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --cleab
-cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --v_34 ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --v_35 ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --vGOODY5 ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --vGOODY ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --vGOODY ./examples --clean
-cls ; ./MeTTa --vGOODY ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --vGOOD ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --v2a ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa --v_1 ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
-ls metta_vspace
-cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean --v_1
-cls ; ./MeTTa ./examples/ --clean --v_1
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean --v_1
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean
-cp metta_vspace/pyswip metta_vspace/pyswip_from -a
-\cp metta_vspace/pyswip_1/* metta_vspace/pyswip/
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ ./examples/compat/hyperon-pln/metta/common/ --clean 
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ ./examples/compat/hyperon-pln/metta/common/ --clean --v_1
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --clean --v_1
-vi /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/compat/hyperon-experimental/python/tests/scripts/b5_types_prelim.metta
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --v_1
-cls ; ./MeTTa ./examples/compat/hyperon-experimental/python/tests/scripts/ --v_1 --clean
-cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean --v_1
-cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean --vGOODY
-cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean --v2a
 cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
 cp ./examples/compat/hyperon-pln/metta/common/ -a ./examples/interp/
 cp ./examples/compat/hyperon-experimental/python/tests/ -a ./examples/interp/
@@ -2000,3 +1960,48 @@ mv data/index.html data/readme.html
 mv data/index.html data/readme.html
 git add examples/flybase/from_vspace/flybase_rust_uses_python_vspace.metta 
 git add examples/flybase/flybase-deduced-queries.metta 
+git commit -am "Queries for flybase testing"
+git push
+git push logicmoo 
+cls
+metta 1-VSpaceTest.metta 
+mv whole_flybase.qlf data/
+metta 1-VSpaceTest.metta 
+metta 8-FlybaseQuestions.metta 
+./MeTTa 8-FlybaseQuestions.metta 
+./MeTTa 8-FlybaseQuestions.metta --repl
+cls ; ./MeTTa 8-FlybaseQuestions.metta --repl
+ls *.qlf
+cp flybase_metta.qlf ./data/whole_flybase.qlf
+cls ; ./MeTTa 8-FlybaseQuestions.metta --repl
+cp ./data/whole_flybase.qlf.gz .
+gunzip whole_flybase.qlf.gz 
+ls
+swipl
+./MeTTa
+gzip -k data/whole_flybase.qlf 
+cp ./data/whole_flybase.qlf.gz .
+gunzip whole_flybase.qlf.gz
+rm whole_flybase.qlf.gz 
+./MeTTa 8-FlybaseQuestions.metta 
+rm Sav.MeTTaLog 
+./MeTTa 8-FlybaseQuestions.metta 
+metta 8-FlybaseQuestions.metta 
+cls
+metta 8-FlybaseQuestions.metta 
+./MeTTa
+fg
+./MeTTa
+./MeTTa --convert
+./MeTTa --convert
+rm ./precomputed_files/genes/sedZ6UQmj 
+rm ./precomputed_files/*/sed*
+./MeTTa --convert
+shutdown -r now
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta
+./MeTTa
+kill -9 %1
+./MeTTa
+kill -9 %1
+git status .

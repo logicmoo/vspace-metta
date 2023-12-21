@@ -7,21 +7,21 @@
 
 ;;  define some queries
 
-;; ;; Query: Find the Gene Symbols and Summary Texts for Genes Involved in a Specific Disease
+;; Query: Find the Gene Symbols and Summary Texts for Genes Involved in a Specific Disease
 (query-info "Show the gene symbols and summary texts for genes that are associated with a particular disease model."
     (gene-symbols-and-summaries $Disease $GeneSymbol $SummaryText)
    (, (disease_model_annotations! $FBgn $GeneSymbol $1 $2 $Disease $3 $4 $5 $6 $7 $8 $9)
       (automated_gene_summaries! $FBgn $SummaryText))
 )
 
-;; ;; Query: Identify Alleles and Their Phenotypes for a Specific Gene
+;; Query: Identify Alleles and Their Phenotypes for a Specific Gene
 (query-info "List all alleles and their associated phenotypes for a given gene symbol."
     (alleles-and-phenotypes $GeneSymbol $AlleleSymbol $Phenotype)
    (, (fbal_to_fbgn! $1 $AlleleSymbol $2 $GeneSymbol)
       (allele_phenotypic! $AlleleSymbol $3 $Phenotype $4))
 )
 
-;; ;; Query: Retrieve Gene Interaction Information and Corresponding Publications
+;; Query: Retrieve Gene Interaction Information and Corresponding Publications
 (query-info "Find interactions between genes and the related publications."
     (gene-interactions-and-publications $GeneSymbol1 $GeneSymbol2 $InteractionType $Publication)
    (, (gene_genetic_interactions! $StartingGeneSymbols $1 $InteractingGeneSymbols $2 $InteractionType $PublicationFBrf)
@@ -30,7 +30,7 @@
       (fbrf_pmid_pmcid_doi! $PublicationFBrf $Publication $3 $4 $5 $6 $7))
 )
 
-;; ;; Query: Associate Gene Symbols with Their Orthologous Human Genes and Diseases
+;; Query: Associate Gene Symbols with Their Orthologous Human Genes and Diseases
 (query-info "Link Drosophila genes to their human orthologs and associated diseases."
     (gene-orthologs-and-diseases $DmelGeneSymbol $HumanGeneSymbol $Disease)
    (, (dmel_human_orthologs_disease! $1 $DmelGeneSymbol $2 $3 $HumanGeneSymbol $4 $5 $DiseaseIDs)
@@ -89,35 +89,35 @@
 
 
 
-;; ;; Query: Find All Known Paralogs of a Specific Gene and Their Expression Levels
+;; Query: Find All Known Paralogs of a Specific Gene and Their Expression Levels
 (query-info "Display all paralogs of a given gene and their mean expression levels."
     (gene-paralogs-and-expression $GeneSymbol $ParalogSymbol $MeanExpression)
    (, (dmel_paralogs! $1 $GeneSymbol $2 $ParalogSymbol $3)
       (scRNA-Seq_gene_expression! $ParalogSymbol $4 $MeanExpression $5))
  )
 
-;; ;; Query: Correlate Gene Expression with Specific Stages of Tissue Development
+;; Query: Correlate Gene Expression with Specific Stages of Tissue Development
 (query-info "Find genes with their expression levels at various stages of tissue development."
     (gene-expression-by-stage $GeneSymbol $TissueStage $MeanExpression)
    (, (scRNA-Seq_gene_expression! $1 $2 $3 $4 $TissueStage $5 $MeanExpression $6)
       (dmel_gene_sequence_ontology_annotations! $GeneSymbol $7 $8))
 )
 
-;; ;; Query: Associate Genetic Map Positions with Corresponding Enzyme Activities
+;; Query: Associate Genetic Map Positions with Corresponding Enzyme Activities
 (query-info "Relate genetic map positions to the enzyme activities of associated genes."
     (map-position-and-enzyme-activity $MapPosition $GeneSymbol $EnzymeActivity)
    (, (cyto-genetic-seq! $1 $MapPosition $2 $3)
       (Dmel_enzyme! $GeneSymbol $4 $5 $6 $EnzymeActivity))
 )
 
-;; ;; Query: Link Alleles with Their Genetic and Physical Interactions
+;; Query: Link Alleles with Their Genetic and Physical Interactions
 (query-info "Connect alleles to their genetic interactions and the physical interactions they are involved in."
     (allele-genetic-and-physical-interactions $AlleleSymbol $GeneticInteraction $PhysicalInteraction)
    (, (allele_genetic_interactions! $AlleleSymbol $1 $GeneticInteraction $2)
       (physical_interactions_mitab! $3 $4 $5 $6 $7 $PhysicalInteraction))
 )
 
-;; ;; Query: Find cDNA Clones Related to Specific Diseases
+;; Query: Find cDNA Clones Related to Specific Diseases
 (query-info "Identify cDNA clones linked to genes associated with certain diseases."
     (cDNA-clones-and-diseases $CloneName $Disease)
    (, (cDNA_clone! $1 $2 $CloneName $3)
@@ -125,14 +125,14 @@
 )
 )
 
-;; ;; Query: Determine Disease Models Based on Specific Gene Sequences
+;; Query: Determine Disease Models Based on Specific Gene Sequences
 (query-info "Ascertain disease models associated with particular gene sequences."
     (gene-sequences-and-disease-models $Sequence $DiseaseModel)
    (, (dmel_gene_sequence_ontology_annotations! $1 $2 $3 $Sequence)
       (disease_model_annotations! $4 $5 $6 $7 $DiseaseModel $8))
 )
 
-;; ;; Query: Associate Gene Symbols with Known Allele Phenotypes and Interactions
+;; Query: Associate Gene Symbols with Known Allele Phenotypes and Interactions
 (query-info "Connect gene symbols with the phenotypes and interactions of their alleles."
     (gene-alleles-phenotypes-and-interactions $GeneSymbol $AllelePhenotype $Interaction)
    (, (fbal_to_fbgn! $1 $2 $3 $GeneSymbol)
@@ -140,7 +140,7 @@
       (allele_genetic_interactions! $7 $AllelePhenotype $Interaction $8))
 )
 
-;; ;; Query: Link Gene Symbols with Their Enzyme Functions and Synonyms
+;; Query: Link Gene Symbols with Their Enzyme Functions and Synonyms
 (query-info "Relate gene symbols to their enzyme functions and any known synonyms."
     (gene-enzyme-functions-and-synonyms $GeneSymbol $EnzymeFunction $Synonym)
    (, (Dmel_enzyme! $GeneSymbol $1 $2 $EnzymeFunction $3)
@@ -148,28 +148,28 @@
 )
 )
 
-;; ;; Query: Associate Gene Expression with Specific Cell Types
+;; Query: Associate Gene Expression with Specific Cell Types
 (query-info "Correlate gene expression levels with specific cell types."
     (gene-expression-and-cell-type $GeneSymbol $CellType $ExpressionLevel)
    (, (scRNA-Seq_gene_expression! $1 $2 $3 $4 $5 $6 $CellType $7 $ExpressionLevel)
       (dmel_gene_sequence_ontology_annotations! $GeneSymbol $8 $9))
 )
 
-;; ;; Query: Identify Genes with Specific Protein Isoforms and Their Disease Associations
+;; Query: Identify Genes with Specific Protein Isoforms and Their Disease Associations
 (query-info "Find genes that have specific protein isoforms and their links to diseases."
     (genes-protein-isoforms-and-diseases $GeneSymbol $ProteinIsoform $Disease)
    (, (dmel_unique_protein_isoforms! $1 $GeneSymbol $2 $ProteinIsoform)
       (disease_model_annotations! $3 $4 $5 $6 $7 $8 $9 $10 $11 $Disease))
 )
 
-;; ;; Query: Relate Genomic Clones to Their Expression in Different Tissues
+;; Query: Relate Genomic Clones to Their Expression in Different Tissues
 (query-info "Connect genomic clones to their expression profiles in various tissues."
     (clones-and-tissue-expression $CloneName $TissueType $ExpressionLevel)
    (, (genomic_clone! $1 $2 $CloneName $3)
       (gene_rpkm_report! $4 $5 $6 $7 $TissueType $8 $ExpressionLevel))
 )
 
-;; ;; Query: Find Genes Involved in Specific Pathways and Their Genetic Interactions
+;; Query: Find Genes Involved in Specific Pathways and Their Genetic Interactions
 (query-info "Identify genes that are part of certain pathways and their genetic interactions."
     (genes-in-pathways-and-interactions $Pathway $GeneSymbol $Interaction)
    (, (pathway_group! $1 $2 $Pathway $3)
@@ -336,7 +336,7 @@
 )
 
 
-;; ;; Query: Associate Disease Models with Gene Transcripts, Protein Isoforms, Gene Summaries, and Snapshots
+;; Query: Associate Disease Models with Gene Transcripts, Protein Isoforms, Gene Summaries, and Snapshots
 (query-info "Link disease model annotations with corresponding gene transcripts, unique protein isoforms, the best gene summaries, and gene snapshots."
    (gene-disease-models-transcripts-proteins-summaries-snapshots $GeneID $GeneSymbol $ProteinID $GeneSummaryID $GeneSnapshotID)
    (, (disease_model_annotations! $GeneID $1 $2 $3 $4 $5 $6 $7 $8 $9 $10 $11)
@@ -628,26 +628,29 @@
             (not (fbgn_NAseq_Uniprot! $GeneSymbol $12 $13 $ExcludedProteinAccession $14 $15 $16))))
 )
 
+(: number-of! (-> Atom Number))
 (= (number-of! $query $length)
     (length! (match &self $query t) $length))
 
 ;; call-nth! is one of our builtins
+(: nth-pose! (-> Number Atom))
 (= (nth-pose! $length $eval)
    (call-nth! $eval $nth)
    (=< $nth $length))
 
 (= (do-77-queries)
    (match &self
-        (query-info $English
-	   $template   $query)
+        (query-info $English $template   $query)
 	(demo-query $English $query $template)))
 
 
-(= (demo-query $English $query)
-   (println!  ($English  "=" $template))
+(= (demo-query $English $query $template)
+   (println!  ($English  "=" $query))
+   ;; print no more than the first 5 answers
    (println!  (nth-pose 5 (match &self $query $template)))
    (println! ("time was = " (time! (number-of! $query $count))))
    (println! ("total of query = " $count)))
 
 
 !(do-77-queries)
+
