@@ -1400,7 +1400,10 @@
     (->  mine-overlaps1 True)) (skip  mine-overlaps2)))
 
 
- (=  (mine-corisponds  $O $P) (sequential  (fb-arg-table-n  $O $Q $R) (is-good-atom-name  $O) (fb-arg-table-n  $O $S $T) (@>  (+  $Q $R) (+  $S $T)) (->  (and  (table-column-type  $Q $R $U) (and  (nonvar  $U) (and  (table-column-type  $S $T $V) (nonvar  $V)))) True) (=  $P (maybe-corisponds  (ConceptMapFn  $U $R $Q) (ConceptMapFn  $V $T $S)))))
+ (=  (mine-corisponds  $O $P)
+      (sequential  (fb-arg-table-n  $O $Q $R) (is-good-atom-name  $O)
+                  (fb-arg-table-n  $O $S $T) (>  (+  $Q $R) (+  $S $T)) (->  (and  (table-column-type  $Q $R $U)
+		   (and  (nonvar  $U) (and  (table-column-type  $S $T $V) (nonvar  $V)))) True) (=  $P (maybe-corisponds  (ConceptMapFn  $U $R $Q) (ConceptMapFn  $V $T $S)))))
 
 
  (=  (fb-pred-g  $O $P) (sequential  (fb-pred  $O $P) (missing  (skipped-anotations  $O))))
