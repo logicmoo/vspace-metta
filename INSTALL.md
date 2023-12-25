@@ -59,15 +59,15 @@ if ! command -v swipl &> /dev/null; then
             exit 1
         fi
     else
-        echo -e "${BLUE}SWI-Prolog installation aborted. Exiting script${NC}."
+        echo -e "${RED}SWI-Prolog installation aborted. Exiting script${NC}."
         exit 1
     fi
 else
     swi_prolog_version=$(swipl --version)
     if [[ $swi_prolog_version == *"9.1"* ]]; then
-      echo "SWI-Prolog version 9.1 is installed."
+      echo -e "${GREEN}SWI-Prolog version 9.1 is already installed${NC}."
     else
-      echo "SWI-Prolog is not version 9.1."
+      echo "${YELLOW}SWI-Prolog is not version 9.1${NC}."
 	sudo apt-add-repository -y ppa:swi-prolog/devel
 	sudo apt-get remove -y swi-prolog*
 	sudo apt-get update
@@ -77,6 +77,12 @@ else
             echo -e "${RED}Failed to install SWI-Prolog. Exiting script${NC}."
             exit 1
         fi
+	swi_prolog_version=$(swipl --version)
+	if [[ $swi_prolog_version == *"9.1"* ]]; then
+	  echo -e "${GREEN}SWI-Prolog upgraded to 9.1{NC}."
+	else
+	  echo "${YELLOW}SWI-Prolog is still not version 9.1 .. So Janus will probably fail if not already installed${NC}."
+       fi
     fi
 fi
 
@@ -101,7 +107,7 @@ function ensure_pip() {
 echo -e "${BLUE}Checking if Janus Python support is already installed${NC}..."
 if ! swipl -g "use_module(library(janus)), halt(0)." -t "halt(1)" 2>/dev/null; then
     # janus not installed, prompt the user
-    if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Janus Python support"; then
+    if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Python (Janus) support"; then
 	    echo "Installing Janus for SWI-Prolog..."
 	    ensure_pip
 	    sudo pip install git+https://github.com/SWI-Prolog/packages-swipy.git
@@ -122,13 +128,13 @@ fi
 
 # Install PySWIP for SWI-Prolog
 echo -e "${BLUE}Checking if Pyswip is already installed${NC}..."
-if ! python -c "import pyswip" &> /dev/null; then
+if ! python3 -c "import pyswip" &> /dev/null; then
     # Pyswip not installed, prompt the user
     if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Pyswip"; then
         echo -e "${BLUE}Installing Pyswip..${NC}."
 	ensure_pip
-        pip install git+https://github.com/logicmoo/pyswip.git
-        echo -e "${BLUE}Pyswip installation complete${NC}."
+        sudo pip install git+https://github.com/logicmoo/pyswip.git
+        echo -e "${GREEN}Pyswip installation complete${NC}."
     else
         echo -e "${YELLOW}Skipping Pyswip installation${NC}."
     fi
@@ -143,7 +149,7 @@ if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>
     echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
     swipl -g "pack_install(predicate_streams,[interactive(false)])" -t halt
 else
-    echo "predicate_streams is already installed."
+    echo -e "${GREEN}Pack predicate_streams is already installed${NC}."
 fi
 
 if ! swipl -g "use_module(library(logicmoo_utils)), halt(0)." -t "halt(1)" 2>/dev/null; then
@@ -151,7 +157,7 @@ if ! swipl -g "use_module(library(logicmoo_utils)), halt(0)." -t "halt(1)" 2>/de
     echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
     swipl -g "pack_install('https://github.com/TeamSPoon/logicmoo_utils.git',[insecure(true),interactive(false),git(true),verify(false)])" -t halt
 else
-    echo "logicmoo_utils is already installed."
+    echo -e "${GREEN}Pack logicmoo_utils is already installed${NC}."
 fi
 
 if ! swipl -g "use_module(library(dictoo)), halt(0)." -t "halt(1)" 2>/dev/null; then
@@ -159,7 +165,7 @@ if ! swipl -g "use_module(library(dictoo)), halt(0)." -t "halt(1)" 2>/dev/null; 
     echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
     swipl -g "pack_install(dictoo,[interactive(false)])" -t halt
 else
-    echo "dictoo is already installed."
+    echo -e "${GREEN}Pack dictoo is already installed${NC}."
 fi
 
 
