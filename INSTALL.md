@@ -41,9 +41,36 @@ BOLD='\033[1m'
 # ANSI escape code to reset color
 NC='\033[0m' # No Color
 
+# Initialize easy_install to a default value of '?'
+easy_install="?"
 
-install_deps_wo_prompt="N"
-install_deps_wo_prompt="Y"
+# Check command line arguments for --steps or --easy
+for arg in "$@"
+do
+    case $arg in
+        --steps)
+            easy_install="N"
+            shift # Remove --steps from the list of arguments
+            ;;
+        --easy)
+            easy_install="Y"
+            shift # Remove --easy from the list of arguments
+            ;;
+        *)
+            # Ignore unknown options
+            ;;
+    esac
+done
+
+# Ask the user if easy_install is still '?'
+if [ "$easy_install" == "?" ]; then
+    if confirm_with_default "Y" "Would you like to use easy installation mode?"; then
+        easy_install="Y"
+    else
+        easy_install="N"
+    fi
+fi
+
 
 echo -e "${BLUE}Starting the installation process..${NC}."
 
@@ -107,7 +134,7 @@ function ensure_pip() {
 echo -e "${BLUE}Checking if Janus Python support is already installed${NC}..."
 if ! swipl -g "use_module(library(janus)), halt(0)." -t "halt(1)" 2>/dev/null; then
     # janus not installed, prompt the user
-    if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Python (Janus) support"; then
+    if [ "${easy_install}" == "Y" ] || confirm_with_default "Y" "Would you like to install Python (Janus) support"; then
 	    echo "Installing Janus for SWI-Prolog..."
 	    ensure_pip
 	    sudo pip install git+https://github.com/SWI-Prolog/packages-swipy.git
@@ -130,7 +157,7 @@ fi
 echo -e "${BLUE}Checking if Pyswip is already installed${NC}..."
 if ! python3 -c "import pyswip" &> /dev/null; then
     # Pyswip not installed, prompt the user
-    if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Pyswip"; then
+    if [ "${easy_install}" == "Y" ] || confirm_with_default "Y" "Would you like to install Pyswip"; then
         echo -e "${BLUE}Installing Pyswip..${NC}."
 	ensure_pip
         sudo pip install git+https://github.com/logicmoo/pyswip.git
@@ -169,24 +196,32 @@ else
 fi
 
 
-
-
-
+# Setting PYTHONPATH environment variable
 echo -e "${BLUE}Setting PYTHONPATH environment variable..${NC}."
 export PYTHONPATH=$PWD/metta_vspace:$PYTHONPATH
 
-if confirm_with_default "Y" "Download Quick Loadable Flybase files"; then
+# Confirming download of Quick Loadable Flybase files
+if [ "${easy_install}" == "Y" ] || confirm_with_default "Y" "Download Quick Loadable Flybase files"; then
     if [ -f whole_flybase.qlf ]; then
-        echo "whole_flybase.qlf already exists. Skipping download and extraction."
+        echo -e "${YELLOW}whole_flybase.qlf already exists. Skipping download and extraction.${NC}"
     else
-        wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz && gunzip whole_flybase.qlf.gz || { echo "Error in download or unzipping." && exit 1; }
-        echo "Download and unzipping complete."
+        echo -e "${BLUE}Downloading whole_flybase.qlf...${NC}"
+        wget --show-progress https://logicmoo.org/public/metta/data/whole_flybase.qlf.gz && echo "Unzipping..." && gunzip whole_flybase.qlf.gz || { echo -e "${RED}Error in download or unzipping.${NC}" && exit 1; }
+        echo -e "${BLUE}Download and unzipping complete.${NC}"
     fi
 
-    grep -B 3 -A 10 whole_flybase README.md || { echo "Error or no matches in README.md" && exit 1; }
+    # Checking for whole_flybase in README.md
+    echo -e "${BLUE}Checking for whole_flybase in README.md...${NC}"
+    grep -B 3 -A 4 whole_flybase README.md || { echo -e "${RED}Error or no matches in README.md${NC}" && exit 1; }
 
-    exit 0
+    echo -e "${Green}Process completed successfully.${NC}"
+    if [ "${easy_install}" == "Y" ]; then
+         exit 0
+    fi
+else
+    echo -e "${YELLOW}Download of Quick Loadable Flybase files skipped.${NC}"
 fi
+
 
 
 
