@@ -103,7 +103,8 @@ fi
 # Assuming SWI-Prolog 9.1 is installed successfully
 # Install Janus for SWI-Prolog
 echo "Installing Janus for SWI-Prolog..."
-sudo pip install git+https://github.com/SWI-Prolog/packages-swipy.git#egg=janus
+sudo pip install git+https://github.com/SWI-Prolog/packages-swipy.git
+sudo apt install -y libpython3-dev
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}Failed to install Janus. Exiting script${NC}."
