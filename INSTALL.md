@@ -42,7 +42,8 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 
-
+install_deps_wo_prompt="N"
+install_deps_wo_prompt="Y"
 
 echo -e "${BLUE}Starting the installation process..${NC}."
 
@@ -79,76 +80,53 @@ else
     fi
 fi
 
-# Check if pip is installed
-if ! command -v pip &> /dev/null; then
-    echo "pip is not installed. Installing pip..."
-    sudo apt-get update
-    sudo apt-get install -y python3-pip
-    if [ $? -ne 0 ]; then
-        echo -e "${RED}Failed to install pip. Exiting script${NC}."
-        exit 1
+
+function ensure_pip() {
+    # Check if pip is installed
+    if ! command -v pip &> /dev/null; then
+	echo "pip is not installed. Installing pip..."
+	sudo apt-get update
+	sudo apt-get install -y python3-pip
+	if [ $? -ne 0 ]; then
+	    echo -e "${RED}Failed to install pip. Exiting script${NC}."
+	    exit 1
+	fi
+    else
+	echo "pip is already installed."
     fi
-else
-    echo "pip is already installed."
-fi
+}
 
 # Assuming SWI-Prolog 9.1 is installed successfully
 # Install Janus for SWI-Prolog
-echo "Installing Janus for SWI-Prolog..."
-sudo pip install git+https://github.com/SWI-Prolog/packages-swipy.git
-sudo apt install -y libpython3-dev
-
-if [ $? -ne 0 ]; then
-    echo -e "${RED}Failed to install Janus. Exiting script${NC}."
-    exit 1
+echo -e "${BLUE}Checking if Janus Python support is already installed${NC}..."
+if ! swipl -g "use_module(library(janus)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    # janus not installed, prompt the user
+    if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Janus Python support"; then
+	    echo "Installing Janus for SWI-Prolog..."
+	    ensure_pip
+	    sudo pip install git+https://github.com/SWI-Prolog/packages-swipy.git
+	    sudo apt install -y libpython3-dev
+	    if [ $? -ne 0 ]; then
+		echo -e "${RED}Failed to install Janus. Exiting script${NC}."
+		exit 1
+	    else
+		echo "Janus installed successfully."
+	    fi
+    else
+        echo -e "${YELLOW}Skipping Janus Python support installation${NC}."
+    fi
 else
-    echo "Janus installed successfully."
+    echo -e "${GREEN}Janus Python support is already installed${NC}."
 fi
+
 
 # Install PySWIP for SWI-Prolog
-echo "Installing PySWIP for SWI-Prolog..."
-sudo pip install git+https://github.com/logicmoo/pyswip.git
-
-if [ $? -ne 0 ]; then
-    echo -e "${RED}Failed to install PySWIP. Exiting script${NC}."
-    exit 1
-else
-    echo "PySWIP installed successfully."
-fi
-
-
-echo -e "${BLUE}Updating SWI-Prolog packages...${NC}"
-if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>/dev/null; then
-    echo "Installing predicate_streams..."
-    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
-    swipl -g "pack_install('https://github.com/logicmoo/predicate_streams.git')" -t halt
-else
-    echo "predicate_streams is already installed."
-fi
-
-if ! swipl -g "use_module(library(logicmoo_utils)), halt(0)." -t "halt(1)" 2>/dev/null; then
-    echo "Installing logicmoo_utils..."
-    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
-    swipl -g "pack_install('https://github.com/TeamSPoon/logicmoo_utils.git')" -t halt
-else
-    echo "logicmoo_utils is already installed."
-fi
-
-if ! swipl -g "use_module(library(dictoo)), halt(0)." -t "halt(1)" 2>/dev/null; then
-    echo "Installing dictoo..."
-    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
-    swipl -g "pack_install('https://github.com/TeamSPoon/dictoo.git')" -t halt
-else
-    echo "dictoo is already installed."
-fi
-
-
-
 echo -e "${BLUE}Checking if Pyswip is already installed${NC}..."
 if ! python -c "import pyswip" &> /dev/null; then
     # Pyswip not installed, prompt the user
-    if confirm_with_default "Y" "Would you like to install Pyswip"; then
+    if [ "${install_deps_wo_prompt}" == "Y" ] || confirm_with_default "Y" "Would you like to install Pyswip"; then
         echo -e "${BLUE}Installing Pyswip..${NC}."
+	ensure_pip
         pip install git+https://github.com/logicmoo/pyswip.git
         echo -e "${BLUE}Pyswip installation complete${NC}."
     else
@@ -157,6 +135,35 @@ if ! python -c "import pyswip" &> /dev/null; then
 else
     echo -e "${GREEN}Pyswip is already installed${NC}."
 fi
+
+
+echo -e "${BLUE}Updating SWI-Prolog packages...${NC}"
+if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    echo "Installing predicate_streams..."
+    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
+    swipl -g "pack_install(predicate_streams,[interactive(false)])" -t halt
+else
+    echo "predicate_streams is already installed."
+fi
+
+if ! swipl -g "use_module(library(logicmoo_utils)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    echo "Installing logicmoo_utils..."
+    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
+    swipl -g "pack_install('https://github.com/TeamSPoon/logicmoo_utils.git',[insecure(true),interactive(false),git(true),verify(false)])" -t halt
+else
+    echo "logicmoo_utils is already installed."
+fi
+
+if ! swipl -g "use_module(library(dictoo)), halt(0)." -t "halt(1)" 2>/dev/null; then
+    echo "Installing dictoo..."
+    echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
+    swipl -g "pack_install(dictoo,[interactive(false)])" -t halt
+else
+    echo "dictoo is already installed."
+fi
+
+
+
 
 
 echo -e "${BLUE}Setting PYTHONPATH environment variable..${NC}."
