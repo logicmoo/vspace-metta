@@ -42,13 +42,25 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 
+# Inform the user about the script's actions
+echo "This script will check for and install SWI-Prolog and Janus."
+echo "SWI-Prolog is a Prolog environment, and Janus is an associated Python package."
+echo "The script may need to modify your system by installing packages and software."
+echo "Please ensure you have the necessary permissions to make these changes."
+
+# Wait for user acknowledgment
+read -p "Press Enter to continue or Ctrl+C to abort..."
+
+
 echo -e "${BLUE}Starting the installation process..${NC}."
 
 # Check if SWI-Prolog is installed
 if ! command -v swipl &> /dev/null; then
     if confirm_with_default "Y" "SWI-Prolog is not installed. Would you like to install it?"; then
         echo -e "${BLUE}Installing SWI-Prolog.${NC}."
-        sudo apt install swi-prolog
+	sudo apt-add-repository -y ppa:swi-prolog/devel
+	sudo apt-get update
+	sudo apt-get install -y swi-prolog
         if [ $? -ne 0 ]; then
             echo -e "${RED}Failed to install SWI-Prolog. Exiting script${NC}."
             exit 1
@@ -57,7 +69,47 @@ if ! command -v swipl &> /dev/null; then
         echo -e "${BLUE}SWI-Prolog installation aborted. Exiting script${NC}."
         exit 1
     fi
+else
+    swi_prolog_version=$(swipl --version)
+    if [[ $swi_prolog_version == *"9.1"* ]]; then
+      echo "SWI-Prolog version 9.1 is installed."
+    else
+      echo "SWI-Prolog is not version 9.1."
+	sudo apt-add-repository -y ppa:swi-prolog/devel
+	sudo apt-get update
+	sudo apt-get install -y swi-prolog
+        if [ $? -ne 0 ]; then
+            echo -e "${RED}Failed to install SWI-Prolog. Exiting script${NC}."
+            exit 1
+        fi
+    fi
 fi
+
+# Check if pip is installed
+if ! command -v pip &> /dev/null; then
+    echo "pip is not installed. Installing pip..."
+    sudo apt-get update
+    sudo apt-get install -y python3-pip
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}Failed to install pip. Exiting script${NC}."
+        exit 1
+    fi
+else
+    echo "pip is already installed."
+fi
+
+# Assuming SWI-Prolog 9.1 is installed successfully
+# Install Janus for SWI-Prolog
+echo "Installing Janus for SWI-Prolog..."
+pip install git+https://github.com/SWI-Prolog/packages-swipy.git#egg=janus
+
+if [ $? -ne 0 ]; then
+    echo -e "${RED}Failed to install Janus. Exiting script${NC}."
+    exit 1
+else
+    echo "Janus installed successfully."
+fi
+
 
 echo -e "${BLUE}Updating SWI-Prolog packages...${NC}"
 if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>/dev/null; then
