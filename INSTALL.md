@@ -110,6 +110,17 @@ else
     echo "Janus installed successfully."
 fi
 
+# Install PySWIP for SWI-Prolog
+echo "Installing PySWIP for SWI-Prolog..."
+pip install git+https://github.com/logicmoo/pyswip.git
+
+if [ $? -ne 0 ]; then
+    echo -e "${RED}Failed to install PySWIP. Exiting script${NC}."
+    exit 1
+else
+    echo "PySWIP installed successfully."
+fi
+
 
 echo -e "${BLUE}Updating SWI-Prolog packages...${NC}"
 if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>/dev/null; then
