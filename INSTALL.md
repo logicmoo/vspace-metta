@@ -129,7 +129,7 @@ echo -e "${BLUE}Updating SWI-Prolog packages...${NC}"
 if ! swipl -g "use_module(library(predicate_streams)), halt(0)." -t "halt(1)" 2>/dev/null; then
     echo "Installing predicate_streams..."
     echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
-    swipl -g "pack_install(predicate_streams)" -t halt
+    swipl -g "pack_install('https://github.com/logicmoo/predicate_streams.git')" -t halt
 else
     echo "predicate_streams is already installed."
 fi
@@ -137,7 +137,7 @@ fi
 if ! swipl -g "use_module(library(logicmoo_utils)), halt(0)." -t "halt(1)" 2>/dev/null; then
     echo "Installing logicmoo_utils..."
     echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
-    swipl -g "pack_install(logicmoo_utils)" -t halt
+    swipl -g "pack_install('https://github.com/TeamSPoon/logicmoo_utils.git')" -t halt
 else
     echo "logicmoo_utils is already installed."
 fi
@@ -145,7 +145,7 @@ fi
 if ! swipl -g "use_module(library(dictoo)), halt(0)." -t "halt(1)" 2>/dev/null; then
     echo "Installing dictoo..."
     echo -e "${YELLOW}${BOLD}If asked, say yes to everything and/or accept the defaults...${NC}"
-    swipl -g "pack_install(dictoo)" -t halt
+    swipl -g "pack_install('https://github.com/TeamSPoon/dictoo.git')" -t halt
 else
     echo "dictoo is already installed."
 fi
