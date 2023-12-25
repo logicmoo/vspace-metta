@@ -76,8 +76,10 @@ else
     else
       echo "SWI-Prolog is not version 9.1."
 	sudo apt-add-repository -y ppa:swi-prolog/devel
+	sudo apt-get remove -y swi-prolog*
 	sudo apt-get update
 	sudo apt-get install -y swi-prolog
+	# sudo apt-get install -y swi-prolog-bdb swi-prolog-odbc swi-prolog-java
         if [ $? -ne 0 ]; then
             echo -e "${RED}Failed to install SWI-Prolog. Exiting script${NC}."
             exit 1
