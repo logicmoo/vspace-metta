@@ -42,14 +42,6 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 
-# Inform the user about the script's actions
-echo "This script will check for and install SWI-Prolog and Janus."
-echo "SWI-Prolog is a Prolog environment, and Janus is an associated Python package."
-echo "The script may need to modify your system by installing packages and software."
-echo "Please ensure you have the necessary permissions to make these changes."
-
-# Wait for user acknowledgment
-read -p "Press Enter to continue or Ctrl+C to abort..."
 
 
 echo -e "${BLUE}Starting the installation process..${NC}."
