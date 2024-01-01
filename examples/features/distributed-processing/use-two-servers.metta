@@ -1,9 +1,9 @@
 
 
 
-!(bind! &ps1 (process-create! (bash) (:: -c "MeTTa server1-with-some-data.metta -G \'(create-vspace-server 3021)\')")) ())
+!(bind! &ps1 (process-create! (bash) (:: -c "MeTTa server1-with-some-data.metta -G \'(create-vspace-server &self 3021)\')")) ())
 
-!(bind! &ps2 (process-create! (bash) (:: -c "MeTTa server2-with-some-data.metta -G \'(create-vspace-server 3025)\')")) ())
+!(bind! &ps2 (process-create! (bash) (:: -c "MeTTa server2-with-some-data.metta -G \'(create-vspace-server &self 3025)\')")) ())
 
 
 !(assertEqualToResult

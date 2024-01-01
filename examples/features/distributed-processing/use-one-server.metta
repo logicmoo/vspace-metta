@@ -1,7 +1,7 @@
 
 
 
-!(bind! &ps1 (process-create! (bash) (:: -c "MeTTa server1-with-some-data.metta server1-with-some-data.metta -G \'(create-vspace-server 3021)\')")) ())
+!(bind! &ps1 (process-create! (bash) (:: -c "MeTTa server1-with-some-data.metta server1-with-some-data.metta -G \'(create-vspace-server &self 3021)\')")) ())
 
 !(process-kill! &ps1)
 
