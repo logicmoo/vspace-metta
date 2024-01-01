@@ -1,10 +1,10 @@
 # Bidirectional Computation in Functional Programming
 
-This document explains the unique feature of bidirectional (or reversible) computation in our functional programming language that uses a Prolog backend with CLP(FD).
+This document explains the unique feature of bidirectional (or reversible) computation in our functional programming language that uses a non-determinsitic backend with CLP(FD).  The non-determinsitic backend is what allows MeTTaLog programs to run backwards in time inducing the inputs that would have created some outputs.
 
 ## Feature Overview
 
-Bidirectional computation allows expressions to be evaluated in both forward and reverse directions. This capability is enabled by the integration of Constraint Logic Programming over Finite Domains (CLP(FD)) with a Prolog backend.
+Bidirectional computation allows expressions to be evaluated in both forward and reverse directions. This capability is enabled by the integration of Constraint Logic Programming over Finite Domains (CLP(FD)) with a non-determinsitic backend.
 
 ### Forward Mode
 
@@ -28,7 +28,7 @@ Here, the system determines the value of `X` such that the factorial of `X` equa
 
 ## Mechanism
 
-The Prolog backend with CLP(FD) enables reversible computation. CLP(FD) allows for defining relations among variables with constraints, and the Prolog engine utilizes these constraints for bidirectional inference.
+The MeTTaLog backend with CLP(FD) enables reversible computation. CLP(FD) allows for defining relations among variables with constraints, and the MeTTaLog engine utilizes these constraints for bidirectional inference.
 
 ## Applications
 
