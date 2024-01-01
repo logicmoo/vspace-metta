@@ -6,6 +6,19 @@ This document explains the unique feature of bidirectional (or reversible) compu
 
 Bidirectional computation allows expressions to be evaluated in both forward and reverse directions. This capability is enabled by the integration of Constraint Logic Programming over Finite Domains (CLP(FD)) with a non-determinsitic backend.
 
+## Advantages
+
+- **Flexibility**: Supports versatile and powerful function definitions.
+- **Efficiency**: Reduces the need for separate logic for reverse computations.
+- **Expressiveness**: Enhances the ability to express a wide range of computational problems.
+
+## Example
+
+- Forward: `X = factorial(5)` results in `X` being 120.
+- Reverse: `120 = factorial(X)` finds `X` such that `X` is 5.
+
+
+
 ### Forward Mode
 
 In this traditional mode, functions compute outputs from given inputs. For example:
@@ -39,19 +52,4 @@ Bidirectional computation is beneficial in various fields, including:
 - Problem-solving
 
 It is particularly useful where reverse inference is as crucial as forward computation.
-
-## Advantages
-
-- **Flexibility**: Supports versatile and powerful function definitions.
-- **Efficiency**: Reduces the need for separate logic for reverse computations.
-- **Expressiveness**: Enhances the ability to express a wide range of computational problems.
-
-## Example
-
-- Forward: `X = factorial(5)` results in `X` being 120.
-- Reverse: `120 = factorial(X)` finds `X` such that `X` is 5.
-
-## Conclusion
-
-Bidirectional computation in our functional programming language expands problem-solving capabilities by leveraging the power of constraint logic programming, enabling functions to operate in both forward and reverse directions.
 
