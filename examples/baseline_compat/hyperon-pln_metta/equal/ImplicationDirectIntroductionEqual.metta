@@ -34,10 +34,10 @@
 (≞ (→ $p $q) (ETV Empty (STV 1 0)))
 
 ;; TODO: see MeTTa examples such as b2_backchain.metta,
-;; b3_direct.metta, b4_nonterm.metta, c3_pln-stv.metta,
-;; d1_custom-types.metta and d3_typed-pln.metta for inspiration.
+;; b3_direct.metta, b4_nonterm.metta, c3_pln_stv.metta,
+;; d1_custom_types.metta and d3_typed_pln.metta for inspiration.
 
-;; Recursive case (inductive rule):
+;; Recursive step (inductive rule):
 ;;
 ;; (p a) ≞ patv
 ;; (q a) ≞ qatv
