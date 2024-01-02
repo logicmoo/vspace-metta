@@ -1,6 +1,4 @@
 
-
-
 !(bind! &ps1
   (eval-for $pid (process-create! (bash) (:: -c "MeTTa server1-with-some-data.metta  -G \'(create-vspace-server &self 3021)\')")) (:: (process $pid))))
 
