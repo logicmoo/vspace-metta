@@ -1,10 +1,23 @@
 # Bidirectional Computation in Functional Programming
 
-This document explains the unique feature of bidirectional (or reversible) computation in our functional programming language that uses a Prolog backend with CLP(FD).
+This document explains the unique feature of bidirectional (or reversible) computation in our functional programming language that uses a non-determinsitic backend with CLP(FD).  The non-determinsitic backend is what allows MeTTaLog programs to run backwards in time inducing the inputs that would have created some outputs.
 
 ## Feature Overview
 
-Bidirectional computation allows expressions to be evaluated in both forward and reverse directions. This capability is enabled by the integration of Constraint Logic Programming over Finite Domains (CLP(FD)) with a Prolog backend.
+Bidirectional computation allows expressions to be evaluated in both forward and reverse directions. This capability is enabled by the integration of Constraint Logic Programming over Finite Domains (CLP(FD)) with a non-determinsitic backend.
+
+## Advantages
+
+- **Flexibility**: Supports versatile and powerful function definitions.
+- **Efficiency**: Reduces the need for separate logic for reverse computations.
+- **Expressiveness**: Enhances the ability to express a wide range of computational problems.
+
+## Example
+
+- Forward: `X = factorial(5)` results in `X` being 120.
+- Reverse: `120 = factorial(X)` finds `X` such that `X` is 5.
+
+
 
 ### Forward Mode
 
@@ -28,7 +41,7 @@ Here, the system determines the value of `X` such that the factorial of `X` equa
 
 ## Mechanism
 
-The Prolog backend with CLP(FD) enables reversible computation. CLP(FD) allows for defining relations among variables with constraints, and the Prolog engine utilizes these constraints for bidirectional inference.
+The MeTTaLog backend with CLP(FD) enables reversible computation. CLP(FD) allows for defining relations among variables with constraints, and the MeTTaLog engine utilizes these constraints for bidirectional inference.
 
 ## Applications
 
@@ -39,19 +52,4 @@ Bidirectional computation is beneficial in various fields, including:
 - Problem-solving
 
 It is particularly useful where reverse inference is as crucial as forward computation.
-
-## Advantages
-
-- **Flexibility**: Supports versatile and powerful function definitions.
-- **Efficiency**: Reduces the need for separate logic for reverse computations.
-- **Expressiveness**: Enhances the ability to express a wide range of computational problems.
-
-## Example
-
-- Forward: `X = factorial(5)` results in `X` being 120.
-- Reverse: `120 = factorial(X)` finds `X` such that `X` is 5.
-
-## Conclusion
-
-Bidirectional computation in our functional programming language expands problem-solving capabilities by leveraging the power of constraint logic programming, enabling functions to operate in both forward and reverse directions.
 
