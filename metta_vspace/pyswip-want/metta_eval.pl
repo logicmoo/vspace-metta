@@ -487,11 +487,12 @@ metta_atom_true(Eq,_Dpth,_Slf,Other,H):- get_metta_atom(Eq,Other,H).
 
 
 
-metta_atom_iter_ref(Other,H,Ref):-clause(asserted_metta_atom(Other,H),true,Ref).
 
 
 eval_sometimes(Eq,RetType,Depth,Self,B,BB):- eval_20(Eq,RetType,Depth,Self,B,BB)*->true;(trace,B=BB).
 %eval_sometimes(_Eq,_RetType,_Depth,_Self,B,B)
+
+metta_atom_iter_ref(Other,H,Ref):-clause(asserted_metta_atom(Other,H),true,Ref).
 
 % =================================================================
 % =================================================================
@@ -1076,7 +1077,9 @@ eval_20(Eq,RetType,Depth,Self,['concurrent-forall!',Gen,Test|Options],Empty):- !
             user:forall(eval(Eq,RetType,Depth,Self,Test,_),true),
             POptions)),
      return_empty([],Empty).
-eval_20(Eq,RetType,Depth,Self,['hyperpose',ArgL1],ResL):- !, concurrent_maplist(eval(Eq,RetType,Depth,Self),ArgL1,ResL).
+eval_20(Eq,RetType,Depth,Self,['hyperpose',ArgL1],ResL):- 
+  !, concurrent_maplist(eval(Eq,RetType,Depth,Self),ArgL1,ResL).
+
 
 
 eval_20(Eq,RetType,_Dpth,_Slf,['==',X,Y],Res):-  !,
@@ -1362,7 +1365,7 @@ eval_64(Eq,RetType,Depth,Self,[H|Args0],B):- % no weird template matchers
     %(eval(Eq,RetType,Depth,Self,B,Y);eval_match(Eq,RetType,Depth,Self,Y)).
 
 % Use the first template match
-eval_65(Eq,_RetType,Depth,Self,[H|Args],B):- fail,
+eval_65(Eq,_RetType,Depth,Self,[H|Args],B):- 
    Eq='=',
   (metta_defn(Eq,Self,[H|Template],B0),Args=Template),
    light_eval(Depth,Self,B0,B).

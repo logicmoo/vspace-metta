@@ -1,58 +1,18 @@
 ;;  Load the VSPACE python space
 
+;;  Load the VSPACE python space
+
 ;; to start in MeTTaLog use    ./MeTTa 8-FlybaseQuestions.metta --repl
 
 !(extend-py! metta_vspace.metta_learner)
 
 !(fb-info!)
 
+!(pwd!)
 ;; MeTTaLog only:
-!(ensure-loaded! whole_flybase)
+!(ensure-loaded! ../../data/whole_flybase_2)
 
 !(fb-info!)
-
-(: number-of (-> Countable Number))
-(= (number-of $query $length)
-    (length! (match &self $query t) $length))
-
-;; inside flybase we only see 74 answers
-!(match &flybase (gene_map_table $Org $Sym $G 3-59 $D $E) ($Sym $G $D $E))
-
-;; should return no results in &self
-!(match &self (gene_map_table $Org $Sym $G 3-59 $D $E) ($Sym $G $D $E))
-
-!(get-atoms &flybase (gene_map_table $Org $Sym $G 3-59 $D $E))
-
-;; our special hack to see into other spaces
-!(number-of (gene_map_table! $Org $Sym $G 3-59 $D $E)) ;; 74
-
-;;     flybase space answer should be 0
-!(number-of (gene_map_table $Org $Sym $G 3-59 $D $E)) ;; 0
-
-;; use the host system limiter of 5
-!(number-of  (limit! 5 (gene_map_table! $Org $Sym $G 3-59 $D $E)))  ;; 5
-
-!(assertEqual (number-of (gene_map_table! $MapID $OrganismAbbreviation $ParalogGeneID 3-59 $CytogeneticLoc $SequenceLoc)) 74)
-
-; (gene_map_table! $MapID $OrganismAbbreviation $ParalogGeneID $RecombinationLoc $CytogeneticLoc $SequenceLoc)
-
-
-;; What recombination locations have 74 Paralog Genes?
-;; !(,  (gene_map_table! $_ $_ $_ $RecombinationLoc $_ $_) (== 74 (number-of (gene_map_table! $_ $_ $ParalogGeneID $RecombinationLoc $_ $_))))
-
-
-
-;; print no more than the first 5 answers
-(= (query-info2 $English $template $query)
- (,
-   (println!  ($English  "=" $query))
-   (println!  (limit! 5 (match &flybase $query $template)))
-   (println! ("time was = " (time! (number-of $query $count))))
-   (println! ("total of query = " $count))))
-
-(= (query-info $English $template $query)
-  (let $_ (println  ($English  "=" $query))
-  (limit! 5 (match &flybase $query $template))))
 
 ;;; Types Used in Predicates
 
@@ -171,7 +131,7 @@
 (: allele_phenotypic! (-> AlleleSymbol AlleleFBal Phenotype ReferenceFBrf NondetReturn))
 (: automated_gene_summaries! (-> GeneID SummaryText NondetReturn))
 (: best_gene_summary! (-> GeneID GeneSymbol SummarySource Summary NondetReturn))
-(: cDNA_clone! (-> CloneID OrganismAbbreviation CloneName DatasetMetadataName (List CDNAaccession) (List ESTaccession) NondetReturn))
+(: cDNA_clone_data! (-> CloneID OrganismAbbreviation CloneName DatasetMetadataName (List CDNAaccession) (List ESTaccession) NondetReturn))
 (: cyto-genetic-seq! (-> CytogeneticMapPosition GeneticMapPosition SequenceCoordinatesRelease6 R6ConversionNotes NondetReturn))
 (: dataset_metadata! (-> DatasetMetadataID DatasetMetadataName ItemID ItemName NondetReturn))
 (: disease_model_annotations! (-> GeneID GeneSymbol HGNC DOQualifier DO DOTerm AlleleUsedInModelFBal AlleleUsedInModelSymbol BasedOnOrthologyWithHGNCID BasedOnOrthologyWithSymbol EvidenceInteractingAlleles ReferenceFBrf NondetReturn))
@@ -210,7 +170,223 @@
 (: scRNA-Seq_gene_expression! (-> PubID PubMiniRef ClusteringAnalysisID ClusteringAnalysisName SourceTissueSex SourceTissueStage SourceTissueAnatomy ClusterID ClusterName ClusterCellTypeID ClusterCellTypeName GeneID GeneSymbol MeanExpression Spread NondetReturn))
 (: synonym! (-> PrimaryFBid OrganismAbbreviation GeneSymbol CurrentFullname (List FullnameSynonym) (List SymbolSynonym) NondetReturn))
 
+(arity allele_genetic_interactions 4)
+(arity automated_gene_summaries 3)
+(arity best_gene_summary 4)
+(arity cDNA_clone_data 6)
+(arity cyto-genetic-seq 4)
+(arity disease_model_annotations 12)
+(arity Dmel_enzyme_data 11)
+(arity dmel_gene_sequence_ontology_annotations 4)
+(arity dmel_human_orthologs_disease 8)
+(arity dmel_paralogs 11)
+(arity dmel_unique_protein_isoforms 4)
+(arity entity_publication 4)
+(arity fb_synonym 6)
+(arity fbal_to_fbgn 4)
+(arity fbgn_annotation_ID 6)
+(arity fbgn_exons2affy1_overlaps 2)
+(arity fbgn_exons2affy2_overlaps 2)
+(arity fbgn_fbtr_fbpp 3)
+(arity fbgn_fbtr_fbpp_expanded 11)
+(arity fbgn_gleanr 4)
+(arity fbgn_NAseq_Uniprot 9)
+(arity fbgn_uniprot 4)
+(arity fbrf_pmid_pmcid_doi 7)
+(arity gene_functional_complementation 5)
+(arity gene_genetic_interactions 6)
+(arity gene_group_data 7)
+(arity gene_map_table 6)
+(arity gene_rpkm_matrix 170)
+(arity gene_rpkm_report 12)
+(arity gene_snapshots 5)
+(arity genome-cyto-seq 3)
+(arity genomic_clone_data 4)
+(arity genotype_phenotype_data 7)
+(arity gp_information 10)
+(arity insertion_mapping 7)
+(arity organism_list 6)
+(arity pathway_group_data 7)
+(arity physical_interactions_mitab 42)
+(arity pmid_fbgn_uniprot 5)
+(arity transposon_sequence_set 62)
+
+(arity obo-allele-common-terms 2)
+(arity obo-allele-expression-desc-text 2)
+(arity obo-allele-image2 6)
+(arity obo-allele-images 2)
+(arity obo-allele-major-stages 2)
+(arity obo-allele-major-tissues 2)
+(arity obo-allele-name 2)
+(arity obo-allele-pubs 2)
+(arity obo-allele-rex-gene 2)
+(arity obo-allele-stocks 2)
+(arity obo-allele-transposons 2)
+(arity obo-alt-id 2)
+(arity obo-attached-to 3)
+(arity obo-attached-to-part-of 3)
+(arity obo-charge 2)
+(arity obo-comment 2)
+(arity obo-common-terms 1)
+(arity obo-consider 2)
+(arity obo-continuous-with 3)
+(arity obo-created-by 2)
+(arity obo-creation-date 2)
+(arity obo-crossReferenceIds 1)
+(arity obo-def 4)
+(arity obo-derives-from 3)
+(arity obo-develops-directly-from 3)
+(arity obo-develops-from 3)
+(arity obo-develops-into 3)
+(arity obo-directory 2)
+(arity obo-disjoint-from 3)
+(arity obo-electrically-synapsed-to 3)
+(arity obo-exon-locations 8)
+(arity obo-exons-chromosome 1)
+(arity obo-exons-endPosition 1)
+(arity obo-exons-INSDC-accession 1)
+(arity obo-exons-startPosition 1)
+(arity obo-expression-desc-text 1)
+(arity obo-fasciculates-with 3)
+(arity obo-fbid 1)
+(arity obo-format-version 2)
+(arity obo-formula 2)
+(arity obo-gene 6)
+(arity obo-gene-geneId 1)
+(arity obo-gene-locusTag 2)
+(arity obo-gene-name 2)
+(arity obo-gene-symbol 2)
+(arity obo-gene-synonyms 2)
+(arity obo-gene-url 2)
+(arity obo-has-fasciculating-neuron-projection 3)
+(arity obo-has-functional-parent 2)
+(arity obo-has-origin 3)
+(arity obo-has-parent-hydride 2)
+(arity obo-has-part 3)
+(arity obo-has-quality 3)
+(arity obo-has-role 2)
+(arity obo-has-sensory-dendrite-in 3)
+(arity obo-has-soma-location 3)
+(arity obo-has-synaptic-IO-in 3)
+(arity obo-id-type 2)
+(arity obo-imageDescription 1)
+(arity obo-images 1)
+(arity obo-immediately-preceded-by 3)
+(arity obo-inchi 2)
+(arity obo-inchikey 2)
+(arity obo-innervated-by 3)
+(arity obo-innervates 3)
+(arity obo-insertions 1)
+(arity obo-is-a 2)
+(arity obo-is-conjugate-acid-of 2)
+(arity obo-is-conjugate-base-of 2)
+(arity obo-is-enantiomer-of 2)
+(arity obo-is-obsolete 2)
+(arity obo-is-substituent-group-from 2)
+(arity obo-is-tautomer-of 2)
+(arity obo-is-transitive 2)
+(arity obo-major-tissues 1)
+(arity obo-mass 2)
+(arity obo-monoisotopicmass 2)
+(arity obo-name 2)
+(arity obo-namespace 2)
+(arity obo-negatively-regulates 3)
+(arity obo-overlaps 3)
+(arity obo-part-of 3)
+(arity obo-pathname 2)
+(arity obo-positively-regulates 3)
+(arity obo-primaryId 1)
+(arity obo-pubFigure 1)
+(arity obo-publicationId 1)
+(arity obo-publications 1)
+(arity obo-pubs 1)
+(arity obo-receives-input-from 3)
+(arity obo-receives-synaptic-input-from-neuron 3)
+(arity obo-receives-synaptic-input-in-region 3)
+(arity obo-receives-synaptic-input-throughout 3)
+(arity obo-regulates 3)
+(arity obo-relatedSequences 3)
+(arity obo-relatedSequences-sequenceId 1)
+(arity obo-remark 2)
+(arity obo-replaced-by 2)
+(arity obo-rex-gene 1)
+(arity obo-sends-synaptic-output-throughout 3)
+(arity obo-sends-synaptic-output-to-cell 3)
+(arity obo-sends-synaptic-output-to-region 3)
+(arity obo-sequence 1)
+(arity obo-smiles 2)
+(arity obo-soTermId 1)
+(arity obo-stocks 1)
+(arity obo-subset 2)
+(arity obo-subsetdef 3)
+(arity obo-substage-of 3)
+(arity obo-symbol 1)
+(arity obo-symbolSynonyms 1)
+(arity obo-synapsed-via-type-Ib-bouton-to 3)
+(arity obo-synapsed-via-type-II-bouton-to 3)
+(arity obo-synapsed-via-type-III-bouton-to 3)
+(arity obo-synapsed-via-type-Is-bouton-to 3)
+(arity obo-synonym 5)
+(arity obo-synonymtypedef 4)
+(arity obo-transposon 6)
+(arity obo-transposon-cross-references 2)
+(arity obo-transposon-publications 2)
+(arity obo-transposons 1)
+(arity obo-transposon-synonyms 2)
+(arity obo-url 1)
+
+
+
+
 ;;  do some queries
+
+(: number-of (-> Countable Number))
+(= (number-of $query $length)
+    (length! (match &self $query t) $length))
+
+;; inside flybase we only see 74 answers
+!(match &flybase (gene_map_table $Org $Sym $G 3-59 $D $E) ($Sym $G $D $E))
+
+;; should return no results in &self
+!(match &self (gene_map_table $Org $Sym $G 3-59 $D $E) ($Sym $G $D $E))
+
+;; our special hack to see into other spaces
+!(number-of (gene_map_table! $Org $Sym $G 3-59 $D $E)) ;; 74
+
+!(repl!)
+
+!(get-atoms &flybase (gene_map_table $Org $Sym $G 3-59 $D $E))
+
+
+
+;;     flybase space answer should be 0
+!(number-of (gene_map_table $Org $Sym $G 3-59 $D $E)) ;; 0
+
+;; use the host system limiter of 5
+!(number-of  (limit! 5 (gene_map_table! $Org $Sym $G 3-59 $D $E)))  ;; 5
+
+!(assertEqual (number-of (gene_map_table! $MapID $OrganismAbbreviation $ParalogGeneID 3-59 $CytogeneticLoc $SequenceLoc)) 74)
+
+; (gene_map_table! $MapID $OrganismAbbreviation $ParalogGeneID $RecombinationLoc $CytogeneticLoc $SequenceLoc)
+
+
+;; What recombination locations have 74 Paralog Genes?
+;; !(,  (gene_map_table! $_ $_ $_ $RecombinationLoc $_ $_) (== 74 (number-of (gene_map_table! $_ $_ $ParalogGeneID $RecombinationLoc $_ $_))))
+
+
+
+;; print no more than the first 5 answers
+(= (query-info2 $English $template $query)
+ (,
+   (println!  ($English  "=" $query))
+   (println!  (limit! 5 (match &flybase $query $template)))
+   (println! ("time was = " (time! (number-of $query $count))))
+   (println! ("total of query = " $count))))
+
+(= (query-info $English $template $query)
+  (let $_ (println  ($English  "=" $query))
+  (limit! 5 (match &flybase $query $template))))
+
 
 ;; Query: Find the Gene Symbols and Summary Texts for Genes Involved in a Specific Disease
 !(query-info "Show the gene symbols and summary texts for genes that are associated with a particular disease model."
@@ -325,7 +501,7 @@
 ;; Query: Find cDNA Clones Related to Specific Diseases
 !(query-info "Identify cDNA clones linked to genes associated with certain diseases."
     (cDNA-clones-and-diseases $CloneName $Disease)
-   (, (cDNA_clone! $_ $_ $CloneName $_)
+   (, (cDNA_clone_data! $_ $_ $CloneName $_)
       (disease_model_annotations! $_ $_ $_ $_ $Disease $_)
 )
 )
@@ -394,7 +570,7 @@
 ;; Query: Relate cDNA Clones to Their Corresponding Genes and Accessions
 !(query-info "Link cDNA clones to their corresponding genes and accessions."
     (cdna-clone-gene-link $CloneName $GeneSymbol $CDNAaccession)
-   (, (cDNA_clone! $_ $_ $CloneName $_ $CDNAaccession $_)
+   (, (cDNA_clone_data! $_ $_ $CloneName $_ $CDNAaccession $_)
       (fbgn_annotation_ID! $GeneSymbol $_ $_ $_ $_ $_))
 )
 
@@ -476,7 +652,7 @@
 !(query-info "Correlate gene expressions with corresponding cDNA clones and protein accessions."
     (gene-expression-cdna-protein $GeneSymbol $ExpressionValue $CloneName $ProteinAccession)
    (, (gene_rpkm_matrix! $GeneSymbol $_ $_ $ExpressionValue)
-      (cDNA_clone! $_ $_ $CloneName $_)
+      (cDNA_clone_data! $_ $_ $CloneName $_)
       (fbgn_NAseq_Uniprot! $GeneSymbol $_ $_ $ProteinAccession))
 )
 
@@ -651,7 +827,7 @@
 ;; Query: Associate Genes with Their cDNA Clones and Disease Models
 !(query-info "Associate genes with their cDNA clones and relevant disease models."
     (genes-cdna-disease-models $GeneSymbol $CloneName $Disease)
-    (, (cDNA_clone! $_ $_ $CloneName $_ $_ $_)
+    (, (cDNA_clone_data! $_ $_ $CloneName $_ $_ $_)
        (gene_map_table! $_ $GeneSymbol $_ $_ $_ $_ $_)
        (disease_model_annotations! $_ $GeneSymbol $_ $_ $_ $Disease $_ $_ $_ $_ $_ $_))
 )
@@ -686,7 +862,7 @@
 !(query-info "Identify genes that have cDNA clones or are related to specific pathways."
     (genes-cdna-or-pathways $GeneSymbol $CloneName $Pathway)
     (, (gene_map_table! $GeneSymbol $_ $_ $_ $_ $_)
-       (or (cDNA_clone! $CloneName $_ $GeneSymbol $_ $_)
+       (or (cDNA_clone_data! $CloneName $_ $GeneSymbol $_ $_)
            (pathway_group! $GeneSymbol $_ $_ $_ $Pathway $_ $_)))
 )
 
@@ -748,7 +924,7 @@
 ;; Query: Identify Genes with cDNA Clones but Not Involved in Specific Pathways
 !(query-info "Identify genes that have cDNA clones but are naf involved in specific pathways."
     (genes-cdna-naf-pathways $GeneSymbol $CloneName)
-    (, (cDNA_clone! $CloneName $_ $GeneSymbol $_ $_ $_)
+    (, (cDNA_clone_data! $CloneName $_ $GeneSymbol $_ $_ $_)
        (naf (pathway_group! $GeneSymbol $_ $_ $_ $_ $_ $_)))
 )
 
@@ -819,7 +995,7 @@
 !(query-info "Associate genes with cDNA clones or enzymatic functions but exclude certain synonyms."
     (genes-cdna-enzymes-naf-synonyms $GeneSymbol $CloneName $EnzymeFunction $ExcludedSynonym)
     (, (gene_map_table! $GeneSymbol $_ $_ $_ $_ $_)
-       (, (or (cDNA_clone! $CloneName $_ $GeneSymbol $_)
+       (, (or (cDNA_clone_data! $CloneName $_ $GeneSymbol $_)
                  (Dmel_enzyme! $GeneSymbol $_ $_ $EnzymeFunction $_))
             (naf (fb_synonym! $GeneSymbol $_ $_ $ExcludedSynonym $_))))
 )
@@ -838,170 +1014,4 @@
 !(metta_learner::vspace-main)
 
 
-
-
-(arity allele_genetic_interactions 4)
-(arity automated_gene_summaries 3)
-(arity best_gene_summary 4)
-(arity cDNA_clone_data 6)
-(arity cyto-genetic-seq 4)
-(arity disease_model_annotations 12)
-(arity Dmel_enzyme_data 11)
-(arity dmel_gene_sequence_ontology_annotations 4)
-(arity dmel_human_orthologs_disease 8)
-(arity dmel_paralogs 11)
-(arity dmel_unique_protein_isoforms 4)
-(arity entity_publication 4)
-(arity fb_synonym 6)
-(arity fbal_to_fbgn 4)
-(arity fbgn_annotation_ID 6)
-(arity fbgn_exons2affy1_overlaps 2)
-(arity fbgn_exons2affy2_overlaps 2)
-(arity fbgn_fbtr_fbpp 3)
-(arity fbgn_fbtr_fbpp_expanded 11)
-(arity fbgn_gleanr 4)
-(arity fbgn_NAseq_Uniprot 9)
-(arity fbgn_uniprot 4)
-(arity fbrf_pmid_pmcid_doi 7)
-(arity gene_functional_complementation 5)
-(arity gene_genetic_interactions 6)
-(arity gene_group_data 7)
-(arity gene_map_table 6)
-(arity gene_rpkm_matrix 170)
-(arity gene_rpkm_report 12)
-(arity gene_snapshots 5)
-(arity genome-cyto-seq 3)
-(arity genomic_clone_data 4)
-(arity genotype_phenotype_data 7)
-(arity gp_information 10)
-(arity insertion_mapping 7)
-(arity organism_list 6)
-(arity pathway_group_data 7)
-(arity physical_interactions_mitab 42)
-(arity pmid_fbgn_uniprot 5)
-(arity transposon_sequence_set 62)
-
-(arity obo-allele-common-terms 2)
-(arity obo-allele-expression-desc-text 2)
-(arity obo-allele-image2 6)
-(arity obo-allele-images 2)
-(arity obo-allele-major-stages 2)
-(arity obo-allele-major-tissues 2)
-(arity obo-allele-name 2)
-(arity obo-allele-pubs 2)
-(arity obo-allele-rex-gene 2)
-(arity obo-allele-stocks 2)
-(arity obo-allele-transposons 2)
-(arity obo-alt-id 2)
-(arity obo-attached-to 3)
-(arity obo-attached-to-part-of 3)
-(arity obo-charge 2)
-(arity obo-comment 2)
-(arity obo-common-terms 1)
-(arity obo-consider 2)
-(arity obo-continuous-with 3)
-(arity obo-created-by 2)
-(arity obo-creation-date 2)
-(arity obo-crossReferenceIds 1)
-(arity obo-def 4)
-(arity obo-derives-from 3)
-(arity obo-develops-directly-from 3)
-(arity obo-develops-from 3)
-(arity obo-develops-into 3)
-(arity obo-directory 2)
-(arity obo-disjoint-from 3)
-(arity obo-electrically-synapsed-to 3)
-(arity obo-exon-locations 8)
-(arity obo-exons-chromosome 1)
-(arity obo-exons-endPosition 1)
-(arity obo-exons-INSDC-accession 1)
-(arity obo-exons-startPosition 1)
-(arity obo-expression-desc-text 1)
-(arity obo-fasciculates-with 3)
-(arity obo-fbid 1)
-(arity obo-format-version 2)
-(arity obo-formula 2)
-(arity obo-gene 6)
-(arity obo-gene-geneId 1)
-(arity obo-gene-locusTag 2)
-(arity obo-gene-name 2)
-(arity obo-gene-symbol 2)
-(arity obo-gene-synonyms 2)
-(arity obo-gene-url 2)
-(arity obo-has-fasciculating-neuron-projection 3)
-(arity obo-has-functional-parent 2)
-(arity obo-has-origin 3)
-(arity obo-has-parent-hydride 2)
-(arity obo-has-part 3)
-(arity obo-has-quality 3)
-(arity obo-has-role 2)
-(arity obo-has-sensory-dendrite-in 3)
-(arity obo-has-soma-location 3)
-(arity obo-has-synaptic-IO-in 3)
-(arity obo-id-type 2)
-(arity obo-imageDescription 1)
-(arity obo-images 1)
-(arity obo-immediately-preceded-by 3)
-(arity obo-inchi 2)
-(arity obo-inchikey 2)
-(arity obo-innervated-by 3)
-(arity obo-innervates 3)
-(arity obo-insertions 1)
-(arity obo-is-a 2)
-(arity obo-is-conjugate-acid-of 2)
-(arity obo-is-conjugate-base-of 2)
-(arity obo-is-enantiomer-of 2)
-(arity obo-is-obsolete 2)
-(arity obo-is-substituent-group-from 2)
-(arity obo-is-tautomer-of 2)
-(arity obo-is-transitive 2)
-(arity obo-major-tissues 1)
-(arity obo-mass 2)
-(arity obo-monoisotopicmass 2)
-(arity obo-name 2)
-(arity obo-namespace 2)
-(arity obo-negatively-regulates 3)
-(arity obo-overlaps 3)
-(arity obo-part-of 3)
-(arity obo-pathname 2)
-(arity obo-positively-regulates 3)
-(arity obo-primaryId 1)
-(arity obo-pubFigure 1)
-(arity obo-publicationId 1)
-(arity obo-publications 1)
-(arity obo-pubs 1)
-(arity obo-receives-input-from 3)
-(arity obo-receives-synaptic-input-from-neuron 3)
-(arity obo-receives-synaptic-input-in-region 3)
-(arity obo-receives-synaptic-input-throughout 3)
-(arity obo-regulates 3)
-(arity obo-relatedSequences 3)
-(arity obo-relatedSequences-sequenceId 1)
-(arity obo-remark 2)
-(arity obo-replaced-by 2)
-(arity obo-rex-gene 1)
-(arity obo-sends-synaptic-output-throughout 3)
-(arity obo-sends-synaptic-output-to-cell 3)
-(arity obo-sends-synaptic-output-to-region 3)
-(arity obo-sequence 1)
-(arity obo-smiles 2)
-(arity obo-soTermId 1)
-(arity obo-stocks 1)
-(arity obo-subset 2)
-(arity obo-subsetdef 3)
-(arity obo-substage-of 3)
-(arity obo-symbol 1)
-(arity obo-symbolSynonyms 1)
-(arity obo-synapsed-via-type-Ib-bouton-to 3)
-(arity obo-synapsed-via-type-II-bouton-to 3)
-(arity obo-synapsed-via-type-III-bouton-to 3)
-(arity obo-synapsed-via-type-Is-bouton-to 3)
-(arity obo-synonym 5)
-(arity obo-synonymtypedef 4)
-(arity obo-transposon 6)
-(arity obo-transposon-cross-references 2)
-(arity obo-transposon-publications 2)
-(arity obo-transposons 1)
-(arity obo-transposon-synonyms 2)
-(arity obo-url 1)
 
