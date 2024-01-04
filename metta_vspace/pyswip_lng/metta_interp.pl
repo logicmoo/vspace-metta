@@ -623,7 +623,6 @@ add_history_pl(show_failure(PL)):-!,add_history_pl(PL).
 add_history_pl(as_tf(PL,_OUT)):-!,add_history_pl(PL).
 add_history_pl(Exec):- notrace(ignore((Exec\=[],with_output_to(string(H),with_indents(false,(writeq(Exec),writeln('.')))),add_history_string(H)))).
 
-
 %read_metta(In,Expr):- current_input(CI), \+ is_same_streams(CI,In), !, read_sform(In,Expr).
 read_metta(_,O):- clause(t_l:s_reader_info(O),_,Ref),erase(Ref).
 read_metta(I,O):- string(I),normalize_space(string(M),I),!,parse_sexpr_metta1(M,O),!.
@@ -908,7 +907,7 @@ op_decl('remove-atom', [ 'Space', 'Atom'], 'EmptyType').
 op_decl('add-atom', [ 'Space', 'Atom'], 'EmptyType').
 op_decl('get-atoms', [ 'Space' ], 'Atom').
 
-op_decl('get-state', [[ 'MonadicState', Type]],Type).
+op_decl('get-state', [[ 'MonadicState', Type]],Type):- trace.
 op_decl('change-state!', [[ 'MonadicState',Type],Type],'EmptyType').
 op_decl('new-state', [Type], ['MonadicState',Type ]).
 
@@ -1008,6 +1007,7 @@ maybe_xform(_OBO,_XForm):- !, fail.
 metta_anew1(Load,_OBO):- var(Load),trace,!.
 metta_anew1(Ch,OBO):-  metta_interp_mode(Ch,Mode), !, metta_anew1(Mode,OBO).
 metta_anew1(Load,OBO):- maybe_xform(OBO,XForm),!,metta_anew1(Load,XForm).
+
 metta_anew1(load,OBO):- OBO= metta_atom(Space,Atom),!,'add-atom'(Space, Atom).
 metta_anew1(unload,OBO):- OBO= metta_atom(Space,Atom),!,'remove-atom'(Space, Atom).
 
@@ -1029,7 +1029,7 @@ metta_anew2(unload,OBO):- subst_vars_not_last(OBO,Cl),load_hook(unload,OBO),
 
 
 metta_anew(Load,Src,OBO):- maybe_xform(OBO,XForm),!,metta_anew(Load,Src,XForm).
-metta_anew(Ch, Src, OBO):-  metta_interp_mode(Ch,Mode), !, metta_anew(Mode,Src,OBO).
+metta_anew(Ch,Src,OBO):-  metta_interp_mode(Ch,Mode), !, metta_anew(Mode,Src,OBO).
 metta_anew(Load,_Src,OBO):- silent_loading,!,metta_anew1(Load,OBO).
 metta_anew(Load,Src,OBO):- format('~N'), color_g_mesg('#0f0f0f',(write('  ; Action: '),writeq(Load=OBO))),
    color_g_mesg('#ffa500', write_src(Src)),
@@ -1141,7 +1141,7 @@ asserted_do_metta(Space,Load,Src):- Load==exec,!,do_metta_exec(python,Space,Src,
 asserted_do_metta(Space,Load,Src):- asserted_do_metta2(Space,Load,Src,Src).
 
 asserted_do_metta2(Space,Ch,Info,Src):- metta_interp_mode(Ch,Mode), !, asserted_do_metta2(Space,Mode,Info,Src).
-asserted_do_metta2(Self,Load,[TypeOp,Fn,Type], Src):- TypeOp = ':',  \+ is_list(Type),!,
+asserted_do_metta2(Self,Load,[TypeOp,Fn,Type], Src):- TypeOp = ':', \+ is_list(Type),!,
  must_det_ll((
   color_g_mesg_ok('#ffa500',metta_anew(Load,Src,metta_atom(Self,[':',Fn,Type]))))),!.
 
@@ -1262,7 +1262,8 @@ call_sexpr(Mode,Self,Tax,_S,Out):-
     show_call(do_metta(python,NewHow,Self,Expr,Out)).
 
 
-do_metta(_File,_Load,_Self,In,Out):- var(In),!,In=Out.
+
+do_metta(_File,_Load,_Self,In,Out):-  var(In),!,In=Out.
 do_metta(_From,_Mode,_Self,end_of_file,'Empty'):- !. %, halt(7), writeln('\n\n% To restart, use: ?- repl.').
 do_metta(_File,_Load,_Self,Cmt,Out):- Cmt==[],!, Out=[].
 
@@ -1554,7 +1555,6 @@ eval(Form,Out):-
   current_self(Self),
   eval(Self,Form,Out).
 
-
 eval(Self,Form,Out):-
    do_metta(prolog,exec,Self,Form,Out).
 
@@ -1591,7 +1591,7 @@ interactively_do_metta_exec0(From,Self,TermV,Term,X,NamedVarsList,Was,Output,FOu
   \+ \+ (
     maplist(name_vars,NamedVarsList),
     name_vars('OUT'=X),
-    % add_history_src(exec(BaseEval)),
+    %add_history_src(exec(BaseEval)),
       write_exec(TermV),
       if_t(Skipping==1,writeln(' ; SKIPPING')),
       if_t(TermV\=BaseEval,color_g_mesg('#fa90f6', (write('; '), with_indents(false,write_src(exec(BaseEval)))))),
@@ -2087,7 +2087,6 @@ qsave_program:-  ensure_mettalog_system, next_save_name(Name),
     catch_err(qsave_program(Name,
         [class(development),autoload(true),goal(loon(goal)), toplevel(loon(toplevel)), stand_alone(false)]),E,writeln(E)),
     !.
-
 
 
 :- initialization(update_changed_files,restore).
