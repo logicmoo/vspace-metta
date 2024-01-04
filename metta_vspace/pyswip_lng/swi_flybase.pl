@@ -1,2 +1,1 @@
-
-:- ensure_loaded(flybase_main).
+../pyswip/swi_flybase.pl

@@ -73,6 +73,10 @@ not_arg_violation(Depth,Self,Arg,Type):-
    \+ arg_violation(Depth,Self,Arg,Type),
    arg_conform(Depth,Self,Arg,Type).
 
+get_type(_,Depth,Self,A,ArgType):- get_type(Depth,Self,A,ArgType).
+get_type0(_,Depth,Self,A,ArgType):- get_type0(Depth,Self,A,ArgType).
+get_type1(_,Depth,Self,A,ArgType):- get_type1(Depth,Self,A,ArgType).
+
 args_conform(_,_,I,O):- I==[],!,O=I.
 args_conform(_Dpth,_Slf,Args,ParamTypes):- ( \+ iz_conz(Args); \+ iz_conz(ParamTypes)), !.
 args_conform(Depth,Self,[A|Args],[TypeSought|ParamTypes]):- arg_conform(Depth,Self,A,TypeSought) , args_conform(Depth,Self,Args,ParamTypes).

@@ -90,6 +90,7 @@ give_pass_credit(TestSrc,_Pre,G):-
     write_pass_fail(TestSrc,'PASS',G),
     flag(loonit_success, X, X+1),!,
     color_g_mesg(cyan,write_src(loonit_success(G))),!.
+
 write_pass_fail([P,C,_],PASS_FAIL,G):-
  must_det_ll((
     loonit_number(Number),
@@ -123,8 +124,6 @@ trim_gstring(Goal, MaxLen) :-
     ),
     write(Trimmed).
 
-
-
 loonit_asserts1(TestSrc,Pre,G) :- nop(Pre),
     call(G), !,
   give_pass_credit(TestSrc,Pre,G),!.
@@ -145,6 +144,7 @@ loonit_asserts1(TestSrc,Pre,G) :-
     color_g_mesg(red,write_src(loonit_failureR(G))),!,
      %itrace, G.
     ignore(((
+       % repl
        option_value('on-fail','trace'),
        setup_call_cleanup(debug(metta(eval)),call((Pre,G)),nodebug(metta(eval)))))).
     %(thread_self(main)->trace;sleep(0.3))
@@ -159,6 +159,7 @@ loonit_report :-
     loonit_report(Successes,Failures).
 
 :- at_halt(loonit_report).
+
 
 loonit_report(0,0):-!. % ansi_format([fg(yellow)], 'Nothing to report~n', []).
 loonit_report(Successes,Failures):-
