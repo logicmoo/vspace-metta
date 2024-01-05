@@ -6,8 +6,9 @@
 (= (fail-not-even $v) (if (is-even $v) () (empty)))
 
 !(superpose
-    (case (freeze! $even fail-not-even) ())
-       (asserEqual
+   ; using nop to hide results
+   (nop (freeze! $even fail-not-even))  ; freeze (terible name chosen by Furtwidth))
+       (assertEqual                                    ;  nondetermisticaly implants coide that will accept or reject bindings
              (let $even (superpose (1 2 3 4 5 6)) $even)
              (superpose (2 4 6))))
 
