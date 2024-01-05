@@ -1,0 +1,13 @@
+
+; =============================================================
+; Purpose: Define predicate 'is-even' to check if a number is even.
+; Operation: Uses modulo operator to determine if a number is divisible by 2 without remainder.
+; Usage: General utility function for checking evenness of numbers.
+; =============================================================
+; Define 'is-even' predicate
+(: is-even (-> Number Bool))
+(= (is-even $X) (== (% $X 2) 0))
+
+
+
+
