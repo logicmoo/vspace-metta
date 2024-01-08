@@ -11,5 +11,7 @@
 
 (= (: $v EvenNumber) (if (is-even $v) () (emply)))
 
-!((enforce-type $even EvenNumber)
-   (let $even (superpose (1 2 3 4 5 6))))
+!(assertEqual 
+  (enforce-type $even EvenNumber
+   (let $even (superpose (1 2 3 4 5 6)) $even))
+  (superpose (2 4 6)))
