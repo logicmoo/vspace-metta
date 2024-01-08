@@ -76,12 +76,11 @@ eval(Depth,Self,X,Y):- eval('=',_RetType,Depth,Self,X,Y).
 
 %eval(Eq,RetType,_Dpth,_Slf,X,Y):- nonvar(Y),X=Y,!.
 
-eval(_Eq,_RetType,_Dpth,_Slf,X,Y):- notrace(var(X)),!,Y=X.
-
 eval(Eq,RetType,Depth,Self,X,Y):- notrace(nonvar(Y)),!,
    get_type(Depth,Self,Y,RetType), !,
    eval(Eq,RetType,Depth,Self,X,XX),evals_to(XX,Y).
 
+eval(_Eq,_RetType,_Dpth,_Slf,X,Y):- notrace(var(X)),!,Y=X.
 
 eval(Eq,RetType,_Dpth,_Slf,[X|T],Y):- notrace((T==[], number(X))),!, do_expander(Eq,RetType,X,YY),Y=[YY].
 
@@ -150,8 +149,8 @@ flag_to_var(metta(Flag),Var):- !, nonvar(Flag), flag_to_var(Flag,Var).
 flag_to_var(Flag,Var):- Flag=Var.
 
 set_debug(Flag,Val):- \+ atom(Flag), flag_to_var(Flag,Var), atom(Var),!,set_debug(Var,Val).
-set_debug(Flag,true):- !, debug(metta(Flag)),flag_to_var(Flag,Var),set_option_value(Var,rtrace).
-set_debug(Flag,false):- nodebug(metta(Flag)),flag_to_var(Flag,Var),set_option_value(Var,true).
+set_debug(Flag,true):- !, debug(metta(Flag)),flag_to_var(Flag,Var),set_option_value(Var,true).
+set_debug(Flag,false):- nodebug(metta(Flag)),flag_to_var(Flag,Var),set_option_value(Var,false).
 if_trace((Flag;true),Goal):- !, notrace(( catch_err(ignore((Goal)),E,fbug(E-->if_trace((Flag;true),Goal))))).
 if_trace(Flag,Goal):- notrace((catch_err(ignore((is_debugging(Flag),Goal)),E,fbug(E-->if_trace(Flag,Goal))))).
 
@@ -172,13 +171,14 @@ is_debugging(Flag):- Flag== true,!.
 is_debugging(Flag):- debugging(metta(Flag),TF),!,TF==true.
 is_debugging(Flag):- debugging(Flag,TF),!,TF==true.
 is_debugging(Flag):- flag_to_var(Flag,Var),
-   (option_value(Var,rtrace)->true;(Flag\==Var -> is_debugging(Var))).
+   (option_value(Var,true)->true;(Flag\==Var -> is_debugging(Var))).
 
 :- nodebug(metta(overflow)).
 
 
 eval_99(Eq,RetType,Depth,Self,X,Y):-
-  eval(Eq,RetType,Depth,Self,X,Y)*->true;eval_failed(Eq,RetVal,Depth,Self,X,Y).
+  eval(Eq,RetType,Depth,Self,X,Y)*->true;
+  eval_failed(Eq,RetVal,Depth,Self,X,Y).
 
 
 
@@ -211,7 +211,9 @@ eval_03(Eq,RetType,Depth2,Self,_XX,Y,YO):-
 
 
 eval_11(_Eq,_RetType,_Dpth,_Slf,X,Y):- self_eval(X),!,Y=X.
-%eval_11(Eq,RetType,Depth,Self,X,Y):- \+ is_debugging((eval)),!,  D1 is Depth-1, eval_00(Eq,RetType,D1,Self,X,Y).
+eval_11(Eq,RetType,Depth,Self,X,Y):- \+ is_debugging((eval)),!,  
+    D1 is Depth-1, 
+    eval_00(Eq,RetType,D1,Self,X,Y).
 eval_11(Eq,RetType,Depth,Self,X,Y):-
   ((
 
@@ -327,7 +329,7 @@ eval_20(Eq,RetType,Depth,Self,['assertEqual',X,Y],RetVal):- !,
         ['assertEqual',X,Y],
         (bagof_eval(Eq,RetType,Depth,Self,X,XX), bagof_eval(Eq,RetType,Depth,Self,Y,YY)),
          equal_enough_for_test(XX,YY), TF),
-  (TF=='True'->return_empty(RetVal);RetVal=[got,XX,expected,YY]).
+  (TF=='True'->return_empty(RetVal);RetVal=[got,XX,[expected,YY]]).
 
 eval_20(Eq,RetType,Depth,Self,['assertNotEqual',X,Y],RetVal):- !,
    loonit_assert_source_tf(
@@ -917,8 +919,7 @@ nd_ignore(Goal):- call(Goal)*->true;true.
 % =================================================================
 % =================================================================
 
-is_True(T):- T\=='False',T\==[].
-%is_False(T):- once(T=='False';T==[]).
+is_True(T):- atomic(T), T\=='False', T\==0.
 
 is_and(S):- \+ atom(S),!,fail.
 is_and(',').

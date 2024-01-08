@@ -20,9 +20,23 @@
             (5 50)
         )))
 
+!(assertEqual (count-change 11) 4)
+
 ; In the book's example 100 is used to call function count-change, but for the sake of performance I've put 20 here.
 !(assertEqual
     (count-change 20)
     9)
+
+!(assertEqual (count-change 51) 50)
+
+!(assertEqual (count-change 60) 77)
+
+
+
+
+
+
+
+
 
 
