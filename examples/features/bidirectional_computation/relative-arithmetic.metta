@@ -26,7 +26,7 @@
 !(sequential
   ((do (complex-relationship $L1 $L2 $L3))
    (assertEqual (< $L1 $L3) True)
-   (assertEqual (< $L2 $L1) True)))
+   (assertEqual (< $L2 $L1) False)))
 
 
 
