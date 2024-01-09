@@ -1,11 +1,8 @@
 ; The script is designed to test a functional programming paradigm where variables
 ; have dependencies on each other, with changes to one variable automatically updating
-; the values of others. This is indicative of a reactive programming and declarative
-; bindings approach. The key aspect of these tests is to ensure that these dependencies
+; the values of others.  The key aspect of these tests is to ensure that these dependencies
 ; and updates are managed outside of the traditional call stack, allowing a dynamic,
-; possibly event-driven model of variable interaction.
-
-; Presently these tests only pass in MeTTaLog
+; model of variable interaction.
 
 ; This function hides return values, taking an Atom and returning success
 ; Used to focus on side effects of a function rather than its output.
@@ -59,4 +56,4 @@
    (assertNotEqual $L1 0.09)
    (assertNotEqual $L3 0.6)))
 
-
+; Presently all these tests are passing in MeTTaLog
