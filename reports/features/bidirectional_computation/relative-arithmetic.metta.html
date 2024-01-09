@@ -36,7 +36,7 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2024-01-08 15:49:39-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
+Script started on 2024-01-08 16:15:42-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
 ; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
 ; init_phase(after_load).
 ; init_phase(restore_state).
@@ -56,7 +56,17 @@ Script started on 2024-01-08 15:49:39-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
   (load_metta_file  &self examples/features/bidirectional_computation/relative-arithmetic.metta))
 ;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta)
 ;                             (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta)
-;; basically hides return values
+;; The script is designed to test a functional programming paradigm where variables
+;; have dependencies on each other, with changes to one variable automatically updating
+;; the values of others. This is indicative of a reactive programming and declarative
+;; bindings approach. The key aspect of these tests is to ensure that these dependencies
+;; and updates are managed outside of the traditional call stack, allowing a dynamic,
+;; possibly event-driven model of variable interaction.
+
+;; Presently these tests only pass in MeTTaLog
+
+;; This function hides return values, taking an Atom and returning success
+;; Used to focus on side effects of a function rather than its output.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,do,[->,'Atom','%Undefined%']])
 </span><span class="ansi38-255165000">(: do 
   (-> Atom %Undefined%))
@@ -68,7 +78,7 @@ Script started on 2024-01-08 15:49:39-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
   (case $Num1 ()))
 </span>
 
-;; conjunctive calling
+;; Executes multiple expressions in sequence.
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,sequential,[->,'Expression','%Undefined%']])
 </span><span class="ansi38-255165000">(: sequential 
   (-> Expression %Undefined%))
@@ -80,7 +90,12 @@ Script started on 2024-01-08 15:49:39-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
   (superpose $Num1))
 </span>
 
-;; Define a relation that outputs the likelihoods of three events
+;; Define a complex-relationship function that calculates and returns three
+;; variables simultaneously. It establishes relationships between
+;; these likelihoods through a series of equations.
+;; $Likelihood1 is 30% of $Likelihood2.
+;; $Likelihood2 is 50% of $Likelihood3.
+;; $Likelihood3 is constrained to be between 0 and 1 (exclusive).
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['complex-relationship',Likelihood1,Likelihood2,Likelihood3],[do,[sequential,[[=,Likelihood1,[*,0.3,Likelihood2]],[=,Likelihood2,[*,0.5,Likelihood3]],[<,Likelihood3,1.0],[>,Likelihood3,0.0]]]]])
 </span><span class="ansi38-255165000">(= 
   (complex-relationship $Likelihood1 $Likelihood2 $Likelihood3) 
@@ -94,7 +109,9 @@ Script started on 2024-01-08 15:49:39-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
         (> $Likelihood3 0.0)))))
 </span>
 
-;; Actual values are not even needed since we know their relative differences
+;; Testing relative values of L1, L2, L3 based on their defined relationships
+;; in complex-relationship. This section tests the relative Likelihoods
+;; without needing actual values.
 <span class="ansi38-013099040">!(sequential 
   ( (do 
       (complex-relationship $L1 $L2 $L3)) 
@@ -108,15 +125,17 @@ Script started on 2024-01-08 15:49:39-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
 </span>;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.01">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.01</h3>
 ; 
 ; EVAL TEST
-; took 0.000141 secs. (140.57 microseconds) 
+; took 0.000136 secs. (135.71 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.02">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.02</h3>
 ; 
 ; EVAL TEST
-; took 0.000163 secs. (162.82 microseconds) 
+; took 0.000088 secs. (88.14 microseconds) 
 Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.000814 secs. (814.22 microseconds) 
-;; if we set the value of L2 (or L1)  all the bindings everywhere are updated with correct purportions
+</span>; Execution took 0.000776 secs. (776.28 microseconds) 
+;; Setting a specific value for L2 and checking if L1 and L3 update accordingly.
+;; This tests the dynamic calculation capability of the complex-relationship
+;; function based on input changes.
 <span class="ansi38-013099040">!(sequential 
   ( (do 
       (complex-relationship $L1 $L2 $L3)) 
@@ -130,15 +149,17 @@ Deterministic: <span class="ansi33">Empty
 </span>;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.03">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.03</h3>
 ; 
 ; EVAL TEST
-; took 0.000007 secs. (6.87 microseconds) 
+; took 0.000005 secs. (5.45 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.04">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.04</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (4.35 microseconds) 
+; took 0.000004 secs. (4.13 microseconds) 
 Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.000514 secs. (513.97 microseconds) 
-;; Make sure `let` only temporarily uppdates equation solutions
+</span>; Execution took 0.000504 secs. (504.25 microseconds) 
+;; Using 'let' to temporarily update the value of L2 and checking the effects
+;; within its scope. This part tests the functions handling of temporary value
+;; assignments and ensures values outside the 'let' scope are not affected.
 <span class="ansi38-013099040">!(sequential 
   ( (do 
       (complex-relationship $L1 $L2 $L3)) 
@@ -154,28 +175,28 @@ Deterministic: <span class="ansi33">Empty
 </span>;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.05">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.05</h3>
 ; 
 ; EVAL TEST
-; took 0.000006 secs. (5.75 microseconds) 
+; took 0.000005 secs. (5.18 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.06">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.06</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (4.26 microseconds) 
+; took 0.000004 secs. (4.05 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.07">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.07</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (4.38 microseconds) 
+; took 0.000004 secs. (3.92 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.08">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.08</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (3.80 microseconds) 
+; took 0.000004 secs. (3.74 microseconds) 
 Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.000600 secs. (599.75 microseconds) 
-<span class="ansi32">% 103,036 inferences, 0.021 CPU in 0.021 seconds (100% CPU, 4899815 Lips)
+</span>; Execution took 0.000578 secs. (577.53 microseconds) 
+<span class="ansi32">% 113,967 inferences, 0.036 CPU in 0.036 seconds (100% CPU, 3148376 Lips)
 </span>;                (= /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
 ;      (maybe_halt 7)
 
-Script done on 2024-01-08 15:49:39-08:00 [COMMAND_EXIT_CODE="0"]
+Script done on 2024-01-08 16:15:42-08:00 [COMMAND_EXIT_CODE="0"]
 
 </pre>
 </body>
