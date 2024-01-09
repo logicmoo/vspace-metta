@@ -1,74 +1,68 @@
 # MeTTaLog: An Implementation of MeTTa in Prolog
 
-MeTTaLog is a superfluous implementaton of MeTTa, a language designed to succeed OpenCog Classic Atomese.  It is part of the OpenCog Hyperon initiative and provides well-defined semantics for meta-language features, different types of inference, and more.
+MeTTaLog is a superfluous implementation of MeTTa, a language designed to succeed OpenCog Classic Atomese. As part of the OpenCog Hyperon initiative, MeTTa offers well-defined semantics for meta-language features, supports various types of inference, and more.
 
 [Latest Test Results](reports/TEST_LINKS.md)
-
-
-
 
 ## Installation Guide
 
 MeTTaLog provides an environment for managing and interacting with Prolog-based logic systems. To set up MeTTaLog on your system, follow the steps below:
 
-### 1. Install SWI-Prolog
+### 1. Clone the MeTTaLog Repository
 
-Begin by installing the SWI-Prolog system:
-
-```bash
-sudo apt install swi-prolog
-```
-
-This will install the core Prolog system and its accompanying packages.
-
-### 2. Clone the MeTTaLog Repository
-
-Once SWI-Prolog is installed, clone the MeTTaLog repository from GitHub:
+Clone the repository using the following command:
 
 ```bash
 git clone https://github.com/logicmoo/vspace-metta
 ```
 
-After cloning, navigate to the `vspace-metta` directory:
+Navigate to the cloned directory:
 
 ```bash
 cd vspace-metta
 ```
 
-### 3. Build and Install Required Packages
+### 2. Build and Install Required Packages
 
-To install the required Prolog packs and compile the source, run:
-
-```bash
-make
-```
-
-This will install necessary Prolog packs like `predicate_streams`, `logicmoo_utils`, and `dictoo`. During the installation of these packs, you may be prompted with several questions. It's recommended to go with the default choices when prompted, as they are typically the best options for most users.
-
-Once compiled, the resulting executable is named MeTTaLog. Additionally, there is a script named MeTTa included in the repository. This script serves as an interface that calls the compiled MeTTaLog executable.
-
-
-### 4. Running MeTTaLog
-
-After completing the build, you can start the MeTTaLog REPL (Read-Eval-Print Loop) with the following command:
+Run the installation script:
 
 ```bash
-./MeTTaLog --repl
+./INSTALL.sh
 ```
+
+This script will install necessary Prolog packs, including `predicate_streams`, `logicmoo_utils`, and `dictoo`. During installation, you may encounter prompts for configuration choices. It's generally recommended to accept the default options.
+
+### 3. Update the PATH
+
+After installation, add the `vspace-metta` directory to your system's PATH to easily access the MeTTaLog executable:
+
+```bash
+echo 'export PATH="$PATH:$(pwd)"' >> ~/.profile
+source ~/.profile
+```
+
+**Note:** This command updates the PATH for the current user. If you need system-wide access, consider adding the path to a system-wide profile file, such as `/etc/profile`.
+
+## Usage
+
+Once installed, MeTTaLog can be accessed through the `MeTTa` script included in the repository, which serves as a front-end for the compiled `Sav.$hostname.MeTTaLog` executable. The name "MeTTa" is used in this context because the corresponding Rust executable is all lowercase `metta`.
+
+
+## Running
 
 Within the REPL, you can interact directly with the MeTTaLog system. For instance:
 
-```prolog
-metta@&self: !(+ 1 1)
-```
+```bash
+MeTTaLog --repl
 
-The REPL will echo the entered command in green, resembling:
-
-```diff
+metta &self +> !(+ 1 1)
 !(+ 1 1)
-```
 
-Subsequently, the result `2` will appear, showcasing the successful evaluation of the expression.
+Deterministic: 2
+
+; Execution took 0.000105 secs. (105.29 microseconds)
+metta &self +>
+```
 
 To exit the REPL, press `ctrl-D`.
 
@@ -77,10 +71,10 @@ To exit the REPL, press `ctrl-D`.
 To run your first unit test (referred to as a LoonIt Test):
 
 ```bash
-./MeTTa --html examples/compat/scripts/00_lang_case.metta
+MeTTa --html examples/compat/scripts/00_lang_case.metta
 ```
 
-Upon execution, the output will be saved as `examples/compat/scripts/00_lang_case.html`.
+Upon execution, the output will be saved as `examples/compat/scripts/00_lang_case.metta.html`.
 
 **Note:** Remember, the `MeTTa` script's name is case-sensitive. Do not confuse it with `metta`, which might refer to a different tool written in Rust.
 
@@ -88,19 +82,19 @@ Upon execution, the output will be saved as `examples/compat/scripts/00_lang_cas
 **To run a metta file normally:**
 
 ```bash
-./MeTTa examples/compat/scripts/b0_chaining_prelim.metta
+MeTTa examples/compat/scripts/b0_chaining_prelim.metta
 ```
 
 **To run the REPL (such as to debug) once the file is loaded:**
 
 ```bash
-./MeTTa examples/compat/scripts/b0_chaining_prelim.metta --repl
+MeTTa examples/compat/scripts/b0_chaining_prelim.metta --repl
 ```
 
 **To run the REPL:**
 
 ```bash
-./MeTTa --repl
+MeTTa --repl
 ```
 
 ## Familiarize Yourself with MeTTa`
