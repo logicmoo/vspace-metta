@@ -46,7 +46,7 @@
 
 ; Using 'let' to temporarily update the value of L2 and checking the effects
 ; within its scope. This part tests the functions handling of temporary value
-; assignments and ensures values outside the 'let' scope are not affected.
+; assignments and ensures the same variables outside the 'let' scope are not affected.
 !(sequential
   ((do (complex-relationship $L1 $L2 $L3))
    (let $L2 0.3
