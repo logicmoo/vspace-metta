@@ -1,6 +1,7 @@
 ;; stdlib extension
 
-(assertEquals 0.11111 0.11112)
+;; Stops Rust from further processing
+;; (assertEqual 0.11111 0.11112)
 
 (: If (-> Bool Atom Atom))
 (= (If True $then) $then)

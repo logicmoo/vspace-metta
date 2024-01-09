@@ -9,8 +9,8 @@
 !(bind! &memory (new-space))
 
 ; catching empty results
-(: do (-> Atom %Undefined%))
-(= (do $expr)
+(: dood (-> Atom %Undefined%))
+(= (dood $expr)
    (case $expr
      (($x $x)
       (%void% None))))
@@ -19,13 +19,13 @@
 ; corresponding state in the memory
 (= (remove-state $var)
    (match &memory (state $var $y)
-         (call:remove_atom &memory (state $var $y))))
+         (remove-atom &memory (state $var $y))))
 
 ; using `do` assures that the next clause will be executed
 ; even if the result of the previous clause is empty
 (= (change-state $var $value)
-   (nop (do (remove-state $var))
-        (do (add-atom &memory (state $var $value)))))
+   (nop (dood (remove-state $var))
+        (dood (add-atom &memory (state $var $value)))))
 
 (= (get-state $var)
    (match &memory (state $var $value) $value))
