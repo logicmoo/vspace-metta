@@ -107,76 +107,82 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-12-16 10:36:17-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/extended_compat/hyperon-miner/utils/MinerUtils.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+Script started on 2024-01-09 15:26:26-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
 ; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
 ; init_phase(after_load).
 ; init_phase(restore_state).
-; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/extended_compat/hyperon-miner/utils/MinerUtils.metta,--halt=true]
-;    (compiled_loon default)
-;    (compiled_loon restore)
+; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--timeout=10,--html,--repl=false,examples/extended_compat/hyperon-miner/utils/MinerUtils.metta,--halt=true]
+;     (compiled_loon default)
+%~   (run_vspace_server 3023)
+;     (compiled_loon restore)
 ;    (compiled_loon goal)
 ; init_why(after_boot,program).
 ;    (compiled_loon program)
 ;   (began_loon toplevel)
-;    (is_cmd_option python --python=enable enable)
-;    (is_cmd_option timeout --timeout=20 20)
-;     (is_cmd_option html --html True)
-;     (is_cmd_option repl --repl=false False)
+;      (is_cmd_option python --python=enable enable)
+;      (is_cmd_option timeout --timeout=10 10)
+;       (is_cmd_option html --html True)
+;       (is_cmd_option repl --repl=false False)
 
 ; (: user 
-  (load_metta_file  &self "./examples/extended_compat/hyperon-miner/utils/MinerUtils.metta"))
-;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta")
-;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta")
-;                       (= 1 "[()]")
-;                       (= 2 "[()]")
-;                        (= 3 "[()]")
-;                        (= 4 "0.13user 0.01system 0:00.15elapsed 98%CPU (0avgtext+0avgdata 33836maxresident)k")
-;                         (= 4 "0inputs+0outputs (0major+3617minor)pagefaults 0swaps")
+  (load_metta_file  &self examples/extended_compat/hyperon-miner/utils/MinerUtils.metta))
+;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta)
+;                              (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta)
+;                              (= 1 "[()]")
+;                               (= 2 "[()]")
+;                               (= 3 "[()]")
+;                                (= 4 "0.13user 0.01system 0:00.15elapsed 98%CPU (0avgtext+0avgdata 33836maxresident)k")
+;                                (= 4 "0inputs+0outputs (0major+3617minor)pagefaults 0swaps")
 ;;; Import Num
 ;; !(import! &self ../common/Num.metta)
 ;;; Define max
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,max,[->,A,A,A]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,max,[->,'$VAR'(a),'$VAR'(a),'$VAR'(a)]])
 </span><span class="ansi38-255165000">(: max 
-  (-> $A $A $A))
+  (-> $a $a $a))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[max,X,Y],[if,[>,X,Y],X,Y]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[max,'$VAR'(x),'$VAR'(y)],[if,[>,'$VAR'(x),'$VAR'(y)],'$VAR'(x),'$VAR'(y)]])
 </span><span class="ansi38-255165000">(= 
-  (max $X $Y) 
+  (max $x $y) 
   (if 
-    (> $X $Y) $X $Y))
+    (> $x $y) $x $y))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,min,[->,A,A,A]])
+;;; Define min
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,min,[->,'$VAR'(a),'$VAR'(a),'$VAR'(a)]])
 </span><span class="ansi38-255165000">(: min 
-  (-> $A $A $A))
+  (-> $a $a $a))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[min,X,Y],[if,[<,X,Y],X,Y]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[min,'$VAR'(x),'$VAR'(y)],[if,[<,'$VAR'(x),'$VAR'(y)],'$VAR'(x),'$VAR'(y)]])
 </span><span class="ansi38-255165000">(= 
-  (min $X $Y) 
+  (min $x $y) 
   (if 
-    (< $X $Y) $X $Y))
+    (< $x $y) $x $y))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['tuple-count',Tuple],[if,[==,Tuple,[]],0,[+,1,['tuple-count',['cdr-atom',Tuple]]]]])
+;;; Tuple count grounded python function
+;; !(extend-py! ../utils/helper)
+;;; This is very slow, use the grounded python function instead
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['tuple-count','$VAR'(tuple)],[if,[==,'$VAR'(tuple),[]],0,[+,1,['tuple-count',['cdr-atom','$VAR'(tuple)]]]]])
 </span><span class="ansi38-255165000">(= 
-  (tuple-count $Tuple) 
+  (tuple-count $tuple) 
   (if 
-    (== $Tuple ()) 0 
+    (== $tuple ()) 0 
     (+ 1 
       (tuple-count 
-        (cdr-atom $Tuple)))))
+        (cdr-atom $tuple)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['new-named-space',Name],[let,Space,['new-space'],['add-atom','&self',[=,['named-space',Name],Space]]]])
+;;; 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['new-named-space','$VAR'(name)],[let,'$VAR'(space),['new-space'],['add-atom','&self',[=,['named-space','$VAR'(name)],'$VAR'(space)]]]])
 </span><span class="ansi38-255165000">(= 
-  (new-named-space $Name) 
-  (let $Space 
+  (new-named-space $name) 
+  (let $space 
     (new-space) 
     (add-atom &self 
       (= 
-        (named-space $Name) $Space))))
+        (named-space $name) $space))))
 </span>
 
 <span class="ansi38-255165000">;; In file as:  
@@ -187,30 +193,22 @@ Script started on 2023-12-16 10:36:17-08:00 [COMMAND="timeout --foreground --pre
   (()))
 
 </span><span class="ansi38-250144246">; !(new-named-space Xspace)
-</span>    -->(0,eval('&self',[assertEqualToResult,['new-named-space','Xspace'],[[]]],RET),depth(0))
-;<h3 id="UTILS.MINERUTILS.01">;; UTILS.MINERUTILS.01</h3>
-      -->(1,eval('&self',['new-named-space','Xspace'],RET),depth(1))
-          -->(2,eval('&self',['new-space'],RET),depth(3))
-          <--(2,retval('Space'([])))
-          -->(3,eval('&self',['add-atom','&self',[=,['named-space','Xspace'],'Space'([])]],RET),depth(3))
+</span>;<h3 id="UTILS.MINERUTILS.01">;; UTILS.MINERUTILS.01</h3>
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['named-space','Xspace'],'Space'([])])
 </span><span class="ansi38-255165000">(= 
   (named-space Xspace) 
   (Space  ()))
 </span>
 
-          <--(3,retval('Empty'))
-      <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.11 milliseconds) 
+; took 0.000315 secs. (314.83 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>    <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+</span>Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.002 secs. (2.21 milliseconds) 
+</span>; Execution took 0.000669 secs. (668.70 microseconds) 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-named-space Yspace)
 </span>;; To unit test case:
@@ -219,30 +217,22 @@ Deterministic: <span class="ansi33">Empty
   (()))
 
 </span><span class="ansi38-250144246">; !(new-named-space Yspace)
-</span>    -->(0,eval('&self',[assertEqualToResult,['new-named-space','Yspace'],[[]]],RET),depth(0))
-;<h3 id="UTILS.MINERUTILS.02">;; UTILS.MINERUTILS.02</h3>
-      -->(1,eval('&self',['new-named-space','Yspace'],RET),depth(1))
-          -->(2,eval('&self',['new-space'],RET),depth(3))
-          <--(2,retval('Space'([])))
-          -->(3,eval('&self',['add-atom','&self',[=,['named-space','Yspace'],'Space'([])]],RET),depth(3))
+</span>;<h3 id="UTILS.MINERUTILS.02">;; UTILS.MINERUTILS.02</h3>
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['named-space','Yspace'],'Space'([])])
 </span><span class="ansi38-255165000">(= 
   (named-space Yspace) 
   (Space  ()))
 </span>
 
-          <--(3,retval('Empty'))
-      <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.002 secs. (1.64 milliseconds) 
+; took 0.000254 secs. (254.04 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>    <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+</span>Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.003 secs. (3.32 milliseconds) 
+</span>; Execution took 0.000485 secs. (484.94 microseconds) 
 <span class="ansi38-255165000">;; In file as:  
 </span><span class="ansi1 ansi38-255238088">!(new-named-space Linkspace)
 </span>;; To unit test case:
@@ -251,301 +241,317 @@ Deterministic: <span class="ansi33">Empty
   (()))
 
 </span><span class="ansi38-250144246">; !(new-named-space Linkspace)
-</span>    -->(0,eval('&self',[assertEqualToResult,['new-named-space','Linkspace'],[[]]],RET),depth(0))
-;<h3 id="UTILS.MINERUTILS.03">;; UTILS.MINERUTILS.03</h3>
-      -->(1,eval('&self',['new-named-space','Linkspace'],RET),depth(1))
-          -->(2,eval('&self',['new-space'],RET),depth(3))
-          <--(2,retval('Space'([])))
-          -->(3,eval('&self',['add-atom','&self',[=,['named-space','Linkspace'],'Space'([])]],RET),depth(3))
+</span>;<h3 id="UTILS.MINERUTILS.03">;; UTILS.MINERUTILS.03</h3>
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['named-space','Linkspace'],'Space'([])])
 </span><span class="ansi38-255165000">(= 
   (named-space Linkspace) 
   (Space  ()))
 </span>
 
-          <--(3,retval('Empty'))
-      <--(1,retval('Empty'))
 ; 
 ; EVAL TEST
-; took 0.001 secs. (1.40 milliseconds) 
+; took 0.000250 secs. (249.98 microseconds) 
 <span class="ansi36">(loonit_success 
   (equal_enough_for_test  () 
     (())))
-</span>    <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+</span>Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.003 secs. (2.77 milliseconds) 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['add-valuation',Link,X,Y],[case,[match,['named-space','Xspace'],X,X],[['%void%',['add-atom',['named-space','Xspace'],[Link,X]]]]]])
+</span>; Execution took 0.000487 secs. (487.13 microseconds) 
+;;; Gathers unique valuation sets on a separate space. For instance, 
+;;; given the input (Inheritance Allen man):
+;;;    Linkspace contains Inheritance
+;;;    Xspace contains (Inheritance Allen)
+;;;    Yspace contains (Inheritance man)
+;;; The X and Y values are linked to their respective link types to avoid 
+;;; creating patterns (during specialization) that do not exist in the space.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['add-valuation','$VAR'(link),'$VAR'(x),'$VAR'(y)],[case,[match,['named-space','Xspace'],'$VAR'(x),'$VAR'(x)],[['%void%',['add-atom',['named-space','Xspace'],['$VAR'(link),'$VAR'(x)]]]]]])
 </span><span class="ansi38-255165000">(= 
-  (add-valuation $Link $X $Y) 
+  (add-valuation $link $x $y) 
   (case 
     (match 
-      (named-space Xspace) $X $X) 
+      (named-space Xspace) $x $x) 
     ( (%void% 
         (add-atom 
           (named-space Xspace) 
-          ($Link $X))))))
+          ($link $x))))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['add-valuation',Link,X,Y],[case,[match,['named-space','Yspace'],Y,Y],[['%void%',['add-atom',['named-space','Yspace'],[Link,Y]]]]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['add-valuation','$VAR'(link),'$VAR'(x),'$VAR'(y)],[case,[match,['named-space','Yspace'],'$VAR'(y),'$VAR'(y)],[['%void%',['add-atom',['named-space','Yspace'],['$VAR'(link),'$VAR'(y)]]]]]])
 </span><span class="ansi38-255165000">(= 
-  (add-valuation $Link $X $Y) 
+  (add-valuation $link $x $y) 
   (case 
     (match 
-      (named-space Yspace) $Y $Y) 
+      (named-space Yspace) $y $y) 
     ( (%void% 
         (add-atom 
           (named-space Yspace) 
-          ($Link $Y))))))
+          ($link $y))))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['add-valuation',Link,X,Y],[case,[match,['named-space','Linkspace'],Link,Link],[['%void%',['add-atom',['named-space','Linkspace'],Link]]]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['add-valuation','$VAR'(link),'$VAR'(x),'$VAR'(y)],[case,[match,['named-space','Linkspace'],'$VAR'(link),'$VAR'(link)],[['%void%',['add-atom',['named-space','Linkspace'],'$VAR'(link)]]]]])
 </span><span class="ansi38-255165000">(= 
-  (add-valuation $Link $X $Y) 
+  (add-valuation $link $x $y) 
   (case 
     (match 
-      (named-space Linkspace) $Link $Link) 
+      (named-space Linkspace) $link $link) 
     ( (%void% 
         (add-atom 
-          (named-space Linkspace) $Link)))))
+          (named-space Linkspace) $link)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['extract-valuation',Dbspace],[match,Dbspace,[Link,X,Y],['add-valuation',Link,X,Y]]])
+;;; Extract the valuation sets of a given db
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['extract-valuation','$VAR'(dbspace)],[match,'$VAR'(dbspace),['$VAR'(link),X,Y],['add-valuation','$VAR'(link),X,Y]]])
 </span><span class="ansi38-255165000">(= 
-  (extract-valuation $Dbspace) 
-  (match $Dbspace 
-    ($Link $X $Y) 
-    (add-valuation $Link $X $Y)))
+  (extract-valuation $dbspace) 
+  (match $dbspace 
+    ($link $X $Y) 
+    (add-valuation $link $X $Y)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-links'],[match,['named-space','Linkspace'],Link,Link]])
+;;; Get unique link typess
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-links'],[match,['named-space','Linkspace'],'$VAR'(link),'$VAR'(link)]])
 </span><span class="ansi38-255165000">(= 
   (get-links) 
   (match 
-    (named-space Linkspace) $Link $Link))
+    (named-space Linkspace) $link $link))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[specialize,Link,Xvar,Yvar],[case,[match,['named-space','Yspace'],[Link,Y],Y],[[R,[Link,Xvar,R]],['%void%',[superpose,[]]]]]])
+;;; Specialize a pattern
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[specialize,'$VAR'(link),Xvar,Yvar],[case,[match,['named-space','Yspace'],['$VAR'(link),'$VAR'(y)],'$VAR'(y)],[['$VAR'(r),['$VAR'(link),Xvar,'$VAR'(r)]],['%void%',[superpose,[]]]]]])
 </span><span class="ansi38-255165000">(= 
-  (specialize $Link $Xvar $Yvar) 
+  (specialize $link $Xvar $Yvar) 
   (case 
     (match 
       (named-space Yspace) 
-      ($Link $Y) $Y) 
-    ( ($R 
-        ($Link $Xvar $R)) 
+      ($link $y) $y) 
+    ( ($r 
+        ($link $Xvar $r)) 
       (%void% 
         (superpose ())))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[specialize,Link,Xvar,Yvar],[case,[match,['named-space','Xspace'],[Link,X],X],[[R,[Link,R,Yvar]],['%void%',[superpose,[]]]]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[specialize,'$VAR'(link),Xvar,Yvar],[case,[match,['named-space','Xspace'],['$VAR'(link),'$VAR'(x)],'$VAR'(x)],[['$VAR'(r),['$VAR'(link),'$VAR'(r),Yvar]],['%void%',[superpose,[]]]]]])
 </span><span class="ansi38-255165000">(= 
-  (specialize $Link $Xvar $Yvar) 
+  (specialize $link $Xvar $Yvar) 
   (case 
     (match 
       (named-space Xspace) 
-      ($Link $X) $X) 
-    ( ($R 
-        ($Link $R $Yvar)) 
+      ($link $x) $x) 
+    ( ($r 
+        ($link $r $Yvar)) 
       (%void% 
         (superpose ())))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-var',[Link,A,B],Xvar,Yvar],[if,[==,Link,','],[superpose,[]],1]])
+;;; Ignore non-strongly connected components
+;;; e.g (, (Inheritance $Xvar "Concept man") (Inheritance "Concept Abe" $Yvar))
+;;; is not strongly connected
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-var',['$VAR'(link),'$VAR'(a),'$VAR'(b)],Xvar,Yvar],[if,[==,'$VAR'(link),','],[superpose,[]],1]])
 </span><span class="ansi38-255165000">(= 
   (get-var 
-    ($Link $A $B) $Xvar $Yvar) 
+    ($link $a $b) $Xvar $Yvar) 
   (if 
-    (== $Link ,) 
+    (== $link ,) 
     (superpose ()) 1))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-var',[',',[Link,A,B],[Link,C,D]],Xvar,Yvar],[if,[and,[==,A,C],[==,B,D]],'None',[if,[and,[==,A,Xvar],[==,C,Xvar]],Xvar,[if,[and,[==,B,Yvar],[==,D,Yvar]],Yvar,'None']]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-var',[',',['$VAR'(link),'$VAR'(a),'$VAR'(b)],['$VAR'(link),'$VAR'(c),'$VAR'(d)]],Xvar,Yvar],[if,[and,[==,'$VAR'(a),'$VAR'(c)],[==,'$VAR'(b),'$VAR'(d)]],'None',[if,[and,[==,'$VAR'(a),Xvar],[==,'$VAR'(c),Xvar]],Xvar,[if,[and,[==,'$VAR'(b),Yvar],[==,'$VAR'(d),Yvar]],Yvar,'None']]]])
 </span><span class="ansi38-255165000">(= 
   (get-var 
     (, 
-      ($Link $A $B) 
-      ($Link $C $D)) $Xvar $Yvar) 
+      ($link $a $b) 
+      ($link $c $d)) $Xvar $Yvar) 
   (if 
     (and 
-      (== $A $C) 
-      (== $B $D)) None 
+      (== $a $c) 
+      (== $b $d)) None 
     (if 
       (and 
-        (== $A $Xvar) 
-        (== $C $Xvar)) $Xvar 
+        (== $a $Xvar) 
+        (== $c $Xvar)) $Xvar 
       (if 
         (and 
-          (== $B $Yvar) 
-          (== $D $Yvar)) $Yvar None))))
+          (== $b $Yvar) 
+          (== $d $Yvar)) $Yvar None))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-var',[',',[Link,A,B],[Link,C,D],[Link,E,F]],Xvar,Yvar],[if,[or,[and,[==,A,E],[==,B,F]],[and,[==,C,E],[==,D,F]]],'None',['let*',[[P1p3,['get-var',[',',[Link,A,B],[Link,E,F]],Xvar,Yvar]],[P2p3,['get-var',[',',[Link,C,D],[Link,E,F]],Xvar,Yvar]]],[if,[or,[==,P1p3,'None'],[==,P2p3,'None']],'None',P1p3]]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-var',[',',['$VAR'(link),'$VAR'(a),'$VAR'(b)],['$VAR'(link),'$VAR'(c),'$VAR'(d)],['$VAR'(link),'$VAR'(e),'$VAR'(f)]],Xvar,Yvar],[if,[or,[and,[==,'$VAR'(a),'$VAR'(e)],[==,'$VAR'(b),'$VAR'(f)]],[and,[==,'$VAR'(c),'$VAR'(e)],[==,'$VAR'(d),'$VAR'(f)]]],'None',['let*',[['$VAR'(p1p3),['get-var',[',',['$VAR'(link),'$VAR'(a),'$VAR'(b)],['$VAR'(link),'$VAR'(e),'$VAR'(f)]],Xvar,Yvar]],['$VAR'(p2p3),['get-var',[',',['$VAR'(link),'$VAR'(c),'$VAR'(d)],['$VAR'(link),'$VAR'(e),'$VAR'(f)]],Xvar,Yvar]]],[if,[or,[==,'$VAR'(p1p3),'None'],[==,'$VAR'(p2p3),'None']],'None','$VAR'(p1p3)]]]])
 </span><span class="ansi38-255165000">(= 
   (get-var 
     (, 
-      ($Link $A $B) 
-      ($Link $C $D) 
-      ($Link $E $F)) $Xvar $Yvar) 
+      ($link $a $b) 
+      ($link $c $d) 
+      ($link $e $f)) $Xvar $Yvar) 
   (if 
     (or 
       (and 
-        (== $A $E) 
-        (== $B $F)) 
+        (== $a $e) 
+        (== $b $f)) 
       (and 
-        (== $C $E) 
-        (== $D $F))) None 
+        (== $c $e) 
+        (== $d $f))) None 
     (let* 
-      ( ($P1p3 
+      ( ($p1p3 
           (get-var 
             (, 
-              ($Link $A $B) 
-              ($Link $E $F)) $Xvar $Yvar)) 
-        ($P2p3 
+              ($link $a $b) 
+              ($link $e $f)) $Xvar $Yvar)) 
+        ($p2p3 
           (get-var 
             (, 
-              ($Link $C $D) 
-              ($Link $E $F)) $Xvar $Yvar))) 
+              ($link $c $d) 
+              ($link $e $f)) $Xvar $Yvar))) 
       (if 
         (or 
-          (== $P1p3 None) 
-          (== $P2p3 None)) None $P1p3))))
+          (== $p1p3 None) 
+          (== $p2p3 None)) None $p1p3))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[count,Pattern,Dbspace,Xvar,Yvar],[let,Result,[let,Var,['get-var',Pattern,Xvar,Yvar],[if,[==,Var,'None'],[],[collapse,[match,Dbspace,Pattern,Var]]]],['tuple-count',Result]]])
+;;; Count the number of instances of a given pattern
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[count,'$VAR'(pattern),'$VAR'(dbspace),Xvar,Yvar],[let,'$VAR'(result),[let,'$VAR'(var),['get-var','$VAR'(pattern),Xvar,Yvar],[if,[==,'$VAR'(var),'None'],[],[collapse,[match,'$VAR'(dbspace),'$VAR'(pattern),'$VAR'(var)]]]],['tuple-count','$VAR'(result)]]])
 </span><span class="ansi38-255165000">(= 
-  (count $Pattern $Dbspace $Xvar $Yvar) 
-  (let $Result 
-    (let $Var 
-      (get-var $Pattern $Xvar $Yvar) 
+  (count $pattern $dbspace $Xvar $Yvar) 
+  (let $result 
+    (let $var 
+      (get-var $pattern $Xvar $Yvar) 
       (if 
-        (== $Var None) () 
+        (== $var None) () 
         (collapse 
-          (match $Dbspace $Pattern $Var)))) 
-    (tuple-count $Result)))
+          (match $dbspace $pattern $var)))) 
+    (tuple-count $result)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[support,Pattern,Dbspace,Minsup,Xvar,Yvar],[let,Cnt,[count,Pattern,Dbspace,Xvar,Yvar],[if,[>,[+,Cnt,1],Minsup],[candidate,Pattern,Cnt],[superpose,[]]]]])
+;;; Return candidate patterns in the format (candidate pattern, count) 
+;;; for patterns with a support value >= the minimum support.
+;;; the count here will later be used for calculating surprisingness.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[support,'$VAR'(pattern),'$VAR'(dbspace),'$VAR'(minsup),Xvar,Yvar],[let,'$VAR'(cnt),[count,'$VAR'(pattern),'$VAR'(dbspace),Xvar,Yvar],[if,[>,[+,'$VAR'(cnt),1],'$VAR'(minsup)],[candidate,'$VAR'(pattern),'$VAR'(cnt)],[superpose,[]]]]])
 </span><span class="ansi38-255165000">(= 
-  (support $Pattern $Dbspace $Minsup $Xvar $Yvar) 
-  (let $Cnt 
-    (count $Pattern $Dbspace $Xvar $Yvar) 
+  (support $pattern $dbspace $minsup $Xvar $Yvar) 
+  (let $cnt 
+    (count $pattern $dbspace $Xvar $Yvar) 
     (if 
       (> 
-        (+ $Cnt 1) $Minsup) 
-      (candidate $Pattern $Cnt) 
+        (+ $cnt 1) $minsup) 
+      (candidate $pattern $cnt) 
       (superpose ()))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-pattern',Cnpattern],[let,[candidate,Pattern,Cnt],Cnpattern,Pattern]])
+;;; Extract a pattern from a Candidate pattern of form
+;;; (candidate pattern count)
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-pattern','$VAR'(cnpattern)],[let,[candidate,'$VAR'(pattern),'$VAR'(cnt)],'$VAR'(cnpattern),'$VAR'(pattern)]])
 </span><span class="ansi38-255165000">(= 
-  (get-pattern $Cnpattern) 
+  (get-pattern $cnpattern) 
   (let 
-    (candidate $Pattern $Cnt) $Cnpattern $Pattern))
+    (candidate $pattern $cnt) $cnpattern $pattern))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[',',[',',A,B],C],[',',A,B,C]])
+;;; flatten combination
+;;; TODO: apply reduction rule
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[',',[',','$VAR'(a),'$VAR'(b)],'$VAR'(c)],[',','$VAR'(a),'$VAR'(b),'$VAR'(c)]])
 </span><span class="ansi38-255165000">(= 
   (, 
-    (, $A $B) $C) 
-  (, $A $B $C))
+    (, $a $b) $c) 
+  (, $a $b $c))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-universe-size',Dbspace],['add-atom','&self',[=,['universe-size'],[let,U,[collapse,[match,Dbspace,X,1]],['tuple-count',U]]]]])
+;;; Get universe size of a given db
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['get-universe-size','$VAR'(dbspace)],['add-atom','&self',[=,['universe-size'],[let,'$VAR'(u),[collapse,[match,'$VAR'(dbspace),'$VAR'(x),1]],['tuple-count','$VAR'(u)]]]]])
 </span><span class="ansi38-255165000">(= 
-  (get-universe-size $Dbspace) 
+  (get-universe-size $dbspace) 
   (add-atom &self 
     (= 
       (universe-size) 
-      (let $U 
+      (let $u 
         (collapse 
-          (match $Dbspace $X 1)) 
-        (tuple-count $U)))))
+          (match $dbspace $x 1)) 
+        (tuple-count $u)))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prob,Count],[/,Count,['universe-size']]])
+;;; Probability formula
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[prob,'$VAR'(count)],[/,'$VAR'(count),['universe-size']]])
 </span><span class="ansi38-255165000">(= 
-  (prob $Count) 
-  (/ $Count 
+  (prob $count) 
+  (/ $count 
     (universe-size)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[iSurprisingness,Pattern,Dbspace],[case,Pattern,[[[candidate,[',',P1,P2],Cnt],['let*',[[Pp1,[prob,[count,P1,Dbspace,Xvar,Yvar]]],[Pp2,[prob,[count,P2,Dbspace,Xvar,Yvar]]],[P1p2,[*,Pp1,Pp2]],[P,[prob,Cnt]]],[/,[max,[-,P,P1p2],[-,P1p2,P]],P]]],[[candidate,[',',P1,P2,P3],Cnt],['let*',[[Pp1,[prob,[count,P1,Dbspace,Xvar,Yvar]]],[Pp2,[prob,[count,P2,Dbspace,Xvar,Yvar]]],[Pp3,[prob,[count,P3,Dbspace,Xvar,Yvar]]],[Pp1p2,[prob,[count,[',',P1,P2],Dbspace,Xvar,Yvar]]],[Pp1p3,[prob,[count,[',',P1,P3],Dbspace,Xvar,Yvar]]],[Pp2p3,[prob,[count,[',',P2,P3],Dbspace,Xvar,Yvar]]],[MaxP,[max,[*,Pp1p2,Pp3],[max,[*,Pp1p3,Pp2],[max,[*,Pp2p3,Pp1],[*,Pp1,[*,Pp2,Pp3]]]]]],[MinP,[min,[*,Pp1p2,Pp3],[min,[*,Pp1p3,Pp2],[min,[*,Pp2p3,Pp1],[*,Pp1,[*,Pp2,Pp3]]]]]],[P,[prob,Cnt]]],[/,[max,[-,P,MaxP],[-,MinP,P]],P]]],[_,0]]]])
+;;; iSurprisingness formula
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[iSurprisingness,'$VAR'(pattern),'$VAR'(dbspace)],[case,'$VAR'(pattern),[[[candidate,[',','$VAR'(p1),'$VAR'(p2)],'$VAR'(cnt)],['let*',[['$VAR'(pp1),[prob,[count,'$VAR'(p1),'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(pp2),[prob,[count,'$VAR'(p2),'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(p1p2),[*,'$VAR'(pp1),'$VAR'(pp2)]],['$VAR'(p),[prob,'$VAR'(cnt)]]],[/,[max,[-,'$VAR'(p),'$VAR'(p1p2)],[-,'$VAR'(p1p2),'$VAR'(p)]],'$VAR'(p)]]],[[candidate,[',','$VAR'(p1),'$VAR'(p2),'$VAR'(p3)],'$VAR'(cnt)],['let*',[['$VAR'(pp1),[prob,[count,'$VAR'(p1),'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(pp2),[prob,[count,'$VAR'(p2),'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(pp3),[prob,[count,'$VAR'(p3),'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(pp1p2),[prob,[count,[',','$VAR'(p1),'$VAR'(p2)],'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(pp1p3),[prob,[count,[',','$VAR'(p1),'$VAR'(p3)],'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(pp2p3),[prob,[count,[',','$VAR'(p2),'$VAR'(p3)],'$VAR'(dbspace),Xvar,Yvar]]],['$VAR'(maxP),[max,[*,'$VAR'(pp1p2),'$VAR'(pp3)],[max,[*,'$VAR'(pp1p3),'$VAR'(pp2)],[max,[*,'$VAR'(pp2p3),'$VAR'(pp1)],[*,'$VAR'(pp1),[*,'$VAR'(pp2),'$VAR'(pp3)]]]]]],['$VAR'(minP),[min,[*,'$VAR'(pp1p2),'$VAR'(pp3)],[min,[*,'$VAR'(pp1p3),'$VAR'(pp2)],[min,[*,'$VAR'(pp2p3),'$VAR'(pp1)],[*,'$VAR'(pp1),[*,'$VAR'(pp2),'$VAR'(pp3)]]]]]],['$VAR'(p),[prob,'$VAR'(cnt)]]],[/,[max,[-,'$VAR'(p),'$VAR'(maxP)],[-,'$VAR'(minP),'$VAR'(p)]],'$VAR'(p)]]],[_,0]]]])
 </span><span class="ansi38-255165000">(= 
-  (iSurprisingness $Pattern $Dbspace) 
-  (case $Pattern 
+  (iSurprisingness $pattern $dbspace) 
+  (case $pattern 
     ( ( (candidate 
-          (, $P1 $P2) $Cnt) 
+          (, $p1 $p2) $cnt) 
         (let* 
-          ( ($Pp1 
+          ( ($pp1 
               (prob 
-                (count $P1 $Dbspace $Xvar $Yvar))) 
-            ($Pp2 
+                (count $p1 $dbspace $Xvar $Yvar))) 
+            ($pp2 
               (prob 
-                (count $P2 $Dbspace $Xvar $Yvar))) 
-            ($P1p2 
-              (* $Pp1 $Pp2)) 
-            ($P 
-              (prob $Cnt))) 
+                (count $p2 $dbspace $Xvar $Yvar))) 
+            ($p1p2 
+              (* $pp1 $pp2)) 
+            ($p 
+              (prob $cnt))) 
           (/ 
             (max 
-              (- $P $P1p2) 
-              (- $P1p2 $P)) $P))) 
+              (- $p $p1p2) 
+              (- $p1p2 $p)) $p))) 
       ( (candidate 
-          (, $P1 $P2 $P3) $Cnt) 
+          (, $p1 $p2 $p3) $cnt) 
         (let* 
-          ( ($Pp1 
+          ( ($pp1 
               (prob 
-                (count $P1 $Dbspace $Xvar $Yvar))) 
-            ($Pp2 
+                (count $p1 $dbspace $Xvar $Yvar))) 
+            ($pp2 
               (prob 
-                (count $P2 $Dbspace $Xvar $Yvar))) 
-            ($Pp3 
+                (count $p2 $dbspace $Xvar $Yvar))) 
+            ($pp3 
               (prob 
-                (count $P3 $Dbspace $Xvar $Yvar))) 
-            ($Pp1p2 
-              (prob 
-                (count 
-                  (, $P1 $P2) $Dbspace $Xvar $Yvar))) 
-            ($Pp1p3 
+                (count $p3 $dbspace $Xvar $Yvar))) 
+            ($pp1p2 
               (prob 
                 (count 
-                  (, $P1 $P3) $Dbspace $Xvar $Yvar))) 
-            ($Pp2p3 
+                  (, $p1 $p2) $dbspace $Xvar $Yvar))) 
+            ($pp1p3 
               (prob 
                 (count 
-                  (, $P2 $P3) $Dbspace $Xvar $Yvar))) 
-            ($MaxP 
+                  (, $p1 $p3) $dbspace $Xvar $Yvar))) 
+            ($pp2p3 
+              (prob 
+                (count 
+                  (, $p2 $p3) $dbspace $Xvar $Yvar))) 
+            ($maxP 
               (max 
-                (* $Pp1p2 $Pp3) 
+                (* $pp1p2 $pp3) 
                 (max 
-                  (* $Pp1p3 $Pp2) 
+                  (* $pp1p3 $pp2) 
                   (max 
-                    (* $Pp2p3 $Pp1) 
-                    (* $Pp1 
-                      (* $Pp2 $Pp3)))))) 
-            ($MinP 
+                    (* $pp2p3 $pp1) 
+                    (* $pp1 
+                      (* $pp2 $pp3)))))) 
+            ($minP 
               (min 
-                (* $Pp1p2 $Pp3) 
+                (* $pp1p2 $pp3) 
                 (min 
-                  (* $Pp1p3 $Pp2) 
+                  (* $pp1p3 $pp2) 
                   (min 
-                    (* $Pp2p3 $Pp1) 
-                    (* $Pp1 
-                      (* $Pp2 $Pp3)))))) 
-            ($P 
-              (prob $Cnt))) 
+                    (* $pp2p3 $pp1) 
+                    (* $pp1 
+                      (* $pp2 $pp3)))))) 
+            ($p 
+              (prob $cnt))) 
           (/ 
             (max 
-              (- $P $MaxP) 
-              (- $MinP $P)) $P))) 
+              (- $p $maxP) 
+              (- $minP $p)) $p))) 
       ($_ 0))))
 </span>
 
-<span class="ansi32">% 399,167 inferences, 0.857 CPU in 0.857 seconds (100% CPU, 466010 Lips)
-</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta" 0)
+<span class="ansi32">% 380,571 inferences, 0.264 CPU in 0.264 seconds (100% CPU, 1440583 Lips)
+</span>;                (= /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/hyperon-miner/utils/MinerUtils.metta 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-;     (is_cmd_option halt --halt=true True)
+;       (is_cmd_option halt --halt=true True)
 <span class="ansi1">LoonIt Report
 </span>------------
 <span class="ansi32">Successes: 3
@@ -554,12 +560,8 @@ Deterministic: <span class="ansi33">Empty
 </span>------------
 <span class="ansi32">Successes: 3
 </span><span class="ansi32">Failures: 0
-</span><span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 3
-</span><span class="ansi32">Failures: 0
 </span>
-Script done on 2023-12-16 10:36:18-08:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2024-01-09 15:26:27-08:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

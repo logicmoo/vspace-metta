@@ -10,9 +10,6 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi32 { color: #00aa00; }
-.ansi33 { color: #aa5500; }
-.ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -48,101 +45,109 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-12-16 10:49:34-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/performance/hanoi-one-space.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+Script started on 2024-01-09 16:42:36-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
 ; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
 ; init_phase(after_load).
 ; init_phase(restore_state).
-; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/performance/hanoi-one-space.metta,--halt=true]
-;    (compiled_loon default)
-;    (compiled_loon restore)
+; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--timeout=75,--html,--repl=false,examples/performance/hanoi-one-space.metta,--halt=true]
+;     (compiled_loon default)
+%~   (run_vspace_server 3023)
+;     (compiled_loon restore)
 ;    (compiled_loon goal)
 ; init_why(after_boot,program).
 ;    (compiled_loon program)
 ;   (began_loon toplevel)
-;    (is_cmd_option python --python=enable enable)
-;    (is_cmd_option timeout --timeout=20 20)
-;     (is_cmd_option html --html True)
-;     (is_cmd_option repl --repl=false False)
+;      (is_cmd_option python --python=enable enable)
+;      (is_cmd_option timeout --timeout=75 75)
+;       (is_cmd_option html --html True)
+;       (is_cmd_option repl --repl=false False)
 
 ; (: user 
-  (load_metta_file  &self "./examples/performance/hanoi-one-space.metta"))
-;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta")
-;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta")
-;                       (= 1 "[]")
-;                       (= 2 "0.11user 0.00system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 28456maxresident)k")
-;                        (= 2 "0inputs+0outputs (0major+3293minor)pagefaults 0swaps")
+  (load_metta_file  &self examples/performance/hanoi-one-space.metta))
+;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta)
+;                              (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta)
+;                              (= 1 "[]")
+;                               (= 2 "0.11user 0.00system 0:00.12elapsed 99%CPU (0avgtext+0avgdata 28456maxresident)k")
+;                               (= 2 "0inputs+0outputs (0major+3293minor)pagefaults 0swaps")
 ;; Move a disk from peg X to peg Y.
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[move,X,Y],[if,[and,['not-empty',X],['can-place',Y,X]],[seq,['remove-top',X],['place-top',Y,X]],nop]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[move,'$VAR'(x),'$VAR'(y)],[if,[and,['not-empty','$VAR'(x)],['can-place','$VAR'(y),'$VAR'(x)]],[seq,['remove-top','$VAR'(x)],['place-top','$VAR'(y),'$VAR'(x)]],nop]])
 </span><span class="ansi38-255165000">(= 
-  (move $X $Y) 
+  (move $x $y) 
   (if 
     (and 
-      (not-empty $X) 
-      (can-place $Y $X)) 
+      (not-empty $x) 
+      (can-place $y $x)) 
     (seq 
-      (remove-top $X) 
-      (place-top $Y $X)) nop))
+      (remove-top $x) 
+      (place-top $y $x)) nop))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['not-empty',X],[neq,[top,X],'None']])
+;; Check if peg is not empty
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['not-empty','$VAR'(x)],[neq,[top,'$VAR'(x)],'None']])
 </span><span class="ansi38-255165000">(= 
-  (not-empty $X) 
+  (not-empty $x) 
   (neq 
-    (top $X) None))
+    (top $x) None))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['can-place',Y,X],[or,[eq,[top,Y],'None'],[<,[top,X],[top,Y]]]])
+;; Check if a disk can be placed on a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['can-place','$VAR'(y),'$VAR'(x)],[or,[eq,[top,'$VAR'(y)],'None'],[<,[top,'$VAR'(x)],[top,'$VAR'(y)]]]])
 </span><span class="ansi38-255165000">(= 
-  (can-place $Y $X) 
+  (can-place $y $x) 
   (or 
     (eq 
-      (top $Y) None) 
+      (top $y) None) 
     (< 
-      (top $X) 
-      (top $Y))))
+      (top $x) 
+      (top $y))))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['remove-top',X],[',',[assign,X,[rest,X]],'True']])
+;; Remove the top disk from a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['remove-top','$VAR'(x)],[',',[assign,'$VAR'(x),[rest,'$VAR'(x)]],'True']])
 </span><span class="ansi38-255165000">(= 
-  (remove-top $X) 
+  (remove-top $x) 
   (, 
-    (assign $X 
-      (rest $X)) True))
+    (assign $x 
+      (rest $x)) True))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['place-top',Y,X],[',',[assign,Y,[cons,[top,X],Y]],'True']])
+;; Place the top disk from peg X onto peg Y
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['place-top','$VAR'(y),'$VAR'(x)],[',',[assign,'$VAR'(y),[cons,[top,'$VAR'(x)],'$VAR'(y)]],'True']])
 </span><span class="ansi38-255165000">(= 
-  (place-top $Y $X) 
+  (place-top $y $x) 
   (, 
-    (assign $Y 
+    (assign $y 
       (cons 
-        (top $X) $Y)) True))
+        (top $x) $y)) True))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[top,X],[head,X]])
+;; Get the top of a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[top,'$VAR'(x)],[head,'$VAR'(x)]])
 </span><span class="ansi38-255165000">(= 
-  (top $X) 
-  (head $X))
+  (top $x) 
+  (head $x))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[rest,X],[tail,X]])
+;; Get the rest of a peg
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[rest,'$VAR'(x)],[tail,'$VAR'(x)]])
 </span><span class="ansi38-255165000">(= 
-  (rest $X) 
-  (tail $X))
+  (rest $x) 
+  (tail $x))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[hanoi,N,Src,Aux,Dest],[if,[eq,N,1],[move,Src,Dest],[seq,[hanoi,[-,N,1],Src,Dest,Aux],[move,Src,Dest],[hanoi,[-,N,1],Aux,Src,Dest]]]])
+;; Towers of Hanoi test
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[hanoi,'$VAR'(n),'$VAR'(src),'$VAR'(aux),'$VAR'(dest)],[if,[eq,'$VAR'(n),1],[move,'$VAR'(src),'$VAR'(dest)],[seq,[hanoi,[-,'$VAR'(n),1],'$VAR'(src),'$VAR'(dest),'$VAR'(aux)],[move,'$VAR'(src),'$VAR'(dest)],[hanoi,[-,'$VAR'(n),1],'$VAR'(aux),'$VAR'(src),'$VAR'(dest)]]]])
 </span><span class="ansi38-255165000">(= 
-  (hanoi $N $Src $Aux $Dest) 
+  (hanoi $n $src $aux $dest) 
   (if 
-    (eq $N 1) 
-    (move $Src $Dest) 
+    (eq $n 1) 
+    (move $src $dest) 
     (seq 
       (hanoi 
-        (- $N 1) $Src $Dest $Aux) 
-      (move $Src $Dest) 
+        (- $n 1) $src $dest $aux) 
+      (move $src $dest) 
       (hanoi 
-        (- $N 1) $Aux $Src $Dest))))
+        (- $n 1) $aux $src $dest))))
 </span>
 
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[hanoi_test],[let,[[src,[quote,[3,2,1]]],[aux,[quote,[]]],[dest,[quote,[]]]],[hanoi,3,src,aux,dest],[assertEqual,dest,[quote,[3,2,1]]]]])
@@ -169,57 +174,9 @@ Script started on 2023-12-16 10:49:34-08:00 [COMMAND="timeout --foreground --pre
   (hanoi_test) ())
 
 </span><span class="ansi38-250144246">; !(hanoi_test)
-</span>    -->(0,eval('&self',[assertEqualToResult,[hanoi_test],[]],RET),depth(0))
-;<h3 id="PERFORMANCE.HANOI-ONE-SPACE.01">;; PERFORMANCE.HANOI-ONE-SPACE.01</h3>
-      -->(1,eval('&self',[hanoi_test],RET),depth(1))
-          -->(2,eval('&self',[hanoi,3,src,aux,dest],RET),depth(3))
-              -->(3,eval('&self',[eq,3,1],RET),depth(5))
-                    -->(4,subst_args('&self',[eq,3,1],RET),depth(8))
-              <--(3,retval([eq,3,1]))
-              -->(5,eval('&self',[move,src,dest],RET),depth(5))
-                  -->(6,eval('&self',[and,['not-empty',src],['can-place',dest,src]],RET),depth(7))
-                    -->(7,eval('&self',['not-empty',src],RET),depth(8))
-                    -->(24,eval('&self',['can-place',dest,src],RET),depth(8))
-                  -->(40,eval('&self',[seq,['remove-top',src],['place-top',dest,src]],RET),depth(7))
-                    -->(41,eval('&self',['remove-top',src],RET),depth(8))
-                    -->(57,eval('&self',['place-top',dest,src],RET),depth(8))
-; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
-                    <--(57,retval('True'))
-                    <--(41,retval('True'))
-                  <--(40,retval([seq,'True','True']))
-                    <--(24,retval('True'))
-                    <--(7,retval([neq,[head,src],'None']))
-                  <--(6,retval('True'))
-              <--(5,retval([seq,'True','True']))
-          <--(2,retval([seq,'True','True']))
-      <--(1,retval(fail))
-; 
-; EVAL TEST
-; took 0.018 secs. (18.33 milliseconds) 
-<span class="ansi36">(loonit_success 
-  (equal_enough_for_test  () ()))
-</span>    <--(0,retval('Empty'))
-Deterministic: <span class="ansi33">Empty
+</span>;<h3 id="PERFORMANCE.HANOI-ONE-SPACE.01">;; PERFORMANCE.HANOI-ONE-SPACE.01</h3>
 
-</span>; Execution took 0.020 secs. (19.53 milliseconds) 
-<span class="ansi32">% 178,014 inferences, 0.074 CPU in 0.074 seconds (100% CPU, 2400877 Lips)
-</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/hanoi-one-space.metta" 0)
-<br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-;     (is_cmd_option halt --halt=true True)
-<span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi32">Failures: 0
-</span><span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi32">Failures: 0
-</span><span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 1
-</span><span class="ansi32">Failures: 0
-</span>
-Script done on 2023-12-16 10:49:34-08:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2024-01-09 16:43:51-08:00 [COMMAND_EXIT_CODE="143"]
 
 </pre>
 </body>

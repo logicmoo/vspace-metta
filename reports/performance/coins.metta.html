@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-015015015 { color: #0F0F0F; }
+.ansi38-255165000 { color: #FFA500; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+.ansi38-013099040 { color: #0D6328; }
+.ansi38-250144246 { color: #FA90F6; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+Script started on 2024-01-09 16:38:47-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
+; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
+; init_phase(after_load).
+; init_phase(restore_state).
+; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--timeout=75,--html,--repl=false,examples/performance/coins.metta,--halt=true]
+;     (compiled_loon default)
+%~   (run_vspace_server 3023)
+;     (compiled_loon restore)
+;    (compiled_loon goal)
+; init_why(after_boot,program).
+;    (compiled_loon program)
+;   (began_loon toplevel)
+;      (is_cmd_option python --python=enable enable)
+;      (is_cmd_option timeout --timeout=75 75)
+;       (is_cmd_option html --html True)
+;       (is_cmd_option repl --repl=false False)
+
+; (: user 
+  (load_metta_file  &self examples/performance/coins.metta))
+;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta)
+;                              (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta)
+;                              (= 1 "+ '[' 0 -eq 1 ']'")
+;                               (= 1 "+ echo 'Doing: timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta'")
+;                               (= 1 "Doing: timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta")
+;                                (= 1 "+ eval 'timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta'")
+;                                (= 1 "++ timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/coins.metta")
+;                                (= 1 "[()]")
+;                                 (= 2 "[()]")
+;                                 (= 3 "[()]")
+;                                  (= 4 "[()]")
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['count-change','$VAR'(amount)],[cc,'$VAR'(amount),5]])
+</span><span class="ansi38-255165000">(= 
+  (count-change $amount) 
+  (cc $amount 5))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[cc,'$VAR'(amount),'$VAR'('kinds-of-coins')],[if,[==,'$VAR'(amount),0],1,[if,[or,[<,'$VAR'(amount),0],[==,'$VAR'('kinds-of-coins'),0]],0,[+,[cc,'$VAR'(amount),[-,'$VAR'('kinds-of-coins'),1]],[cc,[-,'$VAR'(amount),['first-denomination','$VAR'('kinds-of-coins')]],'$VAR'('kinds-of-coins')]]]]])
+</span><span class="ansi38-255165000">(= 
+  (cc $amount $kinds-of-coins) 
+  (if 
+    (== $amount 0) 1 
+    (if 
+      (or 
+        (< $amount 0) 
+        (== $kinds-of-coins 0)) 0 
+      (+ 
+        (cc $amount 
+          (- $kinds-of-coins 1)) 
+        (cc 
+          (- $amount 
+            (first-denomination $kinds-of-coins)) $kinds-of-coins)))))
+</span>
+
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['first-denomination','$VAR'('kinds-of-coins')],[case,'$VAR'('kinds-of-coins'),[[1,1],[2,5],[3,10],[4,25],[5,50]]]])
+</span><span class="ansi38-255165000">(= 
+  (first-denomination $kinds-of-coins) 
+  (case $kinds-of-coins 
+    ( (1 1) 
+      (2 5) 
+      (3 10) 
+      (4 25) 
+      (5 50))))
+</span>
+
+<span class="ansi38-013099040">!(assertEqual 
+  (count-change 11) 4)
+
+</span><span class="ansi38-250144246">; !(count-change 11)
+</span>;<h3 id="PERFORMANCE.COINS.01">;; PERFORMANCE.COINS.01</h3>
+; 
+; EVAL TEST
+; took 30.36 seconds.
+<span class="ansi36">(loonit_success 
+  (equal_enough_for_test  
+    (4) 
+    (4)))
+</span>Deterministic: <span class="ansi33">Empty
+
+</span>; Execution took 30.36 seconds.
+;; In the book's example 100 is used to call function count-change, but for the sake of performance I've put 20 here.
+<span class="ansi38-013099040">!(assertEqual 
+  (count-change 20) 9)
+
+</span><span class="ansi38-250144246">; !(count-change 20)
+</span>;<h3 id="PERFORMANCE.COINS.02">;; PERFORMANCE.COINS.02</h3>
+
+Script done on 2024-01-09 16:40:02-08:00 [COMMAND_EXIT_CODE="143"]
+
+</pre>
+</body>
+
+</html>

@@ -10,9 +10,9 @@
 .inv_foreground { color: #000000; }
 .inv_background { background-color: #AAAAAA; }
 .ansi1 { font-weight: bold; }
-.ansi31 { color: #aa0000; }
 .ansi32 { color: #00aa00; }
 .ansi33 { color: #aa5500; }
+.ansi36 { color: #00aaaa; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
@@ -61,37 +61,36 @@
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
-.ansi38-255165000 { color: #FFA500; }
-.ansi38-255238088 { color: #FFEE58; }
 .ansi38-013099040 { color: #0D6328; }
 .ansi38-250144246 { color: #FA90F6; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/extended_compat/metta-examples/logic/puzzle.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+Script started on 2024-01-09 15:26:38-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
 ; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
 ; init_phase(after_load).
 ; init_phase(restore_state).
-; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/extended_compat/metta-examples/logic/puzzle.metta,--halt=true]
-;    (compiled_loon default)
-;    (compiled_loon restore)
+; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--timeout=10,--html,--repl=false,examples/extended_compat/metta-examples/logic/puzzle.metta,--halt=true]
+;     (compiled_loon default)
+%~   (run_vspace_server 3023)
+;     (compiled_loon restore)
 ;    (compiled_loon goal)
 ; init_why(after_boot,program).
 ;    (compiled_loon program)
 ;   (began_loon toplevel)
-;    (is_cmd_option python --python=enable enable)
-;    (is_cmd_option timeout --timeout=20 20)
-;     (is_cmd_option html --html True)
-;     (is_cmd_option repl --repl=false False)
+;      (is_cmd_option python --python=enable enable)
+;      (is_cmd_option timeout --timeout=10 10)
+;       (is_cmd_option html --html True)
+;       (is_cmd_option repl --repl=false False)
 
 ; (: user 
-  (load_metta_file  &self "./examples/extended_compat/metta-examples/logic/puzzle.metta"))
-;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta")
-;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta")
-;                       (= 1 "[None, None, None, None, None, (Cons (Cons ivan (Cons cashier (Cons no_sister Nil))) (Cons (Cons boris (Cons controller (Cons has_sister Nil))) (Cons (Cons semyon (Cons supervisor (Cons $v6#17 Nil))) Nil))), None]")
-;                       (= 2 "6.05user 0.03system 0:06.08elapsed 99%CPU (0avgtext+0avgdata 57420maxresident)k")
-;                        (= 2 "0inputs+0outputs (0major+9554minor)pagefaults 0swaps")
+  (load_metta_file  &self examples/extended_compat/metta-examples/logic/puzzle.metta))
+;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta)
+;                              (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta)
+;                              (= 1 "[None, None, None, None, None, (Cons (Cons ivan (Cons cashier (Cons no_sister Nil))) (Cons (Cons boris (Cons controller (Cons has_sister Nil))) (Cons (Cons semyon (Cons supervisor (Cons $v6#17 Nil))) Nil))), None]")
+;                               (= 2 "6.05user 0.03system 0:06.08elapsed 99%CPU (0avgtext+0avgdata 57420maxresident)k")
+;                               (= 2 "0inputs+0outputs (0major+9554minor)pagefaults 0swaps")
 ;;; The bank employs three people: Boris, Ivan, Semyon
 ;;; There are positions of supervisor, cashier, controller
 ;;; The cashier has no siblings and is the shortest in stature.
@@ -103,45 +102,51 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
   (-> Atom Atom))
 </span>
 
+;; convert (a b c) to (Cons a (Cons b (Cons c Nil)))
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,makelist,[->,'Atom','Atom']])
 </span><span class="ansi38-255165000">(: makelist 
   (-> Atom Atom))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[makelist,X],[if,[==,[],X],'Nil',[let,Cdr,['cdr-atom',X],['Cons',['car-atom',X],[makelist,Cdr]]]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[makelist,'$VAR'(x)],[if,[==,[],'$VAR'(x)],'Nil',[let,'$VAR'(cdr),['cdr-atom','$VAR'(x)],['Cons',['car-atom','$VAR'(x)],[makelist,'$VAR'(cdr)]]]]])
 </span><span class="ansi38-255165000">(= 
-  (makelist $X) 
+  (makelist $x) 
   (if 
-    (== () $X) Nil 
-    (let $Cdr 
-      (cdr-atom $X) 
+    (== () $x) Nil 
+    (let $cdr 
+      (cdr-atom $x) 
       (Cons 
-        (car-atom $X) 
-        (makelist $Cdr)))))
+        (car-atom $x) 
+        (makelist $cdr)))))
 </span>
 
+;; works like ,/2
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,and2,[->,'Atom','Atom','Bool']])
 </span><span class="ansi38-255165000">(: and2 
   (-> Atom Atom Bool))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[and2,First,Second],[if,First,Second,'False']])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[and2,'$VAR'(first),'$VAR'(second)],[if,'$VAR'(first),'$VAR'(second),'False']])
 </span><span class="ansi38-255165000">(= 
-  (and2 $First $Second) 
-  (if $First $Second False))
+  (and2 $first $second) 
+  (if $first $second False))
 </span>
 
+;; direct translation of prolog code for member/2
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[memb,X,'Nil'],'False'])
 </span><span class="ansi38-255165000">(= 
   (memb $X Nil) False)
 </span>
 
+;; member(X, [X|_]).
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[memb,X,['Cons',X,Tail]],'True'])
 </span><span class="ansi38-255165000">(= 
   (memb $X 
     (Cons $X $Tail)) True)
 </span>
 
+;;member(X, [_|Tail]) :-
+;;  member(X, Tail).
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[memb,X,['Cons',H,Tail]],[memb,X,Tail]])
 </span><span class="ansi38-255165000">(= 
   (memb $X 
@@ -154,6 +159,7 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
   (same $X $X) True)
 </span>
 
+;; works like =/2
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[eq,X,Y],[let,C,[same,X,Y],[if,[==,C,'True'],'True','False']]])
 </span><span class="ansi38-255165000">(= 
   (eq $X $Y) 
@@ -163,46 +169,61 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
       (== $C True) True False)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[nth1,Index,'Nil',Item],'False'])
+;; works like nth0_det from swipl lists.pl, won''t work yet with $index as variable
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[nth1,'$VAR'(index),'Nil','$VAR'(item)],'False'])
 </span><span class="ansi38-255165000">(= 
-  (nth1 $Index Nil $Item) False)
+  (nth1 $index Nil $item) False)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[nth1,Index,['Cons',H,Tail],Item],[if,[eq,Index,1],[eq,H,Item],[nth1,[-,Index,1],Tail,Item]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[nth1,'$VAR'(index),['Cons',H,Tail],'$VAR'(item)],[if,[eq,'$VAR'(index),1],[eq,H,'$VAR'(item)],[nth1,[-,'$VAR'(index),1],Tail,'$VAR'(item)]]])
 </span><span class="ansi38-255165000">(= 
-  (nth1 $Index 
-    (Cons $H $Tail) $Item) 
+  (nth1 $index 
+    (Cons $H $Tail) $item) 
   (if 
-    (eq $Index 1) 
-    (eq $H $Item) 
+    (eq $index 1) 
+    (eq $H $item) 
     (nth1 
-      (- $Index 1) $Tail $Item)))
+      (- $index 1) $Tail $item)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[nextto,X,Y,List],[let,R,['nextto-impl',X,Y,List],[if,[==,R,'True'],R,'False']]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[nextto,'$VAR'(x),'$VAR'(y),'$VAR'(list)],[let,'$VAR'(r),['nextto-impl','$VAR'(x),'$VAR'(y),'$VAR'(list)],[if,[==,'$VAR'(r),'True'],'$VAR'(r),'False']]])
 </span><span class="ansi38-255165000">(= 
-  (nextto $X $Y $List) 
-  (let $R 
-    (nextto-impl $X $Y $List) 
+  (nextto $x $y $list) 
+  (let $r 
+    (nextto-impl $x $y $list) 
     (if 
-      (== $R True) $R False)))
+      (== $r True) $r False)))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['nextto-impl',X,Y,['Cons',X,['Cons',Y,Tail]]],'True'])
+;; nextto(X, Y, [X,Y|_]).
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['nextto-impl','$VAR'(x),'$VAR'(y),['Cons','$VAR'(x),['Cons','$VAR'(y),Tail]]],'True'])
 </span><span class="ansi38-255165000">(= 
-  (nextto-impl $X $Y 
-    (Cons $X 
-      (Cons $Y $Tail))) True)
+  (nextto-impl $x $y 
+    (Cons $x 
+      (Cons $y $Tail))) True)
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['nextto-impl',X,Y,['Cons',Head,Tail]],['nextto-impl',X,Y,Tail]])
+;; nextto(X, Y, [_|Zs]) :-
+;;      nextto(X, Y, Zs).
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['nextto-impl','$VAR'(x),'$VAR'(y),['Cons','$VAR'(head),Tail]],['nextto-impl','$VAR'(x),'$VAR'(y),Tail]])
 </span><span class="ansi38-255165000">(= 
-  (nextto-impl $X $Y 
-    (Cons $Head $Tail)) 
-  (nextto-impl $X $Y $Tail))
+  (nextto-impl $x $y 
+    (Cons $head $Tail)) 
+  (nextto-impl $x $y $Tail))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[foo,Employers],[and2,[eq,Employers,[makelist,[A,B,C]]],[and2,[memb,[makelist,[boris,Y,has_sister]],Employers],[and2,[nth1,1,Employers,[makelist,[Z,cashier,no_sister]]],[and2,[nextto,[makelist,[P,controller,V]],[makelist,[semyon,V1,V2]],Employers],[and2,[memb,[makelist,[ivan,V3,V4]],Employers],[memb,[makelist,[V5,supervisor,V6]],Employers]]]]]]])
+;;foo :-
+;;    Employers=[_ , _ , _],
+;;%    /Boris has sister/
+;;    member([boris, _ , has_sister], Employers),
+;;%    /cashier is the shortest and has no sister/
+;;    nth1(1, Employers, [ _ , cashier, no_sister]),
+;;%    /Semyon is higher than controller/
+;;    nextto([ _ , controller, _], [semyon, _ , _ ], Employers),
+;;    member([ivan, _ , _ ], Employers),
+;;    member([_, supervisor, _], Employers),
+;;    print(Employers), nl.
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[foo,Employers],[and2,[eq,Employers,[makelist,[A,B,C]]],[and2,[memb,[makelist,[boris,Y,has_sister]],Employers],[and2,[nth1,1,Employers,[makelist,[Z,cashier,no_sister]]],[and2,[nextto,[makelist,['$VAR'(p),controller,'$VAR'(v)]],[makelist,[semyon,'$VAR'(v1),'$VAR'(v2)]],Employers],[and2,[memb,[makelist,[ivan,'$VAR'(v3),'$VAR'(v4)]],Employers],[memb,[makelist,['$VAR'(v5),supervisor,'$VAR'(v6)]],Employers]]]]]]])
 </span><span class="ansi38-255165000">(= 
   (foo $Employers) 
   (and2 
@@ -220,29 +241,25 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
         (and2 
           (nextto 
             (makelist 
-              ($P controller $V)) 
+              ($p controller $v)) 
             (makelist 
-              (semyon $V1 $V2)) $Employers) 
+              (semyon $v1 $v2)) $Employers) 
           (and2 
             (memb 
               (makelist 
-                (ivan $V3 $V4)) $Employers) 
+                (ivan $v3 $v4)) $Employers) 
             (memb 
               (makelist 
-                ($V5 supervisor $V6)) $Employers)))))))
+                ($v5 supervisor $v6)) $Employers)))))))
 </span>
 
-<span class="ansi38-255165000">;; In file as:  
-</span><span class="ansi1 ansi38-255238088">!(let $R 
-  (foo $Employers) 
-  (if $R $Employers None))
-</span>;; To unit test case:
+;;; !(let $r (foo $Employers) (if $r $Employers None))
+;;; DMILES Made into assertEqualToResult since Rust MeTTa is getting superflulous None(s)..  we cant compare our answers to it
 <span class="ansi38-013099040">!(assertEqualToResult 
   (let $R 
     (foo $Employers) 
     (if $R $Employers None)) 
-  (None None None None None 
-    (Cons 
+  ( (Cons 
       (Cons ivan 
         (Cons cashier 
           (Cons no_sister Nil))) 
@@ -253,51 +270,14 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
         (Cons 
           (Cons semyon 
             (Cons supervisor 
-              (Cons $V6_C35_17 Nil))) Nil))) None))
+              (Cons $V6_C35_17 Nil))) Nil)))))
 
 </span><span class="ansi38-250144246">; !(let $R (foo $Employers) (if $R $Employers None))
-</span>    -->(0,eval('&self',[assertEqualToResult,[let,_19168,[foo,_19388],[if,_19168,_19388,'None']],['None','None','None','None','None',['Cons',['Cons',ivan,['Cons',cashier,['Cons',no_sister,'Nil']]],['Cons',['Cons',boris,['Cons',controller,['Cons',has_sister,'Nil']]],['Cons',['Cons',semyon,['Cons',supervisor,['Cons',_20432,'Nil']]],'Nil']]],'None']],RET),depth(0))
-;<h3 id="LOGIC.PUZZLE.01">;; LOGIC.PUZZLE.01</h3>
-      -->(1,eval('&self',[let,_19168,[foo,_19388],[if,_19168,_19388,'None']],RET),depth(1))
-        -->(2,eval('&self',[foo,_19388],RET),depth(2))
-            -->(3,eval('&self',[eq,_19388,[makelist,[_31736,_31742,_31748]]],RET),depth(4))
-                -->(4,eval('&self',[same,_19388,[makelist,[_31736,_31742,_31748]]],RET),depth(6))
-                -->(5,eval('&self',[if,[==,'True','True'],'True','False'],RET),depth(6))
-                  -->(6,eval('&self',[==,'True','True'],RET),depth(7))
-                        <--(7,retval('True'))
-                  <--(6,retval('True'))
-                <--(5,retval('True'))
-            -->(8,eval('&self',[and2,[memb,[makelist,[boris,_5518,has_sister]],[makelist,[_5458,_5464,_5470]]],[and2,[nth1,1,[makelist,[_5458,_5464,_5470]],[makelist,[_5590,cashier,no_sister]]],[and2,[nextto,[makelist,[_5650,controller,_5662]],[makelist,[semyon,_5692,_5698]],[makelist,[_5458,_5464,_5470]]],[and2,[memb,[makelist,[ivan,_5758,_5764]],[makelist,[_5458,_5464,_5470]]],[memb,[makelist,[_5806,supervisor,_5818]],[makelist,[_5458,_5464,_5470]]]]]]],RET),depth(4))
-              -->(9,eval('&self',[memb,[makelist,[boris,_5518,has_sister]],[makelist,[_5458,_5464,_5470]]],RET),depth(5))
-                -->(10,eval('&self',[makelist,[boris,_5518,has_sister]],RET),depth(6))
-                    -->(11,eval('&self',[==,[],[boris,_5518,has_sister]],RET),depth(8))
-                      -->(12,eval('&self',[boris,_5518,has_sister],RET),depth(9))
-                      <--(12,retval([boris,_14206,has_sister]))
-                          <--(14,retval('False'))
-                    <--(11,retval('False'))
-                    -->(16,eval('&self',[let,_11862,['cdr-atom',[boris,_5518,has_sister]],['Cons',['car-atom',[boris,_5518,has_sister]],[makelist,_11862]]],RET),depth(8))
-                      -->(17,eval('&self',['cdr-atom',[boris,_5518,has_sister]],RET),depth(9))
-                      <--(17,retval([_17610,has_sister]))
-                      -->(20,eval('&self',['Cons',['car-atom',[boris,_5518,has_sister]],[makelist,[_5518,has_sister]]],RET),depth(9))
-                                  <--(26,retval('False'))
-                                          <--(38,retval('False'))
-                                                  <--(46,retval('True'))
-                      -->(96,eval('&self',['Cons',_5518,['Cons',has_sister,'Nil']],RET),depth(9))
-                      <--(96,retval(['Cons',_60702,['Cons',has_sister,'Nil']]))
-; Switched off tracing. For a longer trace: !(pragma! trace-length 101)
-                      <--(20,retval(['Cons',boris,['Cons',_11074,['Cons',has_sister,'Nil']]]))
-                    <--(16,retval(['Cons',boris,['Cons',_11128,['Cons',has_sister,'Nil']]]))
-                <--(10,retval(['Cons',boris,['Cons',_11236,['Cons',has_sister,'Nil']]]))
-              <--(9,retval('False'))
-            <--(8,retval('True'))
-                <--(4,retval('True'))
-            <--(3,retval('True'))
-        <--(2,retval('True'))
-      <--(1,retval(['Cons',['Cons',ivan,['Cons',cashier,['Cons',no_sister,'Nil']]],['Cons',['Cons',boris,['Cons',controller,['Cons',has_sister,'Nil']]],['Cons',['Cons',semyon,['Cons',supervisor,['Cons',_12994,'Nil']]],'Nil']]]))
+</span>;<h3 id="LOGIC.PUZZLE.01">;; LOGIC.PUZZLE.01</h3>
 ; 
 ; EVAL TEST
-; took 0.111 secs. (110.61 milliseconds) 
-<span class="ansi31">(loonit_failureR 
+; took 0.046 secs. (45.85 milliseconds) 
+<span class="ansi36">(loonit_success 
   (equal_enough_for_test  
     ( (Cons 
         (Cons ivan 
@@ -310,9 +290,8 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
           (Cons 
             (Cons semyon 
               (Cons supervisor 
-                (Cons $_57652 Nil))) Nil)))) 
-    (None 
-      (Cons 
+                (Cons $_2888 Nil))) Nil)))) 
+    ( (Cons 
         (Cons ivan 
           (Cons cashier 
             (Cons no_sister Nil))) 
@@ -323,55 +302,24 @@ Script started on 2023-12-16 10:36:41-08:00 [COMMAND="timeout --foreground --pre
           (Cons 
             (Cons semyon 
               (Cons supervisor 
-                (Cons $_2770 Nil))) Nil))))))
-</span>    <--(0,retval([got,[['Cons',['Cons',ivan,['Cons',cashier,['Cons',no_sister,'Nil']]],['Cons',['Cons',boris,['Cons',controller,['Cons',has_sister,'Nil']]],['Cons',['Cons',semyon,['Cons',supervisor,['Cons',_73914,'Nil']]],'Nil']]]],expected,['None',['Cons',['Cons',ivan,['Cons',cashier,['Cons',no_sister,'Nil']]],['Cons',['Cons',boris,['Cons',controller,['Cons',has_sister,'Nil']]],['Cons',['Cons',semyon,['Cons',supervisor,['Cons',_74154,'Nil']]],'Nil']]]]]))
-Deterministic: <span class="ansi33">
-(got 
-  ( (Cons 
-      (Cons ivan 
-        (Cons cashier 
-          (Cons no_sister Nil))) 
-      (Cons 
-        (Cons boris 
-          (Cons controller 
-            (Cons has_sister Nil))) 
-        (Cons 
-          (Cons semyon 
-            (Cons supervisor 
-              (Cons $_57652 Nil))) Nil)))) expected 
-  (None 
-    (Cons 
-      (Cons ivan 
-        (Cons cashier 
-          (Cons no_sister Nil))) 
-      (Cons 
-        (Cons boris 
-          (Cons controller 
-            (Cons has_sister Nil))) 
-        (Cons 
-          (Cons semyon 
-            (Cons supervisor 
-              (Cons $_2770 Nil))) Nil)))))
+                (Cons $_2888 Nil))) Nil))))))
+</span>Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.121 secs. (121.46 milliseconds) 
-<span class="ansi32">% 825,500 inferences, 0.354 CPU in 0.354 seconds (100% CPU, 2333556 Lips)
-</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta" 0)
+</span>; Execution took 0.047 secs. (46.81 milliseconds) 
+<span class="ansi32">% 966,037 inferences, 0.147 CPU in 0.147 seconds (100% CPU, 6559505 Lips)
+</span>;                (= /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/extended_compat/metta-examples/logic/puzzle.metta 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-;     (is_cmd_option halt --halt=true True)
+;       (is_cmd_option halt --halt=true True)
 <span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
 </span><span class="ansi1">LoonIt Report
 </span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
-</span><span class="ansi1">LoonIt Report
-</span>------------
-<span class="ansi32">Successes: 0
-</span><span class="ansi31">Failures: 1
+<span class="ansi32">Successes: 1
+</span><span class="ansi32">Failures: 0
 </span>
-Script done on 2023-12-16 10:36:42-08:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2024-01-09 15:26:38-08:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

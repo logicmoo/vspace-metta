@@ -27,20 +27,17 @@
 .ansi38-015015015 { color: #0F0F0F; }
 .ansi38-255165000 { color: #FFA500; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-218112214 { color: #DA70D6; }
 .ansi38-013099040 { color: #0D6328; }
-.ansi38-218112214 { color: #DA70D6; }
 </style>
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2024-01-08 16:24:50-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
+Script started on 2024-01-09 16:31:41-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
 ; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
 ; init_phase(after_load).
 ; init_phase(restore_state).
-; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--html,--test,examples/features/bidirectional_computation/relative-arithmetic.metta]
+; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--timeout=75,--html,--repl=false,examples/features/bidirectional_computation/relative-arithmetic.metta,--halt=true]
 ;     (compiled_loon default)
 %~   (run_vspace_server 3023)
 ;     (compiled_loon restore)
@@ -49,13 +46,28 @@ Script started on 2024-01-08 16:24:50-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
 ;    (compiled_loon program)
 ;   (began_loon toplevel)
 ;      (is_cmd_option python --python=enable enable)
-;      (is_cmd_option html --html True)
-;       (is_cmd_option test --test True)
+;      (is_cmd_option timeout --timeout=75 75)
+;       (is_cmd_option html --html True)
+;       (is_cmd_option repl --repl=false False)
 
 ; (: user 
   (load_metta_file  &self examples/features/bidirectional_computation/relative-arithmetic.metta))
 ;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta)
-;                             (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta)
+;                              (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta)
+;                              (= 1 "+ '[' 0 -eq 1 ']'")
+;                               (= 1 "+ echo 'Doing: timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta'")
+;                               (= 1 "Doing: timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta")
+;                                (= 1 "+ eval 'timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta'")
+;                                (= 1 "++ timeout --foreground --kill-after=5 --signal=SIGINT 61 time metta /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta")
+;                                (= 1 "[(Error (assertEqual (< $L1 $L3) True) ")
+;                                 (= 1 "Expected: [True]")
+;                                 (= 1 "Got: [(< $L1 $L3)]")
+;                                  (= 2 "Missed result: True), (Error (assertEqual (< $L2 $L1) False) ")
+;                                  (= 2 "Expected: [False]")
+;                                  (= 2 "Got: [(< $L2 $L1)]")
+;                                   (= 3 "Missed result: False)]")
+;                                   (= 3 "0.03user 0.00system 0:00.03elapsed 97%CPU (0avgtext+0avgdata 25072maxresident)k")
+;                                    (= 3 "0inputs+0outputs (0major+2949minor)pagefaults 0swaps")
 ;; The script is designed to test a functional programming paradigm where variables
 ;; have dependencies on each other, with changes to one variable automatically updating
 ;; the values of others.  The key aspect of these tests is to ensure that these dependencies
@@ -69,10 +81,10 @@ Script started on 2024-01-08 16:24:50-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
   (-> Atom %Undefined%))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[do,Num1],[case,Num1,[]]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[do,_1],[case,_1,[]]])
 </span><span class="ansi38-255165000">(= 
-  (do $Num1) 
-  (case $Num1 ()))
+  (do $_1) 
+  (case $_1 ()))
 </span>
 
 ;; Executes multiple expressions in sequence.
@@ -81,10 +93,10 @@ Script started on 2024-01-08 16:24:50-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
   (-> Expression %Undefined%))
 </span>
 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[sequential,Num1],[superpose,Num1]])
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,[sequential,_1],[superpose,_1]])
 </span><span class="ansi38-255165000">(= 
-  (sequential $Num1) 
-  (superpose $Num1))
+  (sequential $_1) 
+  (superpose $_1))
 </span>
 
 ;; Define a complex-relationship function that calculates and returns three
@@ -117,19 +129,17 @@ Script started on 2024-01-08 16:24:50-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUM
     (assertEqual 
       (< $L2 $L1) False)))
 
-</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[sequential,[[do,['complex-relationship',L1,L2,L3]],[assertEqual,[<,L1,L3],'True'],[assertEqual,[<,L2,L1],'False']]],OUT).
-
 </span>;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.01">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.01</h3>
 ; 
 ; EVAL TEST
-; took 0.000132 secs. (132.49 microseconds) 
+; took 0.000113 secs. (112.78 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.02">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.02</h3>
 ; 
 ; EVAL TEST
-; took 0.000097 secs. (97.03 microseconds) 
+; took 0.000095 secs. (95.45 microseconds) 
 Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.000792 secs. (792.47 microseconds) 
+</span>; Execution took 0.000796 secs. (795.54 microseconds) 
 ;; Setting a specific value for L2 and checking if L1 and L3 update accordingly.
 ;; This tests the dynamic calculation capability of the complex-relationship
 ;; function based on input changes.
@@ -141,19 +151,17 @@ Deterministic: <span class="ansi33">Empty
     (assertEqual $L1 0.09) 
     (assertEqual $L3 0.6)))
 
-</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[sequential,[[do,['complex-relationship',L1,L2,L3]],[do,[=,L2,0.3]],[assertEqual,L1,0.09],[assertEqual,L3,0.6]]],OUT).
-
 </span>;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.03">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.03</h3>
 ; 
 ; EVAL TEST
-; took 0.000006 secs. (5.80 microseconds) 
+; took 0.000005 secs. (5.48 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.04">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.04</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (4.41 microseconds) 
+; took 0.000004 secs. (4.33 microseconds) 
 Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.000561 secs. (561.11 microseconds) 
+</span>; Execution took 0.000537 secs. (536.97 microseconds) 
 ;; Using 'let' to temporarily update the value of L2 and checking the effects
 ;; within its scope. This part tests the functions handling of temporary value
 ;; assignments and ensures the same variables outside the 'let' scope are not affected.
@@ -167,33 +175,31 @@ Deterministic: <span class="ansi33">Empty
     (assertNotEqual $L1 0.09) 
     (assertNotEqual $L3 0.6)))
 
-</span><span class="ansi38-218112214">% DEBUG:   eval('&self',[sequential,[[do,['complex-relationship',L1,L2,L3]],[let,L2,0.3,[sequential,[[assertEqual,L1,0.09],[assertEqual,L3,0.6]]]],[assertNotEqual,L1,0.09],[assertNotEqual,L3,0.6]]],OUT).
-
 </span>;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.05">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.05</h3>
 ; 
 ; EVAL TEST
-; took 0.000006 secs. (5.71 microseconds) 
+; took 0.000005 secs. (5.38 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.06">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.06</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (3.97 microseconds) 
+; took 0.000004 secs. (4.35 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.07">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.07</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (3.88 microseconds) 
+; took 0.000004 secs. (4.16 microseconds) 
 ;<h3 id="BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.08">;; BIDIRECTIONAL-COMPUTATION.RELATIVE-ARITHMETIC.08</h3>
 ; 
 ; EVAL TEST
-; took 0.000004 secs. (4.05 microseconds) 
+; took 0.000004 secs. (4.19 microseconds) 
 Deterministic: <span class="ansi33">Empty
 
-</span>; Execution took 0.000659 secs. (659.28 microseconds) 
-<span class="ansi32">% 114,704 inferences, 0.040 CPU in 0.040 seconds (100% CPU, 2888475 Lips)
+</span>; Execution took 0.000591 secs. (591.28 microseconds) 
+<span class="ansi32">% 152,617 inferences, 0.041 CPU in 0.041 seconds (100% CPU, 3743758 Lips)
 </span>;                (= /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/relative-arithmetic.metta 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-;      (maybe_halt 7)
+;       (is_cmd_option halt --halt=true True)
 
-Script done on 2024-01-08 16:24:50-08:00 [COMMAND_EXIT_CODE="0"]
+Script done on 2024-01-09 16:31:42-08:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>

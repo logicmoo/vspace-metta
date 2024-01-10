@@ -2629,15 +2629,43 @@ ls
 rm /tmp/SHARED.UNITS 
 rm *.ansi
 ls
-ls
-cd reports/
-ls
-rm *.bak
-ls
-ls
+git status .
 cd ..
-rmdir cuRRent/
-rm -rf cuRRent/
-ls
-treee
-tree
+rm examples/*.m
+rm reports/README.md 
+cat scripts/test_in_metta.sh 
+rsync -avm --include='*.html' -f 'hide,! */' examples/ reports/
+git add reports/
+git add .
+cd ..
+git status .
+git add INSTALL.md 
+chmod +x INSTALL.md 
+ls data/
+ls 12_ontologies/
+ls data/12_ontologies/
+du data/12_ontologies/
+du data/12_ontologies/ -h
+ls data/12_ontologies/go-plus/
+ls data/12_ontologies/go-plus/ -lh
+cat data/12_ontologies/go-plus/Go-Plus-GO_2023-09-15.scm 
+git status .
+git rm examples/.bash_history
+git rm examples/.bash_history -f
+rm *.ansi
+git status .
+git commit -am "exceeds baseline sliughtly"
+git push logicmoo 
+git commit -am "examples/README.md"
+git push
+git push logicmoo 
+git push logicmoo 
+cd examples/
+git push logicmoo 
+cd ..
+mv data/index.html data/readme.html
+cd examples/
+grep -i english --include="*metta"
+grep -i english flybase/ --include="*metta"
+grep -i english -r flybase/ --include="*metta"
+grep -i english -R flybase/ --include="*metta"

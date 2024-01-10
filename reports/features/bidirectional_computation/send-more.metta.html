@@ -154,26 +154,27 @@
 </head>
 <body class="body_foreground body_background" style="font-size: normal;" >
 <pre class="ansi2html-content">
-Script started on 2023-12-16 10:46:52-08:00 [COMMAND="timeout --foreground --preserve-status --signal=SIGTERM --kill-after=5s 20 swipl -x ./Sav.MeTTaLog  --debug=true -- --python=enable  --timeout=20 --html --repl=false ./examples/features/bidirectional_computation/send-more.metta --halt=true" TERM="xterm" TTY="/dev/pts/3" COLUMNS="287" LINES="33"]
+Script started on 2024-01-09 16:31:42-08:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="152" LINES="150"]
 ; init_why(before_boot,after('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_interp.pl')).
 ; init_phase(after_load).
 ; init_phase(restore_state).
-; libswipl: [swipl,-x,./Sav.MeTTaLog,--debug=true,--,--python=enable,--timeout=20,--html,--repl=false,./examples/features/bidirectional_computation/send-more.metta,--halt=true]
-;    (compiled_loon default)
-;    (compiled_loon restore)
+; libswipl: [/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/Sav.godlike.MeTTaLog,--,--python=enable,--timeout=75,--html,--repl=false,examples/features/bidirectional_computation/send-more.metta,--halt=true]
+;     (compiled_loon default)
+%~   (run_vspace_server 3023)
+;     (compiled_loon restore)
 ;    (compiled_loon goal)
 ; init_why(after_boot,program).
 ;    (compiled_loon program)
 ;   (began_loon toplevel)
-;    (is_cmd_option python --python=enable enable)
-;    (is_cmd_option timeout --timeout=20 20)
-;     (is_cmd_option html --html True)
-;     (is_cmd_option repl --repl=false False)
+;      (is_cmd_option python --python=enable enable)
+;      (is_cmd_option timeout --timeout=75 75)
+;       (is_cmd_option html --html True)
+;       (is_cmd_option repl --repl=false False)
 
 ; (: user 
-  (load_metta_file  &self "./examples/features/bidirectional_computation/send-more.metta"))
-;            (track_load_into_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta")
-;                      (load_answer_file "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta.answers" "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta")
+  (load_metta_file  &self examples/features/bidirectional_computation/send-more.metta))
+;                (track_load_into_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta)
+;                              (load_answer_file /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta.answers /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['pick-one-to-nine'],1])
 </span><span class="ansi38-255165000">(= 
   (pick-one-to-nine) 1)
@@ -230,6 +231,7 @@ Script started on 2023-12-16 10:46:52-08:00 [COMMAND="timeout --foreground --pre
   (pick-one-to-nine))
 </span>
 
+;; S and M are not 0 (no leading zeros)
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['S',['pick-one-to-nine']],'True'])
 </span><span class="ansi38-255165000">(= 
   (S 
@@ -242,6 +244,7 @@ Script started on 2023-12-16 10:46:52-08:00 [COMMAND="timeout --foreground --pre
     (pick-one-to-nine)) True)
 </span>
 
+;; Other digits can be from 0 to 9, but unique
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[=,['E',['pick-zero-to-nine']],'True'])
 </span><span class="ansi38-255165000">(= 
   (E 
@@ -278,6 +281,7 @@ Script started on 2023-12-16 10:46:52-08:00 [COMMAND="timeout --foreground --pre
     (pick-zero-to-nine)) True)
 </span>
 
+;; Define uniqueness constraints for all digits
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[not,[=,'S','M']])
 </span><span class="ansi38-255165000">(not 
   (= S M))
@@ -403,6 +407,7 @@ Script started on 2023-12-16 10:46:52-08:00 [COMMAND="timeout --foreground --pre
   (= R Y))
 </span>
 
+;; Define arithmetic constraint: 1000*S + 100*E + 10*N + D + 1000*M + 100*O + 10*R + E = 10000*M + 1000*O + 100*N + 10*E + Y
 <span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:=,[+,[+,[*,1000,'S'],[*,100,'E'],[*,10,'N'],'D'],[+,[*,1000,'M'],[*,100,'O'],[*,10,'R'],'E']],[+,[*,10000,'M'],[*,1000,'O'],[*,100,'N'],[*,10,'E'],'Y']])
 </span><span class="ansi38-255165000">(:= 
   (+ 
@@ -421,27 +426,25 @@ Script started on 2023-12-16 10:46:52-08:00 [COMMAND="timeout --foreground --pre
     (* 10 E) Y))
 </span>
 
+;; Solve to find the values
 <span class="ansi38-013099040">!(solve)
 
-</span>    -->(0,eval('&self',[solve],RET),depth(0))
-          -->(1,subst_args('&self',[solve],RET),depth(3))
-    <--(0,retval([solve]))
-Deterministic: <span class="ansi33">
+</span>Deterministic: <span class="ansi33">
 (solve)
 
-</span>; Execution took 0.000680 secs. (680.40 microseconds) 
-<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,member,[->,E,['List',E],'NDet']])
+</span>; Execution took 0.000120 secs. (119.94 microseconds) 
+<span class="ansi38-255165000"></span><span class="ansi38-015015015">  ; Action: load=asserted_metta_atom('&self',[:,member,[->,'$VAR'(e),['List','$VAR'(e)],'NDet']])
 </span><span class="ansi38-255165000">(: member 
-  (-> $E 
-    (List $E) NDet))
+  (-> $e 
+    (List $e) NDet))
 </span>
 
-<span class="ansi32">% 189,416 inferences, 0.155 CPU in 0.155 seconds (100% CPU, 1220153 Lips)
-</span>;            (= "/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta" 0)
+<span class="ansi32">% 193,647 inferences, 0.044 CPU in 0.044 seconds (100% CPU, 4423223 Lips)
+</span>;                (= /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/bidirectional_computation/send-more.metta 0)
 <br/><a href="https://github.com/logicmoo/vspace-metta/blob/main/MeTTaLog.md">Return to Summaries</a><br/>
-;     (is_cmd_option halt --halt=true True)
+;       (is_cmd_option halt --halt=true True)
 
-Script done on 2023-12-16 10:46:53-08:00 [COMMAND_EXIT_CODE="7"]
+Script done on 2024-01-09 16:31:42-08:00 [COMMAND_EXIT_CODE="7"]
 
 </pre>
 </body>
