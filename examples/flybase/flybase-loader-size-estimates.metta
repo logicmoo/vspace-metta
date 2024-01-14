@@ -1,10 +1,17 @@
 ;;  Load the VSPACE python space
 
-;;  Load the VSPACE python space
-
 ;; to start in MeTTaLog use    ./MeTTa 8-FlybaseQuestions.metta --repl
 
 !(extend-py! metta_vspace.metta_learner)
+
+!(pragma! load debug)
+!(pragma! exec debug)
+
+!(pragma! eval debug)
+!(pragma! case debug)
+!(pragma! case nodebug)
+
+; !(nodebug! (@ metta case))
 
 !(fb-info!)
 
