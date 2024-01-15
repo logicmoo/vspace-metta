@@ -32,6 +32,7 @@ is_pyswip:- current_prolog_flag(os_argv,ArgV),member( './',ArgV).
 :- set_stream(user_input,tty(true)).
 :- set_prolog_flag(encoding,iso_latin_1).
 :- set_prolog_flag(encoding,utf8).
+%:- set_output(user_error).
 %:- set_prolog_flag(encoding,octet).
 /*
 Now PASSING NARS.TEC:\opt\logicmoo_workspace\packs_sys\logicmoo_opencog\MeTTa\vspace-metta\metta_vspace\pyswip\metta_interp.pl
@@ -78,24 +79,35 @@ option_value_def('exeout','./Sav.godlike.MeTTaLog').
 
 
 option_value_def('trace-on-error',true).
-%option_value_def('trace-on-load',false).
+option_value_def('trace-on-load',true).
+option_value_def('load',debug).
 option_value_def('trace-on-exec',true).
 option_value_def('trace-on-eval',true).
 option_value_def('trace-on-fail',false).
 option_value_def('trace-on-pass',false).
 
+set_option_value_interp(N,V):- atom(N), atomic_list_concat(List,',',N),List\=[_],!,
+  forall(member(E,List),set_option_value_interp(E,V)).
+set_option_value_interp(N,V):-
+  set_option_value(N,V),
+    fbug(set_option_value(N,V)),
+  ignore((if_t((atom(N), atom_concat('trace-on-',F,N)),set_debug(F,V)))),
+  ignore((if_t((atom(V), is_debug_like(V,TF)),set_debug(N,TF)))),!.
 
-
+is_debug_like(trace, true).
+is_debug_like(notrace, false).
+is_debug_like(debug, true).
+is_debug_like(nodebug, false).
 
 set_is_unit_test(TF):-
-  forall(option_value_def(A,B),set_option_value(A,B)),
-  set_option_value('trace-on-pass',false),
-  set_option_value('trace-on-fail',false),
-  if_t(TF,set_option_value('exec',rtrace)),
-  if_t(TF,set_option_value('eval',rtrace)),
-  set_option_value('trace-on-load',TF),
-  set_option_value('trace-on-exec',TF),
-  set_option_value('trace-on-eval',TF),
+  forall(option_value_def(A,B),set_option_value_interp(A,B)),
+  set_option_value_interp('trace-on-pass',false),
+  set_option_value_interp('trace-on-fail',false),
+  if_t(TF,set_option_value_interp('exec',debug)),
+  if_t(TF,set_option_value_interp('eval',debug)),
+  %set_option_value_interp('trace-on-load',TF),
+  set_option_value_interp('trace-on-exec',TF),
+  set_option_value_interp('trace-on-eval',TF),
 
   !.
 
@@ -115,23 +127,20 @@ any_floats(S):- member(E,S),float(E),!.
 % ============================
 % %%%% Arithmetic Operations
 % ============================
-%:- use_module(library(clpfd)).
-:- use_module(library(clpq)).
-%:- use_module(library(clpr)).
 
 % Addition
-%'+'(Addend1, Addend2, Sum):- \+ any_floats([Addend1, Addend2, Sum]),!,Sum #= Addend1+Addend2 .
-'+'(Addend1, Addend2, Sum):- notrace(catch_err(plus(Addend1, Addend2, Sum),_,fail)),!.
-'+'(Addend1, Addend2, Sum):- {Sum = Addend1+Addend2}.
+%'+'(A, B, Sum):- \+ any_floats([A, B, Sum]),!,Sum #= A+B .
+%'+'(A, B, Sum):- notrace(catch_err(plus(A, B, Sum),_,fail)),!.
+'+'(A, B, Sum):- eval_H([+,A,B],Sum).
 % Subtraction
-'-'(Sum, Addend1, Addend2):- '+'(Addend1, Addend2, Sum).
-
+'-'( A, B, Sum):- eval_H([-,A,B],Sum).
 % Multiplication
-'*'(Factor1, Factor2, Product):- {Product = Factor1*Factor2}.
+'*'(A, B, Product):- eval_H([*,A,B],Product).
 % Division
-'/'(Dividend, Divisor, Quotient):- {Dividend = Quotient * Divisor}.
+'/'(Dividend, Divisor, Quotient):- eval_H(['/',Dividend, Divisor], Quotient).   %{Dividend = Quotient * Divisor}.
 % Modulus
-'mod'(Dividend, Divisor, Remainder):- {Remainder = Dividend mod Divisor}.
+'mod'(Dividend, Divisor, Remainder):- eval_H(['mod',Dividend, Divisor], Remainder).
+'%'(Dividend, Divisor, Remainder):- eval_H(['mod',Dividend, Divisor], Remainder).
 % Exponentiation
 'exp'(Base, Exponent, Result):- eval_H(['exp', Base, Exponent], Result).
 % Square Root
@@ -279,7 +288,7 @@ get_flag_value(_,true).
 
 :- ignore(((
    \+ prolog_load_context(reloading,true),
-   nop((forall(option_value_def(Opt,Default),set_option_value(Opt,Default))))))).
+   nop((forall(option_value_def(Opt,Default),set_option_value_interp(Opt,Default))))))).
 
 %process_option_value_def:- \+ option_value('python',false), skip(ensure_loaded(metta_python)).
 process_option_value_def:- option_value('python',load), ensure_loaded(metta_vspace/pyswip/metta_python).
@@ -293,7 +302,7 @@ process_late_opts:- once(option_value('html',true)), set_is_unit_test(true).
 process_late_opts.
 
 %do_cmdline_load_metta(_Slf,Rest):- select('--prolog',Rest,RRest),!,
-%  set_option_value('prolog',true),
+%  set_option_value_interp('prolog',true),
 %  set_prolog_flag(late_metta_opts,RRest).
 do_cmdline_load_metta(Self,Rest):-
   set_prolog_flag(late_metta_opts,Rest),
@@ -329,9 +338,9 @@ cmdline_load_metta(Self,['-G',Str|Rest]):- !,
 
 cmdline_load_metta(Self,[M|Rest]):-
   m_opt(M,Opt),!,
-  is_cmd_option(Opt,M,TF),!,
-  fbug(is_cmd_option(Opt,M,TF)), !, set_option_value(Opt,TF),
-  set_tty_color_term(true),
+  forall((is_cmd_option(Opt,M,TF)),
+     (fbug(is_cmd_option(Opt,M,TF)), !, set_option_value_interp(Opt,TF))),
+  %set_tty_color_term(true),
   cmdline_load_metta(Self,Rest).
 
 cmdline_load_metta(Self,[M|Rest]):-
@@ -587,9 +596,12 @@ repl_read("+", '+'):-!.
 repl_read(Str,Atom):- atom_string(Atom,Str),metta_interp_mode(Atom,_),!.
 
 repl_read(Str, Expr):- atom_concat('@',_,Str),!,atom_string(Expr,Str).
+repl_read(Str, _Expr):- atom_concat(')',_,Str),!,fbug(repl_read_syntax(Str)),throw(restart_reading).
 repl_read(NewAccumulated, Expr):-
-    normalize_space(string(Renew),NewAccumulated), Renew \== NewAccumulated, !,
+    normalize_space(string(Renew),NewAccumulated),
+    Renew \== NewAccumulated, !,
     repl_read(Renew, Expr).
+%repl_read(Str, 'add-atom'('&self',Expr)):- atom_concat('+',W,Str),!,repl_read(W,Expr).
 %repl_read(NewAccumulated,exec(Expr)):- string_concat("!",Renew,NewAccumulated), !, repl_read(Renew, Expr).
 repl_read(NewAccumulated, Expr):- string_chars(NewAccumulated, Chars),
     balanced_parentheses(Chars), length(Chars, Len), Len > 0,
@@ -761,8 +773,11 @@ trly(P2,A,B):- once(call(P2,A,M)),A\=@=M,!,trly(P2,M,B).
 trly(_,A,A).
 
 mfix_vars1(I,O):- var(I),!,I=O.
-mfix_vars1('$t','$VAR'('T')):-!.
-mfix_vars1('$T','$VAR'('T')):-!.
+mfix_vars1('$_','$VAR'('_')).
+mfix_vars1('$','$VAR'('__')).
+mfix_vars1(I,'$VAR'(O)):- atom(I),atom_concat('$',N,I),atom_concat('_',N,O).
+%mfix_vars1('$t','$VAR'('T')):-!.
+%mfix_vars1('$T','$VAR'('T')):-!.
 %mfix_vars1(I,O):- I=='T',!,O='True'.
 %mfix_vars1(I,O):- I=='F',!,O='False'.
 %mfix_vars1(I,O):- is_i_nil(I),!,O=[].
@@ -773,6 +788,8 @@ mfix_vars1('$STRING'(I),O):- !, mfix_vars1(I,M),atom_chars(O,M),!.
 %mfix_vars1('$STRING'(I),O):- !, mfix_vars1(I,M),name(O,M),!.
 mfix_vars1([H|T],O):-   H=='[', is_list(T), last(T,L),L==']',append(List,[L],T), !, O = ['[...]',List].
 mfix_vars1([H|T],O):-   H=='{', is_list(T), last(T,L),L=='}',append(List,[L],T), !, O = ['{...}',List].
+mfix_vars1([H|T],O):-   is_list(T), last(T,L),L=='}',append(List,[L],T),
+   append(Left,['{'|R],List),append([H|Left],[['{}',R]],NewList),mfix_vars1(NewList,O).
 mfix_vars1('$OBJ'(claz_bracket_vector,List),O):- is_list(List),!, O = ['[...]',List].
 mfix_vars1(I,O):-  I = ['[', X, ']'], nonvar(X), !, O = ['[...]',X].
 mfix_vars1(I,O):-  I = ['{', X, '}'], nonvar(X), !, O = ['{...}',X].
@@ -786,19 +803,24 @@ mfix_vars1(I,O):- string(I),option_value('string-are-atoms',true),!,atom_string(
 
 mfix_vars1(I,O):- compound(I),!,compound_name_arguments(I,F,II),F\=='$VAR',maplist(mfix_vars1,II,OO),!,compound_name_arguments(O,F,OO).
 mfix_vars1(I,O):- \+ atom(I),!,I=O.
-mfix_vars1(I,'$VAR'(O)):- atom_concat('$',N,I),dvar_name(N,O),!.
 mfix_vars1(I,I).
 
 no_cons_reduce.
+svar_fixvarname_dont_capitalize(O,O):-!.
+svar_fixvarname_dont_capitalize(M,O):- svar_fixvarname(M,O),!.
 
-dvar_name(t,'T'):- !.
-dvar_name(N,O):- atom(N),atom_number(N,Num),atom_concat('Num',Num,M),!,svar_fixvarname(M,O).
-dvar_name(N,O):- number(N),atom_concat('Num',N,M),!,svar_fixvarname(M,O).
+
+%dvar_name(t,'T'):- !.
+dvar_name(N,O):-atom_concat('_',_,N),!,O=N.
+dvar_name(N,O):- integer(N),atom_concat('_',N,O).
+dvar_name(N,O):- atom(N),atom_number(N,Num),dvar_name(Num,O),!.
 dvar_name(N,O):- \+ atom(N),!,format(atom(A),'~w',[N]),dvar_name(A,O).
-dvar_name('','__'):-!. % "$"
-dvar_name('_','_'):-!. % "$_"
-dvar_name(N,O):- svar_fixvarname(N,O),!.
-dvar_name(N,O):- must_det_ll((atom_chars(N,Lst),maplist(c2vn,Lst,NList),atomic_list_concat(NList,S),svar_fixvarname(S,O))),!.
+dvar_name(N,O):- !, format(atom(A),'_~w',[N]),dvar_name(A,O).
+%dvar_name(  '',''):-!. % "$"
+%dvar_name('_','__'):-!. % "$_"
+dvar_name(N,O):-atom_concat('_',_,N),!,atom_concat('_',N,O).
+dvar_name(N,O):- svar_fixvarname_dont_capitalize(N,O),!.
+dvar_name(N,O):- must_det_ll((atom_chars(N,Lst),maplist(c2vn,Lst,NList),atomic_list_concat(NList,S),svar_fixvarname_dont_capitalize(S,O))),!.
 c2vn(A,A):- char_type(A,prolog_identifier_continue),!.
 c2vn(A,A):- char_type(A,prolog_var_start),!.
 c2vn(A,AA):- char_code(A,C),atomic_list_concat(['_C',C,'_'],AA).
@@ -850,7 +872,7 @@ subst_vars([TermWDV|RestWDV], [Term|Rest], Acc, NamedVarsList) :- !,
     subst_vars(TermWDV, Term, Acc, IntermediateNamedVarsList),
     subst_vars(RestWDV, Rest, IntermediateNamedVarsList, NamedVarsList).
 subst_vars('$VAR'('_'), _, NamedVarsList, NamedVarsList) :- !.
-subst_vars('$VAR'(VName), Var, Acc, NamedVarsList) :- nonvar(VName), svar_fixvarname(VName,Name), !,
+subst_vars('$VAR'(VName), Var, Acc, NamedVarsList) :- nonvar(VName), svar_fixvarname_dont_capitalize(VName,Name), !,
     (memberchk(Name=Var, Acc) -> NamedVarsList = Acc ; ( !, Var = _, NamedVarsList = [Name=Var|Acc])).
 subst_vars(Term, Var, Acc, NamedVarsList) :- atom(Term),atom_concat('$',DName,Term),
    dvar_name(DName,Name),!,subst_vars('$VAR'(Name), Var, Acc, NamedVarsList).
@@ -974,8 +996,8 @@ type_decl('Variable').
 :- dynamic(get_metta_atom/2).
 :- dynamic(asserted_metta_atom/2).
 metta_atom_stdlib(_):-!,fail.
-metta_atom_stdlib([:, Type, 'Type']):- type_decl(Type).
-metta_atom_stdlib([:, Op, [->|List]]):- op_decl(Op,Params,ReturnType),append(Params,[ReturnType],List).
+metta_atom_stdlib([':', Type, 'Type']):- type_decl(Type).
+metta_atom_stdlib([':', Op, [->|List]]):- op_decl(Op,Params,ReturnType),append(Params,[ReturnType],List).
 
 %get_metta_atom(Eq,KB, [F|List]):- KB='&flybase',fb_pred(F, Len), length(List,Len),apply(F,List).
 
@@ -1260,6 +1282,8 @@ call_sexpr(How,Self,Tax,_S,Out):-
     convert_tax(How,Self,TaxM,Expr,NewHow),!,
     show_call(do_metta(python,NewHow,Self,Expr,Out)).
 
+do_metta(File,Load,Self,Cmt,Out):-
+  if_trace(do_metta, fbug(do_metta(File,Load,Self,Cmt,Out))),fail.
 
 do_metta(_File,_Load,_Self,In,Out):- var(In),!,In=Out.
 do_metta(_From,_Mode,_Self,end_of_file,'Empty'):- !. %, halt(7), writeln('\n\n% To restart, use: ?- repl.').
@@ -1414,22 +1438,26 @@ repl2:-
    %notrace((current_input(In),nop(catch(load_history,_,true)))),
   % ignore(install_readline(In)),
    repeat,
-     set_prolog_flag(gc,false),
+     %set_prolog_flag(gc,true),
+     garbage_collect,
+     %set_prolog_flag(gc,false),
      %with_option(not_a_reload,true,make),
       ignore(catch(once(repl3),restart_reading,true)),
-      set_prolog_flag(gc,true),fail.
+      %set_prolog_flag(gc,true),
+      fail.
 repl3:-
      notrace(( flag(eval_num,_,0),
       current_self(Self),
       current_read_mode(repl,Mode),
       %ignore(shell('stty sane ; stty echo')),
       %current_input(In),
+     %format(atom(P2),'metta> ',[]),
       format(atom(P),'metta ~w ~w> ',[Self, Mode]))),
       setup_call_cleanup(
          notrace(prompt(Was,P)),
          notrace((ttyflush,repl_read(Expr),ttyflush)),
          notrace(prompt(_,Was))),
-      if_trace(repl,fbug(repl_read(Expr))),
+      if_trace(replt,fbug(repl_read(Mode,Expr))),
       %fbug(repl_read(Expr)),
       notrace(if_t(Expr==end_of_file,throw(end_of_input))),
       %ignore(shell('stty sane ; stty echo')),
@@ -1447,7 +1475,7 @@ check_has_directive(AtEq):-atom(AtEq),atom_concat('@',NEV,AtEq),option_value(NEV
 check_has_directive(_).
 set_directive(N,V):- atom_concat('@',NN,N),!,set_directive(NN,V).
 set_directive(N,V):- N==mode,!,set_directive(repl_mode,V).
-set_directive(N,V):- show_call(set_option_value(N,V)),!,notrace(throw(restart_reading)).
+set_directive(N,V):- show_call(set_option_value_interp(N,V)),!,notrace(throw(restart_reading)).
 
 read_pending_white_codes(In):-
   read_pending_codes(In,[10],[]),!.
@@ -1620,7 +1648,7 @@ interactively_do_metta_exec0(From,Self,TermV,Term,X,NamedVarsList,Was,Output,FOu
          ((((ResNum==1,Complete==true)->(format('~NDeterministic: ',  []), !);          %or Nondet
            ( Complete==true -> (format('~NLast Result(~w): ',[ResNum]),! );
                                format('~NNDet Result(~w): ',[ResNum])))),
-       color_g_mesg(yellow, ignore((( if_t( \+ atomic(Output), nl), write_src(Output), nl)))),
+       color_g_mesg(yellow, ignore((( if_t( \+ atomic(Output), nl), write_asrc(Output), nl)))),
        give_time('Execution',Seconds),
        color_g_mesg(green,
            ignore((NamedVarsList \=@= Was ->( maplist(print_var,NamedVarsList), nl) ; true))))),
@@ -1665,8 +1693,14 @@ forall_interactive(From,WasInteractive,Complete,Goal,After):-
     Goal, (Complete==true ->  ( quietly(After),!)  ;  (  quietly( \+ After) )).
 
 print_var(Name=Var) :- print_var(Name,Var).
-print_var(Name,_Var) :- atom_concat('Num',Rest,Name),atom_number(Rest,_),!.
-print_var(Name,Var):-  write('$'),write(Name), write(' = '), write_src(Var), nl.
+%print_var(Name,_Var) :- atom_concat('Num',Rest,Name),atom_number(Rest,_),!.
+print_var(Name,Var):-  write_src('$VAR'(Name)), write(' = '), write_asrc(Var), nl.
+
+write_asrc(Var):- copy_term(Var,Copy,Goals),Var=Copy,write_asrc(Var,Goals).
+write_asrc(Var,[]):- write_src(Var).
+write_asrc(Var,[G|Goals]):- write_src(Var), write(' { '),write_src(G),maplist(write_src_space,Goals),writeln(' } ').
+
+write_src_space(Goal):- write(' '),write_src(Goal).
 
 % Entry point for the user to call with tracing enabled
 toplevel_goal(Goal) :-
@@ -1830,7 +1864,7 @@ really_rtrace(Goal):- with_debug((eval),with_debug((exec),Goal)).
 rtrace_on_existence_error(G):- !, catch_err(G,E, (fbug(E=G),  \+ tracing, trace, rtrace(G))).
 %rtrace_on_existence_error(G):- catch(G,error(existence_error(procedure,W),Where),rtrace(G)).
 
-prolog_only(Goal):- !,Goal.
+%prolog_only(Goal):- !,Goal.
 prolog_only(Goal):- if_trace(prolog,Goal).
 
 write_compiled_exec(Exec,Goal):-
@@ -1850,6 +1884,8 @@ vu(true,_Value):- !.
 vu(trace,_Value):- trace.
 :- nodebug(metta(eval)).
 :- nodebug(metta(exec)).
+:- nodebug(metta(load)).
+:- nodebug(metta(prolog)).
 % Measures the execution time of a Prolog goal and displays the duration in seconds,
 % milliseconds, or microseconds, depending on the execution time.
 %
@@ -2010,8 +2046,8 @@ pre_halt2:-  need_interaction, set_option_value('had_interaction',true),call_cle
 
 %loon:- time(loon_metta('./examples/compat/test_scripts/*.metta')),fail.
 %loon:- repl, (option_value('halt',false)->true;halt(7)).
-%maybe_halt(Seven):- option_value('prolog',true),!,call_cleanup(prolog,(set_option_value('prolog',false),maybe_halt(Seven))).
-%maybe_halt(Seven):- option_value('repl',true),!,call_cleanup(repl,(set_option_value('repl',false),maybe_halt(Seven))).
+%maybe_halt(Seven):- option_value('prolog',true),!,call_cleanup(prolog,(set_option_value_interp('prolog',false),maybe_halt(Seven))).
+%maybe_halt(Seven):- option_value('repl',true),!,call_cleanup(repl,(set_option_value_interp('repl',false),maybe_halt(Seven))).
 %maybe_halt(Seven):- option_value('repl',true),!,halt(Seven).
 maybe_halt(_):- once(pre_halt1), fail.
 maybe_halt(Seven):- option_value('repl',false),!,halt(Seven).
@@ -2099,3 +2135,15 @@ qsave_program:-  ensure_mettalog_system, next_save_name(Name),
    metta_final
 ))).
 :- set_prolog_flag(metta_interp,ready).
+
+:- use_module(library(clpr)). % Import the CLP(R) library
+
+% Define a predicate to relate the likelihoods of three events
+complex_relationship3_ex(Likelihood1, Likelihood2, Likelihood3) :-
+    { Likelihood1 = 0.3 * Likelihood2 },
+    { Likelihood2 = 0.5 * Likelihood3 },
+    { Likelihood3 < 1.0 },
+    { Likelihood3 > 0.0 }.
+
+% Example query to find the likelihoods that satisfy the constraints
+%?- complex_relationship(L1, L2, L3).

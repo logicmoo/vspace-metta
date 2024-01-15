@@ -253,6 +253,7 @@ add_to_space(Space, Sym) :-
     py_call(GSpace:'add'(Sym), _).
 :- endif.
 
+extend_py(Module,R):- 'extend-py!'(Module,R).
 
 'extend-py!'(Module,_):-
   with_safe_argv((

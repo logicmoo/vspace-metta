@@ -402,12 +402,17 @@
       (automated_gene_summaries! $FBgn $SummaryText))
 )
 
+
+
 ;; Query: Identify Alleles and Their Phenotypes for a Specific Gene
-!(query-info "List all alleles and their associated phenotypes for a given gene symbol."
-    (alleles-and-phenotypes $GeneSymbol $AlleleSymbol $Phenotype)
-   (, (fbal_to_fbgn! $_ $AlleleSymbol $_ $GeneSymbol)
-      (allele_phenotypic! $AlleleSymbol $_ $Phenotype $_))
-)
+;;!(query-info "List all alleles and their associated phenotypes for a given gene symbol."
+;;    (alleles-and-phenotypes $GeneSymbol $AlleleSymbol $Phenotype)
+;;   (, (fbal_to_fbgn! $_ $AlleleSymbol $_ $GeneSymbol)
+;;      (allele_phenotypic! $AlleleSymbol $_ $Phenotype $_))
+;;)
+
+
+!(repl!)
 
 ;; Query: Retrieve Gene Interaction Information and Corresponding Publications
 !(query-info "Find interactions between genes and the related publications."
@@ -425,6 +430,8 @@
       (fb-member! $DiseaseID $DiseaseIDs)
       (disease_model_annotations! $_ $_ $HumanGeneSymbol $_ $Disease $_ $_ $_ $_ $_ $_ $_))
 )
+
+
 
 
 ;; Query: Count the Number of Known RNA Processing Related Genes and Select Those with Less Than 2 Instances

@@ -14,6 +14,9 @@
 :- ensure_loaded(library(dictoo)).
 :- endif.
 
+cleanup_debug:-
+  forall((clause(prolog_debug:debugging(A1,B,C),Body,Cl1), clause(prolog_debug:debugging(A2,B,C),Body,Cl2),A1=@=A2,Cl1\==Cl2),
+     erase(Cl2)).
 
 :- export(plain_var/1).
 plain_var(V):- notrace((var(V), \+ attvar(V), \+ get_attr(V,ci,_))).
@@ -328,8 +331,7 @@ md_failed(P1,G):- tracing,/*notrace*/(u_dmsg(md_failed(P1,G))),!,fail.
 md_failed(P1,G):- main_debug,/*notrace*/(u_dmsg(md_failed(P1,G))),!,throw(md_failed(P1,G,2)).
 md_failed(P1,G):- is_cgi,!, u_dmsg(arc_html(md_failed(P1,G))).
 md_failed(P1,X):- notrace,is_guitracer,u_dmsg(failed(X))/*,arcST*/,nortrace,atrace, call(P1,X).
-md_failed(P1,X):-
- u_dmsg(failed(P1,X))/*,arcST*/,nortrace,atrace,
+md_failed(P1,X):-  u_dmsg(failed(P1,X))/*,arcST*/,nortrace,atrace,
  trace,visible_rtrace([-all,+fail,+call,+exception],X).
 % must_det_ll(X):- must_det_ll(X),!.
 
