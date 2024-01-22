@@ -360,7 +360,7 @@
 ;; our special hack to see into other spaces
 !(number-of (gene_map_table! $Org $Sym $G 3-59 $D $E)) ;; 74
 
-!(repl!)
+; !(repl!)
 
 !(get-atoms &flybase (gene_map_table $Org $Sym $G 3-59 $D $E))
 
@@ -370,7 +370,7 @@
 !(number-of (gene_map_table $Org $Sym $G 3-59 $D $E)) ;; 0
 
 ;; use the host system limiter of 5
-!(number-of  (limit! 5 (gene_map_table! $Org $Sym $G 3-59 $D $E)))  ;; 5
+!(number-of  (limit 5 (gene_map_table! $Org $Sym $G 3-59 $D $E)))  ;; 5
 
 !(assertEqual (number-of (gene_map_table! $MapID $OrganismAbbreviation $ParalogGeneID 3-59 $CytogeneticLoc $SequenceLoc)) 74)
 
@@ -382,25 +382,39 @@
 
 
 
-;; print no more than the first 5 answers
+;; print no more than the first 5 answers2
 (= (query-info2 $English $template $query)
  (,
    (println!  ($English  "=" $query))
-   (println!  (limit! 5 (match &flybase $query $template)))
+   (println!  (limit 5 (match &flybase $query $template)))
    (println! ("time was = " (time! (number-of $query $count))))
    (println! ("total of query = " $count))))
 
+
+;; print no more than the first 5 answers
+
 (= (query-info $English $template $query)
-  (let $_ (println  ($English  "=" $query))
-  (limit! 5 (match &flybase $query $template))))
+   (println!  ($English  "=" $query))
+   (limit 5 (match &flybase $query $template ) ) )
+
+;; Query: Find the Gene Symbols and Summary Texts for Genes Involved in a Specific Disease
+(query-info-not "Show the gene symbols and summary texts for genes that are associated with a particular disease model."
+    (gene-symbols-and-summaries $Disease $GeneSymbol $SummaryText)
+   (, (disease_model_annotations! $FBgn $GeneSymbol $_ $_ $Disease $_ $_ $_ $_ $_ $_ $_ )
+      (automated_gene_summaries! $FBgn $SummaryText ) ) )
 
 
 ;; Query: Find the Gene Symbols and Summary Texts for Genes Involved in a Specific Disease
-!(query-info "Show the gene symbols and summary texts for genes that are associated with a particular disease model."
+(query-info-not "Show the gene symbols and summary texts for genes that are associated with a particular disease model."
     (gene-symbols-and-summaries $Disease $GeneSymbol $SummaryText)
-   (, (disease_model_annotations! $FBgn $GeneSymbol $_ $_ $Disease $_ $_ $_ $_ $_ $_ $_)
-      (automated_gene_summaries! $FBgn $SummaryText))
-)
+   (, (disease_model_annotations! $FBgn $GeneSymbol $_ $_ $Disease $_ $_ $_ $_ $_ $_ $_ )
+      (automated_gene_summaries! $FBgn $SummaryText ) ) )
+
+
+;; !(match &self (automated_gene_summaries! FBgn0020237 $S) (get-metatype $S))
+
+
+;; !(repl!)
 
 
 
@@ -412,7 +426,7 @@
 ;;)
 
 
-!(repl!)
+
 
 ;; Query: Retrieve Gene Interaction Information and Corresponding Publications
 !(query-info "Find interactions between genes and the related publications."
@@ -449,6 +463,12 @@
        (number-of (physical_interactions_mitab! $GeneSymbol $_ $_ $PhysicalInteraction $_ $_ $_) $NumberOf)
        (> $NumberOf 4))
 )
+
+!(repl!)
+
+
+
+
 
 ;; Query: Count Genes Associated with Specific Diseases and Select Those with More Than 3 Associations
 !(query-info "Count genes associated with specific diseases and select those with more than 3 associations."
@@ -671,7 +691,7 @@
 )
 
 ;; Query: Determine Gene Functions and Map them to Genetic and Physical Interactions
-!(query-info "Determine gene functions and map them to genetic and physical interactions."
+(query-info-not "Determine gene functions and map them to genetic and physical interactions."
     (gene-functions-genetic-physical-interactions $GeneSymbol $Function $GeneticInteraction $PhysicalInteraction)
    (, (automated_gene_summaries! $GeneSymbol $Function)
       (gene_genetic_interactions! $GeneSymbol $_ $_ $GeneticInteraction)
@@ -717,7 +737,7 @@
 )
 
 ;; Query: Associate Pathway Groups with Gene Functions and Physical Interactions
-!(query-info "Associate pathway groups with gene functions and physical interactions."
+(query-info-not "Associate pathway groups with gene functions and physical interactions."
     (pathway-gene-function-physical-interaction $Pathway $GeneFunction $PhysicalInteraction)
    (, (pathway_group! $Pathway $_ $_ $_)
       (automated_gene_summaries! $_ $GeneFunction)
@@ -787,7 +807,7 @@
 )
 
 ;; Query: Link Gene Functional Data with Enzymatic Activities and Disease Models
-!(query-info "Connect gene functional data with enzymatic activities and their relevance to disease models."
+(query-info-not "Connect gene functional data with enzymatic activities and their relevance to disease models."
     (gene-function-enzyme-disease $GeneSymbol $Function $EnzymeActivity $Disease)
     (, (automated_gene_summaries! $GeneSymbol $Function)
        (Dmel_enzyme! $GeneSymbol $_ $_ $_ $_ $_ $_ $_ $_ $_ $_)
