@@ -395,7 +395,7 @@
 
 (= (query-info $English $template $query)
    (println!  ($English  "=" $query))
-   (limit 5 (match &flybase $query $template ) ) )
+   (max-time 30 (limit 5 (match &flybase $query $template ) ) ))
 
 ;; Query: Find the Gene Symbols and Summary Texts for Genes Involved in a Specific Disease
 (query-info-not "Show the gene symbols and summary texts for genes that are associated with a particular disease model."
