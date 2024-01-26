@@ -2669,3 +2669,6 @@ grep -i english --include="*metta"
 grep -i english flybase/ --include="*metta"
 grep -i english -r flybase/ --include="*metta"
 grep -i english -R flybase/ --include="*metta"
+cd vspace-metta/
+cd examples/
+git clone https://github.com/zarqa-ai/metta-motto
