@@ -9,9 +9,10 @@
 (= (is-even $X) (== (% $X 2) 0))
 
 
-(= (: $v EvenNumber) (if (is-even $v) () (emply)))
+(= (: $v EvenNumber) (if (is-even $v) () (empty)))
 
 !(assertEqual 
-  (enforce-type $even EvenNumber
+ (sequential 
+  ((== (get-type $even) EvenNumber)
    (let $even (superpose (1 2 3 4 5 6)) $even))
-  (superpose (2 4 6)))
+ (superpose (2 4 6)))
