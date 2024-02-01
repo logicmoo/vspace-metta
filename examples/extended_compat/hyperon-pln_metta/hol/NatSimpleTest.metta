@@ -63,7 +63,7 @@
 ;; Prove that Z is left identity of plus
 ;; TODO: re-enable once subtitution is fixed
 ;; !(assertEqual
-!(synthesize (: $proof (=== (plus Z $y) $y)) kb rb Z)
+  !(synthesize (: $proof (=== (plus Z $y) $y)) kb rb Z)
   ;; (: Base_plus (=== (plus Z $y#90) $y#90)))
 
 ;; Prove that 1 + 0 = 1
@@ -161,7 +161,7 @@
 ;; (EqTrans (EqTrans Rec_plus (EqStruct1 Rec_plus)) (EqStruct1 (EqStruct1 Base_plus)))
 ;; TODO: re-enable when we have found a way to get rid of the cruft
 ;; !(assertEqualToResult
-!(synthesize (: $proof (=== (plus (fromNumber 2) (fromNumber 2)) (fromNumber 4))) kb rb (fromNumber 3))
+  !(synthesize (: $proof (=== (plus (fromNumber 2) (fromNumber 2)) (fromNumber 4))) kb rb (fromNumber 3))
  ;; (: (EqTrans (EqTrans Rec_plus (EqStruct1 Rec_plus)) (EqStruct1 (EqStruct1 Base_plus))) (=== (plus (S (S Z)) (S (S Z))) (S (S (S (S Z))))))
  ;; (: (EqTrans (EqTrans (EqTrans EqRefl Rec_plus) (EqStruct1 Rec_plus)) (EqStruct1 (EqStruct1 Base_plus))) (=== (plus (S (S Z)) (S (S Z))) (S (S (S (S Z))))))
  ;; (: (EqTrans (EqTrans (EqTrans Rec_plus EqRefl) (EqStruct1 Rec_plus)) (EqStruct1 (EqStruct1 Base_plus))) (=== (plus (S (S Z)) (S (S Z))) (S (S (S (S Z))))))
