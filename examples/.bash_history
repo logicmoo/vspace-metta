@@ -2672,3 +2672,7 @@ grep -i english -R flybase/ --include="*metta"
 cd vspace-metta/
 cd examples/
 git clone https://github.com/zarqa-ai/metta-motto
+git checkout origin/inf-ctl-ctl . -f
+cd ../..
+scripts/send-debug-keys.sh  --html --test --clean  examples/extended_compat/hyperon-pln/metta/inference-control/inf-ctl-month-xp.metta 
+cd -

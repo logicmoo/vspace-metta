@@ -220,18 +220,19 @@
   (: ((Trans FM) ((Trans MA) AM)) (≼ Feb May)))
 
 ;; Prove that Feb precedes Jun
+;; return seven values?
 ;; !(assertEqualToResult
   !(bc depth-updater depth-updater depth-terminator
       (fromNumber 5)
       (: $prf (≼ Feb Jun)))
-;; (: ((Trans ((Trans FM) MA)) ((Trans AM) MJ)) (≼ Feb Jun))
+;; (: ((Trans ((Trans FM) MA)) ((Trans AM) MJ)) (≼ Feb Jun)))
 
 ;; Prove that Feb precedes Jul
 ;; !(assertEqual
-  !(bc depth-updater depth-updater depth-terminator
+  !(collapse (bc depth-updater depth-updater depth-terminator
       (fromNumber 6)
-      (: $prf (≼ Feb Jul)))
-  ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul))
+      (: $prf (≼ Feb Jul))))
+  ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul)))
 
 ;; Disabled because it takes 3h.
 ;;
@@ -240,7 +241,7 @@
 ;;   !(bc depth-updater depth-updater depth-terminator
 ;;       (fromNumber 7)
 ;;       (: $prf (≼ Feb Aug)))
-;;   ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul))
+;;   ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Context is depth and target theorem ;;
@@ -338,26 +339,47 @@
    (: ((Trans FM) ((Trans ((Trans MA) AM)) ((Trans MJ) JJ))) (≼ Feb Jul))
    (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul))))
 
-;; Disabled because it takes 1h40.
-;;
-;; ;; Prove that Feb precedes Aug
-;; ;; !(assertEqual
-;;   !(bc td-updater td-updater td-terminator
-;;       (MkTD (≼ Feb Aug) (fromNumber 7))
-;;       (: $prf (≼ Feb Aug)))
-   ;; ((: ((Trans ((Trans ((Trans FM) MA)) ((Trans AM) ((Trans MJ) JJ)))) JA) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans ((Trans FM) MA)) ((Trans AM) MJ))) ((Trans JJ) JA)) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans ((Trans FM) MA)) AM)) ((Trans ((Trans MJ) JJ)) JA)) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans ((Trans FM) MA)) AM)) ((Trans MJ) ((Trans JJ) JA))) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) ((Trans MA) ((Trans AM) MJ)))) ((Trans JJ) JA)) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) ((Trans MA) AM))) ((Trans ((Trans MJ) JJ)) JA)) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) ((Trans MA) AM))) ((Trans MJ) ((Trans JJ) JA))) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) MA)) ((Trans ((Trans AM) ((Trans MJ) JJ))) JA)) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) MA)) ((Trans ((Trans AM) MJ)) ((Trans JJ) JA))) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) MA)) ((Trans AM) ((Trans ((Trans MJ) JJ)) JA))) (≼ Feb Aug))
-   ;;  (: ((Trans ((Trans FM) MA)) ((Trans AM) ((Trans MJ) ((Trans JJ) JA)))) (≼ Feb Aug))
-   ;;  (: ((Trans FM) ((Trans ((Trans MA) ((Trans AM) MJ))) ((Trans JJ) JA))) (≼ Feb Aug))
-   ;;  (: ((Trans FM) ((Trans ((Trans MA) AM)) ((Trans ((Trans MJ) JJ)) JA))) (≼ Feb Aug))
-   ;;  (: ((Trans FM) ((Trans ((Trans MA) AM)) ((Trans MJ) ((Trans JJ) JA)))) (≼ Feb Aug))
-   ;;  (: ((Trans FM) ((Trans MA) ((Trans ((Trans AM) MJ)) ((Trans JJ) JA)))) (≼ Feb Aug))
-   ;;  (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) ((Trans JJ) JA))))) (≼ Feb Aug)))
+;; To do all of the above in Rust it took 45 seconds.. In MeTTaLog 28.596 seconds
+
+;; Disabled because it takes 1h40 in MeTTa Rust
+;; Enabled because it only takes 23 seconds in MeTTaLog
+;; Prove that Feb precedes Aug
+!(assertEqualToResult
+    (bc td-updater td-updater td-terminator
+       (MkTD (≼ Feb Aug) (fromNumber 7))
+       (: $prf (≼ Feb Aug)))
+    ((: ((Trans ((Trans ((Trans FM) MA)) ((Trans AM) ((Trans MJ) JJ)))) JA) (≼ Feb Aug))
+     (: ((Trans ((Trans ((Trans FM) MA)) ((Trans AM) MJ))) ((Trans JJ) JA)) (≼ Feb Aug))
+     (: ((Trans ((Trans ((Trans FM) MA)) AM)) ((Trans ((Trans MJ) JJ)) JA)) (≼ Feb Aug))
+     (: ((Trans ((Trans ((Trans FM) MA)) AM)) ((Trans MJ) ((Trans JJ) JA))) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) ((Trans MA) ((Trans AM) MJ)))) ((Trans JJ) JA)) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) ((Trans MA) AM))) ((Trans ((Trans MJ) JJ)) JA)) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) ((Trans MA) AM))) ((Trans MJ) ((Trans JJ) JA))) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) MA)) ((Trans ((Trans AM) ((Trans MJ) JJ))) JA)) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) MA)) ((Trans ((Trans AM) MJ)) ((Trans JJ) JA))) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) MA)) ((Trans AM) ((Trans ((Trans MJ) JJ)) JA))) (≼ Feb Aug))
+     (: ((Trans ((Trans FM) MA)) ((Trans AM) ((Trans MJ) ((Trans JJ) JA)))) (≼ Feb Aug))
+     (: ((Trans FM) ((Trans ((Trans MA) ((Trans AM) MJ))) ((Trans JJ) JA))) (≼ Feb Aug))
+     (: ((Trans FM) ((Trans ((Trans MA) AM)) ((Trans ((Trans MJ) JJ)) JA))) (≼ Feb Aug))
+     (: ((Trans FM) ((Trans ((Trans MA) AM)) ((Trans MJ) ((Trans JJ) JA)))) (≼ Feb Aug))
+     (: ((Trans FM) ((Trans MA) ((Trans ((Trans AM) MJ)) ((Trans JJ) JA)))) (≼ Feb Aug))
+     (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) ((Trans JJ) JA))))) (≼ Feb Aug))))
+
+
+;; Disabled because it uses limit from MeTTaLog
+;; limit 100 because it takes
+;; !(assertEqual
+!(quote
+   (length (collapse (dedup (limit 100 (bc depth-updater depth-updater depth-terminator
+       (fromNumber 7)
+       (: $prf (≼ Feb Aug)))))))
+   ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul)))
+)
+
+;; Disabled because it takes 3h.
+;; Prove that Feb precedes Aug in under 7 steps
+ ;; !(assertEqual
+   ;; !(number-of (bc depth-updater depth-updater depth-terminator (fromNumber 7) (: $prf (≼ Feb Aug))))
+   ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul))))
+
+

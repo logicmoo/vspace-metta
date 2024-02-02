@@ -49,10 +49,10 @@
                 (add-atom &self (= (highsurp) $highsurp))
                 (get-universe-size $db))))
 
-;; Search for Triplets in DB
+;; Search for Triplets in DB 
 ;; collect valuation sets and generate specializations
 (= (extract-valuation $db)
-  (match $db ($link $x $y)
+   (match $db ($link $x $y) 
     (superpose ((build-specialization ($link $x (VarIdx (S Z))))
                 (build-specialization ($link (VarIdx Z) $y))
                 (add-abstractions ($link (VarIdx Z) (VarIdx (S Z))))))))
@@ -107,7 +107,7 @@
 
 ; Count the number of instances of a given pattern
 (= (count $pattern)
-    (let $result
+    (let $result 
       (case (match &self (= (refdb) $db) $db)
           (($db (let $dptrn (fromDebruijn $pattern $Xvar $Yvar) (collapse (match $db $dptrn $dptrn))))
            (%void% ())))
@@ -115,12 +115,12 @@
 
 (= (countNat $pattern) (fromNumber (count $pattern)))
 
-;; Return candidate patterns in the format (candidate pattern count)
+;; Return candidate patterns in the format (candidate pattern count) 
 ;; for patterns with a support value >= the minimum support.
 ;; the count here will later be used for calculating surprisingness.
 (= (support $pattern $minsup)
     (let $cnt (count $pattern)
-      (if (> (+ $cnt 1) $minsup) (candidate $pattern $cnt)  (superpose ()))))
+      (if (> (+ $cnt 1) $minsup) (candidate $pattern $cnt) (superpose ()))))
 
 ;; Extract a pattern from a Candidate pattern of form
 ;; (candidate pattern count)
@@ -130,14 +130,14 @@
 ;; flatten combination
 ;; TODO: apply reduction rule
 (= (flatten $pattern)
-    (case $pattern
+    (case $pattern 
         (((, (, $a $b) $c) (, $a $b $c))
          ((, $a (, $b $c)) (, $a $b $c))
          ($_ $pattern))))
 
 ;; Get universe size of a given db
-(= (get-universe-size $dbspace)
-    (add-atom &self
+(= (get-universe-size $dbspace) 
+    (add-atom &self 
       (= (universe-size) (let $u (collapse (match $dbspace $x 1)) (tuple-count $u)))))
 
 ;; Probability formula
@@ -149,7 +149,7 @@
       ((candidate (, $p1 $p2) $cnt)
       (let* (($pp1 (prob (count $p1)))
           ($pp2 (prob (count $p2)))
-          ($p1p2 (* $pp1 $pp2)) ;; probability estimate
+          ($p1p2 (* $pp1 $pp2)) ;; probability estimate 
           ($p (prob $cnt))) ;; empirical
           (/ (max (- $p $p1p2) (- $p1p2 $p)) $p)))
       ((candidate (, $p1 $p2 $p3) $cnt)
@@ -167,3 +167,60 @@
       ($_ 0))))
 
 (= (isurp? ($ptrn $cnt)) (if (> (iSurprisingness (candidate $ptrn $cnt)) (highsurp)) true false))
+;; MeTTa port of pattern miner, using match.
+
+;; Given a collection of data trees db, a minimum support ms and an
+;; initial collection of patterns Candidate (containing at least the identity
+;; pattern), the pattern mining algorithm works as follows
+
+;; 1. Select a pattern P from C
+;; 2. Extract the valuation set of P over db, called V
+;; 3. Determine the shallow abstractions of V, called A
+;; 4. Specialize P by composing it with elements in A
+;; 5. Add the resulting specializations with enough support in C,
+;;    discard the others
+;; 6. Repeat till termination
+
+;; Import utils
+; !(import! &self ../utils/MinerUtils.metta)
+
+;; Get candidate patterns depth zero
+(= (get-candidate Z $linkType $ms)
+    (let $sp (specialize $linkType)
+      (support $sp $ms)))
+
+;; Get candidate patterns depth n. (maximum is three)
+(= (get-candidate (S $k) $linkType $ms)
+    (let $comb (, (get-pattern (get-candidate $k $linkType $ms))
+                  (get-pattern (get-candidate Z $linkType $ms)))
+      (support (flatten $comb) $ms)))
+
+;; Frequent patterns Miner
+(= (miner $db $ms $depth)
+    (superpose ((init-miner $db $ms $highsurp)
+                (let $link (get-links)
+                  (get-candidate $depth $link $ms)))))
+
+;; Surprising patterns miner
+(= (miner-surprising $db $ms $depth $highsurp)
+  (let* (($cptrn (miner $db $ms $depth))
+         ($isurp (iSurprisingness $cptrn)))
+         (if (> $isurp $highsurp) (surp (get-pattern $cptrn) $isurp) (superpose ()))))
+; !(import! &self MinerMatch.metta)
+
+;; Load sample data
+!(import! &db ../data/sample.metta)
+
+;; Parameters
+(= (ms) 5)
+;; Max depth (number of conjuncts) is 3
+;; it starts from 0, 
+;(= (depth) (fromNumber 1))
+(= (depth) (fromNumber 2))
+(= (highsurp) 0.8)
+
+;; frequent patterns 
+!(miner &db (ms) (depth))
+
+;; Surprising patterns
+;!(miner-surprising &db (ms) (depth) (highsurp))

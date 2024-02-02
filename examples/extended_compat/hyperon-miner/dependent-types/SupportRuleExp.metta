@@ -1,4 +1,4 @@
-!(import! &self ../../../baseline_compat/hyperon-pln_metta/synthesis/Synthesize.metta)
+!(import! &self ../../hyperon-pln/metta/synthesis/Synthesize.metta)
 
 !(bind! &db (new-space))
 !(add-atom &db (Inheritance Allen man))
