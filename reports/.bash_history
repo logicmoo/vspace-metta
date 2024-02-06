@@ -773,11 +773,11 @@ mv examples/old-compat .
 cls ; ./MeTTa
 cls ; ./MeTTa --clean
 find examples/ -name ".*"
-cp examples/compat/metta-morph/extend/.mettalogrc examples/performance/
+cp examples/compat/metta-morph/extend/.mettalogrc examples/performance/basic/
 cls ; ./MeTTa --clean
-vi examples/performance/.mettalogrc 
+vi examples/performance/basic/.mettalogrc 
 cls ; ./MeTTa --clean
-vi examples/performance/.mettalogrc 
+vi examples/performance/basic/.mettalogrc 
 cls ; ./MeTTa --clean
 grep ====================== metta_vspace -R
 grep ====================== metta_vspace -R --include="metta_interp*"
@@ -896,7 +896,7 @@ rm ./examples/nars/prev/.mettalogrc
 find -name ".mettalogrc" -print -exec cat {} \;
 rm ./examples/nars/new/.mettalogrc
 find -name ".mettalogrc" -print -exec cat {} \;
-rm ./examples/performance/.mettalogrc
+rm ./examples/performance/basic/.mettalogrc
 find -name ".mettalogrc" -print -exec cat {} \;
 rm ./examples/features/.mettalogrc
 find -name ".mettalogrc" -print -exec cat {} \;
@@ -1036,7 +1036,7 @@ cp examples/interp/ examples/interp_GOODY -a
 ./MeTTa --v2a ./examples/interp_2a/ --clean
 ./scripts/total_loonits.sh 
 watch ./scripts/total_loonits.sh 
-find  reports/cuRRent/compat -name "*.html"
+find  reports/compat -name "*.html"
 find examples/compat -name "*.html"
 ./scripts/total_loonits.sh 
 find examples/compat/ -name "*.html" -delete 
@@ -1087,9 +1087,9 @@ git status .
 git add metta_vspace/pyswip_2a/
 git add metta_vspace/pyswip_3y
 git add metta_vspace/pyswip/
-ls  reports/cuRRent/interp_88/hyperon-pln_metta/entail/
+ls  reports/interp_88/hyperon-pln/metta/entail/
 ./scripts/test_in_metta.sh -n --report=Y
-ls  reports/cuRRent/interp_88/hyperon-pln_metta/entail/
+ls  reports/interp_88/hyperon-pln/metta/entail/
 git add reports/
 git status .
 git add etta_vspace/pyswip_1/
@@ -1105,10 +1105,10 @@ git add reports/
 git add reports/
 git add git status .
 git status .
-git commit -am  reports/cuRRent
+git commit -am  reports
 git push logicmoo 
 git push origin 
-cp reports/cuRRent/interp_88/ reports/cuRRent/interp_77/ -a
+cp reports/interp_88/ reports/interp_77/ -a
 cp -a examples/interp_88 examples/interp_77 
 ./MeTTa examples/interp_88/ --clean
 ./MeTTa examples/interp_88/metta-morph_tests/match_feval.metta --clean
@@ -1174,12 +1174,12 @@ git add metta_vspace/pyswip_6l
 git add reports/
 git add examples/
 git status .
-mv reports/cuRRent/interp_88 reports/cuRRent/interp_89
-git checkout reports/cuRRent/interp_88
-mv reports/cuRRent/interp_88 reports/cuRRent/interp_77
-git add reports/cuRRent/interp_77/
-mv reports/cuRRent/interp_89/ reports/cuRRent/interp_88
-git add reports/cuRRent/interp_88/
+mv reports/interp_88 reports/interp_89
+git checkout reports/interp_88
+mv reports/interp_88 reports/interp_77
+git add reports/interp_77/
+mv reports/interp_89/ reports/interp_88
+git add reports/interp_88/
 git mv metta_vspace/pyswip_88 metta_vspace/pyswip_77
 git status .
 git add reports/
@@ -1207,7 +1207,7 @@ ls metta_vspace_sommeeee/metta_vspace
 ls metta_vspace_sommeeee/metta_vspace/pyswip
 cp metta_vspace/pyswip metta_vspace/pyswip_saved_fav -a
 cp -a examples/interp_88  examples/interp_80
-cp -a reports/cuRRent/interp_88 reports/cuRRent/interp_80
+cp -a reports/interp_88 reports/interp_80
 ./MeTTa examples/interp_88/ --clean
 find examples/ -name "*.html" -not -name "*.metta.html"
 find examples/ -name "*.html"
@@ -1234,14 +1234,14 @@ find reports/
 ./MeTTa --v_saved_fav examples/interp_sv/  --clean
 mv examples/interp_sv/ examples/interp_00
 ./MeTTa --v_saved_fav examples/interp_00/
-./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/subtyping/ --clean
-./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ --clean
-cls ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ 
-cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/  --clean
-cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/sumo/  --clean
-cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/
-cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ --clean
-cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln_metta/ --clean --fresh
+./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/subtyping/ --clean
+./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/ --clean
+cls ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/ 
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/  --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/sumo/  --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/ --clean
+cls ; ./MeTTa --v_saved_fav examples/interp_00/hyperon-pln/metta/ --clean --fresh
 cls ; ./MeTTa --v_saved_fav examples/interp_00/ --clean
 cls ; ./MeTTa --v_saved_fav examples/interp_00/metta-morph_tests/types3.metta
 mv metta_vspace/pyswip metta_vspace/pyswip_88
@@ -1277,7 +1277,7 @@ git status .
 git checkout examples/
 git add examples/
 git status .
-git commit -am " 187|    24|    88%| reports/cuRRent/interp_00/hyperon-experimental_scripts "
+git commit -am " 187|    24|    88%| reports/interp_00/hyperon-experimental_scripts "
 ls
 git status .
 cd ..
@@ -1356,7 +1356,7 @@ git commit -am relinks2
 git push logicmoo 
 git commit -am relinks3
 git push logicmoo 
-./MeTTa examples/baseline_compat/hyperon-pln_metta/forward-chainer/forward-chainer-test.metta
+./MeTTa examples/extended_compat/hyperon-pln/metta/forward-chainer/forward-chainer-test.metta
 git commit -am PASS_FAIL
 git commit -am PASS_FAIL2
 git push logicmoo 
@@ -1599,9 +1599,9 @@ git status examples/
 git add examples/
 git status examples/
 git commit -am reports
-touch examples/performance/.mettlogrc
-vi examples/performance/.mettlogrc
-./MeTTa examples/performance/ --clean
+touch examples/performance/basic/.mettlogrc
+vi examples/performance/basic/.mettlogrc
+./MeTTa examples/performance/basic/ --clean
 find -name "sumo"
 grep --help
 ls
@@ -1833,10 +1833,10 @@ cls
 find -name "*.metta.html"
 find examples/  -name "*.metta.html"
 find examples/  -name "*.metta.html" -delete 
-find reports/cuRRent/
-find reports/cuRRent/ --delete
-find reports/cuRRent/ -delete
-find reports/cuRRent/
+find reports/
+find reports/ --delete
+find reports/ -delete
+find reports/
 find reports/
 ./scripts/total_loonits.sh 
 ./MeTTa examples/ --continue --test
@@ -2236,9 +2236,9 @@ git diff ./MeTTa
 ./MeTTa --help --html
 ./MeTTa --help
 ./MeTTa --help --html
-./MeTTa --help --html examples/baseline_compat/hyperon-pln_metta/dependent-types/DeductionDTL.metta 
-./MeTTa --help --html examples/baseline_compat/hyperon-pln_metta/dependent-types/DeductionDTL.metta --test
-./MeTTa --help --html examples/baseline_compat/hyperon-pln_metta/dependent-types/ --test
+./MeTTa --help --html examples/extended_compat/hyperon-pln/metta/dependent-types/DeductionDTL.metta 
+./MeTTa --help --html examples/extended_compat/hyperon-pln/metta/dependent-types/DeductionDTL.metta --test
+./MeTTa --help --html examples/extended_compat/hyperon-pln/metta/dependent-types/ --test
 ./MeTTa --help --html --test
 ./MeTTa --html --test
 mktemp 
@@ -2311,7 +2311,7 @@ mv foo reports/PASS_FAIL.md
 cat /tmp/SHARED.UNITS | awk -F'\\(|\\) \\| \\(' '{ print $2 " " $0 }'  | sort | cut -d' ' -f2- | tac | awk '!seen[$0]++' | tac > examples/PASS_FAIL.md 
 ./scripts/pass_fail_totals.sh examples/ > ./examples/TEST_LINKS.md
 git commit -am "still baseline"
-rsync -avm --include='*.metta.html' -f 'hide,! */' examples/ reports/cuRRent/
+rsync -avm --include='*.metta.html' -f 'hide,! */' examples/ reports/
 git add reports/
 git commit -am "still baseline 2"
 git commit -am "still baseline 3"
@@ -2412,7 +2412,7 @@ rm examples/features/parallelism/builtins.metta.answers
 cls  ; ./MeTTa examples/features/parallelism/builtins.metta
 export DISPLAY=10.0.0.122:0.0
 cls  ; ./MeTTa examples/features/parallelism/builtins.metta
-cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html 
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/features/parallelism/builtins.metta.html 
 cp ../metta-morph-trueagi-io/tests/hyperpose.metta examples/baseline_compat/metta-morph_tests/
 cp ../metta-morph-trueagi-io/tests/* examples/baseline_compat/metta-morph_tests/
 git add examples/baseline_compat/metta-morph_tests/
@@ -2421,8 +2421,8 @@ git diff
 git push
 git push logicmoo 
 cls  ; ./MeTTa examples/features/parallelism/builtins.metta --html
-cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html 
-cat '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/cuRRent/features/parallelism/builtins.metta.html'
+cp /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/features/parallelism/builtins.metta.html /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/features/parallelism/builtins.metta.html 
+cat '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/reports/features/parallelism/builtins.metta.html'
 git commit -am report
 git push logicmoo 
 cls
