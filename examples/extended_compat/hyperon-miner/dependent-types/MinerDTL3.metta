@@ -1,4 +1,4 @@
-!(import! &self ../../../baseline_compat/hyperon-pln_metta/synthesis/Synthesize.metta)
+!(import! &self ../../hyperon-pln/metta/synthesis/Synthesize.metta)
 !(import! &self ../utils/MinerUtils.metta)
 !(import! &succ succAxiom.metta)
 
