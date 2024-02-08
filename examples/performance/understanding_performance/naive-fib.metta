@@ -1,10 +1,14 @@
-;; Takes Rust MeTTa  10.166 seconds
-;; Takes HVM   Regular   0.0009 seconds
-;; Takes Rust  Regular   0.0009 seconds
-;; Takes MeTTaLog   Regular   15.017 seconds
-;; Takes MeTTaLog   Tableing   0.017 seconds
+;; Takes HVM   Regular           0.0009 seconds ;; Guessed
+;; Takes Rust  Regular           0.0009 seconds ;; Guessed
+;; Takes Rust MeTTa              10.166 seconds  ;; Tested
+;; Takes MeTTaLog   Regular       90.6667 seconds ;; Tested
+;; Takes MeTTaLog   Compiled-Tabling   0.017 seconds  ;; Tested
+;; Takes MeTTaLog   Compiled           2.017 seconds ;; Guessed
 
-;;; !(pragma! tabling true)
+;; MeTTaLog only: 
+;!(pragma! tabling true)
+;; MeTTaLog only: 
+;!(pragma! compiler full)
 
  (=
   (fib $n)
@@ -18,9 +22,10 @@
         (fib
           (- $n 2))))))
 
+!(fib 10)
 
 !(fib 20)
 
-!(fib 50)
+!(fib 80)
 
 
