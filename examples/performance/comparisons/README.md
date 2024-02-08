@@ -1,11 +1,11 @@
-| Test                          | Rust MeTTa  | MeTTaLog |
-|-------------------------------|-----------------------------|------------------------|
-| nils_if_control_test_3.metta  | 0m11.563s                    | 0m11.563s              |
-| fibo_hang_10.metta            | 0m3.911s                    | 0m0.412s               |
-| fibo_hang_20.metta            | 0m1.564s                    | 0m1.427s               |
-| fibo_hang_80.metta            | 0m1.549s                    | 0m21.317s              |
-| fibo_hang_900.metta           | 0m1.600s                    | I terminated it        |
 
+| Test                          | Rust MeTTa                  | MeTTaLog               |
+|-------------------------------|-----------------------------|------------------------|
+| nils_if_control_test_3.metta  | 0m49.559s                   | 0m11.563s              |
+| fibo_hang_10.metta            | 0m0.412s                    | 0m3.911s               |
+| fibo_hang_20.metta            | 0m1.427s                    | 0m1.564s               |
+| fibo_hang_80.metta            | 0m21.265s                   | 0m1.549s               |
+| fibo_hang_900.metta           | I terminated it             | 0m1.600s               |
 ```
 
 # time metta nils_if_control_test_3.metta 2>&1  > /dev/null
