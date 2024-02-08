@@ -4,7 +4,7 @@
 | fibo_hang_10.metta            | 0m3.911s                    | 0m0.412s               |
 | fibo_hang_20.metta            | 0m1.564s                    | 0m1.427s               |
 | fibo_hang_80.metta            | 0m1.549s                    | 0m21.317s              |
-| fibo_hang_900.metta           | 0m1.600s                    | <Still Running>        |
+| fibo_hang_900.metta           | 0m1.600s                    | I terminated it        |
 
 ```
 
