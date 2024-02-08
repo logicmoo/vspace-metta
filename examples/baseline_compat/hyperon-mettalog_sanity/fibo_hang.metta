@@ -1,4 +1,7 @@
 
+;; makes this file be treated as if the command line --compile=full  was supplied
+!(pragma! compile full)
+
 (= (fib $n)
     (if (== $n 0)
         0
@@ -16,14 +19,11 @@
 
 !(println! (fib 12))
 
-!(fib1 0 1 100 0)
+!(println! (fib1 0 1 100 0))
 
 !(println! (fib1 0 1 80 0))
 
-!(fib 80)
-
-
-!(println! (fib 20))
+!(println! (fib 80))
 
 
 

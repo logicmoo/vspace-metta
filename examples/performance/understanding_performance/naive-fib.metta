@@ -6,9 +6,9 @@
 ;; Takes MeTTaLog   Compiled           2.017 seconds ;; Guessed
 
 ;; MeTTaLog only: 
-;!(pragma! tabling true)
+!(pragma! tabling true)
 ;; MeTTaLog only: 
-;!(pragma! compiler full)
+!(pragma! compiler full)
 
  (=
   (fib $n)
