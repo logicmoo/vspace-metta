@@ -46,4 +46,4 @@
      (: ($prfabs $prfarg) $ccln)))
 
 !(bc (: $prf (-> (: $f (-> (: $x $a) (-> (: $y $b) $c))) (-> (: $y $b) (-> (: $x $a) $c))))
-     (fromNumber 2))
+     (fromNumber 10))

@@ -47,39 +47,7 @@
 ;; Backward Controlled Chainer ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Backward Chainer.  The arguments of the backward chainer are:
-;;
-;; * Context abstraction updater.  Given the current query and
-;;   context, update the context before recursively calling the
-;;   backward chainer on the proof abstraction.
-;;
-;; * Context argument updater.  Given the current query and context,
-;;   update the context before recursively calling the backward
-;;   chainer on the proof argument.
-;;
-;; * Termination predicate.  Given the current query and context,
-;;   provide the condition of a conditional wrapping the base case and
-;;   recursive step functions (pre-application), as well its results
-;;   (post-application).  Terminating amounts to pruning the reduction
-;;   (as in evaluation) branches.  For now there is only one
-;;   termination predicate for both pre and post application, in the
-;;   future we may want to separate it in two.
-;;
-;; * Query: a metta term of the form (: <PROOF> <THEOREM>) where
-;;   <PROOF> and <THEOREM> may contain free variables that may be
-;;   filled by the backward chainer.
-;;
-;; * Context: a context to be updated and passed to the recursive
-;;   calls of the backward chainer.
-;;
-;; The choice of the arguments of the context updaters and the
-;; termination predicate is justified as follows.  Context updaters
-;; take first the query, which can be viewed an updater modulator,
-;; which then takes the actual context to the return updated one.  An
-;; alternative would have been to construct a contextualized query,
-;; and update that contextualized query instead.  However, we do not
-;; do that to guaranty that the user-programmed inference control does
-;; not interfere with the correctness of the chainer.
+
 (: bc (-> (-> $a $ct $ct)      ; Context abstraction updater
           (-> $a $ct $ct)      ; Context argument updater
           (-> $a $ct Bool)     ; Termination predicate
@@ -183,72 +151,6 @@
 (: depth-terminator (-> $a Nat Bool))
 (= (depth-terminator $query $depth) (is-zero $depth))
 
-;; Prove that Jan non-strictly precedes Jan
-!(assertEqualToResult
-  (bc depth-updater depth-updater depth-terminator
-      (fromNumber 2)
-      (: $prf (≼ Jan Jan)))
-  ((: JPA (≼ Jan Jan))
-   (: Refl (≼ Jan Jan))))
-
-;; Prove that Feb non-strictly precedes Feb
-!(assertEqual
-  (bc depth-updater depth-updater depth-terminator
-      (fromNumber 2)
-      (: $prf (≼ Feb Feb)))
-  (: Refl (≼ Feb Feb)))
-
-;; Prove that Jan precedes Feb
-!(assertEqualToResult
-  (bc depth-updater depth-updater depth-terminator
-      (fromNumber 2)
-      (: $prf (≼ Jan Feb)))
-  ((: JF (≼ Jan Feb))
-   (: JPA (≼ Jan Feb))))
-
-;; Prove that Jan precedes Mar
-!(assertEqualToResult
-  (bc depth-updater depth-updater depth-terminator
-      (fromNumber 3)
-      (: $prf (≼ Jan Mar)))
-  ((: ((Trans Refl) JPA) (≼ Jan Mar))
-   (: ((Trans JPA) FM) (≼ Jan Mar))
-   (: ((Trans JPA) Refl) (≼ Jan Mar))
-   (: ((Trans JPA) JPA) (≼ Jan Mar))
-   (: ((Trans JF) FM) (≼ Jan Mar))
-   (: JPA (≼ Jan Mar))))
-
-;; Prove that Feb precedes May
-!(assertEqual
-  (bc depth-updater depth-updater depth-terminator
-      (fromNumber 4)
-      (: $prf (≼ Feb May)))
-  (: ((Trans FM) ((Trans MA) AM)) (≼ Feb May)))
-
-;; Prove that Feb precedes Jun
-;; return seven values?
-;; !(assertEqualToResult
-  !(bc depth-updater depth-updater depth-terminator
-      (fromNumber 5)
-      (: $prf (≼ Feb Jun)))
-;; (: ((Trans ((Trans FM) MA)) ((Trans AM) MJ)) (≼ Feb Jun)))
-
-;; Prove that Feb precedes Jul
-;; !(assertEqual
-;  !(collapse (bc depth-updater depth-updater depth-terminator
-;      (fromNumber 6)
-;      (: $prf (≼ Feb Jul))))
-;  ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul)))
-
-;; Disabled because it takes 3h.
-;;
-;; ;; Prove that Feb precedes Aug
-;; ;; !(assertEqual
-;;   !(bc depth-updater depth-updater depth-terminator
-;;       (fromNumber 7)
-;;       (: $prf (≼ Feb Aug)))
-;;   ;; (: ((Trans FM) ((Trans MA) ((Trans AM) ((Trans MJ) JJ)))) (≼ Feb Jul)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Context is depth and target theorem ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -290,54 +192,11 @@
                ;; [3th observation] Otherwise, Trans is enough.
                (or (== $prf JPA) (== $prf Refl))))))
 
-;; Prove that Jan non-strictly precedes Jan
-!(assertEqual
-  (bc td-updater td-updater td-terminator
-      (MkTD (≼ Jan Jan) (fromNumber 2))
-      (: $prf (≼ Jan Jan)))
-  (: Refl (≼ Jan Jan)))
-
-;; Prove that Feb non-strictly precedes Feb
-!(assertEqual
-  (bc td-updater td-updater td-terminator
-      (MkTD (≼ Feb Feb) (fromNumber 2))
-      (: $prf (≼ Feb Feb)))
-  (: Refl (≼ Feb Feb)))
-
-;; Prove that Jan precedes Feb
-!(assertEqualToResult
-  (bc td-updater td-updater td-terminator
-      (MkTD (≼ Jan Feb) (fromNumber 2))
-      (: $prf (≼ Jan Feb)))
-  ((: JF (≼ Jan Feb))
-   (: JPA (≼ Jan Feb))))
-
-;; Prove that Jan precedes Mar
-!(assertEqual
-  (bc td-updater td-updater td-terminator
-      (MkTD (≼ Jan Mar) (fromNumber 4))
-      (: $prf (≼ Jan Mar)))
-  (: JPA (≼ Jan Mar)))
-
-;; Prove that Feb precedes May
-!(assertEqual
-  (bc td-updater td-updater td-terminator
-      (MkTD (≼ Feb May) (fromNumber 4))
-      (: $prf (≼ Feb May)))
-  (: ((Trans FM) ((Trans MA) AM)) (≼ Feb May)))
-
-;; Prove that Feb precedes Jun
-!(assertEqualToResult
-  (bc td-updater td-updater td-terminator
-      (MkTD (≼ Feb Jun) (fromNumber 5))
-      (: $prf (≼ Feb Jun)))
-  ((: ((Trans ((Trans FM) MA)) ((Trans AM) MJ)) (≼ Feb Jun))
-   (: ((Trans FM) ((Trans MA) ((Trans AM) MJ))) (≼ Feb Jun))))
 
 ;; Prove that Feb precedes Jul
 !(assertEqualToResult
   (bc td-updater td-updater td-terminator
-      (MkTD (≼ Feb Jul) (fromNumber 6))
+      (MkTD (≼ Feb Jul) (fromNumber 5))
       (: $prf (≼ Feb Jul)))
   ((: ((Trans ((Trans FM) ((Trans MA) AM))) ((Trans MJ) JJ)) (≼ Feb Jul))
    (: ((Trans ((Trans FM) MA)) ((Trans ((Trans AM) MJ)) JJ)) (≼ Feb Jul))
