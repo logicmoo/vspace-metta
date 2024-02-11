@@ -1,4 +1,7 @@
 
+;; Turn off our memoization feature so we get a fair "raw" recursion test against RustHE
+;; however our interpeter TCO's  EVERYTHING so we are in this case 10M+ times faster than RustHE
+;; !(pragma! tabling false)
 ;; makes this file be treated as if the command line --compile=full  was supplied
 !(pragma! compile full)
 
@@ -16,8 +19,9 @@
              (+ $a $b)
             (fib1 $b (+ $a $b) $n (+ $i 1)))))
 
-
 !(println! (fib1 0 1 900 0))
+
+
 
 
 
