@@ -536,7 +536,7 @@ numbervars_w_singles(P):- term_singletons(P, Vars),
   numbervars(P,14,_,[attvar(bind),singletons(true)]).
 
 
-pp_fb(P):- format("~N "),  \+ \+ (numbervars_w_singles(P), pp_fb1(P)),flush_output.
+(P):- format("~N "),  \+ \+ (numbervars_w_singles(P), pp_fb1(P)),flush_output.
 pp_fb1(P):- write_src(P),!,nl.
 :- if(current_predicate(pp_ilp/1)).
 pp_fb1(P):- pp_as(P),!,format("~N"),pp_ilp(P),!.
@@ -1525,7 +1525,8 @@ make_assertion(ArgTypes,Fn,DataL0,Data,DataL0):-
 
 
 fix_list_args(_,_,Y,Y):- option_value(early_canon,[]), \+ should_sample,!.
-%fix_list_args(_Fn,_ArgTypes,[X],[X]):-!.
+%fix_list_args(_Fn,_ArgTypes,[X],[X]):-
+!.
 fix_list_args(Fn,ArgTypes,Args,NewArgs):-
  must_det_ll_r((
   primary_term(Fn,ArgTypes,Args,Term,NewArgTypes),

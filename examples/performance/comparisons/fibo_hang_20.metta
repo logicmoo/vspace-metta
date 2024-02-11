@@ -1,6 +1,6 @@
 
-;; makes this file be treated as if the command line --compile=full  was supplied
-!(pragma! compile full)
+;; makes this file be treated as if the command line --compile=false  was supplied
+!(pragma! compile false)
 
 (= (fib $n)
     (if (== $n 0)

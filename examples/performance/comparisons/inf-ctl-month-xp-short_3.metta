@@ -198,6 +198,5 @@
       (MkTD (≼ Feb Jul) (fromNumber 6))
       (: $prf (≼ Feb Jul)))
 
-;; To do all of the above in Rust it took 45 seconds.. In MeTTaLog 28.596 seconds
 
 
