@@ -1,6 +1,6 @@
 
 ;; makes this file be treated as if the command line --compile=false  was supplied
-;; !(pragma! compile false)
+!(pragma! compile false)
 
 (= (fib $n)
     (if (== $n 0)
@@ -9,8 +9,8 @@
             1
             (+ (fib (- $n 1)) (fib (- $n 2))))))
 
-!(println! (argv-metta-fn 1))
-!(println! (fib (argv-metta-fn 1)))
+!(call-fn (argv-metta 1))
+!(println! (fib (call-fn (argv-metta 1))))
 
 
 
