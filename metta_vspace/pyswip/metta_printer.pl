@@ -61,7 +61,7 @@ print_pl_source0(_):- notrace(is_compatio),!.
 print_pl_source0(_):- notrace(silent_loading),!.
 print_pl_source0(P):- notrace((just_printed(PP), PP=@=P)),!.
 print_pl_source0(P):- 
-    Actions = [print_tree, portray_clause, pp_fb1], % List of actions to apply
+    Actions = [print_tree, portray_clause, pp_fb1_e], % List of actions to apply
     findall(H-Pt, 
       (member(Action, Actions), 
        must_det_ll((
@@ -73,15 +73,15 @@ print_pl_source0(P):-
     !.
 
 
-pp_fb(P):- format("~N "),  \+ \+ (numbervars_w_singles(P), pp_fb1(P)), format("~N "),flush_output.
+pp_fb1_a(P):- format("~N "),  \+ \+ (numbervars_w_singles(P), pp_fb1_e(P)), format("~N "),flush_output.
   
-pp_fb1(P):- pp_fb2(print_tree,P).
-pp_fb1(P):- pp_fb2(pp_ilp,P).
-pp_fb1(P):- pp_fb2(pp_as,P).
-pp_fb1(P):- pp_fb2(portray_clause,P).
-pp_fb1(P):- pp_fb2(print,P).
-pp_fb1(P):- pp_fb2(fbdebug1,P).
-pp_fb1(P):- pp_fb2(fmt0(P)).
+pp_fb1_e(P):- pp_fb2(print_tree,P).
+pp_fb1_e(P):- pp_fb2(pp_ilp,P).
+pp_fb1_e(P):- pp_fb2(pp_as,P).
+pp_fb1_e(P):- pp_fb2(portray_clause,P).
+pp_fb1_e(P):- pp_fb2(print,P).
+pp_fb1_e(P):- pp_fb2(fbdebug1,P).
+pp_fb1_e(P):- pp_fb2(fmt0(P)).
 pp_fb2(F,P):- atom(F),current_predicate(F/1), call(F,P).
 
 
@@ -123,12 +123,15 @@ write_dname(S):- write('$'),write(S).
 pp_as(V) :- \+ \+ pp_sex(V),flush_output.
 pp_sex_nc(V):- with_no_quoting_symbols(true,pp_sex(V)),!.
 
-
-
-unlooped_fbug(Mesg):- nb_current(fbug_message_hook,true),!,print(Mesg),nl.
 unlooped_fbug(Mesg):- 
-  setup_call_cleanup(nb_setval(fbug_message_hook,true),
-    once(fbug(Mesg)),nb_setval(fbug_message_hook,false)).
+ fbug_message_hook(fbug_message_hook,fbug(Mesg)).
+
+
+unlooped_fbug(W,Mesg):- nb_current(W,true),!,
+  print(Mesg),nl,bt,break.
+unlooped_fbug(W,Mesg):- 
+  setup_call_cleanup(nb_setval(W,true),
+    once(Mesg),nb_setval(W,false)),nb_setval(W,false).
 
 
 write_src(V):- quietly(pp_sex(V)),!.
@@ -210,7 +213,12 @@ print_items_list(X):- write_src(X).
 
 pp_sex_c(V):- pp_sexi_c(V),!.
 pp_sexi_c(V) :- is_final_write(V),!.
-pp_sexi_c([H|T]) :- is_list(T),!,pp_sex_l([H|T]).
+pp_sexi_c(exec([H|T])) :- is_list(T),!,write('!'),pp_sex_l([H|T]).
+pp_sexi_c(!([H|T])) :- is_list(T),!,write('!'),pp_sex_l([H|T]).
+pp_sexi_c(V) :- print(V),!.
+pp_sexi_c([H|T]) :- 
+  is_list(T),!,unlooped_fbug(pp_sexi_c,pp_sex_l([H|T])).
+
 pp_sexi_c(=(H,B)):- !, pp_sex_l([=,H,B]).
 pp_sexi_c(V):- compound_name_list(V,F,Args),write_mobj(F,Args),!.
 % Compound terms.
