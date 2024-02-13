@@ -1,21 +1,3 @@
-typed_list(Cmpd,Type,List):-  compound(Cmpd), Cmpd\=[_|_], compound_name_arguments(Cmpd,Type,[List|_]),is_list(List).
-is_syspred(H,Len,Pred):- notrace(is_syspred0(H,Len,Pred)).
-is_syspred0(H,_Ln,_Prd):- \+ atom(H),!,fail.
-is_syspred0(H,_Ln,_Prd):- upcase_atom(H,U),downcase_atom(H,U),!,fail.
-is_syspred0(H,Len,Pred):- current_predicate(H/Len),!,Pred=H.
-is_syspred0(H,Len,Pred):- atom_concat(Mid,'!',H), H\==Mid, is_syspred0(Mid,Len,Pred),!.
-is_syspred0(H,Len,Pred):- atom_concat(Mid,'-p',H), H\==Mid, is_syspred0(Mid,Len,Pred),!.
-is_syspred0(H,Len,Pred):- atom_concat(Mid,'-fn',H), H\==Mid, is_syspred0(Mid,Len,Pred),!.
-is_syspred0(H,Len,Pred):- into_underscores(H,Mid), H\==Mid, is_syspred0(Mid,Len,Pred),!.
-%is_function(F):- atom(F).
-is_metta_data_functor(_Eq,_Othr,H):- trace, clause(is_data_functor(H),_).
-is_metta_data_functor(Eq,Other,H):- H\=='Right', H\=='Something',
- % metta_type(Other,H,_), % fail,
-  \+ get_metta_atom(Eq,Other,[H|_]),
-  \+ metta_defn(Eq,Other,[H|_],_),
-  \+ is_metta_builtin(H),
-  \+ is_comp_op(H,_),
-  \+ is_math_op(H,_,_).
 
 
 :- if( \+ current_predicate(mnotrace/1) ).
@@ -226,11 +208,12 @@ get_type1(_Dpth,_Slf,_,'%Undefined%'):- fail.
 
 
 
-
+as_prolog(I,O):- as_prolog(10,'&self',I,O).
 as_prolog(_Dpth,_Slf,I,O):- \+ iz_conz(I),!,I=O.
-as_prolog(Depth,Self,[H|T],O):- H=='::',!,maplist(as_prolog(Depth,Self),T,L),!, O = L.
-as_prolog(Depth,Self,[H|T],O):- H=='@',!,maplist(as_prolog(Depth,Self),T,L),!, O =.. L.
-as_prolog(Depth,Self,I,O):- is_list(I),!,maplist(as_prolog(Depth,Self),I,O).
+as_prolog(Depth,Self,[Cons,H,T],[HH|TT]):- Cons=='Cons',as_prolog(Depth,Self,H,HH),as_prolog(Depth,Self,T,TT).
+as_prolog(Depth,Self,[List,H|T],O):- List=='::',!,maplist(as_prolog(Depth,Self),[H|T],L),!, O = L.
+as_prolog(Depth,Self,[At,H|T],O):- At=='@',!,maplist(as_prolog(Depth,Self),[H|T],[HH|L]),atom(H),!, O =.. [HH|L].
+as_prolog(Depth,Self,[H|T],O):- is_list(T),!,maplist(as_prolog(Depth,Self),[H|T],[HH|L]),atom(H),!, compound_name_arguments(O,HH,L).
 as_prolog(_Dpth,_Slf,I,I).
 
 
@@ -328,6 +311,25 @@ is_special_op(Self,Op):- get_operator_typedef(Self,Op,Params,_RetType),
    maplist(is_non_eval_kind,Params).
 is_special_op(_Slf,Op):- is_special_builtin(Op).
 
+
+typed_list(Cmpd,Type,List):-  compound(Cmpd), Cmpd\=[_|_], compound_name_arguments(Cmpd,Type,[List|_]),is_list(List).
+is_syspred(H,Len,Pred):- notrace(is_syspred0(H,Len,Pred)).
+is_syspred0(H,_Ln,_Prd):- \+ atom(H),!,fail.
+is_syspred0(H,_Ln,_Prd):- upcase_atom(H,U),downcase_atom(H,U),!,fail.
+is_syspred0(H,Len,Pred):- current_predicate(H/Len),!,Pred=H.
+is_syspred0(H,Len,Pred):- atom_concat(Mid,'!',H), H\==Mid, is_syspred0(Mid,Len,Pred),!.
+is_syspred0(H,Len,Pred):- atom_concat(Mid,'-p',H), H\==Mid, is_syspred0(Mid,Len,Pred),!.
+is_syspred0(H,Len,Pred):- atom_concat(Mid,'-fn',H), H\==Mid, is_syspred0(Mid,Len,Pred),!.
+is_syspred0(H,Len,Pred):- into_underscores(H,Mid), H\==Mid, is_syspred0(Mid,Len,Pred),!.
+%is_function(F):- atom(F).
+is_metta_data_functor(_Eq,_Othr,H):- trace, clause(is_data_functor(H),_).
+is_metta_data_functor(Eq,Other,H):- H\=='Right', H\=='Something',
+ % metta_type(Other,H,_), % fail,
+  \+ get_metta_atom(Eq,Other,[H|_]),
+  \+ metta_defn(Eq,Other,[H|_],_),
+  \+ is_metta_builtin(H),
+  \+ is_comp_op(H,_),
+  \+ is_math_op(H,_,_).
 
 
 get_operator_typedef(Self,Op,Params,RetType):-
