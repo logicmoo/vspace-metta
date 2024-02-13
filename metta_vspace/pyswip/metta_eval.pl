@@ -238,11 +238,9 @@ eval_11(Eq,RetType,Depth,Self,X,Y):-
 
 
 
-eval_15(Eq,RetType,Depth,Self,X,Y):- !,
-  eval_20(Eq,RetType,Depth,Self,X,Y).
+% eval_15(Eq,RetType,Depth,Self,X,Y):- !, eval_20(Eq,RetType,Depth,Self,X,Y).
 
-eval_15(Eq,RetType,Depth,Self,X,Y):-
-  ((eval_20(Eq,RetType,Depth,Self,X,Y),
+eval_15(Eq,RetType,Depth,Self,X,Y):- ((eval_20(Eq,RetType,Depth,Self,X,Y),
    if_t(var(Y),fbug((eval_20(Eq,RetType,Depth,Self,X,Y),var(Y)))),
    nonvar(Y))*->true;(eval_failed(Depth,Self,X,Y),fail)).
 
@@ -293,6 +291,8 @@ eval_20(Eq,RetType,_Dpth,_Slf,X,Y):- \+ is_list(X),!,do_expander(Eq,RetType,X,Y)
 
 eval_20(Eq,_RetType,Depth,Self,[V|VI],[V|VO]):- var(V),is_list(VI),!,maplist(eval(Eq,_ArgRetType,Depth,Self),VI,VO).
 
+eval_20(_,_,_,_,['echo',Value],Value):- !.
+eval_20(=,Type,_,_,['coerce',Type,Value],Result):- !, coerce(Type,Value,Result).
 
 % =================================================================
 % =================================================================
@@ -1454,7 +1454,7 @@ args_to_mathlib(_,clpfd).
 
 
 get_attrlib(XX,clpfd):- sub_var(clpfd,XX),!.
-get_attrlib(XX,clpq):- sub_var(clpr,XX),!.
+get_attrlib(XX,clpq):- sub_var(clpq,XX),!.
 get_attrlib(XX,clpr):- sub_var(clpr,XX),!.
 
 % =================================================================
