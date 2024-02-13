@@ -1029,11 +1029,11 @@ load_hook0(Load,get_metta_atom(Eq,Self,H)):- B = 'True',
        H\=[':'|_], functs_to_preds([=,H,B],Preds),
        assert_preds(Self,Load,Preds).
 */
-
+is_transpiling:- use_metta_compiler.
 use_metta_compiler:- notrace(option_value('compile','full')), !.
 preview_compiler:- \+ option_value('compile',false), !.
 %preview_compiler:- use_metta_compiler,!.
-
+show_transpiler:- preview_compiler.
 
 op_decl('pragma!', [ 'Atom', 'Atom'], 'EmptyType').
 

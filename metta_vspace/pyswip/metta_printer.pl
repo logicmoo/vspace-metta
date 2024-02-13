@@ -179,10 +179,17 @@ write_mobj('$STRING',[S]):- !, writeq(S).
 write_mobj(F,Args):- fail, mlog_sym(K),!,pp_sex_c([K,F|Args]).
 %write_mobj(F,Args):- pp_sex_c([F|Args]).
 
+print_items_list(X):- is_list(X),!,print_list_as_sexpression(X).
+print_items_list(X):- write_src(X).
+
 pp_sex_l(V):- pp_sexi_l(V),!.
 pp_sexi_l(V) :- is_final_write(V),!.
 pp_sexi_l([F|V]):- symbol(F), is_list(V),write_mobj(F,V),!.
 pp_sexi_l([H|T]):-T ==[],!,write('('), pp_sex_nc(H),write(')').
+pp_sexi_l([H,H2]):- write('('), pp_sex_nc(H), write(' '), with_indents(false,print_list_as_sexpression([H2])), write(')'),!.
+pp_sexi_l([H|T]):- write('('), 
+  pp_sex_nc(H), write(' '), print_list_as_sexpression(T), write(')'),!.
+
 pp_sexi_l([H,S]):-H=='[...]', write('['),print_items_list(S),write(' ]').
 pp_sexi_l([H,S]):-H=='{...}', write('{'),print_items_list(S),write(' }').
 %pp_sex_l(X):- \+ compound(X),!,write_src(X).  
@@ -191,7 +198,7 @@ pp_sexi_l([=,H,B]):-
   write('(= '), with_indents(false,write_src(H)), nl, write('  '),
         with_indents(true,write_src(B)),write(')').
 pp_sexi_l([H|T]) :- \+ no_src_indents, symbol(H),member(H,['If','cond','let','let*']),!,
-  with_indents(true,w_proper_indent(2,w_in_p(pp_sex_c([H|T])))).
+  with_indents(true,w_proper_indent(2,w_in_p(pp_sex([H|T])))).
 
 pp_sexi_l([H|T]) :- is_list(T), length(T,Args),Args =< 2, fail,
    wots(SS,((with_indents(false,(write('('), pp_sex_nc(H), write(' '), print_list_as_sexpression(T), write(')')))))),
@@ -205,19 +212,14 @@ pp_sexi_l([H|T]) :- is_list(T),symbol(H),upcase_atom(H,U),downcase_atom(H,U),!,
 %pp_sex([H,B,C|T]) :- T==[],!,
 %  with_indents(false,(write('('), pp_sex(H), print_list_as_sexpression([B,C]), write(')'))).
 */    
-pp_sexi_l([H,H2]):- write('('), pp_sex_nc(H), write(' '), with_indents(false,print_list_as_sexpression([H2])), write(')').
-pp_sexi_l([H|T]):- write('('), pp_sex_nc(H), write(' '), print_list_as_sexpression(T), write(')').
-
-print_items_list(X):- is_list(X),!,print_list_as_sexpression(X).
-print_items_list(X):- write_src(X).
 
 pp_sex_c(V):- pp_sexi_c(V),!.
 pp_sexi_c(V) :- is_final_write(V),!.
 pp_sexi_c(exec([H|T])) :- is_list(T),!,write('!'),pp_sex_l([H|T]).
 pp_sexi_c(!([H|T])) :- is_list(T),!,write('!'),pp_sex_l([H|T]).
+%pp_sexi_c([H|T]) :- is_list(T),!,unlooped_fbug(pp_sexi_c,pp_sex_l([H|T])).
+pp_sexi_c([H|T]) :- is_list(T),!,pp_sex_l([H|T]).
 pp_sexi_c(V) :- print(V),!.
-pp_sexi_c([H|T]) :- 
-  is_list(T),!,unlooped_fbug(pp_sexi_c,pp_sex_l([H|T])).
 
 pp_sexi_c(=(H,B)):- !, pp_sex_l([=,H,B]).
 pp_sexi_c(V):- compound_name_list(V,F,Args),write_mobj(F,Args),!.
