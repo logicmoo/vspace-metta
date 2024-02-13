@@ -340,23 +340,34 @@ print_to_metta :-
  % with_pwd(
   %   '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/gpt2-like/language_models/',
  %Filt = 'examples/gpt2-like/language_models/*.pl',
- Filt = '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/nondet_unify/*.pl',
-
+% Filt = '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/examples/performance/nondet_unify/*.pl',
+ ignore(print_to_metta([  
+ % 'examples/*/*.pl',
+  'examples/*/*/*.pl',
+  'examples/*/*/*/*.pl',
+  %'examples/*/*/*/*/*.pl',
+  %'examples/*/*/*/*/*/*.pl',
+  %'metta_vspace/extra_pytests/*.pl',
+  'metta_vspace/pyswip/metta_*.pl',
+  'metta_vspace/pyswip/flybase_*.pl'
+  
+  ])),
    % Finds all Prolog files in the specified directory.
-   print_to_metta(Filt),  % Processes each found file.
+ %  print_to_metta(Filt),  % Processes each found file.
   % MC = '/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_convert.pl',
   % print_to_metta(MC), % Processes each found file.
-   !.
+   !, writeln(';; print_to_metta. ').
 % Example of a no-operation (nop) call for a specific file path, indicating a placeholder or unused example.
 %$nop(print_to_metta('/opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/metta_vspace/pyswip/metta_convert.pl')).
 
 % Processes a list of filenames, applying 'print_to_metta' to each.
-with_file_lists(P1,FileSpec):- is_list(FileSpec),!,maplist(with_file_lists(P1),FileSpec).
-with_file_lists(P1,Directory):- atom(Directory), exists_directory(Directory), 
-  findall(File,directory_source_files(Directory, File, [recursive(true),if(true)]),Files),
-  maplist(with_file_lists(P1),Files).
+with_file_lists(P1,FileSpec):- is_list(FileSpec),!,
+   ignore(maplist(with_file_lists(P1),FileSpec)).
+with_file_lists(P1,Directory):- atomic(Directory), exists_directory(Directory), 
+  findall(File,directory_source_files(Directory, File, [recursive(true),if(true)]),Files),!,
+  ignore(maplist(with_file_lists(P1),Files)).
 with_file_lists(P1,Mask):- atom(Mask), \+ exists_file(Mask), 
-  expand_file_name(Mask, Files), Files\==[],!,maplist(with_file_lists(P1),Files).
+  expand_file_name(Mask, Files), Files\==[],!,ignore(maplist(with_file_lists(P1),Files)).
 with_file_lists(P1,Filename):- ignore(call(P1,Filename)).
  
 
@@ -448,8 +459,8 @@ read_clause_with_info(Stream) :-
 % Displays term information and processes comments.
 display_term_info(Stream, Term, Bindings, Pos, RawLayout, Comments):-
    maplist(into_namings,Bindings),
-   process_term(Term),
-   print_metta_comments(Comments).
+   ignore(process_term(Term)),
+   print_metta_comments(Comments),!.
 
 
 print_metta_comments([]):-!.
@@ -462,12 +473,12 @@ process_term(end_of_file):- !.
 process_term(Term):-
     is_directive(Term), 
     ignore(maybe_call_directive(Term)),
-    !, print_directive(Term).
+    !, ignore(print_directive(Term)).
 process_term(Term):-
   expand_to_hb(Term,H,B),
   p2m((H:-B),STerm),
   push_term_ctx(Term),
-  write_src(STerm).
+  write_pl_metta(STerm).
 
 maybe_call_directive((:- op(X,F,Y))):- trans_mod:op(X,F,Y).
 
@@ -483,10 +494,23 @@ push_term_ctx(X):- compound_name_arity(X,F,_A),push_term_ctx(F).
 print_directive((:- Directive)):- 
   push_term_ctx(exec), % pc
   p2m(Directive,STerm), % p2m
-  write_exec(STerm). %we
+  write_pl_metta(STerm). %we
+
+write_pl_metta(STerm):-
+    \+ \+ write_pl_metta_0(STerm).
+  write_pl_metta_0(STerm):- numbervars(STerm,0,_,[singletons(true)]),
+   write_src(STerm).
 
 
-
-
+   :- ensure_loaded(metta_interp).
+  :- ensure_loaded(metta_compiler).
+  :- ensure_loaded(metta_convert).
+  :- ensure_loaded(metta_types).
+  :- ensure_loaded(metta_space).
+  :- ensure_loaded(metta_testing).
+  :- ensure_loaded(metta_utils).
+  :- ensure_loaded(metta_printer).
+  :- ensure_loaded(metta_eval).
+  
 
 

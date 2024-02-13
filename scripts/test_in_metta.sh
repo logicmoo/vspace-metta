@@ -419,7 +419,7 @@ process_file() {
              sleep 0.1
              IF_REALLY_DO  touch "$file_html"
 
-             TEST_CMD="./MeTTa --timeout=$METTALOG_MAX_TIME --html --repl=false $extra_args $passed_along_to_mettalog \"$file\" --halt=true"
+             TEST_CMD="./MeTTa --timeout=$METTALOG_MAX_TIME --html --test --repl=false $extra_args $passed_along_to_mettalog \"$file\" --halt=true"
              echo "Running command with timeout: $TEST_CMD"
 
              set +e

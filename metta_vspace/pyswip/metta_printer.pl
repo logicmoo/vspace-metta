@@ -97,6 +97,7 @@ pp_sax(S) :- print_concept("ConceptNode",S).
 
 %print_concept( CType,V):- allow_concepts, !, write("("),write(CType),write(" "),ignore(with_concepts(false,write_src(V))),write(")").
 print_concept(_CType,V):- ignore(write_src(V)).
+write_val(V):- is_final_write(V),!.
 write_val(V):- number(V),!, write_src(V).
 write_val(V):- compound(V),!, write_src(V).
 write_val(V):- write('"'),write(V),write('"').
@@ -106,8 +107,9 @@ write_val(V):- write('"'),write(V),write('"').
 is_final_write(V):- var(V), !, write_dvar(V),!. 
 is_final_write('$VAR'(S)):-  !, write_dvar(S),!. 
 is_final_write([VAR,V|T]):- '$VAR'==VAR, T==[], !, write_dvar(V).
-is_final_write([]):- write('Nil').
-is_final_write('[|]'):- write('Cons').
+is_final_write('[|]'):- write('Cons'),!.
+is_final_write([]):- !, write('()').
+%is_final_write([]):- write('Nil'),!.
 
 
 write_dvar(S):- S=='_', !, write_dname(S).
@@ -139,11 +141,11 @@ unlooped_fbug(W,Mesg):-
 
 write_src(V):- quietly(pp_sex(V)),!.
 
-pp_sex(V):- is_dict(V),!,print(V).
 pp_sex(V):- pp_sexi(V),!.
 % Various 'write_src' and 'pp_sex' rules are handling the writing of the source,
 % dealing with different types of values, whether they are lists, atoms, numbers, strings, compounds, or symbols.
 pp_sexi(V):- is_final_write(V),!.
+pp_sexi(V):- is_dict(V),!,print(V).
 pp_sexi(V):- allow_concepts,!,with_concepts('False',pp_sex(V)),flush_output.
 pp_sexi('Empty') :- !.
 pp_sexi('') :- !, writeq('').
@@ -164,11 +166,11 @@ pp_sexi(V) :- (number(V) ; is_dict(V)), !, print_concept('ValueAtom',V).
 % handling different cases based on the value�s type and structure, and performing the appropriate writing action.
 % Lists are printed with parentheses.
 pp_sexi(V) :- \+ compound(V), !, format('~p',[V]).
-pp_sexi(V):-  \+ is_list(V),!, pp_sex_c(V).
+
+%pp_sexi(V):-  is_list(V),!, pp_sex_l(V).
 %pp_sex(V) :- (symbol(V),symbol_number(V,N)), !, print_concept('ValueAtom',N).
 %pp_sex(V) :- V = '$VAR'(_), !, format('$~p',[V]).
 pp_sexi(V) :- no_src_indents,!,pp_sex_c(V).
-
 pp_sexi(V) :- w_proper_indent(2,w_in_p(pp_sex_c(V))).
 
 write_mobj(H,_):- \+ symbol(H),!,fail.
@@ -265,6 +267,7 @@ always_dash_functor(A,B):- once(dash_functor(A,B)),A\=@=B,!.
 always_dash_functor(A,A).
 
 dash_functor(A,C):- \+ symbol(A),!,C=A.
+dash_functor(A,C):- A=='[|]',!,C='Cons'.
 %dash_functor(A,C):- p2m(A,B),A\==B,!,always_dash_functor(B,C).
 dash_functor(Functor,DFunctor):-
    symbol(Functor), atomic_list_concat(L,'-',Functor), L\=[_],maplist(always_dash_functor,L,LL),
@@ -355,3 +358,13 @@ should_quote_atom_chars(Atom,[Digit|_]) :- fail, char_type(Digit, digit), \+ ato
 % ?- should_quote('123.456').
 % false.
 
+
+:- ensure_loaded(metta_interp).
+:- ensure_loaded(metta_compiler).
+:- ensure_loaded(metta_convert).
+:- ensure_loaded(metta_types).
+:- ensure_loaded(metta_space).
+:- ensure_loaded(metta_testing).
+:- ensure_loaded(metta_utils).
+:- ensure_loaded(metta_printer).
+:- ensure_loaded(metta_eval).

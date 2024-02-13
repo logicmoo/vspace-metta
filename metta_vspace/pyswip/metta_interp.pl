@@ -4,8 +4,8 @@
 :- set_prolog_flag(backtrace_goal_dept,100).
 :- set_prolog_flag(backtrace_show_lines,true).
 :- set_prolog_flag(write_attributes,portray).
-:- set_prolog_flag(debug_on_interrupt,true).
-:- set_prolog_flag(debug_on_error,true).
+%:- set_prolog_flag(debug_on_interrupt,true).
+%:- set_prolog_flag(debug_on_error,true).
 %:- set_prolog_flag(compile_meta_arguments,control).
 
 :- nb_setval(cmt_override,lse('; ',' !(" ',' ") ')).
@@ -20,9 +20,13 @@ is_converting:- current_prolog_flag(os_argv,ArgV), member('--convert',ArgV),!.
 is_compat:- nb_current('compat','True'),!.
 is_compat:- current_prolog_flag(os_argv,ArgV), member('--compat',ArgV),!.
 
+is_mettalog:- current_prolog_flag(os_argv,ArgV), member('--log',ArgV),!.
+
+:- nodebug(metta('trace-on-eval')).
 % is_compatio:- !,fail.
 is_compatio:- notrace(is_compatio0).
 is_compatio0:- current_prolog_flag(os_argv,ArgV), member('--log',ArgV),!,fail.
+is_compatio0:- current_prolog_flag(os_argv,ArgV), member('--test',ArgV),!,fail.
 is_compatio0:- !.
 is_compatio0:- nb_current('compatio','True'),!.
 is_compatio0:- current_prolog_flag(os_argv,ArgV), member('--compatio',ArgV),!.
@@ -31,11 +35,11 @@ is_compatio0:- current_prolog_flag(os_argv,ArgV), member('--compatio=true',ArgV)
 %is_compatio0:- is_testing,!,fail.
 
 is_synthing_unit_tests:- notrace(is_synthing_unit_tests0).
-is_synthing_unit_tests0:- is_compatio,!,fail.
 is_synthing_unit_tests0:- is_testing.
+% is_synthing_unit_tests0:- is_compatio,!,fail.
 
 is_testing:- nb_current('test','True'),!.
-%is_testing:- current_prolog_flag(os_argv,ArgV), member('--test',ArgV),!.
+is_testing:- current_prolog_flag(os_argv,ArgV), member('--test',ArgV),!.
 %is_testing:- option_value('test','True'),!.
 
 :- ensure_loaded(metta_printer).
@@ -45,7 +49,6 @@ is_html:- current_prolog_flag(os_argv,ArgV), member('--html',ArgV),!.
 %is_html:- option_value('html','True'),!.
 
 
-is_mettalog:- current_prolog_flag(os_argv,ArgV), member('--log',ArgV),!.
 
 
 
@@ -197,7 +200,7 @@ set_is_unit_test(TF):-
   %set_option_value_interp('trace-on-load',TF),
   set_option_value_interp('trace-on-exec',TF),
   set_option_value_interp('trace-on-eval',TF),
-  if_t( \+ TF , set_prolog_flag(debug_on_interrupt,true)),
+ % if_t( \+ TF , set_prolog_flag(debug_on_interrupt,true)),
   !.
 
 fake_notrace(G):- tracing,!,notrace(G).
@@ -1504,7 +1507,8 @@ do_metta(From,call,Self,TermV,FOut):- !,
 do_metta(_File,Load,Self,Src,Out):- Load\==exec, !, as_tf(asserted_do_metta(Self,Load,Src),Out).
 
 do_metta(file(Filename),exec,Self,TermV,Out):-
-  notrace((
+  ((
+     
      inc_exec_num(Filename),
      is_synthing_unit_tests,
     must_det_ll((
@@ -1513,7 +1517,7 @@ do_metta(file(Filename),exec,Self,TermV,Out):-
      file_answers(Filename, Nth, Ans),
      check_answers_for(TermV,Ans),!,
      must_det_ll((
-      color_g_mesg_ok('#ffa500',
+     color_g_mesg_ok('#ffa500',
        (writeln(';; In file as:  '),
         color_g_mesg([bold,fg('#FFEE58')], write_src(exec(TermV))),
         write(';; To unit test case:'))))),!,
@@ -2415,12 +2419,14 @@ fix_message_hook:-
     
 
 :- ignore(((
+   (is_testing -> UNIT_TEST=true; UNIT_TEST=false),
+   set_is_unit_test(UNIT_TEST),
    \+ prolog_load_context(reloading,true),
-   set_is_unit_test(false),
     initialization(loon(restore),restore),
    % nts,
    metta_final
-))).
+	))).
+	
 :- set_prolog_flag(metta_interp,ready).
 
 :- use_module(library(clpr)). % Import the CLP(R) library
