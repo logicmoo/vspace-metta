@@ -126,6 +126,9 @@ pp_sex_nc(V):- with_no_quoting_symbols(true,pp_sex(V)),!.
 unlooped_fbug(Mesg):- 
  fbug_message_hook(fbug_message_hook,fbug(Mesg)).
 
+into_hyphens(D,U):- atom(D),!,atomic_list_concat(L,'_',D),atomic_list_concat(L,'-',U).
+into_hyphens(D,U):- descend_and_transform(into_hyphens,D,U),!.
+
 
 unlooped_fbug(W,Mesg):- nb_current(W,true),!,
   print(Mesg),nl,bt,break.
@@ -219,7 +222,7 @@ pp_sexi_c(exec([H|T])) :- is_list(T),!,write('!'),pp_sex_l([H|T]).
 pp_sexi_c(!([H|T])) :- is_list(T),!,write('!'),pp_sex_l([H|T]).
 %pp_sexi_c([H|T]) :- is_list(T),!,unlooped_fbug(pp_sexi_c,pp_sex_l([H|T])).
 pp_sexi_c([H|T]) :- is_list(T),!,pp_sex_l([H|T]).
-pp_sexi_c(V) :- print(V),!.
+%pp_sexi_c(V) :- print(V),!.
 
 pp_sexi_c(=(H,B)):- !, pp_sex_l([=,H,B]).
 pp_sexi_c(V):- compound_name_list(V,F,Args),write_mobj(F,Args),!.
