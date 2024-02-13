@@ -221,7 +221,7 @@ compound_name_arg(G,MD,Goal):- compound(G),!, compound_name_arguments(G,MD,[Goal
 :- multifile(user:message_hook/3).
 :- dynamic(user:message_hook/3).
 %user:message_hook(Term, Kind, Lines):- error==Kind, itrace,fbug(user:message_hook(Term, Kind, Lines)),trace,fail.
-user:message_hook(Term, Kind, Lines):- error==Kind,
+user:message_hook(Term, Kind, Lines):- fail, error==Kind,
    unlooped_fbug(user:message_hook(Term, Kind, Lines)),fail.
 
 

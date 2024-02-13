@@ -16,6 +16,15 @@ self_eval0('True'). self_eval0('False'). % self_eval0('F').
 self_eval0('Empty').
 self_eval0(X):- atom(X),!, \+ nb_current(X,_),!.
 
+coerce(Type,Value,Result):- nonvar(Value),Value=[Echo|EValue], Echo == echo, EValue = [RValue],!,coerce(Type,RValue,Result).
+coerce(Type,Value,Result):- var(Type), !, Value=Result, freeze(Type,coerce(Type,Value,Result)).
+coerce('Atom',Value,Result):- !, Value=Result.
+coerce('Bool',Value,Result):- var(Value), !, Value=Result, freeze(Value,coerce('Bool',Value,Result)).
+coerce('Bool',Value,Result):- is_list(Value),!,as_tf(call_true(Value),Result),
+set_list_value(Value,Result).
+   
+set_list_value(Value,Result):- nb_setarg(1,Value,echo),nb_setarg(1,Value,[Result]).
+
 is_self_eval_l_fa('S',1).
 % eval_20(Eq,RetType,Depth,Self,['quote',Eval],RetVal):- !, Eval = RetVal, check_returnval(Eq,RetType,RetVal).
 is_self_eval_l_fa('quote',_).
@@ -59,11 +68,13 @@ do_expander(':',_,X,Y):- !, get_type(X,Y)*->X=Y.
 'get_type'(Arg,Type):- 'get-type'(Arg,Type).
 
 
-
+eval_true(X):- compound(X), !, call(X).
+eval_true(X):- eval_args(X,Y), once(var(Y) ; \+ is_False(Y)).
 
 eval_args(X,Y):- current_self(Self), eval_args(100,Self,X,Y).
 eval_args(Depth,Self,X,Y):- eval_args('=',_,Depth,Self,X,Y).
 eval_args(Eq,RetType,Depth,Self,X,Y):- eval(Eq,RetType,Depth,Self,X,Y).
+
 /*
 eval_args(Eq,RetTyp e,Depth,Self,X,Y):-
    locally(set_prolog_flag(gc,true),
@@ -75,7 +86,7 @@ eval_args(Eq,RetTyp e,Depth,Self,X,Y):-
 %eval(Eq,RetType,Depth,_Self,X,_Y):- forall(between(6,Depth,_),write(' ')),writeqln(eval(Eq,RetType,X)),fail.
 eval(Depth,Self,X,Y):- eval('=',_RetType,Depth,Self,X,Y).
 
-eval(Eq,RetType,_Dpth,_Slf,X,Y):- var(X),nonvar(Y),!,X=Y.
+eval(_Eq,_RetType,_Dpth,_Slf,X,Y):- var(X),nonvar(Y),!,X=Y.
 eval(_Eq,_RetType,_Dpth,_Slf,X,Y):- notrace(self_eval(X)),!,Y=X.
 eval(Eq,RetType,Depth,Self,X,Y):- notrace(nonvar(Y)), var(RetType), 
    get_type(Depth,Self,Y,RetType), !,
@@ -1258,6 +1269,30 @@ eval_70(Eq,RetType,Depth,Self,PredDecl,Res):-
 is_system_pred(S):- atom(S),atom_concat(_,'!',S).
 is_system_pred(S):- atom(S),atom_concat(_,'-fn',S).
 is_system_pred(S):- atom(S),atom_concat(_,'-p',S).
+
+% eval_80/6: Evaluates a Python function call within MeTTa.
+% Parameters:
+% - Eq: denotes get-type, match, or interpret call.
+% - RetType: Expected return type of the MeTTa function.
+% - Depth: Recursion depth or complexity control.
+% - Self: Context or environment for the evaluation.
+% - [MyFun|More]: List with MeTTa function and additional arguments.
+% - RetVal: Variable to store the result of the Python function call.
+eval_80(Eq, RetType, Depth, Self, [MyFun|More], RetVal) :-
+    % MyFun as a registered Python function with its module and function name.
+    metta_atom(Self, ['registered-python-function', PyModule, PyFun, MyFun]),
+    % Tries to fetch the type definition for MyFun, ignoring failures.
+    ((  get_operator_typedef(Self, MyFun, Params, RetType),
+        try_adjust_arg_types(RetType, Depth, Self, [RetType|Params], [RetVal|More], [MVal|Adjusted])
+    )->true; (maplist(as_prolog, More , Adjusted), MVal=RetVal)),
+    % Constructs a compound term for the Python function call with adjusted arguments.
+    compound_name_arguments(Call, PyFun, Adjusted),
+    % Optionally prints a debug tree of the Python call if tracing is enabled.
+    if_trace(host;python, print_tree(py_call(PyModule:Call, RetVal))),
+    % Executes the Python function call and captures the result in MVal which propagates to RetVal.
+    py_call(PyModule:Call, MVal),
+    % Checks the return value against the expected type and criteria.
+    check_returnval(Eq, RetType, RetVal).
 
 
 

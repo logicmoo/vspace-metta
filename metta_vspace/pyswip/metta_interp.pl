@@ -33,6 +33,7 @@ is_testing:- nb_current('test','True'),!.
 %is_testing:- current_prolog_flag(os_argv,ArgV), member('--test',ArgV),!.
 %is_testing:- option_value('test','True'),!.
 
+:- ensure_loaded(metta_printer).
 
 is_html:- nb_current('html','True'),!.
 is_html:- current_prolog_flag(os_argv,ArgV), member('--html',ArgV),!.
@@ -53,10 +54,9 @@ is_pyswip:- current_prolog_flag(os_argv,ArgV),member( './',ArgV).
 %:- use_module(library(tabling)).
 :- use_module(library(system)).
 :- ensure_loaded(metta_compiler).
-:- ensure_loaded(metta_printer).
 :- ensure_loaded(metta_convert).
-%:- ensure_loaded(metta_types).
-:- ensure_loaded(metta_data).
+:- ensure_loaded(metta_types).
+:- include(metta_data).
 :- ensure_loaded(metta_space).
 :- ensure_loaded(metta_eval).
 :- nb_setval(self_space, '&self').
