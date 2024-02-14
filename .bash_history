@@ -2018,3 +2018,6 @@ docker build . -t mettalog
 mettalog
 docker build . -t mettalog
 docker run --rm -it --entrypoint bash mettalog
+git commit -am "testing docker so need this commited"
+docker build . -t mettalog
+docker run --rm -it --entrypoint bash mettalog
