@@ -2009,3 +2009,12 @@ git commit -am "try this remotely"
 git push logicmoo
 git commit -am "try this remotely"
 git push logicmoo
+git clone  https://github.com/logicmoo/vspace-metta
+cd vspace-metta/
+git checkout main 
+git checkout fixing-regreesion 
+git checkout main 
+docker build . -t mettalog
+mettalog
+docker build . -t mettalog
+docker run --rm -it --entrypoint bash mettalog
