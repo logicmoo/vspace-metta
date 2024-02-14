@@ -28,112 +28,160 @@
 ;  ( A -> fail ; true ).
 
 
-(= (top)
-  (meta-qsort))
+  (= 
+    (top) 
+    (meta-qsort))
 
 
-(= (meta-qsort)
-  (interpret qsort))
+  (= 
+    (meta-qsort) 
+    (interpret qsort))
 
 
-(= (interpret $Goal)
-  (, 
-    (interpret $Goal $Rest) 
-    (or 
-      (, 
-        (nonvar $Rest) 
-        (set-det) 
-        (interpret $Rest)) True)))
+  (= 
+    (interpret $Goal) 
+    (, 
+      (interpret $Goal $Rest) 
+      (or 
+        (, 
+          (nonvar $Rest) 
+          (set-det) 
+          (interpret $Rest)) True)))
 
-(= (interpret $G $_28512)
-  (, 
-    (var $G) 
-    (set-det) 
-    (fail)))
-(= (interpret (, $A $B) $Rest)
-  (, 
-    (set-det) 
-    (interpret $A $Rest0) 
-    (if-then-else 
-      (nonvar $Rest0) 
-      (= $Rest
-        (, $Rest0 $B)) 
-      (interpret $B $Rest))))
-(= (interpret (or $A $B) $Rest)
-  (, 
-    (set-det) 
-    (interpret-disjunction $A $B $Rest)))
-(= (interpret (if-then $A $B) $Rest)
-  (, 
-    (set-det) 
+  (= 
+    (interpret $G $_) 
+    (, 
+      (var $G) 
+      (set-det) 
+      (fail)))
+  (= 
+    (interpret 
+      (, $A $B) $Rest) 
+    (, 
+      (set-det) 
+      (interpret $A $Rest0) 
+      (if-then-else 
+        (nonvar $Rest0) 
+        (= $Rest 
+          (, $Rest0 $B)) 
+        (interpret $B $Rest))))
+  (= 
+    (interpret 
+      (or $A $B) $Rest) 
+    (, 
+      (set-det) 
+      (interpret-disjunction $A $B $Rest)))
+  (= 
+    (interpret 
+      (if-then $A $B) $Rest) 
+    (, 
+      (set-det) 
+      (interpret-disjunction 
+        (if-then $A $B) fail $Rest)))
+  (= 
+    (interpret 
+      (not $A) $Rest) 
+    (, 
+      (set-det) 
+      (interpret-disjunction 
+        (if-then $A fail) True $Rest)))
+  (= 
+    (interpret 
+      (set-det) True) 
+    (set-det))
+  (= 
+    (interpret $G $_) 
+    (, 
+      (number $G) 
+      (set-det) 
+      (fail)))
+  (= 
+    (interpret $G $_) 
+    (, 
+      (is-built-in $G) 
+      (set-det) 
+      (interpret-built-in $G)))
+  (= 
+    (interpret $G $_) 
+    (, 
+      (define $G $Body) 
+      (interpret $Body)))
+
+
+  (= 
     (interpret-disjunction 
-      (if-then $A $B) fail $Rest)))
-(= (interpret (not $A) $Rest)
-  (, 
-    (set-det) 
+      (if-then $A $B) $_ $Rest) 
+    (, 
+      (interpret $A $Rest0) 
+      (set-det) 
+      (if-then-else 
+        (nonvar $Rest0) 
+        (= $Rest 
+          (if-then $Rest0 $B)) 
+        (interpret $B $Rest))))
+  (= 
     (interpret-disjunction 
-      (if-then $A fail) True $Rest)))
-(= (interpret (set-det) True)
-  (set-det))
-(= (interpret $G $_51692)
-  (, 
-    (number $G) 
-    (set-det) 
-    (fail)))
-(= (interpret $G $_55036)
-  (, 
-    (is-built-in $G) 
-    (set-det) 
-    (interpret-built-in $G)))
-(= (interpret $G $_58760)
-  (, 
-    (define $G $Body) 
-    (interpret $Body)))
+      (if-then $_ $_) $C $Rest) 
+    (, 
+      (set-det) 
+      (interpret $C $Rest)))
+  (= 
+    (interpret-disjunction $A $_ $Rest) 
+    (interpret $A $Rest))
+  (= 
+    (interpret-disjunction $_ $B $Rest) 
+    (interpret $B $Rest))
 
 
-(= (interpret-disjunction (if-then $A $B) $_61916 $Rest)
-  (, 
-    (interpret $A $Rest0) 
-    (set-det) 
-    (if-then-else 
-      (nonvar $Rest0) 
-      (= $Rest
-        (if-then $Rest0 $B)) 
-      (interpret $B $Rest))))
-(= (interpret-disjunction (if-then $_68514 $_68516) $C $Rest)
-  (, 
-    (set-det) 
-    (interpret $C $Rest)))
-(= (interpret-disjunction $A $_71756 $Rest)
-  (interpret $A $Rest))
-(= (interpret-disjunction $_73716 $B $Rest)
-  (interpret $B $Rest))
+  (= 
+    (is_built_in  true) True)
+  (= 
+    (is_built_in  
+      (=<  $_ $_)) True)
 
 
-(= (is_built_in  true)
-  True)
-(= (is_built_in  (=<  $_76484 $_76486))
-  True)
+  (= 
+    (interpret_built_in  true) True)
+  (= 
+    (interpret-built-in (=< $X $Y)) 
+    (=< $X $Y))
 
 
-(= (interpret_built_in  true)
-  True)
-(= (interpret-built-in (=< $X $Y))
-  (=< $X $Y))
+  (= 
+    (define  qsort 
+      (qsort  
+        (27 74 17 33 94 18 46 83 65 2 32 53 28 85 99 47 28 82 6 11 55 29 39 81 90 37 10 0 66 51 7 21 85 27 31 63 75 4 95 99 11 28 61 74 18 92 40 53 59 8) $_ ())) True)
 
+  (= 
+    (define  
+      (qsort  
+        (Cons  $X $L) $R $R0) 
+      (,  
+        (partition  $L $X $L1 $L2) 
+        (,  
+          (qsort  $L2 $R1 $R0) 
+          (qsort  $L1 $R 
+            (Cons  $X $R1))))) True)
+  (= 
+    (define  
+      (qsort  () $R $R) true) True)
 
-(= (define  qsort (qsort  (27 74 17 33 94 18 46 83 65 2 32 53 28 85 99 47 28 82 6 11 55 29 39 81 90 37 10 0 66 51 7 21 85 27 31 63 75 4 95 99 11 28 61 74 18 92 40 53 59 8) $_81856 Nil))
-  True)
-
-(= (define  (qsort  ([|]  $X $L) $R $R0) (,  (partition  $L $X $L1 $L2) (,  (qsort  $L2 $R1 $R0) (qsort  $L1 $R ([|]  $X $R1)))))
-  True)
-(= (define  (qsort  Nil $R $R) true)
-  True)
-
-(= (define  (partition  ([|]  $X $L) $Y ([|]  $X $L1) $L2) (,  (=<  $X $Y) (,  ! (partition  $L $Y $L1 $L2))))
-  True)
-(= (define  (partition  ([|]  $X $L) $Y $L1 ([|]  $X $L2)) (partition  $L $Y $L1 $L2))
-  True)
-(= (define  (partition  Nil $_88398 Nil Nil) true)
-  True)
+  (= 
+    (define  
+      (partition  
+        (Cons  $X $L) $Y 
+        (Cons  $X $L1) $L2) 
+      (,  
+        (=<  $X $Y) 
+        (,  ! 
+          (partition  $L $Y $L1 $L2)))) True)
+  (= 
+    (define  
+      (partition  
+        (Cons  $X $L) $Y $L1 
+        (Cons  $X $L2)) 
+      (partition  $L $Y $L1 $L2)) True)
+  (= 
+    (define  
+      (partition  () $_ () ()) true) True)
 
