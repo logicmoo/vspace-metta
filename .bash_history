@@ -2035,3 +2035,10 @@ docker run -it --entrypoint bash mettalog
 ls -l
 cd ..
 ./INSTALL.sh
+git push
+cd ..
+git status .
+docker build . -t mettalog
+./mettalog
+docker run -it --entrypoint bash mettalog
+git status .
