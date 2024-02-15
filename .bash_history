@@ -1,48 +1,3 @@
-cls ; ./MeTTa ./examples/compat/hyperon-pln/metta/common/ --clean
-cp ./examples/compat/hyperon-pln/metta/common/ -a ./examples/interp/
-cp ./examples/compat/hyperon-experimental/python/tests/ -a ./examples/interp/
-cp examples/interp/ examples/interp_v1 -a
-cp examples/interp/ examples/interp_2a -a
-cp examples/interp/ examples/interp_GOODY -a
-./MeTTa --v_1 examples/interp_v1 --clean
-./MeTTa --v2a examples/interp_2a --clean
-./MeTTa --v_1 examples/interp_v1/ --clean
-./MeTTa --v2a ./examples/interp_2a/ --clean
-./scripts/total_loonits.sh 
-watch ./scripts/total_loonits.sh 
-find  reports/cuRRent/compat -name "*.html"
-find examples/compat -name "*.html"
-./scripts/total_loonits.sh 
-find examples/compat/ -name "*.html" -delete 
-./scripts/total_loonits.sh 
-find examples/interp/ -name "*.html" -delete 
-./MeTTa --vGOODY ./examples/interp_GOODY/ --clean
-./MeTTa --v2a ./examples/interp_2a --clean
-watch ./scripts/total_loonits.sh 
-./MeTTa ./examples/interp --clean
-./MeTTa --v2a ./examples/interp_2a --clean
-cp -a interp_2a interp_current
-cd ..
-metta examples/interp/test_scripts/00_lang_case.metta
-cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
-ls
-./MeTTa --v_1 examples/interp_1/ --clean --fresh
-./MeTTa --v_2a examples/interp_2a/ --fresh --clean
-rm -rf examples/interp_2a/
-cp -a examples/interp_1 examples/interp_2a 
-./MeTTa --v_1 examples/interp_1/ --clean
-mv examples/interp_1/ examples/interp_1a
-./MeTTa --v_2a examples/interp_2a/ --clean 
-./MeTTa --v_1 examples/interp_1a/ 
-./MeTTa --v_1a examples/interp_1a/ 
-./MeTTa --v_2a examples/interp_2a/ 
-mk examples/interp_1a/metta-morph_tests
-mkdir examples/interp_1a/metta-morph_tests
-cp -a examples/interp_1a examples/interp_88
-cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
-cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
-./MeTTa examples/interp_88 --clean 
-cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/T
 cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
 ./MeTTa --v_2a examples/interp_2a/ 
 ./MeTTa --v_3y examples/interp_3y/
@@ -2042,3 +1997,33 @@ docker build . -t mettalog
 ./mettalog
 docker run -it --entrypoint bash mettalog
 git status .
+git status .
+find / -xdev -type f -printf '%T+ %p\n' 2>/dev/null | sort -r | head -n 40
+cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
+git log Dockerfile
+git diff d2c7bb9c25866757e160ed09a2c2aaee92f01aa5
+git diff d2c7bb9c25866757e160ed09a2c2aaee92f01aa5 Dockerfile
+git diff d2c7bb9c25866757e160ed09a2c2aaee92f01aa5~1 Dockerfile
+git diff d2c7bb9c25866757e160ed09a2c2aaee92f01aa5~2 Dockerfile
+git diff d2c7bb9c25866757e160ed09a2c2aaee92f01aa5~3 Dockerfile
+git log Dockerfile
+git diff 064707c072e471e216f30d2685855c535b4e598a~3 Dockerfile
+git diff 064707c072e471e216f30d2685855c535b4e598a Dockerfile
+git log Dockerfile
+git log --all
+git diff 9b64069102f01930077fc05bf102ee0cdad11bdc
+git diff 9b64069102f01930077fc05bf102ee0cdad11bdc Dockerfile
+git diff 9b64069102f01930077fc05bf102ee0cdad11bdc~1 Dockerfile
+git diff 9b64069102f01930077fc05bf102ee0cdad11bdc~10 Dockerfile
+git log --all
+git log --all Dockerfile
+git diff eb3b4e85e9a202fadc6588009814d0d079f5687a Dockerfile
+git diff 807e0b9cd4522bec4227d7ab3b2c3d8820e10d6c Dockerfile
+git diff 064707c072e471e216f30d2685855c535b4e598a Dockerfile
+git log --all Dockerfile
+git diff 807e0b9cd4522bec4227d7ab3b2c3d8820e10d6c Dockerfile
+git diff 586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
+git checkout  586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
+git diff 586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
+git checkout  586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
+git commit -am ENV PATH="${PATH}:${MATTALOG_DIR}"
