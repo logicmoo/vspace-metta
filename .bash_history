@@ -1,37 +1,3 @@
-cd /opt/logicmoo_workspace/packs_sys/logicmoo_opencog/MeTTa/vspace-metta/
-./MeTTa --v_2a examples/interp_2a/ 
-./MeTTa --v_3y examples/interp_3y/
-./scripts/test_in_metta.sh -n --report=Y
-git add reports/
-cp pyswip/metta_reader.pl pyswip_3y/
-cd ..
-./scripts/test_in_metta.sh -n --report=Y
-./MeTTa examples/interp_88 
-git add reports/
-git status examples/
-git add examples/
-git status examples/
-./scripts/test_in_metta.sh -n --report=Y
-git status .
-git add metta_vspace/pyswip_2a/
-git add metta_vspace/pyswip_3y
-git add metta_vspace/pyswip/
-ls  reports/cuRRent/interp_88/hyperon-pln_metta/entail/
-./scripts/test_in_metta.sh -n --report=Y
-ls  reports/cuRRent/interp_88/hyperon-pln_metta/entail/
-git add reports/
-git status .
-git add etta_vspace/pyswip_1/
-git add metta_vspace/pyswip_1/
-git add metta_vspace/pyswip_1
-git add -U metta_vspace/pyswip_1
-git add -u metta_vspace/pyswip_1
-git add -u metta_vspace/pyswip_1/
-git status .
-git add reports/
-./scripts/test_in_metta.sh -n --report=Y
-./MeTTa examples/interp_88 --clean
-git add reports/
 git add git status .
 git status .
 git commit -am  reports/cuRRent
@@ -2027,3 +1993,8 @@ git checkout  586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
 git diff 586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
 git checkout  586ef99b9703c3910df3c5f2bb9478a50ef442c3  Dockerfile
 git commit -am ENV PATH="${PATH}:${MATTALOG_DIR}"
+git commit -am 'ENV PATH="${PATH}:${MATTALOG_DIR}"'
+git push
+docker build . -t mettalog
+docker build . -t mettalog
+docker build . -t mettalog
