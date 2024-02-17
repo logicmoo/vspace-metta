@@ -303,3 +303,8 @@ cd ../..
 cd extended_compat/
 MeTTa --html --test --clean  examples/extended_compat/hyperon-pln/metta/inference-control/inf-ctl-month-xp.metta 
 scripts/send-debug-keys.sh  --html --test --clean  examples/extended_compat/hyperon-pln/metta/inference-control/inf-ctl-month-xp.metta 
+cd ..
+cd extended_compat/
+mv metta-examples/ mE
+git clone https://github.com/Adam-Vandervorst/metta-examples
+rm -rf mE

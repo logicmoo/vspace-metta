@@ -31,6 +31,7 @@ convert_metta_file() {
       # AWK script for advanced conversion with line number tracking, appending file path, and safe handling of single quotes
       awk -v path="$full_path" '
       {
+          ALWAYS=1
           # Skip blank lines
           if ($0 ~ /^ *$/) { next; }
           if (substr($0, 1, 1) == ";") {
@@ -59,11 +60,14 @@ convert_metta_file() {
                   #Handle characters based on context
                   if (!in_quote) {
                       if (char == "(") { char = "["; need_quote = 1; }
-                      else if (char == ")") { char = "]"; need_quote = 0; }
-                      else if (char == " " && last_char != " " && last_char != "[" && last_char != ",") { char = ", "; need_quote = 1; }
-                      else if (char != " " && last_char == " " && last_char != "\"" && (output == "" || substr(output, length(output), 1) == "[" || substr(output, length(output), 1) == ",")) {
-                          if (need_quote) char = "\047\047" char;
-                          need_quote = 0;
+		      else if (char == "$") { char = "_"; need_quote = 0; }
+                      else if (char == ")") { char = "]"; need_quote = 1; }
+                      else if (char == " " && last_char != " " && last_char != "[" && last_char != ",") 
+		          { char = ", "; need_quote = 1; }
+                      else if (char != " " && last_char == " " && last_char != "\"" && 
+		         (output == "" || substr(output, length(output), 1) == "[" || substr(output, length(output), 1) == ","))
+			  { if (need_quote) char = "\047\047" char;
+                          need_quote = 1;
                       }
                       if (last_char == " " && char != " " && char != "\"" && char != "," && char != "]" && need_quote) {
                           output = output "\047\047";
